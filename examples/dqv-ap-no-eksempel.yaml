@@ -1,0 +1,64 @@
+# Eksempel på DQV-AP-NO med kvalitetsdimensjon, mål, måling og merknad.
+# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+
+datasett:
+  - id: https://example.org/datasett/aapen-adresseregister
+    er_i_samsvar_med:
+      - https://example.org/standardar/iso-19157
+    har_kvalitetsmerknad:
+      - https://example.org/merknader/adresser-kompletheit-1
+    har_kvalitetsmaaling:
+      - https://example.org/maalingar/adresser-dekning-2024
+
+kvalitetsdimensjonar:
+  - id: https://data.norge.no/vocabulary/dqvno#completeness
+    har_anbefalt_term:
+      - Kompletheit
+    har_definisjon:
+      - I kva grad datasettet dekker alle forventa objekt og eigenskapar.
+
+kvalitetsdeldimensjonar:
+  - id: https://data.norge.no/vocabulary/dqvno#rateOfMissingValues
+    har_anbefalt_term:
+      - Andel manglande verdiar
+    har_definisjon:
+      - Andelen manglande verdiar samanlikna med totalt forventa antal verdiar.
+    er_deldimensjon_av: https://data.norge.no/vocabulary/dqvno#completeness
+
+kvalitetsmaal:
+  - id: https://example.org/maal/dekning-prosent
+    er_i_kvalitetsdeldimensjon: https://data.norge.no/vocabulary/dqvno#rateOfMissingValues
+    har_forventet_datatype: xsd:double
+    har_anbefalt_term:
+      - Dekningsprosent
+    har_definisjon:
+      - Prosentandel av forventa objekt som faktisk er registrert i datasettet.
+
+kvalitetsmaalingar:
+  - id: https://example.org/maalingar/adresser-dekning-2024
+    er_kvalitetsmaaling_av: https://example.org/maal/dekning-prosent
+    har_verdi: "98.7"
+
+kvalitetsmerknader:
+  - id: https://example.org/merknader/adresser-kompletheit-1
+    er_motivert_av: https://www.w3.org/ns/oa#assessing
+    er_i_kvalitetsdimensjon: https://data.norge.no/vocabulary/dqvno#completeness
+    har_tekstdel: https://example.org/tekstdelar/adresser-vurdering-1
+    har_merknad:
+      - Datasettet dekkjer om lag 98,7 % av registrerte adresser i Noreg.
+
+tekstdelar:
+  - id: https://example.org/tekstdelar/adresser-vurdering-1
+    har_verdi_tekstdel: "Datasettet har svært høg kompletheit basert på samanlikning mot matrikkelen."
+    sprak:
+      - http://publications.europa.eu/resource/authority/language/NOB
+
+standardar:
+  - id: https://example.org/standardar/iso-19157
+    tittel:
+      - ISO 19157 - Geographic information - Data quality
+    har_referanse:
+      - https://www.iso.org/standard/32575.html
+    har_versjonsnummer: "2013"
+    er_i_kvalitetsdimensjon: https://data.norge.no/vocabulary/dqvno#completeness
+
