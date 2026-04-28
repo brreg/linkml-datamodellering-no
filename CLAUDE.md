@@ -38,7 +38,7 @@ src/linkml/<profil>/schema.yaml   – LinkML-skjema for profilen
 examples/<profil>/                – Eksempeldata (YAML/JSON-LD/Turtle)
 tests/                            – Validering av eksempeldata
 generated/<profil>/               – Genererte artefakter (ikke innsjekket)
-docs/<profil>/                    – Generert HTML-dokumentasjon
+generated/<profil>/docs/           – Generert HTML-dokumentasjon
 ```
 
 ## Modelleringsprinsipper

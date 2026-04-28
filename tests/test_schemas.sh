@@ -19,8 +19,8 @@ for schema in "$SCHEMA_DIR"/*/*-schema.yaml; do
   fi
 done
 
-for example in examples/*/eksempel-*.yaml; do
-  profil=$(echo "$example" | cut -d/ -f2)
+for example in examples/*-eksempel.yaml; do
+  profil=$(basename "$example" .yaml | sed 's/-eksempel$//')
   schema="$SCHEMA_DIR/$profil/$profil-schema.yaml"
   class=$(grep -m1 '^id:' "$example" | sed 's|.*||' || echo "")
   echo -n "Valider $example ... "

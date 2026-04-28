@@ -41,9 +41,9 @@ gen-rdf:
 
 # Konverter eksempeldata (YAML) til RDF/Turtle
 convert-rdf:
-	for example in examples/*/eksempel-*.yaml; do \
-		profil=$$(echo "$$example" | cut -d/ -f2); \
+	for example in examples/*-eksempel.yaml; do \
 		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
 		mkdir -p $(GEN_DIR)/$$profil; \
 		$(PODMAN) linkml-convert \
 			--schema $(SCHEMA_DIR)/$$profil/$$profil-schema.yaml \
@@ -55,7 +55,7 @@ convert-rdf:
 
 # Generer HTML-dokumentasjon
 docs:
-	$(foreach s,$(SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d docs/$(s) $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml;)
+	$(foreach s,$(SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/$(s)/docs $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml;)
 
 clean:
-	rm -rf $(GEN_DIR) docs
+	rm -rf $(GEN_DIR)
