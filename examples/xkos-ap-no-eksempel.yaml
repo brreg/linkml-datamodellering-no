@@ -1,0 +1,69 @@
+# Eksempel på XKOS-AP-NO med ein klassifikasjon, to klassifikasjonsnivå og fire kategoriar.
+# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+
+klassifikasjonar:
+  - id: https://example.org/klassifikasjon/nace2
+    identifikator_literal: "NACE-Rev2"
+    tittel:
+      - NACE Rev. 2
+    beskrivelse:
+      - Nomenklatur for økonomiske aktivitetar (NACE Rev. 2).
+    utgjevar: https://example.org/org/ssb
+    tema:
+      - https://example.org/tema/okonomi
+    antall_nivaa: 2
+    forste_nivaa:
+      - https://example.org/nivaa/nace2-seksjonar
+
+klassifikasjonsnivaar:
+  - id: https://example.org/nivaa/nace2-seksjonar
+    tittel:
+      - Seksjonar
+    nivaa_djupn: 1
+    har_medlem:
+      - https://example.org/kategori/nace2-A
+      - https://example.org/kategori/nace2-B
+
+  - id: https://example.org/nivaa/nace2-avdelingar
+    tittel:
+      - Avdelingar
+    nivaa_djupn: 2
+    har_medlem:
+      - https://example.org/kategori/nace2-01
+      - https://example.org/kategori/nace2-05
+
+kategoriar:
+  - id: https://example.org/kategori/nace2-A
+    anbefalt_term:
+      - Jordbruk, skogbruk og fiske
+    er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
+    tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-seksjonar
+    underordna_kategori:
+      - https://example.org/kategori/nace2-01
+
+  - id: https://example.org/kategori/nace2-B
+    anbefalt_term:
+      - Bergverksdrift og utvinning
+    er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
+    tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-seksjonar
+    underordna_kategori:
+      - https://example.org/kategori/nace2-05
+
+  - id: https://example.org/kategori/nace2-01
+    anbefalt_term:
+      - Dyrking av vekstar, husdyrhald, jakt og tilhøyrande tenester
+    er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
+    tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-avdelingar
+    overordna_kategori:
+      - https://example.org/kategori/nace2-A
+
+  - id: https://example.org/kategori/nace2-05
+    anbefalt_term:
+      - Bryting av steinkol
+    er_i_klassifikasjon: https://example.org/klassifikasjon/nace2
+    tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-avdelingar
+    overordna_kategori:
+      - https://example.org/kategori/nace2-B
+
+organisasjonar:
+  - id: https://example.org/org/ssb
