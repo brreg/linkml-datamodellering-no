@@ -1,0 +1,98 @@
+# Eksempel på NGR-adresse med ei offisiell adresse og ei postboksadresse.
+# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+
+offisielleAdresser:
+  - id: https://example.org/adresse/offisiell/1
+    kommunenummer_ref: https://example.org/kommune/0301
+    adressenavn_ref: https://example.org/adressenavn/13019
+    adressekode_ref: https://example.org/adressekode/13019
+    husnummer_ref: https://example.org/husnummer/1
+    representasjonspunkt_ref: https://example.org/punkt/1
+    geografisk_omrade:
+      - https://example.org/kommune/0301
+      - https://example.org/poststed/0150
+      - https://example.org/grunnkrets/03010101
+    adresserer_bygning: https://example.org/bygning/12345
+
+  - id: https://example.org/adresse/offisiell/2
+    kommunenummer_ref: https://example.org/kommune/0301
+    adressenavn_ref: https://example.org/adressenavn/13019
+    adressekode_ref: https://example.org/adressekode/13019
+    husnummer_ref: https://example.org/husnummer/2
+    bruksenhetsnummer_ref: https://example.org/bruksenhet-nr/1
+    representasjonspunkt_ref: https://example.org/punkt/1
+    geografisk_omrade:
+      - https://example.org/kommune/0301
+      - https://example.org/poststed/0150
+    adressetilleggsnavn: Storgarden
+    adresserer_bruksenhet: https://example.org/bruksenhet/1
+
+postboksadresser:
+  - id: https://example.org/adresse/postboks/1
+    postboks_ref: https://example.org/postboks/1
+    poststed_ref: https://example.org/poststed/0101
+    postboksanleggsnavn: Digdir
+
+adressenavn:
+  - id: https://example.org/adressenavn/13019
+    adressenavn_tekst: Karl Johans gate
+    adresseomrade_ref: https://example.org/adresseomrade/oslo-sentrum
+    har_adressekode: https://example.org/adressekode/13019
+
+adresseomrader:
+  - id: https://example.org/adresseomrade/oslo-sentrum
+    namn: Oslo sentrum
+
+adressekoder:
+  - id: https://example.org/adressekode/13019
+    kode: 13019
+    adresseomrade_ref: https://example.org/adresseomrade/oslo-sentrum
+
+husnummer:
+  - id: https://example.org/husnummer/1
+    nummer: 22
+
+  - id: https://example.org/husnummer/2
+    nummer: 22
+    bokstav: B
+
+bruksenhetsnummer:
+  - id: https://example.org/bruksenhet-nr/1
+    etasjeplan: H
+    etasjenummer: 2
+    nummerering_i_etasjen: 1
+
+representasjonspunkt:
+  - id: https://example.org/punkt/1
+    koordinat_ost: 262893.0
+    koordinat_nord: 6651192.0
+    koordinatsystem: EPSG:25833
+
+kommunar:
+  - id: https://example.org/kommune/0301
+    namn: Oslo
+    kommunenummer_kode: "0301"
+
+poststeder:
+  - id: https://example.org/poststed/0150
+    namn: Oslo
+    postnummer: "0150"
+
+  - id: https://example.org/poststed/0101
+    namn: Oslo
+    postnummer: "0101"
+
+grunnkretsar:
+  - id: https://example.org/grunnkrets/03010101
+    namn: Kvadraturen
+    grunnkretsnummer: "03010101"
+
+postboksar:
+  - id: https://example.org/postboks/1
+    postboksnummer: 1382
+
+bygningar:
+  - id: https://example.org/bygning/12345
+
+bruksenheter:
+  - id: https://example.org/bruksenhet/1

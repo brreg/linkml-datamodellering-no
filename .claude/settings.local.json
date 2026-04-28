@@ -3,7 +3,8 @@
     "allow": [
       "Bash(bash *)",
       "Bash(podman run *)",
-      "Bash(make test *)"
+      "Bash(make test *)",
+      "WebFetch(domain:informasjonsforvaltning.github.io)"
     ]
   }
 }

@@ -1,4 +1,4 @@
-SCHEMAS    := dcat-ap-no dqv-ap-no cpsv-ap-no skos-ap-no xkos-ap-no
+SCHEMAS    := dcat-ap-no dqv-ap-no cpsv-ap-no skos-ap-no xkos-ap-no ngr-adresse
 SCHEMA_DIR := src/linkml
 GEN_DIR    := generated
 IMAGE      := docker.io/linkml/linkml:latest

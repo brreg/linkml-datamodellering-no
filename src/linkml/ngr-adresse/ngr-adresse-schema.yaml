@@ -1,0 +1,683 @@
+id: https://data.norge.no/linkml/ngr-adresse
+name: ngr-adresse
+title: Nasjonale grunndata – Adresse
+description: >-
+  Domenemodell for norske adressar basert på Nasjonale grunndata (utkast).
+  Modellerer Offisiell adresse og Postboksadresse med tilhøyrande geografiske
+  inndelingar og adressekomponentar.
+  Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
+
+prefixes:
+  linkml:  https://w3id.org/linkml/
+  ngr:     https://data.norge.no/vocabulary/ngr-adresse#
+  locn:    http://www.w3.org/ns/locn#
+  geo:     http://www.opengis.net/ont/geosparql#
+  dct:     http://purl.org/dc/terms/
+  xsd:     http://www.w3.org/2001/XMLSchema#
+  rdf:     http://www.w3.org/1999/02/22-rdf-syntax-ns#
+
+default_prefix: https://data.norge.no/linkml/ngr-adresse/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../common/common-ap-no-schema
+
+# ---------------------------------------------------------------------------
+# Enum
+# ---------------------------------------------------------------------------
+
+enums:
+
+  Etasjeplan:
+    description: Kode for kva del av bygningen eit bruksenhetsnummer refererer til.
+    permissible_values:
+      H:
+        description: Høgde (over bakkenivå)
+      U:
+        description: Under bakkenivå
+      K:
+        description: Kjellar
+      L:
+        description: Loft
+      M:
+        description: Mesanin
+
+# ---------------------------------------------------------------------------
+# Containerklasse (tree_root)
+# ---------------------------------------------------------------------------
+
+classes:
+
+  AdresseContainer:
+    tree_root: true
+    description: >-
+      Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare
+      klassar; referansar mellom objekt brukar URI-lenking.
+    attributes:
+      offisielleAdresser:
+        range: OffisiellAdresse
+        multivalued: true
+        inlined_as_list: true
+      postboksadresser:
+        range: Postboksadresse
+        multivalued: true
+        inlined_as_list: true
+      adressenavn:
+        range: Adressenavn
+        multivalued: true
+        inlined_as_list: true
+      adresseomrader:
+        range: Adresseomrade
+        multivalued: true
+        inlined_as_list: true
+      adressekoder:
+        range: Adressekode
+        multivalued: true
+        inlined_as_list: true
+      husnummer:
+        range: Husnummer
+        multivalued: true
+        inlined_as_list: true
+      bruksenhetsnummer:
+        range: Bruksenhetsnummer
+        multivalued: true
+        inlined_as_list: true
+      kommunar:
+        range: Kommune
+        multivalued: true
+        inlined_as_list: true
+      fylke:
+        range: Fylke
+        multivalued: true
+        inlined_as_list: true
+      poststeder:
+        range: Poststed
+        multivalued: true
+        inlined_as_list: true
+      grunnkretsar:
+        range: Grunnkrets
+        multivalued: true
+        inlined_as_list: true
+      tettstadar:
+        range: Tettsted
+        multivalued: true
+        inlined_as_list: true
+      kirkesokn:
+        range: Kirkesokn
+        multivalued: true
+        inlined_as_list: true
+      stemmekretsar:
+        range: Stemmekrets
+        multivalued: true
+        inlined_as_list: true
+      kommunaleKretsar:
+        range: KommunalKrets
+        multivalued: true
+        inlined_as_list: true
+      svalbardOmrader:
+        range: Svalbard
+        multivalued: true
+        inlined_as_list: true
+      postboksar:
+        range: Postboks
+        multivalued: true
+        inlined_as_list: true
+      representasjonspunkt:
+        range: Representasjonspunkt
+        multivalued: true
+        inlined_as_list: true
+      bygningar:
+        range: Bygning
+        multivalued: true
+        inlined_as_list: true
+      bruksenheter:
+        range: Bruksenhet
+        multivalued: true
+        inlined_as_list: true
+
+  # ---------------------------------------------------------------------------
+  # Abstrakt basisklasse
+  # ---------------------------------------------------------------------------
+
+  GeografiskAdresse:
+    abstract: true
+    class_uri: locn:Address
+    description: >-
+      Abstrakt basisklasse for norske adressar. Konkrete subklassar er
+      OffisiellAdresse og Postboksadresse.
+    slots:
+      - id
+
+  # ---------------------------------------------------------------------------
+  # Offisiell adresse
+  # ---------------------------------------------------------------------------
+
+  OffisiellAdresse:
+    is_a: GeografiskAdresse
+    class_uri: ngr:OffisiellAdresse
+    description: >-
+      Ei offisiell adresse tildelt av kommunen, beståande av vegadresse
+      (adressenavn + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen.
+    slots:
+      - kommunenummer_ref
+      - adressenavn_ref
+      - adressekode_ref
+      - husnummer_ref
+      - bruksenhetsnummer_ref
+      - representasjonspunkt_ref
+      - adressetilleggsnavn
+      - matrikkelnummer
+      - adresserer_bygning
+      - adresserer_bruksenhet
+      - adresserer_annet_objekt
+      - geografisk_omrade
+    slot_usage:
+      kommunenummer_ref:
+        required: true
+        in_subset:
+          - Obligatorisk
+      adressenavn_ref:
+        required: true
+        in_subset:
+          - Obligatorisk
+      adressekode_ref:
+        required: true
+        in_subset:
+          - Obligatorisk
+      husnummer_ref:
+        in_subset:
+          - Anbefalt
+      representasjonspunkt_ref:
+        in_subset:
+          - Anbefalt
+      geografisk_omrade:
+        required: true
+        in_subset:
+          - Obligatorisk
+      bruksenhetsnummer_ref:
+        in_subset:
+          - Valgfri
+      adressetilleggsnavn:
+        in_subset:
+          - Valgfri
+      matrikkelnummer:
+        in_subset:
+          - Valgfri
+      adresserer_bygning:
+        in_subset:
+          - Valgfri
+      adresserer_bruksenhet:
+        in_subset:
+          - Valgfri
+      adresserer_annet_objekt:
+        in_subset:
+          - Valgfri
+
+  # ---------------------------------------------------------------------------
+  # Postboksadresse
+  # ---------------------------------------------------------------------------
+
+  Postboksadresse:
+    is_a: GeografiskAdresse
+    class_uri: ngr:Postboksadresse
+    description: >-
+      Ei postboksadresse registrert i Postboksregisteret (Posten Norge).
+    slots:
+      - postboks_ref
+      - poststed_ref
+      - postboksanleggsnavn
+    slot_usage:
+      postboks_ref:
+        required: true
+        in_subset:
+          - Obligatorisk
+      poststed_ref:
+        required: true
+        in_subset:
+          - Obligatorisk
+      postboksanleggsnavn:
+        in_subset:
+          - Valgfri
+
+  # ---------------------------------------------------------------------------
+  # Adressekomponentar
+  # ---------------------------------------------------------------------------
+
+  Adressenavn:
+    class_uri: ngr:Adressenavn
+    description: >-
+      Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune,
+      tildelt av kommunen og godkjent av Kartverket.
+    slots:
+      - id
+      - adressenavn_tekst
+      - adresseomrade_ref
+      - har_adressekode
+    slot_usage:
+      adressenavn_tekst:
+        required: true
+        in_subset:
+          - Obligatorisk
+      adresseomrade_ref:
+        required: true
+        in_subset:
+          - Obligatorisk
+      har_adressekode:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Adresseomrade:
+    class_uri: ngr:Adresseomrade
+    description: >-
+      Geografisk område eit adressenavn høyrer til, t.d. ei gate,
+      eit veg eller eit stadnamn.
+    slots:
+      - id
+      - namn
+
+  Adressekode:
+    class_uri: ngr:Adressekode
+    description: Firesifra kommunal kode som identifiserer eit adressenavn.
+    slots:
+      - id
+      - kode
+      - adresseomrade_ref
+    slot_usage:
+      kode:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Husnummer:
+    class_uri: ngr:Husnummer
+    description: >-
+      Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav
+      (t.d. 12 eller 12B).
+    slots:
+      - id
+      - nummer
+      - bokstav
+    slot_usage:
+      nummer:
+        required: true
+        in_subset:
+          - Obligatorisk
+      bokstav:
+        in_subset:
+          - Valgfri
+
+  Bruksenhetsnummer:
+    class_uri: ngr:Bruksenhetsnummer
+    description: >-
+      Identifikator for ei brukseining (leilegheit o.l.) innanfor ein bygning,
+      t.d. H0201 = 2. etasje, eining 1.
+    slots:
+      - id
+      - etasjeplan
+      - etasjenummer
+      - nummerering_i_etasjen
+    slot_usage:
+      etasjeplan:
+        required: true
+        in_subset:
+          - Obligatorisk
+      etasjenummer:
+        required: true
+        in_subset:
+          - Obligatorisk
+      nummerering_i_etasjen:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Representasjonspunkt:
+    class_uri: ngr:Representasjonspunkt
+    description: >-
+      Eit geografisk punkt (koordinatpar) som representerer posisjonen
+      til adressa.
+    slots:
+      - id
+      - koordinat_ost
+      - koordinat_nord
+      - koordinatsystem
+    slot_usage:
+      koordinat_ost:
+        required: true
+        in_subset:
+          - Obligatorisk
+      koordinat_nord:
+        required: true
+        in_subset:
+          - Obligatorisk
+      koordinatsystem:
+        in_subset:
+          - Anbefalt
+
+  # ---------------------------------------------------------------------------
+  # Geografiske inndelingar
+  # ---------------------------------------------------------------------------
+
+  GeografiskOmrade:
+    abstract: true
+    class_uri: ngr:GeografiskOmrade
+    description: Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer til.
+    slots:
+      - id
+      - namn
+
+  Fylke:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Fylke
+    description: Eit norsk fylke.
+    slots:
+      - fylkesnummer
+    slot_usage:
+      fylkesnummer:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Kommune:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Kommune
+    description: Ein norsk kommune.
+    slots:
+      - kommunenummer_kode
+    slot_usage:
+      kommunenummer_kode:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Poststed:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Poststed
+    description: Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.
+    slots:
+      - postnummer
+    slot_usage:
+      postnummer:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Grunnkrets:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Grunnkrets
+    description: Ei grunnkrets – minste geografiske eining i statistisk inndeling.
+    slots:
+      - grunnkretsnummer
+
+  Tettsted:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Tettsted
+    description: Eit tettbygd område definert av SSB.
+    slots:
+      - tettstedsnummer
+
+  Kirkesokn:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Kirkesokn
+    description: Eit kyrkjesokn.
+    slots:
+      - kirkesoknnummer
+
+  Stemmekrets:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Stemmekrets
+    description: Ei stemmekrets brukt ved val.
+    slots:
+      - stemmekretsnummer
+
+  KommunalKrets:
+    is_a: GeografiskOmrade
+    class_uri: ngr:KommunalKrets
+    description: Ein kommunal krets (administrativ inndeling definert av kommunen).
+    slots:
+      - kretsnummer
+
+  Svalbard:
+    is_a: GeografiskOmrade
+    class_uri: ngr:Svalbard
+    description: Svalbard som særskild geografisk område.
+
+  # ---------------------------------------------------------------------------
+  # Postboksklassar
+  # ---------------------------------------------------------------------------
+
+  Postboks:
+    class_uri: ngr:Postboks
+    description: Ei postboks registrert i Postboksregisteret.
+    slots:
+      - id
+      - postboksnummer
+    slot_usage:
+      postboksnummer:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  # ---------------------------------------------------------------------------
+  # Referanseklassar (forvaltast av eksterne kjelder)
+  # ---------------------------------------------------------------------------
+
+  Bygning:
+    class_uri: ngr:Bygning
+    description: >-
+      Referanse til ein bygning i Matrikkelen. Offisiell adresse kan
+      adressere ytre inngang(ar) til bygningen.
+    slots:
+      - id
+
+  Bruksenhet:
+    class_uri: ngr:Bruksenhet
+    description: >-
+      Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen.
+    slots:
+      - id
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # ---- Referanse-slots (lenking mellom objekt) ----------------------------
+
+  kommunenummer_ref:
+    slot_uri: ngr:harKommunenummer
+    range: Kommune
+    description: Kommunen denne adressa ligg i.
+
+  adressenavn_ref:
+    slot_uri: ngr:harAdressenavn
+    range: Adressenavn
+    description: Adressenavn (vegnamn o.l.) for adressa.
+
+  adressekode_ref:
+    slot_uri: ngr:harAdressekode
+    range: Adressekode
+    description: Kommunal adressekode for adressa.
+
+  husnummer_ref:
+    slot_uri: ngr:harHusnummer
+    range: Husnummer
+    description: Husnummer (nummer + bokstav) for adressa.
+
+  bruksenhetsnummer_ref:
+    slot_uri: ngr:harBruksenhetsnummer
+    range: Bruksenhetsnummer
+    description: Bruksenhetsnummer for leilegheit eller lokale.
+
+  representasjonspunkt_ref:
+    slot_uri: ngr:harRepresentasjonspunkt
+    range: Representasjonspunkt
+    description: Geografisk punkt som representerer adressas posisjon.
+
+  adresseomrade_ref:
+    slot_uri: ngr:harAdresseomrade
+    range: Adresseomrade
+    description: Adresseområdet dette adressenamnet eller adressekoden høyrer til.
+
+  har_adressekode:
+    slot_uri: ngr:harAdressekode
+    range: Adressekode
+    description: Adressekode tilknytt dette adressenamnet.
+
+  geografisk_omrade:
+    slot_uri: ngr:referererTilGeografiskOmrade
+    range: GeografiskOmrade
+    multivalued: true
+    description: Geografiske inndelingar (kommune, poststed, grunnkrets osv.) adressa ligg i.
+
+  adresserer_bygning:
+    slot_uri: ngr:adressererBygning
+    range: Bygning
+    description: "Bygning denne adressa er tildelt (forvaltar: Matrikkelen)."
+
+  adresserer_bruksenhet:
+    slot_uri: ngr:adressererBruksenhet
+    range: Bruksenhet
+    description: "Brukseining denne adressa er tildelt (forvaltar: Matrikkelen)."
+
+  adresserer_annet_objekt:
+    slot_uri: ngr:adressererAnnetObjekt
+    range: uriorcurie
+    description: Anna objekt (t.d. badeplass, monument) denne adressa er tildelt.
+
+  postboks_ref:
+    slot_uri: ngr:harPostboks
+    range: Postboks
+    description: Postboksen denne postboksadressa tilhøyrer.
+
+  poststed_ref:
+    slot_uri: ngr:referererTilPoststed
+    range: Poststed
+    description: Poststedet (postnummer) denne adressa høyrer til.
+
+  # ---- Tekstlege verdiar --------------------------------------------------
+
+  adressenavn_tekst:
+    slot_uri: locn:thoroughfare
+    range: string
+    description: "Tekstleg namn på vegen eller stadnamnet (locn:thoroughfare)."
+
+  adressetilleggsnavn:
+    slot_uri: ngr:adressetilleggsnavn
+    range: string
+    description: Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn).
+
+  matrikkelnummer:
+    slot_uri: ngr:matrikkelnummer
+    range: string
+    description: Matrikkelnummer for adresser utan vegadresse (t.d. 28/2-2).
+
+  namn:
+    slot_uri: ngr:namn
+    range: string
+    description: Namn på det geografiske området eller adressekomponenten.
+
+  kode:
+    slot_uri: ngr:kode
+    range: integer
+    description: Numerisk kode for adressekoden (kommunal firesifra kode).
+
+  postboksanleggsnavn:
+    slot_uri: ngr:postboksanleggsnavn
+    range: string
+    description: Namn på postboksanlegget (t.d. bedriftsnamn, institusjon).
+
+  # ---- Kodar --------------------------------------------------------------
+
+  kommunenummer_kode:
+    slot_uri: ngr:kommunenummer
+    range: string
+    description: Firesifra kommunenummer (t.d. 0301 for Oslo).
+
+  fylkesnummer:
+    slot_uri: ngr:fylkesnummer
+    range: string
+    description: Tosifra fylkesnummer (t.d. 03 for Oslo).
+
+  postnummer:
+    slot_uri: locn:postCode
+    range: string
+    description: "Firesifra postnummer (locn:postCode)."
+
+  postboksnummer:
+    slot_uri: ngr:postboksnummer
+    range: integer
+    description: Postboksnummer (heiltal).
+
+  grunnkretsnummer:
+    slot_uri: ngr:grunnkretsnummer
+    range: string
+    description: Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer).
+
+  tettstedsnummer:
+    slot_uri: ngr:tettstedsnummer
+    range: string
+    description: SSB-tettstedsnummer.
+
+  kirkesoknnummer:
+    slot_uri: ngr:kirkesoknnummer
+    range: string
+    description: Kysokn-nummer frå Kyrkja.
+
+  stemmekretsnummer:
+    slot_uri: ngr:stemmekretsnummer
+    range: string
+    description: Stemmekretsnummer.
+
+  kretsnummer:
+    slot_uri: ngr:kretsnummer
+    range: string
+    description: Kommunalt kretsnummer.
+
+  # ---- Husnummer-komponentar ---------------------------------------------
+
+  nummer:
+    slot_uri: ngr:nummer
+    range: integer
+    description: Husnummeret (heltalsverdi).
+
+  bokstav:
+    slot_uri: ngr:bokstav
+    range: string
+    description: Husbokstav (A–Å) som skil einingar med same husnummer.
+
+  # ---- Bruksenhetsnummer-komponentar -------------------------------------
+
+  etasjeplan:
+    slot_uri: ngr:etasjeplan
+    range: Etasjeplan
+    description: Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M).
+
+  etasjenummer:
+    slot_uri: ngr:etasjenummer
+    range: integer
+    description: Etasjenummer (t.d. 2 for 2. etasje).
+
+  nummerering_i_etasjen:
+    slot_uri: ngr:nummereringIEtasjen
+    range: integer
+    description: Løpenummer for brukseininga innanfor etasjen.
+
+  # ---- Koordinatar -------------------------------------------------------
+
+  koordinat_ost:
+    slot_uri: ngr:koordinatOst
+    range: float
+    description: Austleg koordinat (X) i det angitte koordinatsystemet.
+
+  koordinat_nord:
+    slot_uri: ngr:koordinatNord
+    range: float
+    description: Nordleg koordinat (Y) i det angitte koordinatsystemet.
+
+  koordinatsystem:
+    slot_uri: ngr:koordinatsystem
+    range: string
+    description: "Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N)."

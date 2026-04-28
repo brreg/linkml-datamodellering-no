@@ -8,7 +8,7 @@ FIXTURE_DIR="tests/fixtures"
 PASS=0
 FAIL=0
 
-# Lint AP-NO-profilskjema (utan Container – reine profildefinisjonar)
+# Lint alle skjema (AP-NO-profiler og domenemodeller)
 for schema in "$SCHEMA_DIR"/*/*-schema.yaml; do
   echo -n "Lint $schema ... "
   if eval "$PODMAN linkml lint --ignore-warnings $schema" > /dev/null 2>&1; then
@@ -21,17 +21,27 @@ for schema in "$SCHEMA_DIR"/*/*-schema.yaml; do
   fi
 done
 
-# Valider eksempeldata mot fixture-skjema (fixture legg til Container/tree_root)
+# Valider eksempeldata.
+# AP-NO-profiler (utan tree_root) brukar fixture-skjema.
+# Domenemodeller (med tree_root) brukar skjemaet direkte.
 for example in examples/*-eksempel.yaml; do
   profil=$(basename "$example" .yaml | sed 's/-eksempel$//')
   fixture="$FIXTURE_DIR/$profil-fixture.yaml"
+  schema="$SCHEMA_DIR/$profil/$profil-schema.yaml"
+
+  if [ -f "$fixture" ]; then
+    valider_schema="$fixture"
+  else
+    valider_schema="$schema"
+  fi
+
   echo -n "Valider $example ... "
-  if eval "$PODMAN linkml validate --schema $fixture $example" > /dev/null 2>&1; then
+  if eval "$PODMAN linkml validate --schema $valider_schema $example" > /dev/null 2>&1; then
     echo "OK"
     PASS=$((PASS + 1))
   else
     echo "FEIL"
-    eval "$PODMAN linkml validate --schema $fixture $example" || true
+    eval "$PODMAN linkml validate --schema $valider_schema $example" || true
     FAIL=$((FAIL + 1))
   fi
 done
