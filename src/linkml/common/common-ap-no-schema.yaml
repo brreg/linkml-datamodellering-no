@@ -194,3 +194,15 @@ slots:
     range: uri
     multivalued: true
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
+
+  anbefalt_term:
+    slot_uri: skos:prefLabel
+    range: LangString
+    multivalued: true
+    description: Føretrukke term/namn for ressursen (skos:prefLabel).
+
+  versjonsmerknad:
+    slot_uri: adms:versionNotes
+    range: LangString
+    multivalued: true
+    description: Merknad om endringar i denne versjonen (adms:versionNotes).

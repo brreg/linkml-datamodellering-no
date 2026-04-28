@@ -678,12 +678,6 @@ slots:
     range: string
     description: Versjonsnummer.
 
-  versjonsmerknad:
-    slot_uri: adms:versionNotes
-    range: LangString
-    multivalued: true
-    description: Merknad om endringar i denne versjonen.
-
   navn_aktor:
     slot_uri: foaf:name
     range: LangString

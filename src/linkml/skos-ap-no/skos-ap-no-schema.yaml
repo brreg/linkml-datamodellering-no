@@ -364,12 +364,6 @@ classes:
 
 slots:
 
-  anbefalt_term:
-    slot_uri: skos:prefLabel
-    range: LangString
-    multivalued: true
-    description: Anbefalt term for omgrepet (skos:prefLabel).
-
   definisjon:
     slot_uri: skos:definition
     range: LangString
@@ -543,12 +537,6 @@ slots:
     range: LangString
     multivalued: true
     description: Verdiområde for omgrepet (skosno:valueRange).
-
-  versjonsmerknad:
-    slot_uri: adms:versionNotes
-    range: LangString
-    multivalued: true
-    description: Merknad om endringar i denne versjonen (adms:versionNotes).
 
   tekst:
     slot_uri: rdf:value

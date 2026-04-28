@@ -343,12 +343,6 @@ slots:
     multivalued: true
     description: Underordna klassifikasjonsnivå (xkos:nextLevel).
 
-  anbefalt_term:
-    slot_uri: skos:prefLabel
-    range: LangString
-    multivalued: true
-    description: Føretrukke term for kategorien (skos:prefLabel).
-
   er_i_klassifikasjon:
     slot_uri: skos:inScheme
     range: Klassifikasjon
