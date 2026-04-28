@@ -1051,7 +1051,7 @@ slots:
 
   er_klassifisert_av:
     slot_uri: cv:isClassifiedBy
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Omgrep tenesta er klassifisert med.
 
@@ -1081,25 +1081,25 @@ slots:
 
   malgruppe:
     slot_uri: dct:audience
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Målgruppe for tenesta.
 
   sektor:
     slot_uri: cv:sector
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Industri/sektor tenesta tilhøyrer.
 
   tema:
     slot_uri: dct:subject
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Emne/tema tenesta handlar om.
 
   temaomrade:
     slot_uri: cv:thematicArea
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Tematisk område for tenesta.
 
@@ -1146,7 +1146,7 @@ slots:
 
   har_rolle:
     slot_uri: cv:role
-    range: Begrep
+    range: Konsept
     description: Rolla aktøren har i ei deltaking.
 
   deltakar:
@@ -1203,7 +1203,7 @@ slots:
 
   klassifisering:
     slot_uri: cv:evidenceTypeClassification
-    range: Begrep
+    range: Konsept
     description: Klassifisering av dokumentasjonstypen.
 
   er_spesifisert_i:
@@ -1213,7 +1213,7 @@ slots:
 
   utstedingsstad:
     slot_uri: cccevno:acceptableIssuingPlace
-    range: Begrep
+    range: Konsept
     description: Stad dokumentasjonen er akseptert frå.
 
   mogleg_sprak:
@@ -1274,7 +1274,7 @@ slots:
 
   oppdateringsfrekvens:
     slot_uri: dct:accrualPeriodicity
-    range: Begrep
+    range: Konsept
     description: Kor ofte katalogen vert oppdatert.
 
   lisens:

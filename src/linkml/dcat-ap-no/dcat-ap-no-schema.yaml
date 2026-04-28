@@ -860,7 +860,7 @@ slots:
 
   tema:
     slot_uri: dcat:theme
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Tema frå eit kontrollert vokabular.
 
@@ -872,7 +872,7 @@ slots:
 
   begrep:
     slot_uri: dct:subject
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Fagomgrep som datasettet handlar om.
 
@@ -898,17 +898,17 @@ slots:
 
   tilgjengelighet:
     slot_uri: dcatap:availability
-    range: Begrep
+    range: Konsept
     description: Planlagt tilgjengelegheit for ressursen.
 
   har_rolle:
     slot_uri: dcat:hadRole
-    range: Begrep
+    range: Konsept
     description: Rolle ein aktør eller ressurs har i ein relasjon.
 
   lisens:
     slot_uri: dct:license
-    range: Begrep
+    range: Konsept
     description: Lisens for bruk av ressursen.
 
   gjeldende_lovgivning:

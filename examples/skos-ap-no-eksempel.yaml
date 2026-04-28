@@ -1,0 +1,56 @@
+# Eksempel på SKOS-AP-NO med omgrep, definisjon, generisk relasjon og samling.
+# Modelleringsstil: lenking framfor inlining – referansar mellom objekt er URI-ar.
+
+begrep:
+  - id: https://example.org/omgrep/datasett
+    anbefalt_term:
+      - datasett
+    definisjon:
+      - ei samling av data, tilgjengeleg eller forvalta som ei eining
+    identifikator_literal: "https://example.org/omgrep/datasett"
+    kontaktpunkt_vcard:
+      - https://example.org/kontakt/digdir
+    utgjevar: https://example.org/org/digdir
+    ansvarleg_verksemd: https://example.org/org/digdir
+    har_generisk_relasjon:
+      - https://example.org/relasjonar/datasett-dataressurs
+    merknad:
+      - Eit datasett kan ha éin eller fleire distribusjonar.
+    tillate_term:
+      - data
+
+  - id: https://example.org/omgrep/dataressurs
+    anbefalt_term:
+      - dataressurs
+    definisjon:
+      - ei eining med data
+    identifikator_literal: "https://example.org/omgrep/dataressurs"
+    kontaktpunkt_vcard:
+      - https://example.org/kontakt/digdir
+    utgjevar: https://example.org/org/digdir
+
+generiskeRelasjonar:
+  - id: https://example.org/relasjonar/datasett-dataressurs
+    har_generisk_omgrep:
+      - https://example.org/omgrep/dataressurs
+    har_spesifikt_omgrep:
+      - https://example.org/omgrep/datasett
+    inndelingskriterium:
+      - grad av strukturering og tilgjengeleggjering
+
+samlingar:
+  - id: https://example.org/samlingar/dcat-omgrep
+    identifikator_literal: "dcat-omgrep-2024"
+    tittel:
+      - DCAT-omgrep
+    beskrivelse:
+      - Omgrep frå DCAT-AP-NO-vokabularet.
+    kontaktpunkt_vcard:
+      - https://example.org/kontakt/digdir
+    utgjevar: https://example.org/org/digdir
+    medlem:
+      - https://example.org/omgrep/datasett
+      - https://example.org/omgrep/dataressurs
+
+organisasjonar:
+  - id: https://example.org/org/digdir

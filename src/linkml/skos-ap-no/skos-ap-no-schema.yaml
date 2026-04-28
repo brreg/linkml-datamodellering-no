@@ -1,0 +1,619 @@
+id: https://data.norge.no/linkml/skos-ap-no
+name: skos-ap-no
+title: SKOS-AP-NO
+description: >-
+  Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML
+  med lenking framfor inlining.
+  Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
+
+version: "2.0"
+
+prefixes:
+  linkml:   https://w3id.org/linkml/
+  skos:     http://www.w3.org/2004/02/skos/core#
+  skosno:   https://data.norge.no/vocabulary/skosno#
+  dct:      http://purl.org/dc/terms/
+  dcat:     http://www.w3.org/ns/dcat#
+  euvoc:    http://publications.europa.eu/ontology/euvoc#
+  xkos:     http://rdf-vocabulary.ddialliance.org/xkos#
+  uneskos:  http://purl.org/umu/uneskos#
+  vcard:    http://www.w3.org/2006/vcard/ns#
+  org:      http://www.w3.org/ns/org#
+  adms:     http://www.w3.org/ns/adms#
+  rdf:      http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs:     http://www.w3.org/2000/01/rdf-schema#
+  xsd:      http://www.w3.org/2001/XMLSchema#
+
+default_prefix: https://data.norge.no/linkml/skos-ap-no/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../common/common-ap-no-schema
+
+# ---------------------------------------------------------------------------
+# Rotklasse (tree_root)
+# ---------------------------------------------------------------------------
+
+classes:
+
+  Container:
+    tree_root: true
+    description: >-
+      Rotklasse for SKOS-AP-NO-datafiler. Held flate lister av alle instansierbare
+      klassar; referansar mellom objekta brukar URI-lenking.
+    attributes:
+      begrep:
+        range: Begrep
+        multivalued: true
+        inlined_as_list: true
+      definisjonar:
+        range: Definisjon
+        multivalued: true
+        inlined_as_list: true
+      assosiativeRelasjonar:
+        range: AssosiativRelasjon
+        multivalued: true
+        inlined_as_list: true
+      generiskeRelasjonar:
+        range: GeneriskRelasjon
+        multivalued: true
+        inlined_as_list: true
+      partitiveRelasjonar:
+        range: PartitivRelasjon
+        multivalued: true
+        inlined_as_list: true
+      samlingar:
+        range: Samling
+        multivalued: true
+        inlined_as_list: true
+      organisasjonar:
+        range: Organisasjon
+        multivalued: true
+        inlined_as_list: true
+
+# ---------------------------------------------------------------------------
+# Klasser
+# ---------------------------------------------------------------------------
+
+  # ---- Hjelpeklassar -------------------------------------------------------
+
+  Organisasjon:
+    class_uri: org:Organization
+    description: Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep.
+    slots:
+      - id
+
+  VCardKontakt:
+    class_uri: vcard:Kind
+    description: Kontaktinformasjon (vCard) for omgrepseigaren.
+    slots:
+      - id
+
+  # ---- Hovudklassar --------------------------------------------------------
+
+  Begrep:
+    class_uri: skos:Concept
+    description: Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept).
+    slots:
+      - id
+      - anbefalt_term
+      - definisjon
+      - har_definisjon
+      - identifikator_literal
+      - kontaktpunkt_vcard
+      - utgjevar
+      - ansvarleg_verksemd
+      - gyldig_frå
+      - gyldig_til
+      - opprettingsdato
+      - endringsdato
+      - fagomrade
+      - merknad
+      - tillate_term
+      - datastruktur_term
+      - eksempel
+      - er_del_av_omgrep
+      - er_erstatta_av
+      - er_frå_omgrep_i
+      - assosiert_med
+      - erstattar
+      - forkasta_term
+      - generaliserer
+      - nøyaktig_samsvar
+      - har_generisk_relasjon
+      - nært_samsvar
+      - har_partitiv_relasjon
+      - har_del_omgrep
+      - er_medlem_av
+      - sjå_også_omgrep
+      - spesifiserer
+      - euvoc_status
+      - verdiomrade
+      - har_versjonsnummer
+      - versjonsmerknad
+    slot_usage:
+      anbefalt_term:
+        required: true
+        in_subset:
+          - Obligatorisk
+      identifikator_literal:
+        required: true
+        in_subset:
+          - Obligatorisk
+      kontaktpunkt_vcard:
+        required: true
+        in_subset:
+          - Obligatorisk
+      utgjevar:
+        required: true
+        in_subset:
+          - Obligatorisk
+      definisjon:
+        in_subset:
+          - Obligatorisk
+      har_definisjon:
+        in_subset:
+          - Obligatorisk
+      ansvarleg_verksemd:
+        in_subset:
+          - Anbefalt
+      gyldig_frå:
+        in_subset:
+          - Anbefalt
+      gyldig_til:
+        in_subset:
+          - Anbefalt
+      opprettingsdato:
+        in_subset:
+          - Anbefalt
+      endringsdato:
+        in_subset:
+          - Anbefalt
+      fagomrade:
+        in_subset:
+          - Anbefalt
+      merknad:
+        in_subset:
+          - Anbefalt
+      tillate_term:
+        in_subset:
+          - Anbefalt
+      datastruktur_term:
+        in_subset:
+          - Valgfri
+      eksempel:
+        in_subset:
+          - Valgfri
+      er_del_av_omgrep:
+        in_subset:
+          - Valgfri
+      er_erstatta_av:
+        in_subset:
+          - Valgfri
+      er_frå_omgrep_i:
+        in_subset:
+          - Valgfri
+      assosiert_med:
+        in_subset:
+          - Valgfri
+      erstattar:
+        in_subset:
+          - Valgfri
+      forkasta_term:
+        in_subset:
+          - Valgfri
+      generaliserer:
+        in_subset:
+          - Valgfri
+      nøyaktig_samsvar:
+        in_subset:
+          - Valgfri
+      har_generisk_relasjon:
+        in_subset:
+          - Valgfri
+      nært_samsvar:
+        in_subset:
+          - Valgfri
+      har_partitiv_relasjon:
+        in_subset:
+          - Valgfri
+      har_del_omgrep:
+        in_subset:
+          - Valgfri
+      er_medlem_av:
+        in_subset:
+          - Valgfri
+      sjå_også_omgrep:
+        in_subset:
+          - Valgfri
+      spesifiserer:
+        in_subset:
+          - Valgfri
+      euvoc_status:
+        in_subset:
+          - Valgfri
+      verdiomrade:
+        in_subset:
+          - Valgfri
+      har_versjonsnummer:
+        in_subset:
+          - Valgfri
+      versjonsmerknad:
+        in_subset:
+          - Valgfri
+
+  Definisjon:
+    class_uri: euvoc:XlNote
+    description: Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote).
+    slots:
+      - id
+      - tekst
+      - kjelde_relasjon
+      - kjelde
+      - malgruppe_def
+    slot_usage:
+      tekst:
+        required: true
+        in_subset:
+          - Obligatorisk
+      kjelde_relasjon:
+        in_subset:
+          - Anbefalt
+      kjelde:
+        in_subset:
+          - Anbefalt
+      malgruppe_def:
+        in_subset:
+          - Valgfri
+
+  AssosiativRelasjon:
+    class_uri: skosno:AssociativeConceptRelation
+    description: Ein assosiativ relasjon mellom to omgrep.
+    slots:
+      - id
+      - til_omgrep
+      - relasjontype
+    slot_usage:
+      til_omgrep:
+        required: true
+        in_subset:
+          - Obligatorisk
+      relasjontype:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  GeneriskRelasjon:
+    class_uri: skosno:GenericConceptRelation
+    description: Ein generisk relasjon mellom eit overomgrep og eit underomgrep.
+    slots:
+      - id
+      - har_generisk_omgrep
+      - har_spesifikt_omgrep
+      - inndelingskriterium
+    slot_usage:
+      har_generisk_omgrep:
+        in_subset:
+          - Obligatorisk
+      har_spesifikt_omgrep:
+        in_subset:
+          - Obligatorisk
+      inndelingskriterium:
+        in_subset:
+          - Anbefalt
+
+  PartitivRelasjon:
+    class_uri: skosno:PartitiveConceptRelation
+    description: Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.
+    slots:
+      - id
+      - har_partitivt_omgrep
+      - har_heilskapleg_omgrep
+      - inndelingskriterium
+    slot_usage:
+      har_partitivt_omgrep:
+        in_subset:
+          - Obligatorisk
+      har_heilskapleg_omgrep:
+        in_subset:
+          - Obligatorisk
+      inndelingskriterium:
+        in_subset:
+          - Anbefalt
+
+  Samling:
+    class_uri: skos:Collection
+    description: Ei namngitt samling av omgrep (skos:Collection).
+    slots:
+      - id
+      - identifikator_literal
+      - medlem
+      - kontaktpunkt_vcard
+      - tittel
+      - utgjevar
+      - beskrivelse
+    slot_usage:
+      identifikator_literal:
+        required: true
+        in_subset:
+          - Obligatorisk
+      medlem:
+        required: true
+        in_subset:
+          - Obligatorisk
+      kontaktpunkt_vcard:
+        required: true
+        in_subset:
+          - Obligatorisk
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+      utgjevar:
+        required: true
+        in_subset:
+          - Obligatorisk
+      beskrivelse:
+        in_subset:
+          - Anbefalt
+
+# ---------------------------------------------------------------------------
+# Slots (SKOS-AP-NO-spesifikke)
+# ---------------------------------------------------------------------------
+
+slots:
+
+  anbefalt_term:
+    slot_uri: skos:prefLabel
+    range: LangString
+    multivalued: true
+    description: Anbefalt term for omgrepet (skos:prefLabel).
+
+  definisjon:
+    slot_uri: skos:definition
+    range: LangString
+    multivalued: true
+    description: Direkte definisjon som fritekst (skos:definition).
+
+  har_definisjon:
+    slot_uri: euvoc:xlDefinition
+    range: Definisjon
+    multivalued: true
+    description: Definisjon via eige objekt (euvoc:xlDefinition).
+
+  kontaktpunkt_vcard:
+    slot_uri: dcat:contactPoint
+    range: VCardKontakt
+    multivalued: true
+    description: Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint).
+
+  utgjevar:
+    slot_uri: dct:publisher
+    range: Organisasjon
+    description: Organisasjon ansvarleg for å publisere omgrepet (dct:publisher).
+
+  ansvarleg_verksemd:
+    slot_uri: dct:creator
+    range: Organisasjon
+    description: Fagleg ansvarleg organisasjon for omgrepet (dct:creator).
+
+  gyldig_frå:
+    slot_uri: euvoc:startDate
+    range: date
+    description: Dato omgrepet er gyldig frå (euvoc:startDate).
+
+  gyldig_til:
+    slot_uri: euvoc:endDate
+    range: date
+    description: Dato omgrepet er gyldig til (euvoc:endDate).
+
+  opprettingsdato:
+    slot_uri: dct:created
+    range: date
+    description: Dato omgrepet vart oppretta (dct:created).
+
+  fagomrade:
+    slot_uri: dct:subject
+    range: Begrep
+    multivalued: true
+    description: Fagområde omgrepet høyrer til (dct:subject).
+
+  merknad:
+    slot_uri: skos:scopeNote
+    range: LangString
+    multivalued: true
+    description: Merknad om bruksomfanget for omgrepet (skos:scopeNote).
+
+  tillate_term:
+    slot_uri: skos:altLabel
+    range: LangString
+    multivalued: true
+    description: Tillaten alternativ term for omgrepet (skos:altLabel).
+
+  datastruktur_term:
+    slot_uri: skosno:dataStructureLabel
+    range: string
+    multivalued: true
+    description: Term brukt i datastrukturar (skosno:dataStructureLabel).
+
+  eksempel:
+    slot_uri: skos:example
+    range: LangString
+    multivalued: true
+    description: Eksempel på bruk av omgrepet (skos:example).
+
+  er_del_av_omgrep:
+    slot_uri: xkos:isPartOf
+    range: Begrep
+    multivalued: true
+    description: Omgrep dette omgrepet er ein del av (xkos:isPartOf).
+
+  er_erstatta_av:
+    slot_uri: dct:isReplacedBy
+    range: Begrep
+    multivalued: true
+    description: Omgrep som erstattar dette omgrepet (dct:isReplacedBy).
+
+  er_frå_omgrep_i:
+    slot_uri: skosno:isFromConceptIn
+    range: AssosiativRelasjon
+    multivalued: true
+    description: Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptIn).
+
+  assosiert_med:
+    slot_uri: skos:related
+    range: Begrep
+    multivalued: true
+    description: Omgrep dette omgrepet er assosiert med (skos:related).
+
+  erstattar:
+    slot_uri: dct:replaces
+    range: Begrep
+    multivalued: true
+    description: Omgrep dette omgrepet erstattar (dct:replaces).
+
+  forkasta_term:
+    slot_uri: skos:hiddenLabel
+    range: LangString
+    multivalued: true
+    description: Tidlegare brukt, no forkasta term (skos:hiddenLabel).
+
+  generaliserer:
+    slot_uri: xkos:generalizes
+    range: Begrep
+    multivalued: true
+    description: Omgrep dette omgrepet generaliserer (xkos:generalizes).
+
+  nøyaktig_samsvar:
+    slot_uri: skos:exactMatch
+    range: Begrep
+    multivalued: true
+    description: Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch).
+
+  har_generisk_relasjon:
+    slot_uri: skosno:hasGenericConceptRelation
+    range: GeneriskRelasjon
+    multivalued: true
+    description: Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation).
+
+  nært_samsvar:
+    slot_uri: skos:closeMatch
+    range: Begrep
+    multivalued: true
+    description: Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch).
+
+  har_partitiv_relasjon:
+    slot_uri: skosno:hasPartitiveConceptRelation
+    range: PartitivRelasjon
+    multivalued: true
+    description: Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation).
+
+  har_del_omgrep:
+    slot_uri: xkos:hasPart
+    range: Begrep
+    multivalued: true
+    description: Omgrep som er ein del av dette omgrepet (xkos:hasPart).
+
+  er_medlem_av:
+    slot_uri: uneskos:memberOf
+    range: Samling
+    multivalued: true
+    description: Samling dette omgrepet er medlem av (uneskos:memberOf).
+
+  sjå_også_omgrep:
+    slot_uri: rdfs:seeAlso
+    range: Begrep
+    multivalued: true
+    description: Relatert omgrep (rdfs:seeAlso).
+
+  spesifiserer:
+    slot_uri: xkos:specializes
+    range: Begrep
+    multivalued: true
+    description: Omgrep dette omgrepet spesifiserer (xkos:specializes).
+
+  euvoc_status:
+    slot_uri: euvoc:status
+    range: Begrep
+    description: Status for omgrepet frå eit kontrollert vokabular (euvoc:status).
+
+  verdiomrade:
+    slot_uri: skosno:valueRange
+    range: LangString
+    multivalued: true
+    description: Verdiområde for omgrepet (skosno:valueRange).
+
+  versjonsmerknad:
+    slot_uri: adms:versionNotes
+    range: LangString
+    multivalued: true
+    description: Merknad om endringar i denne versjonen (adms:versionNotes).
+
+  tekst:
+    slot_uri: rdf:value
+    range: LangString
+    description: Definissjonstekst (rdf:value).
+
+  kjelde_relasjon:
+    slot_uri: skosno:relationshipWithSource
+    range: Begrep
+    description: Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:relationshipWithSource).
+
+  kjelde:
+    slot_uri: dct:source
+    range: uri
+    multivalued: true
+    description: Kjelde til definisjonen (dct:source).
+
+  malgruppe_def:
+    slot_uri: dct:audience
+    range: Begrep
+    description: Målgruppe definisjonen er retta mot (dct:audience).
+
+  til_omgrep:
+    slot_uri: skosno:hasToConcept
+    range: Begrep
+    multivalued: true
+    description: Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept).
+
+  relasjontype:
+    slot_uri: skosno:relationRole
+    range: LangString
+    description: Rolle eller type av den assosiative relasjonen (skosno:relationRole).
+
+  har_generisk_omgrep:
+    slot_uri: skosno:hasGenericConcept
+    range: Begrep
+    multivalued: true
+    description: Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept).
+
+  har_spesifikt_omgrep:
+    slot_uri: skosno:hasSpecificConcept
+    range: Begrep
+    multivalued: true
+    description: Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept).
+
+  inndelingskriterium:
+    slot_uri: dct:description
+    range: LangString
+    multivalued: true
+    description: Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).
+
+  har_partitivt_omgrep:
+    slot_uri: skosno:hasPartitiveConcept
+    range: Begrep
+    multivalued: true
+    description: Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept).
+
+  har_heilskapleg_omgrep:
+    slot_uri: skosno:hasComprehensiveConcept
+    range: Begrep
+    multivalued: true
+    description: Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept).
+
+  medlem:
+    slot_uri: skos:member
+    range: Begrep
+    multivalued: true
+    description: Omgrep som er medlem av samlinga (skos:member).

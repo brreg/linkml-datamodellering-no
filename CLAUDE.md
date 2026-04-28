@@ -14,6 +14,8 @@ Profiler som skal modelleres:
 - **ModelldCAT-AP-NO** – Informasjonsmodeller
 - **XKOS-AP-NO** – Utvidet klassifikasjon
 
+Attributter som går igjen i fleire profiler samles i common-ap-no-schema.yaml
+
 ## Kommandoer
 
 LinkML kjøres via Podman med imaget `docker.io/linkml/linkml:latest`. Ingen lokal installasjon nødvendig.

@@ -84,9 +84,9 @@ classes:
     slots:
       - id
 
-  Begrep:
+  Konsept:
     class_uri: skos:Concept
-    description: Eit SKOS-omgrep frå eit kontrollert vokabular.
+    description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
     slots:
       - id
 
@@ -126,7 +126,7 @@ slots:
 
   type_concept:
     slot_uri: dct:type
-    range: Begrep
+    range: Konsept
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
 
   endringsdato:
@@ -175,18 +175,18 @@ slots:
 
   dekningsomrade:
     slot_uri: dct:spatial
-    range: Begrep
+    range: Konsept
     multivalued: true
     description: Geografisk dekningsområde (dct:spatial).
 
   status:
     slot_uri: adms:status
-    range: Begrep
+    range: Konsept
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
 
   valuta:
     slot_uri: cv:currency
-    range: Begrep
+    range: Konsept
     description: Valuta (cv:currency).
 
   heimeside:
