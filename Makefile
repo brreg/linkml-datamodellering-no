@@ -1,8 +1,13 @@
-SCHEMAS    := dcat-ap-no dqv-ap-no cpsv-ap-no skos-ap-no xkos-ap-no ngr-adresse
-SCHEMA_DIR := src/linkml
-GEN_DIR    := generated
-IMAGE      := docker.io/linkml/linkml:latest
-PODMAN     := podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(IMAGE)
+AP_NO_SCHEMAS := dcat-ap-no dqv-ap-no cpsv-ap-no skos-ap-no xkos-ap-no
+NGR_SCHEMAS   := ngr-adresse
+SCHEMA_DIR    := src/linkml
+GEN_DIR       := generated
+IMAGE         := docker.io/linkml/linkml:latest
+PODMAN        := podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(IMAGE)
+
+# Skjemafil-makroar
+ap_no_schema = $(SCHEMA_DIR)/ap-no/$(1)/$(1)-schema.yaml
+ngr_schema   = $(SCHEMA_DIR)/ngr/$(1)/$(1)-schema.yaml
 
 .PHONY: all test validate docs gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf convert-rdf clean
 
@@ -11,51 +16,72 @@ all: test
 test:
 	bash tests/test_schemas.sh
 
-# Valider et skjema mot LinkML-metaskjemaet
+# Valider skjema mot LinkML-metaskjemaet
 validate:
-	$(foreach s,$(SCHEMAS),$(PODMAN) gen-linkml --validate $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml;)
+	$(foreach s,$(AP_NO_SCHEMAS),$(PODMAN) gen-linkml --validate $(call ap_no_schema,$(s));)
+	$(foreach s,$(NGR_SCHEMAS),$(PODMAN) gen-linkml --validate $(call ngr_schema,$(s));)
 
 # Generer JSON-LD kontekst
 gen-jsonld:
-	$(foreach s,$(SCHEMAS),mkdir -p $(GEN_DIR)/$(s) && $(PODMAN) gen-jsonld-context $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml > $(GEN_DIR)/$(s)/$(s)-context.jsonld;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-jsonld-context $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-context.jsonld;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-jsonld-context $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-context.jsonld;)
 
 # Generer SHACL shapes
 gen-shacl:
-	$(foreach s,$(SCHEMAS),mkdir -p $(GEN_DIR)/$(s) && $(PODMAN) gen-shacl $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml > $(GEN_DIR)/$(s)/$(s)-shapes.ttl;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-shacl $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-shapes.ttl;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-shacl $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-shapes.ttl;)
 
 # Generer Python dataklasser
 gen-python:
-	$(foreach s,$(SCHEMAS),mkdir -p $(GEN_DIR)/$(s) && $(PODMAN) gen-python $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml > $(GEN_DIR)/$(s)/$(s)-model.py;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-python $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-model.py;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-python $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-model.py;)
 
 # Generer JSON Schema
 gen-jsonschema:
-	$(foreach s,$(SCHEMAS),mkdir -p $(GEN_DIR)/$(s) && $(PODMAN) gen-json-schema $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml > $(GEN_DIR)/$(s)/$(s)-schema.json;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-json-schema $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-schema.json;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-json-schema $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-schema.json;)
 
 # Generer OWL/Turtle
 gen-owl:
-	$(foreach s,$(SCHEMAS),mkdir -p $(GEN_DIR)/$(s) && $(PODMAN) gen-owl $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml > $(GEN_DIR)/$(s)/$(s)-ontology.ttl;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-owl $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-ontology.ttl;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-owl $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-ontology.ttl;)
 
 # Generer RDF/Turtle (skjema som RDF-graf)
 gen-rdf:
-	$(foreach s,$(SCHEMAS),mkdir -p $(GEN_DIR)/$(s) && $(PODMAN) gen-rdf $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml > $(GEN_DIR)/$(s)/$(s)-schema.ttl;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-rdf $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-schema.ttl;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-rdf $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-schema.ttl;)
 
 # Konverter eksempeldata (YAML) til RDF/Turtle
+# AP-NO-profiler (utan tree_root) brukar fixture-skjema
+# NGR-domenemodeller (med tree_root) brukar skjemaet direkte
 convert-rdf:
-	for example in examples/*-eksempel.yaml; do \
+	for example in examples/ap-no/*-eksempel.yaml; do \
 		name=$$(basename "$$example" .yaml); \
 		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
-		mkdir -p $(GEN_DIR)/$$profil; \
+		mkdir -p $(GEN_DIR)/ap-no/$$profil; \
 		$(PODMAN) linkml-convert \
 			--schema tests/fixtures/$$profil-fixture.yaml \
 			--output-format ttl \
 			--no-validate \
-			--output $(GEN_DIR)/$$profil/$$name.ttl \
+			--output $(GEN_DIR)/ap-no/$$profil/$$name.ttl \
+			$$example; \
+	done
+	for example in examples/ngr/*-eksempel.yaml; do \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		mkdir -p $(GEN_DIR)/ngr/$$profil; \
+		$(PODMAN) linkml-convert \
+			--schema $(SCHEMA_DIR)/ngr/$$profil/$$profil-schema.yaml \
+			--output-format ttl \
+			--no-validate \
+			--output $(GEN_DIR)/ngr/$$profil/$$name.ttl \
 			$$example; \
 	done
 
 # Generer HTML-dokumentasjon
 docs:
-	$(foreach s,$(SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/$(s)/docs $(SCHEMA_DIR)/$(s)/$(s)-schema.yaml;)
+	$(foreach s,$(AP_NO_SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/ap-no/$(s)/docs $(call ap_no_schema,$(s));)
+	$(foreach s,$(NGR_SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/ngr/$(s)/docs $(call ngr_schema,$(s));)
 
 clean:
 	rm -rf $(GEN_DIR)

@@ -8,7 +8,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../../src/linkml/cpsv-ap-no/cpsv-ap-no-schema
+  - ../../src/linkml/ap-no/cpsv-ap-no/cpsv-ap-no-schema
 
 classes:
 

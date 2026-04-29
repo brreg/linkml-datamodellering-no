@@ -8,7 +8,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../../src/linkml/xkos-ap-no/xkos-ap-no-schema
+  - ../../src/linkml/ap-no/xkos-ap-no/xkos-ap-no-schema
 
 classes:
 

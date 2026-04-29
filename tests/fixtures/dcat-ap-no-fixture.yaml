@@ -8,7 +8,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../../src/linkml/dcat-ap-no/dcat-ap-no-schema
+  - ../../src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
 
 classes:
 

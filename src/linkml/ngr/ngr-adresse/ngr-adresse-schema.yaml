@@ -21,7 +21,21 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../common/common-ap-no-schema
+
+# ---------------------------------------------------------------------------
+# Subsets
+# ---------------------------------------------------------------------------
+
+subsets:
+
+  Obligatorisk:
+    description: Obligatoriske eigenskapar i domenemodellen.
+
+  Anbefalt:
+    description: Anbefalte eigenskapar i domenemodellen.
+
+  Valgfri:
+    description: Valfrie eigenskapar i domenemodellen.
 
 # ---------------------------------------------------------------------------
 # Enum
@@ -483,6 +497,11 @@ classes:
 # ---------------------------------------------------------------------------
 
 slots:
+
+  id:
+    identifier: true
+    range: uriorcurie
+    description: URI-identifikator for ressursen.
 
   # ---- Referanse-slots (lenking mellom objekt) ----------------------------
 

@@ -8,7 +8,7 @@ default_range: string
 
 imports:
   - linkml:types
-  - ../../src/linkml/dqv-ap-no/dqv-ap-no-schema
+  - ../../src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema
 
 classes:
 
