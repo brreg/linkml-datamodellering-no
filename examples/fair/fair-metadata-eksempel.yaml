@@ -11,7 +11,7 @@ postar:
   - id: https://data.norge.no/fair/metadata/norsk-adresseregister
     ressursIdentifikator: https://data.norge.no/datasets/adresseregister
     ressurstype: dcat:Dataset
-    beskriv: https://data.norge.no/datasets/adresseregister
+    beskrivelse: https://data.norge.no/datasets/adresseregister
 
     tilgangsmetadata:
       tilgangsURL: https://data.kartverket.no/api/adresser
@@ -47,7 +47,7 @@ postar:
   - id: https://data.norge.no/fair/metadata/nvdb-vegnettvokabular
     ressursIdentifikator: https://data.norge.no/models/nvdb-vegnett
     ressurstype: modelldcatno:InformationModel
-    beskriv: https://data.norge.no/models/nvdb-vegnett
+    beskrivelse: https://data.norge.no/models/nvdb-vegnett
 
     tilgangsmetadata:
       tilgangsURL: https://nvdbapiles-v3.atlas.vegvesen.no/
@@ -81,7 +81,7 @@ postar:
   - id: https://data.norge.no/fair/metadata/ssb-sparql-endepunkt
     ressursIdentifikator: https://data.ssb.no/api/v0/sparql
     ressurstype: dcat:DataService
-    beskriv: https://data.ssb.no/api/v0/sparql
+    beskrivelse: https://data.ssb.no/api/v0/sparql
 
     tilgangsmetadata:
       tilgangsURL: https://data.ssb.no/api/v0/sparql

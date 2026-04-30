@@ -38,14 +38,14 @@ classes:
 
   FAIRMetadata:
     description: >
-      Maskin-aksjonerbar metadata som beskriv ein digital ressurs
+      Maskin-aksjonerbar metadata som beskriver ein digital ressurs
       i tråd med FAIR-prinsippa.
     class_uri: fair:FAIRMetadata
     slots:
       - id
       - ressursIdentifikator
       - ressurstype
-      - beskriv
+      - beskrivelse
       - tilgangsmetadata
       - gjenbruksmetadata
       - proveniensmetadata
@@ -59,7 +59,7 @@ classes:
         required: true
         in_subset:
           - Findable
-      beskriv:
+      beskrivelse:
         in_subset:
           - Findable
       tilgangsmetadata:
@@ -189,10 +189,10 @@ slots:
       Type digital ressurs, t.d. dcat:Dataset, dcat:DataService
       eller ein URI frå eit kontrollert vokabular (FAIR F2).
 
-  beskriv:
+  beskrivelse:
     slot_uri: dct:subject
     range: uriorcurie
-    description: URI til ressursen som denne metadata-posten beskriv (FAIR F3).
+    description: URI til ressursen som denne metadata-posten beskriver (FAIR F3).
 
   tilgangsmetadata:
     slot_uri: fair:tilgangsmetadata

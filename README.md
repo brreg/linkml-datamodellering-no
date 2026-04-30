@@ -2,6 +2,8 @@
 
 Modellerer norske W3C-applikasjonsprofiler og tilknytte domenemodeller i [LinkML-format](https://linkml.io/).
 
+**Ny domenemodell?** Sjå [docs/ny-domenemodell.md](docs/ny-domenemodell.md) for steg-for-steg-rettleiing.
+
 ## Krav
 
 - [Podman](https://podman.io/) — alle kommandoar køyrer via container-image, ingen lokal installasjon nødvendig
