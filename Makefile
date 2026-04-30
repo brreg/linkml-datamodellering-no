@@ -1,5 +1,5 @@
 AP_NO_SCHEMAS := dcat-ap-no dqv-ap-no cpsv-ap-no skos-ap-no xkos-ap-no
-NGR_SCHEMAS   := ngr-adresse
+NGR_SCHEMAS   := ngr-adresse ngr-eiendom ngr-person ngr-virksomhet
 FINT_SCHEMAS  := fint-administrasjon fint-utdanning fint-okonomi fint-arkiv fint-personvern fint-ressurs
 FAIR_SCHEMAS  := fair-metadata
 SCHEMA_DIR    := src/linkml

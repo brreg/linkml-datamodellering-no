@@ -1,0 +1,65 @@
+# Eksempel: Person registrert i Folkeregisteret
+# Norsk statsborgar, busett i Oslo
+
+personar:
+  - id: ngrp:eksempel/person-1
+    har_personnavn: ngrp:eksempel/personnavn-1
+    har_folkeregisteridentifikator: ngrp:eksempel/fnr-1
+    har_kjoenn: ngrp:eksempel/kjoenn-1
+    har_sivilstand: ngrp:eksempel/sivilstand-1
+    har_personstatus: ngrp:eksempel/personstatus-1
+    har_statsborgerskap:
+      - ngrp:eksempel/statsborgerskap-1
+    har_foedsel: ngrp:eksempel/foedsel-1
+    har_bosted_paa: ngrp:eksempel/bostedsadresse-1
+    har_valgt_spraak: ngrp:eksempel/spraak-1
+    har_kontaktopplysninger: ngrp:eksempel/kontakt-1
+
+personnavn:
+  - id: ngrp:eksempel/personnavn-1
+    fornavn: Kari
+    etternavn: Nordmann
+
+foedselsnummer:
+  - id: ngrp:eksempel/fnr-1
+    identifikatornummer: "12057012345"
+
+kjoenn:
+  - id: ngrp:eksempel/kjoenn-1
+    kjoenn_kode: KVINNE
+    gyldig_fra_og_med: "1970-05-12"
+
+sivilstand:
+  - id: ngrp:eksempel/sivilstand-1
+    sivilstand_type: UGIFT
+    gyldig_fra_og_med: "1970-05-12"
+
+personstatus:
+  - id: ngrp:eksempel/personstatus-1
+    personstatus_type: BOSATT
+    gyldig_fra_og_med: "1970-05-12"
+
+statsborgerskap:
+  - id: ngrp:eksempel/statsborgerskap-1
+    landkode: NO
+    gyldig_fra_og_med: "1970-05-12"
+
+foedslar:
+  - id: ngrp:eksempel/foedsel-1
+    foedselsdato: "1970-05-12"
+    foedselsaar: 1970
+    foedested: Oslo
+
+bostedsadresser:
+  - id: ngrp:eksempel/bostedsadresse-1
+    gyldig_fra_og_med: "2010-01-01"
+
+spraak:
+  - id: ngrp:eksempel/spraak-1
+    spraakkode: nb
+
+kontaktopplysningar:
+  - id: ngrp:eksempel/kontakt-1
+    epostadresse_verdi: kari.nordmann@example.no
+    mobiltelefonnummer: "99012345"
+    sist_oppdatert: "2024-03-15"

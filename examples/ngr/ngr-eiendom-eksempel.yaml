@@ -1,0 +1,85 @@
+# Eksempel: Fast eiendom med bygning, bruksenhet og eierforhold
+# Matrikkelnummer: 0301-25/2 (Oslo, gård 25, bruk 2)
+
+fasteEiendommer:
+  - id: ngre:eksempel/fast-eiendom-1
+    identifiseres_av: ngre:eksempel/matrikkelenhet-1
+    bestar_av_matrikkelenhet: ngre:eksempel/matrikkelenhet-1
+    bestar_av_bygning:
+      - ngre:eksempel/bygning-1
+    har_eierforhold:
+      - ngre:eksempel/eierforhold-1
+
+grunneiendommer:
+  - id: ngre:eksempel/matrikkelenhet-1
+    identifiseres_med: ngre:eksempel/matrikkelnummer-1
+    ligger_innenfor_kommune: ngre:eksempel/kommune-0301
+    har_teig:
+      - ngre:eksempel/teig-1
+
+matrikkelnumre:
+  - id: ngre:eksempel/matrikkelnummer-1
+    bestar_av_kommunenummer: ngre:eksempel/kommunenummer-0301
+    bestar_av_gaardsnummer: ngre:eksempel/gaardsnummer-25
+    bestar_av_bruksnummer: ngre:eksempel/bruksnummer-2
+
+bygninger:
+  - id: ngre:eksempel/bygning-1
+    har_bygningsnummer: ngre:eksempel/bygningsnummer-12345678
+    har_representasjonspunkt: ngre:eksempel/punkt-1
+    er_knyttet_til_matrikkelenhet: ngre:eksempel/matrikkelenhet-1
+    har_ytre_inngang:
+      - ngre:eksempel/inngang-1
+    har_bruksenhet:
+      - ngre:eksempel/bruksenhet-1
+    har_etasje:
+      - ngre:eksempel/etasje-1
+      - ngre:eksempel/etasje-2
+
+ytreInnganger:
+  - id: ngre:eksempel/inngang-1
+    gjelder_bruksenhet:
+      - ngre:eksempel/bruksenhet-1
+    har_offisiell_adresse: ngre:eksempel/adresse-1
+
+bruksenheter:
+  - id: ngre:eksempel/bruksenhet-1
+    har_bruksenhetsnummer: ngre:eksempel/boenhetsnummer-1
+    er_tilknyttet_matrikkelenhet: ngre:eksempel/matrikkelenhet-1
+    har_offisiell_adresse: ngre:eksempel/adresse-1
+    ligger_i_etasje:
+      - ngre:eksempel/etasje-2
+
+etasjer:
+  - id: ngre:eksempel/etasje-1
+    etasjenummer: 1
+  - id: ngre:eksempel/etasje-2
+    etasjenummer: 2
+
+teiger:
+  - id: ngre:eksempel/teig-1
+
+tinglystEierforhold:
+  - id: ngre:eksempel/eierforhold-1
+    gjelder_matrikkelenhet: ngre:eksempel/matrikkelenhet-1
+    gjelder_hjemmel_eiendomsrett: ngre:eksempel/hjemmel-1
+
+hjemmelEiendomsrett:
+  - id: ngre:eksempel/hjemmel-1
+    har_andel:
+      - ngre:eksempel/andel-1
+
+andeler:
+  - id: ngre:eksempel/andel-1
+    har_rettighetshaver:
+      - ngre:eksempel/rettighetshaver-1
+
+rettighetshavere:
+  - id: ngre:eksempel/rettighetshaver-1
+    er_av_type_person: ngre:eksempel/person-1
+
+representasjonspunkt:
+  - id: ngre:eksempel/punkt-1
+    koordinat_ost: 262000.0
+    koordinat_nord: 6650000.0
+    koordinatsystem: EPSG:25833

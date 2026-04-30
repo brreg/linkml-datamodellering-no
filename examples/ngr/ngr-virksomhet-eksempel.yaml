@@ -1,0 +1,107 @@
+# Eksempel: Aksjeselskap (AS) med dagleg leiar og underleining
+# Organisasjonsnummer: 987654321
+
+hovedenheter:
+  - id: ngrv:eksempel/hovudeining-987654321
+    organisasjonsnummer: "987654321"
+    navn: Eksempel AS
+    er_klassifisert_som_organisasjonsform: ngrv:eksempel/orgform-as
+    har_varslingsadresse: ngrv:eksempel/varsling-1
+    er_klassifisert_i_naeringskode:
+      - ngrv:eksempel/naeringskode-62010
+    har_tilstand:
+      - ngrv:eksempel/tilstand-1
+    har_kontaktinformasjon: ngrv:eksempel/kontakt-1
+    mottar_post_paa: ngrv:eksempel/postadresse-1
+    stiftelsesdato: "2010-03-15"
+    har_forretningsadresse: ngrv:eksempel/forretningsadresse-1
+    utoevar_aktivitet: ngrv:eksempel/aktivitet-1
+    er_klassifisert_i_sektorkode: ngrv:eksempel/sektorkode-2100
+    har_rolle_i_virksomhet:
+      - ngrv:eksempel/rolle-dagligleder
+      - ngrv:eksempel/rolle-styreleder
+    har_bestemmelser_om_signaturrett: ngrv:eksempel/signaturrett-1
+
+underenheter:
+  - id: ngrv:eksempel/underleining-123456789
+    organisasjonsnummer: "123456789"
+    navn: Eksempel AS avd. Bergen
+    er_klassifisert_som_organisasjonsform: ngrv:eksempel/orgform-bedr
+    har_varslingsadresse: ngrv:eksempel/varsling-2
+    er_klassifisert_i_naeringskode:
+      - ngrv:eksempel/naeringskode-62010
+    har_tilstand:
+      - ngrv:eksempel/tilstand-1
+    oppstartsdato: "2015-06-01"
+    har_beliggenhetsadresse: ngrv:eksempel/beliggenhetsadresse-1
+
+tilstander:
+  - id: ngrv:eksempel/tilstand-1
+    tilstandstype: AKTIV
+    gyldig_fra: "2010-03-15"
+
+organisasjonsformer:
+  - id: ngrv:eksempel/orgform-as
+    organisasjonsform_kode: AS
+    organisasjonsform_beskrivelse: Aksjeselskap
+  - id: ngrv:eksempel/orgform-bedr
+    organisasjonsform_kode: BEDR
+    organisasjonsform_beskrivelse: Bedrift (underleining)
+
+naeringskoder:
+  - id: ngrv:eksempel/naeringskode-62010
+    naeringskode_kode: "62.010"
+    naeringskode_beskrivelse: Utvikling og produksjon av programvare
+    er_hovednaeringskode: true
+
+sektorkoder:
+  - id: ngrv:eksempel/sektorkode-2100
+    sektorkode_kode: "2100"
+    sektorkode_beskrivelse: Private aksjeselskaper mv.
+
+kontaktinformasjon:
+  - id: ngrv:eksempel/kontakt-1
+    epostadresse: post@eksempel.no
+    telefonnummer: "22334455"
+    nettside: https://www.eksempel.no
+
+varslingsadresser:
+  - id: ngrv:eksempel/varsling-1
+    varslingstype: EPOST
+    varslingsverdi: varsling@eksempel.no
+  - id: ngrv:eksempel/varsling-2
+    varslingstype: EPOST
+    varslingsverdi: bergen@eksempel.no
+
+aktivitetar:
+  - id: ngrv:eksempel/aktivitet-1
+    aktivitet_beskrivelse: Utvikling og sal av programvare for norsk offentleg sektor.
+
+rollerIVirksomhet:
+  - id: ngrv:eksempel/rolle-dagligleder
+    rollebetegnelse: DAGLIG_LEDER
+    har_rolleinnehaver:
+      - ngrv:eksempel/rolleinnehaver-1
+  - id: ngrv:eksempel/rolle-styreleder
+    rollebetegnelse: STYRELEDER
+    har_rolleinnehaver:
+      - ngrv:eksempel/rolleinnehaver-2
+
+rolleinnehavere:
+  - id: ngrv:eksempel/rolleinnehaver-1
+    kan_vaere_av_type_person: ngrv:eksempel/person-1
+  - id: ngrv:eksempel/rolleinnehaver-2
+    rolleinnehaver_navn: Kari Nordmann
+
+signaturrettar:
+  - id: ngrv:eksempel/signaturrett-1
+    signaturrett_bestemmelse: Styret i fellesskap
+
+postadresser:
+  - id: ngrv:eksempel/postadresse-1
+
+forretningsadresser:
+  - id: ngrv:eksempel/forretningsadresse-1
+
+beliggenhetsadresser:
+  - id: ngrv:eksempel/beliggenhetsadresse-1
