@@ -1,0 +1,181 @@
+# Eksempel på ein ModelDCAT-AP-NO modelkatalog med informasjonsmodellar og modellelement.
+# Illustrerer ein informasjonsmodell for ein Adresse-domenemodell.
+
+modelkatalogar:
+  - id: https://example.org/modelkatalogar/adresse
+    tittel:
+      - "Adressemodellkatalog"
+    beskrivelse:
+      - "Katalog over informasjonsmodellar for adressedomenet."
+    identifikator_literal: "adresse-modelkatalog-001"
+    utgiver: https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827
+    kontaktpunkt:
+      - https://example.org/kontakt/matrikkeleininga
+    har_del:
+      - https://example.org/informasjonsmodellar/offisiell-adresse
+    modell:
+      - https://example.org/informasjonsmodellar/offisiell-adresse
+    sprak:
+      - http://publications.europa.eu/resource/authority/language/NOB
+    utgivelsesdato: "2024-01-15"
+    endringsdato: "2024-06-01"
+
+informasjonsmodellar:
+  - id: https://example.org/informasjonsmodellar/offisiell-adresse
+    tittel:
+      - "Offisiell adresse"
+    beskrivelse:
+      - "Informasjonsmodell for offisielle adresser i Noreg basert på Matrikkelen."
+    utgiver: https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827
+    identifikator_literal: "offisiell-adresse-v1"
+    informasjonsmodellidentifikator: "https://example.org/modell/adresse/v1"
+    inneholder_modellelement:
+      - https://example.org/objekttypar/vegadresse
+      - https://example.org/objekttypar/matrikkeladresse
+      - https://example.org/kodelister/adressetype
+    har_versjonsnummer: "1.0"
+    utgivelsesdato: "2024-01-15"
+
+objekttypar:
+  - id: https://example.org/objekttypar/vegadresse
+    tittel:
+      - "Vegadresse"
+    beskrivelse:
+      - "Adresse der vegnamn, husnummer og eventuell bokstav inngår."
+    har_eigenskap:
+      - https://example.org/attributtar/adressekode
+      - https://example.org/attributtar/adressenavn
+      - https://example.org/attributtar/nummer
+      - https://example.org/attributtar/bokstav
+
+  - id: https://example.org/objekttypar/matrikkeladresse
+    tittel:
+      - "Matrikkeladresse"
+    beskrivelse:
+      - "Adresse basert på matrikkelnummer (gardsnummer, bruksnummer m.m.)."
+    har_eigenskap:
+      - https://example.org/attributtar/gardsnummer
+      - https://example.org/attributtar/bruksnummer
+
+attributtar:
+  - id: https://example.org/attributtar/adressekode
+    tittel:
+      - "adressekode"
+    beskrivelse:
+      - "Nummer som entydig identifiserer adresserbare gater, vegar, stiar, plassar og område."
+    min_multiplisitet: 1
+    maks_multiplisitet: "1"
+    har_enkel_type:
+      - https://example.org/enkle-typar/firesifra-heltall
+
+  - id: https://example.org/attributtar/adressenavn
+    tittel:
+      - "adressenavn"
+    beskrivelse:
+      - "Namn på gate, veg, sti, plass eller område som er ført i matrikkelen."
+    min_multiplisitet: 1
+    maks_multiplisitet: "1"
+
+  - id: https://example.org/attributtar/nummer
+    tittel:
+      - "nummer"
+    beskrivelse:
+      - "Husnummer — nummer i adressenummereringssystemet for vegadressa."
+    min_multiplisitet: 1
+    maks_multiplisitet: "1"
+    har_enkel_type:
+      - https://example.org/enkle-typar/positivt-heltall
+
+  - id: https://example.org/attributtar/bokstav
+    tittel:
+      - "bokstav"
+    beskrivelse:
+      - "Bokstavtillegg til husnummeret."
+    min_multiplisitet: 0
+    maks_multiplisitet: "1"
+    har_enkel_type:
+      - https://example.org/enkle-typar/enkelt-teikn
+
+  - id: https://example.org/attributtar/gardsnummer
+    tittel:
+      - "gardsnummer"
+    beskrivelse:
+      - "Gardsnummer i matrikkelen."
+    min_multiplisitet: 1
+    maks_multiplisitet: "1"
+    har_enkel_type:
+      - https://example.org/enkle-typar/positivt-heltall
+
+  - id: https://example.org/attributtar/bruksnummer
+    tittel:
+      - "bruksnummer"
+    beskrivelse:
+      - "Bruksnummer i matrikkelen."
+    min_multiplisitet: 1
+    maks_multiplisitet: "1"
+    har_enkel_type:
+      - https://example.org/enkle-typar/positivt-heltall
+
+enkle_typar:
+  - id: https://example.org/enkle-typar/positivt-heltall
+    tittel:
+      - "PositivtHeltall"
+    beskrivelse:
+      - "Heltalsverdi større enn null."
+    typedefinisjon_referanse: http://www.w3.org/2001/XMLSchema#positiveInteger
+    min_inklusiv: "1"
+
+  - id: https://example.org/enkle-typar/firesifra-heltall
+    tittel:
+      - "FiresifraHeltall"
+    beskrivelse:
+      - "Heltalsverdi med nøyaktig 4 sifre."
+    typedefinisjon_referanse: http://www.w3.org/2001/XMLSchema#integer
+    min_inklusiv: "1000"
+    maks_inklusiv: "9999"
+    totalt_sifre: 4
+
+  - id: https://example.org/enkle-typar/enkelt-teikn
+    tittel:
+      - "EnkeltTeikn"
+    beskrivelse:
+      - "Ein enkelt bokstav (A–Å)."
+    typedefinisjon_referanse: http://www.w3.org/2001/XMLSchema#string
+    lengde: 1
+    monster: "[A-ZÆØÅa-zæøå]"
+
+kodelister:
+  - id: https://example.org/kodelister/adressetype
+    tittel:
+      - "Adressetype"
+    beskrivelse:
+      - "Kodeliste over lovlege adressetypar."
+    har_referanse:
+      - https://register.geonorge.no/sosi-kodelister/matrikkelen/adressetype
+
+kodeelement:
+  - id: https://example.org/kodeelement/vegadresse
+    notasjon: "V"
+    anbefalt_term:
+      - "Vegadresse"
+    definisjon:
+      - "Adresse med vegnamn og husnummer."
+    i_skjema:
+      - https://example.org/kodelister/adressetype
+
+  - id: https://example.org/kodeelement/matrikkeladresse
+    notasjon: "M"
+    anbefalt_term:
+      - "Matrikkeladresse"
+    definisjon:
+      - "Adresse basert på matrikkelnummer."
+    i_skjema:
+      - https://example.org/kodelister/adressetype
+
+aktorar:
+  - id: https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827
+    namn_aktor:
+      - "Digitaliseringsdirektoratet"
+
+kontaktopplysningar:
+  - id: https://example.org/kontakt/matrikkeleininga

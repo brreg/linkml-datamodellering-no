@@ -1,4 +1,4 @@
-Lage ap-no profil for validering (alle obligatoriske klaser)
+Modellere ModellDCAT-AP-NO
 lage eksempler for fint med tilhørende testing
 Modellere opp BR modell fra MagicDraw
 Modellere opp Aksjeeierregisteret

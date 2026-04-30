@@ -285,6 +285,10 @@ classes:
         range: Kontaktopplysninger
         multivalued: true
         inlined_as_list: true
+      spraak:
+        range: SpraakForElektroniskKommunikasjon
+        multivalued: true
+        inlined_as_list: true
 
   # ---------------------------------------------------------------------------
   # Hovudklasse

@@ -118,6 +118,9 @@ Alle klasser og slots har eksplisitt `class_uri` / `slot_uri` som mapper til de 
 ### Flerspråklige strenger
 `LangString` (type `rdf:langString`) brukes for alle egenskaper som er definert som `rdf:langString` i spesifikasjonen (tittel, beskrivelse, nøkkelord osv.).
 
+### Endringer i koderepoet
+Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
+
 ### Ny profil eller domenemodell
 Se `docs/ny-domenemodell.md` for steg-for-steg-veiledning. Kortversjon:
 1. Opprett `src/linkml/<domene>/<modellnavn>/<modellnavn>-schema.yaml`

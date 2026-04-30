@@ -25,7 +25,7 @@ Modellerer norske W3C-applikasjonsprofiler og tilknytte domenemodeller i [LinkML
 | `make docs` | Generer HTML-dokumentasjon til `generated/` |
 | `make clean` | Slett `generated/` |
 
-### Enkeltskjema direkte
+### Valider (lint) enkeltskjema direkte
 
 ```bash
 podman run --rm -v "$(pwd):/work" -w /work -e PYTHONWARNINGS=ignore \
@@ -42,6 +42,7 @@ podman run --rm -v "$(pwd):/work" -w /work -e PYTHONWARNINGS=ignore \
 | `make mcp-smoke` | Røyk-test med eksempel-JSON-RPC-meldingar |
 | `make mcp-run` | Start MCP-serveren interaktivt (stdin/stdout) |
 | `make mcp-validate SCHEMA=<sti>` | Valider eit skjema med alle importar flatta ut (standard policy) |
+| `make mcp-validate SCHEMA=<sti> POLICY=ap-no-catalog` | Valider at container-klassen inkluderer DCAT-AP-NO og DQV-AP-NO |
 | `make mcp-validate SCHEMA=<sti> POLICY=fair` | Valider med FAIR-policy (F1–R1.3) |
 
 MCP-serveren les JSON-RPC-meldingar frå stdin og skriv responsar til stdout. Kvar melding er éi linje.
@@ -86,18 +87,10 @@ make mcp-validate SCHEMA=src/linkml/fint/fint-administrasjon/fint-administrasjon
 make mcp-validate SCHEMA=src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml POLICY=fair
 ```
 
-```
-→ Flattar ut src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml ...
-→ Validerer (policy: fair) ...
-{
-  "valid": false,
-  "errorCount": 0,
-  "warningCount": 4,
-  "issues": [
-    {"severity": "warning", "code": "fair_f2", "target": "schema", "message": "FAIR F2: schema.title manglar ..."},
-    ...
-  ]
-}
+**AP-NO-katalog-validering** — sjekkar at container-klassen inkluderer dei obligatoriske klassane frå DCAT-AP-NO og DQV-AP-NO:
+
+```bash
+make mcp-validate SCHEMA=src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml POLICY=ap-no-catalog
 ```
 
 Valideringsresultatet inneheld `valid`, `errorCount`, `warningCount` og ei liste med `issues` (kvar med `severity`, `code`, `target` og `message`). Policy-baserte reglar konfigurerast i `src/mcp-linkml-validator/policies/`:
@@ -105,6 +98,7 @@ Valideringsresultatet inneheld `valid`, `errorCount`, `warningCount` og ei liste
 | Policy | Fil | Beskriving |
 |---|---|---|
 | `default` | `policies/default.yaml` | Obligatoriske og anbefalte metadata-felt |
+| `ap-no-catalog` | `policies/ap-no-catalog.yaml` | Sjekkar at container-klassen har obligatoriske/anbefalte klasser frå DCAT-AP-NO og DQV-AP-NO |
 | `fair` | `policies/fair.yaml` | FAIR-sjekkar F1–R1.3 (tittel, class_uri, lisens, proveniens m.m.) |
 
 ## Katalogstruktur
@@ -119,8 +113,11 @@ src/
 │   │   ├── cpsv-ap-no/                 # Offentlege tenester
 │   │   ├── skos-ap-no/                 # Begrepssamlingar
 │   │   └── xkos-ap-no/                 # Utvidet klassifikasjon
-│   ├── ngr/
-│   │   └── ngr-adresse/                # Adressemodell (Matrikkelen)
+│   ├── ngr/                            # Nasjonale grunndata (NGR)
+│   │   ├── ngr-adresse/                # Offisiell adresse og geografiske inndelingar
+│   │   ├── ngr-eiendom/                # Fast eiendom, matrikkelenhet og bygning
+│   │   ├── ngr-person/                 # Person, identifikasjon og familierelasjonar
+│   │   └── ngr-virksomhet/             # Verksemder, roller og organisasjonsstruktur
 │   ├── fint/                           # FINT-domenemodeller
 │   │   ├── fint-common/                # Felles typar og abstrakte klassar
 │   │   ├── fint-administrasjon/        # Lønn, arbeidsforhold, organisasjon
@@ -135,6 +132,7 @@ src/
 │   ├── server.py                       # JSON-RPC MCP-server
 │   ├── policies/
 │   │   ├── default.yaml                # Standard validering (required/recommended felt)
+│   │   ├── ap-no-catalog.yaml          # Obligatoriske klasser frå DCAT-AP-NO og DQV-AP-NO
 │   │   └── fair.yaml                   # FAIR-sjekkar F1–R1.3
 │   ├── flatten-and-validate.bash       # Flattar ut importar og validerer via MCP
 │   ├── Dockerfile
@@ -149,6 +147,8 @@ examples/
 
 tests/
 ├── fixtures/                           # Testfixturer med Container/tree_root for AP-NO og FAIR
+├── ap-no-catalog-bestatt-schema.yaml   # Testskjema: container med alle DCAT/DQV-klasser (skal bestå)
+├── ap-no-catalog-manglar-schema.yaml   # Testskjema: container utan obligatoriske klasser (skal feile)
 ├── test_schemas.sh                     # Lint og valider alle skjema og eksempel
 ├── test_mcp_server.py                  # Unit-testar for MCP-validator (pytest)
 └── test-mcp-linkml-validator.json      # Eksempel-JSON-RPC-meldingar for røyk-test
@@ -160,13 +160,34 @@ generated/                              # Genererte artefakter (ikkje innsjekka 
 
 ### AP-NO-profiler
 
-Skjema under `src/linkml/ap-no/` definerer klasser og slot-ar utan `Container`/`tree_root`. Dei er meint å importerast av domenemodeller og er ikkje sjølvstendige. Felles slot-ar som går att i fleire profiler ligg i `common/`.
+Skjema under `src/linkml/ap-no/` modellerer [norske applikasjonsprofiler](https://data.norge.no/showroom/overview) for RDF baserte ressurser som definert av Digitaliseringsdirektoratet. Disse skjemaene definerer klasser og slot-ar utan `Container`/`tree_root`. Dei er meint å importerast av domenemodeller og er ikkje sjølvstendige. Felles slot-ar som går att i fleire profiler ligg i `common/`.
+
+| Skjema | Profil | Dokumentasjon |
+|---|---|---|
+| `cpsv-ap-no` | Spesifikasjon for tjeneste- og hendelsesbeskrivelser | [CPSV-AP-NO](https://informasjonsforvaltning.github.io/cpsv-ap-no/) |
+| `dcat-ap-no` | Standard for beskrivelse av datasett, datatjenester og datakataloger | [DCAT-AP-NO](https://data.norge.no/specification/dcat-ap-no) |
+| `dqv-ap-no` | Spesifikasjon for beskrivelse av kvalitet på datasett | [DQV-AP-NO](https://data.norge.no/specification/dqv-ap-no) |
+| `skos-ap-no` | Forvaltningsstandard for begrepsbeskrivelser | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep) |
+| `xskos-ap-no` | Spesifikasjon for klassifikasjonsbeskrivelser | [XKOS-AP-NO](https://data.norge.no/specification/xkos-ap-no) |
 
 Testfixturer (`tests/fixtures/`) legg til ein `Container`-klasse med `tree_root: true` for kvar profil, slik at eksempeldata kan validerast isolert.
 
-### NGR- og FINT-domenemodeller
+### NGR-domenemodeller
 
-Skjema under `src/linkml/ngr/` og `src/linkml/fint/` er sjølvstendige og har eigen `tree_root`-klasse. FINT-modellane importerer `fint-common` for felles abstrakte klassar og typar (`Aktoer`, `Enhet`, `Begrep`, `Identifikator` m.fl.).
+Skjema under `src/linkml/ngr/` modellerer Nasjonale grunndata — dei autoritative grunnlagsregistra i norsk offentleg sektor:
+
+| Skjema | Register | Beskriving |
+|---|---|---|
+| `ngr-adresse` | Matrikkelen | Offisiell adresse, vegnamn, husnummer og geografiske inndelingar |
+| `ngr-eiendom` | Matrikkelen / Grunnboka | Fast eiendom, matrikkelenhet (6 undertypar), bygning, eierforhold og hjemmel |
+| `ngr-person` | Folkeregisteret / KRR | Person, identifikasjon, familierelasjonar, adresser og kontaktopplysningar |
+| `ngr-virksomhet` | Enhetsregisteret | Verksemder (underleining/hovudeining), roller, næringskode og adresser |
+
+Alle NGR-skjema er sjølvstendige med eigen `tree_root`-klasse og importerer berre `linkml:types`. Klasser frå andre domene (t.d. `OffisiellAdresse` i ngr-eiendom, `Person` i ngr-virksomhet) er modellerte som stub-klasser med berre `id`.
+
+### FINT-domenemodeller
+
+Skjema under `src/linkml/fint/` modellerer [FINT](https://www.fintlabs.no/)-informasjonsmodellen for norsk offentleg sektor. Alle FINT-skjema importerer `fint-common` for felles abstrakte klassar og typar (`Aktoer`, `Enhet`, `Begrep`, `Identifikator` m.fl.) og er sjølvstendige med eigen `tree_root`-klasse.
 
 ### FAIR-metadata
 
@@ -177,3 +198,11 @@ Skjema under `src/linkml/ngr/` og `src/linkml/fint/` er sjølvstendige og har ei
 `src/mcp-linkml-validator/` er ein [MCP-server](https://modelcontextprotocol.io/) som eksponerer LinkML-validering som eit verktøy (`validate_linkml_schema`). Serveren køyrer standard LinkML-linting og policy-baserte tilleggsreglar konfigurerbare via `policy.yaml`.
 
 For skjema med relative importar brukar `make mcp-validate` scriptet `flatten-and-validate.bash`, som fyrst flattar ut alle importar med `gen-linkml --mergeimports` i linkml-containeren (som har tilgang til heile repoet), og deretter sender det flattened skjemaet til MCP-serveren.
+
+Policyane støttar tre sjekktypear:
+
+| Sjekk | Nøkkel | Beskriving |
+|---|---|---|
+| Metadata-felt | `required` / `recommended` | Obligatoriske og anbefalte felt på schema/class/slot |
+| Fellesklasser | `common_classes.must_use` | Klasser som må finnast i skjemaet (inkl. importar) |
+| Container-klasser | `container_classes.must_include` / `should_include` | Klasser som tree_root-klassen må/bør ha som `range` på attributtar |

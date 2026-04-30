@@ -1,0 +1,1133 @@
+id: https://data.norge.no/linkml/modelldcat-ap-no
+name: modelldcat-ap-no
+title: ModelDCAT-AP-NO
+description: >-
+  Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format,
+  modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no
+
+version: "1.0"
+
+prefixes:
+  linkml:        https://w3id.org/linkml/
+  modelldcatno:  https://data.norge.no/vocabulary/modelldcatno#
+  dcat:          http://www.w3.org/ns/dcat#
+  dct:           http://purl.org/dc/terms/
+  foaf:          http://xmlns.com/foaf/0.1/
+  skos:          http://www.w3.org/2004/02/skos/core#
+  vcard:         http://www.w3.org/2006/vcard/ns#
+  xsd:           http://www.w3.org/2001/XMLSchema#
+  rdfs:          http://www.w3.org/2000/01/rdf-schema#
+  owl:           http://www.w3.org/2002/07/owl#
+  adms:          http://www.w3.org/ns/adms#
+  prof:          http://www.w3.org/ns/dx/prof/
+  xkos:          http://rdf-vocabulary.ddialliance.org/xkos#
+
+default_prefix: https://data.norge.no/linkml/modelldcat-ap-no/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../common/common-ap-no-schema
+
+# ---------------------------------------------------------------------------
+# Klasser
+# ---------------------------------------------------------------------------
+
+classes:
+
+  # ---- Hjelpeklassar for refererte vokabularressursar ----------------------
+
+  KatalogisertRessurs:
+    class_uri: dcat:Resource
+    description: Basisklasse for ressursar som kan katalogiserast (dcat:Resource).
+    slots:
+      - id
+
+  Aktor:
+    class_uri: foaf:Agent
+    description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
+    slots:
+      - id
+      - namn_aktor
+      - identifikator_literal
+      - type_concept
+    slot_usage:
+      namn_aktor:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Kontaktopplysning:
+    class_uri: vcard:Organization
+    description: Kontaktinformasjon (vcard:Organization).
+    slots:
+      - id
+
+  Standard:
+    class_uri: dct:Standard
+    description: Ein standard (dct:Standard).
+    slots:
+      - id
+      - tittel
+      - har_referanse
+      - har_versjonsnummer
+    slot_usage:
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+
+  Lisensdokument:
+    class_uri: dct:LicenseDocument
+    description: Eit lisensdokument (dct:LicenseDocument).
+    slots:
+      - id
+      - type_concept
+
+  Lokasjon:
+    class_uri: dct:Location
+    description: Eit geografisk område (dct:Location).
+    slots:
+      - id
+
+  Tidsperiode:
+    class_uri: dct:PeriodOfTime
+    description: Eit tidsintervall med start- og sluttdato.
+    slots:
+      - id
+      - startdato
+      - sluttdato
+
+  Dokument:
+    class_uri: foaf:Document
+    description: Eit dokument (foaf:Document).
+    slots:
+      - id
+      - tittel
+      - sprak
+      - format
+
+  # ---- Modelkatalog --------------------------------------------------------
+
+  Modelkatalog:
+    class_uri: dcat:Catalog
+    description: >-
+      Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
+    slots:
+      - id
+      - tittel
+      - beskrivelse
+      - har_del
+      - identifikator_literal
+      - kontaktpunkt
+      - utgiver
+      - endringsdato
+      - heimeside
+      - lisens
+      - modell
+      - sprak
+      - tema
+      - temaer
+      - utgivelsesdato
+      - er_del_av_katalog
+    slot_usage:
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+      beskrivelse:
+        required: true
+        in_subset:
+          - Obligatorisk
+      har_del:
+        required: true
+        in_subset:
+          - Obligatorisk
+      identifikator_literal:
+        required: true
+        in_subset:
+          - Obligatorisk
+      kontaktpunkt:
+        required: true
+        in_subset:
+          - Obligatorisk
+      utgiver:
+        required: true
+        in_subset:
+          - Obligatorisk
+      endringsdato:
+        in_subset:
+          - Anbefalt
+      heimeside:
+        in_subset:
+          - Anbefalt
+      lisens:
+        in_subset:
+          - Anbefalt
+      modell:
+        in_subset:
+          - Anbefalt
+      sprak:
+        in_subset:
+          - Anbefalt
+      tema:
+        in_subset:
+          - Anbefalt
+      utgivelsesdato:
+        in_subset:
+          - Anbefalt
+      temaer:
+        in_subset:
+          - Valgfri
+      er_del_av_katalog:
+        in_subset:
+          - Valgfri
+
+  # ---- Informasjonsmodell --------------------------------------------------
+
+  Informasjonsmodell:
+    class_uri: modelldcatno:InformationModel
+    description: >-
+      Ein informasjonsmodell som er katalogisert i ein modelkatalog
+      (modelldcatno:InformationModel).
+    slots:
+      - id
+      - tittel
+      - utgiver
+      - begrep
+      - beskrivelse
+      - identifikator_literal
+      - informasjonsmodellidentifikator
+      - inneholder_modellelement
+      - kontaktpunkt
+      - lisens
+      - tema
+      - dekningsomrade
+      - endringsdato
+      - er_del_av_modell
+      - er_profil_av
+      - er_erstatta_av
+      - erstatter
+      - har_del_modell
+      - har_format
+      - tidsperiode
+      - heimeside
+      - er_i_samsvar_med
+      - status
+      - nokkelord
+      - skapar
+      - sprak
+      - type_concept
+      - utgivelsesdato
+      - har_versjonsnummer
+      - versjonsmerknad
+    slot_usage:
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+      utgiver:
+        required: true
+        in_subset:
+          - Obligatorisk
+      begrep:
+        in_subset:
+          - Anbefalt
+      beskrivelse:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
+        in_subset:
+          - Anbefalt
+      informasjonsmodellidentifikator:
+        in_subset:
+          - Anbefalt
+      inneholder_modellelement:
+        in_subset:
+          - Anbefalt
+      kontaktpunkt:
+        in_subset:
+          - Anbefalt
+      lisens:
+        in_subset:
+          - Anbefalt
+      tema:
+        in_subset:
+          - Anbefalt
+      dekningsomrade:
+        in_subset:
+          - Valgfri
+      endringsdato:
+        in_subset:
+          - Valgfri
+      er_del_av_modell:
+        in_subset:
+          - Valgfri
+      er_profil_av:
+        in_subset:
+          - Valgfri
+      er_erstatta_av:
+        in_subset:
+          - Valgfri
+      erstatter:
+        in_subset:
+          - Valgfri
+      har_del_modell:
+        in_subset:
+          - Valgfri
+      har_format:
+        in_subset:
+          - Valgfri
+      tidsperiode:
+        in_subset:
+          - Valgfri
+      heimeside:
+        in_subset:
+          - Valgfri
+      er_i_samsvar_med:
+        in_subset:
+          - Valgfri
+      status:
+        in_subset:
+          - Valgfri
+      nokkelord:
+        in_subset:
+          - Valgfri
+      skapar:
+        in_subset:
+          - Valgfri
+      sprak:
+        in_subset:
+          - Valgfri
+      type_concept:
+        in_subset:
+          - Valgfri
+      utgivelsesdato:
+        in_subset:
+          - Valgfri
+      har_versjonsnummer:
+        in_subset:
+          - Valgfri
+      versjonsmerknad:
+        in_subset:
+          - Valgfri
+
+  # ---- Modellelement (abstrakt) --------------------------------------------
+
+  Modellelement:
+    abstract: true
+    class_uri: modelldcatno:ModelElement
+    description: Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.
+    slots:
+      - id
+      - tittel
+      - begrep
+      - identifikator_literal
+      - har_eigenskap
+      - beskrivelse
+      - tilhorer_modul
+    slot_usage:
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+      begrep:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
+        in_subset:
+          - Anbefalt
+      har_eigenskap:
+        in_subset:
+          - Anbefalt
+      beskrivelse:
+        in_subset:
+          - Valgfri
+      tilhorer_modul:
+        in_subset:
+          - Valgfri
+
+  # ---- Subklassar av Modellelement -----------------------------------------
+
+  Objekttype:
+    is_a: Modellelement
+    class_uri: modelldcatno:ObjectType
+    description: Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen.
+
+  RootObjekttype:
+    is_a: Modellelement
+    class_uri: modelldcatno:RootObjectType
+    description: Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen.
+
+  Datatype:
+    is_a: Modellelement
+    class_uri: modelldcatno:DataType
+    description: Ein datatype — ein strukturert samansett type.
+
+  EnkelType:
+    is_a: Modellelement
+    class_uri: modelldcatno:SimpleType
+    description: Ein enkel type med restriksjonar (xsd-fasettar).
+    slots:
+      - typedefinisjon_referanse
+      - fraksjonssifre
+      - lengde
+      - maks_eksklusiv
+      - maks_inklusiv
+      - maks_lengde
+      - min_eksklusiv
+      - min_inklusiv
+      - min_lengde
+      - monster
+      - totalt_sifre
+    slot_usage:
+      typedefinisjon_referanse:
+        in_subset:
+          - Anbefalt
+
+  Kodeliste:
+    is_a: Modellelement
+    class_uri: modelldcatno:CodeList
+    description: Ei kodeliste — eit kontrollert vokabular av tillate verdiar.
+    slots:
+      - har_referanse
+
+  Modul:
+    is_a: Modellelement
+    class_uri: modelldcatno:Module
+    description: Ein modul som grupperer modellelement i informasjonsmodellen.
+
+  # ---- Eigenskap (abstrakt) ------------------------------------------------
+
+  Eigenskap:
+    abstract: true
+    class_uri: modelldcatno:Property
+    description: Abstrakt basisklasse for eigenskapar knytt til eit modellelement.
+    slots:
+      - id
+      - begrep
+      - identifikator_literal
+      - navigerbar
+      - min_multiplisitet
+      - tittel
+      - maks_multiplisitet
+      - beskrivelse
+      - har_type
+      - relasjonsegenskapetikett
+      - sekvensnummer
+      - tilhorer_modul
+      - danner_symmetri_med
+    slot_usage:
+      begrep:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
+        in_subset:
+          - Anbefalt
+      navigerbar:
+        in_subset:
+          - Anbefalt
+      min_multiplisitet:
+        in_subset:
+          - Anbefalt
+      tittel:
+        in_subset:
+          - Anbefalt
+      maks_multiplisitet:
+        in_subset:
+          - Anbefalt
+      beskrivelse:
+        in_subset:
+          - Valgfri
+      har_type:
+        in_subset:
+          - Valgfri
+      relasjonsegenskapetikett:
+        in_subset:
+          - Valgfri
+      sekvensnummer:
+        in_subset:
+          - Valgfri
+      tilhorer_modul:
+        in_subset:
+          - Valgfri
+      danner_symmetri_med:
+        in_subset:
+          - Valgfri
+
+  # ---- Subklassar av Eigenskap ---------------------------------------------
+
+  Attributt:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Attribute
+    description: Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.
+    slots:
+      - har_datatype
+      - har_enkel_type
+      - har_verdi_fra
+      - inneholder_objekttype
+    slot_usage:
+      har_datatype:
+        in_subset:
+          - Anbefalt
+      har_enkel_type:
+        in_subset:
+          - Anbefalt
+      har_verdi_fra:
+        in_subset:
+          - Anbefalt
+      inneholder_objekttype:
+        in_subset:
+          - Anbefalt
+
+  Assosiasjon:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Association
+    description: Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.
+    slots:
+      - refererer_til
+    slot_usage:
+      refererer_til:
+        in_subset:
+          - Anbefalt
+
+  Rolle:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Role
+    description: Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.
+    slots:
+      - har_objekttype
+    slot_usage:
+      har_objekttype:
+        in_subset:
+          - Anbefalt
+
+  Spesialisering:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Specialization
+    description: Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modellelement.
+    slots:
+      - har_generelt_begrep
+    slot_usage:
+      har_generelt_begrep:
+        in_subset:
+          - Anbefalt
+
+  Sammensetning:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Composition
+    description: Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.
+    slots:
+      - inneholder
+    slot_usage:
+      inneholder:
+        in_subset:
+          - Anbefalt
+
+  Realisering:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Realization
+    description: Ein realisering — ein implementasjonsrelasjon mellom modellelement.
+    slots:
+      - har_leverandor
+    slot_usage:
+      har_leverandor:
+        in_subset:
+          - Anbefalt
+
+  Abstraksjon:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Abstraction
+    description: Ein abstraksjon — ein forenkling som representerer eit modellelement.
+    slots:
+      - er_abstraksjon_av
+    slot_usage:
+      er_abstraksjon_av:
+        in_subset:
+          - Anbefalt
+
+  Avhengighet:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Dependency
+    description: Ein avhengighet — ein relasjon der det eine modellelementet avheng av det andre.
+    slots:
+      - avhengig_av
+    slot_usage:
+      avhengig_av:
+        in_subset:
+          - Anbefalt
+
+  Samling:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Collection
+    description: Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.
+
+  Valg:
+    is_a: Eigenskap
+    class_uri: modelldcatno:Choice
+    description: Eit val — ein eigenskap som representerer eit val mellom modellelement.
+    slots:
+      - har_noe
+    slot_usage:
+      har_noe:
+        in_subset:
+          - Anbefalt
+
+  AlleAv:
+    is_a: Valg
+    class_uri: modelldcatno:AllOf
+    description: Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).
+
+  NoenAv:
+    is_a: Valg
+    class_uri: modelldcatno:AnyOf
+    description: Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).
+
+  # ---- Merknad og betingelsesreglar ----------------------------------------
+
+  Merknad:
+    class_uri: modelldcatno:Note
+    description: Ei merknad knytt til eit modellelement eller eigenskap.
+    slots:
+      - id
+      - annoterer
+      - eigenskapsmerknad
+      - identifikator_literal
+      - tittel
+      - tilhorer_modul
+    slot_usage:
+      annoterer:
+        in_subset:
+          - Anbefalt
+      eigenskapsmerknad:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
+        in_subset:
+          - Anbefalt
+      tittel:
+        in_subset:
+          - Anbefalt
+      tilhorer_modul:
+        in_subset:
+          - Valgfri
+
+  Betingelsesregel:
+    is_a: Merknad
+    class_uri: modelldcatno:ConstraintRule
+    description: Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.
+    slots:
+      - betinger
+      - betingelsesuttrykk
+    slot_usage:
+      betinger:
+        required: true
+        in_subset:
+          - Obligatorisk
+      betingelsesuttrykk:
+        in_subset:
+          - Anbefalt
+
+  Og:
+    is_a: Betingelsesregel
+    class_uri: modelldcatno:And
+    description: Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.
+
+  Eller:
+    is_a: Betingelsesregel
+    class_uri: modelldcatno:Or
+    description: Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.
+
+  XEllerY:
+    is_a: Betingelsesregel
+    class_uri: modelldcatno:Xor
+    description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
+
+  Ikke:
+    is_a: Betingelsesregel
+    class_uri: modelldcatno:Not
+    description: Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.
+
+  # ---- Kodeelement ---------------------------------------------------------
+
+  Kodeelement:
+    class_uri: modelldcatno:CodeElement
+    description: Eit element i ei kodeliste (modelldcatno:CodeElement).
+    slots:
+      - id
+      - i_skjema
+      - notasjon
+      - anbefalt_term
+      - begrep
+      - identifikator_literal
+      - topp_begrep_av
+      - definisjon
+      - eksempel_kode
+      - eksklusjonsnotat
+      - forrige
+      - skjult_term
+      - inklusjonsnotat
+      - notat
+      - neste
+      - omfangsnotat
+      - alternativ_term
+    slot_usage:
+      i_skjema:
+        required: true
+        in_subset:
+          - Obligatorisk
+      notasjon:
+        required: true
+        in_subset:
+          - Obligatorisk
+      anbefalt_term:
+        in_subset:
+          - Anbefalt
+      begrep:
+        in_subset:
+          - Anbefalt
+      identifikator_literal:
+        in_subset:
+          - Anbefalt
+      topp_begrep_av:
+        in_subset:
+          - Anbefalt
+
+# ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # ---- Aktor ---------------------------------------------------------------
+
+  namn_aktor:
+    slot_uri: foaf:name
+    range: LangString
+    multivalued: true
+    description: Namn på aktøren (foaf:name).
+
+  # ---- Tidsperiode ---------------------------------------------------------
+
+  startdato:
+    slot_uri: dcat:startDate
+    range: date
+    description: Startdato for tidsperioden (dcat:startDate).
+
+  sluttdato:
+    slot_uri: dcat:endDate
+    range: date
+    description: Sluttdato for tidsperioden (dcat:endDate).
+
+  # ---- Modelkatalog og Informasjonsmodell ----------------------------------
+
+  utgiver:
+    slot_uri: dct:publisher
+    range: Aktor
+    description: Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher).
+
+  skapar:
+    slot_uri: dct:creator
+    range: Aktor
+    description: Aktøren som primært har skapt ressursen (dct:creator).
+
+  kontaktpunkt:
+    slot_uri: dcat:contactPoint
+    range: Kontaktopplysning
+    multivalued: true
+    description: Kontaktinformasjon for ressursen (dcat:contactPoint).
+
+  lisens:
+    slot_uri: dct:license
+    range: Lisensdokument
+    description: Lisens for bruk av ressursen (dct:license).
+
+  tema:
+    slot_uri: dcat:theme
+    range: Konsept
+    multivalued: true
+    description: Tema frå eit kontrollert vokabular (dcat:theme).
+
+  temaer:
+    slot_uri: dcat:themeTaxonomy
+    range: Begrepssamling
+    multivalued: true
+    description: Temavokabular brukt i katalogen (dcat:themeTaxonomy).
+
+  begrep:
+    slot_uri: dct:subject
+    range: Konsept
+    multivalued: true
+    description: Fagomgrep ressursen handlar om (dct:subject).
+
+  har_del:
+    slot_uri: dct:hasPart
+    range: KatalogisertRessurs
+    multivalued: true
+    description: Del-ressurs inkludert i denne katalogen (dct:hasPart).
+
+  har_del_modell:
+    slot_uri: dct:hasPart
+    range: Informasjonsmodell
+    multivalued: true
+    description: Del-informasjonsmodell av denne modellen (dct:hasPart).
+
+  modell:
+    slot_uri: modelldcatno:model
+    range: Informasjonsmodell
+    multivalued: true
+    description: Informasjonsmodellar i modelkatalogen (modelldcatno:model).
+
+  er_del_av_katalog:
+    slot_uri: dct:isPartOf
+    range: Modelkatalog
+    description: Overordna modelkatalog (dct:isPartOf).
+
+  er_del_av_modell:
+    slot_uri: dct:isPartOf
+    range: Informasjonsmodell
+    multivalued: true
+    description: Overordna informasjonsmodell (dct:isPartOf).
+
+  er_profil_av:
+    slot_uri: prof:isProfileOf
+    range: Standard
+    multivalued: true
+    description: Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf).
+
+  er_erstatta_av:
+    slot_uri: dct:isReplacedBy
+    range: Informasjonsmodell
+    multivalued: true
+    description: Informasjonsmodell som erstattar denne (dct:isReplacedBy).
+
+  erstatter:
+    slot_uri: dct:replaces
+    range: Informasjonsmodell
+    multivalued: true
+    description: Informasjonsmodell som denne erstattar (dct:replaces).
+
+  har_format:
+    slot_uri: dct:hasFormat
+    range: Dokument
+    multivalued: true
+    description: Dokument som representerer ein annan form av modellen (dct:hasFormat).
+
+  tidsperiode:
+    slot_uri: dct:temporal
+    range: Tidsperiode
+    multivalued: true
+    description: Tidsperiode ressursen dekkar (dct:temporal).
+
+  er_i_samsvar_med:
+    slot_uri: dct:conformsTo
+    range: Standard
+    multivalued: true
+    description: Standard ressursen er i samsvar med (dct:conformsTo).
+
+  informasjonsmodellidentifikator:
+    slot_uri: modelldcatno:informationModelIdentifier
+    range: string
+    description: Identifikator for informasjonsmodellen i domenet (modelldcatno:informationModelIdentifier).
+
+  # ---- Modellelement -------------------------------------------------------
+
+  inneholder_modellelement:
+    slot_uri: modelldcatno:containsModelElement
+    range: Modellelement
+    multivalued: true
+    description: Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelElement).
+
+  har_eigenskap:
+    slot_uri: modelldcatno:hasProperty
+    range: Eigenskap
+    multivalued: true
+    description: Eigenskapar modellelementet har (modelldcatno:hasProperty).
+
+  tilhorer_modul:
+    slot_uri: modelldcatno:belongsToModule
+    range: Modul
+    multivalued: true
+    description: Modul dette elementet tilhøyrer (modelldcatno:belongsToModule).
+
+  # ---- Eigenskap -----------------------------------------------------------
+
+  navigerbar:
+    slot_uri: modelldcatno:navigable
+    range: boolean
+    description: Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable).
+
+  min_multiplisitet:
+    slot_uri: modelldcatno:minOccurs
+    range: NonNegativeInteger
+    description: Minste multiplisitet for eigenskapen (modelldcatno:minOccurs).
+
+  maks_multiplisitet:
+    slot_uri: modelldcatno:maxOccurs
+    range: string
+    description: Høgste multiplisitet — heltalstal, "n" eller "*" (modelldcatno:maxOccurs).
+
+  relasjonsegenskapetikett:
+    slot_uri: modelldcatno:relationPropertyLabel
+    range: LangString
+    multivalued: true
+    description: Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel).
+
+  sekvensnummer:
+    slot_uri: modelldcatno:sequenceNumber
+    range: NonNegativeInteger
+    description: Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber).
+
+  danner_symmetri_med:
+    slot_uri: modelldcatno:formsSymmetryWith
+    range: Eigenskap
+    description: Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith).
+
+  har_type:
+    slot_uri: modelldcatno:hasType
+    range: Modellelement
+    multivalued: true
+    description: Type modellelement for eigenskapen (modelldcatno:hasType).
+
+  # ---- Attributt -----------------------------------------------------------
+
+  har_datatype:
+    slot_uri: modelldcatno:hasDataType
+    range: Datatype
+    multivalued: true
+    description: Datatype for attributten (modelldcatno:hasDataType).
+
+  har_enkel_type:
+    slot_uri: modelldcatno:hasSimpleType
+    range: EnkelType
+    multivalued: true
+    description: Enkel type for attributten (modelldcatno:hasSimpleType).
+
+  har_verdi_fra:
+    slot_uri: modelldcatno:hasValueFrom
+    range: Kodeliste
+    multivalued: true
+    description: Kodeliste for tillate verdiar til attributten (modelldcatno:hasValueFrom).
+
+  inneholder_objekttype:
+    slot_uri: modelldcatno:containsObjectType
+    range: Objekttype
+    multivalued: true
+    description: Objekttype som attributten inneheld (modelldcatno:containsObjectType).
+
+  # ---- Assosiasjon ---------------------------------------------------------
+
+  refererer_til:
+    slot_uri: modelldcatno:refersTo
+    range: Modellelement
+    description: Modellelement som eigenskapen refererer til (modelldcatno:refersTo).
+
+  # ---- Rolle ---------------------------------------------------------------
+
+  har_objekttype:
+    slot_uri: modelldcatno:hasObjectType
+    range: Objekttype
+    description: Objekttype knytt til rolla (modelldcatno:hasObjectType).
+
+  # ---- Spesialisering ------------------------------------------------------
+
+  har_generelt_begrep:
+    slot_uri: modelldcatno:hasGeneralConcept
+    range: Modellelement
+    description: Det generelle modellelementet i ei spesialisering (modelldcatno:hasGeneralConcept).
+
+  # ---- Sammensetning -------------------------------------------------------
+
+  inneholder:
+    slot_uri: modelldcatno:contains
+    range: Modellelement
+    description: Modellelement som er del av samansetjinga (modelldcatno:contains).
+
+  # ---- Realisering ---------------------------------------------------------
+
+  har_leverandor:
+    slot_uri: modelldcatno:hasSupplier
+    range: Modellelement
+    description: Leverandør-modellelement i realiseringa (modelldcatno:hasSupplier).
+
+  # ---- Abstraksjon ---------------------------------------------------------
+
+  er_abstraksjon_av:
+    slot_uri: modelldcatno:isAbstractionOf
+    range: Modellelement
+    description: Modellelement denne abstraksjonen representerer (modelldcatno:isAbstractionOf).
+
+  # ---- Avhengighet ---------------------------------------------------------
+
+  avhengig_av:
+    slot_uri: modelldcatno:dependentOn
+    range: Modellelement
+    description: Modellelement dette elementet avheng av (modelldcatno:dependentOn).
+
+  # ---- Valg ----------------------------------------------------------------
+
+  har_noe:
+    slot_uri: modelldcatno:hasSome
+    range: Modellelement
+    multivalued: true
+    description: Modellelement som inngår i valet (modelldcatno:hasSome).
+
+  # ---- EnkelType -----------------------------------------------------------
+
+  typedefinisjon_referanse:
+    slot_uri: modelldcatno:typeDefinitionReference
+    range: uri
+    description: Referanse til typedefinisjon (modelldcatno:typeDefinitionReference).
+
+  fraksjonssifre:
+    slot_uri: xsd:fractionDigits
+    range: NonNegativeInteger
+    description: Maks tal på desimalsiffer (xsd:fractionDigits).
+
+  lengde:
+    slot_uri: xsd:length
+    range: NonNegativeInteger
+    description: Nøyaktig lengd av strengen (xsd:length).
+
+  maks_eksklusiv:
+    slot_uri: xsd:maxExclusive
+    range: string
+    description: Eksklusiv maksimumsverdi (xsd:maxExclusive).
+
+  maks_inklusiv:
+    slot_uri: xsd:maxInclusive
+    range: string
+    description: Inklusiv maksimumsverdi (xsd:maxInclusive).
+
+  maks_lengde:
+    slot_uri: xsd:maxLength
+    range: NonNegativeInteger
+    description: Maksimal lengd av strengen (xsd:maxLength).
+
+  min_eksklusiv:
+    slot_uri: xsd:minExclusive
+    range: string
+    description: Eksklusiv minimumsverdi (xsd:minExclusive).
+
+  min_inklusiv:
+    slot_uri: xsd:minInclusive
+    range: string
+    description: Inklusiv minimumsverdi (xsd:minInclusive).
+
+  min_lengde:
+    slot_uri: xsd:minLength
+    range: NonNegativeInteger
+    description: Minimal lengd av strengen (xsd:minLength).
+
+  monster:
+    slot_uri: xsd:pattern
+    range: string
+    description: Regulært uttrykk for tillate strengverdiar (xsd:pattern).
+
+  totalt_sifre:
+    slot_uri: xsd:totalDigits
+    range: NonNegativeInteger
+    description: Maks totalt tal på siffer (xsd:totalDigits).
+
+  # ---- Kodeelement ---------------------------------------------------------
+
+  i_skjema:
+    slot_uri: skos:inScheme
+    range: Kodeliste
+    multivalued: true
+    description: Kodeliste dette kodeelementet tilhøyrer (skos:inScheme).
+
+  notasjon:
+    slot_uri: skos:notation
+    range: string
+    description: Kode/notasjon for kodeelementet (skos:notation).
+
+  topp_begrep_av:
+    slot_uri: skos:topConceptOf
+    range: Kodeliste
+    multivalued: true
+    description: Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConceptOf).
+
+  definisjon:
+    slot_uri: skos:definition
+    range: LangString
+    multivalued: true
+    description: Definisjon av kodeelementet (skos:definition).
+
+  eksempel_kode:
+    slot_uri: skos:example
+    range: LangString
+    multivalued: true
+    description: Eksempel på bruk av kodeelementet (skos:example).
+
+  eksklusjonsnotat:
+    slot_uri: xkos:exclusionNote
+    range: LangString
+    multivalued: true
+    description: Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNote).
+
+  forrige:
+    slot_uri: xkos:previous
+    range: Kodeelement
+    description: Førre kodeelement i ein ordna kodeliste (xkos:previous).
+
+  skjult_term:
+    slot_uri: skos:hiddenLabel
+    range: LangString
+    multivalued: true
+    description: Skjult term for kodeelementet (skos:hiddenLabel).
+
+  inklusjonsnotat:
+    slot_uri: xkos:inclusionNote
+    range: LangString
+    multivalued: true
+    description: Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote).
+
+  notat:
+    slot_uri: skos:note
+    range: LangString
+    multivalued: true
+    description: Generelt notat om kodeelementet (skos:note).
+
+  neste:
+    slot_uri: xkos:next
+    range: Kodeelement
+    description: Neste kodeelement i ein ordna kodeliste (xkos:next).
+
+  omfangsnotat:
+    slot_uri: skos:scopeNote
+    range: LangString
+    multivalued: true
+    description: Notat om omfanget til kodeelementet (skos:scopeNote).
+
+  alternativ_term:
+    slot_uri: skos:altLabel
+    range: LangString
+    multivalued: true
+    description: Alternativ term for kodeelementet (skos:altLabel).
+
+  # ---- Merknad / Betingelsesregel ------------------------------------------
+
+  annoterer:
+    slot_uri: modelldcatno:annotates
+    range: Modellelement
+    multivalued: true
+    description: Modellelement denne merknaden gjeld (modelldcatno:annotates).
+
+  eigenskapsmerknad:
+    slot_uri: modelldcatno:propertyNote
+    range: LangString
+    multivalued: true
+    description: Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote).
+
+  betinger:
+    slot_uri: modelldcatno:constrains
+    range: Modellelement
+    multivalued: true
+    description: Modellelement betingelsesregelen avgrensar (modelldcatno:constrains).
+
+  betingelsesuttrykk:
+    slot_uri: modelldcatno:constraintExpression
+    range: LangString
+    multivalued: true
+    description: Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression).

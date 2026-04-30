@@ -41,7 +41,7 @@ personstatus:
 
 statsborgerskap:
   - id: ngrp:eksempel/statsborgerskap-1
-    landkode: NO
+    landkode: "NO"
     gyldig_fra_og_med: "1970-05-12"
 
 foedslar:
