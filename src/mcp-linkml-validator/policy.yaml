@@ -1,0 +1,22 @@
+version: 1
+
+# Felt som MÅ vere til stades (severity: error)
+required:
+  schema:
+    - id
+    - name
+  class: []
+  slot: []
+
+# Felt som BØR vere til stades (severity: warning)
+recommended:
+  schema:
+    - description
+  class:
+    - description
+  slot:
+    - description
+
+# Fellesklasser som skjemaet må bruke eller importere (tom = inga krav)
+common_classes:
+  must_use: []

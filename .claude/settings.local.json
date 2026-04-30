@@ -5,7 +5,10 @@
       "Bash(podman run *)",
       "Bash(make test *)",
       "WebFetch(domain:informasjonsforvaltning.github.io)",
-      "Bash(echo \"Exit: $?\")"
+      "Bash(echo \"Exit: $?\")",
+      "Bash(make mcp-build *)",
+      "Bash(make mcp-smoke *)",
+      "Bash(make mcp-test *)"
     ]
   }
 }
