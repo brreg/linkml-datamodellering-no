@@ -1,0 +1,457 @@
+id: https://example.no/ontology/aksje-eierskap
+name: aksje_eierskap
+title: Aksje- og eigarskapsmodell
+description: >
+  LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar.
+  Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  aksje: https://example.no/ontology/aksje#
+  schema: http://schema.org/
+
+default_prefix: aksje
+default_range: string
+
+imports:
+  - linkml:types
+
+#################################
+# Containerklasse
+#################################
+
+classes:
+
+  Containerklasse:
+    description: >
+      Containerklasse for alle forretningsobjekt i modellen.
+      Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
+    tree_root: true
+    class_uri: schema:Thing
+    slots:
+      - identifikator
+      - aksjeselskaper
+      - aksjekapitaler
+      - aksjer
+      - aksjeklasser
+      - aksjeeierrettigheter
+      - aksjeeiere
+      - aksjeposter
+      - eierposisjoner
+      - eierskapstransaksjoner
+      - aksjeoverdragelser
+      - vederlager
+      - selskapshendelser
+      - aksjeinnskudder
+      - utbytter
+      - utdelinger
+      - innbetalt_aksjekapitaler
+      - innbetalt_overkurser
+
+#################################
+# Kjerneklasser
+#################################
+
+  Aksjeselskap:
+    description: Selskap som utsteder aksjar og har aksjekapital.
+    slots:
+      - identifikator
+      - navn
+      - har_aksjekapital
+      - utsteder_aksje
+
+  Aksjekapital:
+    description: Den registrerte aksjekapitalen i eit aksjeselskap.
+    slots:
+      - identifikator
+      - har_antall_aksjer
+
+  # AntallAksjer:
+  #   description: Talet på aksjar knytt til ein aksjekapital eller aksjepost.
+  #   slots:
+  #     - antall
+
+  Aksje:
+    description: Ei enkelt aksje utstedt av eit aksjeselskap.
+    slots:
+      - identifikator
+      - har_palydende_belop
+      - tilhorer_aksjeklasse
+
+  # PalydendeBelop:
+  #   description: Pålydande verdi for ei aksje.
+  #   slots:
+  #     - belop
+
+  Aksjeklasse:
+    description: Klasse aksjar høyrer til, med eigne rettigheiter.
+    slots:
+      - identifikator
+      - navn
+
+
+  Aksjeeierrettighet:
+    description: Rettigheiter knytt til aksjar, til dømes stemmerett.
+    slots:
+      - identifikator
+      - beskrivelse
+      - gjelder_aksjer_i_aksjeklasse
+
+  Aksjeeier:
+    description: Person eller organisasjon som eig aksjar.
+    slots:
+      - identifikator
+      - navn
+      - har_eierposisjon
+
+  Eierposisjon:
+    description: Eierens samla posisjon i eit selskap.
+    slots:
+      - identifikator
+      - gjelder_aksjepost
+
+  Aksjepost:
+    description: Samling aksjar eigd av ein aksjeeigar.
+    slots:
+      - identifikator
+      - har_antall_aksjer
+      - gjelder_aksjer_i_aksjeklasse
+
+
+#################################
+# Økonomi og utdeling
+#################################
+
+  Utbytte:
+    description: Utbytte knytt til ein eigarposisjon.
+    slots:
+      - identifikator
+      - tidspunkt
+      - har_utdeling
+      - er_basert_paa_eierposisjon
+
+  Utdeling:
+    description: Konkret utdeling av verdiar til aksjeeigarar.
+    slots:
+      - identifikator
+      - belop
+
+  Tidspunkt:
+    description: Tidspunkt for ei hending.
+    slots:
+      - dato
+
+#################################
+# Transaksjonar og hendingar
+#################################
+
+  Eierskapstransaksjon:
+    description: Transaksjon som påverkar eigarskap i selskapet.
+    slots:
+      - identifikator
+      - tidspunkt
+      - kan_vaere_aksjeoverdragelse
+      - kan_vaere_selskapshendelse
+      - paavirker_eierposisjon
+
+
+  Aksjeoverdragelse:
+    description: Overdraging av aksjar mellom partar.
+    slots:
+      - identifikator
+      - kan_ha_vederlag
+
+  Vederlag:
+    description: Vederlag knytt til ei aksjeoverdraging.
+    slots:
+      - identifikator
+      - belop
+
+  Selskapshendelse:
+    description: Hending som påverkar selskapet sitt eigarskap eller kapital.
+    slots:
+      - identifikator
+      - kan_ha_aksjeinnskudd
+
+  Aksjeinnskudd:
+    description: Innskot knytt til aksjar i samband med selskapshending.
+    slots:
+      - identifikator
+      - gjelder_innbetalt_aksjekapital
+      - gjelder_innbetalt_overkurs
+
+  InnbetaltAksjekapital:
+    description: Innbetalt aksjekapital.
+    slots:
+      - belop
+
+  InnbetaltOverkurs:
+    description: Innbetalt overkurs utover pålydande.
+    slots:
+      - belop
+
+#################################
+# Slots
+#################################
+
+slots:
+
+  identifikator:
+    description: Global identifikator for instansen.
+    identifier: true
+    range: uriorcurie
+
+  navn:
+    description: Namn på instansen.
+    range: string
+    inlined: true
+
+  beskrivelse:
+    description: Tekstleg forklaring av instansen.
+    range: string
+    inlined: true
+
+  antall:
+    description: Numerisk verdi.
+    range: integer
+    inlined: true
+
+  belop:
+    description: Monetært beløp.
+    range: decimal
+    inlined: true
+
+  dato:
+    description: Kalenderdato.
+    range: date
+    inlined: true
+
+  har_aksjekapital:
+    description: Aksjekapital som høyrer til selskapet.
+    domain: Aksjeselskap
+    range: Aksjekapital
+
+  har_antall_aksjer:
+    description: Tal aksjar.
+    range: integer
+    inlined: true
+
+  utsteder_aksje:
+    description: Aksje utstedt av selskapet
+    domain: Aksjeselskap
+    range: Aksje
+
+  har_palydende_belop:
+    description: Pålydande verdi for aksja.
+    domain: Aksje
+    range: decimal
+    inlined: true
+
+  tilhorer_aksjeklasse:
+    description: Klassen aksja høyrer til.
+    domain: Aksje
+    range: Aksjeklasse
+
+  gjelder_aksjer_i_aksjeklasse:
+    description: Rettigheiter knytt til aksjeklassen.
+    range: Aksjeklasse
+
+  har_eierposisjon:
+    description: Eierposisjon aksjeeigaren har.
+    domain: Aksjeeier
+    range: Eierposisjon
+
+  gjelder_aksjepost:
+    description: Aksjepost som inngår i eigarposisjonen.
+    domain: Eierposisjon
+    range: Aksjepost
+
+  er_basert_paa_eierposisjon:
+    description: Utbytte knytt til eigarposisjonen.
+    domain: Utbytte
+    range: Eierposisjon
+
+  paavirker_eierposisjon:
+    description: Eierskapstransaksjon knytt til eigarposisjonen.
+    domain: Eierskapstransaksjon
+    range: Eierposisjon
+
+  har_utdeling:
+    description: Utdeling knytt til utbyttet.
+    domain: Utbytte
+    range: Utdeling
+
+  tidspunkt:
+    description: Tidspunkt for utbytte/eierskapstransaksjon.
+    range: date
+    inlined: true
+
+  kan_vaere_aksjeoverdragelse:
+    description: Aksjeoverdraging i transaksjonen.
+    domain: Eierskapstransaksjon
+    range: Aksjeoverdragelse
+
+  kan_vaere_selskapshendelse:
+    description: Selskapshendelse i transaksjonen.
+    domain: Eierskapstransaksjon
+    range: Selskapshendelse
+
+  kan_ha_vederlag:
+    description: Vederlag for aksjeoverdraging.
+    domain: Aksjeoverdragelse
+    range: Vederlag
+
+  kan_ha_aksjeinnskudd:
+    description: Aksjeinnskot i selskapshending.
+    domain: Selskapshendelse
+    range: Aksjeinnskudd
+
+  gjelder_innbetalt_aksjekapital:
+    description: Innbetalt aksjekapital.
+    domain: Aksjeinnskudd
+    range: decimal
+
+  gjelder_innbetalt_overkurs:
+    description: Innbetalt overkurs.
+    domain: Aksjeinnskudd
+    range: decimal
+
+#################################
+# Container-slots (flertall)
+#################################
+
+  aksjeselskaper:
+    description: Samling av aksjeselskap.
+    domain: Containerklasse
+    range: Aksjeselskap
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjekapitaler:
+    description: Samling av aksjekapitalar.
+    domain: Containerklasse
+    range: Aksjekapital
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjer:
+    description: Samling av aksjar.
+    domain: Containerklasse
+    range: Aksje
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjeklasser:
+    description: Samling av aksjeklasser.
+    domain: Containerklasse
+    range: Aksjeklasse
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjeeierrettigheter:
+    description: Samling av aksjeeierrettigheiter.
+    domain: Containerklasse
+    range: Aksjeeierrettighet
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjeeiere:
+    description: Samling av aksjeeigarar.
+    domain: Containerklasse
+    range: Aksjeeier
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjeposter:
+    description: Samling av aksjepostar.
+    domain: Containerklasse
+    range: Aksjepost
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  eierposisjoner:
+    description: Samling av eigarposisjonar.
+    domain: Containerklasse
+    range: Eierposisjon
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  eierskapstransaksjoner:
+    description: Samling av eigarskapstransaksjonar.
+    domain: Containerklasse
+    range: Eierskapstransaksjon
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjeoverdragelser:
+    description: Samling av aksjeoverdragingar.
+    domain: Containerklasse
+    range: Aksjeoverdragelse
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  vederlager:
+    description: Samling av vederlag.
+    domain: Containerklasse
+    range: Vederlag
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  selskapshendelser:
+    description: Samling av selskapshendingar.
+    domain: Containerklasse
+    range: Selskapshendelse
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  aksjeinnskudder:
+    description: Samling av aksjeinnskot.
+    domain: Containerklasse
+    range: Aksjeinnskudd
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  utbytter:
+    description: Samling av utbytte.
+    domain: Containerklasse
+    range: Utbytte
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  utdelinger:
+    description: Samling av utdelingar.
+    domain: Containerklasse
+    range: Utdeling
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  innbetalt_aksjekapitaler:
+    description: Samling av innbetalt aksjekapital.
+    domain: Containerklasse
+    range: InnbetaltAksjekapital
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  innbetalt_overkurser:
+    description: Samling av innbetalt overkurs.
+    domain: Containerklasse
+    range: InnbetaltOverkurs
+    multivalued: true
+    inlined: true
+    inlined_as_list: true

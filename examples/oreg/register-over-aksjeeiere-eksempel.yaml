@@ -1,0 +1,77 @@
+identifikator: aksje:Container1
+
+aksjeselskaper:
+  - identifikator: aksje:Aksjeselskap1
+    navn: Eksempel AS
+    har_aksjekapital: aksje:Aksjekapital1
+    utsteder_aksje: aksje:Aksje1
+
+aksjekapitaler:
+  - identifikator: aksje:Aksjekapital1
+    har_antall_aksjer: 1000
+
+
+aksjer:
+  - identifikator: aksje:Aksje1
+    har_palydende_belop: 100
+    tilhorer_aksjeklasse: aksje:Aksjeklasse1
+
+aksjeklasser:
+  - identifikator: aksje:Aksjeklasse1
+    navn: Ordinær aksje
+
+aksjeeierrettigheter:
+  - identifikator: aksje:Aksjeeierrettighet1
+    beskrivelse: Stemmerett på generalforsamling
+    gjelder_aksjer_i_aksjeklasse: aksje:Aksjeklasse1
+
+aksjeeiere:
+  - identifikator: aksje:Aksjeeier1
+    navn: Ola Nordmann
+    har_eierposisjon: aksje:Eierposisjon1
+
+eierposisjoner:
+  - identifikator: aksje:Eierposisjon1
+    gjelder_aksjepost: aksje:Aksjepost1
+
+aksjeposter:
+  - identifikator: aksje:Aksjepost1
+    har_antall_aksjer: 300
+    gjelder_aksjer_i_aksjeklasse: aksje:Aksjeklasse1
+
+
+utbytter:
+  - identifikator: aksje:Utbytte1
+    tidspunkt: "2026-03-01"
+    har_utdeling: aksje:Utdeling1
+    er_basert_paa_eierposisjon: aksje:Eierposisjon1
+
+utdelinger:
+  - identifikator: aksje:Utdeling1
+    belop: 5000.00
+
+eierskapstransaksjoner:
+  - identifikator: aksje:Eierskapstransaksjon1
+    tidspunkt: "2026-01-01"
+    kan_vaere_aksjeoverdragelse: aksje:Aksjeoverdragelse1
+    paavirker_eierposisjon: aksje:Eierposisjon1
+    kan_vaere_selskapshendelse: aksje:Selskapshendelse1
+
+aksjeoverdragelser:
+  - identifikator: aksje:Aksjeoverdragelse1
+    kan_ha_vederlag: aksje:Vederlag1
+
+
+vederlager:
+  - identifikator: aksje:Vederlag1
+    belop: 100000.00
+
+selskapshendelser:
+  - identifikator: aksje:Selskapshendelse1
+    kan_ha_aksjeinnskudd: aksje:Aksjeinnskudd1
+
+aksjeinnskudder:
+  - identifikator: aksje:Aksjeinnskudd1
+    gjelder_innbetalt_aksjekapital: 48484
+    gjelder_innbetalt_overkurs: 887763
+

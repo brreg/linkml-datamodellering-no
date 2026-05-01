@@ -122,6 +122,22 @@ for example in examples/fair/*-eksempel.yaml; do
   fi
 done
 
+# Valider OREG-eksempeldata mot skjema direkte (har tree_root)
+for example in examples/oreg/*-eksempel.yaml; do
+  [ -f "$example" ] || continue
+  profil=$(basename "$example" .yaml | sed 's/-eksempel$//')
+  schema="$SCHEMA_DIR/oreg/$profil/$profil-schema.yaml"
+  echo -n "Valider $example ... "
+  if eval "$PODMAN linkml validate --schema $schema $example" > /dev/null 2>&1; then
+    echo "OK"
+    PASS=$((PASS + 1))
+  else
+    echo "FEIL"
+    eval "$PODMAN linkml validate --schema $schema $example" || true
+    FAIL=$((FAIL + 1))
+  fi
+done
+
 echo ""
 echo "Resultat: $PASS OK, $FAIL feil"
 [ "$FAIL" -eq 0 ]
