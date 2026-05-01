@@ -3,7 +3,7 @@
 Dette repoet inneheld norske W3C-applikasjonsprofiler og domenemodeller
 modellert i [LinkML](https://linkml.io/).
 
-## Profiler
+## AP-NO Profiler for RDF baserte ressurser
 
 | Profil | Beskriving | Status |
 |---|---|---|
@@ -16,18 +16,31 @@ modellert i [LinkML](https://linkml.io/).
 
 ## Domenemodeller
 
+### NGR – Nasjonale Grunndata
+
 | Modell | Beskriving |
 |---|---|
 | **NGR-adresse** | Adressemodell frå Noreg digitalt |
 | **NGR-eiendom** | Eigedomsmodell |
 | **NGR-person** | Personmodell frå folkeregisteret |
 | **NGR-virksomhet** | Verksemdsmodell |
+
+### FINT – Felles Fylkeskommunale INTegrasjoner
+
+| Modell | Beskriving |
+|---|---|
 | **FINT-administrasjon** | Personalressursar og organisasjon |
 | **FINT-arkiv** | Saksarkiv og journalføring |
 | **FINT-økonomi** | Faktura og rekneskap |
 | **FINT-personvern** | Behandlingsprotokoll |
 | **FINT-ressurs** | Brukarar og tilgangsrettar |
 | **FINT-utdanning** | Skule, elevar og klasser |
+
+### OREG – Offentlege registre
+
+| Modell | Beskriving |
+|---|---|
+| **Register over aksjeeiere** | Aksjonærar, aksjepostar og selskap |
 
 ## Importhierarki
 
@@ -36,7 +49,7 @@ graph TD
     LT[linkml:types]
     CM[common-ap-no]
     AP[AP-NO-profil\ndcat / skos / cpsv / …]
-    DM[Domenemodell\nNGR / FINT / …]
+    DM[Domenemodell\nNGR / OREG / …]
     FM[fair-metadata]
     FC[fint-common]
     FD[FINT-domenemodell]
@@ -45,6 +58,7 @@ graph TD
     FM -.->|valfri import| DM
     LT --> FC --> FD
     FM -.->|valfri import| FD
+    AP -.->|valfri import| FD
 ```
 
 ## Hurtigstart

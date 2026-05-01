@@ -158,7 +158,7 @@ generated/                              # Genererte artefakter (ikkje innsjekka 
 
 ## Arkitekturprinsipp
 
-### AP-NO-profiler
+### AP-NO Profiler for RDF baserte ressurser
 
 Skjema under `src/linkml/ap-no/` modellerer [norske applikasjonsprofiler](https://data.norge.no/showroom/overview) for RDF baserte ressurser som definert av Digitaliseringsdirektoratet. Disse skjemaene definerer klasser og slot-ar utan `Container`/`tree_root`. Dei er meint å importerast av domenemodeller og er ikkje sjølvstendige. Felles slot-ar som går att i fleire profiler ligg i `common/`.
 
@@ -176,7 +176,7 @@ Testfixturer (`tests/fixtures/`) legg til ein `Container`-klasse med `tree_root:
 
 `src/linkml/fair/fair-metadata/` modellerer gapet mellom AP-NO-profilene og [FAIR-prinsippa](https://www.go-fair.org/fair-principles/) (Findable, Accessible, Interoperable, Reusable). Dei er meint å importerast av domenemodeller og er ikkje sjølvstendige. Skjemaet er eit bibliotek utan `tree_root`; testfixturen (`tests/fixtures/fair-metadata-fixture.yaml`) legg til `Container` for validering.
 
-### NGR-domenemodeller
+### NGR – Nasjonale Grunndata
 
 Skjema under `src/linkml/ngr/` modellerer [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/) — dei autoritative grunnlagsregistra i norsk offentleg sektor:
 
@@ -189,10 +189,10 @@ Skjema under `src/linkml/ngr/` modellerer [Nasjonale grunndata](https://informas
 
 Alle NGR-skjema er sjølvstendige med eigen `tree_root`-klasse og importerer berre `linkml:types`. Klasser frå andre domene (t.d. `OffisiellAdresse` i ngr-eiendom, `Person` i ngr-virksomhet) er modellerte som stub-klasser med berre `id`.
 
-### OREG-domenemodeller
+### OREG - domenemodeller
 Skjema under `src/linkml/oreg/` modellerer offentlige registre.
 
-### FINT-domenemodeller
+### FINT – Felles Fylkeskommunale INTegrasjoner
 
 Skjema under `src/linkml/fint/` modellerer [FINT-informasjonsmodellen](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20) for integrasjon i norsk fylkeskommune sektor. Alle FINT-skjema importerer `fint-common` for felles abstrakte klassar og typar (`Aktoer`, `Enhet`, `Begrep`, `Identifikator` m.fl.) og er sjølvstendige med eigen `tree_root`-klasse.
 

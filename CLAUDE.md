@@ -16,6 +16,9 @@ Profiler som skal modelleres:
 
 Egenskaper som går igjen i flere profiler samles i `common-ap-no-schema.yaml`.
 
+Domenemodeller utover AP-NO og FINT:
+- **OREG** – Offentlige registre (`src/linkml/oreg/`) – f.eks. register-over-aksjeeiere
+
 ## Importhierarki
 
 ```
@@ -30,6 +33,8 @@ domenemodeller        ← importerer AP-NO-profilene, ikke common-ap-no direkte
 fint-common           ← bare FINT-domenemodellene importerer denne
     ↓
 fint-administrasjon / fint-arkiv / …
+
+oreg-modeller         ← offentlige registre (importerer AP-NO-profil(er) etter behov)
 
 fair-metadata         ← kan importeres av alle domenemodeller
 ```
@@ -63,6 +68,7 @@ src/linkml/
   fair/fair-metadata/       – FAIR-metadataoverbygning
   fint/<domene>/            – FINT-domenemodeller (importerer fint-common)
   ngr/<domene>/             – NGR-domenemodeller
+  oreg/<register>/          – Offentlige registre (OREG-domenemodeller)
 
 examples/<domene>/          – Eksempeldata (YAML)
 tests/                      – Testskript og fixtures
@@ -124,5 +130,5 @@ Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppga
 ### Ny profil eller domenemodell
 Se `docs/ny-domenemodell.md` for steg-for-steg-veiledning. Kortversjon:
 1. Opprett `src/linkml/<domene>/<modellnavn>/<modellnavn>-schema.yaml`
-2. Legg til modellnavnet i riktig liste i `Makefile`
+2. Legg til modellnavnet i riktig liste i `Makefile` (`AP_NO_SCHEMAS`, `NGR_SCHEMAS`, `FINT_SCHEMAS`, `OREG_SCHEMAS` o.l.)
 3. Opprett `examples/<domene>/` med minst ett eksempel-datasett
