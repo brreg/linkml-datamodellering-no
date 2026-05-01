@@ -12,5 +12,8 @@
       "Bash(make mcp-validate *)",
       "Bash(podman build *)"
     ]
-  }
+  },
+  "enabledMcpjsonServers": [
+    "linkml-validator"
+  ]
 }
