@@ -23,6 +23,7 @@ DOCS_RUN    := podman run --rm -v "$(CURDIR)/mkdocs:/docs"
 .PHONY: all test validate docs gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf convert-rdf clean \
         mcp-build mcp-run mcp-test mcp-smoke mcp-validate \
         docs-serve docs-build \
+        ap-no ngr fint fair oreg \
         $(addprefix validate-,$(OREG_SCHEMAS))
 
 
@@ -33,11 +34,11 @@ test:
 
 # Valider skjema mot LinkML-metaskjemaet
 validate:
-	$(foreach s,$(AP_NO_SCHEMAS),$(PODMAN) gen-linkml --validate $(call ap_no_schema,$(s));)
-	$(foreach s,$(NGR_SCHEMAS),$(PODMAN) gen-linkml --validate $(call ngr_schema,$(s));)
-	$(foreach s,$(FINT_SCHEMAS),$(PODMAN) gen-linkml --validate $(call fint_schema,$(s));)
-	$(foreach s,$(FAIR_SCHEMAS),$(PODMAN) gen-linkml --validate $(call fair_schema,$(s));)
-	$(foreach s,$(OREG_SCHEMAS),$(PODMAN) gen-linkml --validate $(call oreg_schema,$(s));)
+	$(foreach s,$(AP_NO_SCHEMAS),$(PODMAN) gen-linkml $(call ap_no_schema,$(s)) > /dev/null;)
+	$(foreach s,$(NGR_SCHEMAS),$(PODMAN) gen-linkml $(call ngr_schema,$(s)) > /dev/null;)
+	$(foreach s,$(FINT_SCHEMAS),$(PODMAN) gen-linkml $(call fint_schema,$(s)) > /dev/null;)
+	$(foreach s,$(FAIR_SCHEMAS),$(PODMAN) gen-linkml $(call fair_schema,$(s)) > /dev/null;)
+	$(foreach s,$(OREG_SCHEMAS),$(PODMAN) gen-linkml $(call oreg_schema,$(s)) > /dev/null;)
 
 # Generer JSON-LD kontekst
 gen-jsonld:
@@ -146,6 +147,105 @@ docs:
 
 clean:
 	rm -rf $(GEN_DIR)
+
+# Generer alle artefaktar for AP-NO-profilane
+ap-no:
+	$(foreach s,$(AP_NO_SCHEMAS),$(PODMAN) gen-linkml $(call ap_no_schema,$(s)) > /dev/null;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-jsonld-context $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-context.jsonld;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-shacl $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-shapes.ttl;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-python $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-model.py;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-json-schema $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-schema.json;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-owl $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-ontology.ttl;)
+	$(foreach s,$(AP_NO_SCHEMAS),mkdir -p $(GEN_DIR)/ap-no/$(s) && $(PODMAN) gen-rdf $(call ap_no_schema,$(s)) > $(GEN_DIR)/ap-no/$(s)/$(s)-schema.ttl;)
+	for example in examples/ap-no/*-eksempel.yaml; do \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		mkdir -p $(GEN_DIR)/ap-no/$$profil; \
+		$(PODMAN) linkml-convert \
+			--schema tests/fixtures/$$profil-fixture.yaml \
+			--output-format ttl \
+			--no-validate \
+			--output $(GEN_DIR)/ap-no/$$profil/$$name.ttl \
+			$$example; \
+	done
+	$(foreach s,$(AP_NO_SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/ap-no/$(s)/docs $(call ap_no_schema,$(s));)
+
+# Generer alle artefaktar for NGR-modellane
+ngr:
+	$(foreach s,$(NGR_SCHEMAS),$(PODMAN) gen-linkml $(call ngr_schema,$(s)) > /dev/null;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-jsonld-context $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-context.jsonld;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-shacl $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-shapes.ttl;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-python $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-model.py;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-json-schema $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-schema.json;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-owl $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-ontology.ttl;)
+	$(foreach s,$(NGR_SCHEMAS),mkdir -p $(GEN_DIR)/ngr/$(s) && $(PODMAN) gen-rdf $(call ngr_schema,$(s)) > $(GEN_DIR)/ngr/$(s)/$(s)-schema.ttl;)
+	for example in examples/ngr/*-eksempel.yaml; do \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		mkdir -p $(GEN_DIR)/ngr/$$profil; \
+		$(PODMAN) linkml-convert \
+			--schema $(SCHEMA_DIR)/ngr/$$profil/$$profil-schema.yaml \
+			--output-format ttl \
+			--no-validate \
+			--output $(GEN_DIR)/ngr/$$profil/$$name.ttl \
+			$$example; \
+	done
+	$(foreach s,$(NGR_SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/ngr/$(s)/docs $(call ngr_schema,$(s));)
+
+# Generer alle artefaktar for FINT-modellane
+fint:
+	$(foreach s,$(FINT_SCHEMAS),$(PODMAN) gen-linkml $(call fint_schema,$(s)) > /dev/null;)
+	$(foreach s,$(FINT_SCHEMAS),mkdir -p $(GEN_DIR)/fint/$(s) && $(PODMAN) gen-jsonld-context $(call fint_schema,$(s)) > $(GEN_DIR)/fint/$(s)/$(s)-context.jsonld;)
+	$(foreach s,$(FINT_SCHEMAS),mkdir -p $(GEN_DIR)/fint/$(s) && $(PODMAN) gen-shacl $(call fint_schema,$(s)) > $(GEN_DIR)/fint/$(s)/$(s)-shapes.ttl;)
+	$(foreach s,$(FINT_SCHEMAS),mkdir -p $(GEN_DIR)/fint/$(s) && $(PODMAN) gen-python $(call fint_schema,$(s)) > $(GEN_DIR)/fint/$(s)/$(s)-model.py;)
+	$(foreach s,$(FINT_SCHEMAS),mkdir -p $(GEN_DIR)/fint/$(s) && $(PODMAN) gen-json-schema $(call fint_schema,$(s)) > $(GEN_DIR)/fint/$(s)/$(s)-schema.json;)
+	$(foreach s,$(FINT_SCHEMAS),mkdir -p $(GEN_DIR)/fint/$(s) && $(PODMAN) gen-owl $(call fint_schema,$(s)) > $(GEN_DIR)/fint/$(s)/$(s)-ontology.ttl;)
+	$(foreach s,$(FINT_SCHEMAS),mkdir -p $(GEN_DIR)/fint/$(s) && $(PODMAN) gen-rdf $(call fint_schema,$(s)) > $(GEN_DIR)/fint/$(s)/$(s)-schema.ttl;)
+	for example in examples/fint/*-eksempel.yaml; do \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		mkdir -p $(GEN_DIR)/fint/$$profil; \
+		$(PODMAN) linkml-convert \
+			--schema $(SCHEMA_DIR)/fint/$$profil/$$profil-schema.yaml \
+			--output-format ttl \
+			--no-validate \
+			--output $(GEN_DIR)/fint/$$profil/$$name.ttl \
+			$$example; \
+	done
+	$(foreach s,$(FINT_SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/fint/$(s)/docs $(call fint_schema,$(s));)
+
+# Generer alle artefaktar for FAIR-modellane
+fair:
+	$(foreach s,$(FAIR_SCHEMAS),$(PODMAN) gen-linkml $(call fair_schema,$(s)) > /dev/null;)
+	$(foreach s,$(FAIR_SCHEMAS),mkdir -p $(GEN_DIR)/fair/$(s) && $(PODMAN) gen-jsonld-context $(call fair_schema,$(s)) > $(GEN_DIR)/fair/$(s)/$(s)-context.jsonld;)
+	$(foreach s,$(FAIR_SCHEMAS),mkdir -p $(GEN_DIR)/fair/$(s) && $(PODMAN) gen-shacl $(call fair_schema,$(s)) > $(GEN_DIR)/fair/$(s)/$(s)-shapes.ttl;)
+	$(foreach s,$(FAIR_SCHEMAS),mkdir -p $(GEN_DIR)/fair/$(s) && $(PODMAN) gen-python $(call fair_schema,$(s)) > $(GEN_DIR)/fair/$(s)/$(s)-model.py;)
+	$(foreach s,$(FAIR_SCHEMAS),mkdir -p $(GEN_DIR)/fair/$(s) && $(PODMAN) gen-json-schema $(call fair_schema,$(s)) > $(GEN_DIR)/fair/$(s)/$(s)-schema.json;)
+	$(foreach s,$(FAIR_SCHEMAS),mkdir -p $(GEN_DIR)/fair/$(s) && $(PODMAN) gen-owl $(call fair_schema,$(s)) > $(GEN_DIR)/fair/$(s)/$(s)-ontology.ttl;)
+	$(foreach s,$(FAIR_SCHEMAS),mkdir -p $(GEN_DIR)/fair/$(s) && $(PODMAN) gen-rdf $(call fair_schema,$(s)) > $(GEN_DIR)/fair/$(s)/$(s)-schema.ttl;)
+	$(foreach s,$(FAIR_SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/fair/$(s)/docs $(call fair_schema,$(s));)
+
+# Generer alle artefaktar for OREG-modellane
+oreg:
+	$(foreach s,$(OREG_SCHEMAS),$(PODMAN) gen-linkml $(call oreg_schema,$(s)) > /dev/null;)
+	$(foreach s,$(OREG_SCHEMAS),mkdir -p $(GEN_DIR)/oreg/$(s) && $(PODMAN) gen-jsonld-context $(call oreg_schema,$(s)) > $(GEN_DIR)/oreg/$(s)/$(s)-context.jsonld;)
+	$(foreach s,$(OREG_SCHEMAS),mkdir -p $(GEN_DIR)/oreg/$(s) && $(PODMAN) gen-shacl $(call oreg_schema,$(s)) > $(GEN_DIR)/oreg/$(s)/$(s)-shapes.ttl;)
+	$(foreach s,$(OREG_SCHEMAS),mkdir -p $(GEN_DIR)/oreg/$(s) && $(PODMAN) gen-python $(call oreg_schema,$(s)) > $(GEN_DIR)/oreg/$(s)/$(s)-model.py;)
+	$(foreach s,$(OREG_SCHEMAS),mkdir -p $(GEN_DIR)/oreg/$(s) && $(PODMAN) gen-json-schema $(call oreg_schema,$(s)) > $(GEN_DIR)/oreg/$(s)/$(s)-schema.json;)
+	$(foreach s,$(OREG_SCHEMAS),mkdir -p $(GEN_DIR)/oreg/$(s) && $(PODMAN) gen-owl $(call oreg_schema,$(s)) > $(GEN_DIR)/oreg/$(s)/$(s)-ontology.ttl;)
+	$(foreach s,$(OREG_SCHEMAS),mkdir -p $(GEN_DIR)/oreg/$(s) && $(PODMAN) gen-rdf $(call oreg_schema,$(s)) > $(GEN_DIR)/oreg/$(s)/$(s)-schema.ttl;)
+	for example in examples/oreg/*-eksempel.yaml; do \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		mkdir -p $(GEN_DIR)/oreg/$$profil; \
+		$(PODMAN) linkml-convert \
+			--schema $(SCHEMA_DIR)/oreg/$$profil/$$profil-schema.yaml \
+			--output-format ttl \
+			--no-validate \
+			--output $(GEN_DIR)/oreg/$$profil/$$name.ttl \
+			$$example; \
+	done
+	$(foreach s,$(OREG_SCHEMAS),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(GEN_DIR)/oreg/$(s)/docs $(call oreg_schema,$(s));)
 
 # ---------------------------------------------------------------------------
 # Dokumentasjonsportal (MkDocs Material)

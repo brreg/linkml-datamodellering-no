@@ -1,0 +1,192 @@
+# metadata
+identifikator: samtbuskole:samt-bu-skole-data
+
+# --- eksisterende dataset_metadata ---
+dataset_metadata:
+  - identifikator: samtbuskole:samt-bu-skole-metadata
+    tittel: samt-bu-skole-data
+    beskrivelse: demodatasett for å teste samt-bu-skole modellen
+    tema: 
+      - https://psi.norge.no/los/tema/skole
+      - https://psi.norge.no/los/tema/utdanning
+      - https://psi.norge.no/los/tema/elever
+      - https://psi.norge.no/los/tema/grunnskole
+      - https://psi.norge.no/los/tema/opplaering
+    begrep:
+      - https://psi.norge.no/los/begrep/elev
+      - https://psi.norge.no/los/begrep/skole
+      - https://psi.norge.no/los/begrep/kommune
+      - https://psi.norge.no/los/begrep/grunnskole
+      - https://psi.norge.no/los/begrep/opplaering
+    ble_generert_ved:
+      - https://data.norge.no/vocabulary/provenance-activity-type#administrative-decision
+      - https://data.norge.no/vocabulary/provenance-activity-type#collecting-from-third-party
+      - https://data.norge.no/vocabulary/provenance-activity-type#collecting-from-user
+    dekningsomraade:
+      - http://publications.europa.eu/resource/authority/country/NOR
+    nokkelord:
+      - kommune
+      - skole
+      - barn
+    tidsrom:
+      - vår 2026
+    tilgangsrettigheter:
+      - http://publications.europa.eu/resource/authority/access-right/PUBLIC
+      - http://publications.europa.eu/resource/authority/access-right/RESTRICTED
+      - http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC
+    utgiver: samtbuskole:org-udir
+    kontaktpunkt: 
+      - samtbuskole:kontakt-behandlingsansvarlig
+      - samtbuskole:kontakt-tekniskkontakt
+    datasettdistribusjon:
+      - samtbuskole:dist-rdf
+      - samtbuskole:dist-human-readable
+    gjeldende_lovgivning:
+      - samtbuskole:lov-2019-123
+    # --- DQV-AP-NO egenskaper ---
+    i_samsvar_med:
+      - dqv:dcat-ap-no
+    har_kvalitetsmerknad:
+      - dqv:merknad-1
+      - dqv:brukerfeedback-1
+    har_kvalitetsmaaling:
+      - dqv:maaling-1
+
+# --- DQV-AP-NO instanser med direkte tekst ---
+kvalitetsmerknader:
+  - identifikator: dqv:merknad-1
+    er_motivert_av: dqv:qualityAssessment
+    er_i_kvalitetsdimensjon:
+      - completeness
+    tekst: "Datasettet mangler enkelte observasjoner for 2023."
+
+brukertilbakemeldinger:
+  - identifikator: dqv:brukerfeedback-1
+    er_motivert_av: dqv:qualityAssessment
+    er_i_kvalitetsdimensjon:
+      - accuracy
+    tekst: "Bruker rapporterer at datakvaliteten er tilfredsstillende."
+
+kvalitetsmaalinger:
+  - identifikator: dqv:maaling-1
+    er_kvalitetsmaaling_av: https://data.norge.no/vocabulary/quality-metric#qm-completeness-1001
+    har_verdi: "true"
+
+standarder:
+  - identifikator: dqv:dcat-ap-no
+    tittel: "DCAT-AP-NO"
+    er_i_kvalitetsdimensjon: 
+      - completeness
+    har_referanse: 
+      - https://data.norge.no/specification/dcat-ap-no#
+
+# --- Utgivere og kontaktpunkt ---
+organisasjoner:
+  - identifikator: samtbuskole:org-udir
+    navn: "Direktoratet for utdanning"
+    type: http://purl.org/adms/publishertype/NationalAuthority
+
+grupper:
+  - identifikator: samtbuskole:gruppe-skoleforvaltning
+    navn: "Nasjonal gruppe for skoleforvaltning"
+    type: https://example.org/actor-type/arbeidsgruppe
+
+kontaktpunkter:
+  - identifikator: samtbuskole:kontakt-behandlingsansvarlig
+    navn: "Behandlingsansvarligkontakt"
+    har_epost: mailto:juridisk-kontakt@udir.no
+    har_kontaktinformasjon: https://www.udir.no/behandlingsansvarligkontakt
+  - identifikator: samtbuskole:kontakt-tekniskkontakt
+    navn: "Tekniskkontakt"
+    har_epost: mailto:teknisk-kontakt@udir.no
+    har_kontaktinformasjon: https://www.udir.no/tekniskkontakt
+
+# --- Distribusjon og lovverk ---
+datasettdistribusjoner:
+  - identifikator: samtbuskole:dist-rdf
+    tilgangs_url: 
+      - https://example.no/data/skole.rdf
+    beskrivelse: "RDF distribusjon av skoleontologi"
+    format: http://publications.europa.eu/resource/authority/file-type/RDF
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+    status: http://publications.europa.eu/resource/authority/distribution-status/COMPLETED
+    tilgjengelighet: http://publications.europa.eu/resource/authority/planned-availability/STABLE
+  - identifikator: samtbuskole:dist-human-readable
+    tilgangs_url: 
+      - https://example.no/data/skole.rdf
+    beskrivelse: "Menneskelesbar distribusjon av skoleontologi"
+    format: http://publications.europa.eu/resource/authority/file-type/CSV
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+    status: http://publications.europa.eu/resource/authority/distribution-status/COMPLETED
+    tilgjengelighet: http://publications.europa.eu/resource/authority/planned-availability/STABLE
+
+gjeldende_lovgivninger:
+  - identifikator: samtbuskole:lov-2019-123
+    tittel: "Lov om grunnskolen"
+    beskrivelse: "Lovverk som regulerer grunnskolen."
+    spraak: samtbuskole:no
+    type: samtbuskole:Lov
+    referanse: https://lovdata.no/lov/2019-123
+
+# --- Skoler og skoleeiere ---
+skoler:
+  - identifikator: samtbuskole:skole-1
+    navn: Solglimt skole
+    har_skoleeier: samtbuskole:kommune-0301
+
+  - identifikator: samtbuskole:skole-2
+    navn: Fjelltoppen skole
+    har_skoleeier: samtbuskole:privat-1
+
+kommuner:
+  - identifikator: samtbuskole:kommune-0301
+    kommunenummer: "0301"
+    navn: Oslo kommune
+
+fylker:
+  - identifikator: samtbuskole:fylke-30
+    fylkesnummer: "30"
+    navn: Viken fylkeskommune
+
+private_virksomheter:
+  - identifikator: samtbuskole:privat-1
+    organisasjonsnummer: "999888777"
+    navn: Privat Skole AS
+
+# --- Basisgrupper ---
+basisgrupper:
+  - identifikator: samtbuskole:basisgruppe-5A
+    navn: 5A
+    trinniva: "5"
+    del_av_skole: samtbuskole:skole-1
+
+  - identifikator: samtbuskole:basisgruppe-6B
+    navn: 6B
+    trinniva: "6"
+    del_av_skole: samtbuskole:skole-2
+
+# --- Personer ---
+rektorer:
+  - identifikator: samtbuskole:rektor-1
+    navn: Rektor Rasmus
+    enhetsleder_for: samtbuskole:skole-1
+
+elever:
+  - identifikator: samtbuskole:elev-1
+    navn: Ola Nordmann
+    horer_til_basisgruppe: samtbuskole:basisgruppe-5A
+
+  - identifikator: samtbuskole:elev-2
+    navn: Kari Nordmann
+    horer_til_basisgruppe: samtbuskole:basisgruppe-6B
+
+  - identifikator: samtbuskole:elev-3
+    navn: Nils Nordmann
+    horer_til_basisgruppe: samtbuskole:basisgruppe-5A
+
+kontaktlaerere:
+  - identifikator: samtbuskole:kontaktlaerer-1
+    navn: Lærer Lars
+    tilknyttet_basisgruppe: samtbuskole:basisgruppe-5A
+    har_saerlig_ansvar_for: samtbuskole:elev-1
+    jobber_paa_skole: samtbuskole:skole-1

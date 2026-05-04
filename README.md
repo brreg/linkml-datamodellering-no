@@ -196,7 +196,7 @@ Skjema under `src/linkml/oreg/` modellerer offentlige registre.
 
 Skjema under `src/linkml/fint/` modellerer [FINT-informasjonsmodellen](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20) for integrasjon i norsk fylkeskommune sektor. Alle FINT-skjema importerer `fint-common` for felles abstrakte klassar og typar (`Aktoer`, `Enhet`, `Begrep`, `Identifikator` m.fl.) og er sjølvstendige med eigen `tree_root`-klasse.
 
-### SAMT-domenemodeller
+### SAMT - Sammenhengende tjenester
 Skjema under `src/linkml/samt/` modellerer [SAMT-informasjonsmodellen](https://docs.samt-bu.no/om/om-samt-bu/) for integrasjon i norsk kommune sektor.
 
 ### MCP-linkml-validator

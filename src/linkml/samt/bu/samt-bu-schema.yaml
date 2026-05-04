@@ -1,0 +1,280 @@
+id: https://example.no/ontology/samt-bu-skole
+name: skole_ontologi
+title: Skoleontologi (Ontodia-vennlig)
+description: Ontodia-vennlig LinkML-modell for skoler
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  samtbuskole: https://example.no/ontology/skole#
+
+default_prefix: samtbuskole
+default_range: string
+
+imports:
+  - linkml:types
+  - dcat-ap-no-model
+
+classes:
+
+  Containerklasse:
+    description: Containerklasse for alle klasser som kan inngå i datasettet.
+    tree_root: true
+    slots:
+# metadata
+      - kontaktpunkter
+      - utgivere
+      - organisasjoner
+      - gjeldende_lovgivninger
+      - datasettdistribusjoner
+      - dataset_metadata
+      - kvalitetsmerknader
+      - brukertilbakemeldinger
+      - kvalitetsmaalinger
+      - grupper
+      - standarder
+# data
+      - identifikator
+      - skoler
+      - kommuner
+      - fylker
+      - private_virksomheter
+      - basisgrupper
+      - elever
+      - rektorer
+      - kontaktlaerere
+
+  Skole:
+    description: En skole er en privat eller offentlig institusjon eller et lærested hvor lærere underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.
+    exact_mappings:
+      - org:OrganizationalUnit
+      - schema:EducationalOrganization
+    slots:
+      - identifikator
+      - navn
+      - har_skoleeier
+
+  # --- Abstrakt superklasse ---
+  Skoleeier:
+    abstract: true
+    exact_mappings:
+      - foaf:Agent
+    description: Superklasse for alle typer skoleeiere.
+    slots:
+      - identifikator
+      - navn
+
+  Kommune:
+    exact_mappings:
+      - org:Organization
+    description: En kommune er et geografisk avgrenset område som utgjør en egen politisk og administrativ enhet innen en statsdannelse.
+    is_a: Skoleeier
+    slots:
+      - kommunenummer
+
+  Fylke:
+    description: Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt geografisk område, tilsvarende amt og len.
+    exact_mappings:
+      - org:Organization
+    is_a: Skoleeier
+    slots:
+      - fylkesnummer
+
+  PrivatVirksomhet:
+    description: Virksomhet, eller foretak, er betegnelser for en juridisk person eller en organisasjon som produserer varer eller tjenester.
+    exact_mappings:
+      - org:Organization
+      - schema:Organization
+    is_a: Skoleeier
+    slots:
+      - organisasjonsnummer
+
+  Basisgruppe:
+    description: Skoleklasse som hovedsaklig samler elever i ulike fag.
+    close_mappings:
+      - schema:EducationalOccupationalProgram
+      - schema:Course
+    slots:
+      - identifikator
+      - navn
+      - trinniva
+      - del_av_skole
+
+  Person:
+    description: Eit menneske individ
+    abstract: true
+    exact_mappings:
+      - foaf:Person
+    slots:
+      - identifikator
+      - navn
+
+  Elev:
+    description: En person som går på skole
+    close_mappings:
+      - schema:Student
+    is_a: Person
+    slots:
+      - horer_til_basisgruppe
+
+  Rektor:
+    description: Høgaste akademiske leder av en skole
+    is_a: Person
+    slots:
+      - enhetsleder_for
+
+  Kontaktlaerer:
+    description: En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane i basisgruppa
+    close_mappings:
+      - schema:Teacher
+    is_a: Person
+    slots:
+      - tilknyttet_basisgruppe
+      - har_saerlig_ansvar_for
+      - jobber_paa_skole
+slots:
+
+  # --- Identifikator ---
+  # identifikator sloten gjenbrukes fra dcat-ap-no-metamodel
+  # identifikator:
+  #   identifier: true
+  #   required: true
+  #   range: uriorcurie
+  #   description: Global identifikator (CURIE/URI)
+
+  # --- Container slots ---
+  skoler:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av skole i ei datafil.
+    range: Skole
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  kommuner:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av kommune i ei datafil.
+    range: Kommune
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  fylker:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av fylke i ei datafil.
+    range: Fylke
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  private_virksomheter:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av private_virksomheter i ei datafil.
+    range: PrivatVirksomhet
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  basisgrupper:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av basisgruppe i ei datafil.
+    range: Basisgruppe
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  rektorer:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av rektor i ei datafil.
+    range: Rektor
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  elever:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av elev i ei datafil.
+    range: Elev
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  kontaktlaerere:
+    description: Container slot for å legge tilrette for å kunne ha fleire instanser av kontaktlaerer i ei datafil.
+    range: Kontaktlaerer
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+
+  # --- Datatyper ---
+  kommunenummer:
+    description: Kommunenummer er en nummerrekke som identifiserer kommuner eller kommunefrie områder. 
+    slot_uri: dcat:identifier
+    close_mappings:
+      - skos:notation
+    range: string
+
+  fylkesnummer:
+    description: Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territorier (Svalbard og Jan Mayen).
+    slot_uri: dcat:identifier
+    close_mappings:
+      - skos:notation
+    range: string
+
+  organisasjonsnummer:
+    description: Organisasjonsnummer er i Norge et ni-sifret registreringsnummer som tildeles av Enhetsregisteret ved Brønnøysundregistrene for en organisasjon (foretak, idrettslag og lignende).
+    slot_uri: dct:identifier
+    exact_mappings:
+      - adms:identifier
+    range: string
+
+  trinniva:
+    description: Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år.
+    range: string
+
+  # --- Relasjoner ---
+  har_skoleeier:
+    description: Skoleeier for skolen
+    exact_mappings:
+      - org:hasUnit
+    domain: Skole
+    range: Skoleeier
+
+  del_av_skole:
+    description: Skolen basisgruppa tilhører
+    slot_uri: org:unitOf
+    close_mappings:
+      - schema:isPartOf
+    domain: Basisgruppe
+    range: Skole
+
+
+  horer_til_basisgruppe:
+    description: Basisgruppe elev tilhører
+    close_mappings:
+      - schema:memberOf
+    domain: Elev
+    range: Basisgruppe
+
+
+  enhetsleder_for:
+    description: Enhet rektor er enhetsleder for
+    close_mappings:
+      - org:headOf
+    domain: Rektor
+    range: Skole
+
+
+  tilknyttet_basisgruppe:
+    description: Basisgruppe kontaktlærer er tilknyttet
+    close_mappings:
+      - schema:teaches
+    domain: Kontaktlaerer
+    range: Basisgruppe
+
+
+  har_saerlig_ansvar_for:
+    description: Elev kontaktlæreren har særlig ansvar for
+    domain: Kontaktlaerer
+    range: Elev
+
+
+  jobber_paa_skole:
+    description: Skolen kontaktlæreren jobber på
+    close_mappings:
+      - schema:worksFor
+      - org:memberOf
+    domain: Kontaktlaerer
+    range: Skole
