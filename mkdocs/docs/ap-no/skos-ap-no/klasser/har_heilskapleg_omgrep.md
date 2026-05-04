@@ -1,0 +1,97 @@
+
+
+# Slot: har_heilskapleg_omgrep 
+
+
+_Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept)._
+
+
+
+
+
+URI: [skosno:hasComprehensiveConcept](https://data.norge.no/vocabulary/skosno#hasComprehensiveConcept)
+Alias: har_heilskapleg_omgrep
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [PartitivRelasjon](PartitivRelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Begrep](Begrep.md) |
+| Domain Of | [PartitivRelasjon](PartitivRelasjon.md) |
+| Slot URI | [skosno:hasComprehensiveConcept](https://data.norge.no/vocabulary/skosno#hasComprehensiveConcept) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/skos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | skosno:hasComprehensiveConcept |
+| native | https://data.norge.no/linkml/skos-ap-no/har_heilskapleg_omgrep |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_heilskapleg_omgrep
+description: Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept).
+from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
+slot_uri: skosno:hasComprehensiveConcept
+alias: har_heilskapleg_omgrep
+domain_of:
+- PartitivRelasjon
+range: Begrep
+multivalued: true
+
+```
+</details>

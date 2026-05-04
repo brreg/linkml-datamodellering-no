@@ -1,0 +1,305 @@
+
+
+# Class: Sektorkode 
+
+
+_Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t.d. offentleg, privat)._
+
+
+
+
+
+URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkode)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Sektorkode
+    click Sektorkode href "../Sektorkode/"
+      Sektorkode : id
+        
+      Sektorkode : sektorkode_beskrivelse
+        
+      Sektorkode : sektorkode_kode
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkode) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [sektorkode_kode](sektorkode_kode.md) | 1 <br/> [String](String.md) | Institusjonell sektorkode (t |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [sektorkode_beskrivelse](sektorkode_beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg skildring av sektorkoden |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | [sektorkoder](sektorkoder.md) | range | [Sektorkode](Sektorkode.md) |
+| [Hovedenhet](Hovedenhet.md) | [er_klassifisert_i_sektorkode](er_klassifisert_i_sektorkode.md) | range | [Sektorkode](Sektorkode.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:Sektorkode |
+| native | https://data.norge.no/linkml/ngr-virksomhet/Sektorkode |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Sektorkode
+description: Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer
+  (t.d. offentleg, privat).
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slots:
+- id
+- sektorkode_kode
+- sektorkode_beskrivelse
+slot_usage:
+  sektorkode_kode:
+    name: sektorkode_kode
+    in_subset:
+    - Obligatorisk
+    required: true
+  sektorkode_beskrivelse:
+    name: sektorkode_beskrivelse
+    in_subset:
+    - Anbefalt
+class_uri: ngrv:Sektorkode
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Sektorkode
+description: Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer
+  (t.d. offentleg, privat).
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slot_usage:
+  sektorkode_kode:
+    name: sektorkode_kode
+    in_subset:
+    - Obligatorisk
+    required: true
+  sektorkode_beskrivelse:
+    name: sektorkode_beskrivelse
+    in_subset:
+    - Anbefalt
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Sektorkode
+    domain_of:
+    - Virksomhet
+    - Tilstand
+    - Organisasjonsform
+    - Naeringskode
+    - Sektorkode
+    - Kontaktinformasjon
+    - Varslingsadresse
+    - Aktivitet
+    - RolleIVirksomhet
+    - Rolleinnehaver
+    - Signaturrett
+    - Prokura
+    - GeografiskAdresse
+    - Person
+    range: uriorcurie
+    required: true
+  sektorkode_kode:
+    name: sektorkode_kode
+    description: Institusjonell sektorkode (t.d. 1120 for statsforvaltinga).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:sektorkodeKode
+    alias: sektorkode_kode
+    owner: Sektorkode
+    domain_of:
+    - Sektorkode
+    range: string
+    required: true
+  sektorkode_beskrivelse:
+    name: sektorkode_beskrivelse
+    description: Tekstleg skildring av sektorkoden.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:sektorkodeBeskrivelse
+    alias: sektorkode_beskrivelse
+    owner: Sektorkode
+    domain_of:
+    - Sektorkode
+    range: string
+class_uri: ngrv:Sektorkode
+
+```
+</details>

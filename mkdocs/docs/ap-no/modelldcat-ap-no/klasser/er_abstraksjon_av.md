@@ -1,0 +1,95 @@
+
+
+# Slot: er_abstraksjon_av 
+
+
+_Modellelement denne abstraksjonen representerer (modelldcatno:isAbstractionOf)._
+
+
+
+
+
+URI: [modelldcatno:isAbstractionOf](https://data.norge.no/vocabulary/modelldcatno#isAbstractionOf)
+Alias: er_abstraksjon_av
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Abstraksjon](Abstraksjon.md) | Ein abstraksjon — ein forenkling som representerer eit modellelement |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Modellelement](Modellelement.md) |
+| Domain Of | [Abstraksjon](Abstraksjon.md) |
+| Slot URI | [modelldcatno:isAbstractionOf](https://data.norge.no/vocabulary/modelldcatno#isAbstractionOf) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | modelldcatno:isAbstractionOf |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/er_abstraksjon_av |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: er_abstraksjon_av
+description: Modellelement denne abstraksjonen representerer (modelldcatno:isAbstractionOf).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
+slot_uri: modelldcatno:isAbstractionOf
+alias: er_abstraksjon_av
+domain_of:
+- Abstraksjon
+range: Modellelement
+
+```
+</details>

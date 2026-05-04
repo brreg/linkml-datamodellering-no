@@ -1,0 +1,2252 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fint: <https://schema.fintlabs.no/> .
+@prefix okn: <https://schema.fintlabs.no/okonomi/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.norge.no/linkml/fint-okonomi.owl.ttl> a owl:Ontology ;
+    rdfs:label "fint-okonomi" ;
+    dcterms:title "FINT Økonomi" ;
+    pav:version "4.0.20" ;
+    skos:definition """FINT-domenemodell for økonomi. Dekkjer tre sub-pakkar: okonomi.faktura (faktura, fakturagrunnlag, fakturautsteder), okonomi.regnskap (transaksjonar, posteringar, bilag, leverandørar) og okonomi.kodeverk (vare, merverdiavgift, valuta).
+""" .
+
+<https://schema.fintlabs.no/:Matrikkelnummer> a owl:Class ;
+    rdfs:label "Matrikkelnummer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ] ;
+    skos:definition "Eintydleg identifisering av matrikkeleining innanfor kommune." ;
+    skos:exactMatch fint:Matrikkelnummer ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Valuta> a owl:Class ;
+    rdfs:label "Valuta" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ] ;
+    skos:definition "Valutakodar for offisielle valutaer." ;
+    skos:exactMatch fint:Valuta ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Virksomhet> a owl:Class ;
+    rdfs:label "Virksomhet" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        <https://schema.fintlabs.no/:Enhet> ;
+    skos:definition "Ein juridisk organisasjon som produserer varer eller tenester." ;
+    skos:exactMatch fint:Virksomhet ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/okonomi/:OkonomiContainer> a owl:Class ;
+    rdfs:label "OkonomiContainer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Transaksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandorar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Merverdiavgift> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:merverdiavgifter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Postering> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:posteringar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturaer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Vare> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:varer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:merverdiavgifter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturagrunnlag> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturagrunnlag> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturagrunnlag> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandorgrupper> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:varer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:valutaer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:OkonomiValuta> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:valutaer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Faktura> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturaer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautstederear> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Leverandorgruppe> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandorgrupper> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturautsteder> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautstederear> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:posteringar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Leverandor> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandorar> ] ;
+    skos:definition "Rotcontainer for FINT Økonomi-instansar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/:Enhet> a owl:Class ;
+    rdfs:label "Enhet" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        <https://schema.fintlabs.no/:Aktoer> ;
+    skos:definition "Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer." ;
+    skos:exactMatch fint:Enhet ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Fylke> a owl:Class ;
+    rdfs:label "Fylke" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Liste over Norges fylker." ;
+    skos:exactMatch fint:Fylke ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Kjonn> a owl:Class ;
+    rdfs:label "Kjonn" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Verdiar for kjønn basert på ISO/IEC 5218." ;
+    skos:exactMatch fint:Kjonn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Kontaktperson> a owl:Class ;
+    rdfs:label "Kontaktperson" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Personnavn> ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
+    skos:definition "Kontaktperson (pårørande) til ein person." ;
+    skos:exactMatch fint:Kontaktperson ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/okonomi/:Bilag> a owl:Class ;
+    rdfs:label "Bilag" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:filnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:url> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:data> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:data> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilagsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:referanse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:data> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:filnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilagsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilagsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:url> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:url> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilagsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:referanse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:filnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilagsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilagsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:referanse> ] ;
+    skos:definition "Dokumentasjon til ein transaksjon (kompleks datatype)." ;
+    skos:exactMatch okn:Bilag ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Fakturalinje> a owl:Class ;
+    rdfs:label "Fakturalinje" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:antall> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:antall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:pris> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:pris> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:antall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:vare> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fritekst> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Vare> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:vare> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fritekst> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:pris> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:vare> ] ;
+    skos:definition "Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype)." ;
+    skos:exactMatch okn:Fakturalinje ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Fakturamottaker> a owl:Class ;
+    rdfs:label "Fakturamottaker" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:person> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:person> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:person> ] ;
+    skos:definition "Aktør som skal betale faktura (kompleks datatype)." ;
+    skos:exactMatch okn:Fakturamottaker ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/:Aktoer> a owl:Class ;
+    rdfs:label "Aktoer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ] ;
+    skos:definition "Abstrakt base for person eller eining vi samhandlar med." ;
+    skos:exactMatch fint:Aktoer ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Kontaktinformasjon> a owl:Class ;
+    rdfs:label "Kontaktinformasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ] ;
+    skos:definition "Informasjon som kan brukast for å oppnå kontakt." ;
+    skos:exactMatch fint:Kontaktinformasjon ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Landkode> a owl:Class ;
+    rdfs:label "Landkode" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Landskode i ISO 3166-1 alpha-2 format." ;
+    skos:exactMatch fint:Landkode ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Personnavn> a owl:Class ;
+    rdfs:label "Personnavn" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ] ;
+    skos:definition "Namn på ein person." ;
+    skos:exactMatch fint:Personnavn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Spraak> a owl:Class ;
+    rdfs:label "Spraak" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Verdiar for språk (2 bokstavar)." ;
+    skos:exactMatch fint:Spraak ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:adresselinje> a owl:DatatypeProperty ;
+    rdfs:label "adresselinje" ;
+    skos:definition "Adresseinformasjon." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:foreldre> a owl:ObjectProperty ;
+    rdfs:label "foreldre" ;
+    skos:definition "Den/dei som har foreldreansvar til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:foreldreansvar> a owl:ObjectProperty ;
+    rdfs:label "foreldreansvar" ;
+    skos:definition "Personar denne personen har foreldreansvar for." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kontaktperson> a owl:ObjectProperty ;
+    rdfs:label "kontaktperson" ;
+    skos:definition "Personar kontaktpersonen er pårørande for." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:parorende> a owl:ObjectProperty ;
+    rdfs:label "parorende" ;
+    skos:definition "Pårørande kontaktperson til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:statsborgerskap> a owl:ObjectProperty ;
+    rdfs:label "statsborgerskap" ;
+    skos:definition "Alle statsborgarskap personen har." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/okonomi/:Faktura> a owl:Class ;
+    rdfs:label "Faktura" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:restbelop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:restbelop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:dato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:restbelop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kreditert> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:forfallsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:adresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kreditert> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:adresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:dato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:mottaker> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturanummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturanummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kreditert> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:betalt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturagrunnlag> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:mottaker> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:betalt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturert> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:dato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:forfallsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:forfallsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturagrunnlag> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:mottaker> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturagrunnlag> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturagrunnlag> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturert> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturanummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:betalt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturert> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:adresse> ] ;
+    skos:definition "Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar." ;
+    skos:exactMatch okn:Faktura ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Kontostreng> a owl:Class ;
+    rdfs:label "Kontostreng" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:art> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:funksjon> ] ;
+    skos:definition "Kontodimensjonar for ei postering (kompleks datatype)." ;
+    skos:exactMatch okn:Kontostreng ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Leverandorgruppe> a owl:Class ;
+    rdfs:label "Leverandorgruppe" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Leverandor> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandor> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandor> ] ;
+    skos:definition "Gruppering av leverandørar (Leverandørgruppe)." ;
+    skos:exactMatch okn:Leverandorgruppe ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Merverdiavgift> a owl:Class ;
+    rdfs:label "Merverdiavgift" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:sats> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:sats> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:sats> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ] ;
+    skos:definition "Kodeverk for merverdiavgifter." ;
+    skos:exactMatch okn:Merverdiavgift ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:OkonomiValuta> a owl:Class ;
+    rdfs:label "OkonomiValuta" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ] ;
+    skos:definition "Valuta for transaksjonsbeløp." ;
+    skos:exactMatch okn:Valuta ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Postering> a owl:Class ;
+    rdfs:label "Postering" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:posteringsId> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:debet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:debet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Kontostreng> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontering> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontering> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:posteringsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Transaksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:posteringsId> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontering> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:debet> ] ;
+    skos:definition "Føring på ein konto i rekneskapet." ;
+    skos:exactMatch okn:Postering ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Transaksjon> a owl:Class ;
+    rdfs:label "Transaksjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandor> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonstidspunkt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ansvarlig> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonsId> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:valuta> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonstidspunkt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonstidspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Leverandor> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandor> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:forfallsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ansvarlig> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilag> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandor> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Postering> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:postering> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Bilag> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:bilag> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:valuta> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:transaksjonsId> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:forfallsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:forfallsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:postering> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:oppdateringstidspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:OkonomiValuta> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:valuta> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:oppdateringstidspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:oppdateringstidspunkt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:belop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ansvarlig> ] ;
+    skos:definition "Overføring av pengar til eller frå eksterne partar." ;
+    skos:exactMatch okn:Transaksjon ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:bilag> a owl:ObjectProperty ;
+    rdfs:label "bilag" ;
+    skos:definition "Bilag til transaksjonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:faktura> a owl:ObjectProperty ;
+    rdfs:label "faktura" ;
+    skos:definition "Utferdigde fakturaer for fakturagrunnlaget." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:fakturaer> a owl:ObjectProperty ;
+    rdfs:label "fakturaer" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:fakturalinjer> a owl:ObjectProperty ;
+    rdfs:label "fakturalinjer" ;
+    skos:definition "Linjer av varer eller tenester som skal fakturerast." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:fakturautstederear> a owl:ObjectProperty ;
+    rdfs:label "fakturautstederear" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:fritekst> a owl:DatatypeProperty ;
+    rdfs:label "fritekst" ;
+    skos:definition "Fritekst som skildrar varen slik han er levert." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:leverandorar> a owl:ObjectProperty ;
+    rdfs:label "leverandorar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:leverandorgrupper> a owl:ObjectProperty ;
+    rdfs:label "leverandorgrupper" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:merverdiavgifter> a owl:ObjectProperty ;
+    rdfs:label "merverdiavgifter" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:postering> a owl:ObjectProperty ;
+    rdfs:label "postering" ;
+    skos:definition "Posteringar tilhøyrande transaksjonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:posteringar> a owl:ObjectProperty ;
+    rdfs:label "posteringar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:transaksjonar> a owl:ObjectProperty ;
+    rdfs:label "transaksjonar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:valutaer> a owl:ObjectProperty ;
+    rdfs:label "valutaer" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:varer> a owl:ObjectProperty ;
+    rdfs:label "varer" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/:Kommune> a owl:Class ;
+    rdfs:label "Kommune" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Fylke> ;
+            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Liste over Norges kommunar." ;
+    skos:exactMatch fint:Kommune ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Person> a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldreansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kjonn> ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldreansvar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktperson> ;
+            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Personnavn> ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
+            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        <https://schema.fintlabs.no/:Aktoer> ;
+    skos:definition "Fysiske private personar." ;
+    skos:exactMatch fint:Person ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:adresse> a owl:ObjectProperty ;
+    rdfs:label "adresse" ;
+    skos:definition "Adresse til matrikkeleining." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:beskrivelse> a owl:DatatypeProperty ;
+    rdfs:label "beskrivelse" ;
+    skos:definition "Beskriven namn på perioden." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bilde> a owl:DatatypeProperty ;
+    rdfs:label "bilde" ;
+    skos:definition "HTTP(S)-lenkje til eit bilete av personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bokstavkode> a owl:ObjectProperty ;
+    rdfs:label "bokstavkode" ;
+    skos:definition "Bokstavkode for aktuell valuta." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bostedsadresse> a owl:ObjectProperty ;
+    rdfs:label "bostedsadresse" ;
+    skos:definition "Folkeregistrert adresse til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bruksnummer> a owl:DatatypeProperty ;
+    rdfs:label "bruksnummer" ;
+    skos:definition "Fortløpande nummerering av bruk under gårdsnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:elev> a owl:DatatypeProperty ;
+    rdfs:label "elev" ;
+    skos:definition "Referanse til Elev (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:epostadresse> a owl:DatatypeProperty ;
+    rdfs:label "epostadresse" ;
+    skos:definition "Namngitt elektronisk adresse for mottak av e-post." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:etternavn> a owl:DatatypeProperty ;
+    rdfs:label "etternavn" ;
+    skos:definition "Etternamn til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:festenummer> a owl:DatatypeProperty ;
+    rdfs:label "festenummer" ;
+    skos:definition "Fortløpande nummerering av festar under gårdsnummer/bruksnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fodselsdato> a owl:DatatypeProperty ;
+    rdfs:label "fodselsdato" ;
+    skos:definition "Dato for fødsel." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fodselsnummer> a owl:ObjectProperty ;
+    rdfs:label "fodselsnummer" ;
+    skos:definition "Fødselsnummer eller ein av dei fiktive variantane." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fornavn> a owl:DatatypeProperty ;
+    rdfs:label "fornavn" ;
+    skos:definition "Fornamn til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:forretningsadresse> a owl:ObjectProperty ;
+    rdfs:label "forretningsadresse" ;
+    skos:definition "Besøksadresse til ein organisasjonseining i einingsregisteret." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fylke> a owl:ObjectProperty ;
+    rdfs:label "fylke" ;
+    skos:definition "Fylket kommunen høyrer til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:gaardsnummer> a owl:DatatypeProperty ;
+    rdfs:label "gaardsnummer" ;
+    skos:definition "Nummerering av gårdseiging i matrikkelen, unik innanfor kommune." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:identifikatorverdi> a owl:DatatypeProperty ;
+    rdfs:label "identifikatorverdi" ;
+    skos:definition "Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt identifikator." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kjonn> a owl:ObjectProperty ;
+    rdfs:label "kjonn" ;
+    skos:definition "Kjønn for personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kode> a owl:DatatypeProperty ;
+    rdfs:label "kode" ;
+    skos:definition "Verdi som identifiserer omgrepet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kommunenummer> a owl:ObjectProperty ;
+    rdfs:label "kommunenummer" ;
+    skos:definition "Nummerering av kommunen i høve til SSB si offisielle liste." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:land> a owl:ObjectProperty ;
+    rdfs:label "land" ;
+    skos:definition "Land der adressa befinn seg." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:maalform> a owl:ObjectProperty ;
+    rdfs:label "maalform" ;
+    skos:definition "Målform personen føretrekkjer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:mellomnavn> a owl:DatatypeProperty ;
+    rdfs:label "mellomnavn" ;
+    skos:definition "Mellomnamn." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:mobiltelefonnummer> a owl:DatatypeProperty ;
+    rdfs:label "mobiltelefonnummer" ;
+    skos:definition "Mobiltelefonnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:morsmaal> a owl:ObjectProperty ;
+    rdfs:label "morsmaal" ;
+    skos:definition "Morsmål til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:nettsted> a owl:DatatypeProperty ;
+    rdfs:label "nettsted" ;
+    skos:definition "Adresse til eit nettstad." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:nummerkode> a owl:ObjectProperty ;
+    rdfs:label "nummerkode" ;
+    skos:definition "Nummerkode for aktuell valuta." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:organisasjonsnavn> a owl:DatatypeProperty ;
+    rdfs:label "organisasjonsnavn" ;
+    skos:definition "Namn på eining registrert i Einingsregisteret." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:organisasjonsnummer> a owl:ObjectProperty ;
+    rdfs:label "organisasjonsnummer" ;
+    skos:definition "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:otungdom> a owl:DatatypeProperty ;
+    rdfs:label "otungdom" ;
+    skos:definition "Referanse til OtUngdom (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:passiv> a owl:DatatypeProperty ;
+    rdfs:label "passiv" ;
+    skos:definition "Angir at koden er passiv og ikkje kan veljast." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:personalressurs> a owl:DatatypeProperty ;
+    rdfs:label "personalressurs" ;
+    skos:definition "Referanse til Personalressurs (Administrasjon)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:postadresse> a owl:ObjectProperty ;
+    rdfs:label "postadresse" ;
+    skos:definition "Informasjon om postadresse til ein aktør." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:postnummer> a owl:DatatypeProperty ;
+    rdfs:label "postnummer" ;
+    skos:definition "Postnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:poststed> a owl:DatatypeProperty ;
+    rdfs:label "poststed" ;
+    skos:definition "Poststad." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:seksjonsnummer> a owl:DatatypeProperty ;
+    rdfs:label "seksjonsnummer" ;
+    skos:definition "Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:sip> a owl:DatatypeProperty ;
+    rdfs:label "sip" ;
+    skos:definition "SIP-protokoll for VoIP (IP-telefoni)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:slutt> a owl:DatatypeProperty ;
+    rdfs:label "slutt" ;
+    skos:definition "Til tidspunkt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:start> a owl:DatatypeProperty ;
+    rdfs:label "start" ;
+    skos:definition "Frå tidspunkt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:telefonnummer> a owl:DatatypeProperty ;
+    rdfs:label "telefonnummer" ;
+    skos:definition "Telefonnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:type> a owl:DatatypeProperty ;
+    rdfs:label "type" ;
+    skos:definition "Beskriv kva slags type kontaktperson." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:virksomhetsId> a owl:ObjectProperty ;
+    rdfs:label "virksomhetsId" ;
+    skos:definition "Intern unik identifikator i økonomisystemet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/okonomi/:Fakturagrunnlag> a owl:Class ;
+    rdfs:label "Fakturagrunnlag" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:totalbelop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturalinje> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturalinjer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:mottaker> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:nettobelop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:nettobelop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:totalbelop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturamottaker> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:mottaker> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ordrenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturalinjer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautsteder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leveringsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:mottaker> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:totalbelop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leveringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautsteder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:faktura> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:avgiftsbelop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:avgiftsbelop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:nettobelop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ordrenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturautsteder> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautsteder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Faktura> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:faktura> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:ordrenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leveringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:avgiftsbelop> ] ;
+    skos:definition "Grunnlag for fakturering." ;
+    skos:exactMatch okn:Fakturagrunnlag ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Fakturautsteder> a owl:Class ;
+    rdfs:label "Fakturautsteder" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:vare> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturagrunnlag> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Vare> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:vare> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturagrunnlag> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturagrunnlag> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
+    skos:definition "Eining som utformar og oversender faktura og mottar betaling." ;
+    skos:exactMatch okn:Fakturautsteder ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Leverandor> a owl:Class ;
+    rdfs:label "Leverandor" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontonummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandorgruppe> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandorgruppe> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:person> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:virksomhet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Leverandorgruppe> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandorgruppe> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandornummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandornummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:leverandornummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:virksomhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:person> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:virksomhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontonummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontonummer> ] ;
+    skos:definition "Person eller verksemd som leverer produkt eller tenester (Leverandør)." ;
+    skos:exactMatch okn:Leverandor ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:Vare> a owl:Class ;
+    rdfs:label "Vare" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:pris> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:pris> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:enhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontering> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Fakturautsteder> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautsteder> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontering> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Kontostreng> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kontering> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:enhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:merverdiavgift> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:merverdiavgift> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:pris> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautsteder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:enhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/okonomi/:Merverdiavgift> ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:merverdiavgift> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:fakturautsteder> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/okonomi/:kode> ] ;
+    skos:definition "Vare eller teneste som kan leverast og fakturerast." ;
+    skos:exactMatch okn:Vare ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:adresse> a owl:ObjectProperty ;
+    rdfs:label "adresse" ;
+    skos:definition "Adresse til mottakar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:ansvar> a owl:DatatypeProperty ;
+    rdfs:label "ansvar" ;
+    skos:definition "Ansvarsomrade." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:ansvarlig> a owl:DatatypeProperty ;
+    rdfs:label "ansvarlig" ;
+    skos:definition "Referanse til Personalressurs (Administrasjon) som er ansvarleg for å godkjenne transaksjonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:antall> a owl:DatatypeProperty ;
+    rdfs:label "antall" ;
+    skos:definition "Mengd av varen levert." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:art> a owl:DatatypeProperty ;
+    rdfs:label "art" ;
+    skos:definition "Artskonto (type utgift/inntekt)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:avgiftsbelop> a owl:DatatypeProperty ;
+    rdfs:label "avgiftsbelop" ;
+    skos:definition "Del av totalbeløp som er avgifter, i øre (avgiftsbeløp)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:beskrivelse> a owl:DatatypeProperty ;
+    rdfs:label "beskrivelse" ;
+    skos:definition "Skildring av transaksjonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:betalt> a owl:DatatypeProperty ;
+    rdfs:label "betalt" ;
+    skos:definition "Status på betaling." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:bilagsdato> a owl:DatatypeProperty ;
+    rdfs:label "bilagsdato" ;
+    skos:definition "Dato bilaget er registrert." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:bilagsnummer> a owl:DatatypeProperty ;
+    rdfs:label "bilagsnummer" ;
+    skos:definition "Nummer på bilaget." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:data> a owl:DatatypeProperty ;
+    rdfs:label "data" ;
+    skos:definition "Bilagets fil, koda som Base64." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:dato> a owl:DatatypeProperty ;
+    rdfs:label "dato" ;
+    skos:definition "Dato for utferding av faktura." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:debet> a owl:DatatypeProperty ;
+    rdfs:label "debet" ;
+    skos:definition "Angir om posteringa er debet eller kredit." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:enhet> a owl:DatatypeProperty ;
+    rdfs:label "enhet" ;
+    skos:definition "Namn på mengdeeininga varen leverast i." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:fakturanummer> a owl:ObjectProperty ;
+    rdfs:label "fakturanummer" ;
+    skos:definition "Identifikator oppretta i fakturaprogrammet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:fakturert> a owl:DatatypeProperty ;
+    rdfs:label "fakturert" ;
+    skos:definition "Status på utsending." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:filnavn> a owl:DatatypeProperty ;
+    rdfs:label "filnavn" ;
+    skos:definition "Namn på bilagets fil." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:funksjon> a owl:DatatypeProperty ;
+    rdfs:label "funksjon" ;
+    skos:definition "Funksjonskode (KOSTRA)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:kontonummer> a owl:DatatypeProperty ;
+    rdfs:label "kontonummer" ;
+    skos:definition "Kontonummer til leverandøren." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:kreditert> a owl:DatatypeProperty ;
+    rdfs:label "kreditert" ;
+    skos:definition "Status på kreditering." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:leverandorgruppe> a owl:ObjectProperty ;
+    rdfs:label "leverandorgruppe" ;
+    skos:definition "Gruppe av leverandørar leverandøren tilhøyrer (leverandørgruppe)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:leverandornummer> a owl:ObjectProperty ;
+    rdfs:label "leverandornummer" ;
+    skos:definition "Nummer som identifiserer ein leverandør (leverandørnummer)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:leveringsdato> a owl:DatatypeProperty ;
+    rdfs:label "leveringsdato" ;
+    skos:definition "Dato varer eller tenester vart leverte." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:merverdiavgift> a owl:ObjectProperty ;
+    rdfs:label "merverdiavgift" ;
+    skos:definition "Varens avgiftsklasse og -sats." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:nettobelop> a owl:DatatypeProperty ;
+    rdfs:label "nettobelop" ;
+    skos:definition "Del av totalbeløp som utgjer summen av fakturalinjene, i øre (nettobeløp)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:oppdateringstidspunkt> a owl:DatatypeProperty ;
+    rdfs:label "oppdateringstidspunkt" ;
+    skos:definition "Tidspunkt for siste endring i transaksjonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:ordrenummer> a owl:ObjectProperty ;
+    rdfs:label "ordrenummer" ;
+    skos:definition "Unik identifikator for ordren det skal utferdigast faktura på." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:organisasjonselement> a owl:DatatypeProperty ;
+    rdfs:label "organisasjonselement" ;
+    skos:definition "Referanse til Organisasjonselement (Administrasjon) som kan utstede faktura." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:posteringsId> a owl:ObjectProperty ;
+    rdfs:label "posteringsId" ;
+    skos:definition "Intern unik identifikator i økonomisystemet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:prosjekt> a owl:DatatypeProperty ;
+    rdfs:label "prosjekt" ;
+    skos:definition "Prosjektkode." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:referanse> a owl:DatatypeProperty ;
+    rdfs:label "referanse" ;
+    skos:definition "Ekstern referanse, t.d. fakturanummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:restbelop> a owl:DatatypeProperty ;
+    rdfs:label "restbelop" ;
+    skos:definition "Gjenståande beløp å betale, i øre (restbeløp)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:sats> a owl:DatatypeProperty ;
+    rdfs:label "sats" ;
+    skos:definition "Sats for merverdiavgift." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:totalbelop> a owl:DatatypeProperty ;
+    rdfs:label "totalbelop" ;
+    skos:definition "Totalt beløp på faktura inkl. avgifter, i øre (totalbeløp)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:transaksjon> a owl:ObjectProperty ;
+    rdfs:label "transaksjon" ;
+    skos:definition "Transaksjonen posteringa tilhøyrer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:transaksjonsId> a owl:ObjectProperty ;
+    rdfs:label "transaksjonsId" ;
+    skos:definition "Intern unik identifikator i økonomisystemet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:transaksjonstidspunkt> a owl:DatatypeProperty ;
+    rdfs:label "transaksjonstidspunkt" ;
+    skos:definition "Tidspunkt for registrering av transaksjonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:url> a owl:DatatypeProperty ;
+    rdfs:label "url" ;
+    skos:definition "URL til eksternt dokument." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:valuta> a owl:ObjectProperty ;
+    rdfs:label "valuta" ;
+    skos:definition "Valuta for oppgjeve beløp." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:virksomhet> a owl:DatatypeProperty ;
+    rdfs:label "virksomhet" ;
+    skos:definition "Referanse til Virksomhet som er leverandør." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/:laerling> a owl:DatatypeProperty ;
+    rdfs:label "laerling" ;
+    skos:definition "Referanse til Laerling (Utdanning) i verksemda.",
+        "Referanse til Laerling (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Adresse> a owl:Class ;
+    rdfs:label "Adresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
+            owl:onProperty <https://schema.fintlabs.no/:land> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:adresselinje> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:land> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresselinje> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:land> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ] ;
+    skos:definition "Fysisk adresse eller postadresse." ;
+    skos:exactMatch fint:Adresse ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Begrep> a owl:Class ;
+    rdfs:label "Begrep" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
+    skos:definition "Abstrakt fellesbase for alle FINT-kodeverk." ;
+    skos:exactMatch fint:Begrep ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Periode> a owl:Class ;
+    rdfs:label "Periode" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:start> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:start> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/:start> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ] ;
+    skos:definition "Tidsperiode med obligatorisk start og valfri slutt." ;
+    skos:exactMatch fint:Periode ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kommune> a owl:ObjectProperty ;
+    rdfs:label "kommune" ;
+    skos:definition "Alle kommunar som inngår i fylket.",
+        "Kommune der personen er busett." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/okonomi/:leverandor> a owl:ObjectProperty ;
+    rdfs:label "leverandor" ;
+    skos:definition "Leverandør knytt til transaksjonen (leverandor).",
+        "Leverandørar i leverandørgruppen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:vare> a owl:ObjectProperty ;
+    rdfs:label "vare" ;
+    skos:definition "Alle varer i vareregisteret til fakturutstedaren.",
+        "Vare i vareregisteret." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/:gyldighetsperiode> a owl:ObjectProperty ;
+    rdfs:label "gyldighetsperiode" ;
+    skos:definition "Angir gyldighetsperioden for eit omgrep/kode.",
+        "Perioden ein gjeven identifikator er gyldig." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kontaktinformasjon> a owl:ObjectProperty ;
+    rdfs:label "kontaktinformasjon" ;
+    skos:definition "Den føretrekte måten å kome i kontakt med ein aktør.",
+        "Kontaktinformasjon for kontaktpersonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/okonomi/:fakturautsteder> a owl:ObjectProperty ;
+    rdfs:label "fakturautsteder" ;
+    skos:definition "Fakturautstedar for varen.",
+        "Utstedar av faktura og mottakar av betaling." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:forfallsdato> a owl:DatatypeProperty ;
+    rdfs:label "forfallsdato" ;
+    skos:definition "Dato transaksjonen forfell.",
+        "Frist for betaling." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:kontering> a owl:ObjectProperty ;
+    rdfs:label "kontering" ;
+    skos:definition "Kontodimensjonar for posteringa.",
+        "Varens kontering i økonomisystemet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:mottaker> a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "mottaker" ;
+    skos:definition "Mottakar som skal betale faktura.",
+        "Namn på mottakar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:person> a owl:DatatypeProperty ;
+    rdfs:label "person" ;
+    skos:definition "Referanse til Person (Administrasjon) som er leverandør.",
+        "Referanse til Person (Administrasjon) som skal betale faktura." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:pris> a owl:DatatypeProperty ;
+    rdfs:label "pris" ;
+    skos:definition "Pris per eining levert, i øre.",
+        "Varens pris per eining i vareregisteret, i øre." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:fakturagrunnlag> a owl:ObjectProperty ;
+    rdfs:label "fakturagrunnlag" ;
+    skos:definition "Alle fakturagrunnlag for fakturutstedaren.",
+        "Grunnlag for fakturering." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:belop> a owl:DatatypeProperty ;
+    rdfs:label "belop" ;
+    skos:definition "Beløp mottakar skal betale, i øre (beløp).",
+        "Posteringsbeløp med to desimalar (beløp).",
+        "Transaksjonsbeløp med to desimalar (beløp)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:gyldighetsperiode> a owl:ObjectProperty ;
+    rdfs:label "gyldighetsperiode" ;
+    skos:definition "Angir gyldighetsperioden for omgrepet/koden." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:kode> a owl:DatatypeProperty ;
+    rdfs:label "kode" ;
+    skos:definition "Valutakode (t.d. NOK, EUR, USD).",
+        "Verdi som identifiserer omgrepet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/okonomi/:passiv> a owl:DatatypeProperty ;
+    rdfs:label "passiv" ;
+    skos:definition "Angir at koden er passiv og ikkje kan veljast." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/:Identifikator> a owl:Class ;
+    rdfs:label "Identifikator" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ] ;
+    skos:definition "Unik identifikasjon til eit objekt." ;
+    skos:exactMatch fint:Identifikator ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:navn> a owl:DatatypeProperty,
+        owl:ObjectProperty ;
+    rdfs:label "navn" ;
+    skos:definition "Hovudnamn for omgrepet.",
+        "Namn på kontaktpersonen.",
+        "Namn på personen.",
+        "Namn på valuta." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/okonomi/:navn> a owl:DatatypeProperty ;
+    rdfs:label "navn" ;
+    skos:definition "Hovudnamn for omgrepet.",
+        "Juridisk namn på fakturutstedar.",
+        "Namn på leverandørgruppen.",
+        "Namn på valutaen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-okonomi> .
+
+<https://schema.fintlabs.no/:id> a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI-identifikator for ressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+

@@ -10,7 +10,8 @@
       "Bash(make mcp-smoke *)",
       "Bash(make mcp-test *)",
       "Bash(make mcp-validate *)",
-      "Bash(podman build *)"
+      "Bash(podman build *)",
+      "Bash(make docs-build *)"
     ]
   },
   "enabledMcpjsonServers": [

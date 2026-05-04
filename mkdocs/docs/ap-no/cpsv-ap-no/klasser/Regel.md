@@ -1,0 +1,512 @@
+
+
+# Class: Regel 
+
+
+_Eit regelverk eller retningsliner som styrer levering av ei teneste._
+
+
+
+
+
+URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Regel
+    click Regel href "../Regel/"
+      Regel : beskrivelse
+        
+      Regel : id
+        
+      Regel : identifikator_literal
+        
+      Regel : sprak
+        
+          
+    
+        
+        
+        Regel --> "*" Spraak : sprak
+        click Spraak href "../Spraak/"
+    
+
+        
+      Regel : tittel
+        
+      Regel : type_concept
+        
+          
+    
+        
+        
+        Regel --> "0..1" Konsept : type_concept
+        click Konsept href "../Konsept/"
+    
+
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [cpsv:Rule](http://purl.org/vocab/cpsv#Rule) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+
+### Valgfri
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [folger](folger.md) | range | [Regel](Regel.md) |
+| [OffentligTjeneste](OffentligTjeneste.md) | [folger](folger.md) | range | [Regel](Regel.md) |
+| [Tjeneste](Tjeneste.md) | [folger](folger.md) | range | [Regel](Regel.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/cpsv-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | cpsv:Rule |
+| native | https://data.norge.no/linkml/cpsv-ap-no/Regel |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Regel
+description: Eit regelverk eller retningsliner som styrer levering av ei teneste.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+slots:
+- id
+- tittel
+- beskrivelse
+- identifikator_literal
+- sprak
+- type_concept
+slot_usage:
+  tittel:
+    name: tittel
+    in_subset:
+    - Valgfri
+  beskrivelse:
+    name: beskrivelse
+    in_subset:
+    - Valgfri
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Valgfri
+  sprak:
+    name: sprak
+    in_subset:
+    - Valgfri
+  type_concept:
+    name: type_concept
+    in_subset:
+    - Valgfri
+class_uri: cpsv:Rule
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Regel
+description: Eit regelverk eller retningsliner som styrer levering av ei teneste.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+slot_usage:
+  tittel:
+    name: tittel
+    in_subset:
+    - Valgfri
+  beskrivelse:
+    name: beskrivelse
+    in_subset:
+    - Valgfri
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Valgfri
+  sprak:
+    name: sprak
+    in_subset:
+    - Valgfri
+  type_concept:
+    name: type_concept
+    in_subset:
+    - Valgfri
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Regel
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Kontaktpunkt
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Gebyr
+    - Regel
+    - RegulativRessurs
+    - Deltagelse
+    - Adresse
+    - Katalog
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    range: uriorcurie
+    required: true
+  tittel:
+    name: tittel
+    description: Namn/tittel på ressursen (dct:title).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:title
+    alias: tittel
+    owner: Regel
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Regel
+    - RegulativRessurs
+    - Katalog
+    range: LangString
+    multivalued: true
+  beskrivelse:
+    name: beskrivelse
+    description: Fritekstbeskrivelse av ressursen (dct:description).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:description
+    alias: beskrivelse
+    owner: Regel
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Gebyr
+    - Regel
+    - Katalog
+    range: LangString
+    multivalued: true
+  identifikator_literal:
+    name: identifikator_literal
+    description: Tekstleg identifikator for ressursen (dct:identifier).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:identifier
+    alias: identifikator_literal
+    owner: Regel
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Gebyr
+    - Regel
+    - RegulativRessurs
+    - Katalog
+    range: string
+  sprak:
+    name: sprak
+    description: Språk brukt i ressursen (dct:language).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:language
+    alias: sprak
+    owner: Regel
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    - Kontaktpunkt
+    - Regel
+    - Katalog
+    range: Spraak
+    multivalued: true
+  type_concept:
+    name: type_concept
+    description: Type ressurs frå eit kontrollert vokabular (dct:type).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:type
+    alias: type_concept
+    owner: Regel
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - OffentligOrganisasjon
+    - Tjenestekanal
+    - Tjenesteresultattype
+    - Regel
+    - RegulativRessurs
+    range: Konsept
+class_uri: cpsv:Rule
+
+```
+</details>

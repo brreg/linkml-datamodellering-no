@@ -1,0 +1,311 @@
+
+
+# Class: Rolleinnehaver 
+
+
+_Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå Folkeregisteret) eller ei anna eining._
+
+
+
+
+
+URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolleinnehaver)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Rolleinnehaver
+    click Rolleinnehaver href "../Rolleinnehaver/"
+      Rolleinnehaver : id
+        
+      Rolleinnehaver : kan_vaere_av_type_person
+        
+          
+    
+        
+        
+        Rolleinnehaver --> "0..1" Person : kan_vaere_av_type_person
+        click Person href "../Person/"
+    
+
+        
+      Rolleinnehaver : rolleinnehaver_navn
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolleinnehaver) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [kan_vaere_av_type_person](kan_vaere_av_type_person.md) | 0..1 <br/> [Person](Person.md) | Personen som er rolleinnehavar (frå Folkeregisteret) |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+
+### Valgfri
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [rolleinnehaver_navn](rolleinnehaver_navn.md) | 0..1 <br/> [String](String.md) | Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar) |
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | [rolleinnehavere](rolleinnehavere.md) | range | [Rolleinnehaver](Rolleinnehaver.md) |
+| [RolleIVirksomhet](RolleIVirksomhet.md) | [har_rolleinnehaver](har_rolleinnehaver.md) | range | [Rolleinnehaver](Rolleinnehaver.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:Rolleinnehaver |
+| native | https://data.norge.no/linkml/ngr-virksomhet/Rolleinnehaver |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Rolleinnehaver
+description: Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå
+  Folkeregisteret) eller ei anna eining.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slots:
+- id
+- kan_vaere_av_type_person
+- rolleinnehaver_navn
+slot_usage:
+  kan_vaere_av_type_person:
+    name: kan_vaere_av_type_person
+    in_subset:
+    - Anbefalt
+  rolleinnehaver_navn:
+    name: rolleinnehaver_navn
+    in_subset:
+    - Valgfri
+class_uri: ngrv:Rolleinnehaver
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Rolleinnehaver
+description: Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå
+  Folkeregisteret) eller ei anna eining.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slot_usage:
+  kan_vaere_av_type_person:
+    name: kan_vaere_av_type_person
+    in_subset:
+    - Anbefalt
+  rolleinnehaver_navn:
+    name: rolleinnehaver_navn
+    in_subset:
+    - Valgfri
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Rolleinnehaver
+    domain_of:
+    - Virksomhet
+    - Tilstand
+    - Organisasjonsform
+    - Naeringskode
+    - Sektorkode
+    - Kontaktinformasjon
+    - Varslingsadresse
+    - Aktivitet
+    - RolleIVirksomhet
+    - Rolleinnehaver
+    - Signaturrett
+    - Prokura
+    - GeografiskAdresse
+    - Person
+    range: uriorcurie
+    required: true
+  kan_vaere_av_type_person:
+    name: kan_vaere_av_type_person
+    description: Personen som er rolleinnehavar (frå Folkeregisteret).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:kanVaereAvTypePerson
+    alias: kan_vaere_av_type_person
+    owner: Rolleinnehaver
+    domain_of:
+    - Rolleinnehaver
+    range: Person
+  rolleinnehaver_navn:
+    name: rolleinnehaver_navn
+    description: Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:rolleinnehaverNavn
+    alias: rolleinnehaver_navn
+    owner: Rolleinnehaver
+    domain_of:
+    - Rolleinnehaver
+    range: string
+class_uri: ngrv:Rolleinnehaver
+
+```
+</details>

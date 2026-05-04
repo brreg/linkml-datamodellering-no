@@ -1,0 +1,97 @@
+
+
+# Slot: forkasta_term 
+
+
+_Tidlegare brukt, no forkasta term (skos:hiddenLabel)._
+
+
+
+
+
+URI: [skos:hiddenLabel](http://www.w3.org/2004/02/skos/core#hiddenLabel)
+Alias: forkasta_term
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [LangString](LangString.md) |
+| Domain Of | [Begrep](Begrep.md) |
+| Slot URI | [skos:hiddenLabel](http://www.w3.org/2004/02/skos/core#hiddenLabel) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/skos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | skos:hiddenLabel |
+| native | https://data.norge.no/linkml/skos-ap-no/forkasta_term |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: forkasta_term
+description: Tidlegare brukt, no forkasta term (skos:hiddenLabel).
+from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
+slot_uri: skos:hiddenLabel
+alias: forkasta_term
+domain_of:
+- Begrep
+range: LangString
+multivalued: true
+
+```
+</details>

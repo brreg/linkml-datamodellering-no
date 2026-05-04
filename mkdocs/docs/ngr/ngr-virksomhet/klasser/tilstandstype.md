@@ -1,0 +1,95 @@
+
+
+# Slot: tilstandstype 
+
+
+_Type tilstand (AKTIV, UNDER_KONKURS o.l.)._
+
+
+
+
+
+URI: [ngrv:tilstandstype](https://data.norge.no/vocabulary/ngr-virksomhet#tilstandstype)
+Alias: tilstandstype
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Tilstand](Tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [TilstandType](TilstandType.md) |
+| Domain Of | [Tilstand](Tilstand.md) |
+| Slot URI | [ngrv:tilstandstype](https://data.norge.no/vocabulary/ngr-virksomhet#tilstandstype) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:tilstandstype |
+| native | https://data.norge.no/linkml/ngr-virksomhet/tilstandstype |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: tilstandstype
+description: Type tilstand (AKTIV, UNDER_KONKURS o.l.).
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:tilstandstype
+alias: tilstandstype
+domain_of:
+- Tilstand
+range: TilstandType
+
+```
+</details>

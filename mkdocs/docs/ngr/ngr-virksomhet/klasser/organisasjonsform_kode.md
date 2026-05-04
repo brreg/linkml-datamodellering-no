@@ -1,0 +1,95 @@
+
+
+# Slot: organisasjonsform_kode 
+
+
+_Kode for organisasjonsform (t.d. AS, ENK, BA, NUF)._
+
+
+
+
+
+URI: [ngrv:organisasjonsformKode](https://data.norge.no/vocabulary/ngr-virksomhet#organisasjonsformKode)
+Alias: organisasjonsform_kode
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Organisasjonsform](Organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Organisasjonsform](Organisasjonsform.md) |
+| Slot URI | [ngrv:organisasjonsformKode](https://data.norge.no/vocabulary/ngr-virksomhet#organisasjonsformKode) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:organisasjonsformKode |
+| native | https://data.norge.no/linkml/ngr-virksomhet/organisasjonsform_kode |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: organisasjonsform_kode
+description: Kode for organisasjonsform (t.d. AS, ENK, BA, NUF).
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:organisasjonsformKode
+alias: organisasjonsform_kode
+domain_of:
+- Organisasjonsform
+range: string
+
+```
+</details>

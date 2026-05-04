@@ -1,0 +1,919 @@
+
+
+# Class: RessursContainer 
+
+
+_Rotcontainer for FINT Ressurs-instansar._
+
+
+
+
+
+URI: [https://schema.fintlabs.no/ressurs/:RessursContainer](https://schema.fintlabs.no/ressurs/:RessursContainer)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class RessursContainer
+    click RessursContainer href "../RessursContainer/"
+      RessursContainer : applikasjonar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Applikasjon : applikasjonar
+        click Applikasjon href "../Applikasjon/"
+    
+
+        
+      RessursContainer : applikasjonskategoriar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Applikasjonskategori : applikasjonskategoriar
+        click Applikasjonskategori href "../Applikasjonskategori/"
+    
+
+        
+      RessursContainer : applikasjonsressursar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Applikasjonsressurs : applikasjonsressursar
+        click Applikasjonsressurs href "../Applikasjonsressurs/"
+    
+
+        
+      RessursContainer : applikasjonsressurstilgjengelegheit
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Applikasjonsressurstilgjengelighet : applikasjonsressurstilgjengelegheit
+        click Applikasjonsressurstilgjengelighet href "../Applikasjonsressurstilgjengelighet/"
+    
+
+        
+      RessursContainer : brukertypar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Brukertype : brukertypar
+        click Brukertype href "../Brukertype/"
+    
+
+        
+      RessursContainer : digitaleEiningar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" DigitalEnhet : digitaleEiningar
+        click DigitalEnhet href "../DigitalEnhet/"
+    
+
+        
+      RessursContainer : einingsgruppedmedlemskap
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Enhetsgruppemedlemskap : einingsgruppedmedlemskap
+        click Enhetsgruppemedlemskap href "../Enhetsgruppemedlemskap/"
+    
+
+        
+      RessursContainer : einingsgrupper
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Enhetsgruppe : einingsgrupper
+        click Enhetsgruppe href "../Enhetsgruppe/"
+    
+
+        
+      RessursContainer : einingstypar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Enhetstype : einingstypar
+        click Enhetstype href "../Enhetstype/"
+    
+
+        
+      RessursContainer : handhaevingstypar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Handhevingstype : handhaevingstypar
+        click Handhevingstype href "../Handhevingstype/"
+    
+
+        
+      RessursContainer : identitetar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Identitet : identitetar
+        click Identitet href "../Identitet/"
+    
+
+        
+      RessursContainer : lisensmodellar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Lisensmodell : lisensmodellar
+        click Lisensmodell href "../Lisensmodell/"
+    
+
+        
+      RessursContainer : plattformar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Plattform : plattformar
+        click Plattform href "../Plattform/"
+    
+
+        
+      RessursContainer : produsentar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Produsent : produsentar
+        click Produsent href "../Produsent/"
+    
+
+        
+      RessursContainer : rettigheiter
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Rettighet : rettigheiter
+        click Rettighet href "../Rettighet/"
+    
+
+        
+      RessursContainer : statusar
+        
+          
+    
+        
+        
+        RessursContainer --> "*" Status : statusar
+        click Status href "../Status/"
+    
+
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Tree Root | Yes |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [applikasjonar](applikasjonar.md) | * <br/> [Applikasjon](Applikasjon.md) |  |
+| [applikasjonsressursar](applikasjonsressursar.md) | * <br/> [Applikasjonsressurs](Applikasjonsressurs.md) |  |
+| [applikasjonsressurstilgjengelegheit](applikasjonsressurstilgjengelegheit.md) | * <br/> [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |  |
+| [digitaleEiningar](digitaleEiningar.md) | * <br/> [DigitalEnhet](DigitalEnhet.md) |  |
+| [einingsgrupper](einingsgrupper.md) | * <br/> [Enhetsgruppe](Enhetsgruppe.md) |  |
+| [einingsgruppedmedlemskap](einingsgruppedmedlemskap.md) | * <br/> [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) |  |
+| [identitetar](identitetar.md) | * <br/> [Identitet](Identitet.md) |  |
+| [rettigheiter](rettigheiter.md) | * <br/> [Rettighet](Rettighet.md) |  |
+| [applikasjonskategoriar](applikasjonskategoriar.md) | * <br/> [Applikasjonskategori](Applikasjonskategori.md) |  |
+| [brukertypar](brukertypar.md) | * <br/> [Brukertype](Brukertype.md) |  |
+| [einingstypar](einingstypar.md) | * <br/> [Enhetstype](Enhetstype.md) |  |
+| [handhaevingstypar](handhaevingstypar.md) | * <br/> [Handhevingstype](Handhevingstype.md) |  |
+| [lisensmodellar](lisensmodellar.md) | * <br/> [Lisensmodell](Lisensmodell.md) |  |
+| [plattformar](plattformar.md) | * <br/> [Plattform](Plattform.md) |  |
+| [produsentar](produsentar.md) | * <br/> [Produsent](Produsent.md) |  |
+| [statusar](statusar.md) | * <br/> [Status](Status.md) |  |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fint-ressurs
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://schema.fintlabs.no/ressurs/:RessursContainer |
+| native | https://schema.fintlabs.no/ressurs/:RessursContainer |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: RessursContainer
+description: Rotcontainer for FINT Ressurs-instansar.
+from_schema: https://data.norge.no/linkml/fint-ressurs
+attributes:
+  applikasjonar:
+    name: applikasjonar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Applikasjon
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  applikasjonsressursar:
+    name: applikasjonsressursar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Applikasjonsressurs
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  applikasjonsressurstilgjengelegheit:
+    name: applikasjonsressurstilgjengelegheit
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Applikasjonsressurstilgjengelighet
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  digitaleEiningar:
+    name: digitaleEiningar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: DigitalEnhet
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  einingsgrupper:
+    name: einingsgrupper
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Enhetsgruppe
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  einingsgruppedmedlemskap:
+    name: einingsgruppedmedlemskap
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Enhetsgruppemedlemskap
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  identitetar:
+    name: identitetar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Identitet
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  rettigheiter:
+    name: rettigheiter
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Rettighet
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  applikasjonskategoriar:
+    name: applikasjonskategoriar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Applikasjonskategori
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  brukertypar:
+    name: brukertypar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Brukertype
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  einingstypar:
+    name: einingstypar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Enhetstype
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  handhaevingstypar:
+    name: handhaevingstypar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Handhevingstype
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  lisensmodellar:
+    name: lisensmodellar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Lisensmodell
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  plattformar:
+    name: plattformar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Plattform
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  produsentar:
+    name: produsentar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Produsent
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+  statusar:
+    name: statusar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    domain_of:
+    - RessursContainer
+    range: Status
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
+tree_root: true
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: RessursContainer
+description: Rotcontainer for FINT Ressurs-instansar.
+from_schema: https://data.norge.no/linkml/fint-ressurs
+attributes:
+  applikasjonar:
+    name: applikasjonar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: applikasjonar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Applikasjon
+    multivalued: true
+    inlined_as_list: true
+  applikasjonsressursar:
+    name: applikasjonsressursar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: applikasjonsressursar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Applikasjonsressurs
+    multivalued: true
+    inlined_as_list: true
+  applikasjonsressurstilgjengelegheit:
+    name: applikasjonsressurstilgjengelegheit
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: applikasjonsressurstilgjengelegheit
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Applikasjonsressurstilgjengelighet
+    multivalued: true
+    inlined_as_list: true
+  digitaleEiningar:
+    name: digitaleEiningar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: digitaleEiningar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: DigitalEnhet
+    multivalued: true
+    inlined_as_list: true
+  einingsgrupper:
+    name: einingsgrupper
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: einingsgrupper
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Enhetsgruppe
+    multivalued: true
+    inlined_as_list: true
+  einingsgruppedmedlemskap:
+    name: einingsgruppedmedlemskap
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: einingsgruppedmedlemskap
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Enhetsgruppemedlemskap
+    multivalued: true
+    inlined_as_list: true
+  identitetar:
+    name: identitetar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: identitetar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Identitet
+    multivalued: true
+    inlined_as_list: true
+  rettigheiter:
+    name: rettigheiter
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: rettigheiter
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Rettighet
+    multivalued: true
+    inlined_as_list: true
+  applikasjonskategoriar:
+    name: applikasjonskategoriar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: applikasjonskategoriar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Applikasjonskategori
+    multivalued: true
+    inlined_as_list: true
+  brukertypar:
+    name: brukertypar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: brukertypar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Brukertype
+    multivalued: true
+    inlined_as_list: true
+  einingstypar:
+    name: einingstypar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: einingstypar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Enhetstype
+    multivalued: true
+    inlined_as_list: true
+  handhaevingstypar:
+    name: handhaevingstypar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: handhaevingstypar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Handhevingstype
+    multivalued: true
+    inlined_as_list: true
+  lisensmodellar:
+    name: lisensmodellar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: lisensmodellar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Lisensmodell
+    multivalued: true
+    inlined_as_list: true
+  plattformar:
+    name: plattformar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: plattformar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Plattform
+    multivalued: true
+    inlined_as_list: true
+  produsentar:
+    name: produsentar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: produsentar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Produsent
+    multivalued: true
+    inlined_as_list: true
+  statusar:
+    name: statusar
+    from_schema: https://data.norge.no/linkml/fint-ressurs
+    rank: 1000
+    alias: statusar
+    owner: RessursContainer
+    domain_of:
+    - RessursContainer
+    range: Status
+    multivalued: true
+    inlined_as_list: true
+tree_root: true
+
+```
+</details>

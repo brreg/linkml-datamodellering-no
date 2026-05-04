@@ -1,0 +1,97 @@
+
+
+# Slot: underordna_kategori 
+
+
+_Underordna kategori (skos:narrower)._
+
+
+
+
+
+URI: [skos:narrower](http://www.w3.org/2004/02/skos/core#narrower)
+Alias: underordna_kategori
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Kategori](Kategori.md) |
+| Domain Of | [Kategori](Kategori.md) |
+| Slot URI | [skos:narrower](http://www.w3.org/2004/02/skos/core#narrower) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/xkos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | skos:narrower |
+| native | https://data.norge.no/linkml/xkos-ap-no/underordna_kategori |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: underordna_kategori
+description: Underordna kategori (skos:narrower).
+from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
+slot_uri: skos:narrower
+alias: underordna_kategori
+domain_of:
+- Kategori
+range: Kategori
+multivalued: true
+
+```
+</details>

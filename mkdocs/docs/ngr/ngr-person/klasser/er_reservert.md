@@ -1,0 +1,95 @@
+
+
+# Slot: er_reservert 
+
+
+_Om personen er reservert mot digital kommunikasjon frå det offentlege._
+
+
+
+
+
+URI: [ngrp:erReservert](https://data.norge.no/vocabulary/ngr-person#erReservert)
+Alias: er_reservert
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) | Registrering av at ein person har reservert seg mot digital kommunikasjon frå... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Boolean](Boolean.md) |
+| Domain Of | [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) |
+| Slot URI | [ngrp:erReservert](https://data.norge.no/vocabulary/ngr-person#erReservert) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:erReservert |
+| native | https://data.norge.no/linkml/ngr-person/er_reservert |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: er_reservert
+description: Om personen er reservert mot digital kommunikasjon frå det offentlege.
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:erReservert
+alias: er_reservert
+domain_of:
+- ReservasjonMotKommunikasjonPaaNett
+range: boolean
+
+```
+</details>

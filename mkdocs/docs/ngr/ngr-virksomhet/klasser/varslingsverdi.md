@@ -1,0 +1,95 @@
+
+
+# Slot: varslingsverdi 
+
+
+_Verdien for varslingskanalen (e-postadresse eller mobilnummer)._
+
+
+
+
+
+URI: [ngrv:varslingsverdi](https://data.norge.no/vocabulary/ngr-virksomhet#varslingsverdi)
+Alias: varslingsverdi
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Varslingsadresse](Varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Varslingsadresse](Varslingsadresse.md) |
+| Slot URI | [ngrv:varslingsverdi](https://data.norge.no/vocabulary/ngr-virksomhet#varslingsverdi) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:varslingsverdi |
+| native | https://data.norge.no/linkml/ngr-virksomhet/varslingsverdi |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: varslingsverdi
+description: Verdien for varslingskanalen (e-postadresse eller mobilnummer).
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:varslingsverdi
+alias: varslingsverdi
+domain_of:
+- Varslingsadresse
+range: string
+
+```
+</details>

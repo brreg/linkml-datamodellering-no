@@ -1,0 +1,95 @@
+
+
+# Slot: koordinat_ost 
+
+
+_Austleg koordinat (X) i det angitte koordinatsystemet._
+
+
+
+
+
+URI: [ngr:koordinatOst](https://data.norge.no/vocabulary/ngr-adresse#koordinatOst)
+Alias: koordinat_ost
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Representasjonspunkt](Representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Float](Float.md) |
+| Domain Of | [Representasjonspunkt](Representasjonspunkt.md) |
+| Slot URI | [ngr:koordinatOst](https://data.norge.no/vocabulary/ngr-adresse#koordinatOst) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-adresse
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngr:koordinatOst |
+| native | https://data.norge.no/linkml/ngr-adresse/koordinat_ost |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: koordinat_ost
+description: Austleg koordinat (X) i det angitte koordinatsystemet.
+from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
+slot_uri: ngr:koordinatOst
+alias: koordinat_ost
+domain_of:
+- Representasjonspunkt
+range: float
+
+```
+</details>

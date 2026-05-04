@@ -1,0 +1,82 @@
+
+
+# Slot: kommune 
+
+
+
+URI: [https://schema.fintlabs.no/utdanning/:kommune](https://schema.fintlabs.no/utdanning/:kommune)
+Alias: kommune
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Person](Person.md) | Fysiske private personar |  no  |
+| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
+| [OtEnhet](OtEnhet.md) | Eining i oppfølgingstenesta (OT) |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [OtEnhet](OtEnhet.md), [Fylke](Fylke.md), [Person](Person.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://schema.fintlabs.no/utdanning/:kommune |
+| native | https://schema.fintlabs.no/utdanning/:kommune |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: kommune
+alias: kommune
+domain_of:
+- OtEnhet
+- Fylke
+- Person
+range: string
+
+```
+</details>

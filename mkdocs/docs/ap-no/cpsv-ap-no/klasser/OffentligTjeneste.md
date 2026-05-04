@@ -1,0 +1,2055 @@
+
+
+# Class: OffentligTjeneste 
+
+
+_Ei konkret offentleg teneste levert av ein offentleg organisasjon._
+
+
+
+
+
+URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class OffentligTjeneste
+    click OffentligTjeneste href "../OffentligTjeneste/"
+      OffentligTjeneste : behandlingstid
+        
+      OffentligTjeneste : beskrivelse
+        
+      OffentligTjeneste : dekningsomrade
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Konsept : dekningsomrade
+        click Konsept href "../Konsept/"
+    
+
+        
+      OffentligTjeneste : er_beskrive_av
+        
+      OffentligTjeneste : er_del_av
+        
+      OffentligTjeneste : er_gruppert_av
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Hendelse : er_gruppert_av
+        click Hendelse href "../Hendelse/"
+    
+
+        
+      OffentligTjeneste : er_klassifisert_av
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Konsept : er_klassifisert_av
+        click Konsept href "../Konsept/"
+    
+
+        
+      OffentligTjeneste : folger
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Regel : folger
+        click Regel href "../Regel/"
+    
+
+        
+      OffentligTjeneste : har_ansvarleg_styremakt
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "1..*" OffentligOrganisasjon : har_ansvarleg_styremakt
+        click OffentligOrganisasjon href "../OffentligOrganisasjon/"
+    
+
+        
+      OffentligTjeneste : har_del
+        
+      OffentligTjeneste : har_deltaking
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Deltagelse : har_deltaking
+        click Deltagelse href "../Deltagelse/"
+    
+
+        
+      OffentligTjeneste : har_dokumentasjonstype
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Dokumentasjonstype : har_dokumentasjonstype
+        click Dokumentasjonstype href "../Dokumentasjonstype/"
+    
+
+        
+      OffentligTjeneste : har_gebyr
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Gebyr : har_gebyr
+        click Gebyr href "../Gebyr/"
+    
+
+        
+      OffentligTjeneste : har_kontaktpunkt
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "1..*" Kontaktpunkt : har_kontaktpunkt
+        click Kontaktpunkt href "../Kontaktpunkt/"
+    
+
+        
+      OffentligTjeneste : har_regulativ_ressurs
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" RegulativRessurs : har_regulativ_ressurs
+        click RegulativRessurs href "../RegulativRessurs/"
+    
+
+        
+      OffentligTjeneste : har_tenestekanal
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Tjenestekanal : har_tenestekanal
+        click Tjenestekanal href "../Tjenestekanal/"
+    
+
+        
+      OffentligTjeneste : har_tenesteresultattype
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "1..*" Tjenesteresultattype : har_tenesteresultattype
+        click Tjenesteresultattype href "../Tjenesteresultattype/"
+    
+
+        
+      OffentligTjeneste : heimeside
+        
+      OffentligTjeneste : id
+        
+      OffentligTjeneste : identifikator_literal
+        
+      OffentligTjeneste : krev
+        
+      OffentligTjeneste : malgruppe
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Konsept : malgruppe
+        click Konsept href "../Konsept/"
+    
+
+        
+      OffentligTjeneste : nokkelord
+        
+      OffentligTjeneste : realiserer
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" LovpalagtTjeneste : realiserer
+        click LovpalagtTjeneste href "../LovpalagtTjeneste/"
+    
+
+        
+      OffentligTjeneste : relatert_teneste
+        
+      OffentligTjeneste : sektor
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Konsept : sektor
+        click Konsept href "../Konsept/"
+    
+
+        
+      OffentligTjeneste : sprak
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Spraak : sprak
+        click Spraak href "../Spraak/"
+    
+
+        
+      OffentligTjeneste : status
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "0..1" Konsept : status
+        click Konsept href "../Konsept/"
+    
+
+        
+      OffentligTjeneste : tema
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Konsept : tema
+        click Konsept href "../Konsept/"
+    
+
+        
+      OffentligTjeneste : temaomrade
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Konsept : temaomrade
+        click Konsept href "../Konsept/"
+    
+
+        
+      OffentligTjeneste : tittel
+        
+      OffentligTjeneste : type_concept
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "0..1" Konsept : type_concept
+        click Konsept href "../Konsept/"
+    
+
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](Kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
+| [har_tenesteresultattype](har_tenesteresultattype.md) | 1..* <br/> [Tjenesteresultattype](Tjenesteresultattype.md) | Typen resultat tenesta kan produsere |
+| [har_ansvarleg_styremakt](har_ansvarleg_styremakt.md) | 1..* <br/> [OffentligOrganisasjon](OffentligOrganisasjon.md) | Offentleg organisasjon ansvarleg for tenesta |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [tema](tema.md) | * <br/> [Konsept](Konsept.md) | Emne/tema tenesta handlar om |
+| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](Konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [har_dokumentasjonstype](har_dokumentasjonstype.md) | * <br/> [Dokumentasjonstype](Dokumentasjonstype.md) | Dokumentasjon som krevst for tenesta |
+| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [realiserer](realiserer.md) | * <br/> [LovpalagtTjeneste](LovpalagtTjeneste.md) | Lovpålagd teneste denne offentlege tenesta realiserer |
+| [status](status.md) | 0..1 <br/> [Konsept](Konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
+| [temaomrade](temaomrade.md) | * <br/> [Konsept](Konsept.md) | Tematisk område for tenesta |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+
+### Valgfri
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](Duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](Uri.md) | Datasett som beskriv ressursen |
+| [er_del_av](er_del_av.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Tenesta er del av ei anna teneste |
+| [har_del](har_del.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Deltenester som inngår i denne tenesta |
+| [har_tenestekanal](har_tenestekanal.md) | * <br/> [Tjenestekanal](Tjenestekanal.md) | Kanal for tilgang til tenesta |
+| [har_deltaking](har_deltaking.md) | * <br/> [Deltagelse](Deltagelse.md) | Deltakarar med spesifikke roller i levering av tenesta |
+| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
+| [relatert_teneste](relatert_teneste.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Relatert teneste |
+| [er_gruppert_av](er_gruppert_av.md) | * <br/> [Hendelse](Hendelse.md) | Hending(ar) som grupperer tenesta |
+| [er_klassifisert_av](er_klassifisert_av.md) | * <br/> [Konsept](Konsept.md) | Omgrep tenesta er klassifisert med |
+| [folger](folger.md) | * <br/> [Regel](Regel.md) | Regelverk tenesta følgjer |
+| [har_gebyr](har_gebyr.md) | * <br/> [Gebyr](Gebyr.md) | Gebyr knytt til tenesta |
+| [har_regulativ_ressurs](har_regulativ_ressurs.md) | * <br/> [RegulativRessurs](RegulativRessurs.md) | Regulativ ressurs (lov, forskrift) knytt til tenesta |
+| [krev](krev.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Teneste eller ressurs denne tenesta krev |
+| [malgruppe](malgruppe.md) | * <br/> [Konsept](Konsept.md) | Målgruppe for tenesta |
+| [nokkelord](nokkelord.md) | * <br/> [LangString](LangString.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
+| [sektor](sektor.md) | * <br/> [Konsept](Konsept.md) | Industri/sektor tenesta tilhøyrer |
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Hendelse](Hendelse.md) | [kan_utlose](kan_utlose.md) | range | [OffentligTjeneste](OffentligTjeneste.md) |
+| [Livshendelse](Livshendelse.md) | [kan_utlose](kan_utlose.md) | range | [OffentligTjeneste](OffentligTjeneste.md) |
+| [Virksomhetshendelse](Virksomhetshendelse.md) | [kan_utlose](kan_utlose.md) | range | [OffentligTjeneste](OffentligTjeneste.md) |
+| [Katalog](Katalog.md) | [inneheld_teneste](inneheld_teneste.md) | range | [OffentligTjeneste](OffentligTjeneste.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/cpsv-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | cpsv:PublicService |
+| native | https://data.norge.no/linkml/cpsv-ap-no/OffentligTjeneste |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: OffentligTjeneste
+description: Ei konkret offentleg teneste levert av ein offentleg organisasjon.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+slots:
+- id
+- tittel
+- beskrivelse
+- identifikator_literal
+- har_kontaktpunkt
+- har_tenesteresultattype
+- har_ansvarleg_styremakt
+- tema
+- dekningsomrade
+- har_dokumentasjonstype
+- heimeside
+- type_concept
+- realiserer
+- status
+- temaomrade
+- behandlingstid
+- er_beskrive_av
+- er_del_av
+- har_del
+- har_tenestekanal
+- har_deltaking
+- sprak
+- relatert_teneste
+- er_gruppert_av
+- er_klassifisert_av
+- folger
+- har_gebyr
+- har_regulativ_ressurs
+- krev
+- malgruppe
+- nokkelord
+- sektor
+slot_usage:
+  tittel:
+    name: tittel
+    in_subset:
+    - Obligatorisk
+    required: true
+  beskrivelse:
+    name: beskrivelse
+    in_subset:
+    - Obligatorisk
+    required: true
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_kontaktpunkt:
+    name: har_kontaktpunkt
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_tenesteresultattype:
+    name: har_tenesteresultattype
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_ansvarleg_styremakt:
+    name: har_ansvarleg_styremakt
+    in_subset:
+    - Obligatorisk
+    required: true
+  tema:
+    name: tema
+    in_subset:
+    - Anbefalt
+  dekningsomrade:
+    name: dekningsomrade
+    in_subset:
+    - Anbefalt
+  har_dokumentasjonstype:
+    name: har_dokumentasjonstype
+    in_subset:
+    - Anbefalt
+  heimeside:
+    name: heimeside
+    in_subset:
+    - Anbefalt
+  type_concept:
+    name: type_concept
+    in_subset:
+    - Anbefalt
+  realiserer:
+    name: realiserer
+    in_subset:
+    - Anbefalt
+  status:
+    name: status
+    in_subset:
+    - Anbefalt
+  temaomrade:
+    name: temaomrade
+    in_subset:
+    - Anbefalt
+  behandlingstid:
+    name: behandlingstid
+    in_subset:
+    - Valgfri
+  er_beskrive_av:
+    name: er_beskrive_av
+    in_subset:
+    - Valgfri
+  er_del_av:
+    name: er_del_av
+    in_subset:
+    - Valgfri
+  har_del:
+    name: har_del
+    in_subset:
+    - Valgfri
+  har_tenestekanal:
+    name: har_tenestekanal
+    in_subset:
+    - Valgfri
+  har_deltaking:
+    name: har_deltaking
+    in_subset:
+    - Valgfri
+  sprak:
+    name: sprak
+    in_subset:
+    - Valgfri
+  relatert_teneste:
+    name: relatert_teneste
+    in_subset:
+    - Valgfri
+  er_gruppert_av:
+    name: er_gruppert_av
+    in_subset:
+    - Valgfri
+  er_klassifisert_av:
+    name: er_klassifisert_av
+    in_subset:
+    - Valgfri
+  folger:
+    name: folger
+    in_subset:
+    - Valgfri
+  har_gebyr:
+    name: har_gebyr
+    in_subset:
+    - Valgfri
+  har_regulativ_ressurs:
+    name: har_regulativ_ressurs
+    in_subset:
+    - Valgfri
+  krev:
+    name: krev
+    in_subset:
+    - Valgfri
+  malgruppe:
+    name: malgruppe
+    in_subset:
+    - Valgfri
+  nokkelord:
+    name: nokkelord
+    in_subset:
+    - Valgfri
+  sektor:
+    name: sektor
+    in_subset:
+    - Valgfri
+class_uri: cpsv:PublicService
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: OffentligTjeneste
+description: Ei konkret offentleg teneste levert av ein offentleg organisasjon.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+slot_usage:
+  tittel:
+    name: tittel
+    in_subset:
+    - Obligatorisk
+    required: true
+  beskrivelse:
+    name: beskrivelse
+    in_subset:
+    - Obligatorisk
+    required: true
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_kontaktpunkt:
+    name: har_kontaktpunkt
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_tenesteresultattype:
+    name: har_tenesteresultattype
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_ansvarleg_styremakt:
+    name: har_ansvarleg_styremakt
+    in_subset:
+    - Obligatorisk
+    required: true
+  tema:
+    name: tema
+    in_subset:
+    - Anbefalt
+  dekningsomrade:
+    name: dekningsomrade
+    in_subset:
+    - Anbefalt
+  har_dokumentasjonstype:
+    name: har_dokumentasjonstype
+    in_subset:
+    - Anbefalt
+  heimeside:
+    name: heimeside
+    in_subset:
+    - Anbefalt
+  type_concept:
+    name: type_concept
+    in_subset:
+    - Anbefalt
+  realiserer:
+    name: realiserer
+    in_subset:
+    - Anbefalt
+  status:
+    name: status
+    in_subset:
+    - Anbefalt
+  temaomrade:
+    name: temaomrade
+    in_subset:
+    - Anbefalt
+  behandlingstid:
+    name: behandlingstid
+    in_subset:
+    - Valgfri
+  er_beskrive_av:
+    name: er_beskrive_av
+    in_subset:
+    - Valgfri
+  er_del_av:
+    name: er_del_av
+    in_subset:
+    - Valgfri
+  har_del:
+    name: har_del
+    in_subset:
+    - Valgfri
+  har_tenestekanal:
+    name: har_tenestekanal
+    in_subset:
+    - Valgfri
+  har_deltaking:
+    name: har_deltaking
+    in_subset:
+    - Valgfri
+  sprak:
+    name: sprak
+    in_subset:
+    - Valgfri
+  relatert_teneste:
+    name: relatert_teneste
+    in_subset:
+    - Valgfri
+  er_gruppert_av:
+    name: er_gruppert_av
+    in_subset:
+    - Valgfri
+  er_klassifisert_av:
+    name: er_klassifisert_av
+    in_subset:
+    - Valgfri
+  folger:
+    name: folger
+    in_subset:
+    - Valgfri
+  har_gebyr:
+    name: har_gebyr
+    in_subset:
+    - Valgfri
+  har_regulativ_ressurs:
+    name: har_regulativ_ressurs
+    in_subset:
+    - Valgfri
+  krev:
+    name: krev
+    in_subset:
+    - Valgfri
+  malgruppe:
+    name: malgruppe
+    in_subset:
+    - Valgfri
+  nokkelord:
+    name: nokkelord
+    in_subset:
+    - Valgfri
+  sektor:
+    name: sektor
+    in_subset:
+    - Valgfri
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Kontaktpunkt
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Gebyr
+    - Regel
+    - RegulativRessurs
+    - Deltagelse
+    - Adresse
+    - Katalog
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    range: uriorcurie
+    required: true
+  tittel:
+    name: tittel
+    description: Namn/tittel på ressursen (dct:title).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:title
+    alias: tittel
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Regel
+    - RegulativRessurs
+    - Katalog
+    range: LangString
+    required: true
+    multivalued: true
+  beskrivelse:
+    name: beskrivelse
+    description: Fritekstbeskrivelse av ressursen (dct:description).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:description
+    alias: beskrivelse
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Gebyr
+    - Regel
+    - Katalog
+    range: LangString
+    required: true
+    multivalued: true
+  identifikator_literal:
+    name: identifikator_literal
+    description: Tekstleg identifikator for ressursen (dct:identifier).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:identifier
+    alias: identifikator_literal
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Gebyr
+    - Regel
+    - RegulativRessurs
+    - Katalog
+    range: string
+    required: true
+  har_kontaktpunkt:
+    name: har_kontaktpunkt
+    description: Kontaktpunkt for tenesta eller organisasjonen.
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:contactPoint
+    alias: har_kontaktpunkt
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Katalog
+    range: Kontaktpunkt
+    required: true
+    multivalued: true
+  har_tenesteresultattype:
+    name: har_tenesteresultattype
+    description: Typen resultat tenesta kan produsere.
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cpsvno:hasOutputType
+    alias: har_tenesteresultattype
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Tjenesteresultattype
+    required: true
+    multivalued: true
+  har_ansvarleg_styremakt:
+    name: har_ansvarleg_styremakt
+    description: Offentleg organisasjon ansvarleg for tenesta.
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:hasCompetentAuthority
+    alias: har_ansvarleg_styremakt
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    range: OffentligOrganisasjon
+    required: true
+    multivalued: true
+  tema:
+    name: tema
+    description: Emne/tema tenesta handlar om.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:subject
+    alias: tema
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    range: Konsept
+    multivalued: true
+  dekningsomrade:
+    name: dekningsomrade
+    description: Geografisk dekningsområde (dct:spatial).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:spatial
+    alias: dekningsomrade
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - OffentligOrganisasjon
+    - Katalog
+    range: Konsept
+    multivalued: true
+  har_dokumentasjonstype:
+    name: har_dokumentasjonstype
+    description: Dokumentasjon som krevst for tenesta.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:hasInputType
+    alias: har_dokumentasjonstype
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Dokumentasjonstype
+    multivalued: true
+  heimeside:
+    name: heimeside
+    description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: foaf:homepage
+    alias: heimeside
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - OffentligOrganisasjon
+    - Katalog
+    range: uri
+    multivalued: true
+  type_concept:
+    name: type_concept
+    description: Type ressurs frå eit kontrollert vokabular (dct:type).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:type
+    alias: type_concept
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - OffentligOrganisasjon
+    - Tjenestekanal
+    - Tjenesteresultattype
+    - Regel
+    - RegulativRessurs
+    range: Konsept
+  realiserer:
+    name: realiserer
+    description: Lovpålagd teneste denne offentlege tenesta realiserer.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cpsvno:realizes
+    alias: realiserer
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    range: LovpalagtTjeneste
+    multivalued: true
+  status:
+    name: status
+    description: Status for ressursen frå eit kontrollert vokabular (adms:status).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: adms:status
+    alias: status
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    range: Konsept
+  temaomrade:
+    name: temaomrade
+    description: Tematisk område for tenesta.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:thematicArea
+    alias: temaomrade
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Konsept
+    multivalued: true
+  behandlingstid:
+    name: behandlingstid
+    description: Forventa behandlingstid for tenesta eller kanalen (ISO 8601).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:processingTime
+    alias: behandlingstid
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    - Tjenestekanal
+    range: Duration
+  er_beskrive_av:
+    name: er_beskrive_av
+    description: Datasett som beskriv ressursen.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cccevno:isDescribedBy
+    alias: er_beskrive_av
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    range: uri
+    multivalued: true
+  er_del_av:
+    name: er_del_av
+    description: Tenesta er del av ei anna teneste.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:isPartOf
+    alias: er_del_av
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: uriorcurie
+  har_del:
+    name: har_del
+    description: Deltenester som inngår i denne tenesta.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:hasPart
+    alias: har_del
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: uriorcurie
+    multivalued: true
+  har_tenestekanal:
+    name: har_tenestekanal
+    description: Kanal for tilgang til tenesta.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:hasChannel
+    alias: har_tenestekanal
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    range: Tjenestekanal
+    multivalued: true
+  har_deltaking:
+    name: har_deltaking
+    description: Deltakarar med spesifikke roller i levering av tenesta.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:hasParticipation
+    alias: har_deltaking
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    range: Deltagelse
+    multivalued: true
+  sprak:
+    name: sprak
+    description: Språk brukt i ressursen (dct:language).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:language
+    alias: sprak
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    - Kontaktpunkt
+    - Regel
+    - Katalog
+    range: Spraak
+    multivalued: true
+  relatert_teneste:
+    name: relatert_teneste
+    description: Relatert teneste.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:relatedService
+    alias: relatert_teneste
+    owner: OffentligTjeneste
+    domain_of:
+    - OffentligTjeneste
+    - Tjeneste
+    range: uriorcurie
+    multivalued: true
+  er_gruppert_av:
+    name: er_gruppert_av
+    description: Hending(ar) som grupperer tenesta.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:isGroupedBy
+    alias: er_gruppert_av
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Hendelse
+    multivalued: true
+  er_klassifisert_av:
+    name: er_klassifisert_av
+    description: Omgrep tenesta er klassifisert med.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:isClassifiedBy
+    alias: er_klassifisert_av
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Konsept
+    multivalued: true
+  folger:
+    name: folger
+    description: Regelverk tenesta følgjer.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cpsv:follows
+    alias: folger
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Regel
+    multivalued: true
+  har_gebyr:
+    name: har_gebyr
+    description: Gebyr knytt til tenesta.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:hasCost
+    alias: har_gebyr
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Gebyr
+    multivalued: true
+  har_regulativ_ressurs:
+    name: har_regulativ_ressurs
+    description: Regulativ ressurs (lov, forskrift) knytt til tenesta.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:hasLegalResource
+    alias: har_regulativ_ressurs
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: RegulativRessurs
+    multivalued: true
+  krev:
+    name: krev
+    description: Teneste eller ressurs denne tenesta krev.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:requires
+    alias: krev
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: uriorcurie
+    multivalued: true
+  malgruppe:
+    name: malgruppe
+    description: Målgruppe for tenesta.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:audience
+    alias: malgruppe
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Konsept
+    multivalued: true
+  nokkelord:
+    name: nokkelord
+    description: Nøkkelord som beskriv ressursen (dcat:keyword).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dcat:keyword
+    alias: nokkelord
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: LangString
+    multivalued: true
+  sektor:
+    name: sektor
+    description: Industri/sektor tenesta tilhøyrer.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: cv:sector
+    alias: sektor
+    owner: OffentligTjeneste
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    range: Konsept
+    multivalued: true
+class_uri: cpsv:PublicService
+
+```
+</details>

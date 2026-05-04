@@ -1,0 +1,97 @@
+
+
+# Slot: har_datatype 
+
+
+_Datatype for attributten (modelldcatno:hasDataType)._
+
+
+
+
+
+URI: [modelldcatno:hasDataType](https://data.norge.no/vocabulary/modelldcatno#hasDataType)
+Alias: har_datatype
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Attributt](Attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Datatype](Datatype.md) |
+| Domain Of | [Attributt](Attributt.md) |
+| Slot URI | [modelldcatno:hasDataType](https://data.norge.no/vocabulary/modelldcatno#hasDataType) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | modelldcatno:hasDataType |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/har_datatype |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_datatype
+description: Datatype for attributten (modelldcatno:hasDataType).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
+slot_uri: modelldcatno:hasDataType
+alias: har_datatype
+domain_of:
+- Attributt
+range: Datatype
+multivalued: true
+
+```
+</details>

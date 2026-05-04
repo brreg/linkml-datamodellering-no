@@ -1,0 +1,95 @@
+
+
+# Slot: maalomgrep 
+
+
+_Måleomgrep i ein kategorisamanlikning (xkos:targetConcept)._
+
+
+
+
+
+URI: [xkos:targetConcept](http://rdf-vocabulary.ddialliance.org/xkos#targetConcept)
+Alias: maalomgrep
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kategorisamanlikning](Kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Kategori](Kategori.md) |
+| Domain Of | [Kategorisamanlikning](Kategorisamanlikning.md) |
+| Slot URI | [xkos:targetConcept](http://rdf-vocabulary.ddialliance.org/xkos#targetConcept) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/xkos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | xkos:targetConcept |
+| native | https://data.norge.no/linkml/xkos-ap-no/maalomgrep |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: maalomgrep
+description: Måleomgrep i ein kategorisamanlikning (xkos:targetConcept).
+from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
+slot_uri: xkos:targetConcept
+alias: maalomgrep
+domain_of:
+- Kategorisamanlikning
+range: Kategori
+
+```
+</details>

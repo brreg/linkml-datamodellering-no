@@ -1,0 +1,99 @@
+
+
+# Slot: bruksenheter 
+
+
+
+URI: [https://data.norge.no/linkml/ngr-eiendom/bruksenheter](https://data.norge.no/linkml/ngr-eiendom/bruksenheter)
+Alias: bruksenheter
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Bruksenhet](Bruksenhet.md) |
+| Domain Of | [EiendomContainer](EiendomContainer.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [EiendomContainer](EiendomContainer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-eiendom
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://data.norge.no/linkml/ngr-eiendom/bruksenheter |
+| native | https://data.norge.no/linkml/ngr-eiendom/bruksenheter |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: bruksenheter
+from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
+alias: bruksenheter
+owner: EiendomContainer
+domain_of:
+- EiendomContainer
+range: Bruksenhet
+multivalued: true
+inlined: true
+inlined_as_list: true
+
+```
+</details>

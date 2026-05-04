@@ -1,0 +1,264 @@
+
+
+# Class: Kommunenummer 
+
+
+_Firesifra kommunenummer (t.d. 0301 for Oslo)._
+
+
+
+
+
+URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenummer)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Kommunenummer
+    click Kommunenummer href "../Kommunenummer/"
+      Kommunenummer : id
+        
+      Kommunenummer : kommunenummer_verdi
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenummer) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [kommunenummer_verdi](kommunenummer_verdi.md) | 1 <br/> [String](String.md) | Firesifra kommunenummer (t |
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Matrikkelnummer](Matrikkelnummer.md) | [bestar_av_kommunenummer](bestar_av_kommunenummer.md) | range | [Kommunenummer](Kommunenummer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-eiendom
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngre:Kommunenummer |
+| native | https://data.norge.no/linkml/ngr-eiendom/Kommunenummer |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Kommunenummer
+description: Firesifra kommunenummer (t.d. 0301 for Oslo).
+from_schema: https://data.norge.no/linkml/ngr-eiendom
+slots:
+- id
+- kommunenummer_verdi
+slot_usage:
+  kommunenummer_verdi:
+    name: kommunenummer_verdi
+    in_subset:
+    - Obligatorisk
+    required: true
+class_uri: ngre:Kommunenummer
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Kommunenummer
+description: Firesifra kommunenummer (t.d. 0301 for Oslo).
+from_schema: https://data.norge.no/linkml/ngr-eiendom
+slot_usage:
+  kommunenummer_verdi:
+    name: kommunenummer_verdi
+    in_subset:
+    - Obligatorisk
+    required: true
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-eiendom
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Kommunenummer
+    domain_of:
+    - FastEiendom
+    - SamletFastEiendom
+    - Borettslagsandel
+    - Matrikkelenhet
+    - Matrikkelnummer
+    - Kommunenummer
+    - Gaardsnummer
+    - Bruksnummer
+    - Festenummer
+    - Seksjonsnummer
+    - Bygning
+    - Bygningsnummer
+    - Representasjonspunkt
+    - YtreInngang
+    - Bruksenhet
+    - Bruksenhetsnummer
+    - Etasje
+    - Teig
+    - Anleggsprojeksjonsflate
+    - Eierforhold
+    - Hjemmel
+    - Andel
+    - Rettighetshaver
+    - TinglystHeftelse
+    - RettighetForAaBenytteEiendom
+    - Borettslag
+    - OffisiellAdresse
+    - Person
+    - Hovedenhet
+    - Kommune
+    range: uriorcurie
+    required: true
+  kommunenummer_verdi:
+    name: kommunenummer_verdi
+    description: Firesifra kommunenummer (t.d. 0301 for Oslo).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/ngr-eiendom
+    rank: 1000
+    slot_uri: ngre:kommunenummer
+    alias: kommunenummer_verdi
+    owner: Kommunenummer
+    domain_of:
+    - Kommunenummer
+    - Kommune
+    range: string
+    required: true
+class_uri: ngre:Kommunenummer
+
+```
+</details>

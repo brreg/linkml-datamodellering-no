@@ -1,0 +1,99 @@
+
+
+# Slot: kontaktinformasjon 
+
+
+
+URI: [https://data.norge.no/linkml/ngr-virksomhet/kontaktinformasjon](https://data.norge.no/linkml/ngr-virksomhet/kontaktinformasjon)
+Alias: kontaktinformasjon
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Kontaktinformasjon](Kontaktinformasjon.md) |
+| Domain Of | [VirksomhetContainer](VirksomhetContainer.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [VirksomhetContainer](VirksomhetContainer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://data.norge.no/linkml/ngr-virksomhet/kontaktinformasjon |
+| native | https://data.norge.no/linkml/ngr-virksomhet/kontaktinformasjon |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: kontaktinformasjon
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+alias: kontaktinformasjon
+owner: VirksomhetContainer
+domain_of:
+- VirksomhetContainer
+range: Kontaktinformasjon
+multivalued: true
+inlined: true
+inlined_as_list: true
+
+```
+</details>

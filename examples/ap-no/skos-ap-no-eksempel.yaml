@@ -51,6 +51,3 @@ samlingar:
     medlem:
       - https://example.org/omgrep/datasett
       - https://example.org/omgrep/dataressurs
-
-organisasjonar:
-  - id: https://example.org/org/digdir

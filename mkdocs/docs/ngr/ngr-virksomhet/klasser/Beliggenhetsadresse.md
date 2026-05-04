@@ -1,0 +1,179 @@
+
+
+# Class: Beliggenhetsadresse 
+
+
+_Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten vert utøvd._
+
+
+
+
+
+URI: [ngrv:Beliggenhetsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Beliggenhetsadresse)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Beliggenhetsadresse
+    click Beliggenhetsadresse href "../Beliggenhetsadresse/"
+      GeografiskAdresse <|-- Beliggenhetsadresse
+        click GeografiskAdresse href "../GeografiskAdresse/"
+      
+      Beliggenhetsadresse : id
+        
+      
+```
+
+
+
+
+
+## Inheritance
+* [GeografiskAdresse](GeografiskAdresse.md)
+    * **Beliggenhetsadresse**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngrv:Beliggenhetsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Beliggenhetsadresse) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Arva
+
+| Namn | Kardinalitet og domene | Beskriving | Frå |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | [beliggenhetsadresser](beliggenhetsadresser.md) | range | [Beliggenhetsadresse](Beliggenhetsadresse.md) |
+| [Underenhet](Underenhet.md) | [har_beliggenhetsadresse](har_beliggenhetsadresse.md) | range | [Beliggenhetsadresse](Beliggenhetsadresse.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:Beliggenhetsadresse |
+| native | https://data.norge.no/linkml/ngr-virksomhet/Beliggenhetsadresse |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Beliggenhetsadresse
+description: Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten
+  vert utøvd.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+is_a: GeografiskAdresse
+class_uri: ngrv:Beliggenhetsadresse
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Beliggenhetsadresse
+description: Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten
+  vert utøvd.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+is_a: GeografiskAdresse
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Beliggenhetsadresse
+    domain_of:
+    - Virksomhet
+    - Tilstand
+    - Organisasjonsform
+    - Naeringskode
+    - Sektorkode
+    - Kontaktinformasjon
+    - Varslingsadresse
+    - Aktivitet
+    - RolleIVirksomhet
+    - Rolleinnehaver
+    - Signaturrett
+    - Prokura
+    - GeografiskAdresse
+    - Person
+    range: uriorcurie
+    required: true
+class_uri: ngrv:Beliggenhetsadresse
+
+```
+</details>

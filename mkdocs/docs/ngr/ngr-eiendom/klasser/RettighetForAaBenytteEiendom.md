@@ -1,0 +1,206 @@
+
+
+# Class: RettighetForAaBenytteEiendom 
+
+
+_Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse er registrerte som heftingar i Grunnboka på teneleg eigedom._
+
+
+
+
+
+URI: [ngre:RettighetForAaBenytteEiendom](https://data.norge.no/vocabulary/ngr-eiendom#RettighetForAaBenytteEiendom)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class RettighetForAaBenytteEiendom
+    click RettighetForAaBenytteEiendom href "../RettighetForAaBenytteEiendom/"
+      RettighetForAaBenytteEiendom : id
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngre:RettighetForAaBenytteEiendom](https://data.norge.no/vocabulary/ngr-eiendom#RettighetForAaBenytteEiendom) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [EiendomContainer](EiendomContainer.md) | [rettigheter](rettigheter.md) | range | [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) |
+| [FastEiendom](FastEiendom.md) | [bestar_av_rettighet](bestar_av_rettighet.md) | range | [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-eiendom
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngre:RettighetForAaBenytteEiendom |
+| native | https://data.norge.no/linkml/ngr-eiendom/RettighetForAaBenytteEiendom |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: RettighetForAaBenytteEiendom
+description: Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse
+  er registrerte som heftingar i Grunnboka på teneleg eigedom.
+from_schema: https://data.norge.no/linkml/ngr-eiendom
+slots:
+- id
+class_uri: ngre:RettighetForAaBenytteEiendom
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: RettighetForAaBenytteEiendom
+description: Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse
+  er registrerte som heftingar i Grunnboka på teneleg eigedom.
+from_schema: https://data.norge.no/linkml/ngr-eiendom
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-eiendom
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: RettighetForAaBenytteEiendom
+    domain_of:
+    - FastEiendom
+    - SamletFastEiendom
+    - Borettslagsandel
+    - Matrikkelenhet
+    - Matrikkelnummer
+    - Kommunenummer
+    - Gaardsnummer
+    - Bruksnummer
+    - Festenummer
+    - Seksjonsnummer
+    - Bygning
+    - Bygningsnummer
+    - Representasjonspunkt
+    - YtreInngang
+    - Bruksenhet
+    - Bruksenhetsnummer
+    - Etasje
+    - Teig
+    - Anleggsprojeksjonsflate
+    - Eierforhold
+    - Hjemmel
+    - Andel
+    - Rettighetshaver
+    - TinglystHeftelse
+    - RettighetForAaBenytteEiendom
+    - Borettslag
+    - OffisiellAdresse
+    - Person
+    - Hovedenhet
+    - Kommune
+    range: uriorcurie
+    required: true
+class_uri: ngre:RettighetForAaBenytteEiendom
+
+```
+</details>

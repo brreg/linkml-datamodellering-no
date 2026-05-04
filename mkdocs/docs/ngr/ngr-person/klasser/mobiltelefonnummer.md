@@ -1,0 +1,95 @@
+
+
+# Slot: mobiltelefonnummer 
+
+
+_Mobiltelefonnummer registrert i KRR._
+
+
+
+
+
+URI: [ngrp:mobiltelefonnummer](https://data.norge.no/vocabulary/ngr-person#mobiltelefonnummer)
+Alias: mobiltelefonnummer
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kontaktopplysninger](Kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Kontaktopplysninger](Kontaktopplysninger.md) |
+| Slot URI | [ngrp:mobiltelefonnummer](https://data.norge.no/vocabulary/ngr-person#mobiltelefonnummer) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:mobiltelefonnummer |
+| native | https://data.norge.no/linkml/ngr-person/mobiltelefonnummer |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: mobiltelefonnummer
+description: Mobiltelefonnummer registrert i KRR.
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:mobiltelefonnummer
+alias: mobiltelefonnummer
+domain_of:
+- Kontaktopplysninger
+range: string
+
+```
+</details>

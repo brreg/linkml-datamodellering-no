@@ -1,0 +1,97 @@
+
+
+# Slot: inklusjonsnotat 
+
+
+_Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote)._
+
+
+
+
+
+URI: [xkos:inclusionNote](http://rdf-vocabulary.ddialliance.org/xkos#inclusionNote)
+Alias: inklusjonsnotat
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [LangString](LangString.md) |
+| Domain Of | [Kodeelement](Kodeelement.md) |
+| Slot URI | [xkos:inclusionNote](http://rdf-vocabulary.ddialliance.org/xkos#inclusionNote) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | xkos:inclusionNote |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/inklusjonsnotat |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: inklusjonsnotat
+description: Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
+slot_uri: xkos:inclusionNote
+alias: inklusjonsnotat
+domain_of:
+- Kodeelement
+range: LangString
+multivalued: true
+
+```
+</details>

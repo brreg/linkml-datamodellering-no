@@ -1,0 +1,100 @@
+
+
+# Slot: ressurstype 
+
+
+_Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI frå eit kontrollert vokabular (FAIR F2)._
+
+__
+
+
+
+
+
+URI: [dct:type](http://purl.org/dc/terms/type)
+Alias: ressurstype
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Uriorcurie](Uriorcurie.md) |
+| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Slot URI | [dct:type](http://purl.org/dc/terms/type) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:type |
+| native | https://data.norge.no/fair#:ressurstype |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: ressurstype
+description: 'Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein
+  URI frå eit kontrollert vokabular (FAIR F2).
+
+  '
+from_schema: https://data.norge.no/linkml/fair-metadata
+rank: 1000
+slot_uri: dct:type
+alias: ressurstype
+domain_of:
+- FAIRMetadata
+range: uriorcurie
+
+```
+</details>

@@ -1,0 +1,95 @@
+
+
+# Slot: har_bygningsnummer 
+
+
+_Offisiell bygningsnummer for bygningen._
+
+
+
+
+
+URI: [ngre:harBygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#harBygningsnummer)
+Alias: har_bygningsnummer
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Bygningsnummer](Bygningsnummer.md) |
+| Domain Of | [Bygning](Bygning.md) |
+| Slot URI | [ngre:harBygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#harBygningsnummer) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-eiendom
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngre:harBygningsnummer |
+| native | https://data.norge.no/linkml/ngr-eiendom/har_bygningsnummer |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_bygningsnummer
+description: Offisiell bygningsnummer for bygningen.
+from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
+slot_uri: ngre:harBygningsnummer
+alias: har_bygningsnummer
+domain_of:
+- Bygning
+range: Bygningsnummer
+
+```
+</details>

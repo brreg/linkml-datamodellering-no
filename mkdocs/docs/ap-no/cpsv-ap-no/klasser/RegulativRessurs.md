@@ -1,0 +1,389 @@
+
+
+# Class: RegulativRessurs 
+
+
+_Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste._
+
+
+
+
+
+URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class RegulativRessurs
+    click RegulativRessurs href "../RegulativRessurs/"
+      RegulativRessurs : id
+        
+      RegulativRessurs : identifikator_literal
+        
+      RegulativRessurs : tittel
+        
+      RegulativRessurs : type_concept
+        
+          
+    
+        
+        
+        RegulativRessurs --> "0..1" Konsept : type_concept
+        click Konsept href "../Konsept/"
+    
+
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+
+### Valgfri
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](RegulativRessurs.md) |
+| [OffentligTjeneste](OffentligTjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](RegulativRessurs.md) |
+| [Tjeneste](Tjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](RegulativRessurs.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/cpsv-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | eli:LegalResource |
+| native | https://data.norge.no/linkml/cpsv-ap-no/RegulativRessurs |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: RegulativRessurs
+description: Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+slots:
+- id
+- tittel
+- identifikator_literal
+- type_concept
+slot_usage:
+  tittel:
+    name: tittel
+    in_subset:
+    - Valgfri
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Valgfri
+  type_concept:
+    name: type_concept
+    in_subset:
+    - Valgfri
+class_uri: eli:LegalResource
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: RegulativRessurs
+description: Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+slot_usage:
+  tittel:
+    name: tittel
+    in_subset:
+    - Valgfri
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Valgfri
+  type_concept:
+    name: type_concept
+    in_subset:
+    - Valgfri
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: RegulativRessurs
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Kontaktpunkt
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Gebyr
+    - Regel
+    - RegulativRessurs
+    - Deltagelse
+    - Adresse
+    - Katalog
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    range: uriorcurie
+    required: true
+  tittel:
+    name: tittel
+    description: Namn/tittel på ressursen (dct:title).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:title
+    alias: tittel
+    owner: RegulativRessurs
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Tjenesteresultattypeliste
+    - Regel
+    - RegulativRessurs
+    - Katalog
+    range: LangString
+    multivalued: true
+  identifikator_literal:
+    name: identifikator_literal
+    description: Tekstleg identifikator for ressursen (dct:identifier).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:identifier
+    alias: identifikator_literal
+    owner: RegulativRessurs
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - Aktor
+    - Tjenestekanal
+    - Dokumentasjonstype
+    - Tjenesteresultattype
+    - Gebyr
+    - Regel
+    - RegulativRessurs
+    - Katalog
+    range: string
+  type_concept:
+    name: type_concept
+    description: Type ressurs frå eit kontrollert vokabular (dct:type).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    rank: 1000
+    slot_uri: dct:type
+    alias: type_concept
+    owner: RegulativRessurs
+    domain_of:
+    - LovpalagtTjeneste
+    - OffentligTjeneste
+    - Tjeneste
+    - Hendelse
+    - OffentligOrganisasjon
+    - Tjenestekanal
+    - Tjenesteresultattype
+    - Regel
+    - RegulativRessurs
+    range: Konsept
+class_uri: eli:LegalResource
+
+```
+</details>

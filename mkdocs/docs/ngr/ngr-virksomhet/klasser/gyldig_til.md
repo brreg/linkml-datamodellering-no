@@ -1,0 +1,95 @@
+
+
+# Slot: gyldig_til 
+
+
+_Datoen tilstanden vart gyldig til._
+
+
+
+
+
+URI: [ngrv:gyldigTil](https://data.norge.no/vocabulary/ngr-virksomhet#gyldigTil)
+Alias: gyldig_til
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Tilstand](Tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Date](Date.md) |
+| Domain Of | [Tilstand](Tilstand.md) |
+| Slot URI | [ngrv:gyldigTil](https://data.norge.no/vocabulary/ngr-virksomhet#gyldigTil) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:gyldigTil |
+| native | https://data.norge.no/linkml/ngr-virksomhet/gyldig_til |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: gyldig_til
+description: Datoen tilstanden vart gyldig til.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:gyldigTil
+alias: gyldig_til
+domain_of:
+- Tilstand
+range: date
+
+```
+</details>

@@ -1,0 +1,215 @@
+
+
+# Class: Utdeling 
+
+
+_Konkret utdeling av verdiar til aksjeeigarar._
+
+
+
+
+
+URI: [aksje:Utdeling](https://example.no/ontology/aksje#Utdeling)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Utdeling
+    click Utdeling href "../Utdeling/"
+      Utdeling : belop
+        
+      Utdeling : identifikator
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
+| [belop](belop.md) | 0..1 <br/> [Decimal](Decimal.md) | Monetært beløp |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Containerklasse](Containerklasse.md) | [utdelinger](utdelinger.md) | range | [Utdeling](Utdeling.md) |
+| [Utbytte](Utbytte.md) | [har_utdeling](har_utdeling.md) | range | [Utdeling](Utdeling.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/aksje-eierskap
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | aksje:Utdeling |
+| native | aksje:Utdeling |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Utdeling
+description: Konkret utdeling av verdiar til aksjeeigarar.
+from_schema: https://example.no/ontology/aksje-eierskap
+slots:
+- identifikator
+- belop
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Utdeling
+description: Konkret utdeling av verdiar til aksjeeigarar.
+from_schema: https://example.no/ontology/aksje-eierskap
+attributes:
+  identifikator:
+    name: identifikator
+    description: Global identifikator for instansen.
+    from_schema: https://example.no/ontology/aksje-eierskap
+    rank: 1000
+    identifier: true
+    alias: identifikator
+    owner: Utdeling
+    domain_of:
+    - Containerklasse
+    - Aksjeselskap
+    - Aksjekapital
+    - Aksje
+    - Aksjeklasse
+    - Aksjeeierrettighet
+    - Aksjeeier
+    - Eierposisjon
+    - Aksjepost
+    - Utbytte
+    - Utdeling
+    - Eierskapstransaksjon
+    - Aksjeoverdragelse
+    - Vederlag
+    - Selskapshendelse
+    - Aksjeinnskudd
+    range: uriorcurie
+    required: true
+  belop:
+    name: belop
+    description: Monetært beløp.
+    from_schema: https://example.no/ontology/aksje-eierskap
+    rank: 1000
+    alias: belop
+    owner: Utdeling
+    domain_of:
+    - Utdeling
+    - Vederlag
+    - InnbetaltAksjekapital
+    - InnbetaltOverkurs
+    range: decimal
+    inlined: true
+
+```
+</details>

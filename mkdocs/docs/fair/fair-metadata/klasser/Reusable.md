@@ -1,0 +1,76 @@
+# Subset: Reusable 
+
+
+_Eigenskapar knytt til FAIR R-prinsippa (Reusable)._
+
+
+
+URI: [Reusable](Reusable.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

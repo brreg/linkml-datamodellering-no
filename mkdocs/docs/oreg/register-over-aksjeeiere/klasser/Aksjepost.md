@@ -1,0 +1,253 @@
+
+
+# Class: Aksjepost 
+
+
+_Samling aksjar eigd av ein aksjeeigar._
+
+
+
+
+
+URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Aksjepost
+    click Aksjepost href "../Aksjepost/"
+      Aksjepost : gjelder_aksjer_i_aksjeklasse
+        
+          
+    
+        
+        
+        Aksjepost --> "0..1" Aksjeklasse : gjelder_aksjer_i_aksjeklasse
+        click Aksjeklasse href "../Aksjeklasse/"
+    
+
+        
+      Aksjepost : har_antall_aksjer
+        
+      Aksjepost : identifikator
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
+| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [Integer](Integer.md) | Tal aksjar |
+| [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](Aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Containerklasse](Containerklasse.md) | [aksjeposter](aksjeposter.md) | range | [Aksjepost](Aksjepost.md) |
+| [Eierposisjon](Eierposisjon.md) | [gjelder_aksjepost](gjelder_aksjepost.md) | range | [Aksjepost](Aksjepost.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/aksje-eierskap
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | aksje:Aksjepost |
+| native | aksje:Aksjepost |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Aksjepost
+description: Samling aksjar eigd av ein aksjeeigar.
+from_schema: https://example.no/ontology/aksje-eierskap
+slots:
+- identifikator
+- har_antall_aksjer
+- gjelder_aksjer_i_aksjeklasse
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Aksjepost
+description: Samling aksjar eigd av ein aksjeeigar.
+from_schema: https://example.no/ontology/aksje-eierskap
+attributes:
+  identifikator:
+    name: identifikator
+    description: Global identifikator for instansen.
+    from_schema: https://example.no/ontology/aksje-eierskap
+    rank: 1000
+    identifier: true
+    alias: identifikator
+    owner: Aksjepost
+    domain_of:
+    - Containerklasse
+    - Aksjeselskap
+    - Aksjekapital
+    - Aksje
+    - Aksjeklasse
+    - Aksjeeierrettighet
+    - Aksjeeier
+    - Eierposisjon
+    - Aksjepost
+    - Utbytte
+    - Utdeling
+    - Eierskapstransaksjon
+    - Aksjeoverdragelse
+    - Vederlag
+    - Selskapshendelse
+    - Aksjeinnskudd
+    range: uriorcurie
+    required: true
+  har_antall_aksjer:
+    name: har_antall_aksjer
+    description: Tal aksjar.
+    from_schema: https://example.no/ontology/aksje-eierskap
+    rank: 1000
+    alias: har_antall_aksjer
+    owner: Aksjepost
+    domain_of:
+    - Aksjekapital
+    - Aksjepost
+    range: integer
+    inlined: true
+  gjelder_aksjer_i_aksjeklasse:
+    name: gjelder_aksjer_i_aksjeklasse
+    description: Rettigheiter knytt til aksjeklassen.
+    from_schema: https://example.no/ontology/aksje-eierskap
+    rank: 1000
+    alias: gjelder_aksjer_i_aksjeklasse
+    owner: Aksjepost
+    domain_of:
+    - Aksjeeierrettighet
+    - Aksjepost
+    range: Aksjeklasse
+
+```
+</details>

@@ -62,7 +62,7 @@ offentligeOrganisasjonar:
     tittel:
       - "NAV"
     identifikator_literal: "974652269"
-    føretrekt_namn:
+    foretrekt_namn:
       - "Arbeids- og velferdsetaten"
     dekningsomrade:
       - http://publications.europa.eu/resource/authority/country/NOR

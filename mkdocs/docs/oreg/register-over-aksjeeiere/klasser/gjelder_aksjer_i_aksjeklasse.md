@@ -1,0 +1,95 @@
+
+
+# Slot: gjelder_aksjer_i_aksjeklasse 
+
+
+_Rettigheiter knytt til aksjeklassen._
+
+
+
+
+
+URI: [aksje:gjelder_aksjer_i_aksjeklasse](https://example.no/ontology/aksje#gjelder_aksjer_i_aksjeklasse)
+Alias: gjelder_aksjer_i_aksjeklasse
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Aksjeeierrettighet](Aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
+| [Aksjepost](Aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Aksjeklasse](Aksjeklasse.md) |
+| Domain Of | [Aksjeeierrettighet](Aksjeeierrettighet.md), [Aksjepost](Aksjepost.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/aksje-eierskap
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | aksje:gjelder_aksjer_i_aksjeklasse |
+| native | aksje:gjelder_aksjer_i_aksjeklasse |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: gjelder_aksjer_i_aksjeklasse
+description: Rettigheiter knytt til aksjeklassen.
+from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
+alias: gjelder_aksjer_i_aksjeklasse
+domain_of:
+- Aksjeeierrettighet
+- Aksjepost
+range: Aksjeklasse
+
+```
+</details>

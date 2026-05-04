@@ -1,0 +1,99 @@
+
+
+# Slot: hovedenheter 
+
+
+
+URI: [https://data.norge.no/linkml/ngr-virksomhet/hovedenheter](https://data.norge.no/linkml/ngr-virksomhet/hovedenheter)
+Alias: hovedenheter
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Hovedenhet](Hovedenhet.md) |
+| Domain Of | [VirksomhetContainer](VirksomhetContainer.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [VirksomhetContainer](VirksomhetContainer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://data.norge.no/linkml/ngr-virksomhet/hovedenheter |
+| native | https://data.norge.no/linkml/ngr-virksomhet/hovedenheter |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: hovedenheter
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+alias: hovedenheter
+owner: VirksomhetContainer
+domain_of:
+- VirksomhetContainer
+range: Hovedenhet
+multivalued: true
+inlined: true
+inlined_as_list: true
+
+```
+</details>

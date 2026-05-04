@@ -19,14 +19,6 @@ prefixes:
   fint:   https://schema.fintlabs.no/
   utd:    https://schema.fintlabs.no/utdanning/
 
-subsets:
-  Obligatorisk:
-    description: Obligatorisk eigensskap.
-  Anbefalt:
-    description: Anbefalt eigensskap.
-  Valgfri:
-    description: Valfri eigensskap.
-
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
@@ -2937,9 +2929,3 @@ classes:
 # Slots
 # ---------------------------------------------------------------------------
 
-slots:
-
-  id:
-    identifier: true
-    range: uriorcurie
-    description: URI-identifikator for ressursen.

@@ -1,0 +1,95 @@
+
+
+# Slot: nedleggelsesdato 
+
+
+_Datoen underleininga vart lagt ned._
+
+
+
+
+
+URI: [ngrv:nedleggelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#nedleggelsesdato)
+Alias: nedleggelsesdato
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Underenhet](Underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Date](Date.md) |
+| Domain Of | [Underenhet](Underenhet.md) |
+| Slot URI | [ngrv:nedleggelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#nedleggelsesdato) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:nedleggelsesdato |
+| native | https://data.norge.no/linkml/ngr-virksomhet/nedleggelsesdato |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: nedleggelsesdato
+description: Datoen underleininga vart lagt ned.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:nedleggelsesdato
+alias: nedleggelsesdato
+domain_of:
+- Underenhet
+range: date
+
+```
+</details>

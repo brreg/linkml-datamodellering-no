@@ -1,0 +1,97 @@
+
+
+# Slot: adresseomrade_ref 
+
+
+_Adresseområdet dette adressenamnet eller adressekoden høyrer til._
+
+
+
+
+
+URI: [ngr:harAdresseomrade](https://data.norge.no/vocabulary/ngr-adresse#harAdresseomrade)
+Alias: adresseomrade_ref
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Adressekode](Adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  no  |
+| [Adressenavn](Adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Adresseomrade](Adresseomrade.md) |
+| Domain Of | [Adressenavn](Adressenavn.md), [Adressekode](Adressekode.md) |
+| Slot URI | [ngr:harAdresseomrade](https://data.norge.no/vocabulary/ngr-adresse#harAdresseomrade) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-adresse
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngr:harAdresseomrade |
+| native | https://data.norge.no/linkml/ngr-adresse/adresseomrade_ref |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: adresseomrade_ref
+description: Adresseområdet dette adressenamnet eller adressekoden høyrer til.
+from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
+slot_uri: ngr:harAdresseomrade
+alias: adresseomrade_ref
+domain_of:
+- Adressenavn
+- Adressekode
+range: Adresseomrade
+
+```
+</details>

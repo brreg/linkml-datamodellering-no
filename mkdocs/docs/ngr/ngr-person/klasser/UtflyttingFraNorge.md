@@ -1,0 +1,373 @@
+
+
+# Class: UtflyttingFraNorge 
+
+
+_Registrering av utflytting frå Noreg i Folkeregisteret._
+
+
+
+
+
+URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#UtflyttingFraNorge)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class UtflyttingFraNorge
+    click UtflyttingFraNorge href "../UtflyttingFraNorge/"
+      UtflyttingFraNorge : id
+        
+      UtflyttingFraNorge : tilflyttingsland
+        
+      UtflyttingFraNorge : tilflyttingssted_i_utlandet
+        
+      UtflyttingFraNorge : utflyttingsdato
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#UtflyttingFraNorge) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [utflyttingsdato](utflyttingsdato.md) | 1 <br/> [Date](Date.md) | Dato personen vart registrert utflytta frå Noreg |
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [tilflyttingsland](tilflyttingsland.md) | 0..1 <br/> [String](String.md) | ISO 3166-1 landkode for landet personen flytta til |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+### Valgfri
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [tilflyttingssted_i_utlandet](tilflyttingssted_i_utlandet.md) | 0..1 <br/> [String](String.md) | Stad i utlandet personen flytta til |
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [PersonContainer](PersonContainer.md) | [utflytting](utflytting.md) | range | [UtflyttingFraNorge](UtflyttingFraNorge.md) |
+| [Person](Person.md) | [har_utflytting_fra_norge](har_utflytting_fra_norge.md) | range | [UtflyttingFraNorge](UtflyttingFraNorge.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:UtflyttingFraNorge |
+| native | https://data.norge.no/linkml/ngr-person/UtflyttingFraNorge |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: UtflyttingFraNorge
+description: Registrering av utflytting frå Noreg i Folkeregisteret.
+from_schema: https://data.norge.no/linkml/ngr-person
+slots:
+- id
+- tilflyttingsland
+- tilflyttingssted_i_utlandet
+- utflyttingsdato
+slot_usage:
+  utflyttingsdato:
+    name: utflyttingsdato
+    in_subset:
+    - Obligatorisk
+    required: true
+  tilflyttingsland:
+    name: tilflyttingsland
+    in_subset:
+    - Anbefalt
+  tilflyttingssted_i_utlandet:
+    name: tilflyttingssted_i_utlandet
+    in_subset:
+    - Valgfri
+class_uri: ngrp:UtflyttingFraNorge
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: UtflyttingFraNorge
+description: Registrering av utflytting frå Noreg i Folkeregisteret.
+from_schema: https://data.norge.no/linkml/ngr-person
+slot_usage:
+  utflyttingsdato:
+    name: utflyttingsdato
+    in_subset:
+    - Obligatorisk
+    required: true
+  tilflyttingsland:
+    name: tilflyttingsland
+    in_subset:
+    - Anbefalt
+  tilflyttingssted_i_utlandet:
+    name: tilflyttingssted_i_utlandet
+    in_subset:
+    - Valgfri
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-person
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: UtflyttingFraNorge
+    domain_of:
+    - Person
+    - Personnavn
+    - Folkeregisteridentifikator
+    - Personidentifikasjon
+    - FalskIdentitet
+    - Identifikasjonsdokument
+    - Identitetsgrunnlag
+    - Kjoenn
+    - Sivilstand
+    - Personstatus
+    - Statsborgerskap
+    - Opphold
+    - Foedsel
+    - Dodsfall
+    - KontaktinformasjonDoedsbo
+    - ForeldreansvarForelder
+    - ForeldreansvarBarn
+    - FamilierelasjonForelder
+    - FamilierelasjonBarn
+    - FamilierelasjonEktefelle
+    - InnflyttingTilNorge
+    - UtflyttingFraNorge
+    - GeografiskAdresse
+    - Adressebeskyttelse
+    - Verge
+    - RettsligHandleevne
+    - ReservasjonMotKommunikasjonPaaNett
+    - Kontaktopplysninger
+    - SpraakForElektroniskKommunikasjon
+    range: uriorcurie
+    required: true
+  tilflyttingsland:
+    name: tilflyttingsland
+    description: ISO 3166-1 landkode for landet personen flytta til.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/ngr-person
+    rank: 1000
+    slot_uri: ngrp:tilflyttingsland
+    alias: tilflyttingsland
+    owner: UtflyttingFraNorge
+    domain_of:
+    - UtflyttingFraNorge
+    range: string
+  tilflyttingssted_i_utlandet:
+    name: tilflyttingssted_i_utlandet
+    description: Stad i utlandet personen flytta til.
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/ngr-person
+    rank: 1000
+    slot_uri: ngrp:tilflyttingsstedIUtlandet
+    alias: tilflyttingssted_i_utlandet
+    owner: UtflyttingFraNorge
+    domain_of:
+    - UtflyttingFraNorge
+    range: string
+  utflyttingsdato:
+    name: utflyttingsdato
+    description: Dato personen vart registrert utflytta frå Noreg.
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/ngr-person
+    rank: 1000
+    slot_uri: ngrp:utflyttingsdato
+    alias: utflyttingsdato
+    owner: UtflyttingFraNorge
+    domain_of:
+    - UtflyttingFraNorge
+    range: date
+    required: true
+class_uri: ngrp:UtflyttingFraNorge
+
+```
+</details>

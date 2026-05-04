@@ -1,0 +1,356 @@
+
+
+# Class: Naeringskode 
+
+
+_Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE). Ei verksemd kan ha 1–3 næringskoder._
+
+
+
+
+
+URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naeringskode)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Naeringskode
+    click Naeringskode href "../Naeringskode/"
+      Naeringskode : er_hovednaeringskode
+        
+      Naeringskode : id
+        
+      Naeringskode : naeringskode_beskrivelse
+        
+      Naeringskode : naeringskode_kode
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naeringskode) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [naeringskode_kode](naeringskode_kode.md) | 1 <br/> [String](String.md) | NACE-kode for næringsgruppering (t |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [naeringskode_beskrivelse](naeringskode_beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg skildring av næringskoden |
+| [er_hovednaeringskode](er_hovednaeringskode.md) | 0..1 <br/> [Boolean](Boolean.md) | Om dette er hovudnæringskoden til verksemda |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | [naeringskoder](naeringskoder.md) | range | [Naeringskode](Naeringskode.md) |
+| [Virksomhet](Virksomhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](Naeringskode.md) |
+| [Underenhet](Underenhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](Naeringskode.md) |
+| [Hovedenhet](Hovedenhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](Naeringskode.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:Naeringskode |
+| native | https://data.norge.no/linkml/ngr-virksomhet/Naeringskode |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Naeringskode
+description: Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE).
+  Ei verksemd kan ha 1–3 næringskoder.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slots:
+- id
+- naeringskode_kode
+- naeringskode_beskrivelse
+- er_hovednaeringskode
+slot_usage:
+  naeringskode_kode:
+    name: naeringskode_kode
+    in_subset:
+    - Obligatorisk
+    required: true
+  naeringskode_beskrivelse:
+    name: naeringskode_beskrivelse
+    in_subset:
+    - Anbefalt
+  er_hovednaeringskode:
+    name: er_hovednaeringskode
+    in_subset:
+    - Anbefalt
+class_uri: ngrv:Naeringskode
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Naeringskode
+description: Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE).
+  Ei verksemd kan ha 1–3 næringskoder.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slot_usage:
+  naeringskode_kode:
+    name: naeringskode_kode
+    in_subset:
+    - Obligatorisk
+    required: true
+  naeringskode_beskrivelse:
+    name: naeringskode_beskrivelse
+    in_subset:
+    - Anbefalt
+  er_hovednaeringskode:
+    name: er_hovednaeringskode
+    in_subset:
+    - Anbefalt
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Naeringskode
+    domain_of:
+    - Virksomhet
+    - Tilstand
+    - Organisasjonsform
+    - Naeringskode
+    - Sektorkode
+    - Kontaktinformasjon
+    - Varslingsadresse
+    - Aktivitet
+    - RolleIVirksomhet
+    - Rolleinnehaver
+    - Signaturrett
+    - Prokura
+    - GeografiskAdresse
+    - Person
+    range: uriorcurie
+    required: true
+  naeringskode_kode:
+    name: naeringskode_kode
+    description: NACE-kode for næringsgruppering (t.d. 62.010).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:naeringskodeKode
+    alias: naeringskode_kode
+    owner: Naeringskode
+    domain_of:
+    - Naeringskode
+    range: string
+    required: true
+  naeringskode_beskrivelse:
+    name: naeringskode_beskrivelse
+    description: Tekstleg skildring av næringskoden.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:naeringskodeBeskrivelse
+    alias: naeringskode_beskrivelse
+    owner: Naeringskode
+    domain_of:
+    - Naeringskode
+    range: string
+  er_hovednaeringskode:
+    name: er_hovednaeringskode
+    description: Om dette er hovudnæringskoden til verksemda.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:erHovednaeringskode
+    alias: er_hovednaeringskode
+    owner: Naeringskode
+    domain_of:
+    - Naeringskode
+    range: boolean
+class_uri: ngrv:Naeringskode
+
+```
+</details>

@@ -1,0 +1,95 @@
+
+
+# Slot: gjelder_innbetalt_aksjekapital 
+
+
+_Innbetalt aksjekapital._
+
+
+
+
+
+URI: [aksje:gjelder_innbetalt_aksjekapital](https://example.no/ontology/aksje#gjelder_innbetalt_aksjekapital)
+Alias: gjelder_innbetalt_aksjekapital
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Aksjeinnskudd](Aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Decimal](Decimal.md) |
+| Domain | [Aksjeinnskudd](Aksjeinnskudd.md) |
+| Domain Of | [Aksjeinnskudd](Aksjeinnskudd.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/aksje-eierskap
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | aksje:gjelder_innbetalt_aksjekapital |
+| native | aksje:gjelder_innbetalt_aksjekapital |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: gjelder_innbetalt_aksjekapital
+description: Innbetalt aksjekapital.
+from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
+domain: Aksjeinnskudd
+alias: gjelder_innbetalt_aksjekapital
+domain_of:
+- Aksjeinnskudd
+range: decimal
+
+```
+</details>

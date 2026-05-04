@@ -1,0 +1,95 @@
+
+
+# Slot: identitetsgrunnlag_kilde 
+
+
+_Kjelde for identitetsgrunnlaget._
+
+
+
+
+
+URI: [ngrp:identitetsgrunnlagKilde](https://data.norge.no/vocabulary/ngr-person#identitetsgrunnlagKilde)
+Alias: identitetsgrunnlag_kilde
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Identitetsgrunnlag](Identitetsgrunnlag.md) | Grunnlaget som er brukt for å fastsetje identiteten til ein person ved regist... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Identitetsgrunnlag](Identitetsgrunnlag.md) |
+| Slot URI | [ngrp:identitetsgrunnlagKilde](https://data.norge.no/vocabulary/ngr-person#identitetsgrunnlagKilde) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:identitetsgrunnlagKilde |
+| native | https://data.norge.no/linkml/ngr-person/identitetsgrunnlag_kilde |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: identitetsgrunnlag_kilde
+description: Kjelde for identitetsgrunnlaget.
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:identitetsgrunnlagKilde
+alias: identitetsgrunnlag_kilde
+domain_of:
+- Identitetsgrunnlag
+range: string
+
+```
+</details>

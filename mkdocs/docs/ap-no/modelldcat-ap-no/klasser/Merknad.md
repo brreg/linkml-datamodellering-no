@@ -1,0 +1,486 @@
+
+
+# Class: Merknad 
+
+
+_Ei merknad knytt til eit modellelement eller eigenskap._
+
+
+
+
+
+URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Merknad
+    click Merknad href "../Merknad/"
+      Merknad <|-- Betingelsesregel
+        click Betingelsesregel href "../Betingelsesregel/"
+      
+      Merknad : annoterer
+        
+          
+    
+        
+        
+        Merknad --> "*" Modellelement : annoterer
+        click Modellelement href "../Modellelement/"
+    
+
+        
+      Merknad : eigenskapsmerknad
+        
+      Merknad : id
+        
+      Merknad : identifikator_literal
+        
+      Merknad : tilhorer_modul
+        
+          
+    
+        
+        
+        Merknad --> "*" Modul : tilhorer_modul
+        click Modul href "../Modul/"
+    
+
+        
+      Merknad : tittel
+        
+      
+```
+
+
+
+
+
+## Inheritance
+* **Merknad**
+    * [Betingelsesregel](Betingelsesregel.md)
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [annoterer](annoterer.md) | * <br/> [Modellelement](Modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) |
+| [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](LangString.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+
+### Valgfri
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) |
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | modelldcatno:Note |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/Merknad |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Merknad
+description: Ei merknad knytt til eit modellelement eller eigenskap.
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+slots:
+- id
+- annoterer
+- eigenskapsmerknad
+- identifikator_literal
+- tittel
+- tilhorer_modul
+slot_usage:
+  annoterer:
+    name: annoterer
+    in_subset:
+    - Anbefalt
+  eigenskapsmerknad:
+    name: eigenskapsmerknad
+    in_subset:
+    - Anbefalt
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Anbefalt
+  tittel:
+    name: tittel
+    in_subset:
+    - Anbefalt
+  tilhorer_modul:
+    name: tilhorer_modul
+    in_subset:
+    - Valgfri
+class_uri: modelldcatno:Note
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Merknad
+description: Ei merknad knytt til eit modellelement eller eigenskap.
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+slot_usage:
+  annoterer:
+    name: annoterer
+    in_subset:
+    - Anbefalt
+  eigenskapsmerknad:
+    name: eigenskapsmerknad
+    in_subset:
+    - Anbefalt
+  identifikator_literal:
+    name: identifikator_literal
+    in_subset:
+    - Anbefalt
+  tittel:
+    name: tittel
+    in_subset:
+    - Anbefalt
+  tilhorer_modul:
+    name: tilhorer_modul
+    in_subset:
+    - Valgfri
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Merknad
+    domain_of:
+    - KatalogisertRessurs
+    - Aktor
+    - Kontaktopplysning
+    - Standard
+    - Lisensdokument
+    - Lokasjon
+    - Tidsperiode
+    - Dokument
+    - Modelkatalog
+    - Informasjonsmodell
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    - Kodeelement
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    range: uriorcurie
+    required: true
+  annoterer:
+    name: annoterer
+    description: Modellelement denne merknaden gjeld (modelldcatno:annotates).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:annotates
+    alias: annoterer
+    owner: Merknad
+    domain_of:
+    - Merknad
+    range: Modellelement
+    multivalued: true
+  eigenskapsmerknad:
+    name: eigenskapsmerknad
+    description: Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:propertyNote
+    alias: eigenskapsmerknad
+    owner: Merknad
+    domain_of:
+    - Merknad
+    range: LangString
+    multivalued: true
+  identifikator_literal:
+    name: identifikator_literal
+    description: Tekstleg identifikator for ressursen (dct:identifier).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: dct:identifier
+    alias: identifikator_literal
+    owner: Merknad
+    domain_of:
+    - Aktor
+    - Modelkatalog
+    - Informasjonsmodell
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    - Kodeelement
+    range: string
+  tittel:
+    name: tittel
+    description: Namn/tittel på ressursen (dct:title).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: dct:title
+    alias: tittel
+    owner: Merknad
+    domain_of:
+    - Standard
+    - Dokument
+    - Modelkatalog
+    - Informasjonsmodell
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    range: LangString
+    multivalued: true
+  tilhorer_modul:
+    name: tilhorer_modul
+    description: Modul dette elementet tilhøyrer (modelldcatno:belongsToModule).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:belongsToModule
+    alias: tilhorer_modul
+    owner: Merknad
+    domain_of:
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    range: Modul
+    multivalued: true
+class_uri: modelldcatno:Note
+
+```
+</details>

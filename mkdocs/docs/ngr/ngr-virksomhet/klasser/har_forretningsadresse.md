@@ -1,0 +1,95 @@
+
+
+# Slot: har_forretningsadresse 
+
+
+_Forretningsadressa (hovudkontor) til hovudeininga._
+
+
+
+
+
+URI: [ngrv:harForretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#harForretningsadresse)
+Alias: har_forretningsadresse
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Forretningsadresse](Forretningsadresse.md) |
+| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Slot URI | [ngrv:harForretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#harForretningsadresse) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:harForretningsadresse |
+| native | https://data.norge.no/linkml/ngr-virksomhet/har_forretningsadresse |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_forretningsadresse
+description: Forretningsadressa (hovudkontor) til hovudeininga.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:harForretningsadresse
+alias: har_forretningsadresse
+domain_of:
+- Hovedenhet
+range: Forretningsadresse
+
+```
+</details>

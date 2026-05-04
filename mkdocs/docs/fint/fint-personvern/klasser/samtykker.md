@@ -1,0 +1,99 @@
+
+
+# Slot: samtykker 
+
+
+
+URI: [https://schema.fintlabs.no/personvern/:samtykker](https://schema.fintlabs.no/personvern/:samtykker)
+Alias: samtykker
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [PersonvernContainer](PersonvernContainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Samtykke](Samtykke.md) |
+| Domain Of | [PersonvernContainer](PersonvernContainer.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PersonvernContainer](PersonvernContainer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fint-personvern
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://schema.fintlabs.no/personvern/:samtykker |
+| native | https://schema.fintlabs.no/personvern/:samtykker |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: samtykker
+from_schema: https://data.norge.no/linkml/fint-personvern
+rank: 1000
+alias: samtykker
+owner: PersonvernContainer
+domain_of:
+- PersonvernContainer
+range: Samtykke
+multivalued: true
+inlined: true
+inlined_as_list: true
+
+```
+</details>

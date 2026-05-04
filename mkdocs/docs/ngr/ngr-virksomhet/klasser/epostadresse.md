@@ -1,0 +1,95 @@
+
+
+# Slot: epostadresse 
+
+
+_E-postadresse for verksemda._
+
+
+
+
+
+URI: [ngrv:epostadresse](https://data.norge.no/vocabulary/ngr-virksomhet#epostadresse)
+Alias: epostadresse
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kontaktinformasjon](Kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Kontaktinformasjon](Kontaktinformasjon.md) |
+| Slot URI | [ngrv:epostadresse](https://data.norge.no/vocabulary/ngr-virksomhet#epostadresse) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:epostadresse |
+| native | https://data.norge.no/linkml/ngr-virksomhet/epostadresse |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: epostadresse
+description: E-postadresse for verksemda.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:epostadresse
+alias: epostadresse
+domain_of:
+- Kontaktinformasjon
+range: string
+
+```
+</details>

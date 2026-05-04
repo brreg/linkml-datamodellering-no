@@ -1,0 +1,95 @@
+
+
+# Slot: typedefinisjon_referanse 
+
+
+_Referanse til typedefinisjon (modelldcatno:typeDefinitionReference)._
+
+
+
+
+
+URI: [modelldcatno:typeDefinitionReference](https://data.norge.no/vocabulary/modelldcatno#typeDefinitionReference)
+Alias: typedefinisjon_referanse
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [EnkelType](EnkelType.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Uri](Uri.md) |
+| Domain Of | [EnkelType](EnkelType.md) |
+| Slot URI | [modelldcatno:typeDefinitionReference](https://data.norge.no/vocabulary/modelldcatno#typeDefinitionReference) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | modelldcatno:typeDefinitionReference |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/typedefinisjon_referanse |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: typedefinisjon_referanse
+description: Referanse til typedefinisjon (modelldcatno:typeDefinitionReference).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
+slot_uri: modelldcatno:typeDefinitionReference
+alias: typedefinisjon_referanse
+domain_of:
+- EnkelType
+range: uri
+
+```
+</details>

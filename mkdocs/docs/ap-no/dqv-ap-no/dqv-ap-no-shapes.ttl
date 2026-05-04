@@ -1,0 +1,439 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dqv: <http://www.w3.org/ns/dqv#> .
+@prefix dqvno: <https://data.norge.no/vocabulary/dqvno#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+skos:Concept a sh:NodeShape ;
+    rdfs:comment "Referanse til eit SKOS-omgrep frå eit kontrollert vokabular." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass skos:Concept .
+
+skos:ConceptScheme a sh:NodeShape ;
+    rdfs:comment "Ei SKOS-omgrepssamling (temavokabular)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass skos:ConceptScheme .
+
+dcat:Dataset a sh:NodeShape ;
+    rdfs:comment "Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinformasjon." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class dqv:QualityMeasurement ;
+            sh:description "Kvalitetsmåling knytt til datasettet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dqv:hasQualityMeasurement ],
+        [ sh:class dct:Standard ;
+            sh:description "Standard eller spesifikasjon datasettet er i samsvar med." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dct:conformsTo ],
+        [ sh:class dqv:QualityAnnotation ;
+            sh:description "Kvalitetsmerknad knytt til datasettet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dqv:hasQualityAnnotation ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass dcat:Dataset .
+
+dqv:QualityCertificate a sh:NodeShape ;
+    rdfs:comment "Eit sertifikat som stadfester kvaliteten til eit datasett." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad (rdfs:comment)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:comment ],
+        [ sh:class dcat:Resource ;
+            sh:description "Ressursen merknaden gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path oa:hasTarget ],
+        [ sh:class oa:TextualBody ;
+            sh:description "Tekstleg innhald i merknaden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path oa:hasBody ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path oa:motivatedBy ],
+        [ sh:class dqv:Dimension ;
+            sh:description "Kvalitetsdimensjonen denne merknaden eller standarden gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dqv:inDimension ] ;
+    sh:targetClass dqv:QualityCertificate .
+
+dqv:UserQualityFeedback a sh:NodeShape ;
+    rdfs:comment "Tilbakemelding frå ein brukar om kvaliteten til eit datasett." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class oa:TextualBody ;
+            sh:description "Tekstleg innhald i merknaden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path oa:hasBody ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path oa:motivatedBy ],
+        [ sh:class dqv:Dimension ;
+            sh:description "Kvalitetsdimensjonen denne merknaden eller standarden gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dqv:inDimension ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class dcat:Resource ;
+            sh:description "Ressursen merknaden gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path oa:hasTarget ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad (rdfs:comment)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:comment ] ;
+    sh:targetClass dqv:UserQualityFeedback .
+
+oa:Motivation a sh:NodeShape ;
+    rdfs:comment "Motivasjonen bak ein kvalitetsmerknad (Web Annotation)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass oa:Motivation .
+
+dct:LinguisticSystem a sh:NodeShape ;
+    rdfs:comment "Ein språkreferanse (dct:LinguisticSystem)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass dct:LinguisticSystem .
+
+dct:MediaTypeOrExtent a sh:NodeShape ;
+    rdfs:comment "Ein medietype eller filformat (dct:MediaTypeOrExtent)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass dct:MediaTypeOrExtent .
+
+dct:Standard a sh:NodeShape ;
+    rdfs:comment "Ein standard eller spesifikasjon som eit datasett er i samsvar med." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path owl:versionInfo ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad (rdfs:comment)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:comment ],
+        [ sh:class dqv:Dimension ;
+            sh:description "Kvalitetsdimensjonen denne merknaden eller standarden gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dqv:inDimension ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass dct:Standard .
+
+dqv:Metric a sh:NodeShape ;
+    rdfs:comment "Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Føretrekt term/namn for dimensjonen eller målet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path skos:prefLabel ],
+        [ sh:class dqvno:SubDimension ;
+            sh:description "Kvalitetsdeldimensjonen dette målet operasjonaliserer." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dqvno:inSubDimension ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Definisjon av dimensjonen eller målet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path skos:definition ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Forventa XSD-datatype for verdien av ei kvalitetsmåling." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dqv:expectedDataType ] ;
+    sh:targetClass dqv:Metric .
+
+dqv:QualityAnnotation a sh:NodeShape ;
+    rdfs:comment "Ein merknad om kvaliteten til eit datasett." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class dcat:Resource ;
+            sh:description "Ressursen merknaden gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path oa:hasTarget ],
+        [ sh:class oa:TextualBody ;
+            sh:description "Tekstleg innhald i merknaden." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path oa:hasBody ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class dqv:Dimension ;
+            sh:description "Kvalitetsdimensjonen denne merknaden eller standarden gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dqv:inDimension ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path oa:motivatedBy ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad (rdfs:comment)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path rdfs:comment ] ;
+    sh:targetClass dqv:QualityAnnotation .
+
+dqv:QualityMeasurement a sh:NodeShape ;
+    rdfs:comment "Ei konkret måling av eit kvalitetsmål for eit datasett." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad (rdfs:comment)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:comment ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class dqv:Metric ;
+            sh:description "Kvalitetsmålet denne målinga er ei måling av." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dqv:isMeasurementOf ],
+        [ sh:datatype xsd:string ;
+            sh:description "Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Literal avhengig av kvalitetsmålet)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dqv:value ] ;
+    sh:targetClass dqv:QualityMeasurement .
+
+dqvno:SubDimension a sh:NodeShape ;
+    rdfs:comment "Ein deldimensjon av ein kvalitetsdimensjon." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Føretrekt term/namn for dimensjonen eller målet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path skos:prefLabel ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Definisjon av dimensjonen eller målet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path skos:definition ],
+        [ sh:class dqv:Dimension ;
+            sh:description "Overordna kvalitetsdimensjon denne deldimensjonen høyrer til." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path skos:broader ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass dqvno:SubDimension .
+
+dcat:Resource a sh:NodeShape ;
+    rdfs:comment "Ein katalogisert ressurs (brukt som målklasse for oa:hasTarget)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass dcat:Resource .
+
+oa:TextualBody a sh:NodeShape ;
+    rdfs:comment "Ein tekstleg del av ein kvalitetsmerknad (Web Annotation)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class dct:MediaTypeOrExtent ;
+            sh:description "Filformat eller medietype (dct:format)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:format ],
+        [ sh:class dct:LinguisticSystem ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:language ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstinnhaldet i tekstdelen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path rdfs:value ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass oa:TextualBody .
+
+dqv:Dimension a sh:NodeShape ;
+    rdfs:comment "Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål." ;
+    sh:closed true ;
+    sh:ignoredProperties ( skos:broader rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Definisjon av dimensjonen eller målet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path skos:definition ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Føretrekt term/namn for dimensjonen eller målet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path skos:prefLabel ] ;
+    sh:targetClass dqv:Dimension .
+
+

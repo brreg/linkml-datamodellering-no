@@ -1,4 +1,4 @@
-site_name: LinkML W3C-profiler
+site_name: LinkML ap-no profiler, FAIR metadata, FINT, SAMT, Nasjonale grunndata og Offentlige resitre
 site_description: Norske W3C-applikasjonsprofiler og domenemodeller i LinkML-format
 site_url: https://example.org/linkml-w3c-no-profiles
 docs_dir: docs
@@ -7,7 +7,7 @@ theme:
   name: material
   language: nb
   features:
-    - navigation.sections
+    - navigation.indexes
     - navigation.top
     - content.code.copy
   palette:
@@ -29,7 +29,80 @@ markdown_extensions:
           class: mermaid
           format: !!python/name:pymdownx.superfences.fence_code_format
 
+# gen-doc genererer interne lenkjer som ikkje alltid har tilsvarende .md-filer
+# (t.d. lowercase-alias for PascalCase-klassefiler på case-insensitive filsystem).
+# Desse åtvaringane er ikkje kritiske og vert undertrykka her.
+validation:
+  links:
+    not_found: ignore
+  nav:
+    omitted_files: ignore
+
 nav:
   - Heim: index.md
   - Rettleiingar:
       - Ny domenemodell: ny-domenemodell.md
+  - 'AP-NO – Applikasjonsprofiler':
+      - ap-no/index.md
+      - 'cpsv-ap-no':
+          - Oversikt: ap-no/cpsv-ap-no/index.md
+          - Klasser: ap-no/cpsv-ap-no/klasser/index.md
+      - 'dcat-ap-no':
+          - Oversikt: ap-no/dcat-ap-no/index.md
+          - Klasser: ap-no/dcat-ap-no/klasser/index.md
+      - 'dqv-ap-no':
+          - Oversikt: ap-no/dqv-ap-no/index.md
+          - Klasser: ap-no/dqv-ap-no/klasser/index.md
+      - 'modelldcat-ap-no':
+          - Oversikt: ap-no/modelldcat-ap-no/index.md
+          - Klasser: ap-no/modelldcat-ap-no/klasser/index.md
+      - 'skos-ap-no':
+          - Oversikt: ap-no/skos-ap-no/index.md
+          - Klasser: ap-no/skos-ap-no/klasser/index.md
+      - 'xkos-ap-no':
+          - Oversikt: ap-no/xkos-ap-no/index.md
+          - Klasser: ap-no/xkos-ap-no/klasser/index.md
+  - 'FAIR – Metadataoverbygning':
+      - fair/index.md
+      - 'fair-metadata':
+          - Oversikt: fair/fair-metadata/index.md
+          - Klasser: fair/fair-metadata/klasser/index.md
+  - 'FINT – Fylkeskommunale integrasjonar':
+      - fint/index.md
+      - 'fint-administrasjon':
+          - Oversikt: fint/fint-administrasjon/index.md
+          - Klasser: fint/fint-administrasjon/klasser/index.md
+      - 'fint-arkiv':
+          - Oversikt: fint/fint-arkiv/index.md
+          - Klasser: fint/fint-arkiv/klasser/index.md
+      - 'fint-okonomi':
+          - Oversikt: fint/fint-okonomi/index.md
+          - Klasser: fint/fint-okonomi/klasser/index.md
+      - 'fint-personvern':
+          - Oversikt: fint/fint-personvern/index.md
+          - Klasser: fint/fint-personvern/klasser/index.md
+      - 'fint-ressurs':
+          - Oversikt: fint/fint-ressurs/index.md
+          - Klasser: fint/fint-ressurs/klasser/index.md
+      - 'fint-utdanning':
+          - Oversikt: fint/fint-utdanning/index.md
+          - Klasser: fint/fint-utdanning/klasser/index.md
+  - 'NGR – Nasjonale Grunndata':
+      - ngr/index.md
+      - 'ngr-adresse':
+          - Oversikt: ngr/ngr-adresse/index.md
+          - Klasser: ngr/ngr-adresse/klasser/index.md
+      - 'ngr-eiendom':
+          - Oversikt: ngr/ngr-eiendom/index.md
+          - Klasser: ngr/ngr-eiendom/klasser/index.md
+      - 'ngr-person':
+          - Oversikt: ngr/ngr-person/index.md
+          - Klasser: ngr/ngr-person/klasser/index.md
+      - 'ngr-virksomhet':
+          - Oversikt: ngr/ngr-virksomhet/index.md
+          - Klasser: ngr/ngr-virksomhet/klasser/index.md
+  - 'OREG – Offentlege registre':
+      - oreg/index.md
+      - 'register-over-aksjeeiere':
+          - Oversikt: oreg/register-over-aksjeeiere/index.md
+          - Klasser: oreg/register-over-aksjeeiere/klasser/index.md

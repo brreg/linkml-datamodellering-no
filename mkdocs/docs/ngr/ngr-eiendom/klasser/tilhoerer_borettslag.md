@@ -1,0 +1,95 @@
+
+
+# Slot: tilhoerer_borettslag 
+
+
+_Burettslagsandelen tilhøyrer dette burettslaget._
+
+
+
+
+
+URI: [ngre:tilhoererBorettslag](https://data.norge.no/vocabulary/ngr-eiendom#tilhoererBorettslag)
+Alias: tilhoerer_borettslag
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Borettslagsandel](Borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Borettslag](Borettslag.md) |
+| Domain Of | [Borettslagsandel](Borettslagsandel.md) |
+| Slot URI | [ngre:tilhoererBorettslag](https://data.norge.no/vocabulary/ngr-eiendom#tilhoererBorettslag) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-eiendom
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngre:tilhoererBorettslag |
+| native | https://data.norge.no/linkml/ngr-eiendom/tilhoerer_borettslag |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: tilhoerer_borettslag
+description: Burettslagsandelen tilhøyrer dette burettslaget.
+from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
+slot_uri: ngre:tilhoererBorettslag
+alias: tilhoerer_borettslag
+domain_of:
+- Borettslagsandel
+range: Borettslag
+
+```
+</details>

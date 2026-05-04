@@ -1,0 +1,95 @@
+
+
+# Slot: autentiseringPaakrevd 
+
+
+_Om autentisering eller autorisasjon er nødvendig (FAIR A1.2)._
+
+
+
+
+
+URI: [fair:autentiseringPaakrevd](https://data.norge.no/fair#autentiseringPaakrevd)
+Alias: autentiseringPaakrevd
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Tilgangsmetadata](Tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Boolean](Boolean.md) |
+| Domain Of | [Tilgangsmetadata](Tilgangsmetadata.md) |
+| Slot URI | [fair:autentiseringPaakrevd](https://data.norge.no/fair#autentiseringPaakrevd) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | fair:autentiseringPaakrevd |
+| native | https://data.norge.no/fair#:autentiseringPaakrevd |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: autentiseringPaakrevd
+description: Om autentisering eller autorisasjon er nødvendig (FAIR A1.2).
+from_schema: https://data.norge.no/linkml/fair-metadata
+rank: 1000
+slot_uri: fair:autentiseringPaakrevd
+alias: autentiseringPaakrevd
+domain_of:
+- Tilgangsmetadata
+range: boolean
+
+```
+</details>

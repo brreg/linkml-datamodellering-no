@@ -1,0 +1,96 @@
+
+
+# Slot: relatert_ved_sivilstand 
+
+
+_Person ein er gift/partnar med (utfyller sivilstand GIFT, REGISTRERT_PARTNER o.l.)._
+
+
+
+
+
+URI: [ngrp:relatertVedSivilstand](https://data.norge.no/vocabulary/ngr-person#relatertVedSivilstand)
+Alias: relatert_ved_sivilstand
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Sivilstand](Sivilstand.md) | Sivilstand registrert på ein person i Folkeregisteret |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Person](Person.md) |
+| Domain Of | [Sivilstand](Sivilstand.md) |
+| Slot URI | [ngrp:relatertVedSivilstand](https://data.norge.no/vocabulary/ngr-person#relatertVedSivilstand) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:relatertVedSivilstand |
+| native | https://data.norge.no/linkml/ngr-person/relatert_ved_sivilstand |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: relatert_ved_sivilstand
+description: Person ein er gift/partnar med (utfyller sivilstand GIFT, REGISTRERT_PARTNER
+  o.l.).
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:relatertVedSivilstand
+alias: relatert_ved_sivilstand
+domain_of:
+- Sivilstand
+range: Person
+
+```
+</details>

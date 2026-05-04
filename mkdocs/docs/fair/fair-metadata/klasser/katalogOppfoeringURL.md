@@ -1,0 +1,95 @@
+
+
+# Slot: katalogOppfoeringURL 
+
+
+_Direkte URL til oppføringa i katalogen (FAIR F4)._
+
+
+
+
+
+URI: [fair:katalogOppfoeringURL](https://data.norge.no/fair#katalogOppfoeringURL)
+Alias: katalogOppfoeringURL
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Katalogregistrering](Katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Uriorcurie](Uriorcurie.md) |
+| Domain Of | [Katalogregistrering](Katalogregistrering.md) |
+| Slot URI | [fair:katalogOppfoeringURL](https://data.norge.no/fair#katalogOppfoeringURL) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | fair:katalogOppfoeringURL |
+| native | https://data.norge.no/fair#:katalogOppfoeringURL |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: katalogOppfoeringURL
+description: Direkte URL til oppføringa i katalogen (FAIR F4).
+from_schema: https://data.norge.no/linkml/fair-metadata
+rank: 1000
+slot_uri: fair:katalogOppfoeringURL
+alias: katalogOppfoeringURL
+domain_of:
+- Katalogregistrering
+range: uriorcurie
+
+```
+</details>

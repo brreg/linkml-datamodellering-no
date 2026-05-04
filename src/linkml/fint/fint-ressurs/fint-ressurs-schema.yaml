@@ -20,14 +20,6 @@ prefixes:
   fint:   https://schema.fintlabs.no/
   res:    https://schema.fintlabs.no/ressurs/
 
-subsets:
-  Obligatorisk:
-    description: Obligatorisk eigensskap.
-  Anbefalt:
-    description: Anbefalt eigensskap.
-  Valgfri:
-    description: Valfri eigensskap.
-
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
@@ -700,9 +692,3 @@ classes:
 # Slots
 # ---------------------------------------------------------------------------
 
-slots:
-
-  id:
-    identifier: true
-    range: uriorcurie
-    description: URI-identifikator (tilsvarar systemId i FINT).

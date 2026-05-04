@@ -1,0 +1,99 @@
+
+
+# Slot: familierelasjonBarn 
+
+
+
+URI: [https://data.norge.no/linkml/ngr-person/familierelasjonBarn](https://data.norge.no/linkml/ngr-person/familierelasjonBarn)
+Alias: familierelasjonBarn
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [FamilierelasjonBarn](FamilierelasjonBarn.md) |
+| Domain Of | [PersonContainer](PersonContainer.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [PersonContainer](PersonContainer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://data.norge.no/linkml/ngr-person/familierelasjonBarn |
+| native | https://data.norge.no/linkml/ngr-person/familierelasjonBarn |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: familierelasjonBarn
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+alias: familierelasjonBarn
+owner: PersonContainer
+domain_of:
+- PersonContainer
+range: FamilierelasjonBarn
+multivalued: true
+inlined: true
+inlined_as_list: true
+
+```
+</details>

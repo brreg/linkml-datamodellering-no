@@ -1,0 +1,95 @@
+
+
+# Slot: har_foedsel 
+
+
+_Fødselsinformasjon om personen._
+
+
+
+
+
+URI: [ngrp:harFoedsel](https://data.norge.no/vocabulary/ngr-person#harFoedsel)
+Alias: har_foedsel
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Foedsel](Foedsel.md) |
+| Domain Of | [Person](Person.md) |
+| Slot URI | [ngrp:harFoedsel](https://data.norge.no/vocabulary/ngr-person#harFoedsel) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:harFoedsel |
+| native | https://data.norge.no/linkml/ngr-person/har_foedsel |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_foedsel
+description: Fødselsinformasjon om personen.
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:harFoedsel
+alias: har_foedsel
+domain_of:
+- Person
+range: Foedsel
+
+```
+</details>

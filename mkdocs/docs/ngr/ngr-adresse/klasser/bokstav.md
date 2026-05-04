@@ -1,0 +1,95 @@
+
+
+# Slot: bokstav 
+
+
+_Husbokstav (A–Å) som skil einingar med same husnummer._
+
+
+
+
+
+URI: [ngr:bokstav](https://data.norge.no/vocabulary/ngr-adresse#bokstav)
+Alias: bokstav
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Husnummer](Husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Husnummer](Husnummer.md) |
+| Slot URI | [ngr:bokstav](https://data.norge.no/vocabulary/ngr-adresse#bokstav) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-adresse
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngr:bokstav |
+| native | https://data.norge.no/linkml/ngr-adresse/bokstav |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: bokstav
+description: Husbokstav (A–Å) som skil einingar med same husnummer.
+from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
+slot_uri: ngr:bokstav
+alias: bokstav
+domain_of:
+- Husnummer
+range: string
+
+```
+</details>

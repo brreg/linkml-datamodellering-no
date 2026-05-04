@@ -64,7 +64,7 @@ classes:
       - har_del
       - er_gruppert_av
       - er_klassifisert_av
-      - følgjer
+      - folger
       - har_gebyr
       - har_regulativ_ressurs
       - krev
@@ -122,7 +122,7 @@ classes:
       er_klassifisert_av:
         in_subset:
           - Valgfri
-      følgjer:
+      folger:
         in_subset:
           - Valgfri
       har_gebyr:
@@ -175,7 +175,7 @@ classes:
       - relatert_teneste
       - er_gruppert_av
       - er_klassifisert_av
-      - følgjer
+      - folger
       - har_gebyr
       - har_regulativ_ressurs
       - krev
@@ -261,7 +261,7 @@ classes:
       er_klassifisert_av:
         in_subset:
           - Valgfri
-      følgjer:
+      folger:
         in_subset:
           - Valgfri
       har_gebyr:
@@ -313,7 +313,7 @@ classes:
       - relatert_teneste
       - er_gruppert_av
       - er_klassifisert_av
-      - følgjer
+      - folger
       - har_gebyr
       - har_regulativ_ressurs
       - krev
@@ -393,7 +393,7 @@ classes:
       er_klassifisert_av:
         in_subset:
           - Valgfri
-      følgjer:
+      folger:
         in_subset:
           - Valgfri
       har_gebyr:
@@ -483,7 +483,7 @@ classes:
 
   # ---- Aktør --------------------------------------------------------------
 
-  Aktør:
+  Aktor:
     class_uri: foaf:Agent
     description: Ein aktør (person eller organisasjon) relatert til ei teneste.
     slots:
@@ -509,11 +509,11 @@ classes:
           - Valgfri
 
   OffentligOrganisasjon:
-    is_a: Aktør
+    is_a: Aktor
     class_uri: cv:PublicOrganisation
     description: Ein offentleg organisasjon som er ansvarleg for ei teneste.
     slots:
-      - føretrekt_namn
+      - foretrekt_namn
       - dekningsomrade
       - heimeside
       - type_concept
@@ -522,7 +522,7 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
-      føretrekt_namn:
+      foretrekt_namn:
         required: true
         in_subset:
           - Obligatorisk
@@ -968,7 +968,7 @@ slots:
     multivalued: true
     description: Omgrep tenesta er klassifisert med.
 
-  følgjer:
+  folger:
     slot_uri: cpsv:follows
     range: Regel
     multivalued: true
@@ -1024,7 +1024,7 @@ slots:
 
   eigd_av:
     slot_uri: cv:ownedBy
-    range: Aktør
+    range: Aktor
     multivalued: true
     description: Aktør som eig eller er ansvarleg for tenesta.
 
@@ -1040,7 +1040,7 @@ slots:
     multivalued: true
     description: Tenester det kan oppstå behov for som følgje av hendinga.
 
-  føretrekt_namn:
+  foretrekt_namn:
     slot_uri: skos:prefLabel
     range: LangString
     multivalued: true
@@ -1064,7 +1064,7 @@ slots:
 
   deltakar:
     slot_uri: cv:participant
-    range: Aktør
+    range: Aktor
     description: Aktøren som deltek.
 
   epost:
@@ -1182,7 +1182,7 @@ slots:
 
   utgjevar:
     slot_uri: dct:publisher
-    range: Aktør
+    range: Aktor
     description: Utgjevar av katalogen.
 
   oppdateringsfrekvens:

@@ -1,0 +1,95 @@
+
+
+# Slot: nivaa_djupn 
+
+
+_Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth)._
+
+
+
+
+
+URI: [xkos:depth](http://rdf-vocabulary.ddialliance.org/xkos#depth)
+Alias: nivaa_djupn
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [NonNegativeInteger](NonNegativeInteger.md) |
+| Domain Of | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
+| Slot URI | [xkos:depth](http://rdf-vocabulary.ddialliance.org/xkos#depth) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/xkos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | xkos:depth |
+| native | https://data.norge.no/linkml/xkos-ap-no/nivaa_djupn |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: nivaa_djupn
+description: Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth).
+from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
+slot_uri: xkos:depth
+alias: nivaa_djupn
+domain_of:
+- Klassifikasjonsnivaa
+range: NonNegativeInteger
+
+```
+</details>

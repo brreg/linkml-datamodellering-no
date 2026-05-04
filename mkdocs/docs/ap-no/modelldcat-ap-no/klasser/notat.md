@@ -1,0 +1,97 @@
+
+
+# Slot: notat 
+
+
+_Generelt notat om kodeelementet (skos:note)._
+
+
+
+
+
+URI: [skos:note](http://www.w3.org/2004/02/skos/core#note)
+Alias: notat
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [LangString](LangString.md) |
+| Domain Of | [Kodeelement](Kodeelement.md) |
+| Slot URI | [skos:note](http://www.w3.org/2004/02/skos/core#note) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | skos:note |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/notat |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: notat
+description: Generelt notat om kodeelementet (skos:note).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
+slot_uri: skos:note
+alias: notat
+domain_of:
+- Kodeelement
+range: LangString
+multivalued: true
+
+```
+</details>

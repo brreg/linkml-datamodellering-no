@@ -1,0 +1,76 @@
+# Subset: Findable 
+
+
+_Eigenskapar knytt til FAIR F-prinsippa (Findable)._
+
+
+
+URI: [Findable](Findable.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

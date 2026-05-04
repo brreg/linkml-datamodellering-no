@@ -1,0 +1,114 @@
+
+
+# Slot: anviser 
+
+
+_Personalressurs som har anvist lønsmeldinga etter fullmakt._
+
+
+
+
+
+URI: [adm:anviser](https://schema.fintlabs.no/administrasjon/anviser)
+Alias: anviser
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Lonn](Lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
+| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Personalressurs](Personalressurs.md) |
+| Domain Of | [Lonn](Lonn.md) |
+| Slot URI | [adm:anviser](https://schema.fintlabs.no/administrasjon/anviser) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [Lonn](Lonn.md) |
+
+
+
+
+
+
+
+
+## In Subsets
+
+
+* [Valgfri](Valgfri.md)
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fint-administrasjon
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | adm:anviser |
+| native | https://schema.fintlabs.no/administrasjon/:anviser |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: anviser
+description: Personalressurs som har anvist lønsmeldinga etter fullmakt.
+in_subset:
+- Valgfri
+from_schema: https://data.norge.no/linkml/fint-administrasjon
+rank: 1000
+slot_uri: adm:anviser
+alias: anviser
+owner: Lonn
+domain_of:
+- Lonn
+range: Personalressurs
+
+```
+</details>

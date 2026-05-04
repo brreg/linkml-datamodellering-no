@@ -1,0 +1,52 @@
+# Type: Decimal 
+
+
+
+
+_A real number with arbitrary precision that conforms to the xsd:decimal specification_
+
+
+
+URI: [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal)
+
+## Type Properties
+
+| Property | Value |
+| --- | --- |
+| Base | `Decimal` |
+| Type URI | [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) |
+
+
+
+
+
+
+## Notes
+
+* If you are authoring schemas in LinkML YAML, the type is referenced with the lower case "decimal".
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/dcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | xsd:decimal |
+| native | https://data.norge.no/linkml/dcat-ap-no/decimal |
+| broad | schema:Number |
+
+

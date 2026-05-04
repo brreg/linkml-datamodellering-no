@@ -1,0 +1,95 @@
+
+
+# Slot: utgjevar 
+
+
+_Utgjevar av katalogen._
+
+
+
+
+
+URI: [dct:publisher](http://purl.org/dc/terms/publisher)
+Alias: utgjevar
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Katalog](Katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Aktor](Aktor.md) |
+| Domain Of | [Katalog](Katalog.md) |
+| Slot URI | [dct:publisher](http://purl.org/dc/terms/publisher) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/cpsv-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:publisher |
+| native | https://data.norge.no/linkml/cpsv-ap-no/utgjevar |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: utgjevar
+description: Utgjevar av katalogen.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
+slot_uri: dct:publisher
+alias: utgjevar
+domain_of:
+- Katalog
+range: Aktor
+
+```
+</details>

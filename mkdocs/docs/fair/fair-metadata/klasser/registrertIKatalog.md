@@ -1,0 +1,95 @@
+
+
+# Slot: registrertIKatalog 
+
+
+_URI til katalogen der metadata er registrert (FAIR F4)._
+
+
+
+
+
+URI: [fair:registrertIKatalog](https://data.norge.no/fair#registrertIKatalog)
+Alias: registrertIKatalog
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Katalogregistrering](Katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Uriorcurie](Uriorcurie.md) |
+| Domain Of | [Katalogregistrering](Katalogregistrering.md) |
+| Slot URI | [fair:registrertIKatalog](https://data.norge.no/fair#registrertIKatalog) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | fair:registrertIKatalog |
+| native | https://data.norge.no/fair#:registrertIKatalog |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: registrertIKatalog
+description: URI til katalogen der metadata er registrert (FAIR F4).
+from_schema: https://data.norge.no/linkml/fair-metadata
+rank: 1000
+slot_uri: fair:registrertIKatalog
+alias: registrertIKatalog
+domain_of:
+- Katalogregistrering
+range: uriorcurie
+
+```
+</details>

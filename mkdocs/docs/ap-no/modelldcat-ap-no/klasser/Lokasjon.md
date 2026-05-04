@@ -1,0 +1,184 @@
+
+
+# Class: Lokasjon 
+
+
+_Eit geografisk område (dct:Location)._
+
+
+
+
+
+URI: [dct:Location](http://purl.org/dc/terms/Location)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Lokasjon
+    click Lokasjon href "../Lokasjon/"
+      Lokasjon : id
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [dct:Location](http://purl.org/dc/terms/Location) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:Location |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/Lokasjon |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Lokasjon
+description: Eit geografisk område (dct:Location).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+slots:
+- id
+class_uri: dct:Location
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Lokasjon
+description: Eit geografisk område (dct:Location).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Lokasjon
+    domain_of:
+    - KatalogisertRessurs
+    - Aktor
+    - Kontaktopplysning
+    - Standard
+    - Lisensdokument
+    - Lokasjon
+    - Tidsperiode
+    - Dokument
+    - Modelkatalog
+    - Informasjonsmodell
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    - Kodeelement
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    range: uriorcurie
+    required: true
+class_uri: dct:Location
+
+```
+</details>

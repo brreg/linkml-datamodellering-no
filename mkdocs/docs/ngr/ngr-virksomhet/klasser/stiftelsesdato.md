@@ -1,0 +1,95 @@
+
+
+# Slot: stiftelsesdato 
+
+
+_Datoen hovudeininga vart stifta._
+
+
+
+
+
+URI: [ngrv:stiftelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#stiftelsesdato)
+Alias: stiftelsesdato
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Date](Date.md) |
+| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Slot URI | [ngrv:stiftelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#stiftelsesdato) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:stiftelsesdato |
+| native | https://data.norge.no/linkml/ngr-virksomhet/stiftelsesdato |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: stiftelsesdato
+description: Datoen hovudeininga vart stifta.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:stiftelsesdato
+alias: stiftelsesdato
+domain_of:
+- Hovedenhet
+range: date
+
+```
+</details>

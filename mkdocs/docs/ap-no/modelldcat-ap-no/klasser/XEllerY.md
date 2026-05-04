@@ -1,0 +1,334 @@
+
+
+# Class: XEllerY 
+
+
+_Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde._
+
+
+
+
+
+URI: [modelldcatno:Xor](https://data.norge.no/vocabulary/modelldcatno#Xor)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class XEllerY
+    click XEllerY href "../XEllerY/"
+      Betingelsesregel <|-- XEllerY
+        click Betingelsesregel href "../Betingelsesregel/"
+      
+      XEllerY : annoterer
+        
+          
+    
+        
+        
+        XEllerY --> "*" Modellelement : annoterer
+        click Modellelement href "../Modellelement/"
+    
+
+        
+      XEllerY : betingelsesuttrykk
+        
+      XEllerY : betinger
+        
+          
+    
+        
+        
+        XEllerY --> "1..*" Modellelement : betinger
+        click Modellelement href "../Modellelement/"
+    
+
+        
+      XEllerY : eigenskapsmerknad
+        
+      XEllerY : id
+        
+      XEllerY : identifikator_literal
+        
+      XEllerY : tilhorer_modul
+        
+          
+    
+        
+        
+        XEllerY --> "*" Modul : tilhorer_modul
+        click Modul href "../Modul/"
+    
+
+        
+      XEllerY : tittel
+        
+      
+```
+
+
+
+
+
+## Inheritance
+* [Merknad](Merknad.md)
+    * [Betingelsesregel](Betingelsesregel.md)
+        * **XEllerY**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [modelldcatno:Xor](https://data.norge.no/vocabulary/modelldcatno#Xor) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Arva
+
+| Namn | Kardinalitet og domene | Beskriving | Frå |
+| --- | --- | --- | --- || [betinger](betinger.md) | 1..* <br/> [Modellelement](Modellelement.md) | Modellelement betingelsesregelen avgrensar (modelldcatno:constrains) | [Betingelsesregel](Betingelsesregel.md) |
+| [betingelsesuttrykk](betingelsesuttrykk.md) | * <br/> [LangString](LangString.md) | Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression) | [Betingelsesregel](Betingelsesregel.md) |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Merknad](Merknad.md) |
+| [annoterer](annoterer.md) | * <br/> [Modellelement](Modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) | [Merknad](Merknad.md) |
+| [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](LangString.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) | [Merknad](Merknad.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Merknad](Merknad.md) |
+| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) | [Merknad](Merknad.md) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Merknad](Merknad.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | modelldcatno:Xor |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/XEllerY |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: XEllerY
+description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+is_a: Betingelsesregel
+class_uri: modelldcatno:Xor
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: XEllerY
+description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+is_a: Betingelsesregel
+attributes:
+  betinger:
+    name: betinger
+    description: Modellelement betingelsesregelen avgrensar (modelldcatno:constrains).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:constrains
+    alias: betinger
+    owner: XEllerY
+    domain_of:
+    - Betingelsesregel
+    range: Modellelement
+    required: true
+    multivalued: true
+  betingelsesuttrykk:
+    name: betingelsesuttrykk
+    description: Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:constraintExpression
+    alias: betingelsesuttrykk
+    owner: XEllerY
+    domain_of:
+    - Betingelsesregel
+    range: LangString
+    multivalued: true
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: XEllerY
+    domain_of:
+    - KatalogisertRessurs
+    - Aktor
+    - Kontaktopplysning
+    - Standard
+    - Lisensdokument
+    - Lokasjon
+    - Tidsperiode
+    - Dokument
+    - Modelkatalog
+    - Informasjonsmodell
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    - Kodeelement
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    range: uriorcurie
+    required: true
+  annoterer:
+    name: annoterer
+    description: Modellelement denne merknaden gjeld (modelldcatno:annotates).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:annotates
+    alias: annoterer
+    owner: XEllerY
+    domain_of:
+    - Merknad
+    range: Modellelement
+    multivalued: true
+  eigenskapsmerknad:
+    name: eigenskapsmerknad
+    description: Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:propertyNote
+    alias: eigenskapsmerknad
+    owner: XEllerY
+    domain_of:
+    - Merknad
+    range: LangString
+    multivalued: true
+  identifikator_literal:
+    name: identifikator_literal
+    description: Tekstleg identifikator for ressursen (dct:identifier).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: dct:identifier
+    alias: identifikator_literal
+    owner: XEllerY
+    domain_of:
+    - Aktor
+    - Modelkatalog
+    - Informasjonsmodell
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    - Kodeelement
+    range: string
+  tittel:
+    name: tittel
+    description: Namn/tittel på ressursen (dct:title).
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: dct:title
+    alias: tittel
+    owner: XEllerY
+    domain_of:
+    - Standard
+    - Dokument
+    - Modelkatalog
+    - Informasjonsmodell
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    range: LangString
+    multivalued: true
+  tilhorer_modul:
+    name: tilhorer_modul
+    description: Modul dette elementet tilhøyrer (modelldcatno:belongsToModule).
+    in_subset:
+    - Valgfri
+    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+    rank: 1000
+    slot_uri: modelldcatno:belongsToModule
+    alias: tilhorer_modul
+    owner: XEllerY
+    domain_of:
+    - Modellelement
+    - Eigenskap
+    - Merknad
+    range: Modul
+    multivalued: true
+class_uri: modelldcatno:Xor
+
+```
+</details>

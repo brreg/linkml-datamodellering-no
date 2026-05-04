@@ -1,0 +1,95 @@
+
+
+# Slot: beskrivelse 
+
+
+_URI til ressursen som denne metadata-posten beskriver (FAIR F3)._
+
+
+
+
+
+URI: [dct:subject](http://purl.org/dc/terms/subject)
+Alias: beskrivelse
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Uriorcurie](Uriorcurie.md) |
+| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Slot URI | [dct:subject](http://purl.org/dc/terms/subject) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:subject |
+| native | https://data.norge.no/fair#:beskrivelse |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: beskrivelse
+description: URI til ressursen som denne metadata-posten beskriver (FAIR F3).
+from_schema: https://data.norge.no/linkml/fair-metadata
+rank: 1000
+slot_uri: dct:subject
+alias: beskrivelse
+domain_of:
+- FAIRMetadata
+range: uriorcurie
+
+```
+</details>

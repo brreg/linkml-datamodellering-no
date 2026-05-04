@@ -1,0 +1,3860 @@
+{
+    "$defs": {
+        "AdministrasjonContainer": {
+            "additionalProperties": false,
+            "description": "Rotcontainer for FINT Administrasjon-instansar.",
+            "properties": {
+                "aktivitetar": {
+                    "items": {
+                        "$ref": "#/$defs/Aktivitet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "anlegg": {
+                    "items": {
+                        "$ref": "#/$defs/Anlegg"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "ansvar": {
+                    "items": {
+                        "$ref": "#/$defs/Ansvar"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "arbeidsforhold": {
+                    "items": {
+                        "$ref": "#/$defs/Arbeidsforhold"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "arbeidsforholdstypar": {
+                    "items": {
+                        "$ref": "#/$defs/Arbeidsforholdstype"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "arbeidslokasjoner": {
+                    "items": {
+                        "$ref": "#/$defs/Arbeidslokasjon"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "artar": {
+                    "items": {
+                        "$ref": "#/$defs/Art"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "diverse": {
+                    "items": {
+                        "$ref": "#/$defs/Diverse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fastlonn": {
+                    "items": {
+                        "$ref": "#/$defs/Fastlonn"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fasttillegg": {
+                    "items": {
+                        "$ref": "#/$defs/Fasttillegg"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "formaal": {
+                    "items": {
+                        "$ref": "#/$defs/Formaal"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fravaer": {
+                    "items": {
+                        "$ref": "#/$defs/Fravaer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fravaersgrunnar": {
+                    "items": {
+                        "$ref": "#/$defs/Fravaersgrunn"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fravaerstypar": {
+                    "items": {
+                        "$ref": "#/$defs/Fravaerstype"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fullmakter": {
+                    "items": {
+                        "$ref": "#/$defs/Fullmakt"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "funksjonar": {
+                    "items": {
+                        "$ref": "#/$defs/Funksjon"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fylke": {
+                    "items": {
+                        "$ref": "#/$defs/Fylke"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kjonn": {
+                    "items": {
+                        "$ref": "#/$defs/Kjonn"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kommunar": {
+                    "items": {
+                        "$ref": "#/$defs/Kommune"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kontaktpersonar": {
+                    "items": {
+                        "$ref": "#/$defs/Kontaktperson"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kontrakter": {
+                    "items": {
+                        "$ref": "#/$defs/Kontrakt"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "landkodar": {
+                    "items": {
+                        "$ref": "#/$defs/Landkode"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "lonsartar": {
+                    "items": {
+                        "$ref": "#/$defs/Lonsart"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "lopenummer": {
+                    "items": {
+                        "$ref": "#/$defs/Lopenummer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "objekt": {
+                    "items": {
+                        "$ref": "#/$defs/Objekt"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "organisasjonselement": {
+                    "items": {
+                        "$ref": "#/$defs/Organisasjonselement"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "organisasjonstypar": {
+                    "items": {
+                        "$ref": "#/$defs/Organisasjonstype"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "personalressursar": {
+                    "items": {
+                        "$ref": "#/$defs/Personalressurs"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "personalressurskategoriar": {
+                    "items": {
+                        "$ref": "#/$defs/Personalressurskategori"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "personar": {
+                    "items": {
+                        "$ref": "#/$defs/Person"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "prosjekt": {
+                    "items": {
+                        "$ref": "#/$defs/Prosjekt"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "prosjektartar": {
+                    "items": {
+                        "$ref": "#/$defs/Prosjektart"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rammer": {
+                    "items": {
+                        "$ref": "#/$defs/Ramme"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rollar": {
+                    "items": {
+                        "$ref": "#/$defs/Rolle"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spraak": {
+                    "items": {
+                        "$ref": "#/$defs/Spraak"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "stillingskoder": {
+                    "items": {
+                        "$ref": "#/$defs/Stillingskode"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "uketimetall": {
+                    "items": {
+                        "$ref": "#/$defs/Uketimetall"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "valuta": {
+                    "items": {
+                        "$ref": "#/$defs/Valuta"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "variabellonn": {
+                    "items": {
+                        "$ref": "#/$defs/Variabellonn"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "virksomhetar": {
+                    "items": {
+                        "$ref": "#/$defs/Virksomhet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "AdministrasjonContainer",
+            "type": "object"
+        },
+        "Adresse": {
+            "additionalProperties": false,
+            "description": "Fysisk adresse eller postadresse.",
+            "properties": {
+                "adresselinje": {
+                    "description": "Adresseinformasjon.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "land": {
+                    "description": "Land der adressa befinn seg.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postnummer": {
+                    "description": "Postnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "poststed": {
+                    "description": "Poststad.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Adresse",
+            "type": "object"
+        },
+        "Aktivitet": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen og detaljering av funksjon.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Aktivitet",
+            "type": "object"
+        },
+        "Anlegg": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen; objekt som skal aktiverast eller avskrivast.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Anlegg",
+            "type": "object"
+        },
+        "Ansvar": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller inntekt.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "organisasjonselement": {
+                    "description": "Organisasjonselement ansvaret er knytt til.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "overordnet": {
+                    "description": "Overordna ansvar.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "underordnet": {
+                    "description": "Alle underansvar.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Ansvar",
+            "type": "object"
+        },
+        "Arbeidsforhold": {
+            "additionalProperties": false,
+            "description": "Eit avtaleforhold mellom personalressurs og arbeidsgjevar.",
+            "properties": {
+                "aarslonn": {
+                    "description": "\u00c5rsl\u00f8nn/grunnl\u00f8nn i 100 % stilling.",
+                    "type": "integer"
+                },
+                "aktivitet": {
+                    "description": "Aktivitet arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "anlegg": {
+                    "description": "Anlegg arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ansettelsesprosent": {
+                    "description": "Prosenten personalressursen eig i h\u00f8ve til arbeidsavtalen.",
+                    "type": "integer"
+                },
+                "ansvar": {
+                    "description": "Relasjon til omgrepet ansvar.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arbeidsforholdsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Periode for ei gjeven stilling."
+                },
+                "arbeidsforholdstype": {
+                    "description": "Beskriven kode som kategoriserer kva funksjon stillinga er gruppert til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arbeidslokasjon": {
+                    "description": "Fysisk lokasjon der den tilsette har sitt arbeidsstad.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arbeidssted": {
+                    "description": "Tilh\u00f8yrsle til organisasjonsstrukturen.",
+                    "type": "string"
+                },
+                "art": {
+                    "description": "Art arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "diverse": {
+                    "description": "Diverse arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fastlonn": {
+                    "description": "All fastl\u00f8nn for arbeidsforholdet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fasttillegg": {
+                    "description": "Alle faste tillegg for arbeidsforholdet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "formaal": {
+                    "description": "Form\u00e5l viser aktivitet og tenesteproduksjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fravaer": {
+                    "description": "Alle fr\u00e5v\u00e6r knytt til arbeidsforholdet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "funksjon": {
+                    "description": "Arbeidsforholdet sin relasjon til funksjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gyldighetsperiode": {
+                    "$ref": "#/$defs/Periode",
+                    "description": "Gyldig periode for arbeidsforholdet."
+                },
+                "hovedstilling": {
+                    "description": "Angir kva arbeidsforhold som er hovudarbeidsforhold.",
+                    "type": "boolean"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontrakt": {
+                    "description": "Kontrakt arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "lonnsprosent": {
+                    "description": "Prosent av \u00e5rsl\u00f8nn den tilsette skal ha utbetalt.",
+                    "type": "integer"
+                },
+                "lopenummer": {
+                    "description": "L\u00f8penummer arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "objekt": {
+                    "description": "Objekt arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "personalleder": {
+                    "description": "Personalleiar til arbeidsforholdet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "personalressurs": {
+                    "description": "Personalressurs til arbeidsforholdet.",
+                    "type": "string"
+                },
+                "prosjekt": {
+                    "description": "Prosjekt arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ramme": {
+                    "description": "Ramme arbeidsforholdet er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "stillingskode": {
+                    "description": "Firesifra stillingskode fr\u00e5 KS, eventuelt utvida med to siffer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "stillingsnummer": {
+                    "description": "L\u00f8penummer for stillinga.",
+                    "type": "string"
+                },
+                "stillingstittel": {
+                    "description": "Arbeidstakarens stillingstittel i gjeldande stilling.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tilstedeprosent": {
+                    "description": "Det personalressursen faktisk jobbar.",
+                    "type": "integer"
+                },
+                "timerPerUke": {
+                    "description": "Timer per veke i 100 % stilling.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "undervisningsforhold": {
+                    "description": "Referanse til Undervisningsforhold (Utdanning).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "variabellonn": {
+                    "description": "All variabel l\u00f8nn for arbeidsforholdet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "ansettelsesprosent",
+                "aarslonn",
+                "gyldighetsperiode",
+                "hovedstilling",
+                "lonnsprosent",
+                "stillingsnummer",
+                "tilstedeprosent",
+                "arbeidssted",
+                "personalressurs"
+            ],
+            "title": "Arbeidsforhold",
+            "type": "object"
+        },
+        "Arbeidsforholdstype": {
+            "additionalProperties": false,
+            "description": "Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer.",
+            "properties": {
+                "forelder": {
+                    "description": "For \u00e5 byggje hierarki av Arbeidsforholdstype.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Arbeidsforholdstype",
+            "type": "object"
+        },
+        "Arbeidslokasjon": {
+            "additionalProperties": false,
+            "description": "Fysisk lokasjon der ein tilsett har sitt arbeidsstad.",
+            "properties": {
+                "arbeidsforhold": {
+                    "description": "Arbeidsforhold knytt til arbeidslokasjonen.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "forretningsadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Bes\u00f8ksadresse til organisasjonseininga."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Kontaktinformasjon til arbeidslokasjonen."
+                },
+                "lokasjonskode": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Kode som identifiserer ein arbeidslokasjon."
+                },
+                "lokasjonsnavn": {
+                    "description": "Namn som beskriv ein arbeidslokasjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsnavn": {
+                    "description": "Namn p\u00e5 eining registrert i Einingsregisteret.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsnummer": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret."
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Postadresse til arbeidslokasjonen."
+                }
+            },
+            "required": [
+                "id",
+                "lokasjonskode"
+            ],
+            "title": "Arbeidslokasjon",
+            "type": "object"
+        },
+        "Art": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Art",
+            "type": "object"
+        },
+        "Diverse": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen; supplement til \u00f8vrige dimensjonar.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Diverse",
+            "type": "object"
+        },
+        "Fastlonn": {
+            "additionalProperties": false,
+            "description": "Informasjon om fast l\u00f8nnsbeordring.",
+            "properties": {
+                "anviser": {
+                    "description": "Personalressurs som har anvist l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "anvist": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart anvist.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arbeidsforhold": {
+                    "description": "Arbeidsforhold fastl\u00f8nna gjeld for.",
+                    "type": "string"
+                },
+                "attestant": {
+                    "description": "Personalressurs som har attestert l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "attestert": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart attestert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "beskrivelse": {
+                    "description": "Beskriving av l\u00f8nn til f\u00f8ring p\u00e5 l\u00f8nnslipp.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kildesystemId": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Kjeldesystemets unike identifikator for l\u00f8nn."
+                },
+                "konterer": {
+                    "description": "Personalressurs som har kontert l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontert": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart kontert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontostreng": {
+                    "$ref": "#/$defs/Kontostreng",
+                    "description": "Kontering av l\u00f8nn."
+                },
+                "lonsart": {
+                    "description": "L\u00f8nnsart for fastl\u00f8nn.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "opptjent": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Periode der l\u00f8nn vart opptent."
+                },
+                "periode": {
+                    "$ref": "#/$defs/Periode",
+                    "description": "Periode l\u00f8nn vert utbetalt."
+                },
+                "prosent": {
+                    "description": "Andel av l\u00f8nnsprosent som vert beslaglagt.",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "prosent",
+                "arbeidsforhold",
+                "id",
+                "beskrivelse",
+                "kontostreng",
+                "periode"
+            ],
+            "title": "Fastlonn",
+            "type": "object"
+        },
+        "Fasttillegg": {
+            "additionalProperties": false,
+            "description": "Faste tillegg til utbetaling.",
+            "properties": {
+                "anviser": {
+                    "description": "Personalressurs som har anvist l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "anvist": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart anvist.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arbeidsforhold": {
+                    "description": "Arbeidsforhold fasttillegget gjeld for.",
+                    "type": "string"
+                },
+                "attestant": {
+                    "description": "Personalressurs som har attestert l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "attestert": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart attestert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "belop": {
+                    "description": "Bel\u00f8p i \u00f8re.",
+                    "type": "integer"
+                },
+                "beskrivelse": {
+                    "description": "Beskriving av l\u00f8nn til f\u00f8ring p\u00e5 l\u00f8nnslipp.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kildesystemId": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Kjeldesystemets unike identifikator for l\u00f8nn."
+                },
+                "konterer": {
+                    "description": "Personalressurs som har kontert l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontert": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart kontert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontostreng": {
+                    "$ref": "#/$defs/Kontostreng",
+                    "description": "Kontering av l\u00f8nn."
+                },
+                "lonsart": {
+                    "description": "L\u00f8nnsart for tillegget.",
+                    "type": "string"
+                },
+                "opptjent": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Periode der l\u00f8nn vart opptent."
+                },
+                "periode": {
+                    "$ref": "#/$defs/Periode",
+                    "description": "Periode l\u00f8nn vert utbetalt."
+                }
+            },
+            "required": [
+                "belop",
+                "lonsart",
+                "arbeidsforhold",
+                "id",
+                "beskrivelse",
+                "kontostreng",
+                "periode"
+            ],
+            "title": "Fasttillegg",
+            "type": "object"
+        },
+        "Formaal": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen som detaljerer inntekter og utgifter ved drift.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Formaal",
+            "type": "object"
+        },
+        "Fravaer": {
+            "additionalProperties": false,
+            "description": "Fr\u00e5v\u00e6r fr\u00e5 eit arbeidsforhold.",
+            "properties": {
+                "arbeidsforhold": {
+                    "description": "Arbeidsforholdet fr\u00e5v\u00e6ret gjeld for.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "fortsettelse": {
+                    "description": "Fortsetjande fr\u00e5v\u00e6r.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fortsetter": {
+                    "description": "Fr\u00e5v\u00e6ret dette fr\u00e5v\u00e6ret er fortsetjing av.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fravaersgrunn": {
+                    "description": "Grunn til fr\u00e5v\u00e6ret.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fravaerstype": {
+                    "description": "Type fr\u00e5v\u00e6r.",
+                    "type": "string"
+                },
+                "godkjenner": {
+                    "description": "Personalressurs som har godkjent fr\u00e5v\u00e6rsmeldinga.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "godkjent": {
+                    "description": "Tidspunkt d\u00e5 fr\u00e5v\u00e6ret vart godkjent.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kildesystemId": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Kjeldesystemets unike identifikator for fr\u00e5v\u00e6ret."
+                },
+                "periode": {
+                    "$ref": "#/$defs/Periode",
+                    "description": "Periode for fr\u00e5v\u00e6ret."
+                },
+                "prosent": {
+                    "description": "Prosent fr\u00e5v\u00e6rande.",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "id",
+                "periode",
+                "prosent",
+                "fravaerstype",
+                "arbeidsforhold"
+            ],
+            "title": "Fravaer",
+            "type": "object"
+        },
+        "Fravaersgrunn": {
+            "additionalProperties": false,
+            "description": "Grunn til fr\u00e5v\u00e6r.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Fravaersgrunn",
+            "type": "object"
+        },
+        "Fravaerstype": {
+            "additionalProperties": false,
+            "description": "Type fr\u00e5v\u00e6r.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "lonsart": {
+                    "description": "L\u00f8nnsart fr\u00e5v\u00e6rstypen vert f\u00f8rt p\u00e5.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "overfores": {
+                    "description": "Angir om fr\u00e5v\u00e6r av denne typen skal overf\u00f8rast til HR.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Fravaerstype",
+            "type": "object"
+        },
+        "Fullmakt": {
+            "additionalProperties": false,
+            "description": "Fullmakt til \u00e5 gjere handlingar i h\u00f8ve til ei gjeven Rolle.",
+            "properties": {
+                "aktivitet": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon aktivitet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "anlegg": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon anlegg.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ansvar": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon ansvar.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "art": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon art.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "diverse": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon diverse.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "formaal": {
+                    "description": "Form\u00e5l viser aktivitet og tenesteproduksjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fullmektig": {
+                    "description": "Personalressurs som har f\u00e5tt fullmakt til ei gjeven rolle.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "funksjon": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon funksjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gyldighetsperiode": {
+                    "$ref": "#/$defs/Periode",
+                    "description": "Periode fullmakta er gyldig for."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontrakt": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon kontrakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "lopenummer": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon l\u00f8penummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "objekt": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon objekt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonselement": {
+                    "description": "Myndigheit p\u00e5 organisasjonselement.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prosjekt": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon prosjekt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ramme": {
+                    "description": "Myndigheit p\u00e5 kontodimensjon ramme.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "rolle": {
+                    "description": "Kva type fullmakt.",
+                    "type": "string"
+                },
+                "stedfortreder": {
+                    "description": "Personalressurs som er stedfortredar for den fullmektige.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "gyldighetsperiode",
+                "rolle"
+            ],
+            "title": "Fullmakt",
+            "type": "object"
+        },
+        "Funksjon": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen som beskriv kva som vert produsert.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "overordnet": {
+                    "description": "Overordna funksjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "underordnet": {
+                    "description": "Underordna funksjonar.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Funksjon",
+            "type": "object"
+        },
+        "Fylke": {
+            "additionalProperties": false,
+            "description": "Liste over Norges fylker.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "kommune": {
+                    "description": "Alle kommunar som inng\u00e5r i fylket.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Fylke",
+            "type": "object"
+        },
+        "Identifikator": {
+            "additionalProperties": false,
+            "description": "Unik identifikasjon til eit objekt.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Perioden ein gjeven identifikator er gyldig."
+                },
+                "identifikatorverdi": {
+                    "description": "Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt identifikator.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "identifikatorverdi"
+            ],
+            "title": "Identifikator",
+            "type": "object"
+        },
+        "Kjonn": {
+            "additionalProperties": false,
+            "description": "Verdiar for kj\u00f8nn basert p\u00e5 ISO/IEC 5218.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Kjonn",
+            "type": "object"
+        },
+        "Kommune": {
+            "additionalProperties": false,
+            "description": "Liste over Norges kommunar.",
+            "properties": {
+                "fylke": {
+                    "description": "Fylket kommunen h\u00f8yrer til.",
+                    "type": "string"
+                },
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "fylke",
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Kommune",
+            "type": "object"
+        },
+        "Kontaktinformasjon": {
+            "additionalProperties": false,
+            "description": "Informasjon som kan brukast for \u00e5 oppn\u00e5 kontakt.",
+            "properties": {
+                "epostadresse": {
+                    "description": "Namngitt elektronisk adresse for mottak av e-post.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "mobiltelefonnummer": {
+                    "description": "Mobiltelefonnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "nettsted": {
+                    "description": "Adresse til eit nettstad.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "sip": {
+                    "description": "SIP-protokoll for VoIP (IP-telefoni).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "telefonnummer": {
+                    "description": "Telefonnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Kontaktinformasjon",
+            "type": "object"
+        },
+        "Kontaktperson": {
+            "additionalProperties": false,
+            "description": "Kontaktperson (p\u00e5r\u00f8rande) til ein person.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Kontaktinformasjon for kontaktpersonen."
+                },
+                "kontaktperson": {
+                    "description": "Personar kontaktpersonen er p\u00e5r\u00f8rande for.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Personnavn"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Namn p\u00e5 kontaktpersonen."
+                },
+                "type": {
+                    "description": "Beskriv kva slags type kontaktperson.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "type"
+            ],
+            "title": "Kontaktperson",
+            "type": "object"
+        },
+        "Kontostreng": {
+            "additionalProperties": false,
+            "description": "Sammensetning av kontodimensjonar for bokf\u00f8ring.",
+            "properties": {
+                "aktivitet": {
+                    "description": "Detaljering av funksjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "anlegg": {
+                    "description": "Objekt som skal aktiverast eller avskrivast.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ansvar": {
+                    "description": "Ansvarleg for ei utgift eller inntekt.",
+                    "type": "string"
+                },
+                "art": {
+                    "description": "Type inntekt eller utgift.",
+                    "type": "string"
+                },
+                "diverse": {
+                    "description": "Spesifikasjon som ikkje kjem fram i \u00f8vrige dimensjonar.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "formaal": {
+                    "description": "Form\u00e5l viser aktivitet og tenesteproduksjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "funksjon": {
+                    "description": "Det som vert produsert eller tenesta som vert levert.",
+                    "type": "string"
+                },
+                "kontrakt": {
+                    "description": "Kontostrengens kontraktsegment.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "lopenummer": {
+                    "description": "L\u00f8penummer i ei nummerserie.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "objekt": {
+                    "description": "Objekt som skal aktiverast eller avskrivast.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prosjekt": {
+                    "description": "Kontostrengens prosjektsegment.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "prosjektart": {
+                    "description": "Deloppg\u00e5ve eller delprosjekt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "ramme": {
+                    "description": "Budsjettramme som skal bere kostnadane.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "ansvar",
+                "art",
+                "funksjon"
+            ],
+            "title": "Kontostreng",
+            "type": "object"
+        },
+        "Kontrakt": {
+            "additionalProperties": false,
+            "description": "Kontrakt transaksjonen er knytt til.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Kontrakt",
+            "type": "object"
+        },
+        "Landkode": {
+            "additionalProperties": false,
+            "description": "Landskode i ISO 3166-1 alpha-2 format.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Landkode",
+            "type": "object"
+        },
+        "Lonsart": {
+            "additionalProperties": false,
+            "description": "Type ytelse.",
+            "properties": {
+                "art": {
+                    "description": "Art som l\u00f8nnsarten er knytt til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kategori": {
+                    "description": "Kategori l\u00f8nnsart.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Lonsart",
+            "type": "object"
+        },
+        "Lopenummer": {
+            "additionalProperties": false,
+            "description": "L\u00f8penummer i ei nummerserie.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Lopenummer",
+            "type": "object"
+        },
+        "Matrikkelnummer": {
+            "additionalProperties": false,
+            "description": "Eintydleg identifisering av matrikkeleining innanfor kommune.",
+            "properties": {
+                "adresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Adresse til matrikkeleining."
+                },
+                "bruksnummer": {
+                    "description": "Fortl\u00f8pande nummerering av bruk under g\u00e5rdsnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "festenummer": {
+                    "description": "Fortl\u00f8pande nummerering av festar under g\u00e5rdsnummer/bruksnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gaardsnummer": {
+                    "description": "Nummerering av g\u00e5rdseiging i matrikkelen, unik innanfor kommune.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kommunenummer": {
+                    "description": "Nummerering av kommunen i h\u00f8ve til SSB si offisielle liste.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "seksjonsnummer": {
+                    "description": "Fortl\u00f8pande nummerering av seksjonar under g\u00e5rdsnummer/bruksnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Matrikkelnummer",
+            "type": "object"
+        },
+        "Objekt": {
+            "additionalProperties": false,
+            "description": "Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Objekt",
+            "type": "object"
+        },
+        "Organisasjonselement": {
+            "additionalProperties": false,
+            "description": "Eit element i organisasjonsstrukturen.",
+            "properties": {
+                "ansvar": {
+                    "description": "Ansvar i kontoplanen som organisasjonselementet er knytt til.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "arbeidsforhold": {
+                    "description": "Alle arbeidsforhold til organisasjonselementet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "forretningsadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Bes\u00f8ksadresse til organisasjonselementet."
+                },
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Tidsperiode for n\u00e5r organisasjonselementet er gjeldande."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Kontaktinformasjon til organisasjonselementet."
+                },
+                "kortnavn": {
+                    "description": "Forkorta namn som beskriv organisasjonselementet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "leder": {
+                    "description": "Ansvarleg leiar for organisasjonselementet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "description": "Namn p\u00e5 organisasjonselementet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsId": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Unikt internnummer for organisasjonselementet."
+                },
+                "organisasjonsKode": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Beskriven kode for organisasjonselementet."
+                },
+                "organisasjonsnavn": {
+                    "description": "Namn p\u00e5 eining registrert i Einingsregisteret.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsnummer": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret."
+                },
+                "organisasjonstype": {
+                    "description": "Kva type organisasjonselement dette er.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "overordnet": {
+                    "description": "Referanse til organisasjonselement p\u00e5 niv\u00e5et over.",
+                    "type": "string"
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Postadresse til organisasjonselementet."
+                },
+                "skole": {
+                    "description": "Referanse til Skole (Utdanning).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "underordnet": {
+                    "description": "Alle underordna organisasjonselement.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "organisasjonsId",
+                "organisasjonsKode",
+                "overordnet"
+            ],
+            "title": "Organisasjonselement",
+            "type": "object"
+        },
+        "Organisasjonstype": {
+            "additionalProperties": false,
+            "description": "Typen til eit organisasjonselement.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Organisasjonstype",
+            "type": "object"
+        },
+        "Periode": {
+            "additionalProperties": false,
+            "description": "Tidsperiode med obligatorisk start og valfri slutt.",
+            "properties": {
+                "beskrivelse": {
+                    "description": "Beskriven namn p\u00e5 perioden.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "slutt": {
+                    "description": "Til tidspunkt.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "start": {
+                    "description": "Fr\u00e5 tidspunkt.",
+                    "format": "date-time",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "start"
+            ],
+            "title": "Periode",
+            "type": "object"
+        },
+        "Person": {
+            "additionalProperties": false,
+            "description": "Fysiske private personar.",
+            "properties": {
+                "bilde": {
+                    "description": "HTTP(S)-lenkje til eit bilete av personen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bostedsadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Folkeregistrert adresse til personen."
+                },
+                "elev": {
+                    "description": "Referanse til Elev (Utdanning).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fodselsdato": {
+                    "description": "Dato for f\u00f8dsel.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fodselsnummer": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "F\u00f8dselsnummer eller ein av dei fiktive variantane."
+                },
+                "foreldre": {
+                    "description": "Den/dei som har foreldreansvar til personen.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "foreldreansvar": {
+                    "description": "Personar denne personen har foreldreansvar for.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kjonn": {
+                    "description": "Kj\u00f8nn for personen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kommune": {
+                    "description": "Kommune der personen er busett.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Den f\u00f8retrekte m\u00e5ten \u00e5 kome i kontakt med ein akt\u00f8r."
+                },
+                "laerling": {
+                    "description": "Referanse til Laerling (Utdanning).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "maalform": {
+                    "description": "M\u00e5lform personen f\u00f8retrekkjer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "morsmaal": {
+                    "description": "Morsm\u00e5l til personen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "$ref": "#/$defs/Personnavn",
+                    "description": "Namn p\u00e5 personen."
+                },
+                "otungdom": {
+                    "description": "Referanse til OtUngdom (Utdanning).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "parorende": {
+                    "description": "P\u00e5r\u00f8rande kontaktperson til personen.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "personalressurs": {
+                    "description": "Referanse til Personalressurs (Administrasjon).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Informasjon om postadresse til ein akt\u00f8r."
+                },
+                "statsborgerskap": {
+                    "description": "Alle statsborgarskap personen har.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "fodselsnummer",
+                "navn"
+            ],
+            "title": "Person",
+            "type": "object"
+        },
+        "Personalressurs": {
+            "additionalProperties": false,
+            "description": "Arbeidstakar eller oppdragstakar i organisasjonen.",
+            "properties": {
+                "ansattnummer": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Unik identifikator for den tilsette i HR-systemet."
+                },
+                "ansettelsesperiode": {
+                    "$ref": "#/$defs/Periode",
+                    "description": "Perioden personalressursen er i eit tilh\u00f8ve til organisasjonen."
+                },
+                "ansiennitet": {
+                    "description": "Ansiennitet for personalressurs hos arbeidsgjevar.",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arbeidsforhold": {
+                    "description": "Arbeidsforhold til personalressursen.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "brukernavn": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Brukarnamn til den tilsette."
+                },
+                "fullmakt": {
+                    "description": "Fullmakter personalressursen har f\u00e5tt.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "jobbtittel": {
+                    "description": "Namn som beskriv jobben eller stillinga.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Arbeidsrelatert kontaktinformasjon til personalressursen."
+                },
+                "lederFor": {
+                    "description": "Organisasjonselement personalressursen er leiar for.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "person": {
+                    "description": "Person som er ein personalressurs.",
+                    "type": "string"
+                },
+                "personalansvar": {
+                    "description": "Arbeidsforhold der personalressursen har personalansvar.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "personalressurskategori": {
+                    "description": "Kategori for personalressursen.",
+                    "type": "string"
+                },
+                "skoleressurs": {
+                    "description": "Referanse til Skoleressurs (Utdanning).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "stedfortreder": {
+                    "description": "Alle fullmakter der personalressursen er stedfortredar.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "ansattnummer",
+                "ansettelsesperiode",
+                "person",
+                "personalressurskategori"
+            ],
+            "title": "Personalressurs",
+            "type": "object"
+        },
+        "Personalressurskategori": {
+            "additionalProperties": false,
+            "description": "Ansettelsesform til eit arbeidsforhold.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Personalressurskategori",
+            "type": "object"
+        },
+        "Personnavn": {
+            "additionalProperties": false,
+            "description": "Namn p\u00e5 ein person.",
+            "properties": {
+                "etternavn": {
+                    "description": "Etternamn til personen.",
+                    "type": "string"
+                },
+                "fornavn": {
+                    "description": "Fornamn til personen.",
+                    "type": "string"
+                },
+                "mellomnavn": {
+                    "description": "Mellomnamn.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "fornavn",
+                "etternavn"
+            ],
+            "title": "Personnavn",
+            "type": "object"
+        },
+        "Prosjekt": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen som peikar p\u00e5 l\u00f8pande prosjekt.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "prosjektart": {
+                    "description": "Deloppg\u00e5ver eller delprosjekt som h\u00f8yrer til prosjektet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Prosjekt",
+            "type": "object"
+        },
+        "Prosjektart": {
+            "additionalProperties": false,
+            "description": "Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "overordnet": {
+                    "description": "Prosjektart i niv\u00e5et over i strukturen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "prosjekt": {
+                    "description": "Prosjektet som er \u00f8vste niv\u00e5 i strukturen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "underordnet": {
+                    "description": "Prosjektartar i niv\u00e5et under i strukturen.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Prosjektart",
+            "type": "object"
+        },
+        "Ramme": {
+            "additionalProperties": false,
+            "description": "Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Ramme",
+            "type": "object"
+        },
+        "Rolle": {
+            "additionalProperties": false,
+            "description": "Rettighet eller type fullmakt.",
+            "properties": {
+                "beskrivelse": {
+                    "description": "Utfyllande beskriving av kva rolla gjev fullmakt til.",
+                    "type": "string"
+                },
+                "fullmakt": {
+                    "description": "Alle fullmakter av denne typen.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "rolleNavn": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Namn p\u00e5 rolla; unik identifikator."
+                }
+            },
+            "required": [
+                "id",
+                "rolleNavn",
+                "beskrivelse",
+                "fullmakt"
+            ],
+            "title": "Rolle",
+            "type": "object"
+        },
+        "Spraak": {
+            "additionalProperties": false,
+            "description": "Verdiar for spr\u00e5k (2 bokstavar).",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Spraak",
+            "type": "object"
+        },
+        "Stillingskode": {
+            "additionalProperties": false,
+            "description": "Felles kodeverk for stillingar.",
+            "properties": {
+                "forelder": {
+                    "description": "For \u00e5 byggje hierarki av stillingskoder.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Stillingskode",
+            "type": "object"
+        },
+        "Uketimetall": {
+            "additionalProperties": false,
+            "description": "Timer per veke i 100 % stilling.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Angir gyldighetsperioden for eit omgrep/kode."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for omgrepet.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Uketimetall",
+            "type": "object"
+        },
+        "Valuta": {
+            "additionalProperties": false,
+            "description": "Valutakodar for offisielle valutaer.",
+            "properties": {
+                "bokstavkode": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Bokstavkode for aktuell valuta."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Namn p\u00e5 valuta.",
+                    "type": "string"
+                },
+                "nummerkode": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Nummerkode for aktuell valuta."
+                }
+            },
+            "required": [
+                "id",
+                "bokstavkode",
+                "navn",
+                "nummerkode"
+            ],
+            "title": "Valuta",
+            "type": "object"
+        },
+        "Variabellonn": {
+            "additionalProperties": false,
+            "description": "Informasjon om variabel l\u00f8nn.",
+            "properties": {
+                "antall": {
+                    "description": "Mengde som vert beskriven av tillegget, i hundredeler.",
+                    "type": "integer"
+                },
+                "anviser": {
+                    "description": "Personalressurs som har anvist l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "anvist": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart anvist.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arbeidsforhold": {
+                    "description": "Arbeidsforhold variabell\u00f8nna gjeld for.",
+                    "type": "string"
+                },
+                "attestant": {
+                    "description": "Personalressurs som har attestert l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "attestert": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart attestert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "belop": {
+                    "description": "Bel\u00f8p i \u00f8re som skal betalast ut.",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "beskrivelse": {
+                    "description": "Beskriving av l\u00f8nn til f\u00f8ring p\u00e5 l\u00f8nnslipp.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kildesystemId": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Kjeldesystemets unike identifikator for l\u00f8nn."
+                },
+                "konterer": {
+                    "description": "Personalressurs som har kontert l\u00f8nsmeldinga etter fullmakt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontert": {
+                    "description": "Tidspunkt d\u00e5 l\u00f8nn vart kontert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kontostreng": {
+                    "$ref": "#/$defs/Kontostreng",
+                    "description": "Kontering av l\u00f8nn."
+                },
+                "lonsart": {
+                    "description": "L\u00f8nnsart for variabel l\u00f8nn.",
+                    "type": "string"
+                },
+                "opptjent": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Periode der l\u00f8nn vart opptent."
+                },
+                "periode": {
+                    "$ref": "#/$defs/Periode",
+                    "description": "Periode l\u00f8nn vert utbetalt."
+                }
+            },
+            "required": [
+                "antall",
+                "lonsart",
+                "arbeidsforhold",
+                "id",
+                "beskrivelse",
+                "kontostreng",
+                "periode"
+            ],
+            "title": "Variabellonn",
+            "type": "object"
+        },
+        "Virksomhet": {
+            "additionalProperties": false,
+            "description": "Ein juridisk organisasjon som produserer varer eller tenester.",
+            "properties": {
+                "forretningsadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Bes\u00f8ksadresse til ein organisasjonseining i einingsregisteret."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Den f\u00f8retrekte m\u00e5ten \u00e5 kome i kontakt med ein akt\u00f8r."
+                },
+                "laerling": {
+                    "description": "Referanse til Laerling (Utdanning) i verksemda.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "organisasjonsnavn": {
+                    "description": "Namn p\u00e5 eining registrert i Einingsregisteret.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsnummer": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret."
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Informasjon om postadresse til ein akt\u00f8r."
+                },
+                "virksomhetsId": {
+                    "$ref": "#/$defs/Identifikator",
+                    "description": "Intern unik identifikator i \u00f8konomisystemet."
+                }
+            },
+            "required": [
+                "id",
+                "virksomhetsId"
+            ],
+            "title": "Virksomhet",
+            "type": "object"
+        }
+    },
+    "$id": "https://data.norge.no/linkml/fint-administrasjon",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "Rotcontainer for FINT Administrasjon-instansar.",
+    "metamodel_version": "1.7.0",
+    "properties": {
+        "aktivitetar": {
+            "items": {
+                "$ref": "#/$defs/Aktivitet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "anlegg": {
+            "items": {
+                "$ref": "#/$defs/Anlegg"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "ansvar": {
+            "items": {
+                "$ref": "#/$defs/Ansvar"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "arbeidsforhold": {
+            "items": {
+                "$ref": "#/$defs/Arbeidsforhold"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "arbeidsforholdstypar": {
+            "items": {
+                "$ref": "#/$defs/Arbeidsforholdstype"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "arbeidslokasjoner": {
+            "items": {
+                "$ref": "#/$defs/Arbeidslokasjon"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "artar": {
+            "items": {
+                "$ref": "#/$defs/Art"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "diverse": {
+            "items": {
+                "$ref": "#/$defs/Diverse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fastlonn": {
+            "items": {
+                "$ref": "#/$defs/Fastlonn"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fasttillegg": {
+            "items": {
+                "$ref": "#/$defs/Fasttillegg"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "formaal": {
+            "items": {
+                "$ref": "#/$defs/Formaal"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fravaer": {
+            "items": {
+                "$ref": "#/$defs/Fravaer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fravaersgrunnar": {
+            "items": {
+                "$ref": "#/$defs/Fravaersgrunn"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fravaerstypar": {
+            "items": {
+                "$ref": "#/$defs/Fravaerstype"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fullmakter": {
+            "items": {
+                "$ref": "#/$defs/Fullmakt"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "funksjonar": {
+            "items": {
+                "$ref": "#/$defs/Funksjon"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fylke": {
+            "items": {
+                "$ref": "#/$defs/Fylke"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kjonn": {
+            "items": {
+                "$ref": "#/$defs/Kjonn"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kommunar": {
+            "items": {
+                "$ref": "#/$defs/Kommune"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kontaktpersonar": {
+            "items": {
+                "$ref": "#/$defs/Kontaktperson"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kontrakter": {
+            "items": {
+                "$ref": "#/$defs/Kontrakt"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "landkodar": {
+            "items": {
+                "$ref": "#/$defs/Landkode"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "lonsartar": {
+            "items": {
+                "$ref": "#/$defs/Lonsart"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "lopenummer": {
+            "items": {
+                "$ref": "#/$defs/Lopenummer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "objekt": {
+            "items": {
+                "$ref": "#/$defs/Objekt"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "organisasjonselement": {
+            "items": {
+                "$ref": "#/$defs/Organisasjonselement"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "organisasjonstypar": {
+            "items": {
+                "$ref": "#/$defs/Organisasjonstype"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "personalressursar": {
+            "items": {
+                "$ref": "#/$defs/Personalressurs"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "personalressurskategoriar": {
+            "items": {
+                "$ref": "#/$defs/Personalressurskategori"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "personar": {
+            "items": {
+                "$ref": "#/$defs/Person"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "prosjekt": {
+            "items": {
+                "$ref": "#/$defs/Prosjekt"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "prosjektartar": {
+            "items": {
+                "$ref": "#/$defs/Prosjektart"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "rammer": {
+            "items": {
+                "$ref": "#/$defs/Ramme"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "rollar": {
+            "items": {
+                "$ref": "#/$defs/Rolle"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "spraak": {
+            "items": {
+                "$ref": "#/$defs/Spraak"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "stillingskoder": {
+            "items": {
+                "$ref": "#/$defs/Stillingskode"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "uketimetall": {
+            "items": {
+                "$ref": "#/$defs/Uketimetall"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "valuta": {
+            "items": {
+                "$ref": "#/$defs/Valuta"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "variabellonn": {
+            "items": {
+                "$ref": "#/$defs/Variabellonn"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "virksomhetar": {
+            "items": {
+                "$ref": "#/$defs/Virksomhet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        }
+    },
+    "title": "fint-administrasjon",
+    "type": "object",
+    "version": "4.0.20"
+}
+

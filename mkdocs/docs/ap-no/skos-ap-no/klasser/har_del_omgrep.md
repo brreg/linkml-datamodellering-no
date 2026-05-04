@@ -1,0 +1,97 @@
+
+
+# Slot: har_del_omgrep 
+
+
+_Omgrep som er ein del av dette omgrepet (xkos:hasPart)._
+
+
+
+
+
+URI: [xkos:hasPart](http://rdf-vocabulary.ddialliance.org/xkos#hasPart)
+Alias: har_del_omgrep
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Begrep](Begrep.md) |
+| Domain Of | [Begrep](Begrep.md) |
+| Slot URI | [xkos:hasPart](http://rdf-vocabulary.ddialliance.org/xkos#hasPart) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/skos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | xkos:hasPart |
+| native | https://data.norge.no/linkml/skos-ap-no/har_del_omgrep |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_del_omgrep
+description: Omgrep som er ein del av dette omgrepet (xkos:hasPart).
+from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
+slot_uri: xkos:hasPart
+alias: har_del_omgrep
+domain_of:
+- Begrep
+range: Begrep
+multivalued: true
+
+```
+</details>

@@ -1,0 +1,97 @@
+
+
+# Slot: erstattar 
+
+
+_Omgrep dette omgrepet erstattar (dct:replaces)._
+
+
+
+
+
+URI: [dct:replaces](http://purl.org/dc/terms/replaces)
+Alias: erstattar
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Begrep](Begrep.md) |
+| Domain Of | [Begrep](Begrep.md) |
+| Slot URI | [dct:replaces](http://purl.org/dc/terms/replaces) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/skos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:replaces |
+| native | https://data.norge.no/linkml/skos-ap-no/erstattar |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: erstattar
+description: Omgrep dette omgrepet erstattar (dct:replaces).
+from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
+slot_uri: dct:replaces
+alias: erstattar
+domain_of:
+- Begrep
+range: Begrep
+multivalued: true
+
+```
+</details>

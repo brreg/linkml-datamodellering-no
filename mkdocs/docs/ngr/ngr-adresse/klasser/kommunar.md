@@ -1,0 +1,99 @@
+
+
+# Slot: kommunar 
+
+
+
+URI: [https://data.norge.no/linkml/ngr-adresse/kommunar](https://data.norge.no/linkml/ngr-adresse/kommunar)
+Alias: kommunar
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [AdresseContainer](AdresseContainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Kommune](Kommune.md) |
+| Domain Of | [AdresseContainer](AdresseContainer.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AdresseContainer](AdresseContainer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-adresse
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://data.norge.no/linkml/ngr-adresse/kommunar |
+| native | https://data.norge.no/linkml/ngr-adresse/kommunar |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: kommunar
+from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
+alias: kommunar
+owner: AdresseContainer
+domain_of:
+- AdresseContainer
+range: Kommune
+multivalued: true
+inlined: true
+inlined_as_list: true
+
+```
+</details>

@@ -1,0 +1,97 @@
+
+
+# Slot: utgjevar 
+
+
+_Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)._
+
+
+
+
+
+URI: [dct:publisher](http://purl.org/dc/terms/publisher)
+Alias: utgjevar
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
+| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Organisasjon](Organisasjon.md) |
+| Domain Of | [Begrep](Begrep.md), [Samling](Samling.md) |
+| Slot URI | [dct:publisher](http://purl.org/dc/terms/publisher) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/skos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:publisher |
+| native | https://data.norge.no/linkml/skos-ap-no/utgjevar |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: utgjevar
+description: Organisasjon ansvarleg for å publisere omgrepet (dct:publisher).
+from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
+slot_uri: dct:publisher
+alias: utgjevar
+domain_of:
+- Begrep
+- Samling
+range: Organisasjon
+
+```
+</details>

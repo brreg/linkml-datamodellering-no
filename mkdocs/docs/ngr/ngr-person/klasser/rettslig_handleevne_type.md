@@ -1,0 +1,95 @@
+
+
+# Slot: rettslig_handleevne_type 
+
+
+_Type avgrensing i rettsleg handleevne._
+
+
+
+
+
+URI: [ngrp:rettsligHandleevneType](https://data.norge.no/vocabulary/ngr-person#rettsligHandleevneType)
+Alias: rettslig_handleevne_type
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [RettsligHandleevne](RettsligHandleevne.md) | Registrering av avgrensing i rettsleg handleevne for ein person, t |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [RettsligHandleevneType](RettsligHandleevneType.md) |
+| Domain Of | [RettsligHandleevne](RettsligHandleevne.md) |
+| Slot URI | [ngrp:rettsligHandleevneType](https://data.norge.no/vocabulary/ngr-person#rettsligHandleevneType) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:rettsligHandleevneType |
+| native | https://data.norge.no/linkml/ngr-person/rettslig_handleevne_type |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: rettslig_handleevne_type
+description: Type avgrensing i rettsleg handleevne.
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:rettsligHandleevneType
+alias: rettslig_handleevne_type
+domain_of:
+- RettsligHandleevne
+range: RettsligHandleevneType
+
+```
+</details>

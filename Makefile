@@ -39,6 +39,7 @@ endef
 # Top-level targets
 # ---------------------------------------------------------------------------
 .PHONY: all test validate gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf convert-rdf docs clean \
+        publish \
         mcp-build mcp-run mcp-test mcp-smoke mcp-validate \
         docs-serve docs-build \
         $(DOMAINS)
@@ -55,7 +56,8 @@ gen-jsonld:
 	$(call run_gen,$(SCHEMAS),gen-jsonld-context,context.jsonld)
 
 gen-shacl:
-	$(call run_gen,$(SCHEMAS),gen-shacl,shapes.ttl)
+	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-shacl,shapes.ttl)
+	$(call run_gen,$(filter $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-shacl --exclude-imports,shapes.ttl)
 
 gen-python:
 	$(call run_gen,$(SCHEMAS),gen-python,model.py)
@@ -64,10 +66,11 @@ gen-jsonschema:
 	$(call run_gen,$(SCHEMAS),gen-json-schema,schema.json)
 
 gen-owl:
-	$(call run_gen,$(SCHEMAS),gen-owl,ontology.ttl)
+	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-owl,ontology.ttl)
+	$(call run_gen,$(filter $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-owl --log_level ERROR,ontology.ttl)
 
 gen-rdf:
-	$(call run_gen,$(SCHEMAS),gen-rdf,schema.ttl)
+	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-rdf,schema.ttl)
 
 docs:
 	$(call run_gen_doc,$(SCHEMAS))
@@ -98,6 +101,11 @@ convert-rdf:
 clean:
 	rm -rf $(GEN_DIR)
 
+# Kopier genererte artefaktar til mkdocs/docs/ og oppdater mkdocs.yml.
+# Føresetnad: relevante make <domain>-targets er køyrde fyrst.
+publish:
+	bash mkdocs/publish.sh
+
 # ---------------------------------------------------------------------------
 # Per-domain targets – generated automatically for every domain in DOMAINS.
 # `make <domain>` (e.g. make oreg) generates all artefacts for that domain.
@@ -108,6 +116,22 @@ clean:
 #   $$(VAR)       – becomes $(VAR) after call; expanded at build time
 #   $$$$shell_var – becomes $$shell_var after call; shell receives $shell_var
 # ---------------------------------------------------------------------------
+
+# fint schemas use cross-schema class inheritance which triggers a bug in the
+# SHACL generator (KeyError on schema_map lookup). --exclude-imports avoids it.
+SHACL_FLAGS_fint := --exclude-imports
+
+# gen-owl emits "Ambiguous type" warnings for fint schemas because the same slot
+# name (e.g. navn) maps to both DatatypeProperty and ObjectProperty ranges across
+# different class contexts – an inherent property of the FINT model design.
+OWL_FLAGS_fint := --log_level ERROR
+
+# gen-rdf fails for fint schemas: the JSON-LD generator adds a relative
+# ../fint-common/fint-common-schema.context.jsonld context reference, which
+# rdflib resolves against the schema base URL (https://schema.fintlabs.no/...)
+# and fetches over HTTP → 404. Set GEN_RDF_SKIP_<domain> := true to skip.
+GEN_RDF_SKIP_fint := true
+
 define domain_target
 _schemas_$(1) := $(filter $(SCHEMA_DIR)/$(1)/%,$(SCHEMAS))
 
@@ -115,11 +139,11 @@ _schemas_$(1) := $(filter $(SCHEMA_DIR)/$(1)/%,$(SCHEMAS))
 $(1):
 	$$(foreach s,$$(_schemas_$(1)),$$(PODMAN) gen-linkml $$(s) > /dev/null;)
 	$$(call run_gen,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
-	$$(call run_gen,$$(_schemas_$(1)),gen-shacl,shapes.ttl)
+	$$(call run_gen,$$(_schemas_$(1)),gen-shacl $$(SHACL_FLAGS_$(1)),shapes.ttl)
 	$$(call run_gen,$$(_schemas_$(1)),gen-python,model.py)
 	$$(call run_gen,$$(_schemas_$(1)),gen-json-schema,schema.json)
-	$$(call run_gen,$$(_schemas_$(1)),gen-owl,ontology.ttl)
-	$$(call run_gen,$$(_schemas_$(1)),gen-rdf,schema.ttl)
+	$$(call run_gen,$$(_schemas_$(1)),gen-owl $$(OWL_FLAGS_$(1)),ontology.ttl)
+	$(if $(GEN_RDF_SKIP_$(1)),,$$(call run_gen,$$(_schemas_$(1)),gen-rdf,schema.ttl))
 	for example in examples/$(1)/*-eksempel.yaml; do \
 		[ -f "$$$$example" ] || continue; \
 		name=$$$$(basename "$$$$example" .yaml); \

@@ -1,0 +1,250 @@
+
+
+# Class: Aktivitet 
+
+
+_Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen eller føremålet til verksemda._
+
+
+
+
+
+URI: [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Aktivitet
+    click Aktivitet href "../Aktivitet/"
+      Aktivitet : aktivitet_beskrivelse
+        
+      Aktivitet : id
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [aktivitet_beskrivelse](aktivitet_beskrivelse.md) | 1 <br/> [String](String.md) | Skildring av kva aktivitet verksemda utøver (formålsparagraf o |
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | [aktivitetar](aktivitetar.md) | range | [Aktivitet](Aktivitet.md) |
+| [Hovedenhet](Hovedenhet.md) | [utoevar_aktivitet](utoevar_aktivitet.md) | range | [Aktivitet](Aktivitet.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:Aktivitet |
+| native | https://data.norge.no/linkml/ngr-virksomhet/Aktivitet |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Aktivitet
+description: Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen
+  eller føremålet til verksemda.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slots:
+- id
+- aktivitet_beskrivelse
+slot_usage:
+  aktivitet_beskrivelse:
+    name: aktivitet_beskrivelse
+    in_subset:
+    - Obligatorisk
+    required: true
+class_uri: ngrv:Aktivitet
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Aktivitet
+description: Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen
+  eller føremålet til verksemda.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slot_usage:
+  aktivitet_beskrivelse:
+    name: aktivitet_beskrivelse
+    in_subset:
+    - Obligatorisk
+    required: true
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Aktivitet
+    domain_of:
+    - Virksomhet
+    - Tilstand
+    - Organisasjonsform
+    - Naeringskode
+    - Sektorkode
+    - Kontaktinformasjon
+    - Varslingsadresse
+    - Aktivitet
+    - RolleIVirksomhet
+    - Rolleinnehaver
+    - Signaturrett
+    - Prokura
+    - GeografiskAdresse
+    - Person
+    range: uriorcurie
+    required: true
+  aktivitet_beskrivelse:
+    name: aktivitet_beskrivelse
+    description: Skildring av kva aktivitet verksemda utøver (formålsparagraf o.l.).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:aktivitetBeskrivelse
+    alias: aktivitet_beskrivelse
+    owner: Aktivitet
+    domain_of:
+    - Aktivitet
+    range: string
+    required: true
+class_uri: ngrv:Aktivitet
+
+```
+</details>

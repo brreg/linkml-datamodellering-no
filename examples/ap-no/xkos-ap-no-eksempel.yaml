@@ -64,6 +64,3 @@ kategoriar:
     tilhorande_klassifikasjonsnivaa: https://example.org/nivaa/nace2-avdelingar
     overordna_kategori:
       - https://example.org/kategori/nace2-B
-
-organisasjonar:
-  - id: https://example.org/org/ssb

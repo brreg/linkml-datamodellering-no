@@ -1,0 +1,187 @@
+
+
+# Class: Bygning 
+
+
+_Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen._
+
+
+
+
+
+URI: [ngr:Bygning](https://data.norge.no/vocabulary/ngr-adresse#Bygning)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Bygning
+    click Bygning href "../Bygning/"
+      Bygning : id
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngr:Bygning](https://data.norge.no/vocabulary/ngr-adresse#Bygning) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [AdresseContainer](AdresseContainer.md) | [bygningar](bygningar.md) | range | [Bygning](Bygning.md) |
+| [OffisiellAdresse](OffisiellAdresse.md) | [adresserer_bygning](adresserer_bygning.md) | range | [Bygning](Bygning.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-adresse
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngr:Bygning |
+| native | https://data.norge.no/linkml/ngr-adresse/Bygning |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Bygning
+description: Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere
+  ytre inngang(ar) til bygningen.
+from_schema: https://data.norge.no/linkml/ngr-adresse
+slots:
+- id
+class_uri: ngr:Bygning
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Bygning
+description: Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere
+  ytre inngang(ar) til bygningen.
+from_schema: https://data.norge.no/linkml/ngr-adresse
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-adresse
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Bygning
+    domain_of:
+    - GeografiskAdresse
+    - Adressenavn
+    - Adresseomrade
+    - Adressekode
+    - Husnummer
+    - Bruksenhetsnummer
+    - Representasjonspunkt
+    - GeografiskOmrade
+    - Postboks
+    - Bygning
+    - Bruksenhet
+    range: uriorcurie
+    required: true
+class_uri: ngr:Bygning
+
+```
+</details>

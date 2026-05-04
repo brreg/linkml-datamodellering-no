@@ -1,0 +1,97 @@
+
+
+# Slot: overordna_kategori 
+
+
+_Overordna kategori (skos:broader)._
+
+
+
+
+
+URI: [skos:broader](http://www.w3.org/2004/02/skos/core#broader)
+Alias: overordna_kategori
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Kategori](Kategori.md) |
+| Domain Of | [Kategori](Kategori.md) |
+| Slot URI | [skos:broader](http://www.w3.org/2004/02/skos/core#broader) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/xkos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | skos:broader |
+| native | https://data.norge.no/linkml/xkos-ap-no/overordna_kategori |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: overordna_kategori
+description: Overordna kategori (skos:broader).
+from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
+slot_uri: skos:broader
+alias: overordna_kategori
+domain_of:
+- Kategori
+range: Kategori
+multivalued: true
+
+```
+</details>

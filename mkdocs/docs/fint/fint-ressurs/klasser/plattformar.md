@@ -1,0 +1,99 @@
+
+
+# Slot: plattformar 
+
+
+
+URI: [https://schema.fintlabs.no/ressurs/:plattformar](https://schema.fintlabs.no/ressurs/:plattformar)
+Alias: plattformar
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [RessursContainer](RessursContainer.md) | Rotcontainer for FINT Ressurs-instansar |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Plattform](Plattform.md) |
+| Domain Of | [RessursContainer](RessursContainer.md) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [RessursContainer](RessursContainer.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fint-ressurs
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | https://schema.fintlabs.no/ressurs/:plattformar |
+| native | https://schema.fintlabs.no/ressurs/:plattformar |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: plattformar
+from_schema: https://data.norge.no/linkml/fint-ressurs
+rank: 1000
+alias: plattformar
+owner: RessursContainer
+domain_of:
+- RessursContainer
+range: Plattform
+multivalued: true
+inlined: true
+inlined_as_list: true
+
+```
+</details>

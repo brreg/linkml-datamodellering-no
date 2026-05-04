@@ -1,0 +1,95 @@
+
+
+# Slot: min_inklusiv 
+
+
+_Inklusiv minimumsverdi (xsd:minInclusive)._
+
+
+
+
+
+URI: [xsd:minInclusive](http://www.w3.org/2001/XMLSchema#minInclusive)
+Alias: min_inklusiv
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [EnkelType](EnkelType.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [EnkelType](EnkelType.md) |
+| Slot URI | [xsd:minInclusive](http://www.w3.org/2001/XMLSchema#minInclusive) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | xsd:minInclusive |
+| native | https://data.norge.no/linkml/modelldcat-ap-no/min_inklusiv |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: min_inklusiv
+description: Inklusiv minimumsverdi (xsd:minInclusive).
+from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
+slot_uri: xsd:minInclusive
+alias: min_inklusiv
+domain_of:
+- EnkelType
+range: string
+
+```
+</details>

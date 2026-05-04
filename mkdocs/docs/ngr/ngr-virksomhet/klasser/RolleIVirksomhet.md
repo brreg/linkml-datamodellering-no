@@ -1,0 +1,324 @@
+
+
+# Class: RolleIVirksomhet 
+
+
+_Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar). Kvar rolle kan ha éin eller fleire rolleinnehavarar._
+
+
+
+
+
+URI: [ngrv:RolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#RolleIVirksomhet)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class RolleIVirksomhet
+    click RolleIVirksomhet href "../RolleIVirksomhet/"
+      RolleIVirksomhet : har_rolleinnehaver
+        
+          
+    
+        
+        
+        RolleIVirksomhet --> "*" Rolleinnehaver : har_rolleinnehaver
+        click Rolleinnehaver href "../Rolleinnehaver/"
+    
+
+        
+      RolleIVirksomhet : id
+        
+      RolleIVirksomhet : rollebetegnelse
+        
+          
+    
+        
+        
+        RolleIVirksomhet --> "1" RolleType : rollebetegnelse
+        click RolleType href "../RolleType/"
+    
+
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [ngrv:RolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#RolleIVirksomhet) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [rollebetegnelse](rollebetegnelse.md) | 1 <br/> [RolleType](RolleType.md) | Kva type rolle dette er (dagleg leiar, styreleiar o |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [har_rolleinnehaver](har_rolleinnehaver.md) | * <br/> [Rolleinnehaver](Rolleinnehaver.md) | Rolleinnehavar(ar) for denne rolla |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [VirksomhetContainer](VirksomhetContainer.md) | [rollerIVirksomhet](rollerIVirksomhet.md) | range | [RolleIVirksomhet](RolleIVirksomhet.md) |
+| [Hovedenhet](Hovedenhet.md) | [har_rolle_i_virksomhet](har_rolle_i_virksomhet.md) | range | [RolleIVirksomhet](RolleIVirksomhet.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:RolleIVirksomhet |
+| native | https://data.norge.no/linkml/ngr-virksomhet/RolleIVirksomhet |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: RolleIVirksomhet
+description: Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar).
+  Kvar rolle kan ha éin eller fleire rolleinnehavarar.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slots:
+- id
+- rollebetegnelse
+- har_rolleinnehaver
+slot_usage:
+  rollebetegnelse:
+    name: rollebetegnelse
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_rolleinnehaver:
+    name: har_rolleinnehaver
+    in_subset:
+    - Anbefalt
+class_uri: ngrv:RolleIVirksomhet
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: RolleIVirksomhet
+description: Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar).
+  Kvar rolle kan ha éin eller fleire rolleinnehavarar.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+slot_usage:
+  rollebetegnelse:
+    name: rollebetegnelse
+    in_subset:
+    - Obligatorisk
+    required: true
+  har_rolleinnehaver:
+    name: har_rolleinnehaver
+    in_subset:
+    - Anbefalt
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: RolleIVirksomhet
+    domain_of:
+    - Virksomhet
+    - Tilstand
+    - Organisasjonsform
+    - Naeringskode
+    - Sektorkode
+    - Kontaktinformasjon
+    - Varslingsadresse
+    - Aktivitet
+    - RolleIVirksomhet
+    - Rolleinnehaver
+    - Signaturrett
+    - Prokura
+    - GeografiskAdresse
+    - Person
+    range: uriorcurie
+    required: true
+  rollebetegnelse:
+    name: rollebetegnelse
+    description: Kva type rolle dette er (dagleg leiar, styreleiar o.l.).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:rollebetegnelse
+    alias: rollebetegnelse
+    owner: RolleIVirksomhet
+    domain_of:
+    - RolleIVirksomhet
+    range: RolleType
+    required: true
+  har_rolleinnehaver:
+    name: har_rolleinnehaver
+    description: Rolleinnehavar(ar) for denne rolla.
+    in_subset:
+    - Anbefalt
+    from_schema: https://data.norge.no/linkml/ngr-virksomhet
+    rank: 1000
+    slot_uri: ngrv:harRolleinnehaver
+    alias: har_rolleinnehaver
+    owner: RolleIVirksomhet
+    domain_of:
+    - RolleIVirksomhet
+    range: Rolleinnehaver
+    multivalued: true
+class_uri: ngrv:RolleIVirksomhet
+
+```
+</details>

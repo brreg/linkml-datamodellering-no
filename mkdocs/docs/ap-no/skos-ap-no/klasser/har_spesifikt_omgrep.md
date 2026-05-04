@@ -1,0 +1,97 @@
+
+
+# Slot: har_spesifikt_omgrep 
+
+
+_Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept)._
+
+
+
+
+
+URI: [skosno:hasSpecificConcept](https://data.norge.no/vocabulary/skosno#hasSpecificConcept)
+Alias: har_spesifikt_omgrep
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [GeneriskRelasjon](GeneriskRelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Begrep](Begrep.md) |
+| Domain Of | [GeneriskRelasjon](GeneriskRelasjon.md) |
+| Slot URI | [skosno:hasSpecificConcept](https://data.norge.no/vocabulary/skosno#hasSpecificConcept) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+| Multivalued | Yes |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/skos-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | skosno:hasSpecificConcept |
+| native | https://data.norge.no/linkml/skos-ap-no/har_spesifikt_omgrep |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_spesifikt_omgrep
+description: Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept).
+from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
+slot_uri: skosno:hasSpecificConcept
+alias: har_spesifikt_omgrep
+domain_of:
+- GeneriskRelasjon
+range: Begrep
+multivalued: true
+
+```
+</details>

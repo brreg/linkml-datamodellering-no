@@ -1,0 +1,95 @@
+
+
+# Slot: grunnkretsnummer 
+
+
+_Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer)._
+
+
+
+
+
+URI: [ngr:grunnkretsnummer](https://data.norge.no/vocabulary/ngr-adresse#grunnkretsnummer)
+Alias: grunnkretsnummer
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Grunnkrets](Grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [String](String.md) |
+| Domain Of | [Grunnkrets](Grunnkrets.md) |
+| Slot URI | [ngr:grunnkretsnummer](https://data.norge.no/vocabulary/ngr-adresse#grunnkretsnummer) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-adresse
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngr:grunnkretsnummer |
+| native | https://data.norge.no/linkml/ngr-adresse/grunnkretsnummer |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: grunnkretsnummer
+description: Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer).
+from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
+slot_uri: ngr:grunnkretsnummer
+alias: grunnkretsnummer
+domain_of:
+- Grunnkrets
+range: string
+
+```
+</details>

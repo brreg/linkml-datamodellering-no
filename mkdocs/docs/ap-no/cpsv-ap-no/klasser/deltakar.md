@@ -1,0 +1,95 @@
+
+
+# Slot: deltakar 
+
+
+_Aktøren som deltek._
+
+
+
+
+
+URI: [cv:participant](http://data.europa.eu/m8g/participant)
+Alias: deltakar
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Deltagelse](Deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Aktor](Aktor.md) |
+| Domain Of | [Deltagelse](Deltagelse.md) |
+| Slot URI | [cv:participant](http://data.europa.eu/m8g/participant) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/cpsv-ap-no
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | cv:participant |
+| native | https://data.norge.no/linkml/cpsv-ap-no/deltakar |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: deltakar
+description: Aktøren som deltek.
+from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
+slot_uri: cv:participant
+alias: deltakar
+domain_of:
+- Deltagelse
+range: Aktor
+
+```
+</details>

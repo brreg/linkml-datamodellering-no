@@ -1,0 +1,95 @@
+
+
+# Slot: har_rettslig_handleevne 
+
+
+_Avgrensing i rettsleg handleevne registrert for personen._
+
+
+
+
+
+URI: [ngrp:harRettsligHandleevne](https://data.norge.no/vocabulary/ngr-person#harRettsligHandleevne)
+Alias: har_rettslig_handleevne
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [RettsligHandleevne](RettsligHandleevne.md) |
+| Domain Of | [Person](Person.md) |
+| Slot URI | [ngrp:harRettsligHandleevne](https://data.norge.no/vocabulary/ngr-person#harRettsligHandleevne) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:harRettsligHandleevne |
+| native | https://data.norge.no/linkml/ngr-person/har_rettslig_handleevne |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_rettslig_handleevne
+description: Avgrensing i rettsleg handleevne registrert for personen.
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:harRettsligHandleevne
+alias: har_rettslig_handleevne
+domain_of:
+- Person
+range: RettsligHandleevne
+
+```
+</details>

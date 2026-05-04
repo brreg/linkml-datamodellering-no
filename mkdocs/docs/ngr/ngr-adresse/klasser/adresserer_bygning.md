@@ -1,0 +1,95 @@
+
+
+# Slot: adresserer_bygning 
+
+
+_Bygning denne adressa er tildelt (forvaltar: Matrikkelen)._
+
+
+
+
+
+URI: [ngr:adressererBygning](https://data.norge.no/vocabulary/ngr-adresse#adressererBygning)
+Alias: adresserer_bygning
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Bygning](Bygning.md) |
+| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Slot URI | [ngr:adressererBygning](https://data.norge.no/vocabulary/ngr-adresse#adressererBygning) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-adresse
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngr:adressererBygning |
+| native | https://data.norge.no/linkml/ngr-adresse/adresserer_bygning |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: adresserer_bygning
+description: 'Bygning denne adressa er tildelt (forvaltar: Matrikkelen).'
+from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
+slot_uri: ngr:adressererBygning
+alias: adresserer_bygning
+domain_of:
+- OffisiellAdresse
+range: Bygning
+
+```
+</details>

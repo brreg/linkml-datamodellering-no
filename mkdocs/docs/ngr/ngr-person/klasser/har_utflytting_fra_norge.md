@@ -1,0 +1,95 @@
+
+
+# Slot: har_utflytting_fra_norge 
+
+
+_Siste utflyttingsregistrering frå Noreg._
+
+
+
+
+
+URI: [ngrp:harUtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#harUtflyttingFraNorge)
+Alias: har_utflytting_fra_norge
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [UtflyttingFraNorge](UtflyttingFraNorge.md) |
+| Domain Of | [Person](Person.md) |
+| Slot URI | [ngrp:harUtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#harUtflyttingFraNorge) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-person
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrp:harUtflyttingFraNorge |
+| native | https://data.norge.no/linkml/ngr-person/har_utflytting_fra_norge |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_utflytting_fra_norge
+description: Siste utflyttingsregistrering frå Noreg.
+from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
+slot_uri: ngrp:harUtflyttingFraNorge
+alias: har_utflytting_fra_norge
+domain_of:
+- Person
+range: UtflyttingFraNorge
+
+```
+</details>

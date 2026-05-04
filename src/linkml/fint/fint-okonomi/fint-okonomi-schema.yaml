@@ -20,14 +20,6 @@ prefixes:
   fint:   https://schema.fintlabs.no/
   okn:    https://schema.fintlabs.no/okonomi/
 
-subsets:
-  Obligatorisk:
-    description: Obligatorisk eigensskap.
-  Anbefalt:
-    description: Anbefalt eigensskap.
-  Valgfri:
-    description: Valfri eigensskap.
-
 # ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
@@ -78,7 +70,7 @@ classes:
         multivalued: true
         inlined_as_list: true
       valutaer:
-        range: Valuta
+        range: OkonomiValuta
         multivalued: true
         inlined_as_list: true
 
@@ -398,7 +390,7 @@ classes:
           - Valgfri
       valuta:
         slot_uri: okn:valuta
-        range: Valuta
+        range: OkonomiValuta
         required: true
         description: Valuta for oppgjeve beløp.
         in_subset:
@@ -693,7 +685,7 @@ classes:
         in_subset:
           - Valgfri
 
-  Valuta:
+  OkonomiValuta:
     description: Valuta for transaksjonsbeløp.
     class_uri: okn:Valuta
     slots:
@@ -727,11 +719,3 @@ classes:
 
 # ---------------------------------------------------------------------------
 # Slots
-# ---------------------------------------------------------------------------
-
-slots:
-
-  id:
-    identifier: true
-    range: uriorcurie
-    description: URI-identifikator (tilsvarar systemId/fakturanummer/transaksjonsId i FINT).

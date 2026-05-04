@@ -1,0 +1,95 @@
+
+
+# Slot: oppstartsdato 
+
+
+_Datoen underleininga vart oppretta/starta._
+
+
+
+
+
+URI: [ngrv:oppstartsdato](https://data.norge.no/vocabulary/ngr-virksomhet#oppstartsdato)
+Alias: oppstartsdato
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Underenhet](Underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Date](Date.md) |
+| Domain Of | [Underenhet](Underenhet.md) |
+| Slot URI | [ngrv:oppstartsdato](https://data.norge.no/vocabulary/ngr-virksomhet#oppstartsdato) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/ngr-virksomhet
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | ngrv:oppstartsdato |
+| native | https://data.norge.no/linkml/ngr-virksomhet/oppstartsdato |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: oppstartsdato
+description: Datoen underleininga vart oppretta/starta.
+from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
+slot_uri: ngrv:oppstartsdato
+alias: oppstartsdato
+domain_of:
+- Underenhet
+range: date
+
+```
+</details>

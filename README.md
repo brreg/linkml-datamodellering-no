@@ -8,6 +8,22 @@ Modellerer norske W3C-applikasjonsprofiler og tilknytte domenemodeller i [LinkML
 
 - [Podman](https://podman.io/) — alle kommandoar køyrer via container-image, ingen lokal installasjon nødvendig
 
+## Typisk arbeidsflyt
+
+```bash
+# 1. Generer alle artefaktar for eit domene (t.d. oreg)
+make oreg
+
+# 2. Publiser til dokumentasjonsportalen
+make publish
+
+# 3. Bygg og førehandsvis portalen lokalt
+make docs-build
+make docs-serve       # → http://localhost:8000
+```
+
+Nye skjema under `src/linkml/<domene>/<namn>/<namn>-schema.yaml` vert oppdaga automatisk — ingen Makefile-endring nødvendig.
+
 ## Kommandoar
 
 ### Skjema og testar
@@ -15,15 +31,51 @@ Modellerer norske W3C-applikasjonsprofiler og tilknytte domenemodeller i [LinkML
 | Kommando | Beskriving |
 |---|---|
 | `make test` | Lint alle skjema og valider alle eksempelfiler |
-| `make validate` | Valider skjema mot LinkML-metaskjemaet |
-| `make gen-jsonld` | Generer JSON-LD kontekst (`*-context.jsonld`) |
-| `make gen-shacl` | Generer SHACL shapes (`*-shapes.ttl`) |
-| `make gen-python` | Generer Python-dataklassar (`*-model.py`) |
-| `make gen-jsonschema` | Generer JSON Schema (`*-schema.json`) |
-| `make gen-owl` | Generer OWL/Turtle-ontologi (`*-ontology.ttl`) |
-| `make gen-rdf` | Generer RDF/Turtle-graf av skjemaet |
-| `make docs` | Generer HTML-dokumentasjon til `generated/` |
+| `make validate` | Valider alle skjema mot LinkML-metaskjemaet |
+| `make gen-jsonld` | Generer JSON-LD kontekst (`*-context.jsonld`) for alle skjema |
+| `make gen-shacl` | Generer SHACL shapes (`*-shapes.ttl`) for alle skjema |
+| `make gen-python` | Generer Python-dataklassar (`*-model.py`) for alle skjema |
+| `make gen-jsonschema` | Generer JSON Schema (`*-schema.json`) for alle skjema |
+| `make gen-owl` | Generer OWL/Turtle-ontologi (`*-ontology.ttl`) for alle skjema |
+| `make gen-rdf` | Generer RDF/Turtle-graf av skjemaet for alle skjema |
+| `make docs` | Generer HTML-klassereferanse til `generated/` for alle skjema |
 | `make clean` | Slett `generated/` |
+
+### Domain-spesifikke targets
+
+Kvart domene har eit eige target som køyrer alle generatorar berre for det domenet:
+
+| Kommando | Beskriving |
+|---|---|
+| `make ap-no` | Valider + generer alle artefaktar for alle AP-NO-profiler |
+| `make ngr` | Valider + generer alle artefaktar for NGR-modellane |
+| `make fint` | Valider + generer alle artefaktar for FINT-modellane |
+| `make fair` | Valider + generer alle artefaktar for FAIR-metadata |
+| `make oreg` | Valider + generer alle artefaktar for OREG-registera |
+
+Nye domene vert oppdaga automatisk frå `src/linkml/` — ingen endringar i Makefile.
+
+### Dokumentasjonsportal
+
+| Kommando | Beskriving |
+|---|---|
+| `make publish` | Kopier genererte artefaktar til portalen og oppdater nav |
+| `make docs-serve` | Start lokal dev-server på http://localhost:8000 |
+| `make docs-build` | Bygg statisk HTML til `mkdocs/site/` |
+
+**Korleis publiseringa fungerer:**
+
+`make publish` køyrer `scripts/publish.sh` som:
+
+1. Kopier artefaktar frå `generated/<domene>/<skjema>/` til `mkdocs/docs/<domene>/<skjema>/`
+2. Kopier gen-doc markdown-sider (`generated/…/docs/*.md`) til `mkdocs/docs/<domene>/<skjema>/klasser/`
+3. Genererer ei `index.md` per skjema med artefakttabell og lenke til klassereferanse
+4. Genererer ei `index.md` per domene med oversikt over alle skjema og tilgjengelege artefaktar
+5. Regenererer `mkdocs/mkdocs.yml` med oppdatert navigasjonsstruktur
+
+Nye domene og skjema dukkar opp automatisk i portalen neste gong `make publish` vert køyrt — ingen manuell konfigurasjon.
+
+Artefaktar som ikkje finst (t.d. fordi eit generator-steg ikkje er køyrt) vert stillteiande utelate frå tabellen. Klassereferansen (`Klasser`-lenka i nav) krev at `make docs` er køyrt for domenet.
 
 ### Valider (lint) enkeltskjema direkte
 
