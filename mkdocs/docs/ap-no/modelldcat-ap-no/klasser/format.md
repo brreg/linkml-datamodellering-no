@@ -22,7 +22,7 @@ Alias: format
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokument](Dokument.md) | Eit dokument (foaf:Document) |  no  |
+| [Dokument](dokument.md) | Eit dokument (foaf:Document) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [Mediatype](Mediatype.md) |
-| Domain Of | [Dokument](Dokument.md) |
+| Range | [Mediatype](mediatype.md) |
+| Domain Of | [Dokument](dokument.md) |
 | Slot URI | [dct:format](http://purl.org/dc/terms/format) |
 
 ### Cardinality and Requirements

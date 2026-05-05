@@ -22,7 +22,7 @@ Alias: eksempeldata
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: eksempeldata
 
 | Property | Value |
 | --- | --- |
-| Range | [Distribusjon](Distribusjon.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Distribusjon](distribusjon.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [adms:sample](http://www.w3.org/ns/adms#sample) |
 
 ### Cardinality and Requirements

@@ -13,30 +13,30 @@ Name: fint-personvern
 
 | Class | Description |
 | --- | --- |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Fysiske private personar |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](Fylke.md) | Liste over Norges fylker |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](Kommune.md) | Liste over Norges kommunar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |
-| [Behandlingsgrunnlag](Behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |
-| [Identifikator](Identifikator.md) | Unik identifikasjon til eit objekt |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
-| [Personnavn](Personnavn.md) | Namn på ein person |
-| [Personopplysning](Personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |
-| [PersonvernContainer](PersonvernContainer.md) | Rotcontainer for FINT Personvern-instansar |
-| [Samtykke](Samtykke.md) | Tillating til behandling av personopplysning |
-| [Tjeneste](Tjeneste.md) | Teneste eller system som behandlar personopplysningar |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](person.md) | Fysiske private personar |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Liste over Norges fylker |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | Liste over Norges kommunar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
+| [Personnavn](personnavn.md) | Namn på ein person |
+| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |
+| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |
+| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |
+| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |
 
 
 
@@ -69,7 +69,7 @@ Name: fint-personvern
 | [fylke](fylke.md) | Fylket kommunen høyrer til |
 | [gaardsnummer](gaardsnummer.md) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
 | [gyldighetsperiode](gyldighetsperiode.md) | Tidsrom samtykket er gyldig |
-| [id](id.md) | URI-identifikator (tilsvarar systemId i FINT) |
+| [id](id.md) | URI-identifikator for ressursen |
 | [identifikatorverdi](identifikatorverdi.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
 | [kjonn](kjonn.md) | Kjønn for personen |
 | [kode](kode.md) | Verdi som identifiserer omgrepet |
@@ -112,7 +112,7 @@ Name: fint-personvern
 | [tenester](tenester.md) |  |
 | [tjeneste](tjeneste.md) | Tenesta som behandlinga tilhøyrer |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 
 ## Enumerations
@@ -125,31 +125,31 @@ Name: fint-personvern
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalt eigensskap |
-| [Obligatorisk](Obligatorisk.md) | Obligatorisk eigensskap |
-| [Valgfri](Valgfri.md) | Valfri eigensskap |
+| [Anbefalt](anbefalt.md) | Anbefalt eigensskap |
+| [Obligatorisk](obligatorisk.md) | Obligatorisk eigensskap |
+| [Valgfri](valgfri.md) | Valfri eigensskap |

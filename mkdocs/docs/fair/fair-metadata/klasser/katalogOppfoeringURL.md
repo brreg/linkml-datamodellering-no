@@ -22,7 +22,7 @@ Alias: katalogOppfoeringURL
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalogregistrering](Katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |  yes  |
+| [Katalogregistrering](katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: katalogOppfoeringURL
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Katalogregistrering](Katalogregistrering.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Katalogregistrering](katalogregistrering.md) |
 | Slot URI | [fair:katalogOppfoeringURL](https://data.norge.no/fair#katalogOppfoeringURL) |
 
 ### Cardinality and Requirements

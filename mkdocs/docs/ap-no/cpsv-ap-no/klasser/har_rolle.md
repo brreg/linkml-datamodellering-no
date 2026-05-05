@@ -22,7 +22,7 @@ Alias: har_rolle
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Deltagelse](Deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |  yes  |
+| [Deltagelse](deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_rolle
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Deltagelse](Deltagelse.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Deltagelse](deltagelse.md) |
 | Slot URI | [cv:role](http://data.europa.eu/m8g/role) |
 
 ### Cardinality and Requirements

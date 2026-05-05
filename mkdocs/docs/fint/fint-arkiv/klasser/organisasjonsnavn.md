@@ -17,9 +17,9 @@ Alias: organisasjonsnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
-| [Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: organisasjonsnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md), [Enhet](Enhet.md) |
+| Range | [String](string.md) |
+| Domain Of | [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md), [Enhet](enhet.md) |
 
 ### Cardinality and Requirements
 

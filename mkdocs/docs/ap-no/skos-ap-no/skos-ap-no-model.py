@@ -1,5 +1,5 @@
 # Auto generated from skos-ap-no-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-04T20:03:43
+# Generation date: 2026-05-05T13:23:31
 # Schema: skos-ap-no
 #
 # id: https://data.norge.no/linkml/skos-ap-no

@@ -22,7 +22,7 @@ Alias: har_bestemmelser_om_prokura
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_bestemmelser_om_prokura
 
 | Property | Value |
 | --- | --- |
-| Range | [Prokura](Prokura.md) |
-| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Range | [Prokura](prokura.md) |
+| Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:harBestemmelserOmProkura](https://data.norge.no/vocabulary/ngr-virksomhet#harBestemmelserOmProkura) |
 
 ### Cardinality and Requirements

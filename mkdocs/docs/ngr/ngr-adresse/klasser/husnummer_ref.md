@@ -22,7 +22,7 @@ Alias: husnummer_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: husnummer_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Husnummer](Husnummer.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [Husnummer](husnummer.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:harHusnummer](https://data.norge.no/vocabulary/ngr-adresse#harHusnummer) |
 
 ### Cardinality and Requirements

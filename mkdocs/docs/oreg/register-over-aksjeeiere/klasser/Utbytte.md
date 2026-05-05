@@ -143,10 +143,10 @@ URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [tidspunkt](tidspunkt.md) | 0..1 <br/> [Date](Date.md) | Tidspunkt for utbytte/eierskapstransaksjon |
-| [har_utdeling](har_utdeling.md) | 0..1 <br/> [Utdeling](Utdeling.md) | Utdeling knytt til utbyttet |
-| [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | 0..1 <br/> [Eierposisjon](Eierposisjon.md) | Utbytte knytt til eigarposisjonen |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [tidspunkt](tidspunkt.md) | 0..1 <br/> [Date](date.md) | Tidspunkt for utbytte/eierskapstransaksjon |
+| [har_utdeling](har_utdeling.md) | 0..1 <br/> [Utdeling](utdeling.md) | Utdeling knytt til utbyttet |
+| [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | 0..1 <br/> [Eierposisjon](eierposisjon.md) | Utbytte knytt til eigarposisjonen |
 
 
 
@@ -159,9 +159,9 @@ URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [utbytter](utbytter.md) | range | [Utbytte](Utbytte.md) |
-| [Utbytte](Utbytte.md) | [har_utdeling](har_utdeling.md) | domain | [Utbytte](Utbytte.md) |
-| [Utbytte](Utbytte.md) | [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | domain | [Utbytte](Utbytte.md) |
+| [Containerklasse](containerklasse.md) | [utbytter](utbytter.md) | range | [Utbytte](utbytte.md) |
+| [Utbytte](utbytte.md) | [har_utdeling](har_utdeling.md) | domain | [Utbytte](utbytte.md) |
+| [Utbytte](utbytte.md) | [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | domain | [Utbytte](utbytte.md) |
 
 
 

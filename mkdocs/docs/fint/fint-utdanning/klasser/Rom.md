@@ -17,9 +17,9 @@ Alias: rom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Time](Time.md) | Ein time i timeplanen |  no  |
-| [Eksamen](Eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
+| [Time](time.md) | Ein time i timeplanen |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: rom
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Eksamen](Eksamen.md), [Time](Time.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Eksamen](eksamen.md), [Time](time.md) |
 
 ### Cardinality and Requirements
 

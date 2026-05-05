@@ -22,7 +22,7 @@ Alias: har_kontaktside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktopplysning](Kontaktopplysning.md) | Kontaktinformasjon for ein aktør |  no  |
+| [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ein aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_kontaktside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Kontaktopplysning](Kontaktopplysning.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Kontaktopplysning](kontaktopplysning.md) |
 | Slot URI | [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL) |
 
 ### Cardinality and Requirements

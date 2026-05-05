@@ -22,13 +22,13 @@ Alias: saksdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
-| [TilskuddFartoy](TilskuddFartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
-| [Sak](Sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
-| [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
-| [Saksmappe](Saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |  no  |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
-| [Personalmappe](Personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [Saksmappe](saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |  no  |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [Sak](sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
+| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
 
 
 
@@ -41,8 +41,8 @@ Alias: saksdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Saksmappe](Saksmappe.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Saksmappe](saksmappe.md) |
 | Slot URI | [ark:saksdato](https://schema.fintlabs.no/arkiv/saksdato) |
 
 ### Cardinality and Requirements
@@ -53,7 +53,7 @@ Alias: saksdato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Saksmappe](Saksmappe.md) |
+| Owner | [Saksmappe](saksmappe.md) |
 
 
 
@@ -65,7 +65,7 @@ Alias: saksdato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

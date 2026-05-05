@@ -17,7 +17,7 @@ Alias: posteringar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OkonomiContainer](OkonomiContainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
+| [OkonomiContainer](okonomicontainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: posteringar
 
 | Property | Value |
 | --- | --- |
-| Range | [Postering](Postering.md) |
-| Domain Of | [OkonomiContainer](OkonomiContainer.md) |
+| Range | [Postering](postering.md) |
+| Domain Of | [OkonomiContainer](okonomicontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: posteringar
 
 | Property | Value |
 | --- | --- |
-| Owner | [OkonomiContainer](OkonomiContainer.md) |
+| Owner | [OkonomiContainer](okonomicontainer.md) |
 
 
 

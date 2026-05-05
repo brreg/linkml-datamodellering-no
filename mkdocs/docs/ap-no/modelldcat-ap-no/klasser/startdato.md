@@ -22,7 +22,7 @@ Alias: startdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tidsperiode](Tidsperiode.md) | Eit tidsintervall med start- og sluttdato |  no  |
+| [Tidsperiode](tidsperiode.md) | Eit tidsintervall med start- og sluttdato |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: startdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Tidsperiode](Tidsperiode.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Tidsperiode](tidsperiode.md) |
 | Slot URI | [dcat:startDate](http://www.w3.org/ns/dcat#startDate) |
 
 ### Cardinality and Requirements

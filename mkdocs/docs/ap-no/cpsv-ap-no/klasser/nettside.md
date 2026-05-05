@@ -22,7 +22,7 @@ Alias: nettside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenestekanal](Tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
+| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nettside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Tjenestekanal](Tjenestekanal.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Tjenestekanal](tjenestekanal.md) |
 | Slot URI | [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL) |
 
 ### Cardinality and Requirements

@@ -26,7 +26,7 @@ Alias: nokkelord
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
+| Range | [LangString](langstring.md) |
 | Slot URI | [dcat:keyword](http://www.w3.org/ns/dcat#keyword) |
 
 ### Cardinality and Requirements

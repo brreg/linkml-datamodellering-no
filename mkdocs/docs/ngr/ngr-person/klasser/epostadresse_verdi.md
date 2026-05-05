@@ -22,8 +22,8 @@ Alias: epostadresse_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktopplysninger](Kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |  yes  |
-| [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md) | Kontaktinformasjon for eit dødsbu |  yes  |
+| [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) | Kontaktinformasjon for eit dødsbu |  yes  |
+| [Kontaktopplysninger](kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: epostadresse_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md), [Kontaktopplysninger](Kontaktopplysninger.md) |
+| Range | [String](string.md) |
+| Domain Of | [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md), [Kontaktopplysninger](kontaktopplysninger.md) |
 | Slot URI | [ngrp:epostadresse](https://data.norge.no/vocabulary/ngr-person#epostadresse) |
 
 ### Cardinality and Requirements

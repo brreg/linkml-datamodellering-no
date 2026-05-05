@@ -17,8 +17,8 @@ Alias: behandling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](Tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
-| [Samtykke](Samtykke.md) | Tillating til behandling av personopplysning |  no  |
+| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
+| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: behandling
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Samtykke](Samtykke.md), [Tjeneste](Tjeneste.md) |
+| Range | [String](string.md) |
+| Domain Of | [Samtykke](samtykke.md), [Tjeneste](tjeneste.md) |
 
 ### Cardinality and Requirements
 

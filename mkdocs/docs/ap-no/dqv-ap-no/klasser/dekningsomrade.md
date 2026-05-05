@@ -26,7 +26,7 @@ Alias: dekningsomrade
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
+| Range | [Konsept](konsept.md) |
 | Slot URI | [dct:spatial](http://purl.org/dc/terms/spatial) |
 
 ### Cardinality and Requirements

@@ -22,8 +22,8 @@ Alias: tidspunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Utbytte](Utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
+| [Utbytte](utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: tidspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Utbytte](Utbytte.md), [Eierskapstransaksjon](Eierskapstransaksjon.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Utbytte](utbytte.md), [Eierskapstransaksjon](eierskapstransaksjon.md) |
 
 ### Cardinality and Requirements
 

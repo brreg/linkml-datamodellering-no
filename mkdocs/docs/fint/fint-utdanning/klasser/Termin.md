@@ -17,11 +17,11 @@ Alias: termin
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
-| [Klasse](Klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
-| [Kontaktlaerergruppe](Kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
-| [Undervisningsgruppe](Undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
-| [Persongruppe](Persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
 
 
 
@@ -34,8 +34,8 @@ Alias: termin
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Klasse](Klasse.md), [Kontaktlaerergruppe](Kontaktlaerergruppe.md), [Persongruppe](Persongruppe.md), [Undervisningsgruppe](Undervisningsgruppe.md), [Eksamensgruppe](Eksamensgruppe.md) |
+| Range | [String](string.md) |
+| Domain Of | [Klasse](klasse.md), [Kontaktlaerergruppe](kontaktlaerergruppe.md), [Persongruppe](persongruppe.md), [Undervisningsgruppe](undervisningsgruppe.md), [Eksamensgruppe](eksamensgruppe.md) |
 
 ### Cardinality and Requirements
 

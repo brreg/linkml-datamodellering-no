@@ -22,7 +22,7 @@ Alias: kan_ha_vederlag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeoverdragelse](Aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |  no  |
+| [Aksjeoverdragelse](aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: kan_ha_vederlag
 
 | Property | Value |
 | --- | --- |
-| Range | [Vederlag](Vederlag.md) |
-| Domain | [Aksjeoverdragelse](Aksjeoverdragelse.md) |
-| Domain Of | [Aksjeoverdragelse](Aksjeoverdragelse.md) |
+| Range | [Vederlag](vederlag.md) |
+| Domain | [Aksjeoverdragelse](aksjeoverdragelse.md) |
+| Domain Of | [Aksjeoverdragelse](aksjeoverdragelse.md) |
 
 ### Cardinality and Requirements
 

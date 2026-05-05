@@ -22,7 +22,7 @@ Alias: organisasjonstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonselement](Organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjonstype
 
 | Property | Value |
 | --- | --- |
-| Range | [Organisasjonstype](Organisasjonstype.md) |
-| Domain Of | [Organisasjonselement](Organisasjonselement.md) |
+| Range | [Organisasjonstype](organisasjonstype.md) |
+| Domain Of | [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [adm:organisasjonstype](https://schema.fintlabs.no/administrasjon/organisasjonstype) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: organisasjonstype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Organisasjonselement](Organisasjonselement.md) |
+| Owner | [Organisasjonselement](organisasjonselement.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: organisasjonstype
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

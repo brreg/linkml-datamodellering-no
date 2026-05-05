@@ -17,7 +17,7 @@ Alias: aktivitetar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
+| [VirksomhetContainer](virksomhetcontainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: aktivitetar
 
 | Property | Value |
 | --- | --- |
-| Range | [Aktivitet](Aktivitet.md) |
-| Domain Of | [VirksomhetContainer](VirksomhetContainer.md) |
+| Range | [Aktivitet](aktivitet.md) |
+| Domain Of | [VirksomhetContainer](virksomhetcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: aktivitetar
 
 | Property | Value |
 | --- | --- |
-| Owner | [VirksomhetContainer](VirksomhetContainer.md) |
+| Owner | [VirksomhetContainer](virksomhetcontainer.md) |
 
 
 

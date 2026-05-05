@@ -22,8 +22,8 @@ Alias: kontaktpunkt_vcard
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: kontaktpunkt_vcard
 
 | Property | Value |
 | --- | --- |
-| Range | [VCardKontakt](VCardKontakt.md) |
-| Domain Of | [Begrep](Begrep.md), [Samling](Samling.md) |
+| Range | [VCardKontakt](vcardkontakt.md) |
+| Domain Of | [Begrep](begrep.md), [Samling](samling.md) |
 | Slot URI | [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint) |
 
 ### Cardinality and Requirements

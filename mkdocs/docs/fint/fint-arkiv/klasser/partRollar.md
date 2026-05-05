@@ -17,7 +17,7 @@ Alias: partRollar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ArkivContainer](ArkivContainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
+| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: partRollar
 
 | Property | Value |
 | --- | --- |
-| Range | [PartRolle](PartRolle.md) |
-| Domain Of | [ArkivContainer](ArkivContainer.md) |
+| Range | [PartRolle](partrolle.md) |
+| Domain Of | [ArkivContainer](arkivcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: partRollar
 
 | Property | Value |
 | --- | --- |
-| Owner | [ArkivContainer](ArkivContainer.md) |
+| Owner | [ArkivContainer](arkivcontainer.md) |
 
 
 

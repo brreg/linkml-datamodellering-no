@@ -22,7 +22,7 @@ Alias: har_medlem
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
+| [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_medlem
 
 | Property | Value |
 | --- | --- |
-| Range | [Kategori](Kategori.md) |
-| Domain Of | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
+| Range | [Kategori](kategori.md) |
+| Domain Of | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
 | Slot URI | [skos:member](http://www.w3.org/2004/02/skos/core#member) |
 
 ### Cardinality and Requirements

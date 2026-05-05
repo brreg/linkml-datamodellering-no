@@ -22,7 +22,7 @@ Alias: har_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsmaaling](Kvalitetsmaaling.md) | Ei konkret måling av eit kvalitetsmål for eit datasett |  yes  |
+| [Kvalitetsmaaling](kvalitetsmaaling.md) | Ei konkret måling av eit kvalitetsmål for eit datasett |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kvalitetsmaaling](Kvalitetsmaaling.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kvalitetsmaaling](kvalitetsmaaling.md) |
 | Slot URI | [dqv:value](http://www.w3.org/ns/dqv#value) |
 
 ### Cardinality and Requirements

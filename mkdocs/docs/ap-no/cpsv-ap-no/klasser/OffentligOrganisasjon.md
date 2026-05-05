@@ -84,7 +84,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 
 
 ## Inheritance
-* [Aktor](Aktor.md)
+* [Aktor](aktor.md)
     * **OffentligOrganisasjon**
 
 
@@ -124,8 +124,8 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [foretrekt_namn](foretrekt_namn.md) | 1..* <br/> [LangString](LangString.md) | Føretrekt namn/term for organisasjonen |
-| [dekningsomrade](dekningsomrade.md) | 1..* <br/> [Konsept](Konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [foretrekt_namn](foretrekt_namn.md) | 1..* <br/> [LangString](langstring.md) | Føretrekt namn/term for organisasjonen |
+| [dekningsomrade](dekningsomrade.md) | 1..* <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
 
 
 
@@ -150,7 +150,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -175,7 +175,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
 
 
 
@@ -240,11 +240,11 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Aktor](Aktor.md) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) | [Aktor](Aktor.md) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Aktor](Aktor.md) |
-| [adresse_ref](adresse_ref.md) | 0..1 <br/> [Adresse](Adresse.md) | Postadresse knytt til aktøren | [Aktor](Aktor.md) |
-| [deltek_i](deltek_i.md) | * <br/> [Deltagelse](Deltagelse.md) | Deltakingar aktøren er del av | [Aktor](Aktor.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Aktor](aktor.md) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Aktor](aktor.md) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Aktor](aktor.md) |
+| [adresse_ref](adresse_ref.md) | 0..1 <br/> [Adresse](adresse.md) | Postadresse knytt til aktøren | [Aktor](aktor.md) |
+| [deltek_i](deltek_i.md) | * <br/> [Deltagelse](deltagelse.md) | Deltakingar aktøren er del av | [Aktor](aktor.md) |
 
 
 
@@ -254,7 +254,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_ansvarleg_styremakt](har_ansvarleg_styremakt.md) | range | [OffentligOrganisasjon](OffentligOrganisasjon.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_ansvarleg_styremakt](har_ansvarleg_styremakt.md) | range | [OffentligOrganisasjon](offentligorganisasjon.md) |
 
 
 

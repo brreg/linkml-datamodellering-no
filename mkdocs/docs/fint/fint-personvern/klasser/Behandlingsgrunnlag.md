@@ -17,8 +17,8 @@ Alias: behandlingsgrunnlag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
-| [PersonvernContainer](PersonvernContainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
+| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: behandlingsgrunnlag
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [PersonvernContainer](PersonvernContainer.md), [Behandling](Behandling.md) |
+| Range | [String](string.md) |
+| Domain Of | [PersonvernContainer](personverncontainer.md), [Behandling](behandling.md) |
 
 ### Cardinality and Requirements
 

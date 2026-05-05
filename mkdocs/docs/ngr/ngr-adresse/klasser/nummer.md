@@ -22,7 +22,7 @@ Alias: nummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Husnummer](Husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |  yes  |
+| [Husnummer](husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Husnummer](Husnummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Husnummer](husnummer.md) |
 | Slot URI | [ngr:nummer](https://data.norge.no/vocabulary/ngr-adresse#nummer) |
 
 ### Cardinality and Requirements

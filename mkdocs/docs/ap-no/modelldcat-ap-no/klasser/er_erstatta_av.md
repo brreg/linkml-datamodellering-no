@@ -22,7 +22,7 @@ Alias: er_erstatta_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_erstatta_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Informasjonsmodell](Informasjonsmodell.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Informasjonsmodell](informasjonsmodell.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:isReplacedBy](http://purl.org/dc/terms/isReplacedBy) |
 
 ### Cardinality and Requirements

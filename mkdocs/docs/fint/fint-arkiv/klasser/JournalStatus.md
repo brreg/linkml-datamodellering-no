@@ -22,7 +22,7 @@ Alias: journalstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: journalstatus
 
 | Property | Value |
 | --- | --- |
-| Range | [JournalStatus](JournalStatus.md) |
-| Domain Of | [Journalpost](Journalpost.md) |
+| Range | [JournalStatus](journalstatus.md) |
+| Domain Of | [Journalpost](journalpost.md) |
 | Slot URI | [ark:journalstatus](https://schema.fintlabs.no/arkiv/journalstatus) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: journalstatus
 
 | Property | Value |
 | --- | --- |
-| Owner | [Journalpost](Journalpost.md) |
+| Owner | [Journalpost](journalpost.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: journalstatus
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

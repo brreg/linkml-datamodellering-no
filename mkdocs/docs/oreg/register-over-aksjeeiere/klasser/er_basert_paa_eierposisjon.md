@@ -22,7 +22,7 @@ Alias: er_basert_paa_eierposisjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Utbytte](Utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
+| [Utbytte](utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: er_basert_paa_eierposisjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Eierposisjon](Eierposisjon.md) |
-| Domain | [Utbytte](Utbytte.md) |
-| Domain Of | [Utbytte](Utbytte.md) |
+| Range | [Eierposisjon](eierposisjon.md) |
+| Domain | [Utbytte](utbytte.md) |
+| Domain Of | [Utbytte](utbytte.md) |
 
 ### Cardinality and Requirements
 

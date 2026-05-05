@@ -22,7 +22,7 @@ Alias: bestar_av_seksjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  yes  |
+| [Matrikkelnummer](matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bestar_av_seksjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Seksjonsnummer](Seksjonsnummer.md) |
-| Domain Of | [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [Seksjonsnummer](seksjonsnummer.md) |
+| Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [ngre:bestarAvSeksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvSeksjonsnummer) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: tilhorer_aksjeklasse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksje](Aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |  no  |
+| [Aksje](aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: tilhorer_aksjeklasse
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjeklasse](Aksjeklasse.md) |
-| Domain | [Aksje](Aksje.md) |
-| Domain Of | [Aksje](Aksje.md) |
+| Range | [Aksjeklasse](aksjeklasse.md) |
+| Domain | [Aksje](aksje.md) |
+| Domain Of | [Aksje](aksje.md) |
 
 ### Cardinality and Requirements
 

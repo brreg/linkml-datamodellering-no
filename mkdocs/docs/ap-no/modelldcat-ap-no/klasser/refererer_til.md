@@ -22,7 +22,7 @@ Alias: refererer_til
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Assosiasjon](Assosiasjon.md) | Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement |  yes  |
+| [Assosiasjon](assosiasjon.md) | Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: refererer_til
 
 | Property | Value |
 | --- | --- |
-| Range | [Modellelement](Modellelement.md) |
-| Domain Of | [Assosiasjon](Assosiasjon.md) |
+| Range | [Modellelement](modellelement.md) |
+| Domain Of | [Assosiasjon](assosiasjon.md) |
 | Slot URI | [modelldcatno:refersTo](https://data.norge.no/vocabulary/modelldcatno#refersTo) |
 
 ### Cardinality and Requirements

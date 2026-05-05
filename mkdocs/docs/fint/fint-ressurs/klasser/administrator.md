@@ -22,7 +22,7 @@ Alias: administrator
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: administrator
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md) |
 | Slot URI | [res:administrator](https://schema.fintlabs.no/ressurs/administrator) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: administrator
 
 | Property | Value |
 | --- | --- |
-| Owner | [DigitalEnhet](DigitalEnhet.md) |
+| Owner | [DigitalEnhet](digitalenhet.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: administrator
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

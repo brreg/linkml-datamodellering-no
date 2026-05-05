@@ -17,8 +17,8 @@ Alias: forelder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforholdstype](Arbeidsforholdstype.md) | Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer |  no  |
-| [Stillingskode](Stillingskode.md) | Felles kodeverk for stillingar |  no  |
+| [Stillingskode](stillingskode.md) | Felles kodeverk for stillingar |  no  |
+| [Arbeidsforholdstype](arbeidsforholdstype.md) | Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: forelder
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Arbeidsforholdstype](Arbeidsforholdstype.md), [Stillingskode](Stillingskode.md) |
+| Range | [String](string.md) |
+| Domain Of | [Arbeidsforholdstype](arbeidsforholdstype.md), [Stillingskode](stillingskode.md) |
 
 ### Cardinality and Requirements
 

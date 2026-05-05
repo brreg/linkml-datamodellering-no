@@ -5,7 +5,7 @@ _Anbefalt eigensskap._
 
 
 
-URI: [Anbefalt](Anbefalt.md)
+URI: [Anbefalt](anbefalt.md)
 
 
 
@@ -182,7 +182,7 @@ URI: [Anbefalt](Anbefalt.md)
 
 | Slot | Description |
 | --- | --- |
-| [kreverGodkjenning](kreverGodkjenning.md) | True dersom tildeling av ressursen krev godkjenning av leiar/tenestteforvalta... |
+| [kreverGodkjenning](krevergodkjenning.md) | True dersom tildeling av ressursen krev godkjenning av leiar/tenestteforvalta... |
 | [lisensantall](lisensantall.md) | Totalt tal på lisensar |
 
 

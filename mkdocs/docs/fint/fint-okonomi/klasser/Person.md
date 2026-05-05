@@ -17,8 +17,8 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturamottaker](Fakturamottaker.md) | Aktør som skal betale faktura (kompleks datatype) |  no  |
-| [Leverandor](Leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
+| [Fakturamottaker](fakturamottaker.md) | Aktør som skal betale faktura (kompleks datatype) |  no  |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: person
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fakturamottaker](Fakturamottaker.md), [Leverandor](Leverandor.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fakturamottaker](fakturamottaker.md), [Leverandor](leverandor.md) |
 
 ### Cardinality and Requirements
 

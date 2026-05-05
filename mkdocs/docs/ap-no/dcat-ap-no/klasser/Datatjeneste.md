@@ -22,7 +22,7 @@ Alias: datatjeneste
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: datatjeneste
 
 | Property | Value |
 | --- | --- |
-| Range | [Datatjeneste](Datatjeneste.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Datatjeneste](datatjeneste.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dcat:service](http://www.w3.org/ns/dcat#service) |
 
 ### Cardinality and Requirements

@@ -22,10 +22,10 @@ Alias: anviser
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Lonn](Lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
-| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
 
 
 
@@ -38,8 +38,8 @@ Alias: anviser
 
 | Property | Value |
 | --- | --- |
-| Range | [Personalressurs](Personalressurs.md) |
-| Domain Of | [Lonn](Lonn.md) |
+| Range | [Personalressurs](personalressurs.md) |
+| Domain Of | [Lonn](lonn.md) |
 | Slot URI | [adm:anviser](https://schema.fintlabs.no/administrasjon/anviser) |
 
 ### Cardinality and Requirements
@@ -50,7 +50,7 @@ Alias: anviser
 
 | Property | Value |
 | --- | --- |
-| Owner | [Lonn](Lonn.md) |
+| Owner | [Lonn](lonn.md) |
 
 
 
@@ -62,7 +62,7 @@ Alias: anviser
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

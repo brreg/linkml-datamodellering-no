@@ -22,7 +22,7 @@ Alias: posteringsId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postering](Postering.md) | Føring på ein konto i rekneskapet |  no  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: posteringsId
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Postering](Postering.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Postering](postering.md) |
 | Slot URI | [okn:posteringsId](https://schema.fintlabs.no/okonomi/posteringsId) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: posteringsId
 
 | Property | Value |
 | --- | --- |
-| Owner | [Postering](Postering.md) |
+| Owner | [Postering](postering.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: posteringsId
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

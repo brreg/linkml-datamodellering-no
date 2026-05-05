@@ -22,7 +22,7 @@ Alias: status
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: status
 
 | Property | Value |
 | --- | --- |
-| Range | [Status](Status.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md) |
+| Range | [Status](status.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md) |
 | Slot URI | [res:status](https://schema.fintlabs.no/ressurs/status) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: status
 
 | Property | Value |
 | --- | --- |
-| Owner | [DigitalEnhet](DigitalEnhet.md) |
+| Owner | [DigitalEnhet](digitalenhet.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: status
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

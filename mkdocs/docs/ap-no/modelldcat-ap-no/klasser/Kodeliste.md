@@ -73,7 +73,7 @@ URI: [modelldcatno:CodeList](https://data.norge.no/vocabulary/modelldcatno#CodeL
 
 
 ## Inheritance
-* [Modellelement](Modellelement.md)
+* [Modellelement](modellelement.md)
     * **Kodeliste**
 
 
@@ -126,7 +126,7 @@ URI: [modelldcatno:CodeList](https://data.norge.no/vocabulary/modelldcatno#CodeL
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_referanse](har_referanse.md) | * <br/> [Uri](Uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
+| [har_referanse](har_referanse.md) | * <br/> [Uri](uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
 
 
 
@@ -134,13 +134,13 @@ URI: [modelldcatno:CodeList](https://data.norge.no/vocabulary/modelldcatno#CodeL
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](Modellelement.md) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](Modellelement.md) |
-| [begrep](begrep.md) | * <br/> [Konsept](Konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](Modellelement.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](Modellelement.md) |
-| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](Eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](Modellelement.md) |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](Modellelement.md) |
-| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](Modellelement.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](modellelement.md) |
+| [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](modellelement.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
+| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](modellelement.md) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](modellelement.md) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](modellelement.md) |
 
 
 
@@ -150,9 +150,9 @@ URI: [modelldcatno:CodeList](https://data.norge.no/vocabulary/modelldcatno#CodeL
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Attributt](Attributt.md) | [har_verdi_fra](har_verdi_fra.md) | range | [Kodeliste](Kodeliste.md) |
-| [Kodeelement](Kodeelement.md) | [i_skjema](i_skjema.md) | range | [Kodeliste](Kodeliste.md) |
-| [Kodeelement](Kodeelement.md) | [topp_begrep_av](topp_begrep_av.md) | range | [Kodeliste](Kodeliste.md) |
+| [Attributt](attributt.md) | [har_verdi_fra](har_verdi_fra.md) | range | [Kodeliste](kodeliste.md) |
+| [Kodeelement](kodeelement.md) | [i_skjema](i_skjema.md) | range | [Kodeliste](kodeliste.md) |
+| [Kodeelement](kodeelement.md) | [topp_begrep_av](topp_begrep_av.md) | range | [Kodeliste](kodeliste.md) |
 
 
 

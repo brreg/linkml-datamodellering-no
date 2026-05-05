@@ -22,7 +22,7 @@ Alias: bestar_av_matrikkelenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FastEiendom](FastEiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
+| [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bestar_av_matrikkelenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Matrikkelenhet](Matrikkelenhet.md) |
-| Domain Of | [FastEiendom](FastEiendom.md) |
+| Range | [Matrikkelenhet](matrikkelenhet.md) |
+| Domain Of | [FastEiendom](fasteiendom.md) |
 | Slot URI | [ngre:bestarAvMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvMatrikkelenhet) |
 
 ### Cardinality and Requirements

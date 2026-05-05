@@ -22,7 +22,7 @@ Alias: kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adressekode](Adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  yes  |
+| [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kode
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Adressekode](Adressekode.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Adressekode](adressekode.md) |
 | Slot URI | [ngr:kode](https://data.norge.no/vocabulary/ngr-adresse#kode) |
 
 ### Cardinality and Requirements

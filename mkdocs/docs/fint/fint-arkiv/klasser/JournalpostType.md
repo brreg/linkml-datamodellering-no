@@ -22,7 +22,7 @@ Alias: journalposttype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: journalposttype
 
 | Property | Value |
 | --- | --- |
-| Range | [JournalpostType](JournalpostType.md) |
-| Domain Of | [Journalpost](Journalpost.md) |
+| Range | [JournalpostType](journalposttype.md) |
+| Domain Of | [Journalpost](journalpost.md) |
 | Slot URI | [ark:journalposttype](https://schema.fintlabs.no/arkiv/journalposttype) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: journalposttype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Journalpost](Journalpost.md) |
+| Owner | [Journalpost](journalpost.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: journalposttype
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: har_generisk_relasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_generisk_relasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [GeneriskRelasjon](GeneriskRelasjon.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [GeneriskRelasjon](generiskrelasjon.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [skosno:hasGenericConceptRelation](https://data.norge.no/vocabulary/skosno#hasGenericConceptRelation) |
 
 ### Cardinality and Requirements

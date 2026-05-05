@@ -17,11 +17,11 @@ Alias: postadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  no  |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -34,8 +34,8 @@ Alias: postadresse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skole](Skole.md), [Aktoer](Aktoer.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skole](skole.md), [Aktoer](aktoer.md) |
 
 ### Cardinality and Requirements
 

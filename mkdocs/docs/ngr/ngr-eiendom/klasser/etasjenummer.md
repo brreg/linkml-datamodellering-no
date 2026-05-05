@@ -22,8 +22,8 @@ Alias: etasjenummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksenhetsnummer](Bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |  yes  |
-| [Etasje](Etasje.md) | Ei etasje i ein bygning |  yes  |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |  yes  |
+| [Etasje](etasje.md) | Ei etasje i ein bygning |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: etasjenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Bruksenhetsnummer](Bruksenhetsnummer.md), [Etasje](Etasje.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Bruksenhetsnummer](bruksenhetsnummer.md), [Etasje](etasje.md) |
 | Slot URI | [ngre:etasjenummer](https://data.norge.no/vocabulary/ngr-eiendom#etasjenummer) |
 
 ### Cardinality and Requirements

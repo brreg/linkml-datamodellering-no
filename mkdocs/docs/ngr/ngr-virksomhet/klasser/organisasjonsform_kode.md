@@ -22,7 +22,7 @@ Alias: organisasjonsform_kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonsform](Organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |  yes  |
+| [Organisasjonsform](organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjonsform_kode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Organisasjonsform](Organisasjonsform.md) |
+| Range | [String](string.md) |
+| Domain Of | [Organisasjonsform](organisasjonsform.md) |
 | Slot URI | [ngrv:organisasjonsformKode](https://data.norge.no/vocabulary/ngr-virksomhet#organisasjonsformKode) |
 
 ### Cardinality and Requirements

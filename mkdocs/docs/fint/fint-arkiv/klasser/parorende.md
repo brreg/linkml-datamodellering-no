@@ -22,7 +22,7 @@ Alias: parorende
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: parorende
 
 | Property | Value |
 | --- | --- |
-| Range | [Kontaktperson](Kontaktperson.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Kontaktperson](kontaktperson.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:parorende](https://schema.fintlabs.no/parorende) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: parorende
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: parorende
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

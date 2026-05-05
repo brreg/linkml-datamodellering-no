@@ -22,7 +22,7 @@ Alias: avskrivningsmate
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Avskrivning](Avskrivning.md) | Avskriving av ein journalpost (markering som ferdigbehandla) |  no  |
+| [Avskrivning](avskrivning.md) | Avskriving av ein journalpost (markering som ferdigbehandla) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: avskrivningsmate
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Avskrivning](Avskrivning.md) |
+| Range | [String](string.md) |
+| Domain Of | [Avskrivning](avskrivning.md) |
 | Slot URI | [ark:avskrivningsmate](https://schema.fintlabs.no/arkiv/avskrivningsmate) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: avskrivningsmate
 
 | Property | Value |
 | --- | --- |
-| Owner | [Avskrivning](Avskrivning.md) |
+| Owner | [Avskrivning](avskrivning.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: avskrivningsmate
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

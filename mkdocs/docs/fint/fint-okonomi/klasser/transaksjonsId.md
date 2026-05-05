@@ -22,7 +22,7 @@ Alias: transaksjonsId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: transaksjonsId
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Transaksjon](Transaksjon.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:transaksjonsId](https://schema.fintlabs.no/okonomi/transaksjonsId) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: transaksjonsId
 
 | Property | Value |
 | --- | --- |
-| Owner | [Transaksjon](Transaksjon.md) |
+| Owner | [Transaksjon](transaksjon.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: transaksjonsId
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

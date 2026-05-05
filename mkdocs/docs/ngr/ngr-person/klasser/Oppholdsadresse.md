@@ -36,7 +36,7 @@ URI: [ngrp:Oppholdsadresse](https://data.norge.no/vocabulary/ngr-person#Oppholds
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **Oppholdsadresse**
 
 
@@ -78,7 +78,7 @@ URI: [ngrp:Oppholdsadresse](https://data.norge.no/vocabulary/ngr-person#Oppholds
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](Date.md) | Dato opplysinga er gyldig frå og med |
+| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig frå og med |
 
 
 
@@ -97,7 +97,7 @@ URI: [ngrp:Oppholdsadresse](https://data.norge.no/vocabulary/ngr-person#Oppholds
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [Date](Date.md) | Dato opplysinga er gyldig til og med |
+| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig til og med |
 
 
 
@@ -136,7 +136,7 @@ URI: [ngrp:Oppholdsadresse](https://data.norge.no/vocabulary/ngr-person#Oppholds
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -146,8 +146,8 @@ URI: [ngrp:Oppholdsadresse](https://data.norge.no/vocabulary/ngr-person#Oppholds
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [oppholdsadresser](oppholdsadresser.md) | range | [Oppholdsadresse](Oppholdsadresse.md) |
-| [Person](Person.md) | [oppholder_seg_paa](oppholder_seg_paa.md) | range | [Oppholdsadresse](Oppholdsadresse.md) |
+| [PersonContainer](personcontainer.md) | [oppholdsadresser](oppholdsadresser.md) | range | [Oppholdsadresse](oppholdsadresse.md) |
+| [Person](person.md) | [oppholder_seg_paa](oppholder_seg_paa.md) | range | [Oppholdsadresse](oppholdsadresse.md) |
 
 
 

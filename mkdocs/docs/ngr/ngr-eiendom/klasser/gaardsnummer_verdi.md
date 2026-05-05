@@ -22,7 +22,7 @@ Alias: gaardsnummer_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Gaardsnummer](Gaardsnummer.md) | Gårdsnummer innanfor kommunen |  yes  |
+| [Gaardsnummer](gaardsnummer.md) | Gårdsnummer innanfor kommunen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gaardsnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Gaardsnummer](Gaardsnummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Gaardsnummer](gaardsnummer.md) |
 | Slot URI | [ngre:gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#gaardsnummer) |
 
 ### Cardinality and Requirements

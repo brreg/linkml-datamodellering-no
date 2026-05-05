@@ -22,7 +22,7 @@ Alias: kortnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonselement](Organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kortnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Organisasjonselement](Organisasjonselement.md) |
+| Range | [String](string.md) |
+| Domain Of | [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [adm:kortnavn](https://schema.fintlabs.no/administrasjon/kortnavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kortnavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Organisasjonselement](Organisasjonselement.md) |
+| Owner | [Organisasjonselement](organisasjonselement.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kortnavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

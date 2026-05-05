@@ -78,7 +78,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | [har_del](har_del.md) | range | [KatalogisertRessurs](KatalogisertRessurs.md) |
+| [Modelkatalog](modelkatalog.md) | [har_del](har_del.md) | range | [KatalogisertRessurs](katalogisertressurs.md) |
 
 
 

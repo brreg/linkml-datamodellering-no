@@ -78,7 +78,7 @@ URI: [dct:LinguisticSystem](http://purl.org/dc/terms/LinguisticSystem)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,13 +91,13 @@ URI: [dct:LinguisticSystem](http://purl.org/dc/terms/LinguisticSystem)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [OffentligTjeneste](OffentligTjeneste.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Tjeneste](Tjeneste.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Kontaktpunkt](Kontaktpunkt.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | [godtek_sprak](godtek_sprak.md) | range | [Spraak](Spraak.md) |
-| [Tjenesteresultattype](Tjenesteresultattype.md) | [mogleg_sprak](mogleg_sprak.md) | range | [Spraak](Spraak.md) |
-| [Regel](Regel.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Katalog](Katalog.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Tjeneste](tjeneste.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Kontaktpunkt](kontaktpunkt.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Dokumentasjonstype](dokumentasjonstype.md) | [godtek_sprak](godtek_sprak.md) | range | [Spraak](spraak.md) |
+| [Tjenesteresultattype](tjenesteresultattype.md) | [mogleg_sprak](mogleg_sprak.md) | range | [Spraak](spraak.md) |
+| [Regel](regel.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Katalog](katalog.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
 
 
 

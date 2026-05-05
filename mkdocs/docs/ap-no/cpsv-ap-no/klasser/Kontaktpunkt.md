@@ -153,12 +153,12 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [epost](epost.md) | * <br/> [Uri](Uri.md) | E-postadresse (mailto:-URI) |
-| [telefon](telefon.md) | * <br/> [String](String.md) | Telefonnummer |
-| [kontaktside](kontaktside.md) | * <br/> [Uri](Uri.md) | Kontaktside (nettadresse) |
-| [opningstider](opningstider.md) | * <br/> [String](String.md) | Opningstider |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [kategori](kategori.md) | * <br/> [String](String.md) | Kategori for kontaktpunktet |
+| [epost](epost.md) | * <br/> [Uri](uri.md) | E-postadresse (mailto:-URI) |
+| [telefon](telefon.md) | * <br/> [String](string.md) | Telefonnummer |
+| [kontaktside](kontaktside.md) | * <br/> [Uri](uri.md) | Kontaktside (nettadresse) |
+| [opningstider](opningstider.md) | * <br/> [String](string.md) | Opningstider |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [kategori](kategori.md) | * <br/> [String](string.md) | Kategori for kontaktpunktet |
 
 
 
@@ -255,7 +255,7 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -268,13 +268,13 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](Kontaktpunkt.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](Kontaktpunkt.md) |
-| [Tjeneste](Tjeneste.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](Kontaktpunkt.md) |
-| [Hendelse](Hendelse.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](Kontaktpunkt.md) |
-| [Livshendelse](Livshendelse.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](Kontaktpunkt.md) |
-| [Virksomhetshendelse](Virksomhetshendelse.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](Kontaktpunkt.md) |
-| [Katalog](Katalog.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](Kontaktpunkt.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](kontaktpunkt.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](kontaktpunkt.md) |
+| [Tjeneste](tjeneste.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](kontaktpunkt.md) |
+| [Hendelse](hendelse.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](kontaktpunkt.md) |
+| [Livshendelse](livshendelse.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](kontaktpunkt.md) |
+| [Virksomhetshendelse](virksomhetshendelse.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](kontaktpunkt.md) |
+| [Katalog](katalog.md) | [har_kontaktpunkt](har_kontaktpunkt.md) | range | [Kontaktpunkt](kontaktpunkt.md) |
 
 
 

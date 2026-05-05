@@ -22,9 +22,9 @@ Alias: har_kontaktinformasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](Underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
-| [Virksomhet](Virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
+| [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: har_kontaktinformasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Kontaktinformasjon](Kontaktinformasjon.md) |
-| Domain Of | [Virksomhet](Virksomhet.md) |
+| Range | [Kontaktinformasjon](kontaktinformasjon.md) |
+| Domain Of | [Virksomhet](virksomhet.md) |
 | Slot URI | [ngrv:harKontaktinformasjon](https://data.norge.no/vocabulary/ngr-virksomhet#harKontaktinformasjon) |
 
 ### Cardinality and Requirements

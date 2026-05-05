@@ -22,7 +22,7 @@ Alias: brevtype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |  no  |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: brevtype
 
 | Property | Value |
 | --- | --- |
-| Range | [Brevtype](Brevtype.md) |
-| Domain Of | [AvlagtProve](AvlagtProve.md) |
+| Range | [Brevtype](brevtype.md) |
+| Domain Of | [AvlagtProve](avlagtprove.md) |
 | Slot URI | [utd:brevtype](https://schema.fintlabs.no/utdanning/brevtype) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: brevtype
 
 | Property | Value |
 | --- | --- |
-| Owner | [AvlagtProve](AvlagtProve.md) |
+| Owner | [AvlagtProve](avlagtprove.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: brevtype
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

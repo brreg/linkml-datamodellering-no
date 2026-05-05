@@ -22,7 +22,7 @@ Alias: kan_skape_hending
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenesteresultattype](Tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
+| [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kan_skape_hending
 
 | Property | Value |
 | --- | --- |
-| Range | [Hendelse](Hendelse.md) |
-| Domain Of | [Tjenesteresultattype](Tjenesteresultattype.md) |
+| Range | [Hendelse](hendelse.md) |
+| Domain Of | [Tjenesteresultattype](tjenesteresultattype.md) |
 | Slot URI | [xkos:causes](http://rdf-vocabulary.ddialliance.org/xkos#causes) |
 
 ### Cardinality and Requirements

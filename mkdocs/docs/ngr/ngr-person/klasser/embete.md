@@ -22,7 +22,7 @@ Alias: embete
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Verge](Verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
+| [Verge](verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: embete
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Verge](Verge.md) |
+| Range | [String](string.md) |
+| Domain Of | [Verge](verge.md) |
 | Slot URI | [ngrp:embete](https://data.norge.no/vocabulary/ngr-person#embete) |
 
 ### Cardinality and Requirements

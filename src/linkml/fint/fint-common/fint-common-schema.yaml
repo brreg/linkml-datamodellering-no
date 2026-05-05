@@ -15,6 +15,7 @@ imports:
 prefixes:
   linkml: https://w3id.org/linkml/
   fint:   https://schema.fintlabs.no/
+  finta:  https://example.no/fint/
 
 # ---------------------------------------------------------------------------
 # Klasser

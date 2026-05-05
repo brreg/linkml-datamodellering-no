@@ -22,7 +22,7 @@ Alias: endepunkts_url
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: endepunkts_url
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Datatjeneste](Datatjeneste.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:endpointURL](http://www.w3.org/ns/dcat#endpointURL) |
 
 ### Cardinality and Requirements

@@ -68,7 +68,7 @@ URI: [ngre:Andel](https://data.norge.no/vocabulary/ngr-eiendom#Andel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_rettighetshaver](har_rettighetshaver.md) | 1..* <br/> [Rettighetshaver](Rettighetshaver.md) | Rettigheitshavar(ar) for andelen |
+| [har_rettighetshaver](har_rettighetshaver.md) | 1..* <br/> [Rettighetshaver](rettighetshaver.md) | Rettigheitshavar(ar) for andelen |
 
 
 
@@ -120,7 +120,7 @@ URI: [ngre:Andel](https://data.norge.no/vocabulary/ngr-eiendom#Andel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -133,11 +133,11 @@ URI: [ngre:Andel](https://data.norge.no/vocabulary/ngr-eiendom#Andel)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [andeler](andeler.md) | range | [Andel](Andel.md) |
-| [Hjemmel](Hjemmel.md) | [har_andel](har_andel.md) | range | [Andel](Andel.md) |
-| [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) | [har_andel](har_andel.md) | range | [Andel](Andel.md) |
-| [HjemmelTilFesterett](HjemmelTilFesterett.md) | [har_andel](har_andel.md) | range | [Andel](Andel.md) |
-| [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) | [har_andel](har_andel.md) | range | [Andel](Andel.md) |
+| [EiendomContainer](eiendomcontainer.md) | [andeler](andeler.md) | range | [Andel](andel.md) |
+| [Hjemmel](hjemmel.md) | [har_andel](har_andel.md) | range | [Andel](andel.md) |
+| [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | [har_andel](har_andel.md) | range | [Andel](andel.md) |
+| [HjemmelTilFesterett](hjemmeltilfesterett.md) | [har_andel](har_andel.md) | range | [Andel](andel.md) |
+| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | [har_andel](har_andel.md) | range | [Andel](andel.md) |
 
 
 

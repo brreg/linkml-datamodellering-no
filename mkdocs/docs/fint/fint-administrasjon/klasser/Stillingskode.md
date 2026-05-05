@@ -22,7 +22,7 @@ Alias: stillingskode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: stillingskode
 
 | Property | Value |
 | --- | --- |
-| Range | [Stillingskode](Stillingskode.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [Stillingskode](stillingskode.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:stillingskode](https://schema.fintlabs.no/administrasjon/stillingskode) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: stillingskode
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidsforhold](Arbeidsforhold.md) |
+| Owner | [Arbeidsforhold](arbeidsforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: stillingskode
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: ansvarleg_verksemd
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ansvarleg_verksemd
 
 | Property | Value |
 | --- | --- |
-| Range | [Organisasjon](Organisasjon.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Organisasjon](organisasjon.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [dct:creator](http://purl.org/dc/terms/creator) |
 
 ### Cardinality and Requirements

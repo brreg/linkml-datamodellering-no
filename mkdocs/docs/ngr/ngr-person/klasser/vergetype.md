@@ -22,7 +22,7 @@ Alias: vergetype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Verge](Verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
+| [Verge](verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: vergetype
 
 | Property | Value |
 | --- | --- |
-| Range | [VergetypeKode](VergetypeKode.md) |
-| Domain Of | [Verge](Verge.md) |
+| Range | [VergetypeKode](vergetypekode.md) |
+| Domain Of | [Verge](verge.md) |
 | Slot URI | [ngrp:vergetype](https://data.norge.no/vocabulary/ngr-person#vergetype) |
 
 ### Cardinality and Requirements

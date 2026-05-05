@@ -87,7 +87,7 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_av_type_person](er_av_type_person.md) | 1 <br/> [Person](Person.md) | Personen som denne relasjonen peikar til |
+| [er_av_type_person](er_av_type_person.md) | 1 <br/> [Person](person.md) | Personen som denne relasjonen peikar til |
 
 
 
@@ -112,7 +112,7 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [vergetype](vergetype.md) | 0..1 <br/> [VergetypeKode](VergetypeKode.md) | Type vergemål (mindreårig, vaksen o |
+| [vergetype](vergetype.md) | 0..1 <br/> [VergetypeKode](vergetypekode.md) | Type vergemål (mindreårig, vaksen o |
 
 
 
@@ -137,7 +137,7 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [embete](embete.md) | 0..1 <br/> [String](String.md) | Statsforvaltarembetet som oppnemnde vergjet |
+| [embete](embete.md) | 0..1 <br/> [String](string.md) | Statsforvaltarembetet som oppnemnde vergjet |
 
 
 
@@ -195,7 +195,7 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -208,8 +208,8 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [verger](verger.md) | range | [Verge](Verge.md) |
-| [Person](Person.md) | [har_verge](har_verge.md) | range | [Verge](Verge.md) |
+| [PersonContainer](personcontainer.md) | [verger](verger.md) | range | [Verge](verge.md) |
+| [Person](person.md) | [har_verge](har_verge.md) | range | [Verge](verge.md) |
 
 
 

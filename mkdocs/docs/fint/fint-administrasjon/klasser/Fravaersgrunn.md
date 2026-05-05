@@ -22,7 +22,7 @@ Alias: fravaersgrunn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fravaersgrunn
 
 | Property | Value |
 | --- | --- |
-| Range | [Fravaersgrunn](Fravaersgrunn.md) |
-| Domain Of | [Fravaer](Fravaer.md) |
+| Range | [Fravaersgrunn](fravaersgrunn.md) |
+| Domain Of | [Fravaer](fravaer.md) |
 | Slot URI | [adm:fravaersgrunn](https://schema.fintlabs.no/administrasjon/fravaersgrunn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: fravaersgrunn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravaer](Fravaer.md) |
+| Owner | [Fravaer](fravaer.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: fravaersgrunn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

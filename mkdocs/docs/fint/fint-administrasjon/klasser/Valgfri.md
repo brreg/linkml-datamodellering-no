@@ -5,7 +5,7 @@ _Valfri eigensskap._
 
 
 
-URI: [Valgfri](Valgfri.md)
+URI: [Valgfri](valgfri.md)
 
 
 
@@ -352,7 +352,7 @@ URI: [Valgfri](Valgfri.md)
 | [godkjent](godkjent.md) | Tidspunkt då fråværet vart godkjent |
 | [jobbtittel](jobbtittel.md) | Namn som beskriv jobben eller stillinga |
 | [kategori](kategori.md) | Kategori lønnsart |
-| [kildesystemId](kildesystemId.md) | Kjeldesystemets unike identifikator for lønn |
+| [kildesystemId](kildesystemid.md) | Kjeldesystemets unike identifikator for lønn |
 | [kommune](kommune.md) | Alle kommunar som inngår i fylket |
 | [kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon til arbeidslokasjonen |
 | [kontaktperson](kontaktperson.md) | Personar kontaktpersonen er pårørande for |
@@ -362,7 +362,7 @@ URI: [Valgfri](Valgfri.md)
 | [kortnavn](kortnavn.md) | Forkorta namn som beskriv organisasjonselementet |
 | [laerling](laerling.md) | Referanse til Laerling (Utdanning) |
 | [leder](leder.md) | Ansvarleg leiar for organisasjonselementet |
-| [lederFor](lederFor.md) | Organisasjonselement personalressursen er leiar for |
+| [lederFor](lederfor.md) | Organisasjonselement personalressursen er leiar for |
 | [lokasjonsnavn](lokasjonsnavn.md) | Namn som beskriv ein arbeidslokasjon |
 | [lonsart](lonsart.md) | Lønnsart fråværstypen vert ført på |
 | [maalform](maalform.md) | Målform personen føretrekkjer |
@@ -388,7 +388,7 @@ URI: [Valgfri](Valgfri.md)
 | [stedfortreder](stedfortreder.md) | Personalressurs som er stedfortredar for den fullmektige |
 | [stillingskode](stillingskode.md) | Firesifra stillingskode frå KS, eventuelt utvida med to siffer |
 | [stillingstittel](stillingstittel.md) | Arbeidstakarens stillingstittel i gjeldande stilling |
-| [timerPerUke](timerPerUke.md) | Timer per veke i 100 % stilling |
+| [timerPerUke](timerperuke.md) | Timer per veke i 100 % stilling |
 | [underordnet](underordnet.md) | Alle underansvar |
 | [undervisningsforhold](undervisningsforhold.md) | Referanse til Undervisningsforhold (Utdanning) |
 

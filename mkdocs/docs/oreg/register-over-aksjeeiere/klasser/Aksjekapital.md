@@ -89,8 +89,8 @@ URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [Integer](Integer.md) | Tal aksjar |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [Integer](integer.md) | Tal aksjar |
 
 
 
@@ -103,8 +103,8 @@ URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjekapitaler](aksjekapitaler.md) | range | [Aksjekapital](Aksjekapital.md) |
-| [Aksjeselskap](Aksjeselskap.md) | [har_aksjekapital](har_aksjekapital.md) | range | [Aksjekapital](Aksjekapital.md) |
+| [Containerklasse](containerklasse.md) | [aksjekapitaler](aksjekapitaler.md) | range | [Aksjekapital](aksjekapital.md) |
+| [Aksjeselskap](aksjeselskap.md) | [har_aksjekapital](har_aksjekapital.md) | range | [Aksjekapital](aksjekapital.md) |
 
 
 

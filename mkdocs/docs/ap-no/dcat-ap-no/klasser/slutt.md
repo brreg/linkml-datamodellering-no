@@ -22,7 +22,7 @@ Alias: slutt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tidsrom](Tidsrom.md) | Eit tidsintervall med start- og sluttdato |  no  |
+| [Tidsrom](tidsrom.md) | Eit tidsintervall med start- og sluttdato |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: slutt
 
 | Property | Value |
 | --- | --- |
-| Range | [Tidsinstant](Tidsinstant.md) |
-| Domain Of | [Tidsrom](Tidsrom.md) |
+| Range | [Tidsinstant](tidsinstant.md) |
+| Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [time:hasEnd](http://www.w3.org/6006/time#hasEnd) |
 
 ### Cardinality and Requirements

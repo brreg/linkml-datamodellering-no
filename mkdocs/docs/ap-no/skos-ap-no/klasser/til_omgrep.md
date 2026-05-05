@@ -22,7 +22,7 @@ Alias: til_omgrep
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AssosiativRelasjon](AssosiativRelasjon.md) | Ein assosiativ relasjon mellom to omgrep |  yes  |
+| [AssosiativRelasjon](assosiativrelasjon.md) | Ein assosiativ relasjon mellom to omgrep |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: til_omgrep
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [AssosiativRelasjon](AssosiativRelasjon.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [AssosiativRelasjon](assosiativrelasjon.md) |
 | Slot URI | [skosno:hasToConcept](https://data.norge.no/vocabulary/skosno#hasToConcept) |
 
 ### Cardinality and Requirements

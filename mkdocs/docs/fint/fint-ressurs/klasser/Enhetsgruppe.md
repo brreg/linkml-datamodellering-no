@@ -22,7 +22,7 @@ Alias: enhetsgruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |  no  |
+| [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: enhetsgruppe
 
 | Property | Value |
 | --- | --- |
-| Range | [Enhetsgruppe](Enhetsgruppe.md) |
-| Domain Of | [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) |
+| Range | [Enhetsgruppe](enhetsgruppe.md) |
+| Domain Of | [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) |
 | Slot URI | [res:enhetsgruppe](https://schema.fintlabs.no/ressurs/enhetsgruppe) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: enhetsgruppe
 
 | Property | Value |
 | --- | --- |
-| Owner | [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) |
+| Owner | [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: enhetsgruppe
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

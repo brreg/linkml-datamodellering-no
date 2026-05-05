@@ -22,7 +22,7 @@ Alias: adressenavn_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: adressenavn_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Adressenavn](Adressenavn.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [Adressenavn](adressenavn.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:harAdressenavn](https://data.norge.no/vocabulary/ngr-adresse#harAdressenavn) |
 
 ### Cardinality and Requirements

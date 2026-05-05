@@ -22,7 +22,7 @@ Alias: utstederland
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identifikasjonsdokument](Identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
+| [Identifikasjonsdokument](identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: utstederland
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Identifikasjonsdokument](Identifikasjonsdokument.md) |
+| Range | [String](string.md) |
+| Domain Of | [Identifikasjonsdokument](identifikasjonsdokument.md) |
 | Slot URI | [ngrp:utstederland](https://data.norge.no/vocabulary/ngr-person#utstederland) |
 
 ### Cardinality and Requirements

@@ -22,11 +22,11 @@ Alias: karakter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underveisfagvurdering](Underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
-| [FagvurderingAbstrakt](FagvurderingAbstrakt.md) | Abstrakt basisklasse for fagvurderingar |  no  |
-| [Eksamensvurdering](Eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
-| [Sluttfagvurdering](Sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
-| [Halvaarsfagvurdering](Halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
+| [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
+| [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
+| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
+| [FagvurderingAbstrakt](fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |  no  |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
 
 
 
@@ -39,8 +39,8 @@ Alias: karakter
 
 | Property | Value |
 | --- | --- |
-| Range | [Karakterverdi](Karakterverdi.md) |
-| Domain Of | [FagvurderingAbstrakt](FagvurderingAbstrakt.md) |
+| Range | [Karakterverdi](karakterverdi.md) |
+| Domain Of | [FagvurderingAbstrakt](fagvurderingabstrakt.md) |
 | Slot URI | [utd:karakter](https://schema.fintlabs.no/utdanning/karakter) |
 
 ### Cardinality and Requirements
@@ -51,7 +51,7 @@ Alias: karakter
 
 | Property | Value |
 | --- | --- |
-| Owner | [FagvurderingAbstrakt](FagvurderingAbstrakt.md) |
+| Owner | [FagvurderingAbstrakt](fagvurderingabstrakt.md) |
 
 
 
@@ -63,7 +63,7 @@ Alias: karakter
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

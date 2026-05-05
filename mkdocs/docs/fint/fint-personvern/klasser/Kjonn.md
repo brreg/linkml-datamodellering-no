@@ -22,7 +22,7 @@ Alias: kjonn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kjonn
 
 | Property | Value |
 | --- | --- |
-| Range | [Kjonn](Kjonn.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Kjonn](kjonn.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:kjonn](https://schema.fintlabs.no/kjonn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kjonn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kjonn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -372,8 +372,8 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [utgiver](utgiver.md) | 1 <br/> [Aktor](Aktor.md) | Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher) |
 
 
 
@@ -490,14 +490,14 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [begrep](begrep.md) | * <br/> [Konsept](Konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [informasjonsmodellidentifikator](informasjonsmodellidentifikator.md) | 0..1 <br/> [String](String.md) | Identifikator for informasjonsmodellen i domenet (modelldcatno:informationMod... |
-| [inneholder_modellelement](inneholder_modellelement.md) | * <br/> [Modellelement](Modellelement.md) | Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelE... |
-| [kontaktpunkt](kontaktpunkt.md) | * <br/> [Kontaktopplysning](Kontaktopplysning.md) | Kontaktinformasjon for ressursen (dcat:contactPoint) |
-| [lisens](lisens.md) | 0..1 <br/> [Lisensdokument](Lisensdokument.md) | Lisens for bruk av ressursen (dct:license) |
-| [tema](tema.md) | * <br/> [Konsept](Konsept.md) | Tema frå eit kontrollert vokabular (dcat:theme) |
+| [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [informasjonsmodellidentifikator](informasjonsmodellidentifikator.md) | 0..1 <br/> [String](string.md) | Identifikator for informasjonsmodellen i domenet (modelldcatno:informationMod... |
+| [inneholder_modellelement](inneholder_modellelement.md) | * <br/> [Modellelement](modellelement.md) | Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelE... |
+| [kontaktpunkt](kontaktpunkt.md) | * <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ressursen (dcat:contactPoint) |
+| [lisens](lisens.md) | 0..1 <br/> [Lisensdokument](lisensdokument.md) | Lisens for bruk av ressursen (dct:license) |
+| [tema](tema.md) | * <br/> [Konsept](konsept.md) | Tema frå eit kontrollert vokabular (dcat:theme) |
 
 
 
@@ -636,25 +636,25 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](Konsept.md) | Geografisk dekningsområde (dct:spatial) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [er_del_av_modell](er_del_av_modell.md) | * <br/> [Informasjonsmodell](Informasjonsmodell.md) | Overordna informasjonsmodell (dct:isPartOf) |
-| [er_profil_av](er_profil_av.md) | * <br/> [Standard](Standard.md) | Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf) |
-| [er_erstatta_av](er_erstatta_av.md) | * <br/> [Informasjonsmodell](Informasjonsmodell.md) | Informasjonsmodell som erstattar denne (dct:isReplacedBy) |
-| [erstatter](erstatter.md) | * <br/> [Informasjonsmodell](Informasjonsmodell.md) | Informasjonsmodell som denne erstattar (dct:replaces) |
-| [har_del_modell](har_del_modell.md) | * <br/> [Informasjonsmodell](Informasjonsmodell.md) | Del-informasjonsmodell av denne modellen (dct:hasPart) |
-| [har_format](har_format.md) | * <br/> [Dokument](Dokument.md) | Dokument som representerer ein annan form av modellen (dct:hasFormat) |
-| [tidsperiode](tidsperiode.md) | * <br/> [Tidsperiode](Tidsperiode.md) | Tidsperiode ressursen dekkar (dct:temporal) |
-| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [er_i_samsvar_med](er_i_samsvar_med.md) | * <br/> [Standard](Standard.md) | Standard ressursen er i samsvar med (dct:conformsTo) |
-| [status](status.md) | 0..1 <br/> [Konsept](Konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
-| [nokkelord](nokkelord.md) | * <br/> [LangString](LangString.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
-| [skapar](skapar.md) | 0..1 <br/> [Aktor](Aktor.md) | Aktøren som primært har skapt ressursen (dct:creator) |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](Date.md) | Dato ressursen vart første gong publisert (dct:issued) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](String.md) | Versjonsnummer for ressursen (owl:versionInfo) |
-| [versjonsmerknad](versjonsmerknad.md) | * <br/> [LangString](LangString.md) | Merknad om endringar i denne versjonen (adms:versionNotes) |
+| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [er_del_av_modell](er_del_av_modell.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Overordna informasjonsmodell (dct:isPartOf) |
+| [er_profil_av](er_profil_av.md) | * <br/> [Standard](standard.md) | Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf) |
+| [er_erstatta_av](er_erstatta_av.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Informasjonsmodell som erstattar denne (dct:isReplacedBy) |
+| [erstatter](erstatter.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Informasjonsmodell som denne erstattar (dct:replaces) |
+| [har_del_modell](har_del_modell.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Del-informasjonsmodell av denne modellen (dct:hasPart) |
+| [har_format](har_format.md) | * <br/> [Dokument](dokument.md) | Dokument som representerer ein annan form av modellen (dct:hasFormat) |
+| [tidsperiode](tidsperiode.md) | * <br/> [Tidsperiode](tidsperiode.md) | Tidsperiode ressursen dekkar (dct:temporal) |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [er_i_samsvar_med](er_i_samsvar_med.md) | * <br/> [Standard](standard.md) | Standard ressursen er i samsvar med (dct:conformsTo) |
+| [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
+| [nokkelord](nokkelord.md) | * <br/> [LangString](langstring.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
+| [skapar](skapar.md) | 0..1 <br/> [Aktor](aktor.md) | Aktøren som primært har skapt ressursen (dct:creator) |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [versjonsmerknad](versjonsmerknad.md) | * <br/> [LangString](langstring.md) | Merknad om endringar i denne versjonen (adms:versionNotes) |
 
 
 
@@ -1050,7 +1050,7 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -1063,11 +1063,11 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | [modell](modell.md) | range | [Informasjonsmodell](Informasjonsmodell.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [er_del_av_modell](er_del_av_modell.md) | range | [Informasjonsmodell](Informasjonsmodell.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [er_erstatta_av](er_erstatta_av.md) | range | [Informasjonsmodell](Informasjonsmodell.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [erstatter](erstatter.md) | range | [Informasjonsmodell](Informasjonsmodell.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [har_del_modell](har_del_modell.md) | range | [Informasjonsmodell](Informasjonsmodell.md) |
+| [Modelkatalog](modelkatalog.md) | [modell](modell.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [er_del_av_modell](er_del_av_modell.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [er_erstatta_av](er_erstatta_av.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [erstatter](erstatter.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [har_del_modell](har_del_modell.md) | range | [Informasjonsmodell](informasjonsmodell.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: er_knyttet_til_matrikkelenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_knyttet_til_matrikkelenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Matrikkelenhet](Matrikkelenhet.md) |
-| Domain Of | [Bygning](Bygning.md) |
+| Range | [Matrikkelenhet](matrikkelenhet.md) |
+| Domain Of | [Bygning](bygning.md) |
 | Slot URI | [ngre:erKnyttetTilMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#erKnyttetTilMatrikkelenhet) |
 
 ### Cardinality and Requirements

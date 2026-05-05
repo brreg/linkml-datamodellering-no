@@ -26,7 +26,7 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
+| Range | [Integer](integer.md) |
 
 ### Cardinality and Requirements
 

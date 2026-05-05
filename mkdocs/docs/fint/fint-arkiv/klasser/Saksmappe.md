@@ -234,14 +234,14 @@ URI: [ark:Saksmappe](https://schema.fintlabs.no/arkiv/Saksmappe)
 
 
 ## Inheritance
-* [Mappe](Mappe.md)
+* [Mappe](mappe.md)
     * **Saksmappe**
-        * [Sak](Sak.md)
-        * [Personalmappe](Personalmappe.md)
-        * [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md)
-        * [TilskuddFartoy](TilskuddFartoy.md)
-        * [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md)
-        * [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md)
+        * [Sak](sak.md)
+        * [Personalmappe](personalmappe.md)
+        * [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md)
+        * [TilskuddFartoy](tilskuddfartoy.md)
+        * [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md)
+        * [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md)
 
 
 ## Class Properties
@@ -453,17 +453,17 @@ URI: [ark:Saksmappe](https://schema.fintlabs.no/arkiv/Saksmappe)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [journalpost](journalpost.md) | * <br/> [Journalpost](Journalpost.md) | Journalpostar knytt til saksmappa |
-| [saksaar](saksaar.md) | 0..1 <br/> [String](String.md) | Inngår i M003 mappeID — viser året saksmappa vart oppretta |
-| [saksdato](saksdato.md) | 0..1 <br/> [Datetime](Datetime.md) | Datoen saka er oppretta |
-| [sakssekvensnummer](sakssekvensnummer.md) | 0..1 <br/> [String](String.md) | Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta |
-| [utlaantDato](utlaantDato.md) | 0..1 <br/> [Datetime](Datetime.md) | Dato ein fysisk saksmappe eller journalpost vart utlånt |
-| [saksmappetype](saksmappetype.md) | 0..1 <br/> [Saksmappetype](Saksmappetype.md) | Type saksmappe |
-| [saksstatus](saksstatus.md) | 1 <br/> [Saksstatus](Saksstatus.md) | Status til saksmappa |
-| [tilgangsgruppe](tilgangsgruppe.md) | 0..1 <br/> [Tilgangsgruppe](Tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til saksmappa |
-| [journalenhet](journalenhet.md) | 0..1 <br/> [AdministrativEnhet](AdministrativEnhet.md) | Eining med arkivmessig ansvar for saksmappa |
-| [administrativEnhet](administrativEnhet.md) | 1 <br/> [AdministrativEnhet](AdministrativEnhet.md) | Administrativ eining som har ansvar for saksbehandlinga |
-| [saksansvarlig](saksansvarlig.md) | 1 <br/> [Arkivressurs](Arkivressurs.md) | Person som er saksansvarleg |
+| [journalpost](journalpost.md) | * <br/> [Journalpost](journalpost.md) | Journalpostar knytt til saksmappa |
+| [saksaar](saksaar.md) | 0..1 <br/> [String](string.md) | Inngår i M003 mappeID — viser året saksmappa vart oppretta |
+| [saksdato](saksdato.md) | 0..1 <br/> [Datetime](datetime.md) | Datoen saka er oppretta |
+| [sakssekvensnummer](sakssekvensnummer.md) | 0..1 <br/> [String](string.md) | Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta |
+| [utlaantDato](utlaantdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato ein fysisk saksmappe eller journalpost vart utlånt |
+| [saksmappetype](saksmappetype.md) | 0..1 <br/> [Saksmappetype](saksmappetype.md) | Type saksmappe |
+| [saksstatus](saksstatus.md) | 1 <br/> [Saksstatus](saksstatus.md) | Status til saksmappa |
+| [tilgangsgruppe](tilgangsgruppe.md) | 0..1 <br/> [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til saksmappa |
+| [journalenhet](journalenhet.md) | 0..1 <br/> [AdministrativEnhet](administrativenhet.md) | Eining med arkivmessig ansvar for saksmappa |
+| [administrativEnhet](administrativenhet.md) | 1 <br/> [AdministrativEnhet](administrativenhet.md) | Administrativ eining som har ansvar for saksbehandlinga |
+| [saksansvarlig](saksansvarlig.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som er saksansvarleg |
 
 
 
@@ -471,21 +471,21 @@ URI: [ark:Saksmappe](https://schema.fintlabs.no/arkiv/Saksmappe)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Mappe](Mappe.md) |
-| [avsluttetDato](avsluttetDato.md) | 0..1 <br/> [Datetime](Datetime.md) | Dato og klokkeslett når arkivenheten vart avslutta/lukka | [Mappe](Mappe.md) |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg skildring av arkivenheten | [Mappe](Mappe.md) |
-| [klasse](klasse.md) | * <br/> [Klasse](Klasse.md) | Klassifisering av mappe | [Mappe](Mappe.md) |
-| [mappeId](mappeId.md) | 0..1 <br/> [Identifikator](Identifikator.md) | Eintydig identifikasjon av mappa innanfor arkivet | [Mappe](Mappe.md) |
-| [merknad](merknad.md) | * <br/> [Merknad](Merknad.md) | Merknader knytt til mappe | [Mappe](Mappe.md) |
-| [noekkelord](noekkelord.md) | * <br/> [String](String.md) | Nøkkelord som skildrar innhaldet | [Mappe](Mappe.md) |
-| [offentligTittel](offentligTittel.md) | 0..1 <br/> [String](String.md) | Offentleg tittel der skjerma ord er fjerna | [Mappe](Mappe.md) |
-| [opprettetDato](opprettetDato.md) | 0..1 <br/> [Datetime](Datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert | [Mappe](Mappe.md) |
-| [part](part.md) | * <br/> [Part](Part.md) | Partar til mappe | [Mappe](Mappe.md) |
-| [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](Skjerming.md) | Skjerming av mappe | [Mappe](Mappe.md) |
-| [tittel](tittel.md) | 0..1 <br/> [String](String.md) | Tittel eller namn på arkivenheten | [Mappe](Mappe.md) |
-| [arkivdel](arkivdel.md) | 0..1 <br/> [Arkivdel](Arkivdel.md) | Arkivdel mappa tilhøyrer | [Mappe](Mappe.md) |
-| [avsluttetAv](avsluttetAv.md) | 0..1 <br/> [Arkivressurs](Arkivressurs.md) | Person som avslutta/lukka arkivenheten | [Mappe](Mappe.md) |
-| [opprettetAv](opprettetAv.md) | 1 <br/> [Arkivressurs](Arkivressurs.md) | Person som oppretta/registrerte arkivenheten | [Mappe](Mappe.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Mappe](mappe.md) |
+| [avsluttetDato](avsluttetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett når arkivenheten vart avslutta/lukka | [Mappe](mappe.md) |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av arkivenheten | [Mappe](mappe.md) |
+| [klasse](klasse.md) | * <br/> [Klasse](klasse.md) | Klassifisering av mappe | [Mappe](mappe.md) |
+| [mappeId](mappeid.md) | 0..1 <br/> [Identifikator](identifikator.md) | Eintydig identifikasjon av mappa innanfor arkivet | [Mappe](mappe.md) |
+| [merknad](merknad.md) | * <br/> [Merknad](merknad.md) | Merknader knytt til mappe | [Mappe](mappe.md) |
+| [noekkelord](noekkelord.md) | * <br/> [String](string.md) | Nøkkelord som skildrar innhaldet | [Mappe](mappe.md) |
+| [offentligTittel](offentligtittel.md) | 0..1 <br/> [String](string.md) | Offentleg tittel der skjerma ord er fjerna | [Mappe](mappe.md) |
+| [opprettetDato](opprettetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert | [Mappe](mappe.md) |
+| [part](part.md) | * <br/> [Part](part.md) | Partar til mappe | [Mappe](mappe.md) |
+| [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](skjerming.md) | Skjerming av mappe | [Mappe](mappe.md) |
+| [tittel](tittel.md) | 0..1 <br/> [String](string.md) | Tittel eller namn på arkivenheten | [Mappe](mappe.md) |
+| [arkivdel](arkivdel.md) | 0..1 <br/> [Arkivdel](arkivdel.md) | Arkivdel mappa tilhøyrer | [Mappe](mappe.md) |
+| [avsluttetAv](avsluttetav.md) | 0..1 <br/> [Arkivressurs](arkivressurs.md) | Person som avslutta/lukka arkivenheten | [Mappe](mappe.md) |
+| [opprettetAv](opprettetav.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som oppretta/registrerte arkivenheten | [Mappe](mappe.md) |
 
 
 

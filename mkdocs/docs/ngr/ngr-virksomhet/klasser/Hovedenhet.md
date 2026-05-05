@@ -172,7 +172,7 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 
 
 ## Inheritance
-* [Virksomhet](Virksomhet.md)
+* [Virksomhet](virksomhet.md)
     * **Hovedenhet**
 
 
@@ -221,8 +221,8 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [utoevar_aktivitet](utoevar_aktivitet.md) | 1 <br/> [Aktivitet](Aktivitet.md) | Aktiviteten hovudeininga utøver |
-| [har_rolle_i_virksomhet](har_rolle_i_virksomhet.md) | 1..* <br/> [RolleIVirksomhet](RolleIVirksomhet.md) | Roller registrert i hovudeininga (minimum 1) |
+| [utoevar_aktivitet](utoevar_aktivitet.md) | 1 <br/> [Aktivitet](aktivitet.md) | Aktiviteten hovudeininga utøver |
+| [har_rolle_i_virksomhet](har_rolle_i_virksomhet.md) | 1..* <br/> [RolleIVirksomhet](rolleivirksomhet.md) | Roller registrert i hovudeininga (minimum 1) |
 
 
 
@@ -258,8 +258,8 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_klassifisert_i_sektorkode](er_klassifisert_i_sektorkode.md) | 0..1 <br/> [Sektorkode](Sektorkode.md) | Institusjonell sektorkode for hovudeininga |
-| [stiftelsesdato](stiftelsesdato.md) | 0..1 <br/> [Date](Date.md) | Datoen hovudeininga vart stifta |
+| [er_klassifisert_i_sektorkode](er_klassifisert_i_sektorkode.md) | 0..1 <br/> [Sektorkode](sektorkode.md) | Institusjonell sektorkode for hovudeininga |
+| [stiftelsesdato](stiftelsesdato.md) | 0..1 <br/> [Date](date.md) | Datoen hovudeininga vart stifta |
 
 
 
@@ -297,9 +297,9 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_bestemmelser_om_signaturrett](har_bestemmelser_om_signaturrett.md) | 0..1 <br/> [Signaturrett](Signaturrett.md) | Bestemmelse om signaturrett for hovudeininga |
-| [har_bestemmelser_om_prokura](har_bestemmelser_om_prokura.md) | * <br/> [Prokura](Prokura.md) | Prokurabestemmelse(r) for hovudeininga |
-| [har_forretningsadresse](har_forretningsadresse.md) | 0..1 <br/> [Forretningsadresse](Forretningsadresse.md) | Forretningsadressa (hovudkontor) til hovudeininga |
+| [har_bestemmelser_om_signaturrett](har_bestemmelser_om_signaturrett.md) | 0..1 <br/> [Signaturrett](signaturrett.md) | Bestemmelse om signaturrett for hovudeininga |
+| [har_bestemmelser_om_prokura](har_bestemmelser_om_prokura.md) | * <br/> [Prokura](prokura.md) | Prokurabestemmelse(r) for hovudeininga |
+| [har_forretningsadresse](har_forretningsadresse.md) | 0..1 <br/> [Forretningsadresse](forretningsadresse.md) | Forretningsadressa (hovudkontor) til hovudeininga |
 
 
 
@@ -403,16 +403,16 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Virksomhet](Virksomhet.md) |
-| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [String](String.md) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret | [Virksomhet](Virksomhet.md) |
-| [navn](navn.md) | 1 <br/> [String](String.md) | Registrert namn på verksemda i Enhetsregisteret | [Virksomhet](Virksomhet.md) |
-| [har_tilstand](har_tilstand.md) | * <br/> [Tilstand](Tilstand.md) | Registrert tilstand (status) for verksemda, inkl | [Virksomhet](Virksomhet.md) |
-| [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](Postadresse.md) | Postadressa verksemda mottar post på | [Virksomhet](Virksomhet.md) |
-| [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | 1 <br/> [Organisasjonsform](Organisasjonsform.md) | Organisasjonsform (juridisk form) for verksemda | [Virksomhet](Virksomhet.md) |
-| [har_kontaktinformasjon](har_kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](Kontaktinformasjon.md) | Kontaktinformasjon registrert på verksemda | [Virksomhet](Virksomhet.md) |
-| [har_varslingsadresse](har_varslingsadresse.md) | 1 <br/> [Varslingsadresse](Varslingsadresse.md) | Offisiell varslingsadresse for offentlege meldingar | [Virksomhet](Virksomhet.md) |
-| [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | 1..* <br/> [Naeringskode](Naeringskode.md) | Næringskode(r) verksemda er klassifisert under (1–3) | [Virksomhet](Virksomhet.md) |
-| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [Integer](Integer.md) | Antal tilsette i verksemda (rapportert til a-ordninga) | [Virksomhet](Virksomhet.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Virksomhet](virksomhet.md) |
+| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [String](string.md) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret | [Virksomhet](virksomhet.md) |
+| [navn](navn.md) | 1 <br/> [String](string.md) | Registrert namn på verksemda i Enhetsregisteret | [Virksomhet](virksomhet.md) |
+| [har_tilstand](har_tilstand.md) | * <br/> [Tilstand](tilstand.md) | Registrert tilstand (status) for verksemda, inkl | [Virksomhet](virksomhet.md) |
+| [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](postadresse.md) | Postadressa verksemda mottar post på | [Virksomhet](virksomhet.md) |
+| [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | 1 <br/> [Organisasjonsform](organisasjonsform.md) | Organisasjonsform (juridisk form) for verksemda | [Virksomhet](virksomhet.md) |
+| [har_kontaktinformasjon](har_kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon registrert på verksemda | [Virksomhet](virksomhet.md) |
+| [har_varslingsadresse](har_varslingsadresse.md) | 1 <br/> [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for offentlege meldingar | [Virksomhet](virksomhet.md) |
+| [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | 1..* <br/> [Naeringskode](naeringskode.md) | Næringskode(r) verksemda er klassifisert under (1–3) | [Virksomhet](virksomhet.md) |
+| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [Integer](integer.md) | Antal tilsette i verksemda (rapportert til a-ordninga) | [Virksomhet](virksomhet.md) |
 
 
 
@@ -422,7 +422,7 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [hovedenheter](hovedenheter.md) | range | [Hovedenhet](Hovedenhet.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [hovedenheter](hovedenheter.md) | range | [Hovedenhet](hovedenhet.md) |
 
 
 

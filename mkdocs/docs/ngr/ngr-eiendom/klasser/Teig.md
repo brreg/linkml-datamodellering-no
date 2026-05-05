@@ -78,7 +78,7 @@ URI: [ngre:Teig](https://data.norge.no/vocabulary/ngr-eiendom#Teig)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,21 +91,21 @@ URI: [ngre:Teig](https://data.norge.no/vocabulary/ngr-eiendom#Teig)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [teiger](teiger.md) | range | [Teig](Teig.md) |
-| [Matrikkelenhet](Matrikkelenhet.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](Teig.md) |
-| [Matrikkelenhet](Matrikkelenhet.md) | [har_teig](har_teig.md) | range | [Teig](Teig.md) |
-| [Grunneiendom](Grunneiendom.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](Teig.md) |
-| [Grunneiendom](Grunneiendom.md) | [har_teig](har_teig.md) | range | [Teig](Teig.md) |
-| [Festegrunn](Festegrunn.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](Teig.md) |
-| [Festegrunn](Festegrunn.md) | [har_teig](har_teig.md) | range | [Teig](Teig.md) |
-| [Jordsameie](Jordsameie.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](Teig.md) |
-| [Jordsameie](Jordsameie.md) | [har_teig](har_teig.md) | range | [Teig](Teig.md) |
-| [Eierseksjon](Eierseksjon.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](Teig.md) |
-| [Eierseksjon](Eierseksjon.md) | [har_teig](har_teig.md) | range | [Teig](Teig.md) |
-| [Anleggseiendom](Anleggseiendom.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](Teig.md) |
-| [Anleggseiendom](Anleggseiendom.md) | [har_teig](har_teig.md) | range | [Teig](Teig.md) |
-| [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](Teig.md) |
-| [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | [har_teig](har_teig.md) | range | [Teig](Teig.md) |
+| [EiendomContainer](eiendomcontainer.md) | [teiger](teiger.md) | range | [Teig](teig.md) |
+| [Matrikkelenhet](matrikkelenhet.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](teig.md) |
+| [Matrikkelenhet](matrikkelenhet.md) | [har_teig](har_teig.md) | range | [Teig](teig.md) |
+| [Grunneiendom](grunneiendom.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](teig.md) |
+| [Grunneiendom](grunneiendom.md) | [har_teig](har_teig.md) | range | [Teig](teig.md) |
+| [Festegrunn](festegrunn.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](teig.md) |
+| [Festegrunn](festegrunn.md) | [har_teig](har_teig.md) | range | [Teig](teig.md) |
+| [Jordsameie](jordsameie.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](teig.md) |
+| [Jordsameie](jordsameie.md) | [har_teig](har_teig.md) | range | [Teig](teig.md) |
+| [Eierseksjon](eierseksjon.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](teig.md) |
+| [Eierseksjon](eierseksjon.md) | [har_teig](har_teig.md) | range | [Teig](teig.md) |
+| [Anleggseiendom](anleggseiendom.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](teig.md) |
+| [Anleggseiendom](anleggseiendom.md) | [har_teig](har_teig.md) | range | [Teig](teig.md) |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | [er_del_av_teig](er_del_av_teig.md) | range | [Teig](teig.md) |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | [har_teig](har_teig.md) | range | [Teig](teig.md) |
 
 
 

@@ -75,8 +75,8 @@ URI: [ngrv:Varslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Var
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [varslingstype](varslingstype.md) | 1 <br/> [VarslingType](VarslingType.md) | Kanaltype for varsling (EPOST eller MOBILTELEFON) |
-| [varslingsverdi](varslingsverdi.md) | 1 <br/> [String](String.md) | Verdien for varslingskanalen (e-postadresse eller mobilnummer) |
+| [varslingstype](varslingstype.md) | 1 <br/> [VarslingType](varslingtype.md) | Kanaltype for varsling (EPOST eller MOBILTELEFON) |
+| [varslingsverdi](varslingsverdi.md) | 1 <br/> [String](string.md) | Verdien for varslingskanalen (e-postadresse eller mobilnummer) |
 
 
 
@@ -147,7 +147,7 @@ URI: [ngrv:Varslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Var
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -160,10 +160,10 @@ URI: [ngrv:Varslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Var
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [varslingsadresser](varslingsadresser.md) | range | [Varslingsadresse](Varslingsadresse.md) |
-| [Virksomhet](Virksomhet.md) | [har_varslingsadresse](har_varslingsadresse.md) | range | [Varslingsadresse](Varslingsadresse.md) |
-| [Underenhet](Underenhet.md) | [har_varslingsadresse](har_varslingsadresse.md) | range | [Varslingsadresse](Varslingsadresse.md) |
-| [Hovedenhet](Hovedenhet.md) | [har_varslingsadresse](har_varslingsadresse.md) | range | [Varslingsadresse](Varslingsadresse.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [varslingsadresser](varslingsadresser.md) | range | [Varslingsadresse](varslingsadresse.md) |
+| [Virksomhet](virksomhet.md) | [har_varslingsadresse](har_varslingsadresse.md) | range | [Varslingsadresse](varslingsadresse.md) |
+| [Underenhet](underenhet.md) | [har_varslingsadresse](har_varslingsadresse.md) | range | [Varslingsadresse](varslingsadresse.md) |
+| [Hovedenhet](hovedenhet.md) | [har_varslingsadresse](har_varslingsadresse.md) | range | [Varslingsadresse](varslingsadresse.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: har_versjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo) |
 
 ### Cardinality and Requirements

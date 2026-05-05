@@ -22,8 +22,8 @@ Alias: kommunenummer_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](Kommune.md) | Norsk kommune |  yes  |
-| [Kommunenummer](Kommunenummer.md) | Firesifra kommunenummer (t |  yes  |
+| [Kommune](kommune.md) | Norsk kommune |  yes  |
+| [Kommunenummer](kommunenummer.md) | Firesifra kommunenummer (t |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: kommunenummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kommunenummer](Kommunenummer.md), [Kommune](Kommune.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kommunenummer](kommunenummer.md), [Kommune](kommune.md) |
 | Slot URI | [ngre:kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#kommunenummer) |
 
 ### Cardinality and Requirements

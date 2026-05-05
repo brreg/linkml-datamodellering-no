@@ -22,8 +22,8 @@ Alias: har_deltaking
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligTjeneste](OffentligTjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
-| [Tjeneste](Tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: har_deltaking
 
 | Property | Value |
 | --- | --- |
-| Range | [Deltagelse](Deltagelse.md) |
-| Domain Of | [OffentligTjeneste](OffentligTjeneste.md), [Tjeneste](Tjeneste.md) |
+| Range | [Deltagelse](deltagelse.md) |
+| Domain Of | [OffentligTjeneste](offentligtjeneste.md), [Tjeneste](tjeneste.md) |
 | Slot URI | [cv:hasParticipation](http://data.europa.eu/m8g/hasParticipation) |
 
 ### Cardinality and Requirements

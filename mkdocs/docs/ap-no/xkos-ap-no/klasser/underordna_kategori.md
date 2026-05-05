@@ -22,7 +22,7 @@ Alias: underordna_kategori
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
+| [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: underordna_kategori
 
 | Property | Value |
 | --- | --- |
-| Range | [Kategori](Kategori.md) |
-| Domain Of | [Kategori](Kategori.md) |
+| Range | [Kategori](kategori.md) |
+| Domain Of | [Kategori](kategori.md) |
 | Slot URI | [skos:narrower](http://www.w3.org/2004/02/skos/core#narrower) |
 
 ### Cardinality and Requirements

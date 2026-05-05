@@ -17,9 +17,9 @@ Alias: kulturminneId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
-| [TilskuddFartoy](TilskuddFartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: kulturminneId
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md), [TilskuddFartoy](TilskuddFartoy.md), [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) |
+| Range | [String](string.md) |
+| Domain Of | [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md), [TilskuddFartoy](tilskuddfartoy.md), [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) |
 
 ### Cardinality and Requirements
 

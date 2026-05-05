@@ -17,7 +17,7 @@ Alias: matrikkelnumre
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: matrikkelnumre
 
 | Property | Value |
 | --- | --- |
-| Range | [Matrikkelnummer](Matrikkelnummer.md) |
-| Domain Of | [EiendomContainer](EiendomContainer.md) |
+| Range | [Matrikkelnummer](matrikkelnummer.md) |
+| Domain Of | [EiendomContainer](eiendomcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: matrikkelnumre
 
 | Property | Value |
 | --- | --- |
-| Owner | [EiendomContainer](EiendomContainer.md) |
+| Owner | [EiendomContainer](eiendomcontainer.md) |
 
 
 

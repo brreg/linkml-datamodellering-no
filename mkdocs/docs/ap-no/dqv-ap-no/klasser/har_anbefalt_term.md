@@ -22,9 +22,9 @@ Alias: har_anbefalt_term
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
-| [Kvalitetsdimensjon](Kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |  yes  |
-| [Kvalitetsmaal](Kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
+| [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |  yes  |
+| [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: har_anbefalt_term
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Kvalitetsdimensjon](Kvalitetsdimensjon.md), [Kvalitetsmaal](Kvalitetsmaal.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Kvalitetsdimensjon](kvalitetsdimensjon.md), [Kvalitetsmaal](kvalitetsmaal.md) |
 | Slot URI | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) |
 
 ### Cardinality and Requirements

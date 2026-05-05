@@ -22,11 +22,11 @@ Alias: dekningsomrade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | Ei lovpålagd teneste som offentlege organ er pålagde å utføre |  yes  |
-| [Tjeneste](Tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
-| [Katalog](Katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
-| [OffentligTjeneste](OffentligTjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | Ei lovpålagd teneste som offentlege organ er pålagde å utføre |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -39,8 +39,8 @@ Alias: dekningsomrade
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [LovpalagtTjeneste](LovpalagtTjeneste.md), [OffentligTjeneste](OffentligTjeneste.md), [Tjeneste](Tjeneste.md), [OffentligOrganisasjon](OffentligOrganisasjon.md), [Katalog](Katalog.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [LovpalagtTjeneste](lovpalagttjeneste.md), [OffentligTjeneste](offentligtjeneste.md), [Tjeneste](tjeneste.md), [OffentligOrganisasjon](offentligorganisasjon.md), [Katalog](katalog.md) |
 | Slot URI | [dct:spatial](http://purl.org/dc/terms/spatial) |
 
 ### Cardinality and Requirements

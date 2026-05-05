@@ -17,7 +17,7 @@ Alias: spraak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: spraak
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
-| Domain Of | [AdministrasjonContainer](AdministrasjonContainer.md) |
+| Range | [Spraak](spraak.md) |
+| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: spraak
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdministrasjonContainer](AdministrasjonContainer.md) |
+| Owner | [AdministrasjonContainer](administrasjoncontainer.md) |
 
 
 

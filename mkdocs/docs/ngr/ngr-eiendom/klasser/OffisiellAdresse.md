@@ -78,7 +78,7 @@ URI: [ngre:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-eiendom#Offisi
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [ngre:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-eiendom#Offisi
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [YtreInngang](YtreInngang.md) | [har_offisiell_adresse](har_offisiell_adresse.md) | range | [OffisiellAdresse](OffisiellAdresse.md) |
-| [Bruksenhet](Bruksenhet.md) | [har_offisiell_adresse](har_offisiell_adresse.md) | range | [OffisiellAdresse](OffisiellAdresse.md) |
+| [YtreInngang](ytreinngang.md) | [har_offisiell_adresse](har_offisiell_adresse.md) | range | [OffisiellAdresse](offisielladresse.md) |
+| [Bruksenhet](bruksenhet.md) | [har_offisiell_adresse](har_offisiell_adresse.md) | range | [OffisiellAdresse](offisielladresse.md) |
 
 
 

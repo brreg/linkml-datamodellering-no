@@ -22,8 +22,8 @@ Alias: saksbehandler
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
-| [Registrering](Registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: saksbehandler
 
 | Property | Value |
 | --- | --- |
-| Range | [Arkivressurs](Arkivressurs.md) |
-| Domain Of | [Registrering](Registrering.md) |
+| Range | [Arkivressurs](arkivressurs.md) |
+| Domain Of | [Registrering](registrering.md) |
 | Slot URI | [ark:saksbehandler](https://schema.fintlabs.no/arkiv/saksbehandler) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: saksbehandler
 
 | Property | Value |
 | --- | --- |
-| Owner | [Registrering](Registrering.md) |
+| Owner | [Registrering](registrering.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: saksbehandler
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

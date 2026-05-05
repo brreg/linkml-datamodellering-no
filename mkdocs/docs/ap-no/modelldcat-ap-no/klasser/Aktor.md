@@ -78,7 +78,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [namn_aktor](namn_aktor.md) | 1..* <br/> [LangString](LangString.md) | Namn på aktøren (foaf:name) |
+| [namn_aktor](namn_aktor.md) | 1..* <br/> [LangString](langstring.md) | Namn på aktøren (foaf:name) |
 
 
 
@@ -156,9 +156,9 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -171,9 +171,9 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | [utgiver](utgiver.md) | range | [Aktor](Aktor.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [utgiver](utgiver.md) | range | [Aktor](Aktor.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [skapar](skapar.md) | range | [Aktor](Aktor.md) |
+| [Modelkatalog](modelkatalog.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [skapar](skapar.md) | range | [Aktor](aktor.md) |
 
 
 

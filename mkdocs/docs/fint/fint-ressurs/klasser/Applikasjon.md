@@ -22,7 +22,7 @@ Alias: applikasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: applikasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Applikasjon](Applikasjon.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Range | [Applikasjon](applikasjon.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:applikasjon](https://schema.fintlabs.no/ressurs/applikasjon) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: applikasjon
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Owner | [Applikasjonsressurs](applikasjonsressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: applikasjon
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

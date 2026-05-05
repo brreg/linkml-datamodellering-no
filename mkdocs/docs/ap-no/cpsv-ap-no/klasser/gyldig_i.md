@@ -22,7 +22,7 @@ Alias: gyldig_i
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gyldig_i
 
 | Property | Value |
 | --- | --- |
-| Range | [Duration](Duration.md) |
-| Domain Of | [Dokumentasjonstype](Dokumentasjonstype.md) |
+| Range | [Duration](duration.md) |
+| Domain Of | [Dokumentasjonstype](dokumentasjonstype.md) |
 | Slot URI | [cccevno:acceptableValidityDuration](https://data.norge.no/vocabulary/cccevno#acceptableValidityDuration) |
 
 ### Cardinality and Requirements

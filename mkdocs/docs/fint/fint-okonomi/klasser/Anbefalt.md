@@ -5,7 +5,7 @@ _Anbefalt eigensskap._
 
 
 
-URI: [Anbefalt](Anbefalt.md)
+URI: [Anbefalt](anbefalt.md)
 
 
 
@@ -75,34 +75,24 @@ URI: [Anbefalt](Anbefalt.md)
 
 
 
-        
-
-
-
 
         
 
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -126,10 +116,23 @@ URI: [Anbefalt](Anbefalt.md)
 
 
 
+        
+
+
+
+
+
+
+
+
+
+
+
 
 
 
         
+
 
 
 

@@ -298,14 +298,14 @@ URI: [fair:FAIRMetadata](https://data.norge.no/fair#FAIRMetadata)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Persistent URI-identifikator for metadata-posten (FAIR F1) |
-| [ressursIdentifikator](ressursIdentifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global og persistent identifikator for ressursen (FAIR F1) |
-| [ressurstype](ressurstype.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Type digital ressurs, t |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | URI til ressursen som denne metadata-posten beskriver (FAIR F3) |
-| [tilgangsmetadata](tilgangsmetadata.md) | 0..1 <br/> [Tilgangsmetadata](Tilgangsmetadata.md) | Metadata for tilgang og tilgjengelegheit (FAIR A1/A2) |
-| [gjenbruksmetadata](gjenbruksmetadata.md) | 0..1 <br/> [Gjenbruksmetadata](Gjenbruksmetadata.md) | Metadata som støttar gjenbruk av ressursen (FAIR R1 |
-| [proveniensmetadata](proveniensmetadata.md) | 0..1 <br/> [Proveniensmetadata](Proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |
-| [katalogregistrering](katalogregistrering.md) | 0..1 <br/> [Katalogregistrering](Katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Persistent URI-identifikator for metadata-posten (FAIR F1) |
+| [ressursIdentifikator](ressursidentifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global og persistent identifikator for ressursen (FAIR F1) |
+| [ressurstype](ressurstype.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Type digital ressurs, t |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | URI til ressursen som denne metadata-posten beskriver (FAIR F3) |
+| [tilgangsmetadata](tilgangsmetadata.md) | 0..1 <br/> [Tilgangsmetadata](tilgangsmetadata.md) | Metadata for tilgang og tilgjengelegheit (FAIR A1/A2) |
+| [gjenbruksmetadata](gjenbruksmetadata.md) | 0..1 <br/> [Gjenbruksmetadata](gjenbruksmetadata.md) | Metadata som støttar gjenbruk av ressursen (FAIR R1 |
+| [proveniensmetadata](proveniensmetadata.md) | 0..1 <br/> [Proveniensmetadata](proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |
+| [katalogregistrering](katalogregistrering.md) | 0..1 <br/> [Katalogregistrering](katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |
 
 
 

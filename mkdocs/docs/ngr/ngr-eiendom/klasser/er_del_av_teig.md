@@ -22,13 +22,13 @@ Alias: er_del_av_teig
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Anleggseiendom](Anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |  no  |
-| [Eierseksjon](Eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  no  |
-| [Festegrunn](Festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |  no  |
-| [Matrikkelenhet](Matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |  yes  |
-| [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |  no  |
-| [Jordsameie](Jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  no  |
-| [Grunneiendom](Grunneiendom.md) | Den vanlegaste typen matrikkelenheit |  no  |
+| [Festegrunn](festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |  no  |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |  no  |
+| [Matrikkelenhet](matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |  yes  |
+| [Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  no  |
+| [Grunneiendom](grunneiendom.md) | Den vanlegaste typen matrikkelenheit |  no  |
+| [Anleggseiendom](anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |  no  |
+| [Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  no  |
 
 
 
@@ -41,8 +41,8 @@ Alias: er_del_av_teig
 
 | Property | Value |
 | --- | --- |
-| Range | [Teig](Teig.md) |
-| Domain Of | [Matrikkelenhet](Matrikkelenhet.md) |
+| Range | [Teig](teig.md) |
+| Domain Of | [Matrikkelenhet](matrikkelenhet.md) |
 | Slot URI | [ngre:erDelAvTeig](https://data.norge.no/vocabulary/ngr-eiendom#erDelAvTeig) |
 
 ### Cardinality and Requirements

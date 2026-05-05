@@ -22,7 +22,7 @@ Alias: har_enkel_type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Attributt](Attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
+| [Attributt](attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_enkel_type
 
 | Property | Value |
 | --- | --- |
-| Range | [EnkelType](EnkelType.md) |
-| Domain Of | [Attributt](Attributt.md) |
+| Range | [EnkelType](enkeltype.md) |
+| Domain Of | [Attributt](attributt.md) |
 | Slot URI | [modelldcatno:hasSimpleType](https://data.norge.no/vocabulary/modelldcatno#hasSimpleType) |
 
 ### Cardinality and Requirements

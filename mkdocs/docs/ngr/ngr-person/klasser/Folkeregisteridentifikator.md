@@ -39,8 +39,8 @@ URI: [ngrp:Folkeregisteridentifikator](https://data.norge.no/vocabulary/ngr-pers
 
 ## Inheritance
 * **Folkeregisteridentifikator**
-    * [Foedselsnummer](Foedselsnummer.md)
-    * [DNummer](DNummer.md)
+    * [Foedselsnummer](foedselsnummer.md)
+    * [DNummer](dnummer.md)
 
 
 ## Class Properties
@@ -108,8 +108,8 @@ URI: [ngrp:Folkeregisteridentifikator](https://data.norge.no/vocabulary/ngr-pers
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [identifikatornummer](identifikatornummer.md) | 0..1 <br/> [String](String.md) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [identifikatornummer](identifikatornummer.md) | 0..1 <br/> [String](string.md) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
 
 
 
@@ -122,7 +122,7 @@ URI: [ngrp:Folkeregisteridentifikator](https://data.norge.no/vocabulary/ngr-pers
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Person](Person.md) | [har_folkeregisteridentifikator](har_folkeregisteridentifikator.md) | range | [Folkeregisteridentifikator](Folkeregisteridentifikator.md) |
+| [Person](person.md) | [har_folkeregisteridentifikator](har_folkeregisteridentifikator.md) | range | [Folkeregisteridentifikator](folkeregisteridentifikator.md) |
 
 
 

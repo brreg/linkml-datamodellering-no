@@ -22,7 +22,7 @@ Alias: utloepsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identifikasjonsdokument](Identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
+| [Identifikasjonsdokument](identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: utloepsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Identifikasjonsdokument](Identifikasjonsdokument.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Identifikasjonsdokument](identifikasjonsdokument.md) |
 | Slot URI | [ngrp:utloepsdato](https://data.norge.no/vocabulary/ngr-person#utloepsdato) |
 
 ### Cardinality and Requirements

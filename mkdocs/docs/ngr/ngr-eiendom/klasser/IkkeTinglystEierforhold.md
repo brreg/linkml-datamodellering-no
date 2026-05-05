@@ -17,7 +17,7 @@ Alias: ikkeTinglystEierforhold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: ikkeTinglystEierforhold
 
 | Property | Value |
 | --- | --- |
-| Range | [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) |
-| Domain Of | [EiendomContainer](EiendomContainer.md) |
+| Range | [IkkeTinglystEierforhold](ikketinglysteierforhold.md) |
+| Domain Of | [EiendomContainer](eiendomcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: ikkeTinglystEierforhold
 
 | Property | Value |
 | --- | --- |
-| Owner | [EiendomContainer](EiendomContainer.md) |
+| Owner | [EiendomContainer](eiendomcontainer.md) |
 
 
 

@@ -116,9 +116,9 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg forklaring av instansen |
-| [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](Aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg forklaring av instansen |
+| [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
 
 
 
@@ -131,7 +131,7 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeeierrettigheter](aksjeeierrettigheter.md) | range | [Aksjeeierrettighet](Aksjeeierrettighet.md) |
+| [Containerklasse](containerklasse.md) | [aksjeeierrettigheter](aksjeeierrettigheter.md) | range | [Aksjeeierrettighet](aksjeeierrettighet.md) |
 
 
 

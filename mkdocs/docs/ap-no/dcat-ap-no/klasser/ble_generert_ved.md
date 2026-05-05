@@ -22,7 +22,7 @@ Alias: ble_generert_ved
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ble_generert_ved
 
 | Property | Value |
 | --- | --- |
-| Range | [ProvAktivitet](ProvAktivitet.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [ProvAktivitet](provaktivitet.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) |
 
 ### Cardinality and Requirements

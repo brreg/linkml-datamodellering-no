@@ -22,8 +22,8 @@ Alias: nokkelord
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: nokkelord
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Datasett](Datasett.md), [Datatjeneste](Datatjeneste.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:keyword](http://www.w3.org/ns/dcat#keyword) |
 
 ### Cardinality and Requirements

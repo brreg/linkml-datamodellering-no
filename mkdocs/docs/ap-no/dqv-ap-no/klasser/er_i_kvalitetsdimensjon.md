@@ -22,10 +22,10 @@ Alias: er_i_kvalitetsdimensjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetssertifikat](Kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
-| [Standard](Standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
-| [Brukartilbakemelding](Brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
+| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
 
@@ -38,8 +38,8 @@ Alias: er_i_kvalitetsdimensjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| Domain Of | [Kvalitetsmerknad](Kvalitetsmerknad.md), [Standard](Standard.md) |
+| Range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| Domain Of | [Kvalitetsmerknad](kvalitetsmerknad.md), [Standard](standard.md) |
 | Slot URI | [dqv:inDimension](http://www.w3.org/ns/dqv#inDimension) |
 
 ### Cardinality and Requirements

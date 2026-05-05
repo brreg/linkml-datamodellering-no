@@ -924,38 +924,38 @@ URI: [https://data.norge.no/linkml/ngr-person/PersonContainer](https://data.norg
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [personar](personar.md) | * <br/> [Person](Person.md) |  |
-| [personnavn](personnavn.md) | * <br/> [Personnavn](Personnavn.md) |  |
-| [foedselsnummer](foedselsnummer.md) | * <br/> [Foedselsnummer](Foedselsnummer.md) |  |
-| [dnummer](dnummer.md) | * <br/> [DNummer](DNummer.md) |  |
-| [personidentifikasjonar](personidentifikasjonar.md) | * <br/> [Personidentifikasjon](Personidentifikasjon.md) |  |
-| [falskIdentitetar](falskIdentitetar.md) | * <br/> [FalskIdentitet](FalskIdentitet.md) |  |
-| [identifikasjonsdokument](identifikasjonsdokument.md) | * <br/> [Identifikasjonsdokument](Identifikasjonsdokument.md) |  |
-| [identitetsgrunnlag](identitetsgrunnlag.md) | * <br/> [Identitetsgrunnlag](Identitetsgrunnlag.md) |  |
-| [kjoenn](kjoenn.md) | * <br/> [Kjoenn](Kjoenn.md) |  |
-| [sivilstand](sivilstand.md) | * <br/> [Sivilstand](Sivilstand.md) |  |
-| [personstatus](personstatus.md) | * <br/> [Personstatus](Personstatus.md) |  |
-| [statsborgerskap](statsborgerskap.md) | * <br/> [Statsborgerskap](Statsborgerskap.md) |  |
-| [opphold](opphold.md) | * <br/> [Opphold](Opphold.md) |  |
-| [foedslar](foedslar.md) | * <br/> [Foedsel](Foedsel.md) |  |
-| [foreldreansvarForelder](foreldreansvarForelder.md) | * <br/> [ForeldreansvarForelder](ForeldreansvarForelder.md) |  |
-| [foreldreansvarBarn](foreldreansvarBarn.md) | * <br/> [ForeldreansvarBarn](ForeldreansvarBarn.md) |  |
-| [familierelasjonForelder](familierelasjonForelder.md) | * <br/> [FamilierelasjonForelder](FamilierelasjonForelder.md) |  |
-| [familierelasjonBarn](familierelasjonBarn.md) | * <br/> [FamilierelasjonBarn](FamilierelasjonBarn.md) |  |
-| [familierelasjonEktefelle](familierelasjonEktefelle.md) | * <br/> [FamilierelasjonEktefelle](FamilierelasjonEktefelle.md) |  |
-| [dodsfall](dodsfall.md) | * <br/> [Dodsfall](Dodsfall.md) |  |
-| [kontaktinformasjonDoedsbo](kontaktinformasjonDoedsbo.md) | * <br/> [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md) |  |
-| [innflytting](innflytting.md) | * <br/> [InnflyttingTilNorge](InnflyttingTilNorge.md) |  |
-| [utflytting](utflytting.md) | * <br/> [UtflyttingFraNorge](UtflyttingFraNorge.md) |  |
-| [adressebeskyttelse](adressebeskyttelse.md) | * <br/> [Adressebeskyttelse](Adressebeskyttelse.md) |  |
-| [bostedsadresser](bostedsadresser.md) | * <br/> [Bostedsadresse](Bostedsadresse.md) |  |
-| [postadresser](postadresser.md) | * <br/> [Postadresse](Postadresse.md) |  |
-| [oppholdsadresser](oppholdsadresser.md) | * <br/> [Oppholdsadresse](Oppholdsadresse.md) |  |
-| [verger](verger.md) | * <br/> [Verge](Verge.md) |  |
-| [rettsligHandleevne](rettsligHandleevne.md) | * <br/> [RettsligHandleevne](RettsligHandleevne.md) |  |
-| [reservasjonar](reservasjonar.md) | * <br/> [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) |  |
-| [kontaktopplysningar](kontaktopplysningar.md) | * <br/> [Kontaktopplysninger](Kontaktopplysninger.md) |  |
-| [spraak](spraak.md) | * <br/> [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) |  |
+| [personar](personar.md) | * <br/> [Person](person.md) |  |
+| [personnavn](personnavn.md) | * <br/> [Personnavn](personnavn.md) |  |
+| [foedselsnummer](foedselsnummer.md) | * <br/> [Foedselsnummer](foedselsnummer.md) |  |
+| [dnummer](dnummer.md) | * <br/> [DNummer](dnummer.md) |  |
+| [personidentifikasjonar](personidentifikasjonar.md) | * <br/> [Personidentifikasjon](personidentifikasjon.md) |  |
+| [falskIdentitetar](falskidentitetar.md) | * <br/> [FalskIdentitet](falskidentitet.md) |  |
+| [identifikasjonsdokument](identifikasjonsdokument.md) | * <br/> [Identifikasjonsdokument](identifikasjonsdokument.md) |  |
+| [identitetsgrunnlag](identitetsgrunnlag.md) | * <br/> [Identitetsgrunnlag](identitetsgrunnlag.md) |  |
+| [kjoenn](kjoenn.md) | * <br/> [Kjoenn](kjoenn.md) |  |
+| [sivilstand](sivilstand.md) | * <br/> [Sivilstand](sivilstand.md) |  |
+| [personstatus](personstatus.md) | * <br/> [Personstatus](personstatus.md) |  |
+| [statsborgerskap](statsborgerskap.md) | * <br/> [Statsborgerskap](statsborgerskap.md) |  |
+| [opphold](opphold.md) | * <br/> [Opphold](opphold.md) |  |
+| [foedslar](foedslar.md) | * <br/> [Foedsel](foedsel.md) |  |
+| [foreldreansvarForelder](foreldreansvarforelder.md) | * <br/> [ForeldreansvarForelder](foreldreansvarforelder.md) |  |
+| [foreldreansvarBarn](foreldreansvarbarn.md) | * <br/> [ForeldreansvarBarn](foreldreansvarbarn.md) |  |
+| [familierelasjonForelder](familierelasjonforelder.md) | * <br/> [FamilierelasjonForelder](familierelasjonforelder.md) |  |
+| [familierelasjonBarn](familierelasjonbarn.md) | * <br/> [FamilierelasjonBarn](familierelasjonbarn.md) |  |
+| [familierelasjonEktefelle](familierelasjonektefelle.md) | * <br/> [FamilierelasjonEktefelle](familierelasjonektefelle.md) |  |
+| [dodsfall](dodsfall.md) | * <br/> [Dodsfall](dodsfall.md) |  |
+| [kontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) | * <br/> [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) |  |
+| [innflytting](innflytting.md) | * <br/> [InnflyttingTilNorge](innflyttingtilnorge.md) |  |
+| [utflytting](utflytting.md) | * <br/> [UtflyttingFraNorge](utflyttingfranorge.md) |  |
+| [adressebeskyttelse](adressebeskyttelse.md) | * <br/> [Adressebeskyttelse](adressebeskyttelse.md) |  |
+| [bostedsadresser](bostedsadresser.md) | * <br/> [Bostedsadresse](bostedsadresse.md) |  |
+| [postadresser](postadresser.md) | * <br/> [Postadresse](postadresse.md) |  |
+| [oppholdsadresser](oppholdsadresser.md) | * <br/> [Oppholdsadresse](oppholdsadresse.md) |  |
+| [verger](verger.md) | * <br/> [Verge](verge.md) |  |
+| [rettsligHandleevne](rettslighandleevne.md) | * <br/> [RettsligHandleevne](rettslighandleevne.md) |  |
+| [reservasjonar](reservasjonar.md) | * <br/> [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) |  |
+| [kontaktopplysningar](kontaktopplysningar.md) | * <br/> [Kontaktopplysninger](kontaktopplysninger.md) |  |
+| [spraak](spraak.md) | * <br/> [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) |  |
 
 
 

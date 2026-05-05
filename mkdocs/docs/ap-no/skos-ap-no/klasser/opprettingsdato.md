@@ -22,7 +22,7 @@ Alias: opprettingsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: opprettingsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [dct:created](http://purl.org/dc/terms/created) |
 
 ### Cardinality and Requirements

@@ -17,8 +17,8 @@ Alias: eksamensgruppemedlemskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: eksamensgruppemedlemskap
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Elevforhold](Elevforhold.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Elevforhold](elevforhold.md) |
 
 ### Cardinality and Requirements
 

@@ -78,7 +78,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Tekstdel](Tekstdel.md) | [format](format.md) | range | [Mediatype](Mediatype.md) |
+| [Tekstdel](tekstdel.md) | [format](format.md) | range | [Mediatype](mediatype.md) |
 
 
 

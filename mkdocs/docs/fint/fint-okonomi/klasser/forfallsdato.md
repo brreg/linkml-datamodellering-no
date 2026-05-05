@@ -17,8 +17,8 @@ Alias: forfallsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: forfallsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Faktura](Faktura.md), [Transaksjon](Transaksjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [Faktura](faktura.md), [Transaksjon](transaksjon.md) |
 
 ### Cardinality and Requirements
 

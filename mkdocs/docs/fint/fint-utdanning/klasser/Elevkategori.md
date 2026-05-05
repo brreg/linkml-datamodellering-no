@@ -159,11 +159,11 @@ URI: [utd:Elevkategori](https://schema.fintlabs.no/utdanning/Elevkategori)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [kode](kode.md) | 1 <br/> [String](String.md) |  |
-| [navn](navn.md) | 1 <br/> [String](String.md) |  |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) |  |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](Boolean.md) |  |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kode](kode.md) | 1 <br/> [String](string.md) |  |
+| [navn](navn.md) | 1 <br/> [String](string.md) |  |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) |  |
+| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) |  |
 
 
 
@@ -176,8 +176,8 @@ URI: [utd:Elevkategori](https://schema.fintlabs.no/utdanning/Elevkategori)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | [elevkategoriar](elevkategoriar.md) | range | [Elevkategori](Elevkategori.md) |
-| [Elevforhold](Elevforhold.md) | [kategori](kategori.md) | range | [Elevkategori](Elevkategori.md) |
+| [UtdanningContainer](utdanningcontainer.md) | [elevkategoriar](elevkategoriar.md) | range | [Elevkategori](elevkategori.md) |
+| [Elevforhold](elevforhold.md) | [kategori](kategori.md) | range | [Elevkategori](elevkategori.md) |
 
 
 

@@ -114,9 +114,9 @@ URI: [fint:Periode](https://schema.fintlabs.no/Periode)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) | Beskriven namn på perioden |
-| [start](start.md) | 1 <br/> [Datetime](Datetime.md) | Frå tidspunkt |
-| [slutt](slutt.md) | 0..1 <br/> [Datetime](Datetime.md) | Til tidspunkt |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn på perioden |
+| [start](start.md) | 1 <br/> [Datetime](datetime.md) | Frå tidspunkt |
+| [slutt](slutt.md) | 0..1 <br/> [Datetime](datetime.md) | Til tidspunkt |
 
 
 
@@ -129,16 +129,16 @@ URI: [fint:Periode](https://schema.fintlabs.no/Periode)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Samtykke](Samtykke.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Behandlingsgrunnlag](Behandlingsgrunnlag.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Personopplysning](Personopplysning.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Begrep](Begrep.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Identifikator](Identifikator.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Landkode](Landkode.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Kjonn](Kjonn.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Fylke](Fylke.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Kommune](Kommune.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Spraak](Spraak.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
+| [Samtykke](samtykke.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Personopplysning](personopplysning.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Begrep](begrep.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Identifikator](identifikator.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Landkode](landkode.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Kjonn](kjonn.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Fylke](fylke.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Kommune](kommune.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Spraak](spraak.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
 
 
 

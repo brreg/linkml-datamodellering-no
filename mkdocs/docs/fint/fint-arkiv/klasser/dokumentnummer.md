@@ -22,7 +22,7 @@ Alias: dokumentnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dokumentnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:dokumentnummer](https://schema.fintlabs.no/arkiv/dokumentnummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: dokumentnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Owner | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: dokumentnummer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

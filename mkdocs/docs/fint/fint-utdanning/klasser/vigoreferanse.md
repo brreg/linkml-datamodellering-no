@@ -17,12 +17,12 @@ Alias: vigoreferanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Utdanningsprogram](Utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Arstrinn](Arstrinn.md) | Eit årstrinn i skulen (t |  no  |
-| [Karakterskala](Karakterskala.md) | Skala for karaktersetjing (t |  no  |
-| [Programomrade](Programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  no  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: vigoreferanse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skole](Skole.md), [Arstrinn](Arstrinn.md), [Programomrade](Programomrade.md), [Utdanningsprogram](Utdanningsprogram.md), [Fag](Fag.md), [Karakterskala](Karakterskala.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skole](skole.md), [Arstrinn](arstrinn.md), [Programomrade](programomrade.md), [Utdanningsprogram](utdanningsprogram.md), [Fag](fag.md), [Karakterskala](karakterskala.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: maalomgrep
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kategorisamanlikning](Kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |  yes  |
+| [Kategorisamanlikning](kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: maalomgrep
 
 | Property | Value |
 | --- | --- |
-| Range | [Kategori](Kategori.md) |
-| Domain Of | [Kategorisamanlikning](Kategorisamanlikning.md) |
+| Range | [Kategori](kategori.md) |
+| Domain Of | [Kategorisamanlikning](kategorisamanlikning.md) |
 | Slot URI | [xkos:targetConcept](http://rdf-vocabulary.ddialliance.org/xkos#targetConcept) |
 
 ### Cardinality and Requirements

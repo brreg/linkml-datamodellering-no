@@ -72,8 +72,8 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 ## Inheritance
 * **Kvalitetsmerknad**
-    * [Brukartilbakemelding](Brukartilbakemelding.md)
-    * [Kvalitetssertifikat](Kvalitetssertifikat.md)
+    * [Brukartilbakemelding](brukartilbakemelding.md)
+    * [Kvalitetssertifikat](kvalitetssertifikat.md)
 
 
 ## Class Properties
@@ -116,7 +116,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_motivert_av](er_motivert_av.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Motivasjonen bak kvalitetsmerknaden (t |
+| [er_motivert_av](er_motivert_av.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Motivasjonen bak kvalitetsmerknaden (t |
 
 
 
@@ -149,8 +149,8 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | 0..1 <br/> [Kvalitetsdimensjon](Kvalitetsdimensjon.md) | Kvalitetsdimensjonen denne merknaden eller standarden gjeld |
-| [har_tekstdel](har_tekstdel.md) | 0..1 <br/> [Tekstdel](Tekstdel.md) | Tekstleg innhald i merknaden |
+| [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | 0..1 <br/> [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Kvalitetsdimensjonen denne merknaden eller standarden gjeld |
+| [har_tekstdel](har_tekstdel.md) | 0..1 <br/> [Tekstdel](tekstdel.md) | Tekstleg innhald i merknaden |
 
 
 
@@ -183,8 +183,8 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_merknad](har_merknad.md) | * <br/> [LangString](LangString.md) | Fritekstmerknad (rdfs:comment) |
-| [har_maal](har_maal.md) | 0..1 <br/> [DcatRessurs](DcatRessurs.md) | Ressursen merknaden gjeld |
+| [har_merknad](har_merknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad (rdfs:comment) |
+| [har_maal](har_maal.md) | 0..1 <br/> [DcatRessurs](dcatressurs.md) | Ressursen merknaden gjeld |
 
 
 
@@ -268,7 +268,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -281,7 +281,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [har_kvalitetsmerknad](har_kvalitetsmerknad.md) | range | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
+| [Datasett](datasett.md) | [har_kvalitetsmerknad](har_kvalitetsmerknad.md) | range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 
 
 

@@ -71,7 +71,7 @@ URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverku
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [belop](belop.md) | 0..1 <br/> [Decimal](Decimal.md) | Monetært beløp |
+| [belop](belop.md) | 0..1 <br/> [Decimal](decimal.md) | Monetært beløp |
 
 
 
@@ -84,7 +84,7 @@ URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverku
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [innbetalt_overkurser](innbetalt_overkurser.md) | range | [InnbetaltOverkurs](InnbetaltOverkurs.md) |
+| [Containerklasse](containerklasse.md) | [innbetalt_overkurser](innbetalt_overkurser.md) | range | [InnbetaltOverkurs](innbetaltoverkurs.md) |
 
 
 

@@ -185,7 +185,7 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 
 ## Inheritance
 * **Registrering**
-    * [Journalpost](Journalpost.md)
+    * [Journalpost](journalpost.md)
 
 
 ## Class Properties
@@ -573,28 +573,28 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [arkivertDato](arkivertDato.md) | 0..1 <br/> [Datetime](Datetime.md) | Dato og klokkeslett alle dokument knytt til registreringa vart arkivert |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg skildring av arkivenheten |
-| [dokumentbeskrivelse](dokumentbeskrivelse.md) | * <br/> [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Dokumentbeskrivelsar til ei registrering |
-| [forfatter](forfatter.md) | * <br/> [String](String.md) | Namn på person eller organisasjon som skapte dokumentet |
-| [klasse](klasse.md) | 0..1 <br/> [Klasse](Klasse.md) | Klassifisering av registrering |
-| [korrespondansepart](korrespondansepart.md) | * <br/> [Korrespondansepart](Korrespondansepart.md) | Mottakar eller sendar av arkivdokument |
-| [merknad](merknad.md) | * <br/> [Merknad](Merknad.md) | Merknader til registrering |
-| [nokkelord](nokkelord.md) | * <br/> [String](String.md) | Nøkkelord som skildrar innhaldet |
-| [offentligTittel](offentligTittel.md) | 0..1 <br/> [String](String.md) | Offentleg tittel der skjerma ord er fjerna |
-| [opprettetDato](opprettetDato.md) | 0..1 <br/> [Datetime](Datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert |
-| [part](part.md) | * <br/> [Part](Part.md) | Partar til registrering |
-| [referanseArkivDel](referanseArkivDel.md) | * <br/> [String](String.md) | Referanse til arkivdelen denne arkivenheten er tilknytt |
-| [registreringsId](registreringsId.md) | 0..1 <br/> [String](String.md) | Inngår i M004 journalpostID |
-| [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](Skjerming.md) | Skjerming av registrering |
-| [tittel](tittel.md) | 1 <br/> [String](String.md) | Tittel eller namn på arkivenheten |
-| [tilgangsgruppe](tilgangsgruppe.md) | 0..1 <br/> [Tilgangsgruppe](Tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til registreringa |
-| [administrativEnhet](administrativEnhet.md) | 0..1 <br/> [AdministrativEnhet](AdministrativEnhet.md) | Administrativ eining som har ansvar for saksbehandlinga |
-| [arkivdel](arkivdel.md) | 0..1 <br/> [Arkivdel](Arkivdel.md) | Arkivdel registreringa tilhøyrer |
-| [saksbehandler](saksbehandler.md) | 0..1 <br/> [Arkivressurs](Arkivressurs.md) | Person som er saksbehandlar |
-| [arkivertAv](arkivertAv.md) | 1 <br/> [Arkivressurs](Arkivressurs.md) | Person som arkiverte arkivenheten |
-| [opprettetAv](opprettetAv.md) | 1 <br/> [Arkivressurs](Arkivressurs.md) | Person som oppretta/registrerte arkivenheten |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [arkivertDato](arkivertdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett alle dokument knytt til registreringa vart arkivert |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av arkivenheten |
+| [dokumentbeskrivelse](dokumentbeskrivelse.md) | * <br/> [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Dokumentbeskrivelsar til ei registrering |
+| [forfatter](forfatter.md) | * <br/> [String](string.md) | Namn på person eller organisasjon som skapte dokumentet |
+| [klasse](klasse.md) | 0..1 <br/> [Klasse](klasse.md) | Klassifisering av registrering |
+| [korrespondansepart](korrespondansepart.md) | * <br/> [Korrespondansepart](korrespondansepart.md) | Mottakar eller sendar av arkivdokument |
+| [merknad](merknad.md) | * <br/> [Merknad](merknad.md) | Merknader til registrering |
+| [nokkelord](nokkelord.md) | * <br/> [String](string.md) | Nøkkelord som skildrar innhaldet |
+| [offentligTittel](offentligtittel.md) | 0..1 <br/> [String](string.md) | Offentleg tittel der skjerma ord er fjerna |
+| [opprettetDato](opprettetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert |
+| [part](part.md) | * <br/> [Part](part.md) | Partar til registrering |
+| [referanseArkivDel](referansearkivdel.md) | * <br/> [String](string.md) | Referanse til arkivdelen denne arkivenheten er tilknytt |
+| [registreringsId](registreringsid.md) | 0..1 <br/> [String](string.md) | Inngår i M004 journalpostID |
+| [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](skjerming.md) | Skjerming av registrering |
+| [tittel](tittel.md) | 1 <br/> [String](string.md) | Tittel eller namn på arkivenheten |
+| [tilgangsgruppe](tilgangsgruppe.md) | 0..1 <br/> [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til registreringa |
+| [administrativEnhet](administrativenhet.md) | 0..1 <br/> [AdministrativEnhet](administrativenhet.md) | Administrativ eining som har ansvar for saksbehandlinga |
+| [arkivdel](arkivdel.md) | 0..1 <br/> [Arkivdel](arkivdel.md) | Arkivdel registreringa tilhøyrer |
+| [saksbehandler](saksbehandler.md) | 0..1 <br/> [Arkivressurs](arkivressurs.md) | Person som er saksbehandlar |
+| [arkivertAv](arkivertav.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som arkiverte arkivenheten |
+| [opprettetAv](opprettetav.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som oppretta/registrerte arkivenheten |
 
 
 

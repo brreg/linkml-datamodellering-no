@@ -22,7 +22,7 @@ Alias: aktiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: aktiv
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Behandling](Behandling.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Behandling](behandling.md) |
 | Slot URI | [pvn:aktiv](https://schema.fintlabs.no/personvern/aktiv) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: aktiv
 
 | Property | Value |
 | --- | --- |
-| Owner | [Behandling](Behandling.md) |
+| Owner | [Behandling](behandling.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: aktiv
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

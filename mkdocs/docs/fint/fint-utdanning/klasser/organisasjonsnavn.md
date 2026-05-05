@@ -17,9 +17,9 @@ Alias: organisasjonsnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: organisasjonsnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skole](Skole.md), [Enhet](Enhet.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skole](skole.md), [Enhet](enhet.md) |
 
 ### Cardinality and Requirements
 

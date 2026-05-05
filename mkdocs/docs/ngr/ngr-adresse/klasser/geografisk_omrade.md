@@ -22,7 +22,7 @@ Alias: geografisk_omrade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: geografisk_omrade
 
 | Property | Value |
 | --- | --- |
-| Range | [GeografiskOmrade](GeografiskOmrade.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [GeografiskOmrade](geografiskomrade.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:referererTilGeografiskOmrade](https://data.norge.no/vocabulary/ngr-adresse#referererTilGeografiskOmrade) |
 
 ### Cardinality and Requirements

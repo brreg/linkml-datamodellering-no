@@ -50,9 +50,9 @@ URI: [ngre:Hjemmel](https://data.norge.no/vocabulary/ngr-eiendom#Hjemmel)
 
 ## Inheritance
 * **Hjemmel**
-    * [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md)
-    * [HjemmelTilFesterett](HjemmelTilFesterett.md)
-    * [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md)
+    * [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md)
+    * [HjemmelTilFesterett](hjemmeltilfesterett.md)
+    * [HjemmelTilFramfesterett](hjemmeltilframfesterett.md)
 
 
 ## Class Properties
@@ -83,7 +83,7 @@ URI: [ngre:Hjemmel](https://data.norge.no/vocabulary/ngr-eiendom#Hjemmel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_andel](har_andel.md) | 1..* <br/> [Andel](Andel.md) | Andel(ar) i heimelsdokumentet |
+| [har_andel](har_andel.md) | 1..* <br/> [Andel](andel.md) | Andel(ar) i heimelsdokumentet |
 
 
 
@@ -135,7 +135,7 @@ URI: [ngre:Hjemmel](https://data.norge.no/vocabulary/ngr-eiendom#Hjemmel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

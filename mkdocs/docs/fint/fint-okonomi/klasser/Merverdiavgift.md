@@ -22,7 +22,7 @@ Alias: merverdiavgift
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: merverdiavgift
 
 | Property | Value |
 | --- | --- |
-| Range | [Merverdiavgift](Merverdiavgift.md) |
-| Domain Of | [Vare](Vare.md) |
+| Range | [Merverdiavgift](merverdiavgift.md) |
+| Domain Of | [Vare](vare.md) |
 | Slot URI | [okn:merverdiavgift](https://schema.fintlabs.no/okonomi/merverdiavgift) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: merverdiavgift
 
 | Property | Value |
 | --- | --- |
-| Owner | [Vare](Vare.md) |
+| Owner | [Vare](vare.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: merverdiavgift
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

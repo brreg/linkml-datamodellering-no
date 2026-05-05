@@ -17,8 +17,8 @@ Alias: tidsrom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Time](Time.md) | Ein time i timeplanen |  no  |
-| [Eksamen](Eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
+| [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
+| [Time](time.md) | Ein time i timeplanen |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: tidsrom
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Eksamen](Eksamen.md), [Time](Time.md) |
+| Range | [String](string.md) |
+| Domain Of | [Eksamen](eksamen.md), [Time](time.md) |
 
 ### Cardinality and Requirements
 

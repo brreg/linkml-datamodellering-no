@@ -22,7 +22,7 @@ Alias: administrativenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Autorisasjon](Autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
+| [Autorisasjon](autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: administrativenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [AdministrativEnhet](AdministrativEnhet.md) |
-| Domain Of | [Autorisasjon](Autorisasjon.md) |
+| Range | [AdministrativEnhet](administrativenhet.md) |
+| Domain Of | [Autorisasjon](autorisasjon.md) |
 | Slot URI | [ark:administrativenhet](https://schema.fintlabs.no/arkiv/administrativenhet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: administrativenhet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Autorisasjon](Autorisasjon.md) |
+| Owner | [Autorisasjon](autorisasjon.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: administrativenhet
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

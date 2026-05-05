@@ -22,7 +22,7 @@ Alias: bilde
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bilde
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:bilde](https://schema.fintlabs.no/bilde) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: bilde
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: bilde
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -26,7 +26,7 @@ Alias: tittel_literal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
+| Range | [String](string.md) |
 | Slot URI | [dct:title](http://purl.org/dc/terms/title) |
 
 ### Cardinality and Requirements

@@ -17,8 +17,8 @@ Alias: arkivressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Autorisasjon](Autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
-| [Tilgang](Tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  no  |
+| [Autorisasjon](autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
+| [Tilgang](tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: arkivressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Autorisasjon](Autorisasjon.md), [Tilgang](Tilgang.md) |
+| Range | [String](string.md) |
+| Domain Of | [Autorisasjon](autorisasjon.md), [Tilgang](tilgang.md) |
 
 ### Cardinality and Requirements
 

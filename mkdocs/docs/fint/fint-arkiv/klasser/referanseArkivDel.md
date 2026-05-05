@@ -22,7 +22,7 @@ Alias: referanseArkivdel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: referanseArkivdel
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:referanseArkivdel](https://schema.fintlabs.no/arkiv/referanseArkivdel) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: referanseArkivdel
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Owner | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: referanseArkivdel
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

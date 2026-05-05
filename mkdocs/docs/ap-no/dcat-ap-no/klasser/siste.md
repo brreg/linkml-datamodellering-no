@@ -22,7 +22,7 @@ Alias: siste
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasettserie](Datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: siste
 
 | Property | Value |
 | --- | --- |
-| Range | [Datasett](Datasett.md) |
-| Domain Of | [Datasettserie](Datasettserie.md) |
+| Range | [Datasett](datasett.md) |
+| Domain Of | [Datasettserie](datasettserie.md) |
 | Slot URI | [dcat:last](http://www.w3.org/ns/dcat#last) |
 
 ### Cardinality and Requirements

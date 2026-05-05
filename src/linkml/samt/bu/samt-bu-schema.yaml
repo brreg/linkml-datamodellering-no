@@ -6,13 +6,14 @@ description: Ontodia-vennlig LinkML-modell for skoler
 prefixes:
   linkml: https://w3id.org/linkml/
   samtbuskole: https://example.no/ontology/skole#
+  org:    http://www.w3.org/ns/org#
 
 default_prefix: samtbuskole
 default_range: string
 
 imports:
   - linkml:types
-  - dcat-ap-no-model
+  - ../../ap-no/dcat-ap-no/dcat-ap-no-schema
 
 classes:
 
@@ -133,15 +134,73 @@ classes:
       - jobber_paa_skole
 slots:
 
-  # --- Identifikator ---
-  # identifikator sloten gjenbrukes fra dcat-ap-no-metamodel
-  # identifikator:
-  #   identifier: true
-  #   required: true
-  #   range: uriorcurie
-  #   description: Global identifikator (CURIE/URI)
+  # --- Identifikator og namn ---
+  identifikator:
+    identifier: true
+    range: uriorcurie
+    description: Global identifikator (CURIE/URI).
 
-  # --- Container slots ---
+  navn:
+    range: string
+    description: Namn på ressursen.
+
+  # --- Metadata container slots (DCAT-AP-NO) ---
+  kontaktpunkter:
+    range: Kontaktopplysning
+    multivalued: true
+    description: Kontaktpunkt for datasettet.
+
+  utgivere:
+    range: Aktor
+    multivalued: true
+    description: Utgjevarar av datasettet.
+
+  organisasjoner:
+    range: Aktor
+    multivalued: true
+    description: Organisasjonar knytt til datasettet.
+
+  gjeldende_lovgivninger:
+    range: RegulativRessurs
+    multivalued: true
+    description: Gjeldande lovgiving for datasettet.
+
+  datasettdistribusjoner:
+    range: Distribusjon
+    multivalued: true
+    description: Distribusjonar av datasettet.
+
+  dataset_metadata:
+    range: Datasett
+    multivalued: true
+    description: Metadata om datasettet.
+
+  kvalitetsmerknader:
+    range: uriorcurie
+    multivalued: true
+    description: Kvalitetsmerknader for datasettet.
+
+  brukertilbakemeldinger:
+    range: uriorcurie
+    multivalued: true
+    description: Brukartilbakemeldingar for datasettet.
+
+  kvalitetsmaalinger:
+    range: uriorcurie
+    multivalued: true
+    description: Kvalitetsmålingar for datasettet.
+
+  grupper:
+    range: uriorcurie
+    multivalued: true
+    description: Grupper knytt til datasettet.
+
+  standarder:
+    range: Standard
+    multivalued: true
+    description: Standardar datasettet følgjer.
+
+  # --- Domene container slots ---
   skoler:
     description: Container slot for å legge tilrette for å kunne ha fleire instanser av skole i ei datafil.
     range: Skole

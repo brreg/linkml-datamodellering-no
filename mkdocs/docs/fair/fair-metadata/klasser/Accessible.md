@@ -5,7 +5,7 @@ _Eigenskapar knytt til FAIR A-prinsippa (Accessible)._
 
 
 
-URI: [Accessible](Accessible.md)
+URI: [Accessible](accessible.md)
 
 
 

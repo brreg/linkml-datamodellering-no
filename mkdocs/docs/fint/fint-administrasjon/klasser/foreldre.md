@@ -22,7 +22,7 @@ Alias: foreldre
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foreldre
 
 | Property | Value |
 | --- | --- |
-| Range | [Person](Person.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Person](person.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:foreldre](https://schema.fintlabs.no/foreldre) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: foreldre
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: foreldre
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

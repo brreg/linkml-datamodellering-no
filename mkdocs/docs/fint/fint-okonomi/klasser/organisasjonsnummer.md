@@ -22,8 +22,8 @@ Alias: organisasjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: organisasjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Enhet](Enhet.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Enhet](enhet.md) |
 | Slot URI | [fint:organisasjonsnummer](https://schema.fintlabs.no/organisasjonsnummer) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: organisasjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Enhet](Enhet.md) |
+| Owner | [Enhet](enhet.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: organisasjonsnummer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

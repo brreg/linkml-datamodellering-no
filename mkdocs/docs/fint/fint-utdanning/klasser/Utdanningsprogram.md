@@ -17,8 +17,8 @@ Alias: utdanningsprogram
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: utdanningsprogram
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Skole](Skole.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Skole](skole.md) |
 
 ### Cardinality and Requirements
 

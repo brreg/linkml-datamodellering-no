@@ -22,7 +22,7 @@ Alias: realiserer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligTjeneste](OffentligTjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: realiserer
 
 | Property | Value |
 | --- | --- |
-| Range | [LovpalagtTjeneste](LovpalagtTjeneste.md) |
-| Domain Of | [OffentligTjeneste](OffentligTjeneste.md) |
+| Range | [LovpalagtTjeneste](lovpalagttjeneste.md) |
+| Domain Of | [OffentligTjeneste](offentligtjeneste.md) |
 | Slot URI | [cpsvno:realizes](https://data.norge.no/vocabulary/cpsvno#realizes) |
 
 ### Cardinality and Requirements

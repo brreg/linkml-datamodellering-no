@@ -17,7 +17,7 @@ Alias: valutaer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OkonomiContainer](OkonomiContainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
+| [OkonomiContainer](okonomicontainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: valutaer
 
 | Property | Value |
 | --- | --- |
-| Range | [Valuta](Valuta.md) |
-| Domain Of | [OkonomiContainer](OkonomiContainer.md) |
+| Range | [OkonomiValuta](okonomivaluta.md) |
+| Domain Of | [OkonomiContainer](okonomicontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: valutaer
 
 | Property | Value |
 | --- | --- |
-| Owner | [OkonomiContainer](OkonomiContainer.md) |
+| Owner | [OkonomiContainer](okonomicontainer.md) |
 
 
 
@@ -90,7 +90,7 @@ alias: valutaer
 owner: OkonomiContainer
 domain_of:
 - OkonomiContainer
-range: Valuta
+range: OkonomiValuta
 multivalued: true
 inlined: true
 inlined_as_list: true

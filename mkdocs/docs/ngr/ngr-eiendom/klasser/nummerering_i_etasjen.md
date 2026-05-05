@@ -22,7 +22,7 @@ Alias: nummerering_i_etasjen
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksenhetsnummer](Bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |  yes  |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nummerering_i_etasjen
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Bruksenhetsnummer](Bruksenhetsnummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Bruksenhetsnummer](bruksenhetsnummer.md) |
 | Slot URI | [ngre:nummereringIEtasjen](https://data.norge.no/vocabulary/ngr-eiendom#nummereringIEtasjen) |
 
 ### Cardinality and Requirements

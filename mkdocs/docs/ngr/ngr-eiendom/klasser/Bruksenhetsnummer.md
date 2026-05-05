@@ -82,9 +82,9 @@ URI: [ngre:Bruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruks
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [etasjeplan](etasjeplan.md) | 1 <br/> [Etasjeplan](Etasjeplan.md) | Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M) |
-| [etasjenummer](etasjenummer.md) | 1 <br/> [Integer](Integer.md) | Etasjenummer (t |
-| [nummerering_i_etasjen](nummerering_i_etasjen.md) | 1 <br/> [Integer](Integer.md) | Løpenummer for brukseininga innanfor etasjen |
+| [etasjeplan](etasjeplan.md) | 1 <br/> [Etasjeplan](etasjeplan.md) | Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M) |
+| [etasjenummer](etasjenummer.md) | 1 <br/> [Integer](integer.md) | Etasjenummer (t |
+| [nummerering_i_etasjen](nummerering_i_etasjen.md) | 1 <br/> [Integer](integer.md) | Løpenummer for brukseininga innanfor etasjen |
 
 
 
@@ -174,7 +174,7 @@ URI: [ngre:Bruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruks
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -187,7 +187,7 @@ URI: [ngre:Bruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruks
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Bruksenhet](Bruksenhet.md) | [har_bruksenhetsnummer](har_bruksenhetsnummer.md) | range | [Bruksenhetsnummer](Bruksenhetsnummer.md) |
+| [Bruksenhet](bruksenhet.md) | [har_bruksenhetsnummer](har_bruksenhetsnummer.md) | range | [Bruksenhetsnummer](bruksenhetsnummer.md) |
 
 
 

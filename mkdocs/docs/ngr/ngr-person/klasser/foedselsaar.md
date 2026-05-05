@@ -22,7 +22,7 @@ Alias: foedselsaar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Foedsel](Foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |  yes  |
+| [Foedsel](foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foedselsaar
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Foedsel](Foedsel.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Foedsel](foedsel.md) |
 | Slot URI | [ngrp:foedselsaar](https://data.norge.no/vocabulary/ngr-person#foedselsaar) |
 
 ### Cardinality and Requirements

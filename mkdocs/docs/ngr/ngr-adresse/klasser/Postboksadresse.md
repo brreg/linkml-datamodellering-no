@@ -56,7 +56,7 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **Postboksadresse**
 
 
@@ -93,8 +93,8 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [postboks_ref](postboks_ref.md) | 1 <br/> [Postboks](Postboks.md) | Postboksen denne postboksadressa tilhøyrer |
-| [poststed_ref](poststed_ref.md) | 1 <br/> [Poststed](Poststed.md) | Poststedet (postnummer) denne adressa høyrer til |
+| [postboks_ref](postboks_ref.md) | 1 <br/> [Postboks](postboks.md) | Postboksen denne postboksadressa tilhøyrer |
+| [poststed_ref](poststed_ref.md) | 1 <br/> [Poststed](poststed.md) | Poststedet (postnummer) denne adressa høyrer til |
 
 
 
@@ -129,7 +129,7 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [postboksanleggsnavn](postboksanleggsnavn.md) | 0..1 <br/> [String](String.md) | Namn på postboksanlegget (t |
+| [postboksanleggsnavn](postboksanleggsnavn.md) | 0..1 <br/> [String](string.md) | Namn på postboksanlegget (t |
 
 
 
@@ -181,7 +181,7 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -191,7 +191,7 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [postboksadresser](postboksadresser.md) | range | [Postboksadresse](Postboksadresse.md) |
+| [AdresseContainer](adressecontainer.md) | [postboksadresser](postboksadresser.md) | range | [Postboksadresse](postboksadresse.md) |
 
 
 

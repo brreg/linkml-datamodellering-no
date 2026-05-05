@@ -22,7 +22,7 @@ Alias: arbeidssted
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: arbeidssted
 
 | Property | Value |
 | --- | --- |
-| Range | [Organisasjonselement](Organisasjonselement.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [Organisasjonselement](organisasjonselement.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:arbeidssted](https://schema.fintlabs.no/administrasjon/arbeidssted) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: arbeidssted
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidsforhold](Arbeidsforhold.md) |
+| Owner | [Arbeidsforhold](arbeidsforhold.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: arbeidssted
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

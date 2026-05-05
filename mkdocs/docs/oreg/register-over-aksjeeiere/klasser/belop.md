@@ -22,10 +22,10 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vederlag](Vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
-| [InnbetaltOverkurs](InnbetaltOverkurs.md) | Innbetalt overkurs utover pålydande |  no  |
-| [InnbetaltAksjekapital](InnbetaltAksjekapital.md) | Innbetalt aksjekapital |  no  |
-| [Utdeling](Utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |  no  |
+| [InnbetaltOverkurs](innbetaltoverkurs.md) | Innbetalt overkurs utover pålydande |  no  |
+| [Utdeling](utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |  no  |
+| [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
+| [InnbetaltAksjekapital](innbetaltaksjekapital.md) | Innbetalt aksjekapital |  no  |
 
 
 
@@ -38,8 +38,8 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [Decimal](Decimal.md) |
-| Domain Of | [Utdeling](Utdeling.md), [Vederlag](Vederlag.md), [InnbetaltAksjekapital](InnbetaltAksjekapital.md), [InnbetaltOverkurs](InnbetaltOverkurs.md) |
+| Range | [Decimal](decimal.md) |
+| Domain Of | [Utdeling](utdeling.md), [Vederlag](vederlag.md), [InnbetaltAksjekapital](innbetaltaksjekapital.md), [InnbetaltOverkurs](innbetaltoverkurs.md) |
 
 ### Cardinality and Requirements
 

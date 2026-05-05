@@ -22,9 +22,9 @@ Alias: tittel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: tittel
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md), [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md), [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md), [Klassifikasjonsnivaa](klassifikasjonsnivaa.md), [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) |
 | Slot URI | [dct:title](http://purl.org/dc/terms/title) |
 
 ### Cardinality and Requirements

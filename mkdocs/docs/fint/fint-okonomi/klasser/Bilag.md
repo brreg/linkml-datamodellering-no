@@ -22,7 +22,7 @@ Alias: bilag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bilag
 
 | Property | Value |
 | --- | --- |
-| Range | [Bilag](Bilag.md) |
-| Domain Of | [Transaksjon](Transaksjon.md) |
+| Range | [Bilag](bilag.md) |
+| Domain Of | [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:bilag](https://schema.fintlabs.no/okonomi/bilag) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: bilag
 
 | Property | Value |
 | --- | --- |
-| Owner | [Transaksjon](Transaksjon.md) |
+| Owner | [Transaksjon](transaksjon.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: bilag
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

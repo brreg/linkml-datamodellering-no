@@ -5,7 +5,7 @@ _Anbefalte eigenskapar i ein AP-NO-profil._
 
 
 
-URI: [Anbefalt](Anbefalt.md)
+URI: [Anbefalt](anbefalt.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: har_objekttype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolle](Rolle.md) | Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon |  yes  |
+| [Rolle](rolle.md) | Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_objekttype
 
 | Property | Value |
 | --- | --- |
-| Range | [Objekttype](Objekttype.md) |
-| Domain Of | [Rolle](Rolle.md) |
+| Range | [Objekttype](objekttype.md) |
+| Domain Of | [Rolle](rolle.md) |
 | Slot URI | [modelldcatno:hasObjectType](https://data.norge.no/vocabulary/modelldcatno#hasObjectType) |
 
 ### Cardinality and Requirements

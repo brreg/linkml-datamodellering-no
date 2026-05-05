@@ -17,9 +17,9 @@ Alias: personalressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Arkivressurs](Arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
-| [Personalmappe](Personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Arkivressurs](Arkivressurs.md), [Personalmappe](Personalmappe.md), [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [Arkivressurs](arkivressurs.md), [Personalmappe](personalmappe.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 

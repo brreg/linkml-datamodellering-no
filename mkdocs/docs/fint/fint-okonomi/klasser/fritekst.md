@@ -22,7 +22,7 @@ Alias: fritekst
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturalinje](Fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
+| [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fritekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fakturalinje](Fakturalinje.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fakturalinje](fakturalinje.md) |
 | Slot URI | [okn:fritekst](https://schema.fintlabs.no/okonomi/fritekst) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fritekst
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fakturalinje](Fakturalinje.md) |
+| Owner | [Fakturalinje](fakturalinje.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fritekst
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

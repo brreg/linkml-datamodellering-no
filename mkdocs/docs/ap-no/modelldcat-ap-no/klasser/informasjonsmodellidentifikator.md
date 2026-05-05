@@ -22,7 +22,7 @@ Alias: informasjonsmodellidentifikator
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: informasjonsmodellidentifikator
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [String](string.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [modelldcatno:informationModelIdentifier](https://data.norge.no/vocabulary/modelldcatno#informationModelIdentifier) |
 
 ### Cardinality and Requirements

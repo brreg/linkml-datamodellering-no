@@ -82,7 +82,7 @@ URI: [ngrv:RolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Rol
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [rollebetegnelse](rollebetegnelse.md) | 1 <br/> [RolleType](RolleType.md) | Kva type rolle dette er (dagleg leiar, styreleiar o |
+| [rollebetegnelse](rollebetegnelse.md) | 1 <br/> [RolleType](rolletype.md) | Kva type rolle dette er (dagleg leiar, styreleiar o |
 
 
 
@@ -104,7 +104,7 @@ URI: [ngrv:RolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Rol
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_rolleinnehaver](har_rolleinnehaver.md) | * <br/> [Rolleinnehaver](Rolleinnehaver.md) | Rolleinnehavar(ar) for denne rolla |
+| [har_rolleinnehaver](har_rolleinnehaver.md) | * <br/> [Rolleinnehaver](rolleinnehaver.md) | Rolleinnehavar(ar) for denne rolla |
 
 
 
@@ -162,7 +162,7 @@ URI: [ngrv:RolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Rol
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -175,8 +175,8 @@ URI: [ngrv:RolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Rol
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [rollerIVirksomhet](rollerIVirksomhet.md) | range | [RolleIVirksomhet](RolleIVirksomhet.md) |
-| [Hovedenhet](Hovedenhet.md) | [har_rolle_i_virksomhet](har_rolle_i_virksomhet.md) | range | [RolleIVirksomhet](RolleIVirksomhet.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [rollerIVirksomhet](rollerivirksomhet.md) | range | [RolleIVirksomhet](rolleivirksomhet.md) |
+| [Hovedenhet](hovedenhet.md) | [har_rolle_i_virksomhet](har_rolle_i_virksomhet.md) | range | [RolleIVirksomhet](rolleivirksomhet.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: har_bosted_paa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_bosted_paa
 
 | Property | Value |
 | --- | --- |
-| Range | [Bostedsadresse](Bostedsadresse.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Bostedsadresse](bostedsadresse.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harBostedPaa](https://data.norge.no/vocabulary/ngr-person#harBostedPaa) |
 
 ### Cardinality and Requirements

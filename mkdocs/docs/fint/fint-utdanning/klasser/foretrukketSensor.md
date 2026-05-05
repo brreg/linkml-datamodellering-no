@@ -22,7 +22,7 @@ Alias: foretrukketSensor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foretrukketSensor
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 | Slot URI | [utd:foretrukketSensor](https://schema.fintlabs.no/utdanning/foretrukketSensor) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: foretrukketSensor
 
 | Property | Value |
 | --- | --- |
-| Owner | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Owner | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: foretrukketSensor
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

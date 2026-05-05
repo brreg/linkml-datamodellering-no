@@ -22,7 +22,7 @@ Alias: ligger_i_etasje
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksenhet](Bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
+| [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ligger_i_etasje
 
 | Property | Value |
 | --- | --- |
-| Range | [Etasje](Etasje.md) |
-| Domain Of | [Bruksenhet](Bruksenhet.md) |
+| Range | [Etasje](etasje.md) |
+| Domain Of | [Bruksenhet](bruksenhet.md) |
 | Slot URI | [ngre:liggerIEtasje](https://data.norge.no/vocabulary/ngr-eiendom#liggerIEtasje) |
 
 ### Cardinality and Requirements

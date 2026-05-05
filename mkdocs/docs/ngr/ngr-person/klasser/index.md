@@ -12,41 +12,41 @@ Name: ngr-person
 
 | Class | Description |
 | --- | --- |
-| [Adressebeskyttelse](Adressebeskyttelse.md) | Gradering av adressebeskyttelse for innflyttede personar til Noreg |
-| [Dodsfall](Dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |
-| [FalskIdentitet](FalskIdentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |
-| [FamilierelasjonBarn](FamilierelasjonBarn.md) | Familierelasjon der den relaterte personen er barn |
-| [FamilierelasjonEktefelle](FamilierelasjonEktefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |
-| [FamilierelasjonForelder](FamilierelasjonForelder.md) | Familierelasjon der den relaterte personen er forelder |
-| [Foedsel](Foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |
-| [Folkeregisteridentifikator](Folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DNummer](DNummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Foedselsnummer](Foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |
-| [ForeldreansvarBarn](ForeldreansvarBarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |
-| [ForeldreansvarForelder](ForeldreansvarForelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |
-| [GeografiskAdresse](GeografiskAdresse.md) | Abstrakt klasse for geografiske adresser |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Bostedsadresse](Bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Oppholdsadresse](Oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](Postadresse.md) | Adressa der personen mottar post |
-| [Identifikasjonsdokument](Identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |
-| [Identitetsgrunnlag](Identitetsgrunnlag.md) | Grunnlaget som er brukt for å fastsetje identiteten til ein person ved regist... |
-| [InnflyttingTilNorge](InnflyttingTilNorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |
-| [Kjoenn](Kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |
-| [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md) | Kontaktinformasjon for eit dødsbu |
-| [Kontaktopplysninger](Kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |
-| [Opphold](Opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |
-| [Personidentifikasjon](Personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |
-| [Personnavn](Personnavn.md) | Offisielt registrert namn på ein person i Folkeregisteret |
-| [Personstatus](Personstatus.md) | Status for ein person i Folkeregisteret (t |
-| [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) | Registrering av at ein person har reservert seg mot digital kommunikasjon frå... |
-| [RettsligHandleevne](RettsligHandleevne.md) | Registrering av avgrensing i rettsleg handleevne for ein person, t |
-| [Sivilstand](Sivilstand.md) | Sivilstand registrert på ein person i Folkeregisteret |
-| [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) | Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, va... |
-| [Statsborgerskap](Statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |
-| [UtflyttingFraNorge](UtflyttingFraNorge.md) | Registrering av utflytting frå Noreg i Folkeregisteret |
-| [Verge](Verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |
+| [Adressebeskyttelse](adressebeskyttelse.md) | Gradering av adressebeskyttelse for innflyttede personar til Noreg |
+| [Dodsfall](dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |
+| [FalskIdentitet](falskidentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |
+| [FamilierelasjonBarn](familierelasjonbarn.md) | Familierelasjon der den relaterte personen er barn |
+| [FamilierelasjonEktefelle](familierelasjonektefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |
+| [FamilierelasjonForelder](familierelasjonforelder.md) | Familierelasjon der den relaterte personen er forelder |
+| [Foedsel](foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |
+| [Folkeregisteridentifikator](folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DNummer](dnummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Foedselsnummer](foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |
+| [ForeldreansvarBarn](foreldreansvarbarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |
+| [ForeldreansvarForelder](foreldreansvarforelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |
+| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Bostedsadresse](bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Oppholdsadresse](oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](postadresse.md) | Adressa der personen mottar post |
+| [Identifikasjonsdokument](identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |
+| [Identitetsgrunnlag](identitetsgrunnlag.md) | Grunnlaget som er brukt for å fastsetje identiteten til ein person ved regist... |
+| [InnflyttingTilNorge](innflyttingtilnorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |
+| [Kjoenn](kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |
+| [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) | Kontaktinformasjon for eit dødsbu |
+| [Kontaktopplysninger](kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |
+| [Opphold](opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |
+| [Personidentifikasjon](personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |
+| [Personnavn](personnavn.md) | Offisielt registrert namn på ein person i Folkeregisteret |
+| [Personstatus](personstatus.md) | Status for ein person i Folkeregisteret (t |
+| [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) | Registrering av at ein person har reservert seg mot digital kommunikasjon frå... |
+| [RettsligHandleevne](rettslighandleevne.md) | Registrering av avgrensing i rettsleg handleevne for ein person, t |
+| [Sivilstand](sivilstand.md) | Sivilstand registrert på ein person i Folkeregisteret |
+| [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) | Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, va... |
+| [Statsborgerskap](statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |
+| [UtflyttingFraNorge](utflyttingfranorge.md) | Registrering av utflytting frå Noreg i Folkeregisteret |
+| [Verge](verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |
 
 
 
@@ -70,17 +70,17 @@ Name: ngr-person
 | [er_falsk](er_falsk.md) | Om denne identiteten er registrert som falsk |
 | [er_reservert](er_reservert.md) | Om personen er reservert mot digital kommunikasjon frå det offentlege |
 | [etternavn](etternavn.md) | Etternamn til personen |
-| [falskIdentitetar](falskIdentitetar.md) |  |
-| [familierelasjonBarn](familierelasjonBarn.md) |  |
-| [familierelasjonEktefelle](familierelasjonEktefelle.md) |  |
-| [familierelasjonForelder](familierelasjonForelder.md) |  |
+| [falskIdentitetar](falskidentitetar.md) |  |
+| [familierelasjonBarn](familierelasjonbarn.md) |  |
+| [familierelasjonEktefelle](familierelasjonektefelle.md) |  |
+| [familierelasjonForelder](familierelasjonforelder.md) |  |
 | [foedested](foedested.md) | Fødested (kommune eller land) |
 | [foedselsaar](foedselsaar.md) | Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar) |
 | [foedselsdato](foedselsdato.md) | Fødselsdato (kan vere ukjent for eldre registreringar) |
 | [foedselsnummer](foedselsnummer.md) |  |
 | [foedslar](foedslar.md) |  |
-| [foreldreansvarBarn](foreldreansvarBarn.md) |  |
-| [foreldreansvarForelder](foreldreansvarForelder.md) |  |
+| [foreldreansvarBarn](foreldreansvarbarn.md) |  |
+| [foreldreansvarForelder](foreldreansvarforelder.md) |  |
 | [foreldrerelasjon_type](foreldrerelasjon_type.md) | Type foreldrerelasjon (MOR, FAR, MEDMOR o |
 | [forkortet_navn](forkortet_navn.md) | Forkorta versjon av fullt namn |
 | [fornavn](fornavn.md) | Fornamn(et/a) til personen |
@@ -127,7 +127,7 @@ Name: ngr-person
 | [innflyttingsdato](innflyttingsdato.md) | Dato personen vart registrert innflytta til Noreg |
 | [kjoenn](kjoenn.md) |  |
 | [kjoenn_kode](kjoenn_kode.md) | Kjønnskode (MANN, KVINNE, UKJENT) |
-| [kontaktinformasjonDoedsbo](kontaktinformasjonDoedsbo.md) |  |
+| [kontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) |  |
 | [kontaktopplysningar](kontaktopplysningar.md) |  |
 | [landkode](landkode.md) | ISO 3166-1 alfa-2 landkode (t |
 | [mellomnavn](mellomnavn.md) | Mellomnamn til personen |
@@ -150,7 +150,7 @@ Name: ngr-person
 | [rett_identitet](rett_identitet.md) | Den rette identiteten til ein person som har opptrådt med falsk identitet |
 | [rett_identitet_er_ukjent](rett_identitet_er_ukjent.md) | Om den rette identiteten er ukjent (når falsk identitet er registrert) |
 | [rettslig_handleevne_type](rettslig_handleevne_type.md) | Type avgrensing i rettsleg handleevne |
-| [rettsligHandleevne](rettsligHandleevne.md) |  |
+| [rettsligHandleevne](rettslighandleevne.md) |  |
 | [sist_oppdatert](sist_oppdatert.md) | Dato kontaktopplysningane sist vart oppdatert |
 | [sivilstand](sivilstand.md) |  |
 | [sivilstand_type](sivilstand_type.md) | Sivilstandstype (UGIFT, GIFT, SKILT o |
@@ -173,45 +173,45 @@ Name: ngr-person
 
 | Enumeration | Description |
 | --- | --- |
-| [AdressebeskyttelseGradering](AdressebeskyttelseGradering.md) | Gradering av adressebeskyttelse (tidlegare kode 6/7) |
-| [IdentifikasjonsdokumentType](IdentifikasjonsdokumentType.md) | Type utanlandsk identifikasjonsdokument |
-| [KjoennKode](KjoennKode.md) | Kjønn registrert i Folkeregisteret |
-| [OppholdstypeKode](OppholdstypeKode.md) | Type opphaldstillatelse registrert i Folkeregisteret |
-| [PersonstatusType](PersonstatusType.md) | Personens status i Folkeregisteret |
-| [RettsligHandleevneType](RettsligHandleevneType.md) | Type avgrensing av rettsleg handleevne |
-| [SivilstandType](SivilstandType.md) | Sivilstandskode frå Folkeregisteret |
-| [VergetypeKode](VergetypeKode.md) | Type vergemål |
+| [AdressebeskyttelseGradering](adressebeskyttelsegradering.md) | Gradering av adressebeskyttelse (tidlegare kode 6/7) |
+| [IdentifikasjonsdokumentType](identifikasjonsdokumenttype.md) | Type utanlandsk identifikasjonsdokument |
+| [KjoennKode](kjoennkode.md) | Kjønn registrert i Folkeregisteret |
+| [OppholdstypeKode](oppholdstypekode.md) | Type opphaldstillatelse registrert i Folkeregisteret |
+| [PersonstatusType](personstatustype.md) | Personens status i Folkeregisteret |
+| [RettsligHandleevneType](rettslighandleevnetype.md) | Type avgrensing av rettsleg handleevne |
+| [SivilstandType](sivilstandtype.md) | Sivilstandskode frå Folkeregisteret |
+| [VergetypeKode](vergetypekode.md) | Type vergemål |
 
 
 ## Types
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
-| [Obligatorisk](Obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
-| [Valgfri](Valgfri.md) | Valfrie eigenskapar i domenemodellen |
+| [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
+| [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
+| [Valgfri](valgfri.md) | Valfrie eigenskapar i domenemodellen |

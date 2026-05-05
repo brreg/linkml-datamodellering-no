@@ -22,7 +22,7 @@ Alias: tilstedeprosent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilstedeprosent
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:tilstedeprosent](https://schema.fintlabs.no/administrasjon/tilstedeprosent) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: tilstedeprosent
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidsforhold](Arbeidsforhold.md) |
+| Owner | [Arbeidsforhold](arbeidsforhold.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: tilstedeprosent
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

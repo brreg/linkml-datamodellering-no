@@ -75,8 +75,8 @@ URI: [skosno:AssociativeConceptRelation](https://data.norge.no/vocabulary/skosno
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [til_omgrep](til_omgrep.md) | 1..* <br/> [Begrep](Begrep.md) | Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept) |
-| [relasjontype](relasjontype.md) | 1 <br/> [LangString](LangString.md) | Rolle eller type av den assosiative relasjonen (skosno:relationRole) |
+| [til_omgrep](til_omgrep.md) | 1..* <br/> [Begrep](begrep.md) | Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept) |
+| [relasjontype](relasjontype.md) | 1 <br/> [LangString](langstring.md) | Rolle eller type av den assosiative relasjonen (skosno:relationRole) |
 
 
 
@@ -147,7 +147,7 @@ URI: [skosno:AssociativeConceptRelation](https://data.norge.no/vocabulary/skosno
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -160,7 +160,7 @@ URI: [skosno:AssociativeConceptRelation](https://data.norge.no/vocabulary/skosno
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Begrep](Begrep.md) | [er_fra_omgrep_i](er_fra_omgrep_i.md) | range | [AssosiativRelasjon](AssosiativRelasjon.md) |
+| [Begrep](begrep.md) | [er_fra_omgrep_i](er_fra_omgrep_i.md) | range | [AssosiativRelasjon](assosiativrelasjon.md) |
 
 
 

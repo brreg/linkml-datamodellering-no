@@ -22,7 +22,7 @@ Alias: klassifikasjonstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonssystem](Klassifikasjonssystem.md) | Overordna struktur for mappene i ein eller fleire arkivdelar |  no  |
+| [Klassifikasjonssystem](klassifikasjonssystem.md) | Overordna struktur for mappene i ein eller fleire arkivdelar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: klassifikasjonstype
 
 | Property | Value |
 | --- | --- |
-| Range | [Klassifikasjonstype](Klassifikasjonstype.md) |
-| Domain Of | [Klassifikasjonssystem](Klassifikasjonssystem.md) |
+| Range | [Klassifikasjonstype](klassifikasjonstype.md) |
+| Domain Of | [Klassifikasjonssystem](klassifikasjonssystem.md) |
 | Slot URI | [ark:klassifikasjonstype](https://schema.fintlabs.no/arkiv/klassifikasjonstype) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: klassifikasjonstype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Klassifikasjonssystem](Klassifikasjonssystem.md) |
+| Owner | [Klassifikasjonssystem](klassifikasjonssystem.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: klassifikasjonstype
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

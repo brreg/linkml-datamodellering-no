@@ -22,7 +22,7 @@ Alias: paavirker_eierposisjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: paavirker_eierposisjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Eierposisjon](Eierposisjon.md) |
-| Domain | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
-| Domain Of | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
+| Range | [Eierposisjon](eierposisjon.md) |
+| Domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
+| Domain Of | [Eierskapstransaksjon](eierskapstransaksjon.md) |
 
 ### Cardinality and Requirements
 

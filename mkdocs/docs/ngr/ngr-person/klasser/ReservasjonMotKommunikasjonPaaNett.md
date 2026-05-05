@@ -64,7 +64,7 @@ URI: [ngrp:ReservasjonMotKommunikasjonPaaNett](https://data.norge.no/vocabulary/
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_reservert](er_reservert.md) | 1 <br/> [Boolean](Boolean.md) | Om personen er reservert mot digital kommunikasjon frå det offentlege |
+| [er_reservert](er_reservert.md) | 1 <br/> [Boolean](boolean.md) | Om personen er reservert mot digital kommunikasjon frå det offentlege |
 
 
 
@@ -86,7 +86,7 @@ URI: [ngrp:ReservasjonMotKommunikasjonPaaNett](https://data.norge.no/vocabulary/
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](Date.md) | Dato opplysinga er gyldig frå og med |
+| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig frå og med |
 
 
 
@@ -144,7 +144,7 @@ URI: [ngrp:ReservasjonMotKommunikasjonPaaNett](https://data.norge.no/vocabulary/
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -157,8 +157,8 @@ URI: [ngrp:ReservasjonMotKommunikasjonPaaNett](https://data.norge.no/vocabulary/
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [reservasjonar](reservasjonar.md) | range | [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) |
-| [Person](Person.md) | [har_reservasjon_mot_kommunikasjon](har_reservasjon_mot_kommunikasjon.md) | range | [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) |
+| [PersonContainer](personcontainer.md) | [reservasjonar](reservasjonar.md) | range | [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) |
+| [Person](person.md) | [har_reservasjon_mot_kommunikasjon](har_reservasjon_mot_kommunikasjon.md) | range | [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) |
 
 
 

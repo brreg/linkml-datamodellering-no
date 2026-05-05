@@ -22,7 +22,7 @@ Alias: arbeidsforholdstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: arbeidsforholdstype
 
 | Property | Value |
 | --- | --- |
-| Range | [Arbeidsforholdstype](Arbeidsforholdstype.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [Arbeidsforholdstype](arbeidsforholdstype.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:arbeidsforholdstype](https://schema.fintlabs.no/administrasjon/arbeidsforholdstype) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: arbeidsforholdstype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidsforhold](Arbeidsforhold.md) |
+| Owner | [Arbeidsforhold](arbeidsforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: arbeidsforholdstype
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

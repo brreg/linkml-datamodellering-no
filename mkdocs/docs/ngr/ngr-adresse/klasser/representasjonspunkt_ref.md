@@ -22,7 +22,7 @@ Alias: representasjonspunkt_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: representasjonspunkt_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Representasjonspunkt](Representasjonspunkt.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [Representasjonspunkt](representasjonspunkt.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:harRepresentasjonspunkt](https://data.norge.no/vocabulary/ngr-adresse#harRepresentasjonspunkt) |
 
 ### Cardinality and Requirements

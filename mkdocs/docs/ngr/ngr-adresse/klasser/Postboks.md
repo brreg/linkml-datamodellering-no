@@ -59,7 +59,7 @@ URI: [ngr:Postboks](https://data.norge.no/vocabulary/ngr-adresse#Postboks)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [postboksnummer](postboksnummer.md) | 1 <br/> [Integer](Integer.md) | Postboksnummer (heiltal) |
+| [postboksnummer](postboksnummer.md) | 1 <br/> [Integer](integer.md) | Postboksnummer (heiltal) |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngr:Postboks](https://data.norge.no/vocabulary/ngr-adresse#Postboks)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,8 +124,8 @@ URI: [ngr:Postboks](https://data.norge.no/vocabulary/ngr-adresse#Postboks)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [postboksar](postboksar.md) | range | [Postboks](Postboks.md) |
-| [Postboksadresse](Postboksadresse.md) | [postboks_ref](postboks_ref.md) | range | [Postboks](Postboks.md) |
+| [AdresseContainer](adressecontainer.md) | [postboksar](postboksar.md) | range | [Postboks](postboks.md) |
+| [Postboksadresse](postboksadresse.md) | [postboks_ref](postboks_ref.md) | range | [Postboks](postboks.md) |
 
 
 

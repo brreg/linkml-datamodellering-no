@@ -22,7 +22,7 @@ Alias: personalleder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: personalleder
 
 | Property | Value |
 | --- | --- |
-| Range | [Personalressurs](Personalressurs.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [Personalressurs](personalressurs.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:personalleder](https://schema.fintlabs.no/administrasjon/personalleder) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: personalleder
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidsforhold](Arbeidsforhold.md) |
+| Owner | [Arbeidsforhold](arbeidsforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: personalleder
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -73,8 +73,8 @@ URI: [modelldcatno:Xor](https://data.norge.no/vocabulary/modelldcatno#Xor)
 
 
 ## Inheritance
-* [Merknad](Merknad.md)
-    * [Betingelsesregel](Betingelsesregel.md)
+* [Merknad](merknad.md)
+    * [Betingelsesregel](betingelsesregel.md)
         * **XEllerY**
 
 
@@ -112,14 +112,14 @@ URI: [modelldcatno:Xor](https://data.norge.no/vocabulary/modelldcatno#Xor)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [betinger](betinger.md) | 1..* <br/> [Modellelement](Modellelement.md) | Modellelement betingelsesregelen avgrensar (modelldcatno:constrains) | [Betingelsesregel](Betingelsesregel.md) |
-| [betingelsesuttrykk](betingelsesuttrykk.md) | * <br/> [LangString](LangString.md) | Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression) | [Betingelsesregel](Betingelsesregel.md) |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Merknad](Merknad.md) |
-| [annoterer](annoterer.md) | * <br/> [Modellelement](Modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) | [Merknad](Merknad.md) |
-| [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](LangString.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) | [Merknad](Merknad.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Merknad](Merknad.md) |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) | [Merknad](Merknad.md) |
-| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Merknad](Merknad.md) |
+| --- | --- | --- | --- || [betinger](betinger.md) | 1..* <br/> [Modellelement](modellelement.md) | Modellelement betingelsesregelen avgrensar (modelldcatno:constrains) | [Betingelsesregel](betingelsesregel.md) |
+| [betingelsesuttrykk](betingelsesuttrykk.md) | * <br/> [LangString](langstring.md) | Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression) | [Betingelsesregel](betingelsesregel.md) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Merknad](merknad.md) |
+| [annoterer](annoterer.md) | * <br/> [Modellelement](modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) | [Merknad](merknad.md) |
+| [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) | [Merknad](merknad.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Merknad](merknad.md) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Merknad](merknad.md) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Merknad](merknad.md) |
 
 
 

@@ -78,7 +78,7 @@ URI: [ngre:TinglystHeftelse](https://data.norge.no/vocabulary/ngr-eiendom#Tingly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,9 +91,9 @@ URI: [ngre:TinglystHeftelse](https://data.norge.no/vocabulary/ngr-eiendom#Tingly
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [tinglystHeftelser](tinglystHeftelser.md) | range | [TinglystHeftelse](TinglystHeftelse.md) |
-| [FastEiendom](FastEiendom.md) | [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | range | [TinglystHeftelse](TinglystHeftelse.md) |
-| [Borettslagsandel](Borettslagsandel.md) | [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | range | [TinglystHeftelse](TinglystHeftelse.md) |
+| [EiendomContainer](eiendomcontainer.md) | [tinglystHeftelser](tinglystheftelser.md) | range | [TinglystHeftelse](tinglystheftelse.md) |
+| [FastEiendom](fasteiendom.md) | [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | range | [TinglystHeftelse](tinglystheftelse.md) |
+| [Borettslagsandel](borettslagsandel.md) | [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | range | [TinglystHeftelse](tinglystheftelse.md) |
 
 
 

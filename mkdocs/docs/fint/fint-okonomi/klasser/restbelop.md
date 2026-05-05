@@ -22,7 +22,7 @@ Alias: restbelop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: restbelop
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Faktura](Faktura.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Faktura](faktura.md) |
 | Slot URI | [okn:restbelop](https://schema.fintlabs.no/okonomi/restbelop) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: restbelop
 
 | Property | Value |
 | --- | --- |
-| Owner | [Faktura](Faktura.md) |
+| Owner | [Faktura](faktura.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: restbelop
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

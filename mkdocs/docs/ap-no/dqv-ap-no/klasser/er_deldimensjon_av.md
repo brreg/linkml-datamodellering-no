@@ -22,7 +22,7 @@ Alias: er_deldimensjon_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
+| [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_deldimensjon_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| Domain Of | [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) |
+| Range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| Domain Of | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) |
 | Slot URI | [skos:broader](http://www.w3.org/2004/02/skos/core#broader) |
 
 ### Cardinality and Requirements

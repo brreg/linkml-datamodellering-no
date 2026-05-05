@@ -22,9 +22,9 @@ Alias: kan_utlose
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Livshendelse](Livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  no  |
-| [Virksomhetshendelse](Virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
-| [Hendelse](Hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |  yes  |
+| [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  no  |
+| [Hendelse](hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |  yes  |
+| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: kan_utlose
 
 | Property | Value |
 | --- | --- |
-| Range | [OffentligTjeneste](OffentligTjeneste.md) |
-| Domain Of | [Hendelse](Hendelse.md) |
+| Range | [OffentligTjeneste](offentligtjeneste.md) |
+| Domain Of | [Hendelse](hendelse.md) |
 | Slot URI | [cpsvno:mayTrigger](https://data.norge.no/vocabulary/cpsvno#mayTrigger) |
 
 ### Cardinality and Requirements

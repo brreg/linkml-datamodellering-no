@@ -80,8 +80,8 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilstandstype](tilstandstype.md) | 1 <br/> [TilstandType](TilstandType.md) | Type tilstand (AKTIV, UNDER_KONKURS o |
-| [gyldig_fra](gyldig_fra.md) | 1 <br/> [Date](Date.md) | Datoen tilstanden vart gyldig frå |
+| [tilstandstype](tilstandstype.md) | 1 <br/> [TilstandType](tilstandtype.md) | Type tilstand (AKTIV, UNDER_KONKURS o |
+| [gyldig_fra](gyldig_fra.md) | 1 <br/> [Date](date.md) | Datoen tilstanden vart gyldig frå |
 
 
 
@@ -122,7 +122,7 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_til](gyldig_til.md) | 0..1 <br/> [Date](Date.md) | Datoen tilstanden vart gyldig til |
+| [gyldig_til](gyldig_til.md) | 0..1 <br/> [Date](date.md) | Datoen tilstanden vart gyldig til |
 
 
 
@@ -180,7 +180,7 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -193,10 +193,10 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [tilstander](tilstander.md) | range | [Tilstand](Tilstand.md) |
-| [Virksomhet](Virksomhet.md) | [har_tilstand](har_tilstand.md) | range | [Tilstand](Tilstand.md) |
-| [Underenhet](Underenhet.md) | [har_tilstand](har_tilstand.md) | range | [Tilstand](Tilstand.md) |
-| [Hovedenhet](Hovedenhet.md) | [har_tilstand](har_tilstand.md) | range | [Tilstand](Tilstand.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [tilstander](tilstander.md) | range | [Tilstand](tilstand.md) |
+| [Virksomhet](virksomhet.md) | [har_tilstand](har_tilstand.md) | range | [Tilstand](tilstand.md) |
+| [Underenhet](underenhet.md) | [har_tilstand](har_tilstand.md) | range | [Tilstand](tilstand.md) |
+| [Hovedenhet](hovedenhet.md) | [har_tilstand](har_tilstand.md) | range | [Tilstand](tilstand.md) |
 
 
 

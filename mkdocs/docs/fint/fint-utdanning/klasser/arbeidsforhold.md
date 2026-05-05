@@ -22,7 +22,7 @@ Alias: arbeidsforhold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Undervisningsforhold](Undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: arbeidsforhold
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Undervisningsforhold](Undervisningsforhold.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Undervisningsforhold](undervisningsforhold.md) |
 | Slot URI | [utd:arbeidsforhold](https://schema.fintlabs.no/utdanning/arbeidsforhold) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: arbeidsforhold
 
 | Property | Value |
 | --- | --- |
-| Owner | [Undervisningsforhold](Undervisningsforhold.md) |
+| Owner | [Undervisningsforhold](undervisningsforhold.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: arbeidsforhold
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

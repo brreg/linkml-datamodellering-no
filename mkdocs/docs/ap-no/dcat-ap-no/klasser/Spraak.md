@@ -78,7 +78,7 @@ URI: [dct:LinguisticSystem](http://purl.org/dc/terms/LinguisticSystem)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,11 +91,11 @@ URI: [dct:LinguisticSystem](http://purl.org/dc/terms/LinguisticSystem)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [RegulativRessurs](RegulativRessurs.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Distribusjon](Distribusjon.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Datasett](Datasett.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Katalogpost](Katalogpost.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Katalog](Katalog.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
+| [RegulativRessurs](regulativressurs.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Distribusjon](distribusjon.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Datasett](datasett.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Katalogpost](katalogpost.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Katalog](katalog.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
 
 
 

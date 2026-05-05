@@ -17,8 +17,8 @@ Alias: fullmakt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolle](Rolle.md) | Rettighet eller type fullmakt |  no  |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Rolle](rolle.md) | Rettighet eller type fullmakt |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: fullmakt
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Rolle](Rolle.md), [Personalressurs](Personalressurs.md) |
+| Range | [String](string.md) |
+| Domain Of | [Rolle](rolle.md), [Personalressurs](personalressurs.md) |
 
 ### Cardinality and Requirements
 

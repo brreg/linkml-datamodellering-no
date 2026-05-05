@@ -22,7 +22,7 @@ Alias: navn_aktor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktor](Aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  yes  |
+| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: navn_aktor
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Aktor](Aktor.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Aktor](aktor.md) |
 | Slot URI | [foaf:name](http://xmlns.com/foaf/0.1/name) |
 
 ### Cardinality and Requirements

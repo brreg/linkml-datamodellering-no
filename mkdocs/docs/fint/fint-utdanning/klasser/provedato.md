@@ -22,7 +22,7 @@ Alias: provedato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |  no  |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: provedato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [AvlagtProve](AvlagtProve.md) |
+| Range | [Date](date.md) |
+| Domain Of | [AvlagtProve](avlagtprove.md) |
 | Slot URI | [utd:provedato](https://schema.fintlabs.no/utdanning/provedato) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: provedato
 
 | Property | Value |
 | --- | --- |
-| Owner | [AvlagtProve](AvlagtProve.md) |
+| Owner | [AvlagtProve](avlagtprove.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: provedato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

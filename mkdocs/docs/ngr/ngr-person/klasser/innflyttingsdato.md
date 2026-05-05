@@ -22,7 +22,7 @@ Alias: innflyttingsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [InnflyttingTilNorge](InnflyttingTilNorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |  yes  |
+| [InnflyttingTilNorge](innflyttingtilnorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: innflyttingsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [InnflyttingTilNorge](InnflyttingTilNorge.md) |
+| Range | [Date](date.md) |
+| Domain Of | [InnflyttingTilNorge](innflyttingtilnorge.md) |
 | Slot URI | [ngrp:innflyttingsdato](https://data.norge.no/vocabulary/ngr-person#innflyttingsdato) |
 
 ### Cardinality and Requirements

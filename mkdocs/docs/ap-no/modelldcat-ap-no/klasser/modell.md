@@ -22,7 +22,7 @@ Alias: modell
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: modell
 
 | Property | Value |
 | --- | --- |
-| Range | [Informasjonsmodell](Informasjonsmodell.md) |
-| Domain Of | [Modelkatalog](Modelkatalog.md) |
+| Range | [Informasjonsmodell](informasjonsmodell.md) |
+| Domain Of | [Modelkatalog](modelkatalog.md) |
 | Slot URI | [modelldcatno:model](https://data.norge.no/vocabulary/modelldcatno#model) |
 
 ### Cardinality and Requirements

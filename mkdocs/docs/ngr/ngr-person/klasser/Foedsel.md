@@ -69,7 +69,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [foedselsaar](foedselsaar.md) | 1 <br/> [Integer](Integer.md) | Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar) |
+| [foedselsaar](foedselsaar.md) | 1 <br/> [Integer](integer.md) | Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar) |
 
 
 
@@ -94,7 +94,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [foedselsdato](foedselsdato.md) | 0..1 <br/> [Date](Date.md) | Fødselsdato (kan vere ukjent for eldre registreringar) |
+| [foedselsdato](foedselsdato.md) | 0..1 <br/> [Date](date.md) | Fødselsdato (kan vere ukjent for eldre registreringar) |
 
 
 
@@ -119,7 +119,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [foedested](foedested.md) | 0..1 <br/> [String](String.md) | Fødested (kommune eller land) |
+| [foedested](foedested.md) | 0..1 <br/> [String](string.md) | Fødested (kommune eller land) |
 
 
 
@@ -177,7 +177,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -190,8 +190,8 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [foedslar](foedslar.md) | range | [Foedsel](Foedsel.md) |
-| [Person](Person.md) | [har_foedsel](har_foedsel.md) | range | [Foedsel](Foedsel.md) |
+| [PersonContainer](personcontainer.md) | [foedslar](foedslar.md) | range | [Foedsel](foedsel.md) |
+| [Person](person.md) | [har_foedsel](har_foedsel.md) | range | [Foedsel](foedsel.md) |
 
 
 

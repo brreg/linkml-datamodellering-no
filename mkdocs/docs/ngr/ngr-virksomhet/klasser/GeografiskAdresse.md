@@ -39,9 +39,9 @@ URI: [ngrv:GeografiskAdresse](https://data.norge.no/vocabulary/ngr-virksomhet#Ge
 
 ## Inheritance
 * **GeografiskAdresse**
-    * [Postadresse](Postadresse.md)
-    * [Forretningsadresse](Forretningsadresse.md)
-    * [Beliggenhetsadresse](Beliggenhetsadresse.md)
+    * [Postadresse](postadresse.md)
+    * [Forretningsadresse](forretningsadresse.md)
+    * [Beliggenhetsadresse](beliggenhetsadresse.md)
 
 
 ## Class Properties
@@ -93,7 +93,7 @@ URI: [ngrv:GeografiskAdresse](https://data.norge.no/vocabulary/ngr-virksomhet#Ge
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

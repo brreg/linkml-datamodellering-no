@@ -22,8 +22,8 @@ Alias: identifikator_literal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: identifikator_literal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Begrep](Begrep.md), [Samling](Samling.md) |
+| Range | [String](string.md) |
+| Domain Of | [Begrep](begrep.md), [Samling](samling.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 
 ### Cardinality and Requirements

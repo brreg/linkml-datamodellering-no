@@ -22,7 +22,7 @@ Alias: variantFormat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentobjekt](Dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
+| [Dokumentobjekt](dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: variantFormat
 
 | Property | Value |
 | --- | --- |
-| Range | [Variantformat](Variantformat.md) |
-| Domain Of | [Dokumentobjekt](Dokumentobjekt.md) |
+| Range | [Variantformat](variantformat.md) |
+| Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:variantFormat](https://schema.fintlabs.no/arkiv/variantFormat) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: variantFormat
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentobjekt](Dokumentobjekt.md) |
+| Owner | [Dokumentobjekt](dokumentobjekt.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: variantFormat
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -12,33 +12,33 @@ Name: dcat-ap-no
 
 | Class | Description |
 | --- | --- |
-| [Aktor](Aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |
-| [Begrepssamling](Begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |
-| [Frekvens](Frekvens.md) | Ein oppdateringsfrekvens |
-| [Gebyr](Gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |
-| [Identifikator](Identifikator.md) | Ein alternativ identifikator for ein ressurs |
-| [KatalogisertRessurs](KatalogisertRessurs.md) | Basisklasse for ressursar som kan katalogiserast |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datasettserie](Datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |
-| [Katalogpost](Katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |
-| [Konsept](Konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |
-| [Kontaktopplysning](Kontaktopplysning.md) | Kontaktinformasjon for ein aktør |
-| [Mediatype](Mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |
-| [OdrlPolicy](OdrlPolicy.md) | Ein ODRL-policy |
-| [ProvAktivitet](ProvAktivitet.md) | Ein PROV-aktivitet |
-| [ProvAttributering](ProvAttributering.md) | Ein kvalifisert PROV-attributering |
-| [ProvenanceStatement](ProvenanceStatement.md) | Ein provenienserklæring |
-| [RegulativRessurs](RegulativRessurs.md) | Ein regulativ ressurs (lov, forskrift o |
-| [Relasjon](Relasjon.md) | Ein kvalifisert relasjon mellom to ressursar |
-| [Rettighetserklaring](Rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |
-| [Sjekksum](Sjekksum.md) | Ein sjekksum for ein distribusjon |
-| [Spraak](Spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |
-| [Standard](Standard.md) | Ein standard som ein ressurs er i samsvar med |
-| [Tidsinstant](Tidsinstant.md) | Eit tidspunkt (OWL Time) |
-| [Tidsrom](Tidsrom.md) | Eit tidsintervall med start- og sluttdato |
+| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |
+| [Begrepssamling](begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |
+| [Frekvens](frekvens.md) | Ein oppdateringsfrekvens |
+| [Gebyr](gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |
+| [Identifikator](identifikator.md) | Ein alternativ identifikator for ein ressurs |
+| [KatalogisertRessurs](katalogisertressurs.md) | Basisklasse for ressursar som kan katalogiserast |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |
+| [Konsept](konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |
+| [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ein aktør |
+| [Mediatype](mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |
+| [OdrlPolicy](odrlpolicy.md) | Ein ODRL-policy |
+| [ProvAktivitet](provaktivitet.md) | Ein PROV-aktivitet |
+| [ProvAttributering](provattributering.md) | Ein kvalifisert PROV-attributering |
+| [ProvenanceStatement](provenancestatement.md) | Ein provenienserklæring |
+| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
+| [Relasjon](relasjon.md) | Ein kvalifisert relasjon mellom to ressursar |
+| [Rettighetserklaring](rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |
+| [Sjekksum](sjekksum.md) | Ein sjekksum for ein distribusjon |
+| [Spraak](spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |
+| [Standard](standard.md) | Ein standard som ein ressurs er i samsvar med |
+| [Tidsinstant](tidsinstant.md) | Eit tidspunkt (OWL Time) |
+| [Tidsrom](tidsrom.md) | Eit tidsintervall med start- og sluttdato |
 
 
 
@@ -152,35 +152,35 @@ Name: dcat-ap-no
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Duration](Duration.md) | ISO 8601-varigheit (xsd:duration), t |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [GYear](GYear.md) | Gregorisk årstal (xsd:gYear), t |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [LangString](LangString.md) | Språktagget streng (rdf:langString) |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [NonNegativeInteger](NonNegativeInteger.md) | Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger) |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Duration](duration.md) | ISO 8601-varigheit (xsd:duration), t |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [GYear](gyear.md) | Gregorisk årstal (xsd:gYear), t |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [LangString](langstring.md) | Språktagget streng (rdf:langString) |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [NonNegativeInteger](nonnegativeinteger.md) | Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger) |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
-| [Obligatorisk](Obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
-| [Valgfri](Valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |
+| [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
+| [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
+| [Valgfri](valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |

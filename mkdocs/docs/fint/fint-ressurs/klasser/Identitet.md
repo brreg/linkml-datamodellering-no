@@ -22,7 +22,7 @@ Alias: identitet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighet](Rettighet.md) | Ei namngitt rettighet |  no  |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: identitet
 
 | Property | Value |
 | --- | --- |
-| Range | [Identitet](Identitet.md) |
-| Domain Of | [Rettighet](Rettighet.md) |
+| Range | [Identitet](identitet.md) |
+| Domain Of | [Rettighet](rettighet.md) |
 | Slot URI | [res:identitet](https://schema.fintlabs.no/ressurs/identitet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: identitet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Rettighet](Rettighet.md) |
+| Owner | [Rettighet](rettighet.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: identitet
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

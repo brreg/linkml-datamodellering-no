@@ -17,7 +17,7 @@ Alias: prokuraer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
+| [VirksomhetContainer](virksomhetcontainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: prokuraer
 
 | Property | Value |
 | --- | --- |
-| Range | [Prokura](Prokura.md) |
-| Domain Of | [VirksomhetContainer](VirksomhetContainer.md) |
+| Range | [Prokura](prokura.md) |
+| Domain Of | [VirksomhetContainer](virksomhetcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: prokuraer
 
 | Property | Value |
 | --- | --- |
-| Owner | [VirksomhetContainer](VirksomhetContainer.md) |
+| Owner | [VirksomhetContainer](virksomhetcontainer.md) |
 
 
 

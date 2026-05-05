@@ -22,11 +22,11 @@ Alias: betinger
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Betingelsesregel](Betingelsesregel.md) | Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskap... |  yes  |
-| [XEllerY](XEllerY.md) | Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde |  no  |
-| [Og](Og.md) | Og — logisk OG-betingelse; alle deltakande modellelement må gjelde |  no  |
-| [Eller](Eller.md) | Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde |  no  |
-| [Ikke](Ikke.md) | Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde |  no  |
+| [Betingelsesregel](betingelsesregel.md) | Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskap... |  yes  |
+| [XEllerY](xellery.md) | Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde |  no  |
+| [Eller](eller.md) | Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde |  no  |
+| [Og](og.md) | Og — logisk OG-betingelse; alle deltakande modellelement må gjelde |  no  |
+| [Ikke](ikke.md) | Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde |  no  |
 
 
 
@@ -39,8 +39,8 @@ Alias: betinger
 
 | Property | Value |
 | --- | --- |
-| Range | [Modellelement](Modellelement.md) |
-| Domain Of | [Betingelsesregel](Betingelsesregel.md) |
+| Range | [Modellelement](modellelement.md) |
+| Domain Of | [Betingelsesregel](betingelsesregel.md) |
 | Slot URI | [modelldcatno:constrains](https://data.norge.no/vocabulary/modelldcatno#constrains) |
 
 ### Cardinality and Requirements

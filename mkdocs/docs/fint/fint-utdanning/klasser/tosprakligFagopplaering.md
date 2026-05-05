@@ -22,7 +22,7 @@ Alias: tosprakligFagopplaering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tosprakligFagopplaering
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Elevforhold](Elevforhold.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Elevforhold](elevforhold.md) |
 | Slot URI | [utd:tosprakligFagopplaering](https://schema.fintlabs.no/utdanning/tosprakligFagopplaering) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: tosprakligFagopplaering
 
 | Property | Value |
 | --- | --- |
-| Owner | [Elevforhold](Elevforhold.md) |
+| Owner | [Elevforhold](elevforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: tosprakligFagopplaering
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

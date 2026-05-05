@@ -22,7 +22,7 @@ Alias: skole
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonselement](Organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skole
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Organisasjonselement](Organisasjonselement.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [adm:skole](https://schema.fintlabs.no/administrasjon/skole) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: skole
 
 | Property | Value |
 | --- | --- |
-| Owner | [Organisasjonselement](Organisasjonselement.md) |
+| Owner | [Organisasjonselement](organisasjonselement.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: skole
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

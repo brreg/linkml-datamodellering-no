@@ -22,7 +22,7 @@ Alias: debet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postering](Postering.md) | Føring på ein konto i rekneskapet |  no  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: debet
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Postering](Postering.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Postering](postering.md) |
 | Slot URI | [okn:debet](https://schema.fintlabs.no/okonomi/debet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: debet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Postering](Postering.md) |
+| Owner | [Postering](postering.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: debet
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

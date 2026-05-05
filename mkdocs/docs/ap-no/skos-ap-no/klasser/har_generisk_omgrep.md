@@ -22,7 +22,7 @@ Alias: har_generisk_omgrep
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [GeneriskRelasjon](GeneriskRelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
+| [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_generisk_omgrep
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [GeneriskRelasjon](GeneriskRelasjon.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [GeneriskRelasjon](generiskrelasjon.md) |
 | Slot URI | [skosno:hasGenericConcept](https://data.norge.no/vocabulary/skosno#hasGenericConcept) |
 
 ### Cardinality and Requirements

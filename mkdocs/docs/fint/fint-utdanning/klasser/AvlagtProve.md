@@ -22,7 +22,7 @@ Alias: avlagtprove
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: avlagtprove
 
 | Property | Value |
 | --- | --- |
-| Range | [AvlagtProve](AvlagtProve.md) |
-| Domain Of | [Laerling](Laerling.md) |
+| Range | [AvlagtProve](avlagtprove.md) |
+| Domain Of | [Laerling](laerling.md) |
 | Slot URI | [utd:avlagtprove](https://schema.fintlabs.no/utdanning/avlagtprove) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: avlagtprove
 
 | Property | Value |
 | --- | --- |
-| Owner | [Laerling](Laerling.md) |
+| Owner | [Laerling](laerling.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: avlagtprove
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

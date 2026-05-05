@@ -22,7 +22,7 @@ Alias: anvendelsesretningslinjer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighetserklaring](Rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |  no  |
+| [Rettighetserklaring](rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: anvendelsesretningslinjer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Rettighetserklaring](Rettighetserklaring.md) |
+| Range | [String](string.md) |
+| Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:reuserGuidelines](http://schema.theodi.org/odrs#reuserGuidelines) |
 
 ### Cardinality and Requirements

@@ -78,7 +78,7 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_falsk](er_falsk.md) | 1 <br/> [Boolean](Boolean.md) | Om denne identiteten er registrert som falsk |
+| [er_falsk](er_falsk.md) | 1 <br/> [Boolean](boolean.md) | Om denne identiteten er registrert som falsk |
 
 
 
@@ -121,8 +121,8 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [rett_identitet_er_ukjent](rett_identitet_er_ukjent.md) | 0..1 <br/> [Boolean](Boolean.md) | Om den rette identiteten er ukjent (når falsk identitet er registrert) |
-| [rett_identitet](rett_identitet.md) | 0..1 <br/> [Person](Person.md) | Den rette identiteten til ein person som har opptrådt med falsk identitet |
+| [rett_identitet_er_ukjent](rett_identitet_er_ukjent.md) | 0..1 <br/> [Boolean](boolean.md) | Om den rette identiteten er ukjent (når falsk identitet er registrert) |
+| [rett_identitet](rett_identitet.md) | 0..1 <br/> [Person](person.md) | Den rette identiteten til ein person som har opptrådt med falsk identitet |
 
 
 
@@ -180,7 +180,7 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -193,8 +193,8 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [falskIdentitetar](falskIdentitetar.md) | range | [FalskIdentitet](FalskIdentitet.md) |
-| [Person](Person.md) | [har_falsk_identitet](har_falsk_identitet.md) | range | [FalskIdentitet](FalskIdentitet.md) |
+| [PersonContainer](personcontainer.md) | [falskIdentitetar](falskidentitetar.md) | range | [FalskIdentitet](falskidentitet.md) |
+| [Person](person.md) | [har_falsk_identitet](har_falsk_identitet.md) | range | [FalskIdentitet](falskidentitet.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: notasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identifikator](Identifikator.md) | Ein alternativ identifikator for ein ressurs |  yes  |
+| [Identifikator](identifikator.md) | Ein alternativ identifikator for ein ressurs |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: notasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Identifikator](Identifikator.md) |
+| Range | [String](string.md) |
+| Domain Of | [Identifikator](identifikator.md) |
 | Slot URI | [skos:notation](http://www.w3.org/2004/02/skos/core#notation) |
 
 ### Cardinality and Requirements

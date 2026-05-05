@@ -22,7 +22,7 @@ Alias: dekningsomrade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dekningsomrade
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:spatial](http://purl.org/dc/terms/spatial) |
 
 ### Cardinality and Requirements

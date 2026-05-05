@@ -5,7 +5,7 @@ _Obligatorisk eigensskap._
 
 
 
-URI: [Obligatorisk](Obligatorisk.md)
+URI: [Obligatorisk](obligatorisk.md)
 
 
 
@@ -203,7 +203,7 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [applikasjon](applikasjon.md) | Applikasjonen denne ressursen (lisensen) er knytt til |
 | [bokstavkode](bokstavkode.md) | Bokstavkode for aktuell valuta |
 | [brukertype](brukertype.md) | For kva brukertypar denne lisensen er gyldig |
-| [digitalEnhet](digitalEnhet.md) | Den digitale eininga dette medlemskapet tilhøyrer |
+| [digitalEnhet](digitalenhet.md) | Den digitale eininga dette medlemskapet tilhøyrer |
 | [eier](eier.md) | Referanse til Organisasjonselement som har eigarskap til lisensen |
 | [enhetsgruppe](enhetsgruppe.md) | Einingsgruppen dette medlemskapet tilhøyrer |
 | [enhetstype](enhetstype.md) | Type digital eining: Mobiltelefon, datamaskin, nettbrett |
@@ -217,6 +217,6 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [organisasjonsenhet](organisasjonsenhet.md) | Referanse til Organisasjonselement grupperinga er tilknytt |
 | [serienummer](serienummer.md) | Unikt serienummer frå einingsprodusentens |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 

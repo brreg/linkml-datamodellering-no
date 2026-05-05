@@ -130,9 +130,9 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
 
 
 
@@ -177,8 +177,8 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_i](gyldig_i.md) | 0..1 <br/> [Duration](Duration.md) | Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit) |
-| [godtek_sprak](godtek_sprak.md) | * <br/> [Spraak](Spraak.md) | Språk dokumentasjonstypen er akseptert i |
+| [gyldig_i](gyldig_i.md) | 0..1 <br/> [Duration](duration.md) | Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit) |
+| [godtek_sprak](godtek_sprak.md) | * <br/> [Spraak](spraak.md) | Språk dokumentasjonstypen er akseptert i |
 
 
 
@@ -227,10 +227,10 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [klassifisering](klassifisering.md) | 0..1 <br/> [Konsept](Konsept.md) | Klassifisering av dokumentasjonstypen |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](Uri.md) | Datasett som beskriv ressursen |
-| [er_spesifisert_i](er_spesifisert_i.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Liste eller spesifikasjon ressursen er del av |
-| [utstedingsstad](utstedingsstad.md) | 0..1 <br/> [Konsept](Konsept.md) | Stad dokumentasjonen er akseptert frå |
+| [klassifisering](klassifisering.md) | 0..1 <br/> [Konsept](konsept.md) | Klassifisering av dokumentasjonstypen |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen |
+| [er_spesifisert_i](er_spesifisert_i.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Liste eller spesifikasjon ressursen er del av |
+| [utstedingsstad](utstedingsstad.md) | 0..1 <br/> [Konsept](konsept.md) | Stad dokumentasjonen er akseptert frå |
 
 
 
@@ -366,7 +366,7 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -379,9 +379,9 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [har_dokumentasjonstype](har_dokumentasjonstype.md) | range | [Dokumentasjonstype](Dokumentasjonstype.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_dokumentasjonstype](har_dokumentasjonstype.md) | range | [Dokumentasjonstype](Dokumentasjonstype.md) |
-| [Tjeneste](Tjeneste.md) | [har_dokumentasjonstype](har_dokumentasjonstype.md) | range | [Dokumentasjonstype](Dokumentasjonstype.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [har_dokumentasjonstype](har_dokumentasjonstype.md) | range | [Dokumentasjonstype](dokumentasjonstype.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_dokumentasjonstype](har_dokumentasjonstype.md) | range | [Dokumentasjonstype](dokumentasjonstype.md) |
+| [Tjeneste](tjeneste.md) | [har_dokumentasjonstype](har_dokumentasjonstype.md) | range | [Dokumentasjonstype](dokumentasjonstype.md) |
 
 
 

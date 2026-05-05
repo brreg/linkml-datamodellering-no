@@ -22,8 +22,8 @@ Alias: opningstider
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenestekanal](Tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
-| [Kontaktpunkt](Kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
+| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
+| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: opningstider
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktpunkt](Kontaktpunkt.md), [Tjenestekanal](Tjenestekanal.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktpunkt](kontaktpunkt.md), [Tjenestekanal](tjenestekanal.md) |
 | Slot URI | [cv:openingHours](http://data.europa.eu/m8g/openingHours) |
 
 ### Cardinality and Requirements

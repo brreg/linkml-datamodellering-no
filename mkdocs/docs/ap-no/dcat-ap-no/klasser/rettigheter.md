@@ -22,9 +22,9 @@ Alias: rettigheter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: rettigheter
 
 | Property | Value |
 | --- | --- |
-| Range | [Rettighetserklaring](Rettighetserklaring.md) |
-| Domain Of | [Distribusjon](Distribusjon.md), [Datatjeneste](Datatjeneste.md), [Katalog](Katalog.md) |
+| Range | [Rettighetserklaring](rettighetserklaring.md) |
+| Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md), [Katalog](katalog.md) |
 | Slot URI | [dct:rights](http://purl.org/dc/terms/rights) |
 
 ### Cardinality and Requirements

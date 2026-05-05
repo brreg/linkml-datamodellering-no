@@ -22,7 +22,7 @@ Alias: forste_nivaa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: forste_nivaa
 
 | Property | Value |
 | --- | --- |
-| Range | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [xkos:levels](http://rdf-vocabulary.ddialliance.org/xkos#levels) |
 
 ### Cardinality and Requirements

@@ -17,7 +17,7 @@ Alias: statsborgerskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: statsborgerskap
 
 | Property | Value |
 | --- | --- |
-| Range | [Statsborgerskap](Statsborgerskap.md) |
-| Domain Of | [PersonContainer](PersonContainer.md) |
+| Range | [Statsborgerskap](statsborgerskap.md) |
+| Domain Of | [PersonContainer](personcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: statsborgerskap
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonContainer](PersonContainer.md) |
+| Owner | [PersonContainer](personcontainer.md) |
 
 
 

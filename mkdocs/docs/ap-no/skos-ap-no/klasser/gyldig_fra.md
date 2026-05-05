@@ -22,7 +22,7 @@ Alias: gyldig_fra
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gyldig_fra
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [euvoc:startDate](http://publications.europa.eu/ontology/euvoc#startDate) |
 
 ### Cardinality and Requirements

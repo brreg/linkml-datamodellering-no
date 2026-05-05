@@ -17,9 +17,9 @@ Alias: adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
-| [Part](Part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
-| [Korrespondansepart](Korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: adresse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Korrespondansepart](Korrespondansepart.md), [Part](Part.md), [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [String](string.md) |
+| Domain Of | [Korrespondansepart](korrespondansepart.md), [Part](part.md), [Matrikkelnummer](matrikkelnummer.md) |
 
 ### Cardinality and Requirements
 

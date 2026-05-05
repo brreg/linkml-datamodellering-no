@@ -22,7 +22,7 @@ Alias: organisasjonsKode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonselement](Organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjonsKode
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Organisasjonselement](Organisasjonselement.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [adm:organisasjonsKode](https://schema.fintlabs.no/administrasjon/organisasjonsKode) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: organisasjonsKode
 
 | Property | Value |
 | --- | --- |
-| Owner | [Organisasjonselement](Organisasjonselement.md) |
+| Owner | [Organisasjonselement](organisasjonselement.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: organisasjonsKode
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

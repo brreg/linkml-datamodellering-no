@@ -22,7 +22,7 @@ Alias: tiltak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tiltak
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) |
+| Range | [String](string.md) |
+| Domain Of | [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) |
 | Slot URI | [ark:tiltak](https://schema.fintlabs.no/arkiv/tiltak) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: tiltak
 
 | Property | Value |
 | --- | --- |
-| Owner | [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) |
+| Owner | [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: tiltak
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

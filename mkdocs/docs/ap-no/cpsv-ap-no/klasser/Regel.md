@@ -149,11 +149,11 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -237,7 +237,7 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -250,9 +250,9 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [folger](folger.md) | range | [Regel](Regel.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [folger](folger.md) | range | [Regel](Regel.md) |
-| [Tjeneste](Tjeneste.md) | [folger](folger.md) | range | [Regel](Regel.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [folger](folger.md) | range | [Regel](regel.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [folger](folger.md) | range | [Regel](regel.md) |
+| [Tjeneste](tjeneste.md) | [folger](folger.md) | range | [Regel](regel.md) |
 
 
 

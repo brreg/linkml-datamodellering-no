@@ -22,7 +22,7 @@ Alias: har_rolle
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Relasjon](Relasjon.md) | Ein kvalifisert relasjon mellom to ressursar |  yes  |
+| [Relasjon](relasjon.md) | Ein kvalifisert relasjon mellom to ressursar |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_rolle
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Relasjon](Relasjon.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Relasjon](relasjon.md) |
 | Slot URI | [dcat:hadRole](http://www.w3.org/ns/dcat#hadRole) |
 
 ### Cardinality and Requirements

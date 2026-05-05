@@ -100,12 +100,12 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
 
 ## Inheritance
 * **Matrikkelenhet**
-    * [Grunneiendom](Grunneiendom.md)
-    * [Festegrunn](Festegrunn.md)
-    * [Jordsameie](Jordsameie.md)
-    * [Eierseksjon](Eierseksjon.md)
-    * [Anleggseiendom](Anleggseiendom.md)
-    * [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md)
+    * [Grunneiendom](grunneiendom.md)
+    * [Festegrunn](festegrunn.md)
+    * [Jordsameie](jordsameie.md)
+    * [Eierseksjon](eierseksjon.md)
+    * [Anleggseiendom](anleggseiendom.md)
+    * [AnnenMatrikkelenhet](annenmatrikkelenhet.md)
 
 
 ## Class Properties
@@ -150,8 +150,8 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifiseres_med](identifiseres_med.md) | 1 <br/> [Matrikkelnummer](Matrikkelnummer.md) | Matrikkelnummeret som identifiserer matrikkeleininga |
-| [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | 1 <br/> [Kommune](Kommune.md) | Kommunen matrikkeleininga ligg innanfor |
+| [identifiseres_med](identifiseres_med.md) | 1 <br/> [Matrikkelnummer](matrikkelnummer.md) | Matrikkelnummeret som identifiserer matrikkeleininga |
+| [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | 1 <br/> [Kommune](kommune.md) | Kommunen matrikkeleininga ligg innanfor |
 
 
 
@@ -182,7 +182,7 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_del_av_teig](er_del_av_teig.md) | * <br/> [Teig](Teig.md) | Teigen(e) matrikkeleininga er del av |
+| [er_del_av_teig](er_del_av_teig.md) | * <br/> [Teig](teig.md) | Teigen(e) matrikkeleininga er del av |
 
 
 
@@ -215,8 +215,8 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_teig](har_teig.md) | * <br/> [Teig](Teig.md) | Teigen(e) som tilhøyrer matrikkeleininga |
-| [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | 0..1 <br/> [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) | Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen |
+| [har_teig](har_teig.md) | * <br/> [Teig](teig.md) | Teigen(e) som tilhøyrer matrikkeleininga |
+| [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | 0..1 <br/> [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) | Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen |
 
 
 
@@ -300,7 +300,7 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -313,17 +313,17 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [FastEiendom](FastEiendom.md) | [identifiseres_av](identifiseres_av.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [FastEiendom](FastEiendom.md) | [bestar_av_matrikkelenhet](bestar_av_matrikkelenhet.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [Grunneiendom](Grunneiendom.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [Festegrunn](Festegrunn.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [Jordsameie](Jordsameie.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [Eierseksjon](Eierseksjon.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [Bygning](Bygning.md) | [er_knyttet_til_matrikkelenhet](er_knyttet_til_matrikkelenhet.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [Bruksenhet](Bruksenhet.md) | [er_tilknyttet_matrikkelenhet](er_tilknyttet_matrikkelenhet.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [Eierforhold](Eierforhold.md) | [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [TinglystEierforhold](TinglystEierforhold.md) | [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | range | [Matrikkelenhet](Matrikkelenhet.md) |
+| [FastEiendom](fasteiendom.md) | [identifiseres_av](identifiseres_av.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [FastEiendom](fasteiendom.md) | [bestar_av_matrikkelenhet](bestar_av_matrikkelenhet.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [Grunneiendom](grunneiendom.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [Festegrunn](festegrunn.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [Jordsameie](jordsameie.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [Eierseksjon](eierseksjon.md) | [kan_vaere_pa](kan_vaere_pa.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [Bygning](bygning.md) | [er_knyttet_til_matrikkelenhet](er_knyttet_til_matrikkelenhet.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [Bruksenhet](bruksenhet.md) | [er_tilknyttet_matrikkelenhet](er_tilknyttet_matrikkelenhet.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [Eierforhold](eierforhold.md) | [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [TinglystEierforhold](tinglysteierforhold.md) | [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | range | [Matrikkelenhet](matrikkelenhet.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: kilde_post
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalogpost](Katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  no  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kilde_post
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Katalogpost](Katalogpost.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Katalogpost](katalogpost.md) |
 | Slot URI | [dct:source](http://purl.org/dc/terms/source) |
 
 ### Cardinality and Requirements

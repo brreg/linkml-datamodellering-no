@@ -22,7 +22,7 @@ Alias: adresserer_bruksenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: adresserer_bruksenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Bruksenhet](Bruksenhet.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [Bruksenhet](bruksenhet.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:adressererBruksenhet](https://data.norge.no/vocabulary/ngr-adresse#adressererBruksenhet) |
 
 ### Cardinality and Requirements

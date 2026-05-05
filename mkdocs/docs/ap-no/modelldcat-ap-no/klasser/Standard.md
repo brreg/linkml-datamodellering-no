@@ -69,7 +69,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
 
@@ -147,9 +147,9 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [har_referanse](har_referanse.md) | * <br/> [Uri](Uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](String.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [har_referanse](har_referanse.md) | * <br/> [Uri](uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
 
 
 
@@ -162,8 +162,8 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | [er_profil_av](er_profil_av.md) | range | [Standard](Standard.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [er_i_samsvar_med](er_i_samsvar_med.md) | range | [Standard](Standard.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [er_profil_av](er_profil_av.md) | range | [Standard](standard.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [er_i_samsvar_med](er_i_samsvar_med.md) | range | [Standard](standard.md) |
 
 
 

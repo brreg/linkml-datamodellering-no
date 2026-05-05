@@ -22,7 +22,7 @@ Alias: organisasjonselement
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrativEnhet](AdministrativEnhet.md) | Administrativ eining med ansvar for saksbehandling |  no  |
+| [AdministrativEnhet](administrativenhet.md) | Administrativ eining med ansvar for saksbehandling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [AdministrativEnhet](AdministrativEnhet.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [AdministrativEnhet](administrativenhet.md) |
 | Slot URI | [ark:organisasjonselement](https://schema.fintlabs.no/arkiv/organisasjonselement) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdministrativEnhet](AdministrativEnhet.md) |
+| Owner | [AdministrativEnhet](administrativenhet.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: organisasjonselement
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

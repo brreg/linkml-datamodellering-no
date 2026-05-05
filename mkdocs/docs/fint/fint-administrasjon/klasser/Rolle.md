@@ -22,7 +22,7 @@ Alias: rolle
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fullmakt](Fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rolle
 
 | Property | Value |
 | --- | --- |
-| Range | [Rolle](Rolle.md) |
-| Domain Of | [Fullmakt](Fullmakt.md) |
+| Range | [Rolle](rolle.md) |
+| Domain Of | [Fullmakt](fullmakt.md) |
 | Slot URI | [adm:rolle](https://schema.fintlabs.no/administrasjon/rolle) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: rolle
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fullmakt](Fullmakt.md) |
+| Owner | [Fullmakt](fullmakt.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: rolle
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samtykke](Samtykke.md) | Tillating til behandling av personopplysning |  no  |
+| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: person
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Samtykke](Samtykke.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Samtykke](samtykke.md) |
 | Slot URI | [pvn:person](https://schema.fintlabs.no/personvern/person) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: person
 
 | Property | Value |
 | --- | --- |
-| Owner | [Samtykke](Samtykke.md) |
+| Owner | [Samtykke](samtykke.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: person
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

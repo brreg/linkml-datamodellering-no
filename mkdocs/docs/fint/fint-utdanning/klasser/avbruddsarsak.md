@@ -22,7 +22,7 @@ Alias: avbruddsarsak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: avbruddsarsak
 
 | Property | Value |
 | --- | --- |
-| Range | [Avbruddsaarsak](Avbruddsaarsak.md) |
-| Domain Of | [Elevforhold](Elevforhold.md) |
+| Range | [Avbruddsaarsak](avbruddsaarsak.md) |
+| Domain Of | [Elevforhold](elevforhold.md) |
 | Slot URI | [utd:avbruddsarsak](https://schema.fintlabs.no/utdanning/avbruddsarsak) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: avbruddsarsak
 
 | Property | Value |
 | --- | --- |
-| Owner | [Elevforhold](Elevforhold.md) |
+| Owner | [Elevforhold](elevforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: avbruddsarsak
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

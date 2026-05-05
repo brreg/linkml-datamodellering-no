@@ -22,7 +22,7 @@ Alias: tilgangsURL
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tilgangsmetadata](Tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |  yes  |
+| [Tilgangsmetadata](tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilgangsURL
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Tilgangsmetadata](Tilgangsmetadata.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Tilgangsmetadata](tilgangsmetadata.md) |
 | Slot URI | [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) |
 
 ### Cardinality and Requirements

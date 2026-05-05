@@ -12,22 +12,22 @@ Name: dqv-ap-no
 
 | Class | Description |
 | --- | --- |
-| [Begrepssamling](Begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |
-| [Datasett](Datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |
-| [DcatRessurs](DcatRessurs.md) | Ein katalogisert ressurs (brukt som målklasse for oa:hasTarget) |
-| [Konsept](Konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |
-| [Kvalitetsdimensjon](Kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |
-| [Kvalitetsmaal](Kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |
-| [Kvalitetsmaaling](Kvalitetsmaaling.md) | Ei konkret måling av eit kvalitetsmål for eit datasett |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Brukartilbakemelding](Brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kvalitetssertifikat](Kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |
-| [Mediatype](Mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |
-| [Motivasjon](Motivasjon.md) | Motivasjonen bak ein kvalitetsmerknad (Web Annotation) |
-| [Spraak](Spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |
-| [Standard](Standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |
-| [Tekstdel](Tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |
+| [Begrepssamling](begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |
+| [Datasett](datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |
+| [DcatRessurs](dcatressurs.md) | Ein katalogisert ressurs (brukt som målklasse for oa:hasTarget) |
+| [Konsept](konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |
+| [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |
+| [Kvalitetsmaaling](kvalitetsmaaling.md) | Ei konkret måling av eit kvalitetsmål for eit datasett |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |
+| [Mediatype](mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |
+| [Motivasjon](motivasjon.md) | Motivasjonen bak ein kvalitetsmerknad (Web Annotation) |
+| [Spraak](spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |
+| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |
+| [Tekstdel](tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |
 
 
 
@@ -81,35 +81,35 @@ Name: dqv-ap-no
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Duration](Duration.md) | ISO 8601-varigheit (xsd:duration), t |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [GYear](GYear.md) | Gregorisk årstal (xsd:gYear), t |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [LangString](LangString.md) | Språktagget streng (rdf:langString) |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [NonNegativeInteger](NonNegativeInteger.md) | Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger) |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Duration](duration.md) | ISO 8601-varigheit (xsd:duration), t |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [GYear](gyear.md) | Gregorisk årstal (xsd:gYear), t |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [LangString](langstring.md) | Språktagget streng (rdf:langString) |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [NonNegativeInteger](nonnegativeinteger.md) | Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger) |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
-| [Obligatorisk](Obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
-| [Valgfri](Valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |
+| [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
+| [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
+| [Valgfri](valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |

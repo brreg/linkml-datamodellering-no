@@ -17,7 +17,7 @@ Alias: landkodar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: landkodar
 
 | Property | Value |
 | --- | --- |
-| Range | [Landkode](Landkode.md) |
-| Domain Of | [AdministrasjonContainer](AdministrasjonContainer.md) |
+| Range | [Landkode](landkode.md) |
+| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: landkodar
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdministrasjonContainer](AdministrasjonContainer.md) |
+| Owner | [AdministrasjonContainer](administrasjoncontainer.md) |
 
 
 

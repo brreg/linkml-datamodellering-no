@@ -22,7 +22,7 @@ Alias: status
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: status
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [adms:status](http://www.w3.org/ns/adms#status) |
 
 ### Cardinality and Requirements

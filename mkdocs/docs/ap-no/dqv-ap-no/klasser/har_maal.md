@@ -22,9 +22,9 @@ Alias: har_maal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetssertifikat](Kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
-| [Brukartilbakemelding](Brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
+| [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: har_maal
 
 | Property | Value |
 | --- | --- |
-| Range | [DcatRessurs](DcatRessurs.md) |
-| Domain Of | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
+| Range | [DcatRessurs](dcatressurs.md) |
+| Domain Of | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 | Slot URI | [oa:hasTarget](http://www.w3.org/ns/oa#hasTarget) |
 
 ### Cardinality and Requirements

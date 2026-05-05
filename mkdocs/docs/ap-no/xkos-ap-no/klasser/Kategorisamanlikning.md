@@ -97,8 +97,8 @@ URI: [xkos:ConceptAssociation](http://rdf-vocabulary.ddialliance.org/xkos#Concep
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kjeldeomgrep](kjeldeomgrep.md) | 0..1 <br/> [Kategori](Kategori.md) | Kjeldeomgrep i ein kategorisamanlikning (xkos:sourceConcept) |
-| [maalomgrep](maalomgrep.md) | 0..1 <br/> [Kategori](Kategori.md) | Måleomgrep i ein kategorisamanlikning (xkos:targetConcept) |
+| [kjeldeomgrep](kjeldeomgrep.md) | 0..1 <br/> [Kategori](kategori.md) | Kjeldeomgrep i ein kategorisamanlikning (xkos:sourceConcept) |
+| [maalomgrep](maalomgrep.md) | 0..1 <br/> [Kategori](kategori.md) | Måleomgrep i ein kategorisamanlikning (xkos:targetConcept) |
 
 
 
@@ -156,7 +156,7 @@ URI: [xkos:ConceptAssociation](http://rdf-vocabulary.ddialliance.org/xkos#Concep
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -169,7 +169,7 @@ URI: [xkos:ConceptAssociation](http://rdf-vocabulary.ddialliance.org/xkos#Concep
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | [bestar_av](bestar_av.md) | range | [Kategorisamanlikning](Kategorisamanlikning.md) |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | [bestar_av](bestar_av.md) | range | [Kategorisamanlikning](kategorisamanlikning.md) |
 
 
 

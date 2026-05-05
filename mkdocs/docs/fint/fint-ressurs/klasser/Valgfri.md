@@ -5,7 +5,7 @@ _Valfri eigensskap._
 
 
 
-URI: [Valgfri](Valgfri.md)
+URI: [Valgfri](valgfri.md)
 
 
 
@@ -222,7 +222,7 @@ URI: [Valgfri](Valgfri.md)
 | [beskrivelse](beskrivelse.md) |  |
 | [bilde](bilde.md) | HTTP(S)-lenkje til eit bilete av personen |
 | [bostedsadresse](bostedsadresse.md) | Folkeregistrert adresse til personen |
-| [dataobjektId](dataobjektId.md) | Einingsens ID i datakatalogen (t |
+| [dataobjektId](dataobjektid.md) | Einingsens ID i datakatalogen (t |
 | [elev](elev.md) | Referanse til Elev (Utdanning) som nyttar eininga |
 | [enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) | Einingsgruppene eininga er medlem av |
 | [enhetskostnad](enhetskostnad.md) | Kostnad per ressurs |

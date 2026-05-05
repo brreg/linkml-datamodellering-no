@@ -17,8 +17,8 @@ Alias: kommune
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: kommune
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fylke](Fylke.md), [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fylke](fylke.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 

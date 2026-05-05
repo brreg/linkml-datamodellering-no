@@ -17,10 +17,10 @@ Alias: kontaktlaerergruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Undervisningsforhold](Undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Klasse](Klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
-| [Kontaktlaerergruppemedlemskap](Kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  no  |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: kontaktlaerergruppe
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Klasse](Klasse.md), [Kontaktlaerergruppemedlemskap](Kontaktlaerergruppemedlemskap.md), [Skole](Skole.md), [Undervisningsforhold](Undervisningsforhold.md) |
+| Range | [String](string.md) |
+| Domain Of | [Klasse](klasse.md), [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md), [Skole](skole.md), [Undervisningsforhold](undervisningsforhold.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: avhengig_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Avhengighet](Avhengighet.md) | Ein avhengighet — ein relasjon der det eine modellelementet avheng av det and... |  yes  |
+| [Avhengighet](avhengighet.md) | Ein avhengighet — ein relasjon der det eine modellelementet avheng av det and... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: avhengig_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Modellelement](Modellelement.md) |
-| Domain Of | [Avhengighet](Avhengighet.md) |
+| Range | [Modellelement](modellelement.md) |
+| Domain Of | [Avhengighet](avhengighet.md) |
 | Slot URI | [modelldcatno:dependentOn](https://data.norge.no/vocabulary/modelldcatno#dependentOn) |
 
 ### Cardinality and Requirements

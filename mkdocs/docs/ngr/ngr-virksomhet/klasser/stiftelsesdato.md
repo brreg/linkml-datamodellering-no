@@ -22,7 +22,7 @@ Alias: stiftelsesdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: stiftelsesdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:stiftelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#stiftelsesdato) |
 
 ### Cardinality and Requirements

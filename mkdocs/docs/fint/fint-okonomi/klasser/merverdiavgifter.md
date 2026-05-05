@@ -17,7 +17,7 @@ Alias: merverdiavgifter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OkonomiContainer](OkonomiContainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
+| [OkonomiContainer](okonomicontainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: merverdiavgifter
 
 | Property | Value |
 | --- | --- |
-| Range | [Merverdiavgift](Merverdiavgift.md) |
-| Domain Of | [OkonomiContainer](OkonomiContainer.md) |
+| Range | [Merverdiavgift](merverdiavgift.md) |
+| Domain Of | [OkonomiContainer](okonomicontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: merverdiavgifter
 
 | Property | Value |
 | --- | --- |
-| Owner | [OkonomiContainer](OkonomiContainer.md) |
+| Owner | [OkonomiContainer](okonomicontainer.md) |
 
 
 

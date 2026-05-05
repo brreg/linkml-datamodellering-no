@@ -53,15 +53,15 @@ URI: [ngr:GeografiskOmrade](https://data.norge.no/vocabulary/ngr-adresse#Geograf
 
 ## Inheritance
 * **GeografiskOmrade**
-    * [Fylke](Fylke.md)
-    * [Kommune](Kommune.md)
-    * [Poststed](Poststed.md)
-    * [Grunnkrets](Grunnkrets.md)
-    * [Tettsted](Tettsted.md)
-    * [Kirkesokn](Kirkesokn.md)
-    * [Stemmekrets](Stemmekrets.md)
-    * [KommunalKrets](KommunalKrets.md)
-    * [Svalbard](Svalbard.md)
+    * [Fylke](fylke.md)
+    * [Kommune](kommune.md)
+    * [Poststed](poststed.md)
+    * [Grunnkrets](grunnkrets.md)
+    * [Tettsted](tettsted.md)
+    * [Kirkesokn](kirkesokn.md)
+    * [Stemmekrets](stemmekrets.md)
+    * [KommunalKrets](kommunalkrets.md)
+    * [Svalbard](svalbard.md)
 
 
 ## Class Properties
@@ -129,8 +129,8 @@ URI: [ngr:GeografiskOmrade](https://data.norge.no/vocabulary/ngr-adresse#Geograf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [namn](namn.md) | 0..1 <br/> [String](String.md) | Namn på det geografiske området eller adressekomponenten |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten |
 
 
 
@@ -143,7 +143,7 @@ URI: [ngr:GeografiskOmrade](https://data.norge.no/vocabulary/ngr-adresse#Geograf
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | [geografisk_omrade](geografisk_omrade.md) | range | [GeografiskOmrade](GeografiskOmrade.md) |
+| [OffisiellAdresse](offisielladresse.md) | [geografisk_omrade](geografisk_omrade.md) | range | [GeografiskOmrade](geografiskomrade.md) |
 
 
 

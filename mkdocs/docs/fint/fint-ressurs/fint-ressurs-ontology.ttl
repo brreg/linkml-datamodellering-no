@@ -17,59 +17,59 @@
 <https://schema.fintlabs.no/:Matrikkelnummer> a owl:Class ;
     rdfs:label "Matrikkelnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
             owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
-            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:festenummer> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ] ;
     skos:definition "Eintydleg identifisering av matrikkeleining innanfor kommune." ;
     skos:exactMatch fint:Matrikkelnummer ;
     skos:inScheme <https://data.norge.no/linkml/fint-common> .
@@ -77,40 +77,40 @@
 <https://schema.fintlabs.no/:Valuta> a owl:Class ;
     rdfs:label "Valuta" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
-            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
-            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
             owl:onProperty <https://schema.fintlabs.no/:nummerkode> ] ;
     skos:definition "Valutakodar for offisielle valutaer." ;
     skos:exactMatch fint:Valuta ;
@@ -119,29 +119,29 @@
 <https://schema.fintlabs.no/:Virksomhet> a owl:Class ;
     rdfs:label "Virksomhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:laerling> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
             owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
         <https://schema.fintlabs.no/:Enhet> ;
     skos:definition "Ein juridisk organisasjon som produserer varer eller tenester." ;
     skos:exactMatch fint:Virksomhet ;
@@ -150,17 +150,35 @@
 <https://schema.fintlabs.no/ressurs/:RessursContainer> a owl:Class ;
     rdfs:label "RessursContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Brukertype> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:brukertypar> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjon> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonar> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurstilgjengelighet> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressurstilgjengelegheit> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Identitet> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:identitetar> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppe> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgrupper> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhaevingstypar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:DigitalEnhet> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:digitaleEiningar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressursar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppemedlemskap> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressursar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:statusar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Rettighet> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:rettigheiter> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Plattform> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:plattformar> ],
@@ -168,83 +186,65 @@
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:plattformar> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:rettigheiter> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurstilgjengelighet> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressurstilgjengelegheit> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Status> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:statusar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodellar> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonskategori> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonskategoriar> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingstypar> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonar> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetstype> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:einingstypar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Produsent> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsentar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsentar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressurstilgjengelegheit> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:DigitalEnhet> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitaleEiningar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppemedlemskap> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgruppedmedlemskap> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Handhevingstype> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhaevingstypar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Lisensmodell> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodellar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppe> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgrupper> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhaevingstypar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgrupper> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurs> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressursar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:identitetar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonskategoriar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressursar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:brukertypar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonsressurstilgjengelegheit> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:identitetar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Handhevingstype> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhaevingstypar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Brukertype> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:brukertypar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:rettigheiter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Produsent> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsentar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Lisensmodell> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodellar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodellar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Status> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:statusar> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Rettighet> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:rettigheiter> ] ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitaleEiningar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsentar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Identitet> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:identitetar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingsgrupper> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:einingstypar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonskategoriar> ] ;
     skos:definition "Rotcontainer for FINT Ressurs-instansar." ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
 
@@ -252,31 +252,31 @@
     rdfs:label "Enhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
             owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
         <https://schema.fintlabs.no/:Aktoer> ;
     skos:definition "Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer." ;
     skos:exactMatch fint:Enhet ;
@@ -285,10 +285,10 @@
 <https://schema.fintlabs.no/:Fylke> a owl:Class ;
     rdfs:label "Fylke" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
             owl:onProperty <https://schema.fintlabs.no/:kommune> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:kommune> ],
         <https://schema.fintlabs.no/:Begrep> ;
     skos:definition "Liste over Norges fylker." ;
@@ -305,46 +305,46 @@
 <https://schema.fintlabs.no/:Kontaktperson> a owl:Class ;
     rdfs:label "Kontaktperson" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:kontaktperson> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:type> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
             owl:onProperty <https://schema.fintlabs.no/:kontaktperson> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
             owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Personnavn> ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:type> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Personnavn> ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Kontaktperson (pårørande) til ein person." ;
     skos:exactMatch fint:Kontaktperson ;
@@ -356,19 +356,19 @@
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
             owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
-            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ] ;
     skos:definition "Abstrakt base for person eller eining vi samhandlar med." ;
     skos:exactMatch fint:Aktoer ;
@@ -377,34 +377,7 @@
 <https://schema.fintlabs.no/:Kontaktinformasjon> a owl:Class ;
     rdfs:label "Kontaktinformasjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:sip> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:sip> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:sip> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
@@ -412,15 +385,42 @@
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ] ;
     skos:definition "Informasjon som kan brukast for å oppnå kontakt." ;
     skos:exactMatch fint:Kontaktinformasjon ;
     skos:inScheme <https://data.norge.no/linkml/fint-common> .
@@ -438,28 +438,28 @@
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:fornavn> ] ;
     skos:definition "Namn på ein person." ;
     skos:exactMatch fint:Personnavn ;
@@ -505,59 +505,59 @@
 <https://schema.fintlabs.no/ressurs/:Applikasjon> a owl:Class ;
     rdfs:label "Applikasjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonskategori> ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonskategori> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Plattform> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonskategori> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonskategori> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjonskategori> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurs> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Plattform> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Ein applikasjon med tilhøyrande ressursar." ;
     skos:exactMatch res:Applikasjon ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -565,50 +565,50 @@
 <https://schema.fintlabs.no/ressurs/:Applikasjonskategori> a owl:Class ;
     rdfs:label "Applikasjonskategori" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Kategori av applikasjonar." ;
     skos:exactMatch res:Applikasjonskategori ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -616,50 +616,50 @@
 <https://schema.fintlabs.no/ressurs/:Applikasjonsressurstilgjengelighet> a owl:Class ;
     rdfs:label "Applikasjonsressurstilgjengelighet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:konsument> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:konsument> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:konsument> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurs> ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:konsument> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:konsument> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ] ;
     skos:definition "Kva organisasjonselements brukarar som har tilgang til ein ressurs." ;
     skos:exactMatch res:Applikasjonsressurstilgjengelighet ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -667,49 +667,49 @@
 <https://schema.fintlabs.no/ressurs/:Brukertype> a owl:Class ;
     rdfs:label "Brukertype" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ] ;
     skos:definition "Dei ulike brukartypane som kan nytte lisensen (t.d. Ansatt, Elev)." ;
     skos:exactMatch res:Brukertype ;
@@ -718,137 +718,137 @@
 <https://schema.fintlabs.no/ressurs/:DigitalEnhet> a owl:Class ;
     rdfs:label "DigitalEnhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppemedlemskap> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:serienummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:administrator> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:administrator> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:privateid> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:dataobjektId> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:elev> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:dataobjektId> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:flerbrukerenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:serienummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:administrator> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:dataobjektId> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Produsent> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsent> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsent> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:elev> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:privateid> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetstype> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Status> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Plattform> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:serienummer> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:flerbrukerenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:elev> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsent> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Status> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:status> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:privateid> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:flerbrukerenhet> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:dataobjektId> ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:administrator> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:privateid> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:dataobjektId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:privateid> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:serienummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:flerbrukerenhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:flerbrukerenhet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:administrator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:flerbrukerenhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Produsent> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:elev> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:elev> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:status> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsent> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:produsent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:privateid> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:serienummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:serienummer> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:elev> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:status> ] ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:dataobjektId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetstype> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppemedlemskap> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap> ] ;
     skos:definition "Ei digital eining som t.d. PC, nettbrett eller mobil." ;
     skos:exactMatch res:DigitalEnhet ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -856,56 +856,56 @@
 <https://schema.fintlabs.no/ressurs/:Enhetsgruppe> a owl:Class ;
     rdfs:label "Enhetsgruppe" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Plattform> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:organisasjonsenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:organisasjonsenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppemedlemskap> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetstype> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppemedlemskap> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppemedlemskap> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:organisasjonsenhet> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:organisasjonsenhet> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:organisasjonsenhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Plattform> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:plattform> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:organisasjonsenhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Ei gruppering av einsarta digitale einingar (t.d. klassesett med iPadar)." ;
     skos:exactMatch res:Enhetsgruppe ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -913,22 +913,16 @@
 <https://schema.fintlabs.no/ressurs/:Handhevingstype> a owl:Class ;
     rdfs:label "Handhevingstype" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
@@ -937,15 +931,24 @@
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
@@ -953,10 +956,7 @@
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Korleis ulike lisensmodellar kan handhevast (Håndhevingstype)." ;
     skos:exactMatch res:Handhevingstype ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -967,14 +967,14 @@
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Rettighet> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:rettighet> ],
@@ -982,11 +982,11 @@
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:rettighet> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ] ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Identitet som identifiserer innehavaren av rettigheiter i organisasjonen." ;
     skos:exactMatch res:Identitet ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -994,49 +994,49 @@
 <https://schema.fintlabs.no/ressurs/:Lisensmodell> a owl:Class ;
     rdfs:label "Lisensmodell" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ] ;
     skos:definition "Lisensmodellar som kan knytast til ein lisens." ;
     skos:exactMatch res:Lisensmodell ;
@@ -1045,50 +1045,50 @@
 <https://schema.fintlabs.no/ressurs/:Produsent> a owl:Class ;
     rdfs:label "Produsent" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ] ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ] ;
     skos:definition "Produsent av ei digital eining." ;
     skos:exactMatch res:Produsent ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -1096,34 +1096,7 @@
 <https://schema.fintlabs.no/ressurs/:Rettighet> a owl:Class ;
     rdfs:label "Rettighet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Identitet> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:identitet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
@@ -1132,29 +1105,56 @@
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Identitet> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:identitet> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ] ;
     skos:definition "Ei namngitt rettighet. Kva rettigheta gir tilgang til er systemspesifikt." ;
     skos:exactMatch res:Rettighet ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -1162,50 +1162,50 @@
 <https://schema.fintlabs.no/ressurs/:Status> a owl:Class ;
     rdfs:label "Status" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ] ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ] ;
     skos:definition "Status på ei digital eining i fagsystemet." ;
     skos:exactMatch res:Status ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -1302,13 +1302,13 @@
 <https://schema.fintlabs.no/:Kommune> a owl:Class ;
     rdfs:label "Kommune" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:fylke> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Fylke> ;
-            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:fylke> ],
         <https://schema.fintlabs.no/:Begrep> ;
     skos:definition "Liste over Norges kommunar." ;
@@ -1318,113 +1318,68 @@
 <https://schema.fintlabs.no/:Person> a owl:Class ;
     rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
-            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kjonn> ;
             owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:elev> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktperson> ;
-            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+            owl:onProperty <https://schema.fintlabs.no/:foreldreansvar> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:laerling> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
-            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
-            owl:onProperty <https://schema.fintlabs.no/:foreldreansvar> ],
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:navn> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:bilde> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:elev> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
-            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
+            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
+            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Kjonn> ;
-            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Personnavn> ;
             owl:onProperty <https://schema.fintlabs.no/:navn> ],
@@ -1432,38 +1387,83 @@
             owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
             owl:onProperty <https://schema.fintlabs.no/:kommune> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
             owl:onProperty <https://schema.fintlabs.no/:foreldreansvar> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
-            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktperson> ;
+            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
             owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
         <https://schema.fintlabs.no/:Aktoer> ;
     skos:definition "Fysiske private personar." ;
     skos:exactMatch fint:Person ;
@@ -1682,116 +1682,116 @@
 <https://schema.fintlabs.no/ressurs/:Applikasjonsressurs> a owl:Class ;
     rdfs:label "Applikasjonsressurs" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kreverGodkjenning> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kreverGodkjenning> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kreverGodkjenning> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodell> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhevingstype> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetskostnad> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Brukertype> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:brukertype> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurstilgjengelighet> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurstilgjengelighet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurstilgjengelighet> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetskostnad> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetskostnad> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhevingstype> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjon> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjon> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Lisensmodell> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodell> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kreverGodkjenning> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetskostnad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodell> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjon> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Handhevingstype> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhevingstype> ],
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Applikasjonsressurstilgjengelighet> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurstilgjengelighet> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:eier> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhevingstype> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:brukertype> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:applikasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetskostnad> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Handhevingstype> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhevingstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodell> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Lisensmodell> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodell> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:handhevingstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:ressurstilgjengelighet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetskostnad> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ] ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensantall> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Brukertype> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:brukertype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:lisensmodell> ] ;
     skos:definition "Informasjon om kor ein applikasjon kan nyttast (lisensressurs)." ;
     skos:exactMatch res:Applikasjonsressurs ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -1799,31 +1799,31 @@
 <https://schema.fintlabs.no/ressurs/:Enhetsgruppemedlemskap> a owl:Class ;
     rdfs:label "Enhetsgruppemedlemskap" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:DigitalEnhet> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitalEnhet> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppe> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitalEnhet> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitalEnhet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitalEnhet> ],
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppe> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:Enhetsgruppe> ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppe> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:enhetsgruppe> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:allValuesFrom <https://schema.fintlabs.no/ressurs/:DigitalEnhet> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitalEnhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:digitalEnhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Medlemskap mellom ei digital eining og ei einingsgruppe." ;
     skos:exactMatch res:Enhetsgruppemedlemskap ;
@@ -1832,50 +1832,50 @@
 <https://schema.fintlabs.no/ressurs/:Enhetstype> a owl:Class ;
     rdfs:label "Enhetstype" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Type digital eining (t.d. Mobiltelefon, Datamaskin, Nettbrett)." ;
     skos:exactMatch res:Enhetstype ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -1972,34 +1972,34 @@
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:adresselinje> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:adresselinje> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:land> ],
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+            owl:onProperty <https://schema.fintlabs.no/:land> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:adresselinje> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
             owl:onProperty <https://schema.fintlabs.no/:land> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:land> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:postnummer> ] ;
     skos:definition "Fysisk adresse eller postadresse." ;
     skos:exactMatch fint:Adresse ;
@@ -2014,50 +2014,50 @@
 <https://schema.fintlabs.no/ressurs/:Plattform> a owl:Class ;
     rdfs:label "Plattform" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:passiv> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/ressurs/:kode> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Plattforma tenesta kan leverast på (t.d. Windows, macOS, iOS, Android)." ;
     skos:exactMatch res:Plattform ;
     skos:inScheme <https://data.norge.no/linkml/fint-ressurs> .
@@ -2071,39 +2071,6 @@
 <https://schema.fintlabs.no/:Begrep> a owl:Class ;
     rdfs:label "Begrep" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:kode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:navn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:kode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:kode> ],
         [ a owl:Restriction ;
@@ -2113,7 +2080,40 @@
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:passiv> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:id> ] ;
     skos:definition "Abstrakt fellesbase for alle FINT-kodeverk." ;
     skos:exactMatch fint:Begrep ;
@@ -2134,20 +2134,20 @@
 <https://schema.fintlabs.no/:Identifikator> a owl:Class ;
     rdfs:label "Identifikator" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
-            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ] ;
@@ -2213,32 +2213,32 @@
 <https://schema.fintlabs.no/:Periode> a owl:Class ;
     rdfs:label "Periode" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://schema.fintlabs.no/:start> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:dateTime ;
-            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:start> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:dateTime ;
             owl:onProperty <https://schema.fintlabs.no/:start> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ] ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:start> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ] ;
     skos:definition "Tidsperiode med obligatorisk start og valfri slutt." ;
     skos:exactMatch fint:Periode ;
     skos:inScheme <https://data.norge.no/linkml/fint-common> .

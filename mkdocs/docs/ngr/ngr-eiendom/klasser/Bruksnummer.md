@@ -59,7 +59,7 @@ URI: [ngre:Bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bruksnummer_verdi](bruksnummer_verdi.md) | 1 <br/> [Integer](Integer.md) | Bruksnummer innanfor gardsnamnet |
+| [bruksnummer_verdi](bruksnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Bruksnummer innanfor gardsnamnet |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,7 +124,7 @@ URI: [ngre:Bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | [bestar_av_bruksnummer](bestar_av_bruksnummer.md) | range | [Bruksnummer](Bruksnummer.md) |
+| [Matrikkelnummer](matrikkelnummer.md) | [bestar_av_bruksnummer](bestar_av_bruksnummer.md) | range | [Bruksnummer](bruksnummer.md) |
 
 
 

@@ -26,7 +26,7 @@ Alias: har_merknad
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
+| Range | [LangString](langstring.md) |
 | Slot URI | [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment) |
 
 ### Cardinality and Requirements

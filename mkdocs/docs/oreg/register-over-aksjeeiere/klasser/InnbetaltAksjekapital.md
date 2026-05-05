@@ -71,7 +71,7 @@ URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAk
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [belop](belop.md) | 0..1 <br/> [Decimal](Decimal.md) | Monetært beløp |
+| [belop](belop.md) | 0..1 <br/> [Decimal](decimal.md) | Monetært beløp |
 
 
 
@@ -84,7 +84,7 @@ URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAk
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | range | [InnbetaltAksjekapital](InnbetaltAksjekapital.md) |
+| [Containerklasse](containerklasse.md) | [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | range | [InnbetaltAksjekapital](innbetaltaksjekapital.md) |
 
 
 

@@ -17,8 +17,8 @@ Alias: kontering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
-| [Postering](Postering.md) | Føring på ein konto i rekneskapet |  no  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: kontering
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Postering](Postering.md), [Vare](Vare.md) |
+| Range | [String](string.md) |
+| Domain Of | [Postering](postering.md), [Vare](vare.md) |
 
 ### Cardinality and Requirements
 

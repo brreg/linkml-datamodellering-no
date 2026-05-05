@@ -78,7 +78,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
+| [Klassifikasjon](klassifikasjon.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
 
 
 

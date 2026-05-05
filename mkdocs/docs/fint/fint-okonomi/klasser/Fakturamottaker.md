@@ -78,7 +78,7 @@ URI: [okn:Fakturamottaker](https://schema.fintlabs.no/okonomi/Fakturamottaker)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [person](person.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Person (Administrasjon) som skal betale faktura |
+| [person](person.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Person (Administrasjon) som skal betale faktura |
 
 
 
@@ -91,7 +91,7 @@ URI: [okn:Fakturamottaker](https://schema.fintlabs.no/okonomi/Fakturamottaker)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | [mottaker](mottaker.md) | range | [Fakturamottaker](Fakturamottaker.md) |
+| [Fakturagrunnlag](fakturagrunnlag.md) | [mottaker](mottaker.md) | range | [Fakturamottaker](fakturamottaker.md) |
 
 
 

@@ -114,9 +114,9 @@ URI: [fint:Periode](https://schema.fintlabs.no/Periode)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) | Beskriven namn på perioden |
-| [start](start.md) | 1 <br/> [Datetime](Datetime.md) | Frå tidspunkt |
-| [slutt](slutt.md) | 0..1 <br/> [Datetime](Datetime.md) | Til tidspunkt |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn på perioden |
+| [start](start.md) | 1 <br/> [Datetime](datetime.md) | Frå tidspunkt |
+| [slutt](slutt.md) | 0..1 <br/> [Datetime](datetime.md) | Til tidspunkt |
 
 
 
@@ -129,31 +129,31 @@ URI: [fint:Periode](https://schema.fintlabs.no/Periode)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdministrativEnhet](AdministrativEnhet.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [DokumentStatus](DokumentStatus.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [DokumentType](DokumentType.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Format](Format.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [JournalpostType](JournalpostType.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [JournalStatus](JournalStatus.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Klassifikasjonstype](Klassifikasjonstype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [KorrespondansepartType](KorrespondansepartType.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Merknadstype](Merknadstype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [PartRolle](PartRolle.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Rolle](Rolle.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Saksmappetype](Saksmappetype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Saksstatus](Saksstatus.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Skjermingshjemmel](Skjermingshjemmel.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Tilgangsgruppe](Tilgangsgruppe.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Tilgangsrestriksjon](Tilgangsrestriksjon.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Variantformat](Variantformat.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Begrep](Begrep.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Identifikator](Identifikator.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Landkode](Landkode.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Kjonn](Kjonn.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Fylke](Fylke.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Kommune](Kommune.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
-| [Spraak](Spraak.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](Periode.md) |
+| [AdministrativEnhet](administrativenhet.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [DokumentStatus](dokumentstatus.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [DokumentType](dokumenttype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Format](format.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [JournalpostType](journalposttype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [JournalStatus](journalstatus.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Klassifikasjonstype](klassifikasjonstype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [KorrespondansepartType](korrespondanseparttype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Merknadstype](merknadstype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [PartRolle](partrolle.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Rolle](rolle.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Saksmappetype](saksmappetype.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Saksstatus](saksstatus.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Skjermingshjemmel](skjermingshjemmel.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Tilgangsgruppe](tilgangsgruppe.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Variantformat](variantformat.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Begrep](begrep.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Identifikator](identifikator.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Landkode](landkode.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Kjonn](kjonn.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Fylke](fylke.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Kommune](kommune.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
+| [Spraak](spraak.md) | [gyldighetsperiode](gyldighetsperiode.md) | range | [Periode](periode.md) |
 
 
 

@@ -57,16 +57,16 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
 
 ## Inheritance
 * **Gruppe**
-    * [Klasse](Klasse.md)
-    * [Kontaktlaerergruppe](Kontaktlaerergruppe.md)
-    * [Persongruppe](Persongruppe.md)
-    * [Arstrinn](Arstrinn.md)
-    * [Programomrade](Programomrade.md)
-    * [Utdanningsprogram](Utdanningsprogram.md)
-    * [Fag](Fag.md)
-    * [Faggruppe](Faggruppe.md)
-    * [Undervisningsgruppe](Undervisningsgruppe.md)
-    * [Eksamensgruppe](Eksamensgruppe.md)
+    * [Klasse](klasse.md)
+    * [Kontaktlaerergruppe](kontaktlaerergruppe.md)
+    * [Persongruppe](persongruppe.md)
+    * [Arstrinn](arstrinn.md)
+    * [Programomrade](programomrade.md)
+    * [Utdanningsprogram](utdanningsprogram.md)
+    * [Fag](fag.md)
+    * [Faggruppe](faggruppe.md)
+    * [Undervisningsgruppe](undervisningsgruppe.md)
+    * [Eksamensgruppe](eksamensgruppe.md)
 
 
 ## Class Properties
@@ -150,9 +150,9 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [navn](navn.md) | 1 <br/> [String](String.md) | Namn på gruppa |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) | Skildring av gruppa |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [navn](navn.md) | 1 <br/> [String](string.md) | Namn på gruppa |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Skildring av gruppa |
 
 
 

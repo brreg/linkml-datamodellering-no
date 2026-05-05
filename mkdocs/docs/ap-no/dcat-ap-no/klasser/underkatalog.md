@@ -22,7 +22,7 @@ Alias: underkatalog
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: underkatalog
 
 | Property | Value |
 | --- | --- |
-| Range | [Katalog](Katalog.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Katalog](katalog.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dcat:catalog](http://www.w3.org/ns/dcat#catalog) |
 
 ### Cardinality and Requirements

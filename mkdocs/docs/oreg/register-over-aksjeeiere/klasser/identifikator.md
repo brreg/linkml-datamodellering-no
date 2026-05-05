@@ -22,22 +22,22 @@ Alias: identifikator
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vederlag](Vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
-| [Containerklasse](Containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
-| [Aksjekapital](Aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |  no  |
-| [Utbytte](Utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
-| [Aksjeinnskudd](Aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |  no  |
-| [Utdeling](Utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |  no  |
-| [Aksjeeier](Aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
-| [Aksjeselskap](Aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
-| [Aksjepost](Aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
-| [Eierposisjon](Eierposisjon.md) | Eierens samla posisjon i eit selskap |  no  |
-| [Aksje](Aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |  no  |
-| [Selskapshendelse](Selskapshendelse.md) | Hending som påverkar selskapet sitt eigarskap eller kapital |  no  |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
-| [Aksjeklasse](Aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |  no  |
-| [Aksjeeierrettighet](Aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
-| [Aksjeoverdragelse](Aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |  no  |
+| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
+| [Utbytte](utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
+| [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
+| [Utdeling](utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |  no  |
+| [Selskapshendelse](selskapshendelse.md) | Hending som påverkar selskapet sitt eigarskap eller kapital |  no  |
+| [Aksjeoverdragelse](aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |  no  |
+| [Aksjeeierrettighet](aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
+| [Aksjekapital](aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |  no  |
+| [Aksjeklasse](aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |  no  |
+| [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
+| [Aksjeinnskudd](aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |  no  |
+| [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
+| [Aksje](aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |  no  |
+| [Eierposisjon](eierposisjon.md) | Eierens samla posisjon i eit selskap |  no  |
 
 
 
@@ -50,8 +50,8 @@ Alias: identifikator
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Containerklasse](Containerklasse.md), [Aksjeselskap](Aksjeselskap.md), [Aksjekapital](Aksjekapital.md), [Aksje](Aksje.md), [Aksjeklasse](Aksjeklasse.md), [Aksjeeierrettighet](Aksjeeierrettighet.md), [Aksjeeier](Aksjeeier.md), [Eierposisjon](Eierposisjon.md), [Aksjepost](Aksjepost.md), [Utbytte](Utbytte.md), [Utdeling](Utdeling.md), [Eierskapstransaksjon](Eierskapstransaksjon.md), [Aksjeoverdragelse](Aksjeoverdragelse.md), [Vederlag](Vederlag.md), [Selskapshendelse](Selskapshendelse.md), [Aksjeinnskudd](Aksjeinnskudd.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Containerklasse](containerklasse.md), [Aksjeselskap](aksjeselskap.md), [Aksjekapital](aksjekapital.md), [Aksje](aksje.md), [Aksjeklasse](aksjeklasse.md), [Aksjeeierrettighet](aksjeeierrettighet.md), [Aksjeeier](aksjeeier.md), [Eierposisjon](eierposisjon.md), [Aksjepost](aksjepost.md), [Utbytte](utbytte.md), [Utdeling](utdeling.md), [Eierskapstransaksjon](eierskapstransaksjon.md), [Aksjeoverdragelse](aksjeoverdragelse.md), [Vederlag](vederlag.md), [Selskapshendelse](selskapshendelse.md), [Aksjeinnskudd](aksjeinnskudd.md) |
 
 ### Cardinality and Requirements
 

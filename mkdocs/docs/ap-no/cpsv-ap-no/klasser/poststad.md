@@ -22,7 +22,7 @@ Alias: poststad
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adresse](Adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |  yes  |
+| [Adresse](adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: poststad
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Adresse](Adresse.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Adresse](adresse.md) |
 | Slot URI | [locn:postName](http://www.w3.org/ns/locn#postName) |
 
 ### Cardinality and Requirements

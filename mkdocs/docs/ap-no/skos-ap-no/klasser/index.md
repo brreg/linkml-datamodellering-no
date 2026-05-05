@@ -12,18 +12,18 @@ Name: skos-ap-no
 
 | Class | Description |
 | --- | --- |
-| [AssosiativRelasjon](AssosiativRelasjon.md) | Ein assosiativ relasjon mellom to omgrep |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |
-| [Begrepssamling](Begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |
-| [Definisjon](Definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |
-| [GeneriskRelasjon](GeneriskRelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |
-| [Konsept](Konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |
-| [Mediatype](Mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |
-| [Organisasjon](Organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |
-| [PartitivRelasjon](PartitivRelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |
-| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |
-| [Spraak](Spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |
-| [VCardKontakt](VCardKontakt.md) | Kontaktinformasjon (vCard) for omgrepseigaren |
+| [AssosiativRelasjon](assosiativrelasjon.md) | Ein assosiativ relasjon mellom to omgrep |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |
+| [Begrepssamling](begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |
+| [Definisjon](definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |
+| [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |
+| [Konsept](konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |
+| [Mediatype](mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |
+| [Organisasjon](organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |
+| [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |
+| [Spraak](spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |
+| [VCardKontakt](vcardkontakt.md) | Kontaktinformasjon (vCard) for omgrepseigaren |
 
 
 
@@ -104,35 +104,35 @@ Name: skos-ap-no
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Duration](Duration.md) | ISO 8601-varigheit (xsd:duration), t |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [GYear](GYear.md) | Gregorisk årstal (xsd:gYear), t |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [LangString](LangString.md) | Språktagget streng (rdf:langString) |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [NonNegativeInteger](NonNegativeInteger.md) | Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger) |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Duration](duration.md) | ISO 8601-varigheit (xsd:duration), t |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [GYear](gyear.md) | Gregorisk årstal (xsd:gYear), t |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [LangString](langstring.md) | Språktagget streng (rdf:langString) |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [NonNegativeInteger](nonnegativeinteger.md) | Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger) |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
-| [Obligatorisk](Obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
-| [Valgfri](Valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |
+| [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i ein AP-NO-profil |
+| [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i ein AP-NO-profil |
+| [Valgfri](valgfri.md) | Valfrie eigenskapar i ein AP-NO-profil |

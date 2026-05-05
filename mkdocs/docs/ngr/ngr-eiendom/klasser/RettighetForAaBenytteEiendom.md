@@ -78,7 +78,7 @@ URI: [ngre:RettighetForAaBenytteEiendom](https://data.norge.no/vocabulary/ngr-ei
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [ngre:RettighetForAaBenytteEiendom](https://data.norge.no/vocabulary/ngr-ei
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [rettigheter](rettigheter.md) | range | [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) |
-| [FastEiendom](FastEiendom.md) | [bestar_av_rettighet](bestar_av_rettighet.md) | range | [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) |
+| [EiendomContainer](eiendomcontainer.md) | [rettigheter](rettigheter.md) | range | [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) |
+| [FastEiendom](fasteiendom.md) | [bestar_av_rettighet](bestar_av_rettighet.md) | range | [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) |
 
 
 

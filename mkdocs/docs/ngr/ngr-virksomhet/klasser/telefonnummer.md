@@ -22,7 +22,7 @@ Alias: telefonnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |  yes  |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: telefonnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktinformasjon](Kontaktinformasjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [ngrv:telefonnummer](https://data.norge.no/vocabulary/ngr-virksomhet#telefonnummer) |
 
 ### Cardinality and Requirements

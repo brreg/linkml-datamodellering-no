@@ -150,10 +150,10 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator (tilsvarar systemId i FINT) |
-| [bokstavkode](bokstavkode.md) | 1 <br/> [Identifikator](Identifikator.md) | Bokstavkode for aktuell valuta |
-| [navn](navn.md) | 1 <br/> [String](String.md) | Namn på valuta |
-| [nummerkode](nummerkode.md) | 1 <br/> [Identifikator](Identifikator.md) | Nummerkode for aktuell valuta |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [bokstavkode](bokstavkode.md) | 1 <br/> [Identifikator](identifikator.md) | Bokstavkode for aktuell valuta |
+| [navn](navn.md) | 1 <br/> [String](string.md) | Namn på valuta |
+| [nummerkode](nummerkode.md) | 1 <br/> [Identifikator](identifikator.md) | Nummerkode for aktuell valuta |
 
 
 
@@ -319,7 +319,7 @@ attributes:
     inlined: true
   id:
     name: id
-    description: URI-identifikator (tilsvarar systemId i FINT).
+    description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-personvern
     rank: 1000
     identifier: true

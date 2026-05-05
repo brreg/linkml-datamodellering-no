@@ -22,14 +22,14 @@ Alias: noekkelord
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
-| [TilskuddFartoy](TilskuddFartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
-| [Sak](Sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
-| [Mappe](Mappe.md) | Abstrakt basisklasse for alle mappetypar |  no  |
-| [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
-| [Saksmappe](Saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |  no  |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
-| [Personalmappe](Personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [Saksmappe](saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |  no  |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [Sak](sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
+| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [Mappe](mappe.md) | Abstrakt basisklasse for alle mappetypar |  no  |
 
 
 
@@ -42,8 +42,8 @@ Alias: noekkelord
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Mappe](Mappe.md) |
+| Range | [String](string.md) |
+| Domain Of | [Mappe](mappe.md) |
 | Slot URI | [ark:noekkelord](https://schema.fintlabs.no/arkiv/noekkelord) |
 
 ### Cardinality and Requirements
@@ -55,7 +55,7 @@ Alias: noekkelord
 
 | Property | Value |
 | --- | --- |
-| Owner | [Mappe](Mappe.md) |
+| Owner | [Mappe](mappe.md) |
 
 
 
@@ -67,7 +67,7 @@ Alias: noekkelord
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

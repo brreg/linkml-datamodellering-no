@@ -22,7 +22,7 @@ Alias: navn_vcard
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktopplysning](Kontaktopplysning.md) | Kontaktinformasjon for ein aktør |  yes  |
+| [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ein aktør |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: navn_vcard
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Kontaktopplysning](Kontaktopplysning.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Kontaktopplysning](kontaktopplysning.md) |
 | Slot URI | [vcard:fn](http://www.w3.org/2006/vcard/ns#fn) |
 
 ### Cardinality and Requirements

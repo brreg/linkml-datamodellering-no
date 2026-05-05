@@ -1,0 +1,196 @@
+
+
+# Class: Begrepssamling 
+
+
+_Ei SKOS-omgrepssamling (temavokabular)._
+
+
+
+
+
+URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Begrepssamling
+    click Begrepssamling href "../Begrepssamling/"
+      Begrepssamling : id
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Katalog](katalog.md) | [temaer](temaer.md) | range | [Begrepssamling](begrepssamling.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/samt-bu-skole
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | skos:ConceptScheme |
+| native | samtbuskole:Begrepssamling |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Begrepssamling
+description: Ei SKOS-omgrepssamling (temavokabular).
+from_schema: https://example.no/ontology/samt-bu-skole
+slots:
+- id
+class_uri: skos:ConceptScheme
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Begrepssamling
+description: Ei SKOS-omgrepssamling (temavokabular).
+from_schema: https://example.no/ontology/samt-bu-skole
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Begrepssamling
+    domain_of:
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Frekvens
+    - ProvenanceStatement
+    - OdrlPolicy
+    - ProvAktivitet
+    - ProvAttributering
+    - Tidsinstant
+    - KatalogisertRessurs
+    - Aktor
+    - Kontaktopplysning
+    - Tidsrom
+    - Standard
+    - RegulativRessurs
+    - Identifikator
+    - Rettighetserklaring
+    - Sjekksum
+    - Gebyr
+    - Relasjon
+    - Distribusjon
+    - Katalogpost
+    range: uriorcurie
+    required: true
+class_uri: skos:ConceptScheme
+
+```
+</details>

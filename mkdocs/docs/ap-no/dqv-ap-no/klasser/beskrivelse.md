@@ -26,7 +26,7 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
+| Range | [LangString](langstring.md) |
 | Slot URI | [dct:description](http://purl.org/dc/terms/description) |
 
 ### Cardinality and Requirements

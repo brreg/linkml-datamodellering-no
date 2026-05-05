@@ -22,7 +22,7 @@ Alias: kjelde
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Definisjon](Definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  yes  |
+| [Definisjon](definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kjelde
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Definisjon](Definisjon.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Definisjon](definisjon.md) |
 | Slot URI | [dct:source](http://purl.org/dc/terms/source) |
 
 ### Cardinality and Requirements

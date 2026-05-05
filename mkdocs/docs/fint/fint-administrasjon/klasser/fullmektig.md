@@ -22,7 +22,7 @@ Alias: fullmektig
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fullmakt](Fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fullmektig
 
 | Property | Value |
 | --- | --- |
-| Range | [Personalressurs](Personalressurs.md) |
-| Domain Of | [Fullmakt](Fullmakt.md) |
+| Range | [Personalressurs](personalressurs.md) |
+| Domain Of | [Fullmakt](fullmakt.md) |
 | Slot URI | [adm:fullmektig](https://schema.fintlabs.no/administrasjon/fullmektig) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: fullmektig
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fullmakt](Fullmakt.md) |
+| Owner | [Fullmakt](fullmakt.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: fullmektig
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

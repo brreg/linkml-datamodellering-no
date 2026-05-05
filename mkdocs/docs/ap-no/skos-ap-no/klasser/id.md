@@ -22,18 +22,18 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrepssamling](Begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |  no  |
-| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  no  |
-| [Organisasjon](Organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |  no  |
-| [Spraak](Spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |  no  |
-| [Mediatype](Mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |  no  |
-| [PartitivRelasjon](PartitivRelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  no  |
-| [GeneriskRelasjon](GeneriskRelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  no  |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  no  |
-| [AssosiativRelasjon](AssosiativRelasjon.md) | Ein assosiativ relasjon mellom to omgrep |  no  |
-| [Konsept](Konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |  no  |
-| [VCardKontakt](VCardKontakt.md) | Kontaktinformasjon (vCard) for omgrepseigaren |  no  |
-| [Definisjon](Definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  no  |
+| [AssosiativRelasjon](assosiativrelasjon.md) | Ein assosiativ relasjon mellom to omgrep |  no  |
+| [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  no  |
+| [Spraak](spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |  no  |
+| [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  no  |
+| [Begrepssamling](begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |  no  |
+| [Organisasjon](organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |  no  |
+| [Mediatype](mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |  no  |
+| [Definisjon](definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  no  |
+| [VCardKontakt](vcardkontakt.md) | Kontaktinformasjon (vCard) for omgrepseigaren |  no  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  no  |
+| [Konsept](konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |  no  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  no  |
 
 
 
@@ -46,8 +46,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Organisasjon](Organisasjon.md), [VCardKontakt](VCardKontakt.md), [Begrep](Begrep.md), [Definisjon](Definisjon.md), [AssosiativRelasjon](AssosiativRelasjon.md), [GeneriskRelasjon](GeneriskRelasjon.md), [PartitivRelasjon](PartitivRelasjon.md), [Samling](Samling.md), [Spraak](Spraak.md), [Mediatype](Mediatype.md), [Konsept](Konsept.md), [Begrepssamling](Begrepssamling.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Organisasjon](organisasjon.md), [VCardKontakt](vcardkontakt.md), [Begrep](begrep.md), [Definisjon](definisjon.md), [AssosiativRelasjon](assosiativrelasjon.md), [GeneriskRelasjon](generiskrelasjon.md), [PartitivRelasjon](partitivrelasjon.md), [Samling](samling.md), [Spraak](spraak.md), [Mediatype](mediatype.md), [Konsept](konsept.md), [Begrepssamling](begrepssamling.md) |
 
 ### Cardinality and Requirements
 

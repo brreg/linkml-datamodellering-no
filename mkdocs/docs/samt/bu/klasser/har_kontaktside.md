@@ -1,0 +1,95 @@
+
+
+# Slot: har_kontaktside 
+
+
+_Nettside for kontakt._
+
+
+
+
+
+URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
+Alias: har_kontaktside
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ein aktør |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Uri](uri.md) |
+| Domain Of | [Kontaktopplysning](kontaktopplysning.md) |
+| Slot URI | [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/samt-bu-skole
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | vcard:hasURL |
+| native | samtbuskole:har_kontaktside |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: har_kontaktside
+description: Nettside for kontakt.
+from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
+slot_uri: vcard:hasURL
+alias: har_kontaktside
+domain_of:
+- Kontaktopplysning
+range: uri
+
+```
+</details>

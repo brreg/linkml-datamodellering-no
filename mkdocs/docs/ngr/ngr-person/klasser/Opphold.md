@@ -17,7 +17,7 @@ Alias: opphold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: opphold
 
 | Property | Value |
 | --- | --- |
-| Range | [Opphold](Opphold.md) |
-| Domain Of | [PersonContainer](PersonContainer.md) |
+| Range | [Opphold](opphold.md) |
+| Domain Of | [PersonContainer](personcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: opphold
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonContainer](PersonContainer.md) |
+| Owner | [PersonContainer](personcontainer.md) |
 
 
 

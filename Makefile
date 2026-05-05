@@ -30,21 +30,33 @@ define run_gen
 $(foreach s,$(1),mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
 endef
 
+# gen-erdiagram: pipe through sed to strip Container classes (entity block + relationships)
+# $$  →  $  after make expansion, so shell sees  /^}$/  etc.
+define run_gen_erdiagram
+$(foreach s,$(1),mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) gen-erdiagram $(s) \
+  | sed -e '/^[A-Za-z]*Container {$$/,/^}$$/d' -e '/Container/d' \
+  > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md;)
+endef
+
 # gen-doc writes to a directory instead of stdout
 define run_gen_doc
-$(foreach s,$(1),$(PODMAN) gen-doc --template-directory src/templates/docgen -d $(call schema_outdir,$(s))/docs $(s);)
+$(foreach s,$(1),$(PODMAN) gen-doc --template-directory src/templates/docgen \
+  --diagram-type mermaid_class_diagram \
+  -d $(call schema_outdir,$(s))/docs $(s);)
 endef
 
 # ---------------------------------------------------------------------------
 # Top-level targets
 # ---------------------------------------------------------------------------
-.PHONY: all test validate gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf convert-rdf docs clean \
-        publish \
+.PHONY: all test validate gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf docs clean \
+        publish domains \
         mcp-build mcp-run mcp-test mcp-smoke mcp-validate \
-        docs-serve docs-build \
+        docs-docker docs-serve docs-build docs-build-fast \
         $(DOMAINS)
 
 all: test
+
+domains: $(DOMAINS)
 
 test:
 	bash tests/test_schemas.sh
@@ -72,8 +84,12 @@ gen-owl:
 gen-rdf:
 	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-rdf,schema.ttl)
 
+gen-erdiagram:
+	$(call run_gen_erdiagram,$(SCHEMAS))
+
 docs:
 	$(call run_gen_doc,$(SCHEMAS))
+	$(call run_gen_erdiagram,$(SCHEMAS))
 
 # Convert example YAML to RDF/Turtle for all domains.
 # AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
@@ -132,6 +148,10 @@ OWL_FLAGS_fint := --log_level ERROR
 # and fetches over HTTP → 404. Set GEN_RDF_SKIP_<domain> := true to skip.
 GEN_RDF_SKIP_fint := true
 
+# gen-rdf fails for samt schemas: same HTTP-fetch issue as fint (imports dcat-ap-no-schema
+# whose JSON-LD context reference is resolved against the schema base URL → 404).
+GEN_RDF_SKIP_samt := true
+
 define domain_target
 _schemas_$(1) := $(filter $(SCHEMA_DIR)/$(1)/%,$(SCHEMAS))
 
@@ -162,6 +182,7 @@ $(1):
 			$$$$example; \
 	done
 	$$(call run_gen_doc,$$(_schemas_$(1)))
+	$$(call run_gen_erdiagram,$$(_schemas_$(1)))
 endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
@@ -169,11 +190,21 @@ $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 # ---------------------------------------------------------------------------
 # Dokumentasjonsportal (MkDocs Material)
 # ---------------------------------------------------------------------------
+# Bygg lokal docs-image med mkdocs-kroki (trengst for PlantUML-rendering via Kroki.io).
+# Køyr éin gong, eller etter endringar i mkdocs/Dockerfile.
+docs-docker:
+	podman build -t $(DOCS_IMAGE) mkdocs/
+
 docs-serve:
 	$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000
 
 docs-build:
 	$(DOCS_RUN) $(DOCS_IMAGE) build
+
+# Raskare bygg for iterativ utvikling: hoppar over sider utan endringar sidan sist bygg.
+# Bruk docs-build for reine produksjonsbyggjer.
+docs-build-fast:
+	$(DOCS_RUN) $(DOCS_IMAGE) build --dirty
 
 # ---------------------------------------------------------------------------
 # MCP-validator

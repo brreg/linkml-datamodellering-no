@@ -22,7 +22,7 @@ Alias: prokura_bestemmelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Prokura](Prokura.md) | Prokura gjev ein person fullmakt til å handle på vegne av verksemda i nærings... |  yes  |
+| [Prokura](prokura.md) | Prokura gjev ein person fullmakt til å handle på vegne av verksemda i nærings... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: prokura_bestemmelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Prokura](Prokura.md) |
+| Range | [String](string.md) |
+| Domain Of | [Prokura](prokura.md) |
 | Slot URI | [ngrv:prokurabEstemmelse](https://data.norge.no/vocabulary/ngr-virksomhet#prokurabEstemmelse) |
 
 ### Cardinality and Requirements

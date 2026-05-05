@@ -22,7 +22,7 @@ Alias: feidenavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skoleressurs](Skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
+| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: feidenavn
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Skoleressurs](Skoleressurs.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Skoleressurs](skoleressurs.md) |
 | Slot URI | [utd:feidenavn](https://schema.fintlabs.no/utdanning/feidenavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: feidenavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Skoleressurs](Skoleressurs.md) |
+| Owner | [Skoleressurs](skoleressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: feidenavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

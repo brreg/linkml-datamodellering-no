@@ -22,7 +22,7 @@ Alias: type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: type
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktperson](Kontaktperson.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktperson](kontaktperson.md) |
 | Slot URI | [fint:type](https://schema.fintlabs.no/type) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: type
 
 | Property | Value |
 | --- | --- |
-| Owner | [Kontaktperson](Kontaktperson.md) |
+| Owner | [Kontaktperson](kontaktperson.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: type
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

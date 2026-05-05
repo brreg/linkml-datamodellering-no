@@ -17,7 +17,7 @@ Alias: borettslagsandeler
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: borettslagsandeler
 
 | Property | Value |
 | --- | --- |
-| Range | [Borettslagsandel](Borettslagsandel.md) |
-| Domain Of | [EiendomContainer](EiendomContainer.md) |
+| Range | [Borettslagsandel](borettslagsandel.md) |
+| Domain Of | [EiendomContainer](eiendomcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: borettslagsandeler
 
 | Property | Value |
 | --- | --- |
-| Owner | [EiendomContainer](EiendomContainer.md) |
+| Owner | [EiendomContainer](eiendomcontainer.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: referanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bilag](Bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |  no  |
+| [Bilag](bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Bilag](Bilag.md) |
+| Range | [String](string.md) |
+| Domain Of | [Bilag](bilag.md) |
 | Slot URI | [okn:referanse](https://schema.fintlabs.no/okonomi/referanse) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: referanse
 
 | Property | Value |
 | --- | --- |
-| Owner | [Bilag](Bilag.md) |
+| Owner | [Bilag](bilag.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: referanse
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

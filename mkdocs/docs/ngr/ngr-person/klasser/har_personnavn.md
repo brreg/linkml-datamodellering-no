@@ -22,7 +22,7 @@ Alias: har_personnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_personnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [Personnavn](Personnavn.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Personnavn](personnavn.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harPersonnavn](https://data.norge.no/vocabulary/ngr-person#harPersonnavn) |
 
 ### Cardinality and Requirements

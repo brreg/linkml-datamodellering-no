@@ -22,7 +22,7 @@ Alias: tjeneste
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tjeneste
 
 | Property | Value |
 | --- | --- |
-| Range | [Tjeneste](Tjeneste.md) |
-| Domain Of | [Behandling](Behandling.md) |
+| Range | [Tjeneste](tjeneste.md) |
+| Domain Of | [Behandling](behandling.md) |
 | Slot URI | [pvn:tjeneste](https://schema.fintlabs.no/personvern/tjeneste) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: tjeneste
 
 | Property | Value |
 | --- | --- |
-| Owner | [Behandling](Behandling.md) |
+| Owner | [Behandling](behandling.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: tjeneste
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

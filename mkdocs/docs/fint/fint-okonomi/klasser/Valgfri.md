@@ -5,7 +5,7 @@ _Valfri eigensskap._
 
 
 
-URI: [Valgfri](Valgfri.md)
+URI: [Valgfri](valgfri.md)
 
 
 
@@ -70,51 +70,6 @@ URI: [Valgfri](Valgfri.md)
 
 
 
-        
-
-
-        
-
-        
-
-
-
-        
-
-
-        
-
-
-        
-
-
-        
-
-        
-
-        
-
-
-        
-
-
-
-        
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-        
 
         
 
@@ -126,14 +81,6 @@ URI: [Valgfri](Valgfri.md)
 
 
         
-
-        
-
-
-
-
-        
-
 
 
         
@@ -153,6 +100,44 @@ URI: [Valgfri](Valgfri.md)
         
 
 
+
+        
+
+
+
+
+        
+
+
+
+
+
+
+
+
+
+        
+
+        
+
+
+        
+
+        
+
+
+
+        
+
+        
+
+
+
+
+        
+
+
+
         
 
 
@@ -163,6 +148,23 @@ URI: [Valgfri](Valgfri.md)
 
         
 
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+
+        
+
+        
+
         
 
 
@@ -174,6 +176,7 @@ URI: [Valgfri](Valgfri.md)
 
 
         
+
 
 
         

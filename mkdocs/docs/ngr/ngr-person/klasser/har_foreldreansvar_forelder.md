@@ -22,7 +22,7 @@ Alias: har_foreldreansvar_forelder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_foreldreansvar_forelder
 
 | Property | Value |
 | --- | --- |
-| Range | [ForeldreansvarForelder](ForeldreansvarForelder.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [ForeldreansvarForelder](foreldreansvarforelder.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harForeldreansvarForelder](https://data.norge.no/vocabulary/ngr-person#harForeldreansvarForelder) |
 
 ### Cardinality and Requirements

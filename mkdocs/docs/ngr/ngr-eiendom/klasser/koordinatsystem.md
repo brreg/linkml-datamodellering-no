@@ -22,7 +22,7 @@ Alias: koordinatsystem
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Representasjonspunkt](Representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |  yes  |
+| [Representasjonspunkt](representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: koordinatsystem
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Representasjonspunkt](Representasjonspunkt.md) |
+| Range | [String](string.md) |
+| Domain Of | [Representasjonspunkt](representasjonspunkt.md) |
 | Slot URI | [ngre:koordinatsystem](https://data.norge.no/vocabulary/ngr-eiendom#koordinatsystem) |
 
 ### Cardinality and Requirements

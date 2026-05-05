@@ -1,0 +1,68 @@
+@prefix fint: <https://schema.fintlabs.no/> .
+@prefix ns1: <https://schema.fintlabs.no/ressurs/:> .
+@prefix res: <https://schema.fintlabs.no/ressurs/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.no/fint/applikasjon/teams> a res:Applikasjon ;
+    res:beskrivelse "Kommunikasjons- og samarbeidsplattform" ;
+    res:gyldighetsperiode [ a fint:Periode ;
+            fint:start "2020-03-01T00:00:00+00:00"^^xsd:dateTime ] ;
+    res:navn "Microsoft Teams" .
+
+<https://example.no/fint/applikasjonsressurs/hr-portal-ansatt> a res:Applikasjonsressurs ;
+    res:applikasjon <https://example.no/fint/applikasjon/hr-portal> ;
+    res:brukertype <https://example.no/fint/brukertype/ansatt> ;
+    res:eier "finta:organisasjonselement/it-avdeling"^^xsd:anyURI ;
+    res:gyldighetsperiode [ a fint:Periode ;
+            fint:start "2022-01-01T00:00:00+00:00"^^xsd:dateTime ] ;
+    res:navn "HR-portal – ansatttilgang" .
+
+<https://example.no/fint/brukertype/elev> a res:Brukertype ;
+    res:gyldighetsperiode [ a fint:Periode ;
+            fint:start "2020-01-01T00:00:00+00:00"^^xsd:dateTime ] ;
+    res:kode "ELEV" ;
+    res:navn "Elev" .
+
+<https://example.no/fint/identitet/id-p12345> a res:Identitet ;
+    res:personalressurs "finta:personalressurs/p12345"^^xsd:anyURI ;
+    res:rettighet <https://example.no/fint/rettighet/les-ansattdata>,
+        <https://example.no/fint/rettighet/teams-bruker> .
+
+<https://example.no/fint/identitet/id-p23456> a res:Identitet ;
+    res:personalressurs "finta:personalressurs/p23456"^^xsd:anyURI ;
+    res:rettighet <https://example.no/fint/rettighet/les-ansattdata>,
+        <https://example.no/fint/rettighet/teams-bruker> .
+
+<https://example.no/fint/applikasjon/hr-portal> a res:Applikasjon ;
+    res:beskrivelse "Sjølvbeteningsportal for HR-tenester" ;
+    res:gyldighetsperiode [ a fint:Periode ;
+            fint:start "2022-01-01T00:00:00+00:00"^^xsd:dateTime ] ;
+    res:navn "HR-portalen" .
+
+<https://example.no/fint/brukertype/ansatt> a res:Brukertype ;
+    res:gyldighetsperiode [ a fint:Periode ;
+            fint:start "2020-01-01T00:00:00+00:00"^^xsd:dateTime ] ;
+    res:kode "ANSATT" ;
+    res:navn "Ansatt" .
+
+<https://example.no/fint/rettighet/les-ansattdata> a res:Rettighet ;
+    res:beskrivelse "Tilgang til å lese eigne personalopplysningar i HR-portalen" ;
+    res:kode "HR_READ" ;
+    res:navn "Les ansattdata" .
+
+<https://example.no/fint/rettighet/teams-bruker> a res:Rettighet ;
+    res:beskrivelse "Rett til å bruke Microsoft Teams som kommunikasjonsplattform" ;
+    res:kode "TEAMS_USER" ;
+    res:navn "Teams-bruker" .
+
+[] a ns1:RessursContainer ;
+    ns1:applikasjonar <https://example.no/fint/applikasjon/hr-portal>,
+        <https://example.no/fint/applikasjon/teams> ;
+    ns1:applikasjonsressursar <https://example.no/fint/applikasjonsressurs/hr-portal-ansatt> ;
+    ns1:brukertypar <https://example.no/fint/brukertype/ansatt>,
+        <https://example.no/fint/brukertype/elev> ;
+    ns1:identitetar <https://example.no/fint/identitet/id-p12345>,
+        <https://example.no/fint/identitet/id-p23456> ;
+    ns1:rettigheiter <https://example.no/fint/rettighet/les-ansattdata>,
+        <https://example.no/fint/rettighet/teams-bruker> .
+

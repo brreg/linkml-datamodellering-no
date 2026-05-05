@@ -177,12 +177,12 @@ URI: [utd:OtEnhet](https://schema.fintlabs.no/utdanning/OtEnhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [kode](kode.md) | 1 <br/> [String](String.md) |  |
-| [navn](navn.md) | 1 <br/> [String](String.md) |  |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) |  |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](Boolean.md) |  |
-| [kommune](kommune.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til kommunen OT-eininga dekker |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kode](kode.md) | 1 <br/> [String](string.md) |  |
+| [navn](navn.md) | 1 <br/> [String](string.md) |  |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) |  |
+| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) |  |
+| [kommune](kommune.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til kommunen OT-eininga dekker |
 
 
 
@@ -195,8 +195,8 @@ URI: [utd:OtEnhet](https://schema.fintlabs.no/utdanning/OtEnhet)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | [otEnheter](otEnheter.md) | range | [OtEnhet](OtEnhet.md) |
-| [OtUngdom](OtUngdom.md) | [enhet](enhet.md) | range | [OtEnhet](OtEnhet.md) |
+| [UtdanningContainer](utdanningcontainer.md) | [otEnheter](otenheter.md) | range | [OtEnhet](otenhet.md) |
+| [OtUngdom](otungdom.md) | [enhet](enhet.md) | range | [OtEnhet](otenhet.md) |
 
 
 

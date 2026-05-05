@@ -22,7 +22,7 @@ Alias: data
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentfil](Dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
+| [Dokumentfil](dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: data
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Dokumentfil](Dokumentfil.md) |
+| Range | [String](string.md) |
+| Domain Of | [Dokumentfil](dokumentfil.md) |
 | Slot URI | [ark:data](https://schema.fintlabs.no/arkiv/data) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: data
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentfil](Dokumentfil.md) |
+| Owner | [Dokumentfil](dokumentfil.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: data
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

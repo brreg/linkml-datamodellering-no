@@ -22,7 +22,7 @@ Alias: dokumentetsDato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dokumentetsDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Journalpost](Journalpost.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Journalpost](journalpost.md) |
 | Slot URI | [ark:dokumentetsDato](https://schema.fintlabs.no/arkiv/dokumentetsDato) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: dokumentetsDato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Journalpost](Journalpost.md) |
+| Owner | [Journalpost](journalpost.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: dokumentetsDato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

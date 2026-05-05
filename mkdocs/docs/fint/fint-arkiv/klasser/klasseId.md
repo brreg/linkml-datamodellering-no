@@ -22,7 +22,7 @@ Alias: klasseId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klasse](Klasse.md) | Ein klasse i eit klassifikasjonssystem |  no  |
+| [Klasse](klasse.md) | Ein klasse i eit klassifikasjonssystem |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: klasseId
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Klasse](Klasse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Klasse](klasse.md) |
 | Slot URI | [ark:klasseId](https://schema.fintlabs.no/arkiv/klasseId) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: klasseId
 
 | Property | Value |
 | --- | --- |
-| Owner | [Klasse](Klasse.md) |
+| Owner | [Klasse](klasse.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: klasseId
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

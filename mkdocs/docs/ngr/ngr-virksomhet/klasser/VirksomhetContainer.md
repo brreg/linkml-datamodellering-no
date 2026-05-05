@@ -492,22 +492,22 @@ URI: [https://data.norge.no/linkml/ngr-virksomhet/VirksomhetContainer](https://d
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [underenheter](underenheter.md) | * <br/> [Underenhet](Underenhet.md) |  |
-| [hovedenheter](hovedenheter.md) | * <br/> [Hovedenhet](Hovedenhet.md) |  |
-| [tilstander](tilstander.md) | * <br/> [Tilstand](Tilstand.md) |  |
-| [organisasjonsformer](organisasjonsformer.md) | * <br/> [Organisasjonsform](Organisasjonsform.md) |  |
-| [naeringskoder](naeringskoder.md) | * <br/> [Naeringskode](Naeringskode.md) |  |
-| [kontaktinformasjon](kontaktinformasjon.md) | * <br/> [Kontaktinformasjon](Kontaktinformasjon.md) |  |
-| [varslingsadresser](varslingsadresser.md) | * <br/> [Varslingsadresse](Varslingsadresse.md) |  |
-| [aktivitetar](aktivitetar.md) | * <br/> [Aktivitet](Aktivitet.md) |  |
-| [sektorkoder](sektorkoder.md) | * <br/> [Sektorkode](Sektorkode.md) |  |
-| [rollerIVirksomhet](rollerIVirksomhet.md) | * <br/> [RolleIVirksomhet](RolleIVirksomhet.md) |  |
-| [rolleinnehavere](rolleinnehavere.md) | * <br/> [Rolleinnehaver](Rolleinnehaver.md) |  |
-| [signaturrettar](signaturrettar.md) | * <br/> [Signaturrett](Signaturrett.md) |  |
-| [prokuraer](prokuraer.md) | * <br/> [Prokura](Prokura.md) |  |
-| [postadresser](postadresser.md) | * <br/> [Postadresse](Postadresse.md) |  |
-| [forretningsadresser](forretningsadresser.md) | * <br/> [Forretningsadresse](Forretningsadresse.md) |  |
-| [beliggenhetsadresser](beliggenhetsadresser.md) | * <br/> [Beliggenhetsadresse](Beliggenhetsadresse.md) |  |
+| [underenheter](underenheter.md) | * <br/> [Underenhet](underenhet.md) |  |
+| [hovedenheter](hovedenheter.md) | * <br/> [Hovedenhet](hovedenhet.md) |  |
+| [tilstander](tilstander.md) | * <br/> [Tilstand](tilstand.md) |  |
+| [organisasjonsformer](organisasjonsformer.md) | * <br/> [Organisasjonsform](organisasjonsform.md) |  |
+| [naeringskoder](naeringskoder.md) | * <br/> [Naeringskode](naeringskode.md) |  |
+| [kontaktinformasjon](kontaktinformasjon.md) | * <br/> [Kontaktinformasjon](kontaktinformasjon.md) |  |
+| [varslingsadresser](varslingsadresser.md) | * <br/> [Varslingsadresse](varslingsadresse.md) |  |
+| [aktivitetar](aktivitetar.md) | * <br/> [Aktivitet](aktivitet.md) |  |
+| [sektorkoder](sektorkoder.md) | * <br/> [Sektorkode](sektorkode.md) |  |
+| [rollerIVirksomhet](rollerivirksomhet.md) | * <br/> [RolleIVirksomhet](rolleivirksomhet.md) |  |
+| [rolleinnehavere](rolleinnehavere.md) | * <br/> [Rolleinnehaver](rolleinnehaver.md) |  |
+| [signaturrettar](signaturrettar.md) | * <br/> [Signaturrett](signaturrett.md) |  |
+| [prokuraer](prokuraer.md) | * <br/> [Prokura](prokura.md) |  |
+| [postadresser](postadresser.md) | * <br/> [Postadresse](postadresse.md) |  |
+| [forretningsadresser](forretningsadresser.md) | * <br/> [Forretningsadresse](forretningsadresse.md) |  |
+| [beliggenhetsadresser](beliggenhetsadresser.md) | * <br/> [Beliggenhetsadresse](beliggenhetsadresse.md) |  |
 
 
 

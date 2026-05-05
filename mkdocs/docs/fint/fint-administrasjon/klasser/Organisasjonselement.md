@@ -17,9 +17,9 @@ Alias: organisasjonselement
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
-| [Fullmakt](Fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
-| [Ansvar](Ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |  no  |
+| [Ansvar](ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |  no  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [AdministrasjonContainer](AdministrasjonContainer.md), [Ansvar](Ansvar.md), [Fullmakt](Fullmakt.md) |
+| Range | [String](string.md) |
+| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md), [Ansvar](ansvar.md), [Fullmakt](fullmakt.md) |
 
 ### Cardinality and Requirements
 

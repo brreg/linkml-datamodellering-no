@@ -69,7 +69,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [innflyttingsdato](innflyttingsdato.md) | 1 <br/> [Date](Date.md) | Dato personen vart registrert innflytta til Noreg |
+| [innflyttingsdato](innflyttingsdato.md) | 1 <br/> [Date](date.md) | Dato personen vart registrert innflytta til Noreg |
 
 
 
@@ -94,7 +94,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fraflyttingsland](fraflyttingsland.md) | 0..1 <br/> [String](String.md) | ISO 3166-1 landkode for landet personen flytta frå |
+| [fraflyttingsland](fraflyttingsland.md) | 0..1 <br/> [String](string.md) | ISO 3166-1 landkode for landet personen flytta frå |
 
 
 
@@ -119,7 +119,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fraflyttingssted_i_utlandet](fraflyttingssted_i_utlandet.md) | 0..1 <br/> [String](String.md) | Stad i utlandet personen flytta frå |
+| [fraflyttingssted_i_utlandet](fraflyttingssted_i_utlandet.md) | 0..1 <br/> [String](string.md) | Stad i utlandet personen flytta frå |
 
 
 
@@ -177,7 +177,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -190,8 +190,8 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [innflytting](innflytting.md) | range | [InnflyttingTilNorge](InnflyttingTilNorge.md) |
-| [Person](Person.md) | [har_innflytting_til_norge](har_innflytting_til_norge.md) | range | [InnflyttingTilNorge](InnflyttingTilNorge.md) |
+| [PersonContainer](personcontainer.md) | [innflytting](innflytting.md) | range | [InnflyttingTilNorge](innflyttingtilnorge.md) |
+| [Person](person.md) | [har_innflytting_til_norge](har_innflytting_til_norge.md) | range | [InnflyttingTilNorge](innflyttingtilnorge.md) |
 
 
 

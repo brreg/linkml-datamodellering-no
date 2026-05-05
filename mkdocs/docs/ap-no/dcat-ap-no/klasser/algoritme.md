@@ -22,7 +22,7 @@ Alias: algoritme
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sjekksum](Sjekksum.md) | Ein sjekksum for ein distribusjon |  yes  |
+| [Sjekksum](sjekksum.md) | Ein sjekksum for ein distribusjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: algoritme
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Sjekksum](Sjekksum.md) |
+| Range | [String](string.md) |
+| Domain Of | [Sjekksum](sjekksum.md) |
 | Slot URI | [spdx:algorithm](http://spdx.org/rdf/terms#algorithm) |
 
 ### Cardinality and Requirements

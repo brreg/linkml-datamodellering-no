@@ -22,7 +22,7 @@ Alias: mobiltelefonnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktopplysninger](Kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |  yes  |
+| [Kontaktopplysninger](kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: mobiltelefonnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktopplysninger](Kontaktopplysninger.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktopplysninger](kontaktopplysninger.md) |
 | Slot URI | [ngrp:mobiltelefonnummer](https://data.norge.no/vocabulary/ngr-person#mobiltelefonnummer) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: har_kontaktopplysninger
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_kontaktopplysninger
 
 | Property | Value |
 | --- | --- |
-| Range | [Kontaktopplysninger](Kontaktopplysninger.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Kontaktopplysninger](kontaktopplysninger.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harKontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#harKontaktopplysninger) |
 
 ### Cardinality and Requirements

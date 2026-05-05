@@ -69,7 +69,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 
 
 ## Inheritance
-* [Kvalitetsmerknad](Kvalitetsmerknad.md)
+* [Kvalitetsmerknad](kvalitetsmerknad.md)
     * **Kvalitetssertifikat**
 
 
@@ -107,12 +107,12 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
-| [er_motivert_av](er_motivert_av.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Motivasjonen bak kvalitetsmerknaden (t | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
-| [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | 0..1 <br/> [Kvalitetsdimensjon](Kvalitetsdimensjon.md) | Kvalitetsdimensjonen denne merknaden eller standarden gjeld | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
-| [har_tekstdel](har_tekstdel.md) | 0..1 <br/> [Tekstdel](Tekstdel.md) | Tekstleg innhald i merknaden | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
-| [har_merknad](har_merknad.md) | * <br/> [LangString](LangString.md) | Fritekstmerknad (rdfs:comment) | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
-| [har_maal](har_maal.md) | 0..1 <br/> [DcatRessurs](DcatRessurs.md) | Ressursen merknaden gjeld | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| [er_motivert_av](er_motivert_av.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Motivasjonen bak kvalitetsmerknaden (t | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | 0..1 <br/> [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Kvalitetsdimensjonen denne merknaden eller standarden gjeld | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| [har_tekstdel](har_tekstdel.md) | 0..1 <br/> [Tekstdel](tekstdel.md) | Tekstleg innhald i merknaden | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| [har_merknad](har_merknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad (rdfs:comment) | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| [har_maal](har_maal.md) | 0..1 <br/> [DcatRessurs](dcatressurs.md) | Ressursen merknaden gjeld | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 
 
 

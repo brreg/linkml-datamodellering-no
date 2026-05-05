@@ -1,5 +1,5 @@
 # Auto generated from fint-ressurs-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-04T20:07:41
+# Generation date: 2026-05-05T13:28:08
 # Schema: fint-ressurs
 #
 # id: https://data.norge.no/linkml/fint-ressurs

@@ -22,7 +22,7 @@ Alias: filnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentfil](Dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
+| [Dokumentfil](dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: filnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Dokumentfil](Dokumentfil.md) |
+| Range | [String](string.md) |
+| Domain Of | [Dokumentfil](dokumentfil.md) |
 | Slot URI | [ark:filnavn](https://schema.fintlabs.no/arkiv/filnavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: filnavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentfil](Dokumentfil.md) |
+| Owner | [Dokumentfil](dokumentfil.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: filnavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

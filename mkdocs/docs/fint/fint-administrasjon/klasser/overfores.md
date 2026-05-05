@@ -22,7 +22,7 @@ Alias: overfores
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravaerstype](Fravaerstype.md) | Type fråvær |  no  |
+| [Fravaerstype](fravaerstype.md) | Type fråvær |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: overfores
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Fravaerstype](Fravaerstype.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Fravaerstype](fravaerstype.md) |
 | Slot URI | [adm:overfores](https://schema.fintlabs.no/administrasjon/overfores) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: overfores
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravaerstype](Fravaerstype.md) |
+| Owner | [Fravaerstype](fravaerstype.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: overfores
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

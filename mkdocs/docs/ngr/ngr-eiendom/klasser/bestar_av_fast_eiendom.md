@@ -22,7 +22,7 @@ Alias: bestar_av_fast_eiendom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SamletFastEiendom](SamletFastEiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |  yes  |
+| [SamletFastEiendom](samletfasteiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bestar_av_fast_eiendom
 
 | Property | Value |
 | --- | --- |
-| Range | [FastEiendom](FastEiendom.md) |
-| Domain Of | [SamletFastEiendom](SamletFastEiendom.md) |
+| Range | [FastEiendom](fasteiendom.md) |
+| Domain Of | [SamletFastEiendom](samletfasteiendom.md) |
 | Slot URI | [ngre:bestarAvFastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvFastEiendom) |
 
 ### Cardinality and Requirements

@@ -168,11 +168,11 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator (tilsvarar systemId i FINT) |
-| [gyldighetsperiode](gyldighetsperiode.md) | 1 <br/> [Periode](Periode.md) | Gyldighetsperioden til applikasjonsressurstilgjengelegheita |
-| [lisensantall](lisensantall.md) | 0..1 <br/> [Integer](Integer.md) | Totalt tal på lisensar tilgjengeleg for brukarar i konsumenten |
-| [konsument](konsument.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Organisasjonselement som har tilgang til denne ressursen |
-| [ressurs](ressurs.md) | 1 <br/> [Applikasjonsressurs](Applikasjonsressurs.md) | Ressursen organisasjonselementet har tilgang til |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [gyldighetsperiode](gyldighetsperiode.md) | 1 <br/> [Periode](periode.md) | Gyldighetsperioden til applikasjonsressurstilgjengelegheita |
+| [lisensantall](lisensantall.md) | 0..1 <br/> [Integer](integer.md) | Totalt tal på lisensar tilgjengeleg for brukarar i konsumenten |
+| [konsument](konsument.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Organisasjonselement som har tilgang til denne ressursen |
+| [ressurs](ressurs.md) | 1 <br/> [Applikasjonsressurs](applikasjonsressurs.md) | Ressursen organisasjonselementet har tilgang til |
 
 
 
@@ -185,8 +185,8 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [RessursContainer](RessursContainer.md) | [applikasjonsressurstilgjengelegheit](applikasjonsressurstilgjengelegheit.md) | range | [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | [ressurstilgjengelighet](ressurstilgjengelighet.md) | range | [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |
+| [RessursContainer](ressurscontainer.md) | [applikasjonsressurstilgjengelegheit](applikasjonsressurstilgjengelegheit.md) | range | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
+| [Applikasjonsressurs](applikasjonsressurs.md) | [ressurstilgjengelighet](ressurstilgjengelighet.md) | range | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
 
 
 
@@ -382,7 +382,7 @@ attributes:
     required: true
   id:
     name: id
-    description: URI-identifikator (tilsvarar systemId i FINT).
+    description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     identifier: true

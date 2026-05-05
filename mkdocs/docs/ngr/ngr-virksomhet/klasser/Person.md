@@ -78,7 +78,7 @@ URI: [ngrv:Person](https://data.norge.no/vocabulary/ngr-virksomhet#Person)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [ngrv:Person](https://data.norge.no/vocabulary/ngr-virksomhet#Person)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Rolleinnehaver](Rolleinnehaver.md) | [kan_vaere_av_type_person](kan_vaere_av_type_person.md) | range | [Person](Person.md) |
+| [Rolleinnehaver](rolleinnehaver.md) | [kan_vaere_av_type_person](kan_vaere_av_type_person.md) | range | [Person](person.md) |
 
 
 

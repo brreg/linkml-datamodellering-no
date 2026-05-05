@@ -96,8 +96,8 @@ URI: [ngr:Adresseomrade](https://data.norge.no/vocabulary/ngr-adresse#Adresseomr
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [namn](namn.md) | 0..1 <br/> [String](String.md) | Namn på det geografiske området eller adressekomponenten |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten |
 
 
 
@@ -110,9 +110,9 @@ URI: [ngr:Adresseomrade](https://data.norge.no/vocabulary/ngr-adresse#Adresseomr
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [adresseomrader](adresseomrader.md) | range | [Adresseomrade](Adresseomrade.md) |
-| [Adressenavn](Adressenavn.md) | [adresseomrade_ref](adresseomrade_ref.md) | range | [Adresseomrade](Adresseomrade.md) |
-| [Adressekode](Adressekode.md) | [adresseomrade_ref](adresseomrade_ref.md) | range | [Adresseomrade](Adresseomrade.md) |
+| [AdresseContainer](adressecontainer.md) | [adresseomrader](adresseomrader.md) | range | [Adresseomrade](adresseomrade.md) |
+| [Adressenavn](adressenavn.md) | [adresseomrade_ref](adresseomrade_ref.md) | range | [Adresseomrade](adresseomrade.md) |
+| [Adressekode](adressekode.md) | [adresseomrade_ref](adresseomrade_ref.md) | range | [Adresseomrade](adresseomrade.md) |
 
 
 

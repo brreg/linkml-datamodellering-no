@@ -22,7 +22,7 @@ Alias: har_adressebeskyttelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_adressebeskyttelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Adressebeskyttelse](Adressebeskyttelse.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Adressebeskyttelse](adressebeskyttelse.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harAdressebeskyttelse](https://data.norge.no/vocabulary/ngr-person#harAdressebeskyttelse) |
 
 ### Cardinality and Requirements

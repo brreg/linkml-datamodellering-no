@@ -22,7 +22,7 @@ Alias: oppholds_type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Opphold](Opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |  yes  |
+| [Opphold](opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: oppholds_type
 
 | Property | Value |
 | --- | --- |
-| Range | [OppholdstypeKode](OppholdstypeKode.md) |
-| Domain Of | [Opphold](Opphold.md) |
+| Range | [OppholdstypeKode](oppholdstypekode.md) |
+| Domain Of | [Opphold](opphold.md) |
 | Slot URI | [ngrp:oppholdType](https://data.norge.no/vocabulary/ngr-person#oppholdType) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: full_adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adresse](Adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |  yes  |
+| [Adresse](adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: full_adresse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Adresse](Adresse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Adresse](adresse.md) |
 | Slot URI | [locn:fullAddress](http://www.w3.org/ns/locn#fullAddress) |
 
 ### Cardinality and Requirements

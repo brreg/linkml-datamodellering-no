@@ -12,26 +12,26 @@ Name: ngr-virksomhet
 
 | Class | Description |
 | --- | --- |
-| [Aktivitet](Aktivitet.md) | Skildring av kva aktivitet ei hovudeining utøver |
-| [GeografiskAdresse](GeografiskAdresse.md) | Abstrakt klasse for geografiske adresser |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Beliggenhetsadresse](Beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Forretningsadresse](Forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](Postadresse.md) | Postadressa verksemda mottar post på |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |
-| [Naeringskode](Naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |
-| [Organisasjonsform](Organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |
-| [Person](Person.md) | Ein fysisk person |
-| [Prokura](Prokura.md) | Prokura gjev ein person fullmakt til å handle på vegne av verksemda i nærings... |
-| [Rolleinnehaver](Rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |
-| [RolleIVirksomhet](RolleIVirksomhet.md) | Ein definert rolle i ei hovudeining (t |
-| [Sektorkode](Sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |
-| [Signaturrett](Signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |
-| [Tilstand](Tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |
-| [Varslingsadresse](Varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |
-| [Virksomhet](Virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underenhet](Underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |
-| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |
+| [Aktivitet](aktivitet.md) | Skildring av kva aktivitet ei hovudeining utøver |
+| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Beliggenhetsadresse](beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Forretningsadresse](forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](postadresse.md) | Postadressa verksemda mottar post på |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |
+| [Naeringskode](naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |
+| [Organisasjonsform](organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |
+| [Person](person.md) | Ein fysisk person |
+| [Prokura](prokura.md) | Prokura gjev ein person fullmakt til å handle på vegne av verksemda i nærings... |
+| [Rolleinnehaver](rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |
+| [RolleIVirksomhet](rolleivirksomhet.md) | Ein definert rolle i ei hovudeining (t |
+| [Sektorkode](sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |
+| [Signaturrett](signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |
+| [Tilstand](tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |
+| [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |
+| [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |
+| [VirksomhetContainer](virksomhetcontainer.md) | Rotklasse for NGR-virksomhet-datafiler |
 
 
 
@@ -84,7 +84,7 @@ Name: ngr-virksomhet
 | [rollebetegnelse](rollebetegnelse.md) | Kva type rolle dette er (dagleg leiar, styreleiar o |
 | [rolleinnehaver_navn](rolleinnehaver_navn.md) | Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar) |
 | [rolleinnehavere](rolleinnehavere.md) |  |
-| [rollerIVirksomhet](rollerIVirksomhet.md) |  |
+| [rollerIVirksomhet](rollerivirksomhet.md) |  |
 | [sektorkode_beskrivelse](sektorkode_beskrivelse.md) | Tekstleg skildring av sektorkoden |
 | [sektorkode_kode](sektorkode_kode.md) | Institusjonell sektorkode (t |
 | [sektorkoder](sektorkoder.md) |  |
@@ -105,40 +105,40 @@ Name: ngr-virksomhet
 
 | Enumeration | Description |
 | --- | --- |
-| [RolleType](RolleType.md) | Type rolle ein person eller eining kan ha i ei verksemd |
-| [TilstandType](TilstandType.md) | Status for ei verksemd registrert i Enhetsregisteret |
-| [VarslingType](VarslingType.md) | Kanaltype for varsling til verksemda |
+| [RolleType](rolletype.md) | Type rolle ein person eller eining kan ha i ei verksemd |
+| [TilstandType](tilstandtype.md) | Status for ei verksemd registrert i Enhetsregisteret |
+| [VarslingType](varslingtype.md) | Kanaltype for varsling til verksemda |
 
 
 ## Types
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
-| [Obligatorisk](Obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
-| [Valgfri](Valgfri.md) | Valfrie eigenskapar i domenemodellen |
+| [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
+| [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
+| [Valgfri](valgfri.md) | Valfrie eigenskapar i domenemodellen |

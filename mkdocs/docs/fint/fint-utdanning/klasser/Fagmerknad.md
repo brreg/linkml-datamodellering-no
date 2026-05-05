@@ -22,7 +22,7 @@ Alias: fagmerknad
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faggruppemedlemskap](Faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fagmerknad
 
 | Property | Value |
 | --- | --- |
-| Range | [Fagmerknad](Fagmerknad.md) |
-| Domain Of | [Faggruppemedlemskap](Faggruppemedlemskap.md) |
+| Range | [Fagmerknad](fagmerknad.md) |
+| Domain Of | [Faggruppemedlemskap](faggruppemedlemskap.md) |
 | Slot URI | [utd:fagmerknad](https://schema.fintlabs.no/utdanning/fagmerknad) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: fagmerknad
 
 | Property | Value |
 | --- | --- |
-| Owner | [Faggruppemedlemskap](Faggruppemedlemskap.md) |
+| Owner | [Faggruppemedlemskap](faggruppemedlemskap.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: fagmerknad
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

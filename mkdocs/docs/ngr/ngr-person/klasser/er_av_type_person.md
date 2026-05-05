@@ -22,12 +22,12 @@ Alias: er_av_type_person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FamilierelasjonForelder](FamilierelasjonForelder.md) | Familierelasjon der den relaterte personen er forelder |  yes  |
-| [FamilierelasjonEktefelle](FamilierelasjonEktefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |  yes  |
-| [ForeldreansvarForelder](ForeldreansvarForelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |  yes  |
-| [FamilierelasjonBarn](FamilierelasjonBarn.md) | Familierelasjon der den relaterte personen er barn |  yes  |
-| [Verge](Verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
-| [ForeldreansvarBarn](ForeldreansvarBarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |  yes  |
+| [Verge](verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
+| [FamilierelasjonEktefelle](familierelasjonektefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |  yes  |
+| [FamilierelasjonBarn](familierelasjonbarn.md) | Familierelasjon der den relaterte personen er barn |  yes  |
+| [ForeldreansvarBarn](foreldreansvarbarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |  yes  |
+| [ForeldreansvarForelder](foreldreansvarforelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |  yes  |
+| [FamilierelasjonForelder](familierelasjonforelder.md) | Familierelasjon der den relaterte personen er forelder |  yes  |
 
 
 
@@ -40,8 +40,8 @@ Alias: er_av_type_person
 
 | Property | Value |
 | --- | --- |
-| Range | [Person](Person.md) |
-| Domain Of | [ForeldreansvarForelder](ForeldreansvarForelder.md), [ForeldreansvarBarn](ForeldreansvarBarn.md), [FamilierelasjonForelder](FamilierelasjonForelder.md), [FamilierelasjonBarn](FamilierelasjonBarn.md), [FamilierelasjonEktefelle](FamilierelasjonEktefelle.md), [Verge](Verge.md) |
+| Range | [Person](person.md) |
+| Domain Of | [ForeldreansvarForelder](foreldreansvarforelder.md), [ForeldreansvarBarn](foreldreansvarbarn.md), [FamilierelasjonForelder](familierelasjonforelder.md), [FamilierelasjonBarn](familierelasjonbarn.md), [FamilierelasjonEktefelle](familierelasjonektefelle.md), [Verge](verge.md) |
 | Slot URI | [ngrp:erAvTypePerson](https://data.norge.no/vocabulary/ngr-person#erAvTypePerson) |
 
 ### Cardinality and Requirements

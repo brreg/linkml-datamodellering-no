@@ -22,11 +22,11 @@ Alias: utgivelsesdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
-| [Datasettserie](Datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
-| [Katalogpost](Katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 
 
 
@@ -39,8 +39,8 @@ Alias: utgivelsesdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Distribusjon](Distribusjon.md), [Datasett](Datasett.md), [Datasettserie](Datasettserie.md), [Katalogpost](Katalogpost.md), [Katalog](Katalog.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Distribusjon](distribusjon.md), [Datasett](datasett.md), [Datasettserie](datasettserie.md), [Katalogpost](katalogpost.md), [Katalog](katalog.md) |
 | Slot URI | [dct:issued](http://purl.org/dc/terms/issued) |
 
 ### Cardinality and Requirements

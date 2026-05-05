@@ -22,7 +22,7 @@ Alias: foretrekt_namn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foretrekt_namn
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [OffentligOrganisasjon](OffentligOrganisasjon.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [OffentligOrganisasjon](offentligorganisasjon.md) |
 | Slot URI | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) |
 
 ### Cardinality and Requirements

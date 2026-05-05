@@ -22,7 +22,7 @@ Alias: rollebetegnelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RolleIVirksomhet](RolleIVirksomhet.md) | Ein definert rolle i ei hovudeining (t |  yes  |
+| [RolleIVirksomhet](rolleivirksomhet.md) | Ein definert rolle i ei hovudeining (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rollebetegnelse
 
 | Property | Value |
 | --- | --- |
-| Range | [RolleType](RolleType.md) |
-| Domain Of | [RolleIVirksomhet](RolleIVirksomhet.md) |
+| Range | [RolleType](rolletype.md) |
+| Domain Of | [RolleIVirksomhet](rolleivirksomhet.md) |
 | Slot URI | [ngrv:rollebetegnelse](https://data.norge.no/vocabulary/ngr-virksomhet#rollebetegnelse) |
 
 ### Cardinality and Requirements

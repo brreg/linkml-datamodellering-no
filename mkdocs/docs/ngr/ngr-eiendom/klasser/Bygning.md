@@ -142,9 +142,9 @@ URI: [ngre:Bygning](https://data.norge.no/vocabulary/ngr-eiendom#Bygning)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_bygningsnummer](har_bygningsnummer.md) | 1 <br/> [Bygningsnummer](Bygningsnummer.md) | Offisiell bygningsnummer for bygningen |
-| [har_representasjonspunkt](har_representasjonspunkt.md) | 1 <br/> [Representasjonspunkt](Representasjonspunkt.md) | Geografisk representasjonspunkt for bygningen |
-| [er_knyttet_til_matrikkelenhet](er_knyttet_til_matrikkelenhet.md) | 1 <br/> [Matrikkelenhet](Matrikkelenhet.md) | Matrikkeleininga bygningen er knytt til |
+| [har_bygningsnummer](har_bygningsnummer.md) | 1 <br/> [Bygningsnummer](bygningsnummer.md) | Offisiell bygningsnummer for bygningen |
+| [har_representasjonspunkt](har_representasjonspunkt.md) | 1 <br/> [Representasjonspunkt](representasjonspunkt.md) | Geografisk representasjonspunkt for bygningen |
+| [er_knyttet_til_matrikkelenhet](er_knyttet_til_matrikkelenhet.md) | 1 <br/> [Matrikkelenhet](matrikkelenhet.md) | Matrikkeleininga bygningen er knytt til |
 
 
 
@@ -180,8 +180,8 @@ URI: [ngre:Bygning](https://data.norge.no/vocabulary/ngr-eiendom#Bygning)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_ytre_inngang](har_ytre_inngang.md) | * <br/> [YtreInngang](YtreInngang.md) | Ytre inngang(ar) til bygningen |
-| [har_bruksenhet](har_bruksenhet.md) | * <br/> [Bruksenhet](Bruksenhet.md) | Brukseining(ar) i bygningen |
+| [har_ytre_inngang](har_ytre_inngang.md) | * <br/> [YtreInngang](ytreinngang.md) | Ytre inngang(ar) til bygningen |
+| [har_bruksenhet](har_bruksenhet.md) | * <br/> [Bruksenhet](bruksenhet.md) | Brukseining(ar) i bygningen |
 
 
 
@@ -215,7 +215,7 @@ URI: [ngre:Bygning](https://data.norge.no/vocabulary/ngr-eiendom#Bygning)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_etasje](har_etasje.md) | * <br/> [Etasje](Etasje.md) | Etasjar i bygningen |
+| [har_etasje](har_etasje.md) | * <br/> [Etasje](etasje.md) | Etasjar i bygningen |
 
 
 
@@ -312,7 +312,7 @@ URI: [ngre:Bygning](https://data.norge.no/vocabulary/ngr-eiendom#Bygning)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -325,8 +325,8 @@ URI: [ngre:Bygning](https://data.norge.no/vocabulary/ngr-eiendom#Bygning)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [bygninger](bygninger.md) | range | [Bygning](Bygning.md) |
-| [FastEiendom](FastEiendom.md) | [bestar_av_bygning](bestar_av_bygning.md) | range | [Bygning](Bygning.md) |
+| [EiendomContainer](eiendomcontainer.md) | [bygninger](bygninger.md) | range | [Bygning](bygning.md) |
+| [FastEiendom](fasteiendom.md) | [bestar_av_bygning](bestar_av_bygning.md) | range | [Bygning](bygning.md) |
 
 
 

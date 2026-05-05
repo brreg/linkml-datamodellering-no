@@ -22,7 +22,7 @@ Alias: lisensmodell
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: lisensmodell
 
 | Property | Value |
 | --- | --- |
-| Range | [Lisensmodell](Lisensmodell.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Range | [Lisensmodell](lisensmodell.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:lisensmodell](https://schema.fintlabs.no/ressurs/lisensmodell) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: lisensmodell
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Owner | [Applikasjonsressurs](applikasjonsressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: lisensmodell
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

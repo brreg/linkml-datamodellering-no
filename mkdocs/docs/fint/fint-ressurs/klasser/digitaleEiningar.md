@@ -17,7 +17,7 @@ Alias: digitaleEiningar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RessursContainer](RessursContainer.md) | Rotcontainer for FINT Ressurs-instansar |  no  |
+| [RessursContainer](ressurscontainer.md) | Rotcontainer for FINT Ressurs-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: digitaleEiningar
 
 | Property | Value |
 | --- | --- |
-| Range | [DigitalEnhet](DigitalEnhet.md) |
-| Domain Of | [RessursContainer](RessursContainer.md) |
+| Range | [DigitalEnhet](digitalenhet.md) |
+| Domain Of | [RessursContainer](ressurscontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: digitaleEiningar
 
 | Property | Value |
 | --- | --- |
-| Owner | [RessursContainer](RessursContainer.md) |
+| Owner | [RessursContainer](ressurscontainer.md) |
 
 
 

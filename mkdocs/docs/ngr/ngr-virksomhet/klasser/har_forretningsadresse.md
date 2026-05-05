@@ -22,7 +22,7 @@ Alias: har_forretningsadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_forretningsadresse
 
 | Property | Value |
 | --- | --- |
-| Range | [Forretningsadresse](Forretningsadresse.md) |
-| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Range | [Forretningsadresse](forretningsadresse.md) |
+| Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:harForretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#harForretningsadresse) |
 
 ### Cardinality and Requirements

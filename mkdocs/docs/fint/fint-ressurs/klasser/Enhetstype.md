@@ -17,8 +17,8 @@ Alias: enhetstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhetsgruppe](Enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |  no  |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: enhetstype
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md), [Enhetsgruppe](Enhetsgruppe.md) |
+| Range | [String](string.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md), [Enhetsgruppe](enhetsgruppe.md) |
 
 ### Cardinality and Requirements
 

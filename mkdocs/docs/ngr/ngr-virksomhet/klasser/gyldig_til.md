@@ -22,7 +22,7 @@ Alias: gyldig_til
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tilstand](Tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
+| [Tilstand](tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gyldig_til
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Tilstand](Tilstand.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Tilstand](tilstand.md) |
 | Slot URI | [ngrv:gyldigTil](https://data.norge.no/vocabulary/ngr-virksomhet#gyldigTil) |
 
 ### Cardinality and Requirements

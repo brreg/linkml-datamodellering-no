@@ -22,7 +22,7 @@ Alias: rolleNavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolle](Rolle.md) | Rettighet eller type fullmakt |  no  |
+| [Rolle](rolle.md) | Rettighet eller type fullmakt |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rolleNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Rolle](Rolle.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Rolle](rolle.md) |
 | Slot URI | [adm:rolleNavn](https://schema.fintlabs.no/administrasjon/rolleNavn) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: rolleNavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Rolle](Rolle.md) |
+| Owner | [Rolle](rolle.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: rolleNavn
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

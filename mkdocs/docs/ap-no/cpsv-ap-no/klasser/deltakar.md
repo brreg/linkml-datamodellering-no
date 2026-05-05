@@ -22,7 +22,7 @@ Alias: deltakar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Deltagelse](Deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |  yes  |
+| [Deltagelse](deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: deltakar
 
 | Property | Value |
 | --- | --- |
-| Range | [Aktor](Aktor.md) |
-| Domain Of | [Deltagelse](Deltagelse.md) |
+| Range | [Aktor](aktor.md) |
+| Domain Of | [Deltagelse](deltagelse.md) |
 | Slot URI | [cv:participant](http://data.europa.eu/m8g/participant) |
 
 ### Cardinality and Requirements

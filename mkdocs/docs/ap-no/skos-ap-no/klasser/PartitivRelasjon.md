@@ -89,8 +89,8 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_partitivt_omgrep](har_partitivt_omgrep.md) | * <br/> [Begrep](Begrep.md) | Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept) |
-| [har_heilskapleg_omgrep](har_heilskapleg_omgrep.md) | * <br/> [Begrep](Begrep.md) | Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept) |
+| [har_partitivt_omgrep](har_partitivt_omgrep.md) | * <br/> [Begrep](begrep.md) | Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept) |
+| [har_heilskapleg_omgrep](har_heilskapleg_omgrep.md) | * <br/> [Begrep](begrep.md) | Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept) |
 
 
 
@@ -115,7 +115,7 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [inndelingskriterium](inndelingskriterium.md) | * <br/> [LangString](LangString.md) | Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description... |
+| [inndelingskriterium](inndelingskriterium.md) | * <br/> [LangString](langstring.md) | Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description... |
 
 
 
@@ -189,7 +189,7 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -202,7 +202,7 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Begrep](Begrep.md) | [har_partitiv_relasjon](har_partitiv_relasjon.md) | range | [PartitivRelasjon](PartitivRelasjon.md) |
+| [Begrep](begrep.md) | [har_partitiv_relasjon](har_partitiv_relasjon.md) | range | [PartitivRelasjon](partitivrelasjon.md) |
 
 
 

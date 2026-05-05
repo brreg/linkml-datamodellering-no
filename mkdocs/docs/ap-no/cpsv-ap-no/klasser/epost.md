@@ -22,7 +22,7 @@ Alias: epost
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktpunkt](Kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
+| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: epost
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Kontaktpunkt](Kontaktpunkt.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Kontaktpunkt](kontaktpunkt.md) |
 | Slot URI | [cv:email](http://data.europa.eu/m8g/email) |
 
 ### Cardinality and Requirements

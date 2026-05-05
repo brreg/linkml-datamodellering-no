@@ -17,7 +17,7 @@ Alias: foedslar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: foedslar
 
 | Property | Value |
 | --- | --- |
-| Range | [Foedsel](Foedsel.md) |
-| Domain Of | [PersonContainer](PersonContainer.md) |
+| Range | [Foedsel](foedsel.md) |
+| Domain Of | [PersonContainer](personcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: foedslar
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonContainer](PersonContainer.md) |
+| Owner | [PersonContainer](personcontainer.md) |
 
 
 

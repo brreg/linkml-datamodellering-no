@@ -22,8 +22,8 @@ Alias: deltek_i
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktor](Aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  no  |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  no  |
+| [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: deltek_i
 
 | Property | Value |
 | --- | --- |
-| Range | [Deltagelse](Deltagelse.md) |
-| Domain Of | [Aktor](Aktor.md) |
+| Range | [Deltagelse](deltagelse.md) |
+| Domain Of | [Aktor](aktor.md) |
 | Slot URI | [cv:participates](http://data.europa.eu/m8g/participates) |
 
 ### Cardinality and Requirements

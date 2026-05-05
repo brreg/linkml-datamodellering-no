@@ -17,12 +17,12 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
-| [Rolle](Rolle.md) | Rettighet eller type fullmakt |  no  |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Lonn](Lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
-| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Rolle](rolle.md) | Rettighet eller type fullmakt |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Lonn](Lonn.md), [Rolle](Rolle.md), [Periode](Periode.md) |
+| Range | [String](string.md) |
+| Domain Of | [Lonn](lonn.md), [Rolle](rolle.md), [Periode](periode.md) |
 
 ### Cardinality and Requirements
 

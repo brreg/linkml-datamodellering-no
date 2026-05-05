@@ -22,9 +22,9 @@ Alias: er_klassifisert_i_naeringskode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](Underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
-| [Virksomhet](Virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
+| [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: er_klassifisert_i_naeringskode
 
 | Property | Value |
 | --- | --- |
-| Range | [Naeringskode](Naeringskode.md) |
-| Domain Of | [Virksomhet](Virksomhet.md) |
+| Range | [Naeringskode](naeringskode.md) |
+| Domain Of | [Virksomhet](virksomhet.md) |
 | Slot URI | [ngrv:erKlassifisertINaeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#erKlassifisertINaeringskode) |
 
 ### Cardinality and Requirements

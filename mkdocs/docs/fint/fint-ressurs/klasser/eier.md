@@ -17,8 +17,8 @@ Alias: eier
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: eier
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md), [DigitalEnhet](DigitalEnhet.md) |
+| Range | [String](string.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md), [DigitalEnhet](digitalenhet.md) |
 
 ### Cardinality and Requirements
 

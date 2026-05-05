@@ -924,38 +924,38 @@ URI: [https://schema.fintlabs.no/arkiv/:ArkivContainer](https://schema.fintlabs.
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [arkivdelar](arkivdelar.md) | * <br/> [Arkivdel](Arkivdel.md) |  |
-| [arkivressursar](arkivressursar.md) | * <br/> [Arkivressurs](Arkivressurs.md) |  |
-| [autorisasjonar](autorisasjonar.md) | * <br/> [Autorisasjon](Autorisasjon.md) |  |
-| [administrativeEiningar](administrativeEiningar.md) | * <br/> [AdministrativEnhet](AdministrativEnhet.md) |  |
-| [dokumentfiler](dokumentfiler.md) | * <br/> [Dokumentfil](Dokumentfil.md) |  |
-| [dokumentbeskrivelsar](dokumentbeskrivelsar.md) | * <br/> [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |  |
-| [journalpostar](journalpostar.md) | * <br/> [Journalpost](Journalpost.md) |  |
-| [klassifikasjonssystem](klassifikasjonssystem.md) | * <br/> [Klassifikasjonssystem](Klassifikasjonssystem.md) |  |
-| [tilgangar](tilgangar.md) | * <br/> [Tilgang](Tilgang.md) |  |
-| [sakar](sakar.md) | * <br/> [Sak](Sak.md) |  |
-| [personalmappe](personalmappe.md) | * <br/> [Personalmappe](Personalmappe.md) |  |
-| [dispensasjonAutomatiskFredaKulturminne](dispensasjonAutomatiskFredaKulturminne.md) | * <br/> [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) |  |
-| [tilskuddFartoy](tilskuddFartoy.md) | * <br/> [TilskuddFartoy](TilskuddFartoy.md) |  |
-| [tilskuddFredaBygningPrivatEie](tilskuddFredaBygningPrivatEie.md) | * <br/> [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) |  |
-| [soeknadDrosjeloeyve](soeknadDrosjeloeyve.md) | * <br/> [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) |  |
-| [dokumentstatuskodar](dokumentstatuskodar.md) | * <br/> [DokumentStatus](DokumentStatus.md) |  |
-| [dokumenttypar](dokumenttypar.md) | * <br/> [DokumentType](DokumentType.md) |  |
-| [formatar](formatar.md) | * <br/> [Format](Format.md) |  |
-| [journalposttypar](journalposttypar.md) | * <br/> [JournalpostType](JournalpostType.md) |  |
-| [journalstatuskodar](journalstatuskodar.md) | * <br/> [JournalStatus](JournalStatus.md) |  |
-| [klassifikasjonstypar](klassifikasjonstypar.md) | * <br/> [Klassifikasjonstype](Klassifikasjonstype.md) |  |
-| [korrespondanseparttypar](korrespondanseparttypar.md) | * <br/> [KorrespondansepartType](KorrespondansepartType.md) |  |
-| [merknadstypar](merknadstypar.md) | * <br/> [Merknadstype](Merknadstype.md) |  |
-| [partRollar](partRollar.md) | * <br/> [PartRolle](PartRolle.md) |  |
-| [rollar](rollar.md) | * <br/> [Rolle](Rolle.md) |  |
-| [saksmappetypar](saksmappetypar.md) | * <br/> [Saksmappetype](Saksmappetype.md) |  |
-| [sakstatuskodar](sakstatuskodar.md) | * <br/> [Saksstatus](Saksstatus.md) |  |
-| [skjermingsheimlar](skjermingsheimlar.md) | * <br/> [Skjermingshjemmel](Skjermingshjemmel.md) |  |
-| [tilgangsgrupper](tilgangsgrupper.md) | * <br/> [Tilgangsgruppe](Tilgangsgruppe.md) |  |
-| [tilgangsrestriksjonar](tilgangsrestriksjonar.md) | * <br/> [Tilgangsrestriksjon](Tilgangsrestriksjon.md) |  |
-| [tilknyttetRegistreringSomKodar](tilknyttetRegistreringSomKodar.md) | * <br/> [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md) |  |
-| [variantformatar](variantformatar.md) | * <br/> [Variantformat](Variantformat.md) |  |
+| [arkivdelar](arkivdelar.md) | * <br/> [Arkivdel](arkivdel.md) |  |
+| [arkivressursar](arkivressursar.md) | * <br/> [Arkivressurs](arkivressurs.md) |  |
+| [autorisasjonar](autorisasjonar.md) | * <br/> [Autorisasjon](autorisasjon.md) |  |
+| [administrativeEiningar](administrativeeiningar.md) | * <br/> [AdministrativEnhet](administrativenhet.md) |  |
+| [dokumentfiler](dokumentfiler.md) | * <br/> [Dokumentfil](dokumentfil.md) |  |
+| [dokumentbeskrivelsar](dokumentbeskrivelsar.md) | * <br/> [Dokumentbeskrivelse](dokumentbeskrivelse.md) |  |
+| [journalpostar](journalpostar.md) | * <br/> [Journalpost](journalpost.md) |  |
+| [klassifikasjonssystem](klassifikasjonssystem.md) | * <br/> [Klassifikasjonssystem](klassifikasjonssystem.md) |  |
+| [tilgangar](tilgangar.md) | * <br/> [Tilgang](tilgang.md) |  |
+| [sakar](sakar.md) | * <br/> [Sak](sak.md) |  |
+| [personalmappe](personalmappe.md) | * <br/> [Personalmappe](personalmappe.md) |  |
+| [dispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | * <br/> [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) |  |
+| [tilskuddFartoy](tilskuddfartoy.md) | * <br/> [TilskuddFartoy](tilskuddfartoy.md) |  |
+| [tilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | * <br/> [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) |  |
+| [soeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | * <br/> [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) |  |
+| [dokumentstatuskodar](dokumentstatuskodar.md) | * <br/> [DokumentStatus](dokumentstatus.md) |  |
+| [dokumenttypar](dokumenttypar.md) | * <br/> [DokumentType](dokumenttype.md) |  |
+| [formatar](formatar.md) | * <br/> [Format](format.md) |  |
+| [journalposttypar](journalposttypar.md) | * <br/> [JournalpostType](journalposttype.md) |  |
+| [journalstatuskodar](journalstatuskodar.md) | * <br/> [JournalStatus](journalstatus.md) |  |
+| [klassifikasjonstypar](klassifikasjonstypar.md) | * <br/> [Klassifikasjonstype](klassifikasjonstype.md) |  |
+| [korrespondanseparttypar](korrespondanseparttypar.md) | * <br/> [KorrespondansepartType](korrespondanseparttype.md) |  |
+| [merknadstypar](merknadstypar.md) | * <br/> [Merknadstype](merknadstype.md) |  |
+| [partRollar](partrollar.md) | * <br/> [PartRolle](partrolle.md) |  |
+| [rollar](rollar.md) | * <br/> [Rolle](rolle.md) |  |
+| [saksmappetypar](saksmappetypar.md) | * <br/> [Saksmappetype](saksmappetype.md) |  |
+| [sakstatuskodar](sakstatuskodar.md) | * <br/> [Saksstatus](saksstatus.md) |  |
+| [skjermingsheimlar](skjermingsheimlar.md) | * <br/> [Skjermingshjemmel](skjermingshjemmel.md) |  |
+| [tilgangsgrupper](tilgangsgrupper.md) | * <br/> [Tilgangsgruppe](tilgangsgruppe.md) |  |
+| [tilgangsrestriksjonar](tilgangsrestriksjonar.md) | * <br/> [Tilgangsrestriksjon](tilgangsrestriksjon.md) |  |
+| [tilknyttetRegistreringSomKodar](tilknyttetregistreringsomkodar.md) | * <br/> [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) |  |
+| [variantformatar](variantformatar.md) | * <br/> [Variantformat](variantformat.md) |  |
 
 
 

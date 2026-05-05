@@ -1,0 +1,101 @@
+
+
+# Slot: utgiver 
+
+
+_Aktøren som er ansvarleg for å tilgjengeleggjere ressursen._
+
+
+
+
+
+URI: [dct:publisher](http://purl.org/dc/terms/publisher)
+Alias: utgiver
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Aktor](aktor.md) |
+| Domain Of | [Datasett](datasett.md), [Datasettserie](datasettserie.md), [Datatjeneste](datatjeneste.md), [Katalog](katalog.md) |
+| Slot URI | [dct:publisher](http://purl.org/dc/terms/publisher) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/samt-bu-skole
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:publisher |
+| native | samtbuskole:utgiver |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: utgiver
+description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
+from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
+slot_uri: dct:publisher
+alias: utgiver
+domain_of:
+- Datasett
+- Datasettserie
+- Datatjeneste
+- Katalog
+range: Aktor
+
+```
+</details>

@@ -22,7 +22,7 @@ Alias: skapar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skapar
 
 | Property | Value |
 | --- | --- |
-| Range | [Aktor](Aktor.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Aktor](aktor.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:creator](http://purl.org/dc/terms/creator) |
 
 ### Cardinality and Requirements

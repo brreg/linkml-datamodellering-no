@@ -22,7 +22,7 @@ Alias: lisens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: lisens
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dct:license](http://purl.org/dc/terms/license) |
 
 ### Cardinality and Requirements

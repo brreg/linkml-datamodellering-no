@@ -22,7 +22,7 @@ Alias: fakturanummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fakturanummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Faktura](Faktura.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Faktura](faktura.md) |
 | Slot URI | [okn:fakturanummer](https://schema.fintlabs.no/okonomi/fakturanummer) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fakturanummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Faktura](Faktura.md) |
+| Owner | [Faktura](faktura.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fakturanummer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

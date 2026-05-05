@@ -22,7 +22,7 @@ Alias: samtykke
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: samtykke
 
 | Property | Value |
 | --- | --- |
-| Range | [Samtykke](Samtykke.md) |
-| Domain Of | [Behandling](Behandling.md) |
+| Range | [Samtykke](samtykke.md) |
+| Domain Of | [Behandling](behandling.md) |
 | Slot URI | [pvn:samtykke](https://schema.fintlabs.no/personvern/samtykke) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: samtykke
 
 | Property | Value |
 | --- | --- |
-| Owner | [Behandling](Behandling.md) |
+| Owner | [Behandling](behandling.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: samtykke
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

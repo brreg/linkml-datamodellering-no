@@ -22,7 +22,7 @@ Alias: har_rettighetshaver
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Andel](Andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |  yes  |
+| [Andel](andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_rettighetshaver
 
 | Property | Value |
 | --- | --- |
-| Range | [Rettighetshaver](Rettighetshaver.md) |
-| Domain Of | [Andel](Andel.md) |
+| Range | [Rettighetshaver](rettighetshaver.md) |
+| Domain Of | [Andel](andel.md) |
 | Slot URI | [ngre:harRettighetshaver](https://data.norge.no/vocabulary/ngr-eiendom#harRettighetshaver) |
 
 ### Cardinality and Requirements

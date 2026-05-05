@@ -26,7 +26,7 @@ Alias: sprak
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
+| Range | [Spraak](spraak.md) |
 | Slot URI | [dct:language](http://purl.org/dc/terms/language) |
 
 ### Cardinality and Requirements

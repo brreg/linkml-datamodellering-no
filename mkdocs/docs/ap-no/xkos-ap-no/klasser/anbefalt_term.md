@@ -22,7 +22,7 @@ Alias: anbefalt_term
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
+| [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: anbefalt_term
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Kategori](Kategori.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Kategori](kategori.md) |
 | Slot URI | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) |
 
 ### Cardinality and Requirements

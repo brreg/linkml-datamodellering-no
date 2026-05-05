@@ -22,7 +22,7 @@ Alias: eierskapstransaksjoner
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: eierskapstransaksjoner
 
 | Property | Value |
 | --- | --- |
-| Range | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
-| Domain | [Containerklasse](Containerklasse.md) |
-| Domain Of | [Containerklasse](Containerklasse.md) |
+| Range | [Eierskapstransaksjon](eierskapstransaksjon.md) |
+| Domain | [Containerklasse](containerklasse.md) |
+| Domain Of | [Containerklasse](containerklasse.md) |
 
 ### Cardinality and Requirements
 

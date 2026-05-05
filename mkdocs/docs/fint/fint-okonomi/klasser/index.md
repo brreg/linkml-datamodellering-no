@@ -13,38 +13,39 @@ Name: fint-okonomi
 
 | Class | Description |
 | --- | --- |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Fysiske private personar |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](Fylke.md) | Liste over Norges fylker |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](Kommune.md) | Liste over Norges kommunar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |
-| [Bilag](Bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |
-| [Fakturalinje](Fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |
-| [Fakturamottaker](Fakturamottaker.md) | Aktør som skal betale faktura (kompleks datatype) |
-| [Fakturautsteder](Fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |
-| [Identifikator](Identifikator.md) | Unik identifikasjon til eit objekt |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |
-| [Kontostreng](Kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |
-| [Leverandor](Leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |
-| [Leverandorgruppe](Leverandorgruppe.md) | Gruppering av leverandørar (Leverandørgruppe) |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
-| [Merverdiavgift](Merverdiavgift.md) | Kodeverk for merverdiavgifter |
-| [OkonomiContainer](OkonomiContainer.md) | Rotcontainer for FINT Økonomi-instansar |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
-| [Personnavn](Personnavn.md) | Namn på ein person |
-| [Postering](Postering.md) | Føring på ein konto i rekneskapet |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |
-| [Valuta](Valuta.md) | Valuta for transaksjonsbeløp |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](person.md) | Fysiske private personar |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Liste over Norges fylker |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | Liste over Norges kommunar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |
+| [Bilag](bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |
+| [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |
+| [Fakturamottaker](fakturamottaker.md) | Aktør som skal betale faktura (kompleks datatype) |
+| [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |
+| [Kontostreng](kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |
+| [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar (Leverandørgruppe) |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
+| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |
+| [OkonomiContainer](okonomicontainer.md) | Rotcontainer for FINT Økonomi-instansar |
+| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
+| [Personnavn](personnavn.md) | Namn på ein person |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |
 
 
 
@@ -66,6 +67,7 @@ Name: fint-okonomi
 | [bilagsdato](bilagsdato.md) | Dato bilaget er registrert |
 | [bilagsnummer](bilagsnummer.md) | Nummer på bilaget |
 | [bilde](bilde.md) | HTTP(S)-lenkje til eit bilete av personen |
+| [bokstavkode](bokstavkode.md) | Bokstavkode for aktuell valuta |
 | [bostedsadresse](bostedsadresse.md) | Folkeregistrert adresse til personen |
 | [bruksnummer](bruksnummer.md) | Fortløpande nummerering av bruk under gårdsnummer |
 | [data](data.md) | Bilagets fil, koda som Base64 |
@@ -97,7 +99,7 @@ Name: fint-okonomi
 | [fylke](fylke.md) | Fylket kommunen høyrer til |
 | [gaardsnummer](gaardsnummer.md) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
 | [gyldighetsperiode](gyldighetsperiode.md) | Angir gyldighetsperioden for omgrepet/koden |
-| [id](id.md) | URI-identifikator (tilsvarar systemId/fakturanummer/transaksjonsId i FINT) |
+| [id](id.md) | URI-identifikator for ressursen |
 | [identifikatorverdi](identifikatorverdi.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
 | [kjonn](kjonn.md) | Kjønn for personen |
 | [kode](kode.md) | Verdi som identifiserer omgrepet |
@@ -126,6 +128,7 @@ Name: fint-okonomi
 | [navn](navn.md) | Juridisk namn på fakturutstedar |
 | [nettobelop](nettobelop.md) | Del av totalbeløp som utgjer summen av fakturalinjene, i øre (nettobeløp) |
 | [nettsted](nettsted.md) | Adresse til eit nettstad |
+| [nummerkode](nummerkode.md) | Nummerkode for aktuell valuta |
 | [oppdateringstidspunkt](oppdateringstidspunkt.md) | Tidspunkt for siste endring i transaksjonen |
 | [ordrenummer](ordrenummer.md) | Unik identifikator for ordren det skal utferdigast faktura på |
 | [organisasjonselement](organisasjonselement.md) | Referanse til Organisasjonselement (Administrasjon) som kan utstede faktura |
@@ -139,7 +142,7 @@ Name: fint-okonomi
 | [postadresse](postadresse.md) | Informasjon om postadresse til ein aktør |
 | [postering](postering.md) | Posteringar tilhøyrande transaksjonen |
 | [posteringar](posteringar.md) |  |
-| [posteringsId](posteringsId.md) | Intern unik identifikator i økonomisystemet |
+| [posteringsId](posteringsid.md) | Intern unik identifikator i økonomisystemet |
 | [postnummer](postnummer.md) | Postnummer |
 | [poststed](poststed.md) | Poststad |
 | [pris](pris.md) | Pris per eining levert, i øre |
@@ -156,7 +159,7 @@ Name: fint-okonomi
 | [totalbelop](totalbelop.md) | Totalt beløp på faktura inkl |
 | [transaksjon](transaksjon.md) | Transaksjonen posteringa tilhøyrer |
 | [transaksjonar](transaksjonar.md) |  |
-| [transaksjonsId](transaksjonsId.md) | Intern unik identifikator i økonomisystemet |
+| [transaksjonsId](transaksjonsid.md) | Intern unik identifikator i økonomisystemet |
 | [transaksjonstidspunkt](transaksjonstidspunkt.md) | Tidspunkt for registrering av transaksjonen |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
 | [url](url.md) | URL til eksternt dokument |
@@ -165,7 +168,7 @@ Name: fint-okonomi
 | [vare](vare.md) | Alle varer i vareregisteret til fakturutstedaren |
 | [varer](varer.md) |  |
 | [virksomhet](virksomhet.md) | Referanse til Virksomhet som er leverandør |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 
 ## Enumerations
@@ -178,31 +181,31 @@ Name: fint-okonomi
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalt eigensskap |
-| [Obligatorisk](Obligatorisk.md) | Obligatorisk eigensskap |
-| [Valgfri](Valgfri.md) | Valfri eigensskap |
+| [Anbefalt](anbefalt.md) | Anbefalt eigensskap |
+| [Obligatorisk](obligatorisk.md) | Obligatorisk eigensskap |
+| [Valgfri](valgfri.md) | Valfri eigensskap |

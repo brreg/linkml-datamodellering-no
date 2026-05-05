@@ -22,7 +22,7 @@ Alias: har_kvalitetsmaaling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |  yes  |
+| [Datasett](datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_kvalitetsmaaling
 
 | Property | Value |
 | --- | --- |
-| Range | [Kvalitetsmaaling](Kvalitetsmaaling.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Kvalitetsmaaling](kvalitetsmaaling.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dqv:hasQualityMeasurement](http://www.w3.org/ns/dqv#hasQualityMeasurement) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Gebyr](Gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |  no  |
+| [Gebyr](gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Gebyr](Gebyr.md) |
+| Range | [String](string.md) |
+| Domain Of | [Gebyr](gebyr.md) |
 | Slot URI | [cv:hasValue](http://data.europa.eu/m8g/hasValue) |
 
 ### Cardinality and Requirements

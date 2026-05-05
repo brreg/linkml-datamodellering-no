@@ -17,7 +17,7 @@ Alias: kjoenn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: kjoenn
 
 | Property | Value |
 | --- | --- |
-| Range | [Kjoenn](Kjoenn.md) |
-| Domain Of | [PersonContainer](PersonContainer.md) |
+| Range | [Kjoenn](kjoenn.md) |
+| Domain Of | [PersonContainer](personcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: kjoenn
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonContainer](PersonContainer.md) |
+| Owner | [PersonContainer](personcontainer.md) |
 
 
 

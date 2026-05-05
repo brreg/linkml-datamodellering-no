@@ -143,10 +143,10 @@ URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [navn](navn.md) | 0..1 <br/> [String](String.md) | Namn på instansen |
-| [har_aksjekapital](har_aksjekapital.md) | 0..1 <br/> [Aksjekapital](Aksjekapital.md) | Aksjekapital som høyrer til selskapet |
-| [utsteder_aksje](utsteder_aksje.md) | 0..1 <br/> [Aksje](Aksje.md) | Aksje utstedt av selskapet |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [navn](navn.md) | 0..1 <br/> [String](string.md) | Namn på instansen |
+| [har_aksjekapital](har_aksjekapital.md) | 0..1 <br/> [Aksjekapital](aksjekapital.md) | Aksjekapital som høyrer til selskapet |
+| [utsteder_aksje](utsteder_aksje.md) | 0..1 <br/> [Aksje](aksje.md) | Aksje utstedt av selskapet |
 
 
 
@@ -159,9 +159,9 @@ URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeselskaper](aksjeselskaper.md) | range | [Aksjeselskap](Aksjeselskap.md) |
-| [Aksjeselskap](Aksjeselskap.md) | [har_aksjekapital](har_aksjekapital.md) | domain | [Aksjeselskap](Aksjeselskap.md) |
-| [Aksjeselskap](Aksjeselskap.md) | [utsteder_aksje](utsteder_aksje.md) | domain | [Aksjeselskap](Aksjeselskap.md) |
+| [Containerklasse](containerklasse.md) | [aksjeselskaper](aksjeselskaper.md) | range | [Aksjeselskap](aksjeselskap.md) |
+| [Aksjeselskap](aksjeselskap.md) | [har_aksjekapital](har_aksjekapital.md) | domain | [Aksjeselskap](aksjeselskap.md) |
+| [Aksjeselskap](aksjeselskap.md) | [utsteder_aksje](utsteder_aksje.md) | domain | [Aksjeselskap](aksjeselskap.md) |
 
 
 

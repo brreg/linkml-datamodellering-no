@@ -22,7 +22,7 @@ Alias: skjermingshjemmel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skjerming](Skjerming.md) | Skjerming av mappe, registrering eller dokument etter offentleglova |  no  |
+| [Skjerming](skjerming.md) | Skjerming av mappe, registrering eller dokument etter offentleglova |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skjermingshjemmel
 
 | Property | Value |
 | --- | --- |
-| Range | [Skjermingshjemmel](Skjermingshjemmel.md) |
-| Domain Of | [Skjerming](Skjerming.md) |
+| Range | [Skjermingshjemmel](skjermingshjemmel.md) |
+| Domain Of | [Skjerming](skjerming.md) |
 | Slot URI | [ark:skjermingshjemmel](https://schema.fintlabs.no/arkiv/skjermingshjemmel) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: skjermingshjemmel
 
 | Property | Value |
 | --- | --- |
-| Owner | [Skjerming](Skjerming.md) |
+| Owner | [Skjerming](skjerming.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: skjermingshjemmel
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

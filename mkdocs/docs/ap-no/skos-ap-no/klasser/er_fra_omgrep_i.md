@@ -22,7 +22,7 @@ Alias: er_fra_omgrep_i
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_fra_omgrep_i
 
 | Property | Value |
 | --- | --- |
-| Range | [AssosiativRelasjon](AssosiativRelasjon.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [AssosiativRelasjon](assosiativrelasjon.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [skosno:isFromConceptIn](https://data.norge.no/vocabulary/skosno#isFromConceptIn) |
 
 ### Cardinality and Requirements

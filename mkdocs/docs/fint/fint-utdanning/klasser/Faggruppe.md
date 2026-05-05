@@ -17,10 +17,10 @@ Alias: faggruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Faggruppemedlemskap](Faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: faggruppe
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skole](Skole.md), [Fag](Fag.md), [Faggruppemedlemskap](Faggruppemedlemskap.md), [Fraversregistrering](Fraversregistrering.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skole](skole.md), [Fag](fag.md), [Faggruppemedlemskap](faggruppemedlemskap.md), [Fraversregistrering](fraversregistrering.md) |
 
 ### Cardinality and Requirements
 

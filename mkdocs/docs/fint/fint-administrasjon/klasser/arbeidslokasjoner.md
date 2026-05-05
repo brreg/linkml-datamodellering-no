@@ -17,7 +17,7 @@ Alias: arbeidslokasjoner
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: arbeidslokasjoner
 
 | Property | Value |
 | --- | --- |
-| Range | [Arbeidslokasjon](Arbeidslokasjon.md) |
-| Domain Of | [AdministrasjonContainer](AdministrasjonContainer.md) |
+| Range | [Arbeidslokasjon](arbeidslokasjon.md) |
+| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: arbeidslokasjoner
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdministrasjonContainer](AdministrasjonContainer.md) |
+| Owner | [AdministrasjonContainer](administrasjoncontainer.md) |
 
 
 

@@ -22,8 +22,8 @@ Alias: kontaktpunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: kontaktpunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Kontaktopplysning](Kontaktopplysning.md) |
-| Domain Of | [Modelkatalog](Modelkatalog.md), [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Kontaktopplysning](kontaktopplysning.md) |
+| Domain Of | [Modelkatalog](modelkatalog.md), [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint) |
 
 ### Cardinality and Requirements

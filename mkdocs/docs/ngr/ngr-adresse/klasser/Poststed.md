@@ -36,7 +36,7 @@ URI: [ngr:Poststed](https://data.norge.no/vocabulary/ngr-adresse#Poststed)
 
 
 ## Inheritance
-* [GeografiskOmrade](GeografiskOmrade.md)
+* [GeografiskOmrade](geografiskomrade.md)
     * **Poststed**
 
 
@@ -65,7 +65,7 @@ URI: [ngr:Poststed](https://data.norge.no/vocabulary/ngr-adresse#Poststed)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [postnummer](postnummer.md) | 1 <br/> [String](String.md) | Firesifra postnummer (locn:postCode) |
+| [postnummer](postnummer.md) | 1 <br/> [String](string.md) | Firesifra postnummer (locn:postCode) |
 
 
 
@@ -105,8 +105,8 @@ URI: [ngr:Poststed](https://data.norge.no/vocabulary/ngr-adresse#Poststed)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](GeografiskOmrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](String.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](GeografiskOmrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 
@@ -116,8 +116,8 @@ URI: [ngr:Poststed](https://data.norge.no/vocabulary/ngr-adresse#Poststed)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [poststeder](poststeder.md) | range | [Poststed](Poststed.md) |
-| [Postboksadresse](Postboksadresse.md) | [poststed_ref](poststed_ref.md) | range | [Poststed](Poststed.md) |
+| [AdresseContainer](adressecontainer.md) | [poststeder](poststeder.md) | range | [Poststed](poststed.md) |
+| [Postboksadresse](postboksadresse.md) | [poststed_ref](poststed_ref.md) | range | [Poststed](poststed.md) |
 
 
 

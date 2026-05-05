@@ -22,7 +22,7 @@ Alias: fravaerstimer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravarsprosent](Fravarsprosent.md) | Kompleks type som representerer fråværsprosent for ein periode |  no  |
+| [Fravarsprosent](fravarsprosent.md) | Kompleks type som representerer fråværsprosent for ein periode |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fravaerstimer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Fravarsprosent](Fravarsprosent.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Fravarsprosent](fravarsprosent.md) |
 | Slot URI | [utd:fravaerstimer](https://schema.fintlabs.no/utdanning/fravaerstimer) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fravaerstimer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravarsprosent](Fravarsprosent.md) |
+| Owner | [Fravarsprosent](fravarsprosent.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fravaerstimer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

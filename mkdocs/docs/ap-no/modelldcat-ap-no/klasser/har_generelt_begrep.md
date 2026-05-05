@@ -22,7 +22,7 @@ Alias: har_generelt_begrep
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Spesialisering](Spesialisering.md) | Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modell... |  yes  |
+| [Spesialisering](spesialisering.md) | Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modell... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_generelt_begrep
 
 | Property | Value |
 | --- | --- |
-| Range | [Modellelement](Modellelement.md) |
-| Domain Of | [Spesialisering](Spesialisering.md) |
+| Range | [Modellelement](modellelement.md) |
+| Domain Of | [Spesialisering](spesialisering.md) |
 | Slot URI | [modelldcatno:hasGeneralConcept](https://data.norge.no/vocabulary/modelldcatno#hasGeneralConcept) |
 
 ### Cardinality and Requirements

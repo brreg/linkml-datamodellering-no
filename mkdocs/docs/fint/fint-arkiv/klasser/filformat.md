@@ -22,7 +22,7 @@ Alias: filformat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentobjekt](Dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
+| [Dokumentobjekt](dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: filformat
 
 | Property | Value |
 | --- | --- |
-| Range | [Format](Format.md) |
-| Domain Of | [Dokumentobjekt](Dokumentobjekt.md) |
+| Range | [Format](format.md) |
+| Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:filformat](https://schema.fintlabs.no/arkiv/filformat) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: filformat
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentobjekt](Dokumentobjekt.md) |
+| Owner | [Dokumentobjekt](dokumentobjekt.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: filformat
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

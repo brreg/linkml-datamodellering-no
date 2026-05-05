@@ -5,7 +5,7 @@ _Valfrie eigenskapar i ein AP-NO-profil._
 
 
 
-URI: [Valgfri](Valgfri.md)
+URI: [Valgfri](valgfri.md)
 
 
 

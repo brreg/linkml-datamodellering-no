@@ -22,7 +22,7 @@ Alias: heimeside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: heimeside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [foaf:homepage](http://xmlns.com/foaf/0.1/homepage) |
 
 ### Cardinality and Requirements

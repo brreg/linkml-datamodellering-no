@@ -22,7 +22,7 @@ Alias: datasett
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: datasett
 
 | Property | Value |
 | --- | --- |
-| Range | [Datasett](Datasett.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Datasett](datasett.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dcat:dataset](http://www.w3.org/ns/dcat#dataset) |
 
 ### Cardinality and Requirements

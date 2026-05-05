@@ -78,7 +78,7 @@ URI: [time:Instant](http://www.w3.org/6006/time#Instant)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [time:Instant](http://www.w3.org/6006/time#Instant)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Tidsrom](Tidsrom.md) | [begynnelse](begynnelse.md) | range | [Tidsinstant](Tidsinstant.md) |
-| [Tidsrom](Tidsrom.md) | [slutt](slutt.md) | range | [Tidsinstant](Tidsinstant.md) |
+| [Tidsrom](tidsrom.md) | [begynnelse](begynnelse.md) | range | [Tidsinstant](tidsinstant.md) |
+| [Tidsrom](tidsrom.md) | [slutt](slutt.md) | range | [Tidsinstant](tidsinstant.md) |
 
 
 

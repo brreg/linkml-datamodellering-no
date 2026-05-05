@@ -22,7 +22,7 @@ Alias: er_abstraksjon_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Abstraksjon](Abstraksjon.md) | Ein abstraksjon — ein forenkling som representerer eit modellelement |  yes  |
+| [Abstraksjon](abstraksjon.md) | Ein abstraksjon — ein forenkling som representerer eit modellelement |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_abstraksjon_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Modellelement](Modellelement.md) |
-| Domain Of | [Abstraksjon](Abstraksjon.md) |
+| Range | [Modellelement](modellelement.md) |
+| Domain Of | [Abstraksjon](abstraksjon.md) |
 | Slot URI | [modelldcatno:isAbstractionOf](https://data.norge.no/vocabulary/modelldcatno#isAbstractionOf) |
 
 ### Cardinality and Requirements

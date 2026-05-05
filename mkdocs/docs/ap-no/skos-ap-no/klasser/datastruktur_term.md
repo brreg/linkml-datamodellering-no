@@ -22,7 +22,7 @@ Alias: datastruktur_term
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: datastruktur_term
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [String](string.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [skosno:dataStructureLabel](https://data.norge.no/vocabulary/skosno#dataStructureLabel) |
 
 ### Cardinality and Requirements

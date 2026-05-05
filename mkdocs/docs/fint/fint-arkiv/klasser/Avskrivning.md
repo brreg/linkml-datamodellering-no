@@ -22,7 +22,7 @@ Alias: avskrivning
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: avskrivning
 
 | Property | Value |
 | --- | --- |
-| Range | [Avskrivning](Avskrivning.md) |
-| Domain Of | [Journalpost](Journalpost.md) |
+| Range | [Avskrivning](avskrivning.md) |
+| Domain Of | [Journalpost](journalpost.md) |
 | Slot URI | [ark:avskrivning](https://schema.fintlabs.no/arkiv/avskrivning) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: avskrivning
 
 | Property | Value |
 | --- | --- |
-| Owner | [Journalpost](Journalpost.md) |
+| Owner | [Journalpost](journalpost.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: avskrivning
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

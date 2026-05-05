@@ -22,7 +22,7 @@ Alias: er_i_kvalitetsdeldimensjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsmaal](Kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_i_kvalitetsdeldimensjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) |
-| Domain Of | [Kvalitetsmaal](Kvalitetsmaal.md) |
+| Range | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) |
+| Domain Of | [Kvalitetsmaal](kvalitetsmaal.md) |
 | Slot URI | [dqvno:inSubDimension](https://data.norge.no/vocabulary/dqvno#inSubDimension) |
 
 ### Cardinality and Requirements

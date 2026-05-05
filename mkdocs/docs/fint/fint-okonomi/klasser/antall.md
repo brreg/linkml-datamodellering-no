@@ -22,7 +22,7 @@ Alias: antall
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturalinje](Fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
+| [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](Float.md) |
-| Domain Of | [Fakturalinje](Fakturalinje.md) |
+| Range | [Float](float.md) |
+| Domain Of | [Fakturalinje](fakturalinje.md) |
 | Slot URI | [okn:antall](https://schema.fintlabs.no/okonomi/antall) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fakturalinje](Fakturalinje.md) |
+| Owner | [Fakturalinje](fakturalinje.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: antall
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -17,9 +17,9 @@ Alias: persongruppemedlemskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
-| [Persongruppe](Persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: persongruppemedlemskap
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Elevforhold](Elevforhold.md), [Persongruppe](Persongruppe.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Elevforhold](elevforhold.md), [Persongruppe](persongruppe.md) |
 
 ### Cardinality and Requirements
 

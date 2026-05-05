@@ -114,9 +114,9 @@ URI: [fint:Personnavn](https://schema.fintlabs.no/Personnavn)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fornavn](fornavn.md) | 1 <br/> [String](String.md) | Fornamn til personen |
-| [mellomnavn](mellomnavn.md) | 0..1 <br/> [String](String.md) | Mellomnamn |
-| [etternavn](etternavn.md) | 1 <br/> [String](String.md) | Etternamn til personen |
+| [fornavn](fornavn.md) | 1 <br/> [String](string.md) | Fornamn til personen |
+| [mellomnavn](mellomnavn.md) | 0..1 <br/> [String](string.md) | Mellomnamn |
+| [etternavn](etternavn.md) | 1 <br/> [String](string.md) | Etternamn til personen |
 
 
 
@@ -129,8 +129,8 @@ URI: [fint:Personnavn](https://schema.fintlabs.no/Personnavn)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Person](Person.md) | [navn](navn.md) | range | [Personnavn](Personnavn.md) |
-| [Kontaktperson](Kontaktperson.md) | [navn](navn.md) | range | [Personnavn](Personnavn.md) |
+| [Person](person.md) | [navn](navn.md) | range | [Personnavn](personnavn.md) |
+| [Kontaktperson](kontaktperson.md) | [navn](navn.md) | range | [Personnavn](personnavn.md) |
 
 
 

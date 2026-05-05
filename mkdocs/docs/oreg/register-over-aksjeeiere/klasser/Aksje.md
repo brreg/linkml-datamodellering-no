@@ -116,9 +116,9 @@ URI: [aksje:Aksje](https://example.no/ontology/aksje#Aksje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [har_palydende_belop](har_palydende_belop.md) | 0..1 <br/> [Decimal](Decimal.md) | Pålydande verdi for aksja |
-| [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](Aksjeklasse.md) | Klassen aksja høyrer til |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [har_palydende_belop](har_palydende_belop.md) | 0..1 <br/> [Decimal](decimal.md) | Pålydande verdi for aksja |
+| [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](aksjeklasse.md) | Klassen aksja høyrer til |
 
 
 
@@ -131,10 +131,10 @@ URI: [aksje:Aksje](https://example.no/ontology/aksje#Aksje)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjer](aksjer.md) | range | [Aksje](Aksje.md) |
-| [Aksjeselskap](Aksjeselskap.md) | [utsteder_aksje](utsteder_aksje.md) | range | [Aksje](Aksje.md) |
-| [Aksje](Aksje.md) | [har_palydende_belop](har_palydende_belop.md) | domain | [Aksje](Aksje.md) |
-| [Aksje](Aksje.md) | [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | domain | [Aksje](Aksje.md) |
+| [Containerklasse](containerklasse.md) | [aksjer](aksjer.md) | range | [Aksje](aksje.md) |
+| [Aksjeselskap](aksjeselskap.md) | [utsteder_aksje](utsteder_aksje.md) | range | [Aksje](aksje.md) |
+| [Aksje](aksje.md) | [har_palydende_belop](har_palydende_belop.md) | domain | [Aksje](aksje.md) |
+| [Aksje](aksje.md) | [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | domain | [Aksje](aksje.md) |
 
 
 

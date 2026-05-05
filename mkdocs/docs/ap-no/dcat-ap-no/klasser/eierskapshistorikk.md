@@ -22,7 +22,7 @@ Alias: eierskapshistorikk
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: eierskapshistorikk
 
 | Property | Value |
 | --- | --- |
-| Range | [ProvenanceStatement](ProvenanceStatement.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [ProvenanceStatement](provenancestatement.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:provenance](http://purl.org/dc/terms/provenance) |
 
 ### Cardinality and Requirements

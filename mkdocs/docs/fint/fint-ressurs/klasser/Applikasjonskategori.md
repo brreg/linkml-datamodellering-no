@@ -22,7 +22,7 @@ Alias: applikasjonskategori
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjon](Applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: applikasjonskategori
 
 | Property | Value |
 | --- | --- |
-| Range | [Applikasjonskategori](Applikasjonskategori.md) |
-| Domain Of | [Applikasjon](Applikasjon.md) |
+| Range | [Applikasjonskategori](applikasjonskategori.md) |
+| Domain Of | [Applikasjon](applikasjon.md) |
 | Slot URI | [res:applikasjonskategori](https://schema.fintlabs.no/ressurs/applikasjonskategori) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: applikasjonskategori
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjon](Applikasjon.md) |
+| Owner | [Applikasjon](applikasjon.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: applikasjonskategori
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

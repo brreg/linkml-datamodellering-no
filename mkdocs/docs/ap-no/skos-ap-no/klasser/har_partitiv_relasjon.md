@@ -22,7 +22,7 @@ Alias: har_partitiv_relasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_partitiv_relasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [PartitivRelasjon](PartitivRelasjon.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [PartitivRelasjon](partitivrelasjon.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [skosno:hasPartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#hasPartitiveConceptRelation) |
 
 ### Cardinality and Requirements

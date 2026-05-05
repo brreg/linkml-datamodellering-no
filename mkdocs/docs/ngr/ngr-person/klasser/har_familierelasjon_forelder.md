@@ -22,7 +22,7 @@ Alias: har_familierelasjon_forelder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_familierelasjon_forelder
 
 | Property | Value |
 | --- | --- |
-| Range | [FamilierelasjonForelder](FamilierelasjonForelder.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [FamilierelasjonForelder](familierelasjonforelder.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harFamilierelasjonForelder](https://data.norge.no/vocabulary/ngr-person#harFamilierelasjonForelder) |
 
 ### Cardinality and Requirements

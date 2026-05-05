@@ -22,9 +22,9 @@ Alias: gjelder_hjemmel_festerett
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierforhold](Eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
-| [TinglystEierforhold](TinglystEierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
+| [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: gjelder_hjemmel_festerett
 
 | Property | Value |
 | --- | --- |
-| Range | [HjemmelTilFesterett](HjemmelTilFesterett.md) |
-| Domain Of | [Eierforhold](Eierforhold.md) |
+| Range | [HjemmelTilFesterett](hjemmeltilfesterett.md) |
+| Domain Of | [Eierforhold](eierforhold.md) |
 | Slot URI | [ngre:gjelderHjemmelFesterett](https://data.norge.no/vocabulary/ngr-eiendom#gjelderHjemmelFesterett) |
 
 ### Cardinality and Requirements

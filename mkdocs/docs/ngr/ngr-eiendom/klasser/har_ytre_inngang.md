@@ -22,7 +22,7 @@ Alias: har_ytre_inngang
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_ytre_inngang
 
 | Property | Value |
 | --- | --- |
-| Range | [YtreInngang](YtreInngang.md) |
-| Domain Of | [Bygning](Bygning.md) |
+| Range | [YtreInngang](ytreinngang.md) |
+| Domain Of | [Bygning](bygning.md) |
 | Slot URI | [ngre:harYtreInngang](https://data.norge.no/vocabulary/ngr-eiendom#harYtreInngang) |
 
 ### Cardinality and Requirements

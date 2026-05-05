@@ -22,7 +22,7 @@ Alias: format
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tekstdel](Tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
+| [Tekstdel](tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [Mediatype](Mediatype.md) |
-| Domain Of | [Tekstdel](Tekstdel.md) |
+| Range | [Mediatype](mediatype.md) |
+| Domain Of | [Tekstdel](tekstdel.md) |
 | Slot URI | [dct:format](http://purl.org/dc/terms/format) |
 
 ### Cardinality and Requirements

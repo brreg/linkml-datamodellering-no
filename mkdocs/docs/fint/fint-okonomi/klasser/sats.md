@@ -22,7 +22,7 @@ Alias: sats
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Merverdiavgift](Merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
+| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sats
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Merverdiavgift](Merverdiavgift.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Merverdiavgift](merverdiavgift.md) |
 | Slot URI | [okn:sats](https://schema.fintlabs.no/okonomi/sats) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: sats
 
 | Property | Value |
 | --- | --- |
-| Owner | [Merverdiavgift](Merverdiavgift.md) |
+| Owner | [Merverdiavgift](merverdiavgift.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: sats
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: har_ansvarleg_styremakt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligTjeneste](OffentligTjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_ansvarleg_styremakt
 
 | Property | Value |
 | --- | --- |
-| Range | [OffentligOrganisasjon](OffentligOrganisasjon.md) |
-| Domain Of | [OffentligTjeneste](OffentligTjeneste.md) |
+| Range | [OffentligOrganisasjon](offentligorganisasjon.md) |
+| Domain Of | [OffentligTjeneste](offentligtjeneste.md) |
 | Slot URI | [cv:hasCompetentAuthority](http://data.europa.eu/m8g/hasCompetentAuthority) |
 
 ### Cardinality and Requirements

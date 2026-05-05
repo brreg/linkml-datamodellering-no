@@ -22,7 +22,7 @@ Alias: poststed
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |  no  |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: poststed
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Adresse](Adresse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Adresse](adresse.md) |
 | Slot URI | [fint:poststed](https://schema.fintlabs.no/poststed) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: poststed
 
 | Property | Value |
 | --- | --- |
-| Owner | [Adresse](Adresse.md) |
+| Owner | [Adresse](adresse.md) |
 
 
 

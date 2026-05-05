@@ -22,7 +22,7 @@ Alias: sprak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tekstdel](Tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
+| [Tekstdel](tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sprak
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
-| Domain Of | [Tekstdel](Tekstdel.md) |
+| Range | [Spraak](spraak.md) |
+| Domain Of | [Tekstdel](tekstdel.md) |
 | Slot URI | [dct:language](http://purl.org/dc/terms/language) |
 
 ### Cardinality and Requirements

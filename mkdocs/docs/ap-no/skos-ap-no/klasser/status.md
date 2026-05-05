@@ -26,7 +26,7 @@ Alias: status
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
+| Range | [Konsept](konsept.md) |
 | Slot URI | [adms:status](http://www.w3.org/ns/adms#status) |
 
 ### Cardinality and Requirements

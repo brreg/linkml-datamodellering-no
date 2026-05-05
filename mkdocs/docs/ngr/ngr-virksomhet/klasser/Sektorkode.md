@@ -64,7 +64,7 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [sektorkode_kode](sektorkode_kode.md) | 1 <br/> [String](String.md) | Institusjonell sektorkode (t |
+| [sektorkode_kode](sektorkode_kode.md) | 1 <br/> [String](string.md) | Institusjonell sektorkode (t |
 
 
 
@@ -86,7 +86,7 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [sektorkode_beskrivelse](sektorkode_beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg skildring av sektorkoden |
+| [sektorkode_beskrivelse](sektorkode_beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av sektorkoden |
 
 
 
@@ -144,7 +144,7 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -157,8 +157,8 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [sektorkoder](sektorkoder.md) | range | [Sektorkode](Sektorkode.md) |
-| [Hovedenhet](Hovedenhet.md) | [er_klassifisert_i_sektorkode](er_klassifisert_i_sektorkode.md) | range | [Sektorkode](Sektorkode.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [sektorkoder](sektorkoder.md) | range | [Sektorkode](sektorkode.md) |
+| [Hovedenhet](hovedenhet.md) | [er_klassifisert_i_sektorkode](er_klassifisert_i_sektorkode.md) | range | [Sektorkode](sektorkode.md) |
 
 
 

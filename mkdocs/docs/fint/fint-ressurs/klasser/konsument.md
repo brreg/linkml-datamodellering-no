@@ -22,7 +22,7 @@ Alias: konsument
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
+| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: konsument
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
 | Slot URI | [res:konsument](https://schema.fintlabs.no/ressurs/konsument) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: konsument
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |
+| Owner | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: konsument
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

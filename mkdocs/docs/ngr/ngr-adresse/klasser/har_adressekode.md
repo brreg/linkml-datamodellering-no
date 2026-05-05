@@ -22,7 +22,7 @@ Alias: har_adressekode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adressenavn](Adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
+| [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_adressekode
 
 | Property | Value |
 | --- | --- |
-| Range | [Adressekode](Adressekode.md) |
-| Domain Of | [Adressenavn](Adressenavn.md) |
+| Range | [Adressekode](adressekode.md) |
+| Domain Of | [Adressenavn](adressenavn.md) |
 | Slot URI | [ngr:harAdressekode](https://data.norge.no/vocabulary/ngr-adresse#harAdressekode) |
 
 ### Cardinality and Requirements

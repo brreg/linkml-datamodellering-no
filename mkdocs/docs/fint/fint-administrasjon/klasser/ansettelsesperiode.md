@@ -22,7 +22,7 @@ Alias: ansettelsesperiode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ansettelsesperiode
 
 | Property | Value |
 | --- | --- |
-| Range | [Periode](Periode.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Periode](periode.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:ansettelsesperiode](https://schema.fintlabs.no/administrasjon/ansettelsesperiode) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: ansettelsesperiode
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: ansettelsesperiode
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

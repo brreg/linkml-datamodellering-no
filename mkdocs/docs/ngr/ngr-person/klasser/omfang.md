@@ -22,7 +22,7 @@ Alias: omfang
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RettsligHandleevne](RettsligHandleevne.md) | Registrering av avgrensing i rettsleg handleevne for ein person, t |  yes  |
+| [RettsligHandleevne](rettslighandleevne.md) | Registrering av avgrensing i rettsleg handleevne for ein person, t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: omfang
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [RettsligHandleevne](RettsligHandleevne.md) |
+| Range | [String](string.md) |
+| Domain Of | [RettsligHandleevne](rettslighandleevne.md) |
 | Slot URI | [ngrp:omfang](https://data.norge.no/vocabulary/ngr-person#omfang) |
 
 ### Cardinality and Requirements

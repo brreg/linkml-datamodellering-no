@@ -17,8 +17,8 @@ Alias: matrikkelnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: matrikkelnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md), [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) |
+| Range | [String](string.md) |
+| Domain Of | [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md), [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) |
 
 ### Cardinality and Requirements
 

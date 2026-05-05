@@ -47,7 +47,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 
 
 ## Inheritance
-* [Kvalitetsdimensjon](Kvalitetsdimensjon.md)
+* [Kvalitetsdimensjon](kvalitetsdimensjon.md)
     * **Kvalitetsdeldimensjon**
 
 
@@ -76,7 +76,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_deldimensjon_av](er_deldimensjon_av.md) | 1 <br/> [Kvalitetsdimensjon](Kvalitetsdimensjon.md) | Overordna kvalitetsdimensjon denne deldimensjonen høyrer til |
+| [er_deldimensjon_av](er_deldimensjon_av.md) | 1 <br/> [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Overordna kvalitetsdimensjon denne deldimensjonen høyrer til |
 
 
 
@@ -116,9 +116,9 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](LangString.md) | Føretrekt term/namn for dimensjonen eller målet | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| [har_definisjon](har_definisjon.md) | * <br/> [LangString](LangString.md) | Definisjon av dimensjonen eller målet | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrekt term/namn for dimensjonen eller målet | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| [har_definisjon](har_definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av dimensjonen eller målet | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 
 
 
@@ -128,7 +128,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Kvalitetsmaal](Kvalitetsmaal.md) | [er_i_kvalitetsdeldimensjon](er_i_kvalitetsdeldimensjon.md) | range | [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) |
+| [Kvalitetsmaal](kvalitetsmaal.md) | [er_i_kvalitetsdeldimensjon](er_i_kvalitetsdeldimensjon.md) | range | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) |
 
 
 

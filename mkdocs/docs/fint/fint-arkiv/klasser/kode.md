@@ -17,29 +17,29 @@ Alias: kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [DokumentType](DokumentType.md) | Type dokument |  no  |
-| [KorrespondansepartType](KorrespondansepartType.md) | Type korrespondansepart |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Saksmappetype](Saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  no  |
-| [Tilgangsgruppe](Tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  no  |
-| [Klassifikasjonstype](Klassifikasjonstype.md) | Type klassifikasjonssystem |  no  |
-| [DokumentStatus](DokumentStatus.md) | Status til eit dokument |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Saksstatus](Saksstatus.md) | Status til saksmappa |  no  |
-| [Skjermingshjemmel](Skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  no  |
-| [Format](Format.md) | Dokumentets filformat |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md) | Kva rolle dokumentet har i høve registreringa (t |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Rolle](Rolle.md) | Rolla til ein arkivressurs |  no  |
-| [Merknadstype](Merknadstype.md) | Namn på type merknad |  no  |
-| [JournalStatus](JournalStatus.md) | Status til journalposten |  no  |
-| [PartRolle](PartRolle.md) | Rolla til ein part |  no  |
-| [JournalpostType](JournalpostType.md) | Namn på type journalpost |  no  |
-| [Tilgangsrestriksjon](Tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  no  |
-| [Variantformat](Variantformat.md) | Angiving av kva variant eit dokument førekjem i |  no  |
+| [Merknadstype](merknadstype.md) | Namn på type merknad |  no  |
+| [Klassifikasjonstype](klassifikasjonstype.md) | Type klassifikasjonssystem |  no  |
+| [Rolle](rolle.md) | Rolla til ein arkivressurs |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Saksstatus](saksstatus.md) | Status til saksmappa |  no  |
+| [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |  no  |
+| [DokumentType](dokumenttype.md) | Type dokument |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |  no  |
+| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  no  |
+| [JournalpostType](journalposttype.md) | Namn på type journalpost |  no  |
+| [JournalStatus](journalstatus.md) | Status til journalposten |  no  |
+| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  no  |
+| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Format](format.md) | Dokumentets filformat |  no  |
+| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  no  |
+| [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  no  |
+| [PartRolle](partrolle.md) | Rolla til ein part |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -52,8 +52,8 @@ Alias: kode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DokumentStatus](DokumentStatus.md), [DokumentType](DokumentType.md), [Format](Format.md), [JournalpostType](JournalpostType.md), [JournalStatus](JournalStatus.md), [Klassifikasjonstype](Klassifikasjonstype.md), [KorrespondansepartType](KorrespondansepartType.md), [Merknadstype](Merknadstype.md), [PartRolle](PartRolle.md), [Rolle](Rolle.md), [Saksmappetype](Saksmappetype.md), [Saksstatus](Saksstatus.md), [Skjermingshjemmel](Skjermingshjemmel.md), [Tilgangsgruppe](Tilgangsgruppe.md), [Tilgangsrestriksjon](Tilgangsrestriksjon.md), [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md), [Variantformat](Variantformat.md), [Begrep](Begrep.md) |
+| Range | [String](string.md) |
+| Domain Of | [DokumentStatus](dokumentstatus.md), [DokumentType](dokumenttype.md), [Format](format.md), [JournalpostType](journalposttype.md), [JournalStatus](journalstatus.md), [Klassifikasjonstype](klassifikasjonstype.md), [KorrespondansepartType](korrespondanseparttype.md), [Merknadstype](merknadstype.md), [PartRolle](partrolle.md), [Rolle](rolle.md), [Saksmappetype](saksmappetype.md), [Saksstatus](saksstatus.md), [Skjermingshjemmel](skjermingshjemmel.md), [Tilgangsgruppe](tilgangsgruppe.md), [Tilgangsrestriksjon](tilgangsrestriksjon.md), [TilknyttetRegistreringSom](tilknyttetregistreringsom.md), [Variantformat](variantformat.md), [Begrep](begrep.md) |
 
 ### Cardinality and Requirements
 

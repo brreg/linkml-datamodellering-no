@@ -26,7 +26,7 @@ Alias: versjonsmerknad
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
+| Range | [LangString](langstring.md) |
 | Slot URI | [adms:versionNotes](http://www.w3.org/ns/adms#versionNotes) |
 
 ### Cardinality and Requirements

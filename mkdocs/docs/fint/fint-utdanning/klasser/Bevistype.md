@@ -22,7 +22,7 @@ Alias: bevistype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |  no  |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bevistype
 
 | Property | Value |
 | --- | --- |
-| Range | [Bevistype](Bevistype.md) |
-| Domain Of | [AvlagtProve](AvlagtProve.md) |
+| Range | [Bevistype](bevistype.md) |
+| Domain Of | [AvlagtProve](avlagtprove.md) |
 | Slot URI | [utd:bevistype](https://schema.fintlabs.no/utdanning/bevistype) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: bevistype
 
 | Property | Value |
 | --- | --- |
-| Owner | [AvlagtProve](AvlagtProve.md) |
+| Owner | [AvlagtProve](avlagtprove.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: bevistype
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

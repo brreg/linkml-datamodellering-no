@@ -17,7 +17,7 @@ Alias: rolleinnehavere
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
+| [VirksomhetContainer](virksomhetcontainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: rolleinnehavere
 
 | Property | Value |
 | --- | --- |
-| Range | [Rolleinnehaver](Rolleinnehaver.md) |
-| Domain Of | [VirksomhetContainer](VirksomhetContainer.md) |
+| Range | [Rolleinnehaver](rolleinnehaver.md) |
+| Domain Of | [VirksomhetContainer](virksomhetcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: rolleinnehavere
 
 | Property | Value |
 | --- | --- |
-| Owner | [VirksomhetContainer](VirksomhetContainer.md) |
+| Owner | [VirksomhetContainer](virksomhetcontainer.md) |
 
 
 

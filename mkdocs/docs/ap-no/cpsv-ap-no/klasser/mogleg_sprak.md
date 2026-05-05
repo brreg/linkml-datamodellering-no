@@ -22,7 +22,7 @@ Alias: mogleg_sprak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenesteresultattype](Tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
+| [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: mogleg_sprak
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
-| Domain Of | [Tjenesteresultattype](Tjenesteresultattype.md) |
+| Range | [Spraak](spraak.md) |
+| Domain Of | [Tjenesteresultattype](tjenesteresultattype.md) |
 | Slot URI | [cpsvno:possibleLanguage](https://data.norge.no/vocabulary/cpsvno#possibleLanguage) |
 
 ### Cardinality and Requirements

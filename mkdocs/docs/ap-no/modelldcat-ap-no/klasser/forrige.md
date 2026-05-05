@@ -22,7 +22,7 @@ Alias: forrige
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
+| [Kodeelement](kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: forrige
 
 | Property | Value |
 | --- | --- |
-| Range | [Kodeelement](Kodeelement.md) |
-| Domain Of | [Kodeelement](Kodeelement.md) |
+| Range | [Kodeelement](kodeelement.md) |
+| Domain Of | [Kodeelement](kodeelement.md) |
 | Slot URI | [xkos:previous](http://rdf-vocabulary.ddialliance.org/xkos#previous) |
 
 ### Cardinality and Requirements

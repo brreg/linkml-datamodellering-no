@@ -22,7 +22,7 @@ Alias: timerPerUke
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: timerPerUke
 
 | Property | Value |
 | --- | --- |
-| Range | [Uketimetall](Uketimetall.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [Uketimetall](uketimetall.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:timerPerUke](https://schema.fintlabs.no/administrasjon/timerPerUke) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: timerPerUke
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidsforhold](Arbeidsforhold.md) |
+| Owner | [Arbeidsforhold](arbeidsforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: timerPerUke
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

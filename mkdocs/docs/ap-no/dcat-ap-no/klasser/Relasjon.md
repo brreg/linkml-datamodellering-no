@@ -75,8 +75,8 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_rolle](har_rolle.md) | 1 <br/> [Konsept](Konsept.md) | Rolle ein aktør eller ressurs har i ein relasjon |
-| [relasjon_til](relasjon_til.md) | 1 <br/> [Uri](Uri.md) | Den relaterte ressursen i ein kvalifisert relasjon |
+| [har_rolle](har_rolle.md) | 1 <br/> [Konsept](konsept.md) | Rolle ein aktør eller ressurs har i ein relasjon |
+| [relasjon_til](relasjon_til.md) | 1 <br/> [Uri](uri.md) | Den relaterte ressursen i ein kvalifisert relasjon |
 
 
 
@@ -147,7 +147,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -160,7 +160,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [annen_spesifikk_relasjon](annen_spesifikk_relasjon.md) | range | [Relasjon](Relasjon.md) |
+| [Datasett](datasett.md) | [annen_spesifikk_relasjon](annen_spesifikk_relasjon.md) | range | [Relasjon](relasjon.md) |
 
 
 

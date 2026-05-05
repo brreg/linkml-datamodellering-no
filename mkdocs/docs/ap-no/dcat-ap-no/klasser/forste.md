@@ -22,7 +22,7 @@ Alias: forste
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasettserie](Datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: forste
 
 | Property | Value |
 | --- | --- |
-| Range | [Datasett](Datasett.md) |
-| Domain Of | [Datasettserie](Datasettserie.md) |
+| Range | [Datasett](datasett.md) |
+| Domain Of | [Datasettserie](datasettserie.md) |
 | Slot URI | [dcat:first](http://www.w3.org/ns/dcat#first) |
 
 ### Cardinality and Requirements

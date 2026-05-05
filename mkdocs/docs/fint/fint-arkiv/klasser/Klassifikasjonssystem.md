@@ -17,9 +17,9 @@ Alias: klassifikasjonssystem
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klasse](Klasse.md) | Ein klasse i eit klassifikasjonssystem |  no  |
-| [ArkivContainer](ArkivContainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
-| [Arkivdel](Arkivdel.md) | Ein vilkårleg definert del av eit arkiv |  no  |
+| [Arkivdel](arkivdel.md) | Ein vilkårleg definert del av eit arkiv |  no  |
+| [Klasse](klasse.md) | Ein klasse i eit klassifikasjonssystem |  no  |
+| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: klassifikasjonssystem
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [ArkivContainer](ArkivContainer.md), [Arkivdel](Arkivdel.md), [Klasse](Klasse.md) |
+| Range | [String](string.md) |
+| Domain Of | [ArkivContainer](arkivcontainer.md), [Arkivdel](arkivdel.md), [Klasse](klasse.md) |
 
 ### Cardinality and Requirements
 

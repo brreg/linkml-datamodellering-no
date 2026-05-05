@@ -22,7 +22,7 @@ Alias: bokstav
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Husnummer](Husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |  yes  |
+| [Husnummer](husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bokstav
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Husnummer](Husnummer.md) |
+| Range | [String](string.md) |
+| Domain Of | [Husnummer](husnummer.md) |
 | Slot URI | [ngr:bokstav](https://data.norge.no/vocabulary/ngr-adresse#bokstav) |
 
 ### Cardinality and Requirements

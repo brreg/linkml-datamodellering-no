@@ -5,7 +5,7 @@ _Obligatorisk eigensskap._
 
 
 
-URI: [Obligatorisk](Obligatorisk.md)
+URI: [Obligatorisk](obligatorisk.md)
 
 
 
@@ -316,18 +316,18 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [lokasjonskode](lokasjonskode.md) | Kode som identifiserer ein arbeidslokasjon |
 | [lonnsprosent](lonnsprosent.md) | Prosent av årslønn den tilsette skal ha utbetalt |
 | [nummerkode](nummerkode.md) | Nummerkode for aktuell valuta |
-| [organisasjonsId](organisasjonsId.md) | Unikt internnummer for organisasjonselementet |
-| [organisasjonsKode](organisasjonsKode.md) | Beskriven kode for organisasjonselementet |
+| [organisasjonsId](organisasjonsid.md) | Unikt internnummer for organisasjonselementet |
+| [organisasjonsKode](organisasjonskode.md) | Beskriven kode for organisasjonselementet |
 | [periode](periode.md) | Periode lønn vert utbetalt |
 | [person](person.md) | Person som er ein personalressurs |
 | [personalressurs](personalressurs.md) | Personalressurs til arbeidsforholdet |
 | [personalressurskategori](personalressurskategori.md) | Kategori for personalressursen |
 | [prosent](prosent.md) | Andel av lønnsprosent som vert beslaglagt |
 | [rolle](rolle.md) | Kva type fullmakt |
-| [rolleNavn](rolleNavn.md) | Namn på rolla; unik identifikator |
+| [rolleNavn](rollenavn.md) | Namn på rolla; unik identifikator |
 | [stillingsnummer](stillingsnummer.md) | Løpenummer for stillinga |
 | [tilstedeprosent](tilstedeprosent.md) | Det personalressursen faktisk jobbar |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 

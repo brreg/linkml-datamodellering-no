@@ -22,7 +22,7 @@ Alias: kontraktstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kontraktstype
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Laerling](Laerling.md) |
+| Range | [String](string.md) |
+| Domain Of | [Laerling](laerling.md) |
 | Slot URI | [utd:kontraktstype](https://schema.fintlabs.no/utdanning/kontraktstype) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kontraktstype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Laerling](Laerling.md) |
+| Owner | [Laerling](laerling.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kontraktstype
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

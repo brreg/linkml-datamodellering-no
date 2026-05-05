@@ -22,7 +22,7 @@ Alias: er_medlem_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_medlem_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Samling](Samling.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Samling](samling.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [uneskos:memberOf](http://purl.org/umu/uneskos#memberOf) |
 
 ### Cardinality and Requirements

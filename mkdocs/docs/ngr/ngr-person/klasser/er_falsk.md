@@ -22,7 +22,7 @@ Alias: er_falsk
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FalskIdentitet](FalskIdentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |  yes  |
+| [FalskIdentitet](falskidentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_falsk
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [FalskIdentitet](FalskIdentitet.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [FalskIdentitet](falskidentitet.md) |
 | Slot URI | [ngrp:erFalsk](https://data.norge.no/vocabulary/ngr-person#erFalsk) |
 
 ### Cardinality and Requirements

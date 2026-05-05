@@ -22,7 +22,7 @@ Alias: har_statsborgerskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_statsborgerskap
 
 | Property | Value |
 | --- | --- |
-| Range | [Statsborgerskap](Statsborgerskap.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Statsborgerskap](statsborgerskap.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harStatsborgerskap](https://data.norge.no/vocabulary/ngr-person#harStatsborgerskap) |
 
 ### Cardinality and Requirements

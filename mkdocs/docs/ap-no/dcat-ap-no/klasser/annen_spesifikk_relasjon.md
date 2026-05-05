@@ -22,7 +22,7 @@ Alias: annen_spesifikk_relasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: annen_spesifikk_relasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Relasjon](Relasjon.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Relasjon](relasjon.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dcat:qualifiedRelation](http://www.w3.org/ns/dcat#qualifiedRelation) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: formal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: formal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Behandling](Behandling.md) |
+| Range | [String](string.md) |
+| Domain Of | [Behandling](behandling.md) |
 | Slot URI | [pvn:formal](https://schema.fintlabs.no/personvern/formal) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: formal
 
 | Property | Value |
 | --- | --- |
-| Owner | [Behandling](Behandling.md) |
+| Owner | [Behandling](behandling.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: formal
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

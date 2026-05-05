@@ -22,7 +22,7 @@ Alias: dokumentType
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dokumentType
 
 | Property | Value |
 | --- | --- |
-| Range | [DokumentType](DokumentType.md) |
-| Domain Of | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [DokumentType](dokumenttype.md) |
+| Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:dokumentType](https://schema.fintlabs.no/arkiv/dokumentType) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: dokumentType
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Owner | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: dokumentType
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: i_serie
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: i_serie
 
 | Property | Value |
 | --- | --- |
-| Range | [Datasettserie](Datasettserie.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Datasettserie](datasettserie.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dcat:inSeries](http://www.w3.org/ns/dcat#inSeries) |
 
 ### Cardinality and Requirements

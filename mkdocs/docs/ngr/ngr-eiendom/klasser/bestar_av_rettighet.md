@@ -22,7 +22,7 @@ Alias: bestar_av_rettighet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FastEiendom](FastEiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
+| [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bestar_av_rettighet
 
 | Property | Value |
 | --- | --- |
-| Range | [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) |
-| Domain Of | [FastEiendom](FastEiendom.md) |
+| Range | [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) |
+| Domain Of | [FastEiendom](fasteiendom.md) |
 | Slot URI | [ngre:bestarAvRettighet](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvRettighet) |
 
 ### Cardinality and Requirements

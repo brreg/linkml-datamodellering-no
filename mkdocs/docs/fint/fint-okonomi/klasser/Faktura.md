@@ -22,7 +22,7 @@ Alias: faktura
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: faktura
 
 | Property | Value |
 | --- | --- |
-| Range | [Faktura](Faktura.md) |
-| Domain Of | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Range | [Faktura](faktura.md) |
+| Domain Of | [Fakturagrunnlag](fakturagrunnlag.md) |
 | Slot URI | [okn:faktura](https://schema.fintlabs.no/okonomi/faktura) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: faktura
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Owner | [Fakturagrunnlag](fakturagrunnlag.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: faktura
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

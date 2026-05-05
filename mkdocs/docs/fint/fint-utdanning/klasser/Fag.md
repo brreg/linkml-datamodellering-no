@@ -17,17 +17,17 @@ Alias: fag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underveisfagvurdering](Underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
-| [Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
-| [Fravarsoversikt](Fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [FagvurderingAbstrakt](FagvurderingAbstrakt.md) | Abstrakt basisklasse for fagvurderingar |  no  |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Eksamensvurdering](Eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
-| [Faggruppe](Faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  no  |
-| [Undervisningsgruppe](Undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
-| [Halvaarsfagvurdering](Halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
-| [Sluttfagvurdering](Sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
+| [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
+| [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
+| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
+| [Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  no  |
+| [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [FagvurderingAbstrakt](fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |  no  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -40,8 +40,8 @@ Alias: fag
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Skole](Skole.md), [Faggruppe](Faggruppe.md), [Undervisningsgruppe](Undervisningsgruppe.md), [FagvurderingAbstrakt](FagvurderingAbstrakt.md), [Eksamensgruppe](Eksamensgruppe.md), [Fravarsoversikt](Fravarsoversikt.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Skole](skole.md), [Faggruppe](faggruppe.md), [Undervisningsgruppe](undervisningsgruppe.md), [FagvurderingAbstrakt](fagvurderingabstrakt.md), [Eksamensgruppe](eksamensgruppe.md), [Fravarsoversikt](fravarsoversikt.md) |
 
 ### Cardinality and Requirements
 

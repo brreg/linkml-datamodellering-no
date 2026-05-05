@@ -22,7 +22,7 @@ Alias: katalogregistrering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
+| [FAIRMetadata](fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: katalogregistrering
 
 | Property | Value |
 | --- | --- |
-| Range | [Katalogregistrering](Katalogregistrering.md) |
-| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Range | [Katalogregistrering](katalogregistrering.md) |
+| Domain Of | [FAIRMetadata](fairmetadata.md) |
 | Slot URI | [fair:katalogregistrering](https://data.norge.no/fair#katalogregistrering) |
 
 ### Cardinality and Requirements

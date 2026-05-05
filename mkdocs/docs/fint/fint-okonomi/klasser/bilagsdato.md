@@ -22,7 +22,7 @@ Alias: bilagsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bilag](Bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |  no  |
+| [Bilag](bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bilagsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Bilag](Bilag.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Bilag](bilag.md) |
 | Slot URI | [okn:bilagsdato](https://schema.fintlabs.no/okonomi/bilagsdato) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: bilagsdato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Bilag](Bilag.md) |
+| Owner | [Bilag](bilag.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: bilagsdato
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

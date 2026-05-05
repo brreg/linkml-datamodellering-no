@@ -22,7 +22,7 @@ Alias: er_del_av_modell
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_del_av_modell
 
 | Property | Value |
 | --- | --- |
-| Range | [Informasjonsmodell](Informasjonsmodell.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Informasjonsmodell](informasjonsmodell.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:isPartOf](http://purl.org/dc/terms/isPartOf) |
 
 ### Cardinality and Requirements

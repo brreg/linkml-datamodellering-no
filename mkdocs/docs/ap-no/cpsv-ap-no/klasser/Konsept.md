@@ -78,7 +78,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,47 +91,47 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [temaomrade](temaomrade.md) | range | [Konsept](Konsept.md) |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [er_klassifisert_av](er_klassifisert_av.md) | range | [Konsept](Konsept.md) |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [malgruppe](malgruppe.md) | range | [Konsept](Konsept.md) |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [sektor](sektor.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [status](status.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [temaomrade](temaomrade.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [er_klassifisert_av](er_klassifisert_av.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [malgruppe](malgruppe.md) | range | [Konsept](Konsept.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [sektor](sektor.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [status](status.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [temaomrade](temaomrade.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [er_klassifisert_av](er_klassifisert_av.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [malgruppe](malgruppe.md) | range | [Konsept](Konsept.md) |
-| [Tjeneste](Tjeneste.md) | [sektor](sektor.md) | range | [Konsept](Konsept.md) |
-| [Hendelse](Hendelse.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Hendelse](Hendelse.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Livshendelse](Livshendelse.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Livshendelse](Livshendelse.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Virksomhetshendelse](Virksomhetshendelse.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Virksomhetshendelse](Virksomhetshendelse.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Tjenestekanal](Tjenestekanal.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | [klassifisering](klassifisering.md) | range | [Konsept](Konsept.md) |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | [utstedingsstad](utstedingsstad.md) | range | [Konsept](Konsept.md) |
-| [Tjenesteresultattype](Tjenesteresultattype.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Gebyr](Gebyr.md) | [valuta](valuta.md) | range | [Konsept](Konsept.md) |
-| [Regel](Regel.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [RegulativRessurs](RegulativRessurs.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Deltagelse](Deltagelse.md) | [har_rolle](har_rolle.md) | range | [Konsept](Konsept.md) |
-| [Katalog](Katalog.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [Katalog](Katalog.md) | [oppdateringsfrekvens](oppdateringsfrekvens.md) | range | [Konsept](Konsept.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [temaomrade](temaomrade.md) | range | [Konsept](konsept.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [er_klassifisert_av](er_klassifisert_av.md) | range | [Konsept](konsept.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [malgruppe](malgruppe.md) | range | [Konsept](konsept.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [sektor](sektor.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [status](status.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [temaomrade](temaomrade.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [er_klassifisert_av](er_klassifisert_av.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [malgruppe](malgruppe.md) | range | [Konsept](konsept.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [sektor](sektor.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [status](status.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [temaomrade](temaomrade.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [er_klassifisert_av](er_klassifisert_av.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [malgruppe](malgruppe.md) | range | [Konsept](konsept.md) |
+| [Tjeneste](tjeneste.md) | [sektor](sektor.md) | range | [Konsept](konsept.md) |
+| [Hendelse](hendelse.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Hendelse](hendelse.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Livshendelse](livshendelse.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Livshendelse](livshendelse.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Virksomhetshendelse](virksomhetshendelse.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Virksomhetshendelse](virksomhetshendelse.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Tjenestekanal](tjenestekanal.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Dokumentasjonstype](dokumentasjonstype.md) | [klassifisering](klassifisering.md) | range | [Konsept](konsept.md) |
+| [Dokumentasjonstype](dokumentasjonstype.md) | [utstedingsstad](utstedingsstad.md) | range | [Konsept](konsept.md) |
+| [Tjenesteresultattype](tjenesteresultattype.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Gebyr](gebyr.md) | [valuta](valuta.md) | range | [Konsept](konsept.md) |
+| [Regel](regel.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [RegulativRessurs](regulativressurs.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Deltagelse](deltagelse.md) | [har_rolle](har_rolle.md) | range | [Konsept](konsept.md) |
+| [Katalog](katalog.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [Katalog](katalog.md) | [oppdateringsfrekvens](oppdateringsfrekvens.md) | range | [Konsept](konsept.md) |
 
 
 

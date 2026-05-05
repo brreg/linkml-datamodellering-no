@@ -22,7 +22,7 @@ Alias: domenenavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: domenenavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skole](Skole.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skole](skole.md) |
 | Slot URI | [utd:domenenavn](https://schema.fintlabs.no/utdanning/domenenavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: domenenavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Skole](Skole.md) |
+| Owner | [Skole](skole.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: domenenavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

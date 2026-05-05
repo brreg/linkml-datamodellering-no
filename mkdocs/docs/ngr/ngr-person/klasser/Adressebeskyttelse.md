@@ -17,7 +17,7 @@ Alias: adressebeskyttelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: adressebeskyttelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Adressebeskyttelse](Adressebeskyttelse.md) |
-| Domain Of | [PersonContainer](PersonContainer.md) |
+| Range | [Adressebeskyttelse](adressebeskyttelse.md) |
+| Domain Of | [PersonContainer](personcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: adressebeskyttelse
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonContainer](PersonContainer.md) |
+| Owner | [PersonContainer](personcontainer.md) |
 
 
 

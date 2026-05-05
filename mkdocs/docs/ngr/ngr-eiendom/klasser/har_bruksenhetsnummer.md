@@ -22,7 +22,7 @@ Alias: har_bruksenhetsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksenhet](Bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
+| [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_bruksenhetsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Bruksenhetsnummer](Bruksenhetsnummer.md) |
-| Domain Of | [Bruksenhet](Bruksenhet.md) |
+| Range | [Bruksenhetsnummer](bruksenhetsnummer.md) |
+| Domain Of | [Bruksenhet](bruksenhet.md) |
 | Slot URI | [ngre:harBruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#harBruksenhetsnummer) |
 
 ### Cardinality and Requirements

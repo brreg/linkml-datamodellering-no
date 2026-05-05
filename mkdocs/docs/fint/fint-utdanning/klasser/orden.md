@@ -17,11 +17,11 @@ Alias: orden
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sluttordensvurdering](Sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  no  |
-| [Underveisordensvurdering](Underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  no  |
-| [Halvaarsordensvurdering](Halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  no  |
-| [OrdensvurderingAbstrakt](OrdensvurderingAbstrakt.md) | Abstrakt basisklasse for ordensvurderingar |  no  |
-| [Anmerkninger](Anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |  no  |
+| [Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  no  |
+| [Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  no  |
+| [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md) | Abstrakt basisklasse for ordensvurderingar |  no  |
+| [Anmerkninger](anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |  no  |
+| [Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  no  |
 
 
 
@@ -34,8 +34,8 @@ Alias: orden
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [OrdensvurderingAbstrakt](OrdensvurderingAbstrakt.md), [Anmerkninger](Anmerkninger.md) |
+| Range | [String](string.md) |
+| Domain Of | [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md), [Anmerkninger](anmerkninger.md) |
 
 ### Cardinality and Requirements
 

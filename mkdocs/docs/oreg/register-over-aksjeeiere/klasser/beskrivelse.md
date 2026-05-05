@@ -22,7 +22,7 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeeierrettighet](Aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
+| [Aksjeeierrettighet](aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Aksjeeierrettighet](Aksjeeierrettighet.md) |
+| Range | [String](string.md) |
+| Domain Of | [Aksjeeierrettighet](aksjeeierrettighet.md) |
 
 ### Cardinality and Requirements
 

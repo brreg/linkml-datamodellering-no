@@ -17,7 +17,7 @@ Alias: tinglystEierforhold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: tinglystEierforhold
 
 | Property | Value |
 | --- | --- |
-| Range | [TinglystEierforhold](TinglystEierforhold.md) |
-| Domain Of | [EiendomContainer](EiendomContainer.md) |
+| Range | [TinglystEierforhold](tinglysteierforhold.md) |
+| Domain Of | [EiendomContainer](eiendomcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: tinglystEierforhold
 
 | Property | Value |
 | --- | --- |
-| Owner | [EiendomContainer](EiendomContainer.md) |
+| Owner | [EiendomContainer](eiendomcontainer.md) |
 
 
 

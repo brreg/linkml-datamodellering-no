@@ -17,52 +17,52 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klasse](Klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Tilrettelegging](Tilrettelegging.md) | Type tilrettelegging for elevar (t |  no  |
-| [Fagstatus](Fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  no  |
-| [Undervisningsgruppe](Undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
-| [Time](Time.md) | Ein time i timeplanen |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [OtStatus](OtStatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
-| [OtEnhet](OtEnhet.md) | Eining i oppfølgingstenesta (OT) |  no  |
-| [Provestatus](Provestatus.md) | Status for ei lærlingprøve |  no  |
-| [Karakterskala](Karakterskala.md) | Skala for karaktersetjing (t |  no  |
-| [Kontaktlaerergruppe](Kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
-| [Betalingsstatus](Betalingsstatus.md) | Betalingsstatus for eksamensavgift |  no  |
-| [Karakterstatus](Karakterstatus.md) | Status for ein karakter (t |  no  |
-| [Vitnemalsmerknad](Vitnemalsmerknad.md) | Merknad på vitnemål |  no  |
-| [Termin](Termin.md) | Ein skuleterm (t |  no  |
-| [Brevtype](Brevtype.md) | Type brev knytt til lærlingprøve |  no  |
-| [Avbruddsaarsak](Avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  no  |
-| [Utdanningsprogram](Utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
-| [Elevkategori](Elevkategori.md) | Kategori for eit elevforhold (t |  no  |
-| [Karakterverdi](Karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
-| [Fravartype](Fravartype.md) | Type fråvær (t |  no  |
-| [Bevistype](Bevistype.md) | Type kompetansebevis for lærling |  no  |
-| [Eksamen](Eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
-| [Fagmerknad](Fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  no  |
-| [Faggruppe](Faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  no  |
-| [Skoleaar](Skoleaar.md) | Eit skoleår (t |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Programomrade](Programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
-| [Persongruppe](Persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Gruppe](Gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |  no  |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Arstrinn](Arstrinn.md) | Eit årstrinn i skulen (t |  no  |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |  no  |
-| [Skoleeiertype](Skoleeiertype.md) | Type skuleeigartilknyting |  no  |
-| [Fullfortkode](Fullfortkode.md) | Kode for fullførtresultat av lærling |  no  |
-| [Eksamensform](Eksamensform.md) | Form for gjennomføring av eksamen |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Rom](Rom.md) | Eit rom eller lokale ved ein skule |  no  |
-| [Varseltype](Varseltype.md) | Type varsel knytt til ein elev |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Gruppe](gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |  no  |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
+| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |  no  |
+| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |  no  |
+| [Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  no  |
+| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |  no  |
+| [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |  no  |
+| [Time](time.md) | Ein time i timeplanen |  no  |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
+| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Fravartype](fravartype.md) | Type fråvær (t |  no  |
+| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |  no  |
+| [Provestatus](provestatus.md) | Status for ei lærlingprøve |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Rom](rom.md) | Eit rom eller lokale ved ein skule |  no  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
+| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  no  |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  no  |
+| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |  no  |
+| [Betalingsstatus](betalingsstatus.md) | Betalingsstatus for eksamensavgift |  no  |
+| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  no  |
+| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |  no  |
+| [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |  no  |
+| [Termin](termin.md) | Ein skuleterm (t |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [Skoleaar](skoleaar.md) | Eit skoleår (t |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Avbruddsaarsak](avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  no  |
 
 
 
@@ -75,8 +75,8 @@ Alias: navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Gruppe](Gruppe.md), [Skole](Skole.md), [Eksamen](Eksamen.md), [Rom](Rom.md), [Time](Time.md), [Avbruddsaarsak](Avbruddsaarsak.md), [Betalingsstatus](Betalingsstatus.md), [Bevistype](Bevistype.md), [Brevtype](Brevtype.md), [Eksamensform](Eksamensform.md), [Elevkategori](Elevkategori.md), [Fagmerknad](Fagmerknad.md), [Fagstatus](Fagstatus.md), [Fravartype](Fravartype.md), [Fullfortkode](Fullfortkode.md), [Karakterskala](Karakterskala.md), [Karakterstatus](Karakterstatus.md), [Karakterverdi](Karakterverdi.md), [OtEnhet](OtEnhet.md), [OtStatus](OtStatus.md), [Provestatus](Provestatus.md), [Skoleaar](Skoleaar.md), [Skoleeiertype](Skoleeiertype.md), [Termin](Termin.md), [Tilrettelegging](Tilrettelegging.md), [Varseltype](Varseltype.md), [Vitnemalsmerknad](Vitnemalsmerknad.md), [Begrep](Begrep.md), [Valuta](Valuta.md), [Person](Person.md), [Kontaktperson](Kontaktperson.md) |
+| Range | [String](string.md) |
+| Domain Of | [Gruppe](gruppe.md), [Skole](skole.md), [Eksamen](eksamen.md), [Rom](rom.md), [Time](time.md), [Avbruddsaarsak](avbruddsaarsak.md), [Betalingsstatus](betalingsstatus.md), [Bevistype](bevistype.md), [Brevtype](brevtype.md), [Eksamensform](eksamensform.md), [Elevkategori](elevkategori.md), [Fagmerknad](fagmerknad.md), [Fagstatus](fagstatus.md), [Fravartype](fravartype.md), [Fullfortkode](fullfortkode.md), [Karakterskala](karakterskala.md), [Karakterstatus](karakterstatus.md), [Karakterverdi](karakterverdi.md), [OtEnhet](otenhet.md), [OtStatus](otstatus.md), [Provestatus](provestatus.md), [Skoleaar](skoleaar.md), [Skoleeiertype](skoleeiertype.md), [Termin](termin.md), [Tilrettelegging](tilrettelegging.md), [Varseltype](varseltype.md), [Vitnemalsmerknad](vitnemalsmerknad.md), [Begrep](begrep.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md) |
 
 ### Cardinality and Requirements
 

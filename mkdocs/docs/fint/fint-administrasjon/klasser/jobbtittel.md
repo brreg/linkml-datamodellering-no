@@ -22,7 +22,7 @@ Alias: jobbtittel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: jobbtittel
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [String](string.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:jobbtittel](https://schema.fintlabs.no/administrasjon/jobbtittel) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: jobbtittel
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: jobbtittel
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

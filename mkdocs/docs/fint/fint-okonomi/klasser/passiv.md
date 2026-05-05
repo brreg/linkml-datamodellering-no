@@ -17,15 +17,15 @@ Alias: passiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Valuta](Valuta.md) | Valuta for transaksjonsbeløp |  no  |
-| [Merverdiavgift](Merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
 
 
 
@@ -38,8 +38,8 @@ Alias: passiv
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Vare](Vare.md), [Merverdiavgift](Merverdiavgift.md), [Valuta](Valuta.md), [Begrep](Begrep.md) |
+| Range | [String](string.md) |
+| Domain Of | [Vare](vare.md), [Merverdiavgift](merverdiavgift.md), [OkonomiValuta](okonomivaluta.md), [Begrep](begrep.md) |
 
 ### Cardinality and Requirements
 
@@ -81,7 +81,7 @@ alias: passiv
 domain_of:
 - Vare
 - Merverdiavgift
-- Valuta
+- OkonomiValuta
 - Begrep
 range: string
 

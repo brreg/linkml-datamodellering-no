@@ -22,7 +22,7 @@ Alias: kategori
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Lonsart](Lonsart.md) | Type ytelse |  no  |
+| [Lonsart](lonsart.md) | Type ytelse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kategori
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Lonsart](Lonsart.md) |
+| Range | [String](string.md) |
+| Domain Of | [Lonsart](lonsart.md) |
 | Slot URI | [adm:kategori](https://schema.fintlabs.no/administrasjon/kategori) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kategori
 
 | Property | Value |
 | --- | --- |
-| Owner | [Lonsart](Lonsart.md) |
+| Owner | [Lonsart](lonsart.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kategori
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

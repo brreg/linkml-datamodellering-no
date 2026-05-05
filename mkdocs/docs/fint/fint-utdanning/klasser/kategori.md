@@ -22,7 +22,7 @@ Alias: kategori
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kategori
 
 | Property | Value |
 | --- | --- |
-| Range | [Elevkategori](Elevkategori.md) |
-| Domain Of | [Elevforhold](Elevforhold.md) |
+| Range | [Elevkategori](elevkategori.md) |
+| Domain Of | [Elevforhold](elevforhold.md) |
 | Slot URI | [utd:kategori](https://schema.fintlabs.no/utdanning/kategori) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kategori
 
 | Property | Value |
 | --- | --- |
-| Owner | [Elevforhold](Elevforhold.md) |
+| Owner | [Elevforhold](elevforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kategori
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

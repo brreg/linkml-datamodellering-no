@@ -22,7 +22,7 @@ Alias: kontonummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Leverandor](Leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kontonummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Leverandor](Leverandor.md) |
+| Range | [String](string.md) |
+| Domain Of | [Leverandor](leverandor.md) |
 | Slot URI | [okn:kontonummer](https://schema.fintlabs.no/okonomi/kontonummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kontonummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Leverandor](Leverandor.md) |
+| Owner | [Leverandor](leverandor.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kontonummer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

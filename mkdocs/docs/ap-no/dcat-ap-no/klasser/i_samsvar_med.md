@@ -22,10 +22,10 @@ Alias: i_samsvar_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalogpost](Katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 
 
 
@@ -38,8 +38,8 @@ Alias: i_samsvar_med
 
 | Property | Value |
 | --- | --- |
-| Range | [Standard](Standard.md) |
-| Domain Of | [Distribusjon](Distribusjon.md), [Datasett](Datasett.md), [Datatjeneste](Datatjeneste.md), [Katalogpost](Katalogpost.md) |
+| Range | [Standard](standard.md) |
+| Domain Of | [Distribusjon](distribusjon.md), [Datasett](datasett.md), [Datatjeneste](datatjeneste.md), [Katalogpost](katalogpost.md) |
 | Slot URI | [dct:conformsTo](http://purl.org/dc/terms/conformsTo) |
 
 ### Cardinality and Requirements

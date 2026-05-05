@@ -22,7 +22,7 @@ Alias: godtek_sprak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: godtek_sprak
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
-| Domain Of | [Dokumentasjonstype](Dokumentasjonstype.md) |
+| Range | [Spraak](spraak.md) |
+| Domain Of | [Dokumentasjonstype](dokumentasjonstype.md) |
 | Slot URI | [cccevno:acceptableLanguage](https://data.norge.no/vocabulary/cccevno#acceptableLanguage) |
 
 ### Cardinality and Requirements

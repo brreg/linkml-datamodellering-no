@@ -17,10 +17,10 @@ Alias: lonsart
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
-| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Fravaerstype](Fravaerstype.md) | Type fråvær |  no  |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Fravaerstype](fravaerstype.md) | Type fråvær |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: lonsart
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fravaerstype](Fravaerstype.md), [Fastlonn](Fastlonn.md), [Fasttillegg](Fasttillegg.md), [Variabellonn](Variabellonn.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fravaerstype](fravaerstype.md), [Fastlonn](fastlonn.md), [Fasttillegg](fasttillegg.md), [Variabellonn](variabellonn.md) |
 
 ### Cardinality and Requirements
 

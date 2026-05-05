@@ -22,7 +22,7 @@ Alias: er_reservert
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) | Registrering av at ein person har reservert seg mot digital kommunikasjon frå... |  yes  |
+| [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) | Registrering av at ein person har reservert seg mot digital kommunikasjon frå... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_reservert
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) |
 | Slot URI | [ngrp:erReservert](https://data.norge.no/vocabulary/ngr-person#erReservert) |
 
 ### Cardinality and Requirements

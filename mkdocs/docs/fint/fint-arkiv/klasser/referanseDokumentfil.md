@@ -22,7 +22,7 @@ Alias: referanseDokumentfil
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentobjekt](Dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
+| [Dokumentobjekt](dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: referanseDokumentfil
 
 | Property | Value |
 | --- | --- |
-| Range | [Dokumentfil](Dokumentfil.md) |
-| Domain Of | [Dokumentobjekt](Dokumentobjekt.md) |
+| Range | [Dokumentfil](dokumentfil.md) |
+| Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:referanseDokumentfil](https://schema.fintlabs.no/arkiv/referanseDokumentfil) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: referanseDokumentfil
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentobjekt](Dokumentobjekt.md) |
+| Owner | [Dokumentobjekt](dokumentobjekt.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: referanseDokumentfil
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

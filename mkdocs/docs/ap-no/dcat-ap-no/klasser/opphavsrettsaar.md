@@ -22,7 +22,7 @@ Alias: opphavsrettsaar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighetserklaring](Rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |  no  |
+| [Rettighetserklaring](rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: opphavsrettsaar
 
 | Property | Value |
 | --- | --- |
-| Range | [GYear](GYear.md) |
-| Domain Of | [Rettighetserklaring](Rettighetserklaring.md) |
+| Range | [GYear](gyear.md) |
+| Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:copyrightYear](http://schema.theodi.org/odrs#copyrightYear) |
 
 ### Cardinality and Requirements

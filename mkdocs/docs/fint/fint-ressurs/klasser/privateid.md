@@ -22,7 +22,7 @@ Alias: privateid
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: privateid
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md) |
 | Slot URI | [res:privateid](https://schema.fintlabs.no/ressurs/privateid) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: privateid
 
 | Property | Value |
 | --- | --- |
-| Owner | [DigitalEnhet](DigitalEnhet.md) |
+| Owner | [DigitalEnhet](digitalenhet.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: privateid
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

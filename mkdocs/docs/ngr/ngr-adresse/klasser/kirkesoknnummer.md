@@ -22,7 +22,7 @@ Alias: kirkesoknnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kirkesokn](Kirkesokn.md) | Eit kyrkjesokn |  no  |
+| [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kirkesoknnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kirkesokn](Kirkesokn.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kirkesokn](kirkesokn.md) |
 | Slot URI | [ngr:kirkesoknnummer](https://data.norge.no/vocabulary/ngr-adresse#kirkesoknnummer) |
 
 ### Cardinality and Requirements

@@ -98,8 +98,8 @@ URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragel
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [kan_ha_vederlag](kan_ha_vederlag.md) | 0..1 <br/> [Vederlag](Vederlag.md) | Vederlag for aksjeoverdraging |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [kan_ha_vederlag](kan_ha_vederlag.md) | 0..1 <br/> [Vederlag](vederlag.md) | Vederlag for aksjeoverdraging |
 
 
 
@@ -112,9 +112,9 @@ URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragel
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeoverdragelser](aksjeoverdragelser.md) | range | [Aksjeoverdragelse](Aksjeoverdragelse.md) |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | range | [Aksjeoverdragelse](Aksjeoverdragelse.md) |
-| [Aksjeoverdragelse](Aksjeoverdragelse.md) | [kan_ha_vederlag](kan_ha_vederlag.md) | domain | [Aksjeoverdragelse](Aksjeoverdragelse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeoverdragelser](aksjeoverdragelser.md) | range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
+| [Aksjeoverdragelse](aksjeoverdragelse.md) | [kan_ha_vederlag](kan_ha_vederlag.md) | domain | [Aksjeoverdragelse](aksjeoverdragelse.md) |
 
 
 

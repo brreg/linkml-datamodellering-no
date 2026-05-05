@@ -17,7 +17,7 @@ Alias: hjemmelEiendomsrett
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: hjemmelEiendomsrett
 
 | Property | Value |
 | --- | --- |
-| Range | [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) |
-| Domain Of | [EiendomContainer](EiendomContainer.md) |
+| Range | [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) |
+| Domain Of | [EiendomContainer](eiendomcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: hjemmelEiendomsrett
 
 | Property | Value |
 | --- | --- |
-| Owner | [EiendomContainer](EiendomContainer.md) |
+| Owner | [EiendomContainer](eiendomcontainer.md) |
 
 
 

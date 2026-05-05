@@ -22,7 +22,7 @@ Alias: transaksjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postering](Postering.md) | Føring på ein konto i rekneskapet |  no  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: transaksjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Transaksjon](Transaksjon.md) |
-| Domain Of | [Postering](Postering.md) |
+| Range | [Transaksjon](transaksjon.md) |
+| Domain Of | [Postering](postering.md) |
 | Slot URI | [okn:transaksjon](https://schema.fintlabs.no/okonomi/transaksjon) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: transaksjon
 
 | Property | Value |
 | --- | --- |
-| Owner | [Postering](Postering.md) |
+| Owner | [Postering](postering.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: transaksjon
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

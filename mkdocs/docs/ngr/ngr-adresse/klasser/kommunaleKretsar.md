@@ -17,7 +17,7 @@ Alias: kommunaleKretsar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
+| [AdresseContainer](adressecontainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: kommunaleKretsar
 
 | Property | Value |
 | --- | --- |
-| Range | [KommunalKrets](KommunalKrets.md) |
-| Domain Of | [AdresseContainer](AdresseContainer.md) |
+| Range | [KommunalKrets](kommunalkrets.md) |
+| Domain Of | [AdresseContainer](adressecontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: kommunaleKretsar
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdresseContainer](AdresseContainer.md) |
+| Owner | [AdresseContainer](adressecontainer.md) |
 
 
 

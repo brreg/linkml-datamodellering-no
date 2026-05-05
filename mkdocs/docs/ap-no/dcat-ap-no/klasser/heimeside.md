@@ -22,7 +22,7 @@ Alias: heimeside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: heimeside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [foaf:homepage](http://xmlns.com/foaf/0.1/homepage) |
 
 ### Cardinality and Requirements

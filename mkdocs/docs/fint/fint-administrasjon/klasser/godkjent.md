@@ -22,7 +22,7 @@ Alias: godkjent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: godkjent
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Fravaer](Fravaer.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Fravaer](fravaer.md) |
 | Slot URI | [adm:godkjent](https://schema.fintlabs.no/administrasjon/godkjent) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: godkjent
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravaer](Fravaer.md) |
+| Owner | [Fravaer](fravaer.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: godkjent
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: kandidatnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kandidatnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Range | [String](string.md) |
+| Domain Of | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 | Slot URI | [utd:kandidatnummer](https://schema.fintlabs.no/utdanning/kandidatnummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kandidatnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Owner | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kandidatnummer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

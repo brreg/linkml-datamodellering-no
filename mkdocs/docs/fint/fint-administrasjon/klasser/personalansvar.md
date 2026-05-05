@@ -22,7 +22,7 @@ Alias: personalansvar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: personalansvar
 
 | Property | Value |
 | --- | --- |
-| Range | [Arbeidsforhold](Arbeidsforhold.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Arbeidsforhold](arbeidsforhold.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:personalansvar](https://schema.fintlabs.no/administrasjon/personalansvar) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: personalansvar
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: personalansvar
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

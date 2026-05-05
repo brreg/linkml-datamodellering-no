@@ -22,7 +22,7 @@ Alias: utstedtdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identifikasjonsdokument](Identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
+| [Identifikasjonsdokument](identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: utstedtdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Identifikasjonsdokument](Identifikasjonsdokument.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Identifikasjonsdokument](identifikasjonsdokument.md) |
 | Slot URI | [ngrp:utstedtdato](https://data.norge.no/vocabulary/ngr-person#utstedtdato) |
 
 ### Cardinality and Requirements

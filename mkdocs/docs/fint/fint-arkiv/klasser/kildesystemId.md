@@ -22,7 +22,7 @@ Alias: kildesystemId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arkivressurs](Arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
+| [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kildesystemId
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Arkivressurs](Arkivressurs.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Arkivressurs](arkivressurs.md) |
 | Slot URI | [ark:kildesystemId](https://schema.fintlabs.no/arkiv/kildesystemId) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kildesystemId
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arkivressurs](Arkivressurs.md) |
+| Owner | [Arkivressurs](arkivressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kildesystemId
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

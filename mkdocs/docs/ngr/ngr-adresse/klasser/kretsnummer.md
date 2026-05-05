@@ -22,7 +22,7 @@ Alias: kretsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [KommunalKrets](KommunalKrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
+| [KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kretsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [KommunalKrets](KommunalKrets.md) |
+| Range | [String](string.md) |
+| Domain Of | [KommunalKrets](kommunalkrets.md) |
 | Slot URI | [ngr:kretsnummer](https://data.norge.no/vocabulary/ngr-adresse#kretsnummer) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: begrep
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: begrep
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:subject](http://purl.org/dc/terms/subject) |
 
 ### Cardinality and Requirements

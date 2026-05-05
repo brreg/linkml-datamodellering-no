@@ -22,7 +22,7 @@ Alias: nettside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |  yes  |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nettside
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktinformasjon](Kontaktinformasjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [ngrv:nettside](https://data.norge.no/vocabulary/ngr-virksomhet#nettside) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md) | Kontaktinformasjon for eit dødsbu |  yes  |
+| [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) | Kontaktinformasjon for eit dødsbu |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md) |
+| Range | [String](string.md) |
+| Domain Of | [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) |
 | Slot URI | [ngrp:namn](https://data.norge.no/vocabulary/ngr-person#namn) |
 
 ### Cardinality and Requirements

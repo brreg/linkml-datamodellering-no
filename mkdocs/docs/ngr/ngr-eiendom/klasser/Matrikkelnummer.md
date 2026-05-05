@@ -128,9 +128,9 @@ URI: [ngre:Matrikkelnummer](https://data.norge.no/vocabulary/ngr-eiendom#Matrikk
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bestar_av_kommunenummer](bestar_av_kommunenummer.md) | 1 <br/> [Kommunenummer](Kommunenummer.md) | Kommunenummerdelen av matrikkelnummeret |
-| [bestar_av_gaardsnummer](bestar_av_gaardsnummer.md) | 1 <br/> [Gaardsnummer](Gaardsnummer.md) | Gårdsnummerdelen av matrikkelnummeret |
-| [bestar_av_bruksnummer](bestar_av_bruksnummer.md) | 1 <br/> [Bruksnummer](Bruksnummer.md) | Bruksnummerdelen av matrikkelnummeret |
+| [bestar_av_kommunenummer](bestar_av_kommunenummer.md) | 1 <br/> [Kommunenummer](kommunenummer.md) | Kommunenummerdelen av matrikkelnummeret |
+| [bestar_av_gaardsnummer](bestar_av_gaardsnummer.md) | 1 <br/> [Gaardsnummer](gaardsnummer.md) | Gårdsnummerdelen av matrikkelnummeret |
+| [bestar_av_bruksnummer](bestar_av_bruksnummer.md) | 1 <br/> [Bruksnummer](bruksnummer.md) | Bruksnummerdelen av matrikkelnummeret |
 
 
 
@@ -185,8 +185,8 @@ URI: [ngre:Matrikkelnummer](https://data.norge.no/vocabulary/ngr-eiendom#Matrikk
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bestar_av_festenummer](bestar_av_festenummer.md) | 0..1 <br/> [Festenummer](Festenummer.md) | Festenummerdelen av matrikkelnummeret (berre for festegrunn) |
-| [bestar_av_seksjonsnummer](bestar_av_seksjonsnummer.md) | 0..1 <br/> [Seksjonsnummer](Seksjonsnummer.md) | Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar) |
+| [bestar_av_festenummer](bestar_av_festenummer.md) | 0..1 <br/> [Festenummer](festenummer.md) | Festenummerdelen av matrikkelnummeret (berre for festegrunn) |
+| [bestar_av_seksjonsnummer](bestar_av_seksjonsnummer.md) | 0..1 <br/> [Seksjonsnummer](seksjonsnummer.md) | Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar) |
 
 
 
@@ -270,7 +270,7 @@ URI: [ngre:Matrikkelnummer](https://data.norge.no/vocabulary/ngr-eiendom#Matrikk
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -283,14 +283,14 @@ URI: [ngre:Matrikkelnummer](https://data.norge.no/vocabulary/ngr-eiendom#Matrikk
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [matrikkelnumre](matrikkelnumre.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
-| [Matrikkelenhet](Matrikkelenhet.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
-| [Grunneiendom](Grunneiendom.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
-| [Festegrunn](Festegrunn.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
-| [Jordsameie](Jordsameie.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
-| [Eierseksjon](Eierseksjon.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
-| [Anleggseiendom](Anleggseiendom.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
-| [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](Matrikkelnummer.md) |
+| [EiendomContainer](eiendomcontainer.md) | [matrikkelnumre](matrikkelnumre.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
+| [Matrikkelenhet](matrikkelenhet.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
+| [Grunneiendom](grunneiendom.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
+| [Festegrunn](festegrunn.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
+| [Jordsameie](jordsameie.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
+| [Eierseksjon](eierseksjon.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
+| [Anleggseiendom](anleggseiendom.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | [identifiseres_med](identifiseres_med.md) | range | [Matrikkelnummer](matrikkelnummer.md) |
 
 
 

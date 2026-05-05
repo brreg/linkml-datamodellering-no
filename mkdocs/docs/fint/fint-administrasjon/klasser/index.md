@@ -13,58 +13,58 @@ Name: fint-administrasjon
 
 | Class | Description |
 | --- | --- |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Fysiske private personar |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |
-| [Arbeidslokasjon](Arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Aktivitet](Aktivitet.md) | Del av kontostrengen og detaljering av funksjon |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Anlegg](Anlegg.md) | Del av kontostrengen; objekt som skal aktiverast eller avskrivast |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Ansvar](Ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Arbeidsforholdstype](Arbeidsforholdstype.md) | Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Art](Art.md) | Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Diverse](Diverse.md) | Del av kontostrengen; supplement til øvrige dimensjonar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Formaal](Formaal.md) | Del av kontostrengen som detaljerer inntekter og utgifter ved drift |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fravaersgrunn](Fravaersgrunn.md) | Grunn til fråvær |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fravaerstype](Fravaerstype.md) | Type fråvær |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Funksjon](Funksjon.md) | Del av kontostrengen som beskriv kva som vert produsert |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](Fylke.md) | Liste over Norges fylker |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](Kommune.md) | Liste over Norges kommunar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontrakt](Kontrakt.md) | Kontrakt transaksjonen er knytt til |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Lonsart](Lonsart.md) | Type ytelse |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Lopenummer](Lopenummer.md) | Løpenummer i ei nummerserie |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Objekt](Objekt.md) | Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Organisasjonstype](Organisasjonstype.md) | Typen til eit organisasjonselement |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Personalressurskategori](Personalressurskategori.md) | Ansettelsesform til eit arbeidsforhold |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Prosjekt](Prosjekt.md) | Del av kontostrengen som peikar på løpande prosjekt |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Prosjektart](Prosjektart.md) | Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Ramme](Ramme.md) | Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stillingskode](Stillingskode.md) | Felles kodeverk for stillingar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Uketimetall](Uketimetall.md) | Timer per veke i 100 % stilling |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |
-| [Fullmakt](Fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |
-| [Identifikator](Identifikator.md) | Unik identifikasjon til eit objekt |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |
-| [Kontostreng](Kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |
-| [Lonn](Lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
-| [Organisasjonselement](Organisasjonselement.md) | Eit element i organisasjonsstrukturen |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |
-| [Personnavn](Personnavn.md) | Namn på ein person |
-| [Rolle](Rolle.md) | Rettighet eller type fullmakt |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](person.md) | Fysiske private personar |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |
+| [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Aktivitet](aktivitet.md) | Del av kontostrengen og detaljering av funksjon |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Anlegg](anlegg.md) | Del av kontostrengen; objekt som skal aktiverast eller avskrivast |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Ansvar](ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Arbeidsforholdstype](arbeidsforholdstype.md) | Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Art](art.md) | Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Diverse](diverse.md) | Del av kontostrengen; supplement til øvrige dimensjonar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Formaal](formaal.md) | Del av kontostrengen som detaljerer inntekter og utgifter ved drift |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fravaersgrunn](fravaersgrunn.md) | Grunn til fråvær |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fravaerstype](fravaerstype.md) | Type fråvær |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Funksjon](funksjon.md) | Del av kontostrengen som beskriv kva som vert produsert |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Liste over Norges fylker |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | Liste over Norges kommunar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontrakt](kontrakt.md) | Kontrakt transaksjonen er knytt til |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Lonsart](lonsart.md) | Type ytelse |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Lopenummer](lopenummer.md) | Løpenummer i ei nummerserie |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Objekt](objekt.md) | Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Organisasjonstype](organisasjonstype.md) | Typen til eit organisasjonselement |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Personalressurskategori](personalressurskategori.md) | Ansettelsesform til eit arbeidsforhold |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Prosjekt](prosjekt.md) | Del av kontostrengen som peikar på løpande prosjekt |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Prosjektart](prosjektart.md) | Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Ramme](ramme.md) | Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stillingskode](stillingskode.md) | Felles kodeverk for stillingar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Uketimetall](uketimetall.md) | Timer per veke i 100 % stilling |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |
+| [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Variabellonn](variabellonn.md) | Informasjon om variabel lønn |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |
+| [Personnavn](personnavn.md) | Namn på ein person |
+| [Rolle](rolle.md) | Rettighet eller type fullmakt |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |
 
 
 
@@ -141,7 +141,7 @@ Name: fint-administrasjon
 | [identifikatorverdi](identifikatorverdi.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
 | [jobbtittel](jobbtittel.md) | Namn som beskriv jobben eller stillinga |
 | [kategori](kategori.md) | Kategori lønnsart |
-| [kildesystemId](kildesystemId.md) | Kjeldesystemets unike identifikator for lønn |
+| [kildesystemId](kildesystemid.md) | Kjeldesystemets unike identifikator for lønn |
 | [kjonn](kjonn.md) |  |
 | [kode](kode.md) | Verdi som identifiserer omgrepet |
 | [kommunar](kommunar.md) |  |
@@ -160,7 +160,7 @@ Name: fint-administrasjon
 | [land](land.md) | Land der adressa befinn seg |
 | [landkodar](landkodar.md) |  |
 | [leder](leder.md) | Ansvarleg leiar for organisasjonselementet |
-| [lederFor](lederFor.md) | Organisasjonselement personalressursen er leiar for |
+| [lederFor](lederfor.md) | Organisasjonselement personalressursen er leiar for |
 | [lokasjonskode](lokasjonskode.md) | Kode som identifiserer ein arbeidslokasjon |
 | [lokasjonsnavn](lokasjonsnavn.md) | Namn som beskriv ein arbeidslokasjon |
 | [lonnsprosent](lonnsprosent.md) | Prosent av årslønn den tilsette skal ha utbetalt |
@@ -177,8 +177,8 @@ Name: fint-administrasjon
 | [objekt](objekt.md) |  |
 | [opptjent](opptjent.md) | Periode der lønn vart opptent |
 | [organisasjonselement](organisasjonselement.md) |  |
-| [organisasjonsId](organisasjonsId.md) | Unikt internnummer for organisasjonselementet |
-| [organisasjonsKode](organisasjonsKode.md) | Beskriven kode for organisasjonselementet |
+| [organisasjonsId](organisasjonsid.md) | Unikt internnummer for organisasjonselementet |
+| [organisasjonsKode](organisasjonskode.md) | Beskriven kode for organisasjonselementet |
 | [organisasjonsnavn](organisasjonsnavn.md) | Namn på eining registrert i Einingsregisteret |
 | [organisasjonsnummer](organisasjonsnummer.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret |
 | [organisasjonstypar](organisasjonstypar.md) |  |
@@ -208,7 +208,7 @@ Name: fint-administrasjon
 | [rammer](rammer.md) |  |
 | [rollar](rollar.md) |  |
 | [rolle](rolle.md) | Kva type fullmakt |
-| [rolleNavn](rolleNavn.md) | Namn på rolla; unik identifikator |
+| [rolleNavn](rollenavn.md) | Namn på rolla; unik identifikator |
 | [seksjonsnummer](seksjonsnummer.md) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
 | [sip](sip.md) | SIP-protokoll for VoIP (IP-telefoni) |
 | [skole](skole.md) | Referanse til Skole (Utdanning) |
@@ -224,7 +224,7 @@ Name: fint-administrasjon
 | [stillingstittel](stillingstittel.md) | Arbeidstakarens stillingstittel i gjeldande stilling |
 | [telefonnummer](telefonnummer.md) | Telefonnummer |
 | [tilstedeprosent](tilstedeprosent.md) | Det personalressursen faktisk jobbar |
-| [timerPerUke](timerPerUke.md) | Timer per veke i 100 % stilling |
+| [timerPerUke](timerperuke.md) | Timer per veke i 100 % stilling |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
 | [uketimetall](uketimetall.md) |  |
 | [underordnet](underordnet.md) | Alle underansvar |
@@ -232,7 +232,7 @@ Name: fint-administrasjon
 | [valuta](valuta.md) |  |
 | [variabellonn](variabellonn.md) |  |
 | [virksomhetar](virksomhetar.md) |  |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 
 ## Enumerations
@@ -245,31 +245,31 @@ Name: fint-administrasjon
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalt eigensskap |
-| [Obligatorisk](Obligatorisk.md) | Obligatorisk eigensskap |
-| [Valgfri](Valgfri.md) | Valfri eigensskap |
+| [Anbefalt](anbefalt.md) | Anbefalt eigensskap |
+| [Obligatorisk](obligatorisk.md) | Obligatorisk eigensskap |
+| [Valgfri](valgfri.md) | Valfri eigensskap |

@@ -1,0 +1,59 @@
+@prefix fint: <https://schema.fintlabs.no/> .
+@prefix ns1: <https://schema.fintlabs.no/personvern/:> .
+@prefix pvn: <https://schema.fintlabs.no/personvern/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.no/fint/behandling/behandling-lonn> a pvn:Behandling ;
+    pvn:aktiv true ;
+    pvn:behandlingsgrunnlag <https://example.no/fint/behandlingsgrunnlag/rettslig-plikt> ;
+    pvn:formal "Behandling av lønnsopplysninger for utbetaling av lønn til ansatte." ;
+    pvn:personopplysning <https://example.no/fint/personopplysning/identifikasjon> ;
+    pvn:tjeneste <https://example.no/fint/tjeneste/lonn-system> .
+
+<https://example.no/fint/samtykke/samtykke-1> a pvn:Samtykke ;
+    pvn:behandling <https://example.no/fint/behandling/behandling-hr> ;
+    pvn:gyldighetsperiode [ a fint:Periode ;
+            fint:start "2024-01-01T00:00:00+00:00"^^xsd:dateTime ] ;
+    pvn:opprettet "2024-01-01T10:00:00+00:00"^^xsd:dateTime ;
+    pvn:person "finta:person/ola-nordmann"^^xsd:anyURI .
+
+<https://example.no/fint/behandling/behandling-hr> a pvn:Behandling ;
+    pvn:aktiv true ;
+    pvn:behandlingsgrunnlag <https://example.no/fint/behandlingsgrunnlag/avtale> ;
+    pvn:formal "Administrasjon av arbeidsforhold og personalopplysninger." ;
+    pvn:personopplysning <https://example.no/fint/personopplysning/kontaktinformasjon> ;
+    pvn:tjeneste <https://example.no/fint/tjeneste/hr-system> .
+
+<https://example.no/fint/behandlingsgrunnlag/avtale> a pvn:Behandlingsgrunnlag ;
+    pvn:kode "GDPR-6-1-b" ;
+    pvn:navn "Nødvendig for å oppfylle en avtale" .
+
+<https://example.no/fint/behandlingsgrunnlag/rettslig-plikt> a pvn:Behandlingsgrunnlag ;
+    pvn:kode "GDPR-6-1-c" ;
+    pvn:navn "Nødvendig for å oppfylle en rettslig forpliktelse" .
+
+<https://example.no/fint/personopplysning/identifikasjon> a pvn:Personopplysning ;
+    pvn:kode "ID" ;
+    pvn:navn "Identifikasjonsopplysninger (navn, fødselsnummer)" .
+
+<https://example.no/fint/personopplysning/kontaktinformasjon> a pvn:Personopplysning ;
+    pvn:kode "KI" ;
+    pvn:navn "Kontaktinformasjon (e-post, telefon)" .
+
+<https://example.no/fint/tjeneste/hr-system> a pvn:Tjeneste ;
+    pvn:navn "HR-systemet" .
+
+<https://example.no/fint/tjeneste/lonn-system> a pvn:Tjeneste ;
+    pvn:navn "Lønnssystemet" .
+
+[] a ns1:PersonvernContainer ;
+    ns1:behandlingar <https://example.no/fint/behandling/behandling-hr>,
+        <https://example.no/fint/behandling/behandling-lonn> ;
+    ns1:behandlingsgrunnlag <https://example.no/fint/behandlingsgrunnlag/avtale>,
+        <https://example.no/fint/behandlingsgrunnlag/rettslig-plikt> ;
+    ns1:personopplysningar <https://example.no/fint/personopplysning/identifikasjon>,
+        <https://example.no/fint/personopplysning/kontaktinformasjon> ;
+    ns1:samtykker <https://example.no/fint/samtykke/samtykke-1> ;
+    ns1:tenester <https://example.no/fint/tjeneste/hr-system>,
+        <https://example.no/fint/tjeneste/lonn-system> .
+

@@ -22,7 +22,7 @@ Alias: utsteder_aksje
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeselskap](Aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
+| [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: utsteder_aksje
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksje](Aksje.md) |
-| Domain | [Aksjeselskap](Aksjeselskap.md) |
-| Domain Of | [Aksjeselskap](Aksjeselskap.md) |
+| Range | [Aksje](aksje.md) |
+| Domain | [Aksjeselskap](aksjeselskap.md) |
+| Domain Of | [Aksjeselskap](aksjeselskap.md) |
 
 ### Cardinality and Requirements
 

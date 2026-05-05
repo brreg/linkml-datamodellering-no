@@ -22,7 +22,7 @@ Alias: fakturalinjer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fakturalinjer
 
 | Property | Value |
 | --- | --- |
-| Range | [Fakturalinje](Fakturalinje.md) |
-| Domain Of | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Range | [Fakturalinje](fakturalinje.md) |
+| Domain Of | [Fakturagrunnlag](fakturagrunnlag.md) |
 | Slot URI | [okn:fakturalinjer](https://schema.fintlabs.no/okonomi/fakturalinjer) |
 
 ### Cardinality and Requirements
@@ -49,7 +49,7 @@ Alias: fakturalinjer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Owner | [Fakturagrunnlag](fakturagrunnlag.md) |
 
 
 
@@ -61,7 +61,7 @@ Alias: fakturalinjer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

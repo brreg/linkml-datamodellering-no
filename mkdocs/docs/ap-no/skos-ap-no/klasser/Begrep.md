@@ -419,12 +419,12 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [anbefalt_term](anbefalt_term.md) | 1..* <br/> [LangString](LangString.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
-| [definisjon](definisjon.md) | * <br/> [LangString](LangString.md) | Direkte definisjon som fritekst (skos:definition) |
-| [har_definisjon](har_definisjon.md) | * <br/> [Definisjon](Definisjon.md) | Definisjon via eige objekt (euvoc:xlDefinition) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | 1..* <br/> [VCardKontakt](VCardKontakt.md) | Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint) |
-| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](Organisasjon.md) | Organisasjon ansvarleg for å publisere omgrepet (dct:publisher) |
+| [anbefalt_term](anbefalt_term.md) | 1..* <br/> [LangString](langstring.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
+| [definisjon](definisjon.md) | * <br/> [LangString](langstring.md) | Direkte definisjon som fritekst (skos:definition) |
+| [har_definisjon](har_definisjon.md) | * <br/> [Definisjon](definisjon.md) | Definisjon via eige objekt (euvoc:xlDefinition) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | 1..* <br/> [VCardKontakt](vcardkontakt.md) | Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint) |
+| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon ansvarleg for å publisere omgrepet (dct:publisher) |
 
 
 
@@ -559,14 +559,14 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [ansvarleg_verksemd](ansvarleg_verksemd.md) | 0..1 <br/> [Organisasjon](Organisasjon.md) | Fagleg ansvarleg organisasjon for omgrepet (dct:creator) |
-| [gyldig_fra](gyldig_fra.md) | 0..1 <br/> [Date](Date.md) | Dato omgrepet er gyldig frå (euvoc:startDate) |
-| [gyldig_til](gyldig_til.md) | 0..1 <br/> [Date](Date.md) | Dato omgrepet er gyldig til (euvoc:endDate) |
-| [opprettingsdato](opprettingsdato.md) | 0..1 <br/> [Date](Date.md) | Dato omgrepet vart oppretta (dct:created) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [fagomrade](fagomrade.md) | * <br/> [Begrep](Begrep.md) | Fagområde omgrepet høyrer til (dct:subject) |
-| [merknad](merknad.md) | * <br/> [LangString](LangString.md) | Merknad om bruksomfanget for omgrepet (skos:scopeNote) |
-| [tillate_term](tillate_term.md) | * <br/> [LangString](LangString.md) | Tillaten alternativ term for omgrepet (skos:altLabel) |
+| [ansvarleg_verksemd](ansvarleg_verksemd.md) | 0..1 <br/> [Organisasjon](organisasjon.md) | Fagleg ansvarleg organisasjon for omgrepet (dct:creator) |
+| [gyldig_fra](gyldig_fra.md) | 0..1 <br/> [Date](date.md) | Dato omgrepet er gyldig frå (euvoc:startDate) |
+| [gyldig_til](gyldig_til.md) | 0..1 <br/> [Date](date.md) | Dato omgrepet er gyldig til (euvoc:endDate) |
+| [opprettingsdato](opprettingsdato.md) | 0..1 <br/> [Date](date.md) | Dato omgrepet vart oppretta (dct:created) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [fagomrade](fagomrade.md) | * <br/> [Begrep](begrep.md) | Fagområde omgrepet høyrer til (dct:subject) |
+| [merknad](merknad.md) | * <br/> [LangString](langstring.md) | Merknad om bruksomfanget for omgrepet (skos:scopeNote) |
+| [tillate_term](tillate_term.md) | * <br/> [LangString](langstring.md) | Tillaten alternativ term for omgrepet (skos:altLabel) |
 
 
 
@@ -727,27 +727,27 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [datastruktur_term](datastruktur_term.md) | * <br/> [String](String.md) | Term brukt i datastrukturar (skosno:dataStructureLabel) |
-| [eksempel](eksempel.md) | * <br/> [LangString](LangString.md) | Eksempel på bruk av omgrepet (skos:example) |
-| [er_del_av_omgrep](er_del_av_omgrep.md) | * <br/> [Begrep](Begrep.md) | Omgrep dette omgrepet er ein del av (xkos:isPartOf) |
-| [er_erstatta_av](er_erstatta_av.md) | * <br/> [Begrep](Begrep.md) | Omgrep som erstattar dette omgrepet (dct:isReplacedBy) |
-| [er_fra_omgrep_i](er_fra_omgrep_i.md) | * <br/> [AssosiativRelasjon](AssosiativRelasjon.md) | Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptI... |
-| [assosiert_med](assosiert_med.md) | * <br/> [Begrep](Begrep.md) | Omgrep dette omgrepet er assosiert med (skos:related) |
-| [erstattar](erstattar.md) | * <br/> [Begrep](Begrep.md) | Omgrep dette omgrepet erstattar (dct:replaces) |
-| [forkasta_term](forkasta_term.md) | * <br/> [LangString](LangString.md) | Tidlegare brukt, no forkasta term (skos:hiddenLabel) |
-| [generaliserer](generaliserer.md) | * <br/> [Begrep](Begrep.md) | Omgrep dette omgrepet generaliserer (xkos:generalizes) |
-| [noyaktig_samsvar](noyaktig_samsvar.md) | * <br/> [Begrep](Begrep.md) | Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch) |
-| [har_generisk_relasjon](har_generisk_relasjon.md) | * <br/> [GeneriskRelasjon](GeneriskRelasjon.md) | Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation) |
-| [naert_samsvar](naert_samsvar.md) | * <br/> [Begrep](Begrep.md) | Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch) |
-| [har_partitiv_relasjon](har_partitiv_relasjon.md) | * <br/> [PartitivRelasjon](PartitivRelasjon.md) | Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelatio... |
-| [har_del_omgrep](har_del_omgrep.md) | * <br/> [Begrep](Begrep.md) | Omgrep som er ein del av dette omgrepet (xkos:hasPart) |
-| [er_medlem_av](er_medlem_av.md) | * <br/> [Samling](Samling.md) | Samling dette omgrepet er medlem av (uneskos:memberOf) |
-| [sja_ogsa_omgrep](sja_ogsa_omgrep.md) | * <br/> [Begrep](Begrep.md) | Relatert omgrep (rdfs:seeAlso) |
-| [spesifiserer](spesifiserer.md) | * <br/> [Begrep](Begrep.md) | Omgrep dette omgrepet spesifiserer (xkos:specializes) |
-| [euvoc_status](euvoc_status.md) | 0..1 <br/> [Begrep](Begrep.md) | Status for omgrepet frå eit kontrollert vokabular (euvoc:status) |
-| [verdiomrade](verdiomrade.md) | * <br/> [LangString](LangString.md) | Verdiområde for omgrepet (skosno:valueRange) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](String.md) | Versjonsnummer for ressursen (owl:versionInfo) |
-| [versjonsmerknad](versjonsmerknad.md) | * <br/> [LangString](LangString.md) | Merknad om endringar i denne versjonen (adms:versionNotes) |
+| [datastruktur_term](datastruktur_term.md) | * <br/> [String](string.md) | Term brukt i datastrukturar (skosno:dataStructureLabel) |
+| [eksempel](eksempel.md) | * <br/> [LangString](langstring.md) | Eksempel på bruk av omgrepet (skos:example) |
+| [er_del_av_omgrep](er_del_av_omgrep.md) | * <br/> [Begrep](begrep.md) | Omgrep dette omgrepet er ein del av (xkos:isPartOf) |
+| [er_erstatta_av](er_erstatta_av.md) | * <br/> [Begrep](begrep.md) | Omgrep som erstattar dette omgrepet (dct:isReplacedBy) |
+| [er_fra_omgrep_i](er_fra_omgrep_i.md) | * <br/> [AssosiativRelasjon](assosiativrelasjon.md) | Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptI... |
+| [assosiert_med](assosiert_med.md) | * <br/> [Begrep](begrep.md) | Omgrep dette omgrepet er assosiert med (skos:related) |
+| [erstattar](erstattar.md) | * <br/> [Begrep](begrep.md) | Omgrep dette omgrepet erstattar (dct:replaces) |
+| [forkasta_term](forkasta_term.md) | * <br/> [LangString](langstring.md) | Tidlegare brukt, no forkasta term (skos:hiddenLabel) |
+| [generaliserer](generaliserer.md) | * <br/> [Begrep](begrep.md) | Omgrep dette omgrepet generaliserer (xkos:generalizes) |
+| [noyaktig_samsvar](noyaktig_samsvar.md) | * <br/> [Begrep](begrep.md) | Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch) |
+| [har_generisk_relasjon](har_generisk_relasjon.md) | * <br/> [GeneriskRelasjon](generiskrelasjon.md) | Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation) |
+| [naert_samsvar](naert_samsvar.md) | * <br/> [Begrep](begrep.md) | Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch) |
+| [har_partitiv_relasjon](har_partitiv_relasjon.md) | * <br/> [PartitivRelasjon](partitivrelasjon.md) | Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelatio... |
+| [har_del_omgrep](har_del_omgrep.md) | * <br/> [Begrep](begrep.md) | Omgrep som er ein del av dette omgrepet (xkos:hasPart) |
+| [er_medlem_av](er_medlem_av.md) | * <br/> [Samling](samling.md) | Samling dette omgrepet er medlem av (uneskos:memberOf) |
+| [sja_ogsa_omgrep](sja_ogsa_omgrep.md) | * <br/> [Begrep](begrep.md) | Relatert omgrep (rdfs:seeAlso) |
+| [spesifiserer](spesifiserer.md) | * <br/> [Begrep](begrep.md) | Omgrep dette omgrepet spesifiserer (xkos:specializes) |
+| [euvoc_status](euvoc_status.md) | 0..1 <br/> [Begrep](begrep.md) | Status for omgrepet frå eit kontrollert vokabular (euvoc:status) |
+| [verdiomrade](verdiomrade.md) | * <br/> [LangString](langstring.md) | Verdiområde for omgrepet (skosno:valueRange) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [versjonsmerknad](versjonsmerknad.md) | * <br/> [LangString](langstring.md) | Merknad om endringar i denne versjonen (adms:versionNotes) |
 
 
 
@@ -1221,7 +1221,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -1234,26 +1234,26 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Begrep](Begrep.md) | [fagomrade](fagomrade.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [er_del_av_omgrep](er_del_av_omgrep.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [er_erstatta_av](er_erstatta_av.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [assosiert_med](assosiert_med.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [erstattar](erstattar.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [generaliserer](generaliserer.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [noyaktig_samsvar](noyaktig_samsvar.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [naert_samsvar](naert_samsvar.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [har_del_omgrep](har_del_omgrep.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [sja_ogsa_omgrep](sja_ogsa_omgrep.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [spesifiserer](spesifiserer.md) | range | [Begrep](Begrep.md) |
-| [Begrep](Begrep.md) | [euvoc_status](euvoc_status.md) | range | [Begrep](Begrep.md) |
-| [Definisjon](Definisjon.md) | [kjelde_relasjon](kjelde_relasjon.md) | range | [Begrep](Begrep.md) |
-| [Definisjon](Definisjon.md) | [malgruppe_def](malgruppe_def.md) | range | [Begrep](Begrep.md) |
-| [AssosiativRelasjon](AssosiativRelasjon.md) | [til_omgrep](til_omgrep.md) | range | [Begrep](Begrep.md) |
-| [GeneriskRelasjon](GeneriskRelasjon.md) | [har_generisk_omgrep](har_generisk_omgrep.md) | range | [Begrep](Begrep.md) |
-| [GeneriskRelasjon](GeneriskRelasjon.md) | [har_spesifikt_omgrep](har_spesifikt_omgrep.md) | range | [Begrep](Begrep.md) |
-| [PartitivRelasjon](PartitivRelasjon.md) | [har_partitivt_omgrep](har_partitivt_omgrep.md) | range | [Begrep](Begrep.md) |
-| [PartitivRelasjon](PartitivRelasjon.md) | [har_heilskapleg_omgrep](har_heilskapleg_omgrep.md) | range | [Begrep](Begrep.md) |
-| [Samling](Samling.md) | [medlem](medlem.md) | range | [Begrep](Begrep.md) |
+| [Begrep](begrep.md) | [fagomrade](fagomrade.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [er_del_av_omgrep](er_del_av_omgrep.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [er_erstatta_av](er_erstatta_av.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [assosiert_med](assosiert_med.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [erstattar](erstattar.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [generaliserer](generaliserer.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [noyaktig_samsvar](noyaktig_samsvar.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [naert_samsvar](naert_samsvar.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [har_del_omgrep](har_del_omgrep.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [sja_ogsa_omgrep](sja_ogsa_omgrep.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [spesifiserer](spesifiserer.md) | range | [Begrep](begrep.md) |
+| [Begrep](begrep.md) | [euvoc_status](euvoc_status.md) | range | [Begrep](begrep.md) |
+| [Definisjon](definisjon.md) | [kjelde_relasjon](kjelde_relasjon.md) | range | [Begrep](begrep.md) |
+| [Definisjon](definisjon.md) | [malgruppe_def](malgruppe_def.md) | range | [Begrep](begrep.md) |
+| [AssosiativRelasjon](assosiativrelasjon.md) | [til_omgrep](til_omgrep.md) | range | [Begrep](begrep.md) |
+| [GeneriskRelasjon](generiskrelasjon.md) | [har_generisk_omgrep](har_generisk_omgrep.md) | range | [Begrep](begrep.md) |
+| [GeneriskRelasjon](generiskrelasjon.md) | [har_spesifikt_omgrep](har_spesifikt_omgrep.md) | range | [Begrep](begrep.md) |
+| [PartitivRelasjon](partitivrelasjon.md) | [har_partitivt_omgrep](har_partitivt_omgrep.md) | range | [Begrep](begrep.md) |
+| [PartitivRelasjon](partitivrelasjon.md) | [har_heilskapleg_omgrep](har_heilskapleg_omgrep.md) | range | [Begrep](begrep.md) |
+| [Samling](samling.md) | [medlem](medlem.md) | range | [Begrep](begrep.md) |
 
 
 

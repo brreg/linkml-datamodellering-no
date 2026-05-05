@@ -83,7 +83,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_i_kvalitetsdeldimensjon](er_i_kvalitetsdeldimensjon.md) | 1 <br/> [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) | Kvalitetsdeldimensjonen dette målet operasjonaliserer |
+| [er_i_kvalitetsdeldimensjon](er_i_kvalitetsdeldimensjon.md) | 1 <br/> [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Kvalitetsdeldimensjonen dette målet operasjonaliserer |
 
 
 
@@ -115,9 +115,9 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_forventet_datatype](har_forventet_datatype.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Forventa XSD-datatype for verdien av ei kvalitetsmåling |
-| [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](LangString.md) | Føretrekt term/namn for dimensjonen eller målet |
-| [har_definisjon](har_definisjon.md) | * <br/> [LangString](LangString.md) | Definisjon av dimensjonen eller målet |
+| [har_forventet_datatype](har_forventet_datatype.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Forventa XSD-datatype for verdien av ei kvalitetsmåling |
+| [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrekt term/namn for dimensjonen eller målet |
+| [har_definisjon](har_definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av dimensjonen eller målet |
 
 
 
@@ -207,7 +207,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -220,7 +220,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Kvalitetsmaaling](Kvalitetsmaaling.md) | [er_kvalitetsmaaling_av](er_kvalitetsmaaling_av.md) | range | [Kvalitetsmaal](Kvalitetsmaal.md) |
+| [Kvalitetsmaaling](kvalitetsmaaling.md) | [er_kvalitetsmaaling_av](er_kvalitetsmaaling_av.md) | range | [Kvalitetsmaal](kvalitetsmaal.md) |
 
 
 

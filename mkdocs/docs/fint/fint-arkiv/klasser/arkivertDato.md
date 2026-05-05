@@ -22,8 +22,8 @@ Alias: arkivertDato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
-| [Registrering](Registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: arkivertDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Registrering](Registrering.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Registrering](registrering.md) |
 | Slot URI | [ark:arkivertDato](https://schema.fintlabs.no/arkiv/arkivertDato) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: arkivertDato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Registrering](Registrering.md) |
+| Owner | [Registrering](registrering.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: arkivertDato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

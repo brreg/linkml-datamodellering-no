@@ -22,7 +22,7 @@ Alias: ansvarlig
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ansvarlig
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Transaksjon](Transaksjon.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:ansvarlig](https://schema.fintlabs.no/okonomi/ansvarlig) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: ansvarlig
 
 | Property | Value |
 | --- | --- |
-| Owner | [Transaksjon](Transaksjon.md) |
+| Owner | [Transaksjon](transaksjon.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: ansvarlig
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

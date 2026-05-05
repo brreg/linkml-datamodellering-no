@@ -78,7 +78,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,11 +91,11 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | [format](format.md) | range | [Mediatype](Mediatype.md) |
-| [Distribusjon](Distribusjon.md) | [komprimeringsformat](komprimeringsformat.md) | range | [Mediatype](Mediatype.md) |
-| [Distribusjon](Distribusjon.md) | [medietype](medietype.md) | range | [Mediatype](Mediatype.md) |
-| [Distribusjon](Distribusjon.md) | [pakkeformat](pakkeformat.md) | range | [Mediatype](Mediatype.md) |
-| [Datatjeneste](Datatjeneste.md) | [format](format.md) | range | [Mediatype](Mediatype.md) |
+| [Distribusjon](distribusjon.md) | [format](format.md) | range | [Mediatype](mediatype.md) |
+| [Distribusjon](distribusjon.md) | [komprimeringsformat](komprimeringsformat.md) | range | [Mediatype](mediatype.md) |
+| [Distribusjon](distribusjon.md) | [medietype](medietype.md) | range | [Mediatype](mediatype.md) |
+| [Distribusjon](distribusjon.md) | [pakkeformat](pakkeformat.md) | range | [Mediatype](mediatype.md) |
+| [Datatjeneste](datatjeneste.md) | [format](format.md) | range | [Mediatype](mediatype.md) |
 
 
 

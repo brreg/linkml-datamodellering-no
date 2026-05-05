@@ -98,7 +98,7 @@ URI: [ngre:Grunneiendom](https://data.norge.no/vocabulary/ngr-eiendom#Grunneiend
 
 
 ## Inheritance
-* [Matrikkelenhet](Matrikkelenhet.md)
+* [Matrikkelenhet](matrikkelenhet.md)
     * **Grunneiendom**
 
 
@@ -141,7 +141,7 @@ URI: [ngre:Grunneiendom](https://data.norge.no/vocabulary/ngr-eiendom#Grunneiend
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kan_vaere_pa](kan_vaere_pa.md) | 0..1 <br/> [Matrikkelenhet](Matrikkelenhet.md) | Matrikkeleininga denne eininga ligg på eller er knytt til |
+| [kan_vaere_pa](kan_vaere_pa.md) | 0..1 <br/> [Matrikkelenhet](matrikkelenhet.md) | Matrikkeleininga denne eininga ligg på eller er knytt til |
 
 
 
@@ -167,12 +167,12 @@ URI: [ngre:Grunneiendom](https://data.norge.no/vocabulary/ngr-eiendom#Grunneiend
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Matrikkelenhet](Matrikkelenhet.md) |
-| [identifiseres_med](identifiseres_med.md) | 1 <br/> [Matrikkelnummer](Matrikkelnummer.md) | Matrikkelnummeret som identifiserer matrikkeleininga | [Matrikkelenhet](Matrikkelenhet.md) |
-| [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | 1 <br/> [Kommune](Kommune.md) | Kommunen matrikkeleininga ligg innanfor | [Matrikkelenhet](Matrikkelenhet.md) |
-| [er_del_av_teig](er_del_av_teig.md) | * <br/> [Teig](Teig.md) | Teigen(e) matrikkeleininga er del av | [Matrikkelenhet](Matrikkelenhet.md) |
-| [har_teig](har_teig.md) | * <br/> [Teig](Teig.md) | Teigen(e) som tilhøyrer matrikkeleininga | [Matrikkelenhet](Matrikkelenhet.md) |
-| [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | 0..1 <br/> [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) | Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen | [Matrikkelenhet](Matrikkelenhet.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Matrikkelenhet](matrikkelenhet.md) |
+| [identifiseres_med](identifiseres_med.md) | 1 <br/> [Matrikkelnummer](matrikkelnummer.md) | Matrikkelnummeret som identifiserer matrikkeleininga | [Matrikkelenhet](matrikkelenhet.md) |
+| [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | 1 <br/> [Kommune](kommune.md) | Kommunen matrikkeleininga ligg innanfor | [Matrikkelenhet](matrikkelenhet.md) |
+| [er_del_av_teig](er_del_av_teig.md) | * <br/> [Teig](teig.md) | Teigen(e) matrikkeleininga er del av | [Matrikkelenhet](matrikkelenhet.md) |
+| [har_teig](har_teig.md) | * <br/> [Teig](teig.md) | Teigen(e) som tilhøyrer matrikkeleininga | [Matrikkelenhet](matrikkelenhet.md) |
+| [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | 0..1 <br/> [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) | Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen | [Matrikkelenhet](matrikkelenhet.md) |
 
 
 
@@ -182,7 +182,7 @@ URI: [ngre:Grunneiendom](https://data.norge.no/vocabulary/ngr-eiendom#Grunneiend
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [grunneiendommer](grunneiendommer.md) | range | [Grunneiendom](Grunneiendom.md) |
+| [EiendomContainer](eiendomcontainer.md) | [grunneiendommer](grunneiendommer.md) | range | [Grunneiendom](grunneiendom.md) |
 
 
 

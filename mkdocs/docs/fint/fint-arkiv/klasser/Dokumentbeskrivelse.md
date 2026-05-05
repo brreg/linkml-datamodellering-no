@@ -22,8 +22,8 @@ Alias: dokumentbeskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
-| [Registrering](Registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: dokumentbeskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
-| Domain Of | [Registrering](Registrering.md) |
+| Range | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
+| Domain Of | [Registrering](registrering.md) |
 | Slot URI | [ark:dokumentbeskrivelse](https://schema.fintlabs.no/arkiv/dokumentbeskrivelse) |
 
 ### Cardinality and Requirements
@@ -49,7 +49,7 @@ Alias: dokumentbeskrivelse
 
 | Property | Value |
 | --- | --- |
-| Owner | [Registrering](Registrering.md) |
+| Owner | [Registrering](registrering.md) |
 
 
 
@@ -61,7 +61,7 @@ Alias: dokumentbeskrivelse
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

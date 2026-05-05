@@ -22,7 +22,7 @@ Alias: har_valgt_spraak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_valgt_spraak
 
 | Property | Value |
 | --- | --- |
-| Range | [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harValgtSpraak](https://data.norge.no/vocabulary/ngr-person#harValgtSpraak) |
 
 ### Cardinality and Requirements

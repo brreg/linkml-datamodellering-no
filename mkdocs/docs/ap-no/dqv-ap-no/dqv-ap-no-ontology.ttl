@@ -25,10 +25,10 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Ei SKOS-omgrepssamling (temavokabular)." ;
     skos:exactMatch skos:ConceptScheme ;
@@ -122,19 +122,19 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Datasett> a owl:Class ;
     rdfs:label "Datasett" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_samsvar_med> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmerknad> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
@@ -143,11 +143,11 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaaling> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad> ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmerknad> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_samsvar_med> ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinformasjon." ;
     skos:exactMatch dcat:Dataset ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -162,10 +162,10 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Motivasjon> a owl:Class ;
     rdfs:label "Motivasjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
@@ -225,13 +225,13 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/DcatRessurs> a owl:Class ;
     rdfs:label "DcatRessurs" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Ein katalogisert ressurs (brukt som målklasse for oa:hasTarget)." ;
     skos:exactMatch dcat:Resource ;
@@ -240,26 +240,26 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdeldimensjon> a owl:Class ;
     rdfs:label "Kvalitetsdeldimensjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
         <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
     skos:definition "Ein deldimensjon av ein kvalitetsdimensjon." ;
     skos:exactMatch dqvno:SubDimension ;
@@ -268,16 +268,7 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaal> a owl:Class ;
     rdfs:label "Kvalitetsmaal" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
@@ -286,26 +277,35 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdeldimensjon> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon> ],
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ] ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon." ;
     skos:exactMatch dqv:Metric ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -314,34 +314,34 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
     rdfs:label "Kvalitetsmaaling" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaal> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ] ;
@@ -352,38 +352,11 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Standard> a owl:Class ;
     rdfs:label "Standard" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
@@ -393,6 +366,33 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ] ;
@@ -403,38 +403,38 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Tekstdel> a owl:Class ;
     rdfs:label "Tekstdel" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/sprak> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Spraak> ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/sprak> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/sprak> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Ein tekstleg del av ein kvalitetsmerknad (Web Annotation)." ;
     skos:exactMatch oa:TextualBody ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -526,13 +526,13 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/common-ap-no/Konsept> a owl:Class ;
     rdfs:label "Konsept" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Referanse til eit SKOS-omgrep frå eit kontrollert vokabular." ;
     skos:exactMatch skos:Concept ;
@@ -541,35 +541,32 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad> a owl:Class ;
     rdfs:label "Kvalitetsmerknad" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom rdf:langString ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Tekstdel> ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/DcatRessurs> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
@@ -577,20 +574,23 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Tekstdel> ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ] ;
     skos:definition "Ein merknad om kvaliteten til eit datasett." ;
     skos:exactMatch dqv:QualityAnnotation ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -604,26 +604,26 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> a owl:Class ;
     rdfs:label "Kvalitetsdimensjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ] ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ] ;
     skos:definition "Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål." ;
     skos:exactMatch dqv:Dimension ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .

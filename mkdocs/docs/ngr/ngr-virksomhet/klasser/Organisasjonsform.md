@@ -64,7 +64,7 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [organisasjonsform_kode](organisasjonsform_kode.md) | 1 <br/> [String](String.md) | Kode for organisasjonsform (t |
+| [organisasjonsform_kode](organisasjonsform_kode.md) | 1 <br/> [String](string.md) | Kode for organisasjonsform (t |
 
 
 
@@ -86,7 +86,7 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [organisasjonsform_beskrivelse](organisasjonsform_beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg skildring av organisasjonsforma |
+| [organisasjonsform_beskrivelse](organisasjonsform_beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av organisasjonsforma |
 
 
 
@@ -144,7 +144,7 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -157,10 +157,10 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [organisasjonsformer](organisasjonsformer.md) | range | [Organisasjonsform](Organisasjonsform.md) |
-| [Virksomhet](Virksomhet.md) | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | range | [Organisasjonsform](Organisasjonsform.md) |
-| [Underenhet](Underenhet.md) | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | range | [Organisasjonsform](Organisasjonsform.md) |
-| [Hovedenhet](Hovedenhet.md) | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | range | [Organisasjonsform](Organisasjonsform.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [organisasjonsformer](organisasjonsformer.md) | range | [Organisasjonsform](organisasjonsform.md) |
+| [Virksomhet](virksomhet.md) | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | range | [Organisasjonsform](organisasjonsform.md) |
+| [Underenhet](underenhet.md) | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | range | [Organisasjonsform](organisasjonsform.md) |
+| [Hovedenhet](hovedenhet.md) | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | range | [Organisasjonsform](organisasjonsform.md) |
 
 
 

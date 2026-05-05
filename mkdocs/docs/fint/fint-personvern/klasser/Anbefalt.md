@@ -5,7 +5,7 @@ _Anbefalt eigensskap._
 
 
 
-URI: [Anbefalt](Anbefalt.md)
+URI: [Anbefalt](anbefalt.md)
 
 
 

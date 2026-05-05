@@ -22,7 +22,7 @@ Alias: er_i_samsvar_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |  yes  |
+| [Datasett](datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_i_samsvar_med
 
 | Property | Value |
 | --- | --- |
-| Range | [Standard](Standard.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Standard](standard.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:conformsTo](http://purl.org/dc/terms/conformsTo) |
 
 ### Cardinality and Requirements

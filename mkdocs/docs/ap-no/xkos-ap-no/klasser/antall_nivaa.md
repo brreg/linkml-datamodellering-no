@@ -22,7 +22,7 @@ Alias: antall_nivaa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: antall_nivaa
 
 | Property | Value |
 | --- | --- |
-| Range | [NonNegativeInteger](NonNegativeInteger.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [NonNegativeInteger](nonnegativeinteger.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [xkos:numberOfLevels](http://rdf-vocabulary.ddialliance.org/xkos#numberOfLevels) |
 
 ### Cardinality and Requirements

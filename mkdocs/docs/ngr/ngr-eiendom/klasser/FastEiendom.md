@@ -140,8 +140,8 @@ URI: [ngre:FastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifiseres_av](identifiseres_av.md) | 1 <br/> [Matrikkelenhet](Matrikkelenhet.md) | Matrikkeleininga som identifiserer denne faste eigedommen |
-| [bestar_av_matrikkelenhet](bestar_av_matrikkelenhet.md) | 1 <br/> [Matrikkelenhet](Matrikkelenhet.md) | Matrikkeleininga denne faste eigedommen fysisk består av |
+| [identifiseres_av](identifiseres_av.md) | 1 <br/> [Matrikkelenhet](matrikkelenhet.md) | Matrikkeleininga som identifiserer denne faste eigedommen |
+| [bestar_av_matrikkelenhet](bestar_av_matrikkelenhet.md) | 1 <br/> [Matrikkelenhet](matrikkelenhet.md) | Matrikkeleininga denne faste eigedommen fysisk består av |
 
 
 
@@ -175,7 +175,7 @@ URI: [ngre:FastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_eierforhold](har_eierforhold.md) | * <br/> [Eierforhold](Eierforhold.md) | Eigarforhold knytt til eigedommen eller burettslagsandelen |
+| [har_eierforhold](har_eierforhold.md) | * <br/> [Eierforhold](eierforhold.md) | Eigarforhold knytt til eigedommen eller burettslagsandelen |
 
 
 
@@ -213,9 +213,9 @@ URI: [ngre:FastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bestar_av_bygning](bestar_av_bygning.md) | * <br/> [Bygning](Bygning.md) | Bygning(ar) som inngår i denne faste eigedommen |
-| [bestar_av_rettighet](bestar_av_rettighet.md) | * <br/> [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) | Rettar som er nødvendige for å benytte eigedommen |
-| [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | * <br/> [TinglystHeftelse](TinglystHeftelse.md) | Tinglyste heftingar knytt til eigedommen eller burettslagsandelen |
+| [bestar_av_bygning](bestar_av_bygning.md) | * <br/> [Bygning](bygning.md) | Bygning(ar) som inngår i denne faste eigedommen |
+| [bestar_av_rettighet](bestar_av_rettighet.md) | * <br/> [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) | Rettar som er nødvendige for å benytte eigedommen |
+| [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | * <br/> [TinglystHeftelse](tinglystheftelse.md) | Tinglyste heftingar knytt til eigedommen eller burettslagsandelen |
 
 
 
@@ -312,7 +312,7 @@ URI: [ngre:FastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -325,8 +325,8 @@ URI: [ngre:FastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [fasteEiendommer](fasteEiendommer.md) | range | [FastEiendom](FastEiendom.md) |
-| [SamletFastEiendom](SamletFastEiendom.md) | [bestar_av_fast_eiendom](bestar_av_fast_eiendom.md) | range | [FastEiendom](FastEiendom.md) |
+| [EiendomContainer](eiendomcontainer.md) | [fasteEiendommer](fasteeiendommer.md) | range | [FastEiendom](fasteiendom.md) |
+| [SamletFastEiendom](samletfasteiendom.md) | [bestar_av_fast_eiendom](bestar_av_fast_eiendom.md) | range | [FastEiendom](fasteiendom.md) |
 
 
 

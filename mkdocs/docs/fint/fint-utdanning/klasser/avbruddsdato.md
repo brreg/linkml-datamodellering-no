@@ -22,7 +22,7 @@ Alias: avbruddsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: avbruddsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Elevforhold](Elevforhold.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Elevforhold](elevforhold.md) |
 | Slot URI | [utd:avbruddsdato](https://schema.fintlabs.no/utdanning/avbruddsdato) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: avbruddsdato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Elevforhold](Elevforhold.md) |
+| Owner | [Elevforhold](elevforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: avbruddsdato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

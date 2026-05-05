@@ -22,7 +22,7 @@ Alias: proveniensmetadata
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
+| [FAIRMetadata](fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: proveniensmetadata
 
 | Property | Value |
 | --- | --- |
-| Range | [Proveniensmetadata](Proveniensmetadata.md) |
-| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Range | [Proveniensmetadata](proveniensmetadata.md) |
+| Domain Of | [FAIRMetadata](fairmetadata.md) |
 | Slot URI | [fair:proveniensmetadata](https://data.norge.no/fair#proveniensmetadata) |
 
 ### Cardinality and Requirements

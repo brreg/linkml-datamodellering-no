@@ -17,8 +17,8 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fasttillegg](Fasttillegg.md), [Variabellonn](Variabellonn.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fasttillegg](fasttillegg.md), [Variabellonn](variabellonn.md) |
 
 ### Cardinality and Requirements
 

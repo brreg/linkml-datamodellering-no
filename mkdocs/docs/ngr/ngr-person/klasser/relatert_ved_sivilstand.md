@@ -22,7 +22,7 @@ Alias: relatert_ved_sivilstand
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sivilstand](Sivilstand.md) | Sivilstand registrert på ein person i Folkeregisteret |  yes  |
+| [Sivilstand](sivilstand.md) | Sivilstand registrert på ein person i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: relatert_ved_sivilstand
 
 | Property | Value |
 | --- | --- |
-| Range | [Person](Person.md) |
-| Domain Of | [Sivilstand](Sivilstand.md) |
+| Range | [Person](person.md) |
+| Domain Of | [Sivilstand](sivilstand.md) |
 | Slot URI | [ngrp:relatertVedSivilstand](https://data.norge.no/vocabulary/ngr-person#relatertVedSivilstand) |
 
 ### Cardinality and Requirements

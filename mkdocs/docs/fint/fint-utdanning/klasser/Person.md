@@ -17,10 +17,10 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OtUngdom](OtUngdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |  no  |
-| [Skoleressurs](Skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
-| [Elev](Elev.md) | Ein elev registrert i skulesystemet |  no  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
+| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: person
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Elev](Elev.md), [Skoleressurs](Skoleressurs.md), [Laerling](Laerling.md), [OtUngdom](OtUngdom.md) |
+| Range | [String](string.md) |
+| Domain Of | [Elev](elev.md), [Skoleressurs](skoleressurs.md), [Laerling](laerling.md), [OtUngdom](otungdom.md) |
 
 ### Cardinality and Requirements
 

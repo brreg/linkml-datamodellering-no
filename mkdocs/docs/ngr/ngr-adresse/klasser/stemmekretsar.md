@@ -17,7 +17,7 @@ Alias: stemmekretsar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
+| [AdresseContainer](adressecontainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: stemmekretsar
 
 | Property | Value |
 | --- | --- |
-| Range | [Stemmekrets](Stemmekrets.md) |
-| Domain Of | [AdresseContainer](AdresseContainer.md) |
+| Range | [Stemmekrets](stemmekrets.md) |
+| Domain Of | [AdresseContainer](adressecontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: stemmekretsar
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdresseContainer](AdresseContainer.md) |
+| Owner | [AdresseContainer](adressecontainer.md) |
 
 
 

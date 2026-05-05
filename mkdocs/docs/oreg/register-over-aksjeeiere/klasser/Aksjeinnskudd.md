@@ -107,9 +107,9 @@ URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [gjelder_innbetalt_aksjekapital](gjelder_innbetalt_aksjekapital.md) | 0..1 <br/> [Decimal](Decimal.md) | Innbetalt aksjekapital |
-| [gjelder_innbetalt_overkurs](gjelder_innbetalt_overkurs.md) | 0..1 <br/> [Decimal](Decimal.md) | Innbetalt overkurs |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [gjelder_innbetalt_aksjekapital](gjelder_innbetalt_aksjekapital.md) | 0..1 <br/> [Decimal](decimal.md) | Innbetalt aksjekapital |
+| [gjelder_innbetalt_overkurs](gjelder_innbetalt_overkurs.md) | 0..1 <br/> [Decimal](decimal.md) | Innbetalt overkurs |
 
 
 
@@ -122,10 +122,10 @@ URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeinnskudder](aksjeinnskudder.md) | range | [Aksjeinnskudd](Aksjeinnskudd.md) |
-| [Selskapshendelse](Selskapshendelse.md) | [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | range | [Aksjeinnskudd](Aksjeinnskudd.md) |
-| [Aksjeinnskudd](Aksjeinnskudd.md) | [gjelder_innbetalt_aksjekapital](gjelder_innbetalt_aksjekapital.md) | domain | [Aksjeinnskudd](Aksjeinnskudd.md) |
-| [Aksjeinnskudd](Aksjeinnskudd.md) | [gjelder_innbetalt_overkurs](gjelder_innbetalt_overkurs.md) | domain | [Aksjeinnskudd](Aksjeinnskudd.md) |
+| [Containerklasse](containerklasse.md) | [aksjeinnskudder](aksjeinnskudder.md) | range | [Aksjeinnskudd](aksjeinnskudd.md) |
+| [Selskapshendelse](selskapshendelse.md) | [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | range | [Aksjeinnskudd](aksjeinnskudd.md) |
+| [Aksjeinnskudd](aksjeinnskudd.md) | [gjelder_innbetalt_aksjekapital](gjelder_innbetalt_aksjekapital.md) | domain | [Aksjeinnskudd](aksjeinnskudd.md) |
+| [Aksjeinnskudd](aksjeinnskudd.md) | [gjelder_innbetalt_overkurs](gjelder_innbetalt_overkurs.md) | domain | [Aksjeinnskudd](aksjeinnskudd.md) |
 
 
 

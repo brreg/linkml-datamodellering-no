@@ -22,7 +22,7 @@ Alias: kreditert
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kreditert
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Faktura](Faktura.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Faktura](faktura.md) |
 | Slot URI | [okn:kreditert](https://schema.fintlabs.no/okonomi/kreditert) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kreditert
 
 | Property | Value |
 | --- | --- |
-| Owner | [Faktura](Faktura.md) |
+| Owner | [Faktura](faktura.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: kreditert
 ## In Subsets
 
 
-* [Anbefalt](Anbefalt.md)
+* [Anbefalt](anbefalt.md)
 
 
 

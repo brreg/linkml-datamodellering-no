@@ -22,7 +22,7 @@ Alias: har_bruksenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_bruksenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Bruksenhet](Bruksenhet.md) |
-| Domain Of | [Bygning](Bygning.md) |
+| Range | [Bruksenhet](bruksenhet.md) |
+| Domain Of | [Bygning](bygning.md) |
 | Slot URI | [ngre:harBruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#harBruksenhet) |
 
 ### Cardinality and Requirements

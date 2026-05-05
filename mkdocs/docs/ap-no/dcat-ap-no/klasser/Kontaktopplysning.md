@@ -69,7 +69,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [navn_vcard](navn_vcard.md) | 1..* <br/> [LangString](LangString.md) | Formatert namn (vCard) |
+| [navn_vcard](navn_vcard.md) | 1..* <br/> [LangString](langstring.md) | Formatert namn (vCard) |
 
 
 
@@ -147,9 +147,9 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [har_epost](har_epost.md) | 0..1 <br/> [Uri](Uri.md) | E-postadresse til kontaktpunktet |
-| [har_kontaktside](har_kontaktside.md) | 0..1 <br/> [Uri](Uri.md) | Nettside for kontakt |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [har_epost](har_epost.md) | 0..1 <br/> [Uri](uri.md) | E-postadresse til kontaktpunktet |
+| [har_kontaktside](har_kontaktside.md) | 0..1 <br/> [Uri](uri.md) | Nettside for kontakt |
 
 
 
@@ -162,10 +162,10 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](Kontaktopplysning.md) |
-| [Datasettserie](Datasettserie.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](Kontaktopplysning.md) |
-| [Datatjeneste](Datatjeneste.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](Kontaktopplysning.md) |
-| [Katalog](Katalog.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](Kontaktopplysning.md) |
+| [Datasett](datasett.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
+| [Datasettserie](datasettserie.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
+| [Datatjeneste](datatjeneste.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
+| [Katalog](katalog.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 
 
 

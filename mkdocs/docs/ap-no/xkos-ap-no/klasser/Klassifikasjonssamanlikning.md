@@ -114,11 +114,11 @@ URI: [xkos:Correspondence](http://rdf-vocabulary.ddialliance.org/xkos#Correspond
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](Organisasjon.md) | Organisasjon som er ansvarleg utgjevar (dct:publisher) |
-| [samanliknar](samanliknar.md) | 1..* <br/> [Klassifikasjon](Klassifikasjon.md) | Klassifikasjonar som er samanlikna i korrespondansen (xkos:compares) |
-| [bestar_av](bestar_av.md) | 1..* <br/> [Kategorisamanlikning](Kategorisamanlikning.md) | Kategorisamanlikningar som inngår i klassifikasjonssamanlikninga (xkos:madeOf... |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon som er ansvarleg utgjevar (dct:publisher) |
+| [samanliknar](samanliknar.md) | 1..* <br/> [Klassifikasjon](klassifikasjon.md) | Klassifikasjonar som er samanlikna i korrespondansen (xkos:compares) |
+| [bestar_av](bestar_av.md) | 1..* <br/> [Kategorisamanlikning](kategorisamanlikning.md) | Kategorisamanlikningar som inngår i klassifikasjonssamanlikninga (xkos:madeOf... |
 
 
 
@@ -246,7 +246,7 @@ URI: [xkos:Correspondence](http://rdf-vocabulary.ddialliance.org/xkos#Correspond
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

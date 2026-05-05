@@ -22,7 +22,7 @@ Alias: har_eierposisjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeeier](Aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
+| [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: har_eierposisjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Eierposisjon](Eierposisjon.md) |
-| Domain | [Aksjeeier](Aksjeeier.md) |
-| Domain Of | [Aksjeeier](Aksjeeier.md) |
+| Range | [Eierposisjon](eierposisjon.md) |
+| Domain | [Aksjeeier](aksjeeier.md) |
+| Domain Of | [Aksjeeier](aksjeeier.md) |
 
 ### Cardinality and Requirements
 

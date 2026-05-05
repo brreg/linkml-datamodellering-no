@@ -22,7 +22,7 @@ Alias: bygningsnummer_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bygningsnummer](Bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |  yes  |
+| [Bygningsnummer](bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bygningsnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Bygningsnummer](Bygningsnummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Bygningsnummer](bygningsnummer.md) |
 | Slot URI | [ngre:bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#bygningsnummer) |
 
 ### Cardinality and Requirements

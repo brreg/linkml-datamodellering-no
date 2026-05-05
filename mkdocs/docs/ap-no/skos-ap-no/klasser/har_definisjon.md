@@ -22,7 +22,7 @@ Alias: har_definisjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_definisjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Definisjon](Definisjon.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Definisjon](definisjon.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [euvoc:xlDefinition](http://publications.europa.eu/ontology/euvoc#xlDefinition) |
 
 ### Cardinality and Requirements

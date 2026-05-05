@@ -110,8 +110,8 @@ URI: [ngre:Rettighetshaver](https://data.norge.no/vocabulary/ngr-eiendom#Rettigh
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_av_type_person](er_av_type_person.md) | 0..1 <br/> [Person](Person.md) | Personen som er rettigheitshavar (fysisk person) |
-| [er_av_type_hovedenhet](er_av_type_hovedenhet.md) | 0..1 <br/> [Hovedenhet](Hovedenhet.md) | Hovudeininga (juridisk person) som er rettigheitshavar |
+| [er_av_type_person](er_av_type_person.md) | 0..1 <br/> [Person](person.md) | Personen som er rettigheitshavar (fysisk person) |
+| [er_av_type_hovedenhet](er_av_type_hovedenhet.md) | 0..1 <br/> [Hovedenhet](hovedenhet.md) | Hovudeininga (juridisk person) som er rettigheitshavar |
 
 
 
@@ -156,7 +156,7 @@ URI: [ngre:Rettighetshaver](https://data.norge.no/vocabulary/ngr-eiendom#Rettigh
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -169,8 +169,8 @@ URI: [ngre:Rettighetshaver](https://data.norge.no/vocabulary/ngr-eiendom#Rettigh
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [rettighetshavere](rettighetshavere.md) | range | [Rettighetshaver](Rettighetshaver.md) |
-| [Andel](Andel.md) | [har_rettighetshaver](har_rettighetshaver.md) | range | [Rettighetshaver](Rettighetshaver.md) |
+| [EiendomContainer](eiendomcontainer.md) | [rettighetshavere](rettighetshavere.md) | range | [Rettighetshaver](rettighetshaver.md) |
+| [Andel](andel.md) | [har_rettighetshaver](har_rettighetshaver.md) | range | [Rettighetshaver](rettighetshaver.md) |
 
 
 

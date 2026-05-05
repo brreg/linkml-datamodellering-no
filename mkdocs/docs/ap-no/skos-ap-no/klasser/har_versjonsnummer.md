@@ -22,7 +22,7 @@ Alias: har_versjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [String](string.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: inneholder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sammensetning](Sammensetning.md) | Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement |  yes  |
+| [Sammensetning](sammensetning.md) | Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: inneholder
 
 | Property | Value |
 | --- | --- |
-| Range | [Modellelement](Modellelement.md) |
-| Domain Of | [Sammensetning](Sammensetning.md) |
+| Range | [Modellelement](modellelement.md) |
+| Domain Of | [Sammensetning](sammensetning.md) |
 | Slot URI | [modelldcatno:contains](https://data.norge.no/vocabulary/modelldcatno#contains) |
 
 ### Cardinality and Requirements

@@ -17,11 +17,11 @@ Alias: organisasjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Korrespondansepart](Korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
-| [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
-| [Part](Part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
 
 
 
@@ -34,8 +34,8 @@ Alias: organisasjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md), [Korrespondansepart](Korrespondansepart.md), [Part](Part.md), [Enhet](Enhet.md) |
+| Range | [String](string.md) |
+| Domain Of | [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md), [Korrespondansepart](korrespondansepart.md), [Part](part.md), [Enhet](enhet.md) |
 
 ### Cardinality and Requirements
 

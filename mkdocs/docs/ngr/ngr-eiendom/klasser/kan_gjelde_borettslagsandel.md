@@ -22,9 +22,9 @@ Alias: kan_gjelde_borettslagsandel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierforhold](Eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
-| [TinglystEierforhold](TinglystEierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
+| [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: kan_gjelde_borettslagsandel
 
 | Property | Value |
 | --- | --- |
-| Range | [Borettslagsandel](Borettslagsandel.md) |
-| Domain Of | [Eierforhold](Eierforhold.md) |
+| Range | [Borettslagsandel](borettslagsandel.md) |
+| Domain Of | [Eierforhold](eierforhold.md) |
 | Slot URI | [ngre:kanGjeldeBorettslagsandel](https://data.norge.no/vocabulary/ngr-eiendom#kanGjeldeBorettslagsandel) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: sist_oppdatert
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktopplysninger](Kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |  yes  |
+| [Kontaktopplysninger](kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sist_oppdatert
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Kontaktopplysninger](Kontaktopplysninger.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Kontaktopplysninger](kontaktopplysninger.md) |
 | Slot URI | [ngrp:sistOppdatert](https://data.norge.no/vocabulary/ngr-person#sistOppdatert) |
 
 ### Cardinality and Requirements

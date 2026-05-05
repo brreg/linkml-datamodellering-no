@@ -17,25 +17,25 @@ Alias: gyldighetsperiode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Enhetstype](Enhetstype.md) | Type digital eining (t |  no  |
-| [Applikasjonskategori](Applikasjonskategori.md) | Kategori av applikasjonar |  no  |
-| [Brukertype](Brukertype.md) | Dei ulike brukartypane som kan nytte lisensen (t |  no  |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
-| [Rettighet](Rettighet.md) | Ei namngitt rettighet |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Lisensmodell](Lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  no  |
-| [Applikasjon](Applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Status](Status.md) | Status på ei digital eining i fagsystemet |  no  |
-| [Plattform](Plattform.md) | Plattforma tenesta kan leverast på (t |  no  |
-| [Identifikator](Identifikator.md) | Unik identifikasjon til eit objekt |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
-| [Handhevingstype](Handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast (Håndhevingstype) |  no  |
-| [Produsent](Produsent.md) | Produsent av ei digital eining |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Status](status.md) | Status på ei digital eining i fagsystemet |  no  |
+| [Enhetstype](enhetstype.md) | Type digital eining (t |  no  |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |  no  |
+| [Plattform](plattform.md) | Plattforma tenesta kan leverast på (t |  no  |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
+| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  no  |
+| [Produsent](produsent.md) | Produsent av ei digital eining |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen (t |  no  |
+| [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast (Håndhevingstype) |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
 
 
 
@@ -48,8 +48,8 @@ Alias: gyldighetsperiode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Applikasjon](Applikasjon.md), [Applikasjonsressurs](Applikasjonsressurs.md), [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md), [Rettighet](Rettighet.md), [Applikasjonskategori](Applikasjonskategori.md), [Brukertype](Brukertype.md), [Enhetstype](Enhetstype.md), [Handhevingstype](Handhevingstype.md), [Lisensmodell](Lisensmodell.md), [Plattform](Plattform.md), [Produsent](Produsent.md), [Status](Status.md), [Begrep](Begrep.md), [Identifikator](Identifikator.md) |
+| Range | [String](string.md) |
+| Domain Of | [Applikasjon](applikasjon.md), [Applikasjonsressurs](applikasjonsressurs.md), [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md), [Rettighet](rettighet.md), [Applikasjonskategori](applikasjonskategori.md), [Brukertype](brukertype.md), [Enhetstype](enhetstype.md), [Handhevingstype](handhevingstype.md), [Lisensmodell](lisensmodell.md), [Plattform](plattform.md), [Produsent](produsent.md), [Status](status.md), [Begrep](begrep.md), [Identifikator](identifikator.md) |
 
 ### Cardinality and Requirements
 

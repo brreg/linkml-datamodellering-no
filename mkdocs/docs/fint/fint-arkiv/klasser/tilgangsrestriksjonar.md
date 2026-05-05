@@ -17,7 +17,7 @@ Alias: tilgangsrestriksjonar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ArkivContainer](ArkivContainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
+| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: tilgangsrestriksjonar
 
 | Property | Value |
 | --- | --- |
-| Range | [Tilgangsrestriksjon](Tilgangsrestriksjon.md) |
-| Domain Of | [ArkivContainer](ArkivContainer.md) |
+| Range | [Tilgangsrestriksjon](tilgangsrestriksjon.md) |
+| Domain Of | [ArkivContainer](arkivcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: tilgangsrestriksjonar
 
 | Property | Value |
 | --- | --- |
-| Owner | [ArkivContainer](ArkivContainer.md) |
+| Owner | [ArkivContainer](arkivcontainer.md) |
 
 
 

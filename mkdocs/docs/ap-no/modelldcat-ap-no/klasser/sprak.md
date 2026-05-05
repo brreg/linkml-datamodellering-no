@@ -22,9 +22,9 @@ Alias: sprak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
-| [Dokument](Dokument.md) | Eit dokument (foaf:Document) |  no  |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Dokument](dokument.md) | Eit dokument (foaf:Document) |  no  |
+| [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: sprak
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
-| Domain Of | [Dokument](Dokument.md), [Modelkatalog](Modelkatalog.md), [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Spraak](spraak.md) |
+| Domain Of | [Dokument](dokument.md), [Modelkatalog](modelkatalog.md), [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:language](http://purl.org/dc/terms/language) |
 
 ### Cardinality and Requirements

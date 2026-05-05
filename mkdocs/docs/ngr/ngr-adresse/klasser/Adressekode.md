@@ -73,7 +73,7 @@ URI: [ngr:Adressekode](https://data.norge.no/vocabulary/ngr-adresse#Adressekode)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kode](kode.md) | 1 <br/> [Integer](Integer.md) | Numerisk kode for adressekoden (kommunal firesifra kode) |
+| [kode](kode.md) | 1 <br/> [Integer](integer.md) | Numerisk kode for adressekoden (kommunal firesifra kode) |
 
 
 
@@ -138,8 +138,8 @@ URI: [ngr:Adressekode](https://data.norge.no/vocabulary/ngr-adresse#Adressekode)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [adresseomrade_ref](adresseomrade_ref.md) | 0..1 <br/> [Adresseomrade](Adresseomrade.md) | Adresseområdet dette adressenamnet eller adressekoden høyrer til |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [adresseomrade_ref](adresseomrade_ref.md) | 0..1 <br/> [Adresseomrade](adresseomrade.md) | Adresseområdet dette adressenamnet eller adressekoden høyrer til |
 
 
 
@@ -152,9 +152,9 @@ URI: [ngr:Adressekode](https://data.norge.no/vocabulary/ngr-adresse#Adressekode)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [adressekoder](adressekoder.md) | range | [Adressekode](Adressekode.md) |
-| [OffisiellAdresse](OffisiellAdresse.md) | [adressekode_ref](adressekode_ref.md) | range | [Adressekode](Adressekode.md) |
-| [Adressenavn](Adressenavn.md) | [har_adressekode](har_adressekode.md) | range | [Adressekode](Adressekode.md) |
+| [AdresseContainer](adressecontainer.md) | [adressekoder](adressekoder.md) | range | [Adressekode](adressekode.md) |
+| [OffisiellAdresse](offisielladresse.md) | [adressekode_ref](adressekode_ref.md) | range | [Adressekode](adressekode.md) |
+| [Adressenavn](adressenavn.md) | [har_adressekode](har_adressekode.md) | range | [Adressekode](adressekode.md) |
 
 
 

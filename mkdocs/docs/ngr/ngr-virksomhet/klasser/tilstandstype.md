@@ -22,7 +22,7 @@ Alias: tilstandstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tilstand](Tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
+| [Tilstand](tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilstandstype
 
 | Property | Value |
 | --- | --- |
-| Range | [TilstandType](TilstandType.md) |
-| Domain Of | [Tilstand](Tilstand.md) |
+| Range | [TilstandType](tilstandtype.md) |
+| Domain Of | [Tilstand](tilstand.md) |
 | Slot URI | [ngrv:tilstandstype](https://data.norge.no/vocabulary/ngr-virksomhet#tilstandstype) |
 
 ### Cardinality and Requirements

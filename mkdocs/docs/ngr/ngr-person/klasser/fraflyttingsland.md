@@ -22,7 +22,7 @@ Alias: fraflyttingsland
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [InnflyttingTilNorge](InnflyttingTilNorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |  yes  |
+| [InnflyttingTilNorge](innflyttingtilnorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fraflyttingsland
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [InnflyttingTilNorge](InnflyttingTilNorge.md) |
+| Range | [String](string.md) |
+| Domain Of | [InnflyttingTilNorge](innflyttingtilnorge.md) |
 | Slot URI | [ngrp:fraflyttingsland](https://data.norge.no/vocabulary/ngr-person#fraflyttingsland) |
 
 ### Cardinality and Requirements

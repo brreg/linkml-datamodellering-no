@@ -26,7 +26,7 @@ Alias: utgivelsesdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
+| Range | [Date](date.md) |
 | Slot URI | [dct:issued](http://purl.org/dc/terms/issued) |
 
 ### Cardinality and Requirements

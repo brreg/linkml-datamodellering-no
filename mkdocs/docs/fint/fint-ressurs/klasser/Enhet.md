@@ -83,9 +83,9 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
 
 
 ## Inheritance
-* [Aktoer](Aktoer.md)
+* [Aktoer](aktoer.md)
     * **Enhet**
-        * [Virksomhet](Virksomhet.md)
+        * [Virksomhet](virksomhet.md)
 
 
 ## Class Properties
@@ -169,9 +169,9 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [forretningsadresse](forretningsadresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Besøksadresse til ein organisasjonseining i einingsregisteret |
-| [organisasjonsnavn](organisasjonsnavn.md) | 0..1 <br/> [String](String.md) | Namn på eining registrert i Einingsregisteret |
-| [organisasjonsnummer](organisasjonsnummer.md) | 0..1 <br/> [Identifikator](Identifikator.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret |
+| [forretningsadresse](forretningsadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Besøksadresse til ein organisasjonseining i einingsregisteret |
+| [organisasjonsnavn](organisasjonsnavn.md) | 0..1 <br/> [String](string.md) | Namn på eining registrert i Einingsregisteret |
+| [organisasjonsnummer](organisasjonsnummer.md) | 0..1 <br/> [Identifikator](identifikator.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret |
 
 
 
@@ -179,8 +179,8 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](Kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør | [Aktoer](Aktoer.md) |
-| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Informasjon om postadresse til ein aktør | [Aktoer](Aktoer.md) |
+| --- | --- | --- | --- || [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør | [Aktoer](aktoer.md) |
+| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Informasjon om postadresse til ein aktør | [Aktoer](aktoer.md) |
 
 
 

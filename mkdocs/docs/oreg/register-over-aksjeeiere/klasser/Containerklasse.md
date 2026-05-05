@@ -540,24 +540,24 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [aksjeselskaper](aksjeselskaper.md) | * <br/> [Aksjeselskap](Aksjeselskap.md) | Samling av aksjeselskap |
-| [aksjekapitaler](aksjekapitaler.md) | * <br/> [Aksjekapital](Aksjekapital.md) | Samling av aksjekapitalar |
-| [aksjer](aksjer.md) | * <br/> [Aksje](Aksje.md) | Samling av aksjar |
-| [aksjeklasser](aksjeklasser.md) | * <br/> [Aksjeklasse](Aksjeklasse.md) | Samling av aksjeklasser |
-| [aksjeeierrettigheter](aksjeeierrettigheter.md) | * <br/> [Aksjeeierrettighet](Aksjeeierrettighet.md) | Samling av aksjeeierrettigheiter |
-| [aksjeeiere](aksjeeiere.md) | * <br/> [Aksjeeier](Aksjeeier.md) | Samling av aksjeeigarar |
-| [aksjeposter](aksjeposter.md) | * <br/> [Aksjepost](Aksjepost.md) | Samling av aksjepostar |
-| [eierposisjoner](eierposisjoner.md) | * <br/> [Eierposisjon](Eierposisjon.md) | Samling av eigarposisjonar |
-| [eierskapstransaksjoner](eierskapstransaksjoner.md) | * <br/> [Eierskapstransaksjon](Eierskapstransaksjon.md) | Samling av eigarskapstransaksjonar |
-| [aksjeoverdragelser](aksjeoverdragelser.md) | * <br/> [Aksjeoverdragelse](Aksjeoverdragelse.md) | Samling av aksjeoverdragingar |
-| [vederlager](vederlager.md) | * <br/> [Vederlag](Vederlag.md) | Samling av vederlag |
-| [selskapshendelser](selskapshendelser.md) | * <br/> [Selskapshendelse](Selskapshendelse.md) | Samling av selskapshendingar |
-| [aksjeinnskudder](aksjeinnskudder.md) | * <br/> [Aksjeinnskudd](Aksjeinnskudd.md) | Samling av aksjeinnskot |
-| [utbytter](utbytter.md) | * <br/> [Utbytte](Utbytte.md) | Samling av utbytte |
-| [utdelinger](utdelinger.md) | * <br/> [Utdeling](Utdeling.md) | Samling av utdelingar |
-| [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | * <br/> [InnbetaltAksjekapital](InnbetaltAksjekapital.md) | Samling av innbetalt aksjekapital |
-| [innbetalt_overkurser](innbetalt_overkurser.md) | * <br/> [InnbetaltOverkurs](InnbetaltOverkurs.md) | Samling av innbetalt overkurs |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [aksjeselskaper](aksjeselskaper.md) | * <br/> [Aksjeselskap](aksjeselskap.md) | Samling av aksjeselskap |
+| [aksjekapitaler](aksjekapitaler.md) | * <br/> [Aksjekapital](aksjekapital.md) | Samling av aksjekapitalar |
+| [aksjer](aksjer.md) | * <br/> [Aksje](aksje.md) | Samling av aksjar |
+| [aksjeklasser](aksjeklasser.md) | * <br/> [Aksjeklasse](aksjeklasse.md) | Samling av aksjeklasser |
+| [aksjeeierrettigheter](aksjeeierrettigheter.md) | * <br/> [Aksjeeierrettighet](aksjeeierrettighet.md) | Samling av aksjeeierrettigheiter |
+| [aksjeeiere](aksjeeiere.md) | * <br/> [Aksjeeier](aksjeeier.md) | Samling av aksjeeigarar |
+| [aksjeposter](aksjeposter.md) | * <br/> [Aksjepost](aksjepost.md) | Samling av aksjepostar |
+| [eierposisjoner](eierposisjoner.md) | * <br/> [Eierposisjon](eierposisjon.md) | Samling av eigarposisjonar |
+| [eierskapstransaksjoner](eierskapstransaksjoner.md) | * <br/> [Eierskapstransaksjon](eierskapstransaksjon.md) | Samling av eigarskapstransaksjonar |
+| [aksjeoverdragelser](aksjeoverdragelser.md) | * <br/> [Aksjeoverdragelse](aksjeoverdragelse.md) | Samling av aksjeoverdragingar |
+| [vederlager](vederlager.md) | * <br/> [Vederlag](vederlag.md) | Samling av vederlag |
+| [selskapshendelser](selskapshendelser.md) | * <br/> [Selskapshendelse](selskapshendelse.md) | Samling av selskapshendingar |
+| [aksjeinnskudder](aksjeinnskudder.md) | * <br/> [Aksjeinnskudd](aksjeinnskudd.md) | Samling av aksjeinnskot |
+| [utbytter](utbytter.md) | * <br/> [Utbytte](utbytte.md) | Samling av utbytte |
+| [utdelinger](utdelinger.md) | * <br/> [Utdeling](utdeling.md) | Samling av utdelingar |
+| [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | * <br/> [InnbetaltAksjekapital](innbetaltaksjekapital.md) | Samling av innbetalt aksjekapital |
+| [innbetalt_overkurser](innbetalt_overkurser.md) | * <br/> [InnbetaltOverkurs](innbetaltoverkurs.md) | Samling av innbetalt overkurs |
 
 
 
@@ -570,23 +570,23 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeselskaper](aksjeselskaper.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjekapitaler](aksjekapitaler.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjer](aksjer.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjeklasser](aksjeklasser.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjeeierrettigheter](aksjeeierrettigheter.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjeeiere](aksjeeiere.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjeposter](aksjeposter.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [eierposisjoner](eierposisjoner.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [eierskapstransaksjoner](eierskapstransaksjoner.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjeoverdragelser](aksjeoverdragelser.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [vederlager](vederlager.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [selskapshendelser](selskapshendelser.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [aksjeinnskudder](aksjeinnskudder.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [utbytter](utbytter.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [utdelinger](utdelinger.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | domain | [Containerklasse](Containerklasse.md) |
-| [Containerklasse](Containerklasse.md) | [innbetalt_overkurser](innbetalt_overkurser.md) | domain | [Containerklasse](Containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeselskaper](aksjeselskaper.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjekapitaler](aksjekapitaler.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjer](aksjer.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeklasser](aksjeklasser.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeeierrettigheter](aksjeeierrettigheter.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeeiere](aksjeeiere.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeposter](aksjeposter.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [eierposisjoner](eierposisjoner.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [eierskapstransaksjoner](eierskapstransaksjoner.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeoverdragelser](aksjeoverdragelser.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [vederlager](vederlager.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [selskapshendelser](selskapshendelser.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeinnskudder](aksjeinnskudder.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [utbytter](utbytter.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [utdelinger](utdelinger.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | domain | [Containerklasse](containerklasse.md) |
+| [Containerklasse](containerklasse.md) | [innbetalt_overkurser](innbetalt_overkurser.md) | domain | [Containerklasse](containerklasse.md) |
 
 
 

@@ -181,8 +181,8 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [i_skjema](i_skjema.md) | 1..* <br/> [Kodeliste](Kodeliste.md) | Kodeliste dette kodeelementet tilhøyrer (skos:inScheme) |
-| [notasjon](notasjon.md) | 1 <br/> [String](String.md) | Kode/notasjon for kodeelementet (skos:notation) |
+| [i_skjema](i_skjema.md) | 1..* <br/> [Kodeliste](kodeliste.md) | Kodeliste dette kodeelementet tilhøyrer (skos:inScheme) |
+| [notasjon](notasjon.md) | 1 <br/> [String](string.md) | Kode/notasjon for kodeelementet (skos:notation) |
 
 
 
@@ -252,10 +252,10 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [anbefalt_term](anbefalt_term.md) | * <br/> [LangString](LangString.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
-| [begrep](begrep.md) | * <br/> [Konsept](Konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [topp_begrep_av](topp_begrep_av.md) | * <br/> [Kodeliste](Kodeliste.md) | Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConceptOf) |
+| [anbefalt_term](anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
+| [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [topp_begrep_av](topp_begrep_av.md) | * <br/> [Kodeliste](kodeliste.md) | Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConceptOf) |
 
 
 
@@ -477,17 +477,17 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [definisjon](definisjon.md) | * <br/> [LangString](LangString.md) | Definisjon av kodeelementet (skos:definition) |
-| [eksempel_kode](eksempel_kode.md) | * <br/> [LangString](LangString.md) | Eksempel på bruk av kodeelementet (skos:example) |
-| [eksklusjonsnotat](eksklusjonsnotat.md) | * <br/> [LangString](LangString.md) | Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNote) |
-| [forrige](forrige.md) | 0..1 <br/> [Kodeelement](Kodeelement.md) | Førre kodeelement i ein ordna kodeliste (xkos:previous) |
-| [skjult_term](skjult_term.md) | * <br/> [LangString](LangString.md) | Skjult term for kodeelementet (skos:hiddenLabel) |
-| [inklusjonsnotat](inklusjonsnotat.md) | * <br/> [LangString](LangString.md) | Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote) |
-| [notat](notat.md) | * <br/> [LangString](LangString.md) | Generelt notat om kodeelementet (skos:note) |
-| [neste](neste.md) | 0..1 <br/> [Kodeelement](Kodeelement.md) | Neste kodeelement i ein ordna kodeliste (xkos:next) |
-| [omfangsnotat](omfangsnotat.md) | * <br/> [LangString](LangString.md) | Notat om omfanget til kodeelementet (skos:scopeNote) |
-| [alternativ_term](alternativ_term.md) | * <br/> [LangString](LangString.md) | Alternativ term for kodeelementet (skos:altLabel) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [definisjon](definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av kodeelementet (skos:definition) |
+| [eksempel_kode](eksempel_kode.md) | * <br/> [LangString](langstring.md) | Eksempel på bruk av kodeelementet (skos:example) |
+| [eksklusjonsnotat](eksklusjonsnotat.md) | * <br/> [LangString](langstring.md) | Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNote) |
+| [forrige](forrige.md) | 0..1 <br/> [Kodeelement](kodeelement.md) | Førre kodeelement i ein ordna kodeliste (xkos:previous) |
+| [skjult_term](skjult_term.md) | * <br/> [LangString](langstring.md) | Skjult term for kodeelementet (skos:hiddenLabel) |
+| [inklusjonsnotat](inklusjonsnotat.md) | * <br/> [LangString](langstring.md) | Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote) |
+| [notat](notat.md) | * <br/> [LangString](langstring.md) | Generelt notat om kodeelementet (skos:note) |
+| [neste](neste.md) | 0..1 <br/> [Kodeelement](kodeelement.md) | Neste kodeelement i ein ordna kodeliste (xkos:next) |
+| [omfangsnotat](omfangsnotat.md) | * <br/> [LangString](langstring.md) | Notat om omfanget til kodeelementet (skos:scopeNote) |
+| [alternativ_term](alternativ_term.md) | * <br/> [LangString](langstring.md) | Alternativ term for kodeelementet (skos:altLabel) |
 
 
 
@@ -500,8 +500,8 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Kodeelement](Kodeelement.md) | [forrige](forrige.md) | range | [Kodeelement](Kodeelement.md) |
-| [Kodeelement](Kodeelement.md) | [neste](neste.md) | range | [Kodeelement](Kodeelement.md) |
+| [Kodeelement](kodeelement.md) | [forrige](forrige.md) | range | [Kodeelement](kodeelement.md) |
+| [Kodeelement](kodeelement.md) | [neste](neste.md) | range | [Kodeelement](kodeelement.md) |
 
 
 

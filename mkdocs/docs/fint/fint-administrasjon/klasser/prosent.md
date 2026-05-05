@@ -17,8 +17,8 @@ Alias: prosent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: prosent
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fastlonn](Fastlonn.md), [Fravaer](Fravaer.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fastlonn](fastlonn.md), [Fravaer](fravaer.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: skala
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Karakterverdi](Karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
+| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skala
 
 | Property | Value |
 | --- | --- |
-| Range | [Karakterskala](Karakterskala.md) |
-| Domain Of | [Karakterverdi](Karakterverdi.md) |
+| Range | [Karakterskala](karakterskala.md) |
+| Domain Of | [Karakterverdi](karakterverdi.md) |
 | Slot URI | [utd:skala](https://schema.fintlabs.no/utdanning/skala) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: skala
 
 | Property | Value |
 | --- | --- |
-| Owner | [Karakterverdi](Karakterverdi.md) |
+| Owner | [Karakterverdi](karakterverdi.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: skala
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: bestar_av_bruksnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  yes  |
+| [Matrikkelnummer](matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bestar_av_bruksnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Bruksnummer](Bruksnummer.md) |
-| Domain Of | [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [Bruksnummer](bruksnummer.md) |
+| Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [ngre:bestarAvBruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvBruksnummer) |
 
 ### Cardinality and Requirements

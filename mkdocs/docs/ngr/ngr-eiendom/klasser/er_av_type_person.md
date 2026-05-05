@@ -22,7 +22,7 @@ Alias: er_av_type_person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighetshaver](Rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  yes  |
+| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_av_type_person
 
 | Property | Value |
 | --- | --- |
-| Range | [Person](Person.md) |
-| Domain Of | [Rettighetshaver](Rettighetshaver.md) |
+| Range | [Person](person.md) |
+| Domain Of | [Rettighetshaver](rettighetshaver.md) |
 | Slot URI | [ngre:erAvTypePerson](https://data.norge.no/vocabulary/ngr-eiendom#erAvTypePerson) |
 
 ### Cardinality and Requirements

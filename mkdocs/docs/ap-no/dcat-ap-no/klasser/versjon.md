@@ -22,9 +22,9 @@ Alias: versjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](Standard.md) | Ein standard som ein ressurs er i samsvar med |  no  |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Standard](standard.md) | Ein standard som ein ressurs er i samsvar med |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: versjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Standard](Standard.md), [Datasett](Datasett.md), [Datatjeneste](Datatjeneste.md) |
+| Range | [String](string.md) |
+| Domain Of | [Standard](standard.md), [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:version](http://www.w3.org/ns/dcat#version) |
 
 ### Cardinality and Requirements

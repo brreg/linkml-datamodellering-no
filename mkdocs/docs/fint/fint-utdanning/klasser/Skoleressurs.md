@@ -17,10 +17,10 @@ Alias: skoleressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sensor](Sensor.md) | Ein sensor for ein eksamen |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Persongruppe](Persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
-| [Undervisningsforhold](Undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
+| [Sensor](sensor.md) | Ein sensor for ein eksamen |  no  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: skoleressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Persongruppe](Persongruppe.md), [Skole](Skole.md), [Undervisningsforhold](Undervisningsforhold.md), [Sensor](Sensor.md) |
+| Range | [String](string.md) |
+| Domain Of | [Persongruppe](persongruppe.md), [Skole](skole.md), [Undervisningsforhold](undervisningsforhold.md), [Sensor](sensor.md) |
 
 ### Cardinality and Requirements
 

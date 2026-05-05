@@ -12,29 +12,29 @@ Name: ngr-adresse
 
 | Class | Description |
 | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | Rotklasse for NGR-adresse-datafiler |
-| [Adressekode](Adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |
-| [Adressenavn](Adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |
-| [Adresseomrade](Adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |
-| [Bruksenhet](Bruksenhet.md) | Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen |
-| [Bruksenhetsnummer](Bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |
-| [Bygning](Bygning.md) | Referanse til ein bygning i Matrikkelen |
-| [GeografiskAdresse](GeografiskAdresse.md) | Abstrakt basisklasse for norske adressar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postboksadresse](Postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |
-| [GeografiskOmrade](GeografiskOmrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](Fylke.md) | Eit norsk fylke |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunnkrets](Grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kirkesokn](Kirkesokn.md) | Eit kyrkjesokn |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[KommunalKrets](KommunalKrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](Kommune.md) | Ein norsk kommune |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Poststed](Poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stemmekrets](Stemmekrets.md) | Ei stemmekrets brukt ved val |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Svalbard](Svalbard.md) | Svalbard som særskild geografisk område |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tettsted](Tettsted.md) | Eit tettbygd område definert av SSB |
-| [Husnummer](Husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |
-| [Postboks](Postboks.md) | Ei postboks registrert i Postboksregisteret |
-| [Representasjonspunkt](Representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |
+| [AdresseContainer](adressecontainer.md) | Rotklasse for NGR-adresse-datafiler |
+| [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |
+| [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |
+| [Adresseomrade](adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |
+| [Bruksenhet](bruksenhet.md) | Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |
+| [Bygning](bygning.md) | Referanse til ein bygning i Matrikkelen |
+| [GeografiskAdresse](geografiskadresse.md) | Abstrakt basisklasse for norske adressar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postboksadresse](postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |
+| [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Eit norsk fylke |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | Ein norsk kommune |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Svalbard](svalbard.md) | Svalbard som særskild geografisk område |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |
+| [Husnummer](husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |
+| [Postboks](postboks.md) | Ei postboks registrert i Postboksregisteret |
+| [Representasjonspunkt](representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |
 
 
 
@@ -72,7 +72,7 @@ Name: ngr-adresse
 | [kirkesokn](kirkesokn.md) |  |
 | [kirkesoknnummer](kirkesoknnummer.md) | Kysokn-nummer frå Kyrkja |
 | [kode](kode.md) | Numerisk kode for adressekoden (kommunal firesifra kode) |
-| [kommunaleKretsar](kommunaleKretsar.md) |  |
+| [kommunaleKretsar](kommunalekretsar.md) |  |
 | [kommunar](kommunar.md) |  |
 | [kommunenummer_kode](kommunenummer_kode.md) | Firesifra kommunenummer (t |
 | [kommunenummer_ref](kommunenummer_ref.md) | Kommunen denne adressa ligg i |
@@ -84,7 +84,7 @@ Name: ngr-adresse
 | [namn](namn.md) | Namn på det geografiske området eller adressekomponenten |
 | [nummer](nummer.md) | Husnummeret (heltalsverdi) |
 | [nummerering_i_etasjen](nummerering_i_etasjen.md) | Løpenummer for brukseininga innanfor etasjen |
-| [offisielleAdresser](offisielleAdresser.md) |  |
+| [offisielleAdresser](offisielleadresser.md) |  |
 | [postboks_ref](postboks_ref.md) | Postboksen denne postboksadressa tilhøyrer |
 | [postboksadresser](postboksadresser.md) |  |
 | [postboksanleggsnavn](postboksanleggsnavn.md) | Namn på postboksanlegget (t |
@@ -97,7 +97,7 @@ Name: ngr-adresse
 | [representasjonspunkt_ref](representasjonspunkt_ref.md) | Geografisk punkt som representerer adressas posisjon |
 | [stemmekretsar](stemmekretsar.md) |  |
 | [stemmekretsnummer](stemmekretsnummer.md) | Stemmekretsnummer |
-| [svalbardOmrader](svalbardOmrader.md) |  |
+| [svalbardOmrader](svalbardomrader.md) |  |
 | [tettstadar](tettstadar.md) |  |
 | [tettstedsnummer](tettstedsnummer.md) | SSB-tettstedsnummer |
 
@@ -106,38 +106,38 @@ Name: ngr-adresse
 
 | Enumeration | Description |
 | --- | --- |
-| [Etasjeplan](Etasjeplan.md) | Kode for kva del av bygningen eit bruksenhetsnummer refererer til |
+| [Etasjeplan](etasjeplan.md) | Kode for kva del av bygningen eit bruksenhetsnummer refererer til |
 
 
 ## Types
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
-| [Obligatorisk](Obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
-| [Valgfri](Valgfri.md) | Valfrie eigenskapar i domenemodellen |
+| [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
+| [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
+| [Valgfri](valgfri.md) | Valfrie eigenskapar i domenemodellen |

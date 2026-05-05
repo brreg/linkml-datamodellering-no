@@ -87,7 +87,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_verdi_tekstdel](har_verdi_tekstdel.md) | 1 <br/> [String](String.md) | Tekstinnhaldet i tekstdelen |
+| [har_verdi_tekstdel](har_verdi_tekstdel.md) | 1 <br/> [String](string.md) | Tekstinnhaldet i tekstdelen |
 
 
 
@@ -114,8 +114,8 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [format](format.md) | 0..1 <br/> [Mediatype](Mediatype.md) | Filformat eller medietype (dct:format) |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
+| [format](format.md) | 0..1 <br/> [Mediatype](mediatype.md) | Filformat eller medietype (dct:format) |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 
 
 
@@ -189,7 +189,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -202,9 +202,9 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](Tekstdel.md) |
-| [Brukartilbakemelding](Brukartilbakemelding.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](Tekstdel.md) |
-| [Kvalitetssertifikat](Kvalitetssertifikat.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](Tekstdel.md) |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
+| [Brukartilbakemelding](brukartilbakemelding.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
 
 
 

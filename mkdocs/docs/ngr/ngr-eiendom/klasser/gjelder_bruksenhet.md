@@ -22,7 +22,7 @@ Alias: gjelder_bruksenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [YtreInngang](YtreInngang.md) | Ytre inngang til ein bygning |  yes  |
+| [YtreInngang](ytreinngang.md) | Ytre inngang til ein bygning |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gjelder_bruksenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Bruksenhet](Bruksenhet.md) |
-| Domain Of | [YtreInngang](YtreInngang.md) |
+| Range | [Bruksenhet](bruksenhet.md) |
+| Domain Of | [YtreInngang](ytreinngang.md) |
 | Slot URI | [ngre:gjelderBruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#gjelderBruksenhet) |
 
 ### Cardinality and Requirements

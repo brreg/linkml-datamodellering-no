@@ -17,7 +17,7 @@ Alias: behandlingar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonvernContainer](PersonvernContainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
+| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: behandlingar
 
 | Property | Value |
 | --- | --- |
-| Range | [Behandling](Behandling.md) |
-| Domain Of | [PersonvernContainer](PersonvernContainer.md) |
+| Range | [Behandling](behandling.md) |
+| Domain Of | [PersonvernContainer](personverncontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: behandlingar
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonvernContainer](PersonvernContainer.md) |
+| Owner | [PersonvernContainer](personverncontainer.md) |
 
 
 

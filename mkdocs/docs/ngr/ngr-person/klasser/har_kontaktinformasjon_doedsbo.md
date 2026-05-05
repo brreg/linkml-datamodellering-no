@@ -22,7 +22,7 @@ Alias: har_kontaktinformasjon_doedsbo
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_kontaktinformasjon_doedsbo
 
 | Property | Value |
 | --- | --- |
-| Range | [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harKontaktinformasjonDoedsbo](https://data.norge.no/vocabulary/ngr-person#harKontaktinformasjonDoedsbo) |
 
 ### Cardinality and Requirements

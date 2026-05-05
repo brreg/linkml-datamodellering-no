@@ -5,7 +5,7 @@ _Valfri eigensskap._
 
 
 
-URI: [Valgfri](Valgfri.md)
+URI: [Valgfri](valgfri.md)
 
 
 
@@ -431,7 +431,7 @@ URI: [Valgfri](Valgfri.md)
 | [bostedsadresse](bostedsadresse.md) | Folkeregistrert adresse til personen |
 | [brevtype](brevtype.md) | Type brev knytt til prøva |
 | [delegert](delegert.md) | Angir om deltakinga er delegert |
-| [delegertTil](delegertTil.md) | Referanse til den deltakinga er delegert til |
+| [delegertTil](delegerttil.md) | Referanse til den deltakinga er delegert til |
 | [domenenavn](domenenavn.md) | Domenenamn for skulen |
 | [eksamensdato](eksamensdato.md) | Dato for eksamenen |
 | [eksamensform](eksamensform.md) | Eksamensform knytt til tilrettelegginga |
@@ -443,8 +443,8 @@ URI: [Valgfri](Valgfri.md)
 | [fodselsdato](fodselsdato.md) | Dato for fødsel |
 | [foreldre](foreldre.md) | Den/dei som har foreldreansvar til personen |
 | [foreldreansvar](foreldreansvar.md) | Personar denne personen har foreldreansvar for |
-| [foretrukketSensor](foretrukketSensor.md) | Angir om sensor er føretrekt |
-| [foretrukketSkole](foretrukketSkole.md) | Angir om skulen er føretrekt for eksamenen |
+| [foretrukketSensor](foretrukketsensor.md) | Angir om sensor er føretrekt |
+| [foretrukketSkole](foretrukketskole.md) | Angir om skulen er føretrekt for eksamenen |
 | [forretningsadresse](forretningsadresse.md) | Forretningsadresse til skulen |
 | [fravarsprosent](fravarsprosent.md) | Fråværsprosent ved utsending av varselet |
 | [fraversregistreringer](fraversregistreringer.md) | Fråværsregistreringar knytt til elevforholdet |
@@ -452,7 +452,7 @@ URI: [Valgfri](Valgfri.md)
 | [grepreferanse](grepreferanse.md) | Referanse til GREP-registeret |
 | [gruppemedlemskap](gruppemedlemskap.md) | Medlemskapar i denne kontaktlærergruppa |
 | [gyldighetsperiode](gyldighetsperiode.md) | Perioden medlemskapet er gyldig |
-| [juridiskNavn](juridiskNavn.md) | Juridisk namn på skulen |
+| [juridiskNavn](juridisknavn.md) | Juridisk namn på skulen |
 | [kandidatnummer](kandidatnummer.md) | Kandidatnummer for eksamenen |
 | [karakter](karakter.md) | Karakterverdien gjeve i vurderinga |
 | [karakteransvarlig](karakteransvarlig.md) | Skoleressurs som er ansvarleg for karakteren |
@@ -468,10 +468,10 @@ URI: [Valgfri](Valgfri.md)
 | [maalform](maalform.md) | Målform personen føretrekkjer |
 | [morsmaal](morsmaal.md) | Morsmål til personen |
 | [nus](nus.md) | NUS-kode knytt til eksamensgruppemedlemskapet |
-| [oppdatertAv](oppdatertAv.md) | Skoleressurs som oppdaterte karakteren |
+| [oppdatertAv](oppdatertav.md) | Skoleressurs som oppdaterte karakteren |
 | [oppmoetetidspunkt](oppmoetetidspunkt.md) | Tidspunkt for oppmøte til eksamenen |
-| [opprinneligKarakterstatus](opprinneligKarakterstatus.md) | Opphavleg karakterstatus før endringa |
-| [opprinneligKarakterverdi](opprinneligKarakterverdi.md) | Opphavleg karakterverdi før endringa |
+| [opprinneligKarakterstatus](opprinneligkarakterstatus.md) | Opphavleg karakterstatus før endringa |
+| [opprinneligKarakterverdi](opprinneligkarakterverdi.md) | Opphavleg karakterverdi før endringa |
 | [orden](orden.md) | Karakterverdi for orden |
 | [organisasjon](organisasjon.md) | Referanse til Organisasjonselement i Administrasjon-domenet |
 | [organisasjonsnavn](organisasjonsnavn.md) | Organisasjonsnamn for skulen |
@@ -484,10 +484,10 @@ URI: [Valgfri](Valgfri.md)
 | [programomrade](programomrade.md) | Programområde knytt til årstrinnet |
 | [provedato](provedato.md) | Dato prøva vart avlagt |
 | [provestatus](provestatus.md) | Status for prøva |
-| [registrertAv](registrertAv.md) | Skoleressurs som registrerte fråværet |
+| [registrertAv](registrertav.md) | Skoleressurs som registrerte fråværet |
 | [sendt](sendt.md) | Dato varselet vart sendt |
 | [sensornummer](sensornummer.md) | Sensornummer |
-| [skoleeierType](skoleeierType.md) | Kategori for skuleeigartilknyting |
+| [skoleeierType](skoleeiertype.md) | Kategori for skuleeigartilknyting |
 | [skoleressurs](skoleressurs.md) | Skoleressursar knytt til gruppa |
 | [statsborgerskap](statsborgerskap.md) | Alle statsborgarskap personen har |
 | [status](status.md) | OT-status for ungdommen |
@@ -495,7 +495,7 @@ URI: [Valgfri](Valgfri.md)
 | [termin](termin.md) | Terminar klassen er aktiv i |
 | [tidsrom](tidsrom.md) | Tidsrom for eksamenen |
 | [time](time.md) | Timar haldne i dette rommet |
-| [tosprakligFagopplaering](tosprakligFagopplaering.md) | Indikerer om eleven har tospråkleg fagopplæring |
+| [tosprakligFagopplaering](tosprakligfagopplaering.md) | Indikerer om eleven har tospråkleg fagopplæring |
 | [trinn](trinn.md) | Årstrinnet klassen tilhøyrer |
 | [type](type.md) | Type varsel |
 | [undervisningsgruppe](undervisningsgruppe.md) | Undervisningsgrupper som underviser i faget |

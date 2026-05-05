@@ -86,7 +86,7 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kan_vaere_av_type_person](kan_vaere_av_type_person.md) | 0..1 <br/> [Person](Person.md) | Personen som er rolleinnehavar (frå Folkeregisteret) |
+| [kan_vaere_av_type_person](kan_vaere_av_type_person.md) | 0..1 <br/> [Person](person.md) | Personen som er rolleinnehavar (frå Folkeregisteret) |
 
 
 
@@ -108,7 +108,7 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [rolleinnehaver_navn](rolleinnehaver_navn.md) | 0..1 <br/> [String](String.md) | Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar) |
+| [rolleinnehaver_navn](rolleinnehaver_navn.md) | 0..1 <br/> [String](string.md) | Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar) |
 
 
 
@@ -153,7 +153,7 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -166,8 +166,8 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [rolleinnehavere](rolleinnehavere.md) | range | [Rolleinnehaver](Rolleinnehaver.md) |
-| [RolleIVirksomhet](RolleIVirksomhet.md) | [har_rolleinnehaver](har_rolleinnehaver.md) | range | [Rolleinnehaver](Rolleinnehaver.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [rolleinnehavere](rolleinnehavere.md) | range | [Rolleinnehaver](rolleinnehaver.md) |
+| [RolleIVirksomhet](rolleivirksomhet.md) | [har_rolleinnehaver](har_rolleinnehaver.md) | range | [Rolleinnehaver](rolleinnehaver.md) |
 
 
 

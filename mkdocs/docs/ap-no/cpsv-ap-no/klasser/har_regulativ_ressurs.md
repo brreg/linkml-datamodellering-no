@@ -22,9 +22,9 @@ Alias: har_regulativ_ressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | Ei lovpålagd teneste som offentlege organ er pålagde å utføre |  yes  |
-| [OffentligTjeneste](OffentligTjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
-| [Tjeneste](Tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | Ei lovpålagd teneste som offentlege organ er pålagde å utføre |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: har_regulativ_ressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [RegulativRessurs](RegulativRessurs.md) |
-| Domain Of | [LovpalagtTjeneste](LovpalagtTjeneste.md), [OffentligTjeneste](OffentligTjeneste.md), [Tjeneste](Tjeneste.md) |
+| Range | [RegulativRessurs](regulativressurs.md) |
+| Domain Of | [LovpalagtTjeneste](lovpalagttjeneste.md), [OffentligTjeneste](offentligtjeneste.md), [Tjeneste](tjeneste.md) |
 | Slot URI | [cv:hasLegalResource](http://data.europa.eu/m8g/hasLegalResource) |
 
 ### Cardinality and Requirements

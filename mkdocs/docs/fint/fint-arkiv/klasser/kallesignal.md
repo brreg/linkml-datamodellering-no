@@ -22,7 +22,7 @@ Alias: kallesignal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFartoy](TilskuddFartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kallesignal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [TilskuddFartoy](TilskuddFartoy.md) |
+| Range | [String](string.md) |
+| Domain Of | [TilskuddFartoy](tilskuddfartoy.md) |
 | Slot URI | [ark:kallesignal](https://schema.fintlabs.no/arkiv/kallesignal) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: kallesignal
 
 | Property | Value |
 | --- | --- |
-| Owner | [TilskuddFartoy](TilskuddFartoy.md) |
+| Owner | [TilskuddFartoy](tilskuddfartoy.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: kallesignal
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

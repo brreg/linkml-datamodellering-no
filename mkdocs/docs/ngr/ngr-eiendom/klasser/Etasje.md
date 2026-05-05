@@ -59,7 +59,7 @@ URI: [ngre:Etasje](https://data.norge.no/vocabulary/ngr-eiendom#Etasje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [etasjenummer](etasjenummer.md) | 1 <br/> [Integer](Integer.md) | Etasjenummer (t |
+| [etasjenummer](etasjenummer.md) | 1 <br/> [Integer](integer.md) | Etasjenummer (t |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Etasje](https://data.norge.no/vocabulary/ngr-eiendom#Etasje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,9 +124,9 @@ URI: [ngre:Etasje](https://data.norge.no/vocabulary/ngr-eiendom#Etasje)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [etasjer](etasjer.md) | range | [Etasje](Etasje.md) |
-| [Bygning](Bygning.md) | [har_etasje](har_etasje.md) | range | [Etasje](Etasje.md) |
-| [Bruksenhet](Bruksenhet.md) | [ligger_i_etasje](ligger_i_etasje.md) | range | [Etasje](Etasje.md) |
+| [EiendomContainer](eiendomcontainer.md) | [etasjer](etasjer.md) | range | [Etasje](etasje.md) |
+| [Bygning](bygning.md) | [har_etasje](har_etasje.md) | range | [Etasje](etasje.md) |
+| [Bruksenhet](bruksenhet.md) | [ligger_i_etasje](ligger_i_etasje.md) | range | [Etasje](etasje.md) |
 
 
 

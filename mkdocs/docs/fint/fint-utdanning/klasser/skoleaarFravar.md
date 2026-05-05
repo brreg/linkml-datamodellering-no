@@ -22,7 +22,7 @@ Alias: skoleaarFravar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravarsoversikt](Fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
+| [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skoleaarFravar
 
 | Property | Value |
 | --- | --- |
-| Range | [Fravarsprosent](Fravarsprosent.md) |
-| Domain Of | [Fravarsoversikt](Fravarsoversikt.md) |
+| Range | [Fravarsprosent](fravarsprosent.md) |
+| Domain Of | [Fravarsoversikt](fravarsoversikt.md) |
 | Slot URI | [utd:skoleaarFravar](https://schema.fintlabs.no/utdanning/skoleaarFravar) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: skoleaarFravar
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravarsoversikt](Fravarsoversikt.md) |
+| Owner | [Fravarsoversikt](fravarsoversikt.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: skoleaarFravar
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

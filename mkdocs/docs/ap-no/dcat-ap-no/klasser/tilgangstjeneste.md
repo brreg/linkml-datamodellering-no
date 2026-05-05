@@ -22,7 +22,7 @@ Alias: tilgangstjeneste
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilgangstjeneste
 
 | Property | Value |
 | --- | --- |
-| Range | [Datatjeneste](Datatjeneste.md) |
-| Domain Of | [Distribusjon](Distribusjon.md) |
+| Range | [Datatjeneste](datatjeneste.md) |
+| Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:accessService](http://www.w3.org/ns/dcat#accessService) |
 
 ### Cardinality and Requirements

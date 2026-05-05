@@ -22,7 +22,7 @@ Alias: tilgangsmetadata
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
+| [FAIRMetadata](fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilgangsmetadata
 
 | Property | Value |
 | --- | --- |
-| Range | [Tilgangsmetadata](Tilgangsmetadata.md) |
-| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Range | [Tilgangsmetadata](tilgangsmetadata.md) |
+| Domain Of | [FAIRMetadata](fairmetadata.md) |
 | Slot URI | [fair:tilgangsmetadata](https://data.norge.no/fair#tilgangsmetadata) |
 
 ### Cardinality and Requirements

@@ -600,26 +600,26 @@ URI: [https://data.norge.no/linkml/ngr-adresse/AdresseContainer](https://data.no
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [offisielleAdresser](offisielleAdresser.md) | * <br/> [OffisiellAdresse](OffisiellAdresse.md) |  |
-| [postboksadresser](postboksadresser.md) | * <br/> [Postboksadresse](Postboksadresse.md) |  |
-| [adressenavn](adressenavn.md) | * <br/> [Adressenavn](Adressenavn.md) |  |
-| [adresseomrader](adresseomrader.md) | * <br/> [Adresseomrade](Adresseomrade.md) |  |
-| [adressekoder](adressekoder.md) | * <br/> [Adressekode](Adressekode.md) |  |
-| [husnummer](husnummer.md) | * <br/> [Husnummer](Husnummer.md) |  |
-| [bruksenhetsnummer](bruksenhetsnummer.md) | * <br/> [Bruksenhetsnummer](Bruksenhetsnummer.md) |  |
-| [kommunar](kommunar.md) | * <br/> [Kommune](Kommune.md) |  |
-| [fylke](fylke.md) | * <br/> [Fylke](Fylke.md) |  |
-| [poststeder](poststeder.md) | * <br/> [Poststed](Poststed.md) |  |
-| [grunnkretsar](grunnkretsar.md) | * <br/> [Grunnkrets](Grunnkrets.md) |  |
-| [tettstadar](tettstadar.md) | * <br/> [Tettsted](Tettsted.md) |  |
-| [kirkesokn](kirkesokn.md) | * <br/> [Kirkesokn](Kirkesokn.md) |  |
-| [stemmekretsar](stemmekretsar.md) | * <br/> [Stemmekrets](Stemmekrets.md) |  |
-| [kommunaleKretsar](kommunaleKretsar.md) | * <br/> [KommunalKrets](KommunalKrets.md) |  |
-| [svalbardOmrader](svalbardOmrader.md) | * <br/> [Svalbard](Svalbard.md) |  |
-| [postboksar](postboksar.md) | * <br/> [Postboks](Postboks.md) |  |
-| [representasjonspunkt](representasjonspunkt.md) | * <br/> [Representasjonspunkt](Representasjonspunkt.md) |  |
-| [bygningar](bygningar.md) | * <br/> [Bygning](Bygning.md) |  |
-| [bruksenheter](bruksenheter.md) | * <br/> [Bruksenhet](Bruksenhet.md) |  |
+| [offisielleAdresser](offisielleadresser.md) | * <br/> [OffisiellAdresse](offisielladresse.md) |  |
+| [postboksadresser](postboksadresser.md) | * <br/> [Postboksadresse](postboksadresse.md) |  |
+| [adressenavn](adressenavn.md) | * <br/> [Adressenavn](adressenavn.md) |  |
+| [adresseomrader](adresseomrader.md) | * <br/> [Adresseomrade](adresseomrade.md) |  |
+| [adressekoder](adressekoder.md) | * <br/> [Adressekode](adressekode.md) |  |
+| [husnummer](husnummer.md) | * <br/> [Husnummer](husnummer.md) |  |
+| [bruksenhetsnummer](bruksenhetsnummer.md) | * <br/> [Bruksenhetsnummer](bruksenhetsnummer.md) |  |
+| [kommunar](kommunar.md) | * <br/> [Kommune](kommune.md) |  |
+| [fylke](fylke.md) | * <br/> [Fylke](fylke.md) |  |
+| [poststeder](poststeder.md) | * <br/> [Poststed](poststed.md) |  |
+| [grunnkretsar](grunnkretsar.md) | * <br/> [Grunnkrets](grunnkrets.md) |  |
+| [tettstadar](tettstadar.md) | * <br/> [Tettsted](tettsted.md) |  |
+| [kirkesokn](kirkesokn.md) | * <br/> [Kirkesokn](kirkesokn.md) |  |
+| [stemmekretsar](stemmekretsar.md) | * <br/> [Stemmekrets](stemmekrets.md) |  |
+| [kommunaleKretsar](kommunalekretsar.md) | * <br/> [KommunalKrets](kommunalkrets.md) |  |
+| [svalbardOmrader](svalbardomrader.md) | * <br/> [Svalbard](svalbard.md) |  |
+| [postboksar](postboksar.md) | * <br/> [Postboks](postboks.md) |  |
+| [representasjonspunkt](representasjonspunkt.md) | * <br/> [Representasjonspunkt](representasjonspunkt.md) |  |
+| [bygningar](bygningar.md) | * <br/> [Bygning](bygning.md) |  |
+| [bruksenheter](bruksenheter.md) | * <br/> [Bruksenhet](bruksenhet.md) |  |
 
 
 

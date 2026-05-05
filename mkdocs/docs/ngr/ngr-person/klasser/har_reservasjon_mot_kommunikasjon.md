@@ -22,7 +22,7 @@ Alias: har_reservasjon_mot_kommunikasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_reservasjon_mot_kommunikasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harReservasjonMotKommunikasjon](https://data.norge.no/vocabulary/ngr-person#harReservasjonMotKommunikasjon) |
 
 ### Cardinality and Requirements

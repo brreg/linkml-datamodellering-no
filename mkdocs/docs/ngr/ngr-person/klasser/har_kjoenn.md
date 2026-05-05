@@ -22,7 +22,7 @@ Alias: har_kjoenn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_kjoenn
 
 | Property | Value |
 | --- | --- |
-| Range | [Kjoenn](Kjoenn.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Kjoenn](kjoenn.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harKjoenn](https://data.norge.no/vocabulary/ngr-person#harKjoenn) |
 
 ### Cardinality and Requirements

@@ -17,11 +17,11 @@ Alias: prosjekt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontostreng](Kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  no  |
-| [Fullmakt](Fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
-| [Prosjektart](Prosjektart.md) | Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur |  no  |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  no  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
+| [Prosjektart](prosjektart.md) | Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -34,8 +34,8 @@ Alias: prosjekt
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [AdministrasjonContainer](AdministrasjonContainer.md), [Kontostreng](Kontostreng.md), [Prosjektart](Prosjektart.md), [Fullmakt](Fullmakt.md), [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [String](string.md) |
+| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md), [Kontostreng](kontostreng.md), [Prosjektart](prosjektart.md), [Fullmakt](fullmakt.md), [Arbeidsforhold](arbeidsforhold.md) |
 
 ### Cardinality and Requirements
 

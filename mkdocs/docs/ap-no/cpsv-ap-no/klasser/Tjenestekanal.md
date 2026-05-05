@@ -93,7 +93,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
 
 
 
@@ -127,7 +127,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -167,10 +167,10 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](Duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
-| [opningstider](opningstider.md) | * <br/> [String](String.md) | Opningstider |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [nettside](nettside.md) | * <br/> [Uri](Uri.md) | Nettside for tenestekanalane |
+| [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
+| [opningstider](opningstider.md) | * <br/> [String](string.md) | Opningstider |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [nettside](nettside.md) | * <br/> [Uri](uri.md) | Nettside for tenestekanalane |
 
 
 
@@ -267,7 +267,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -280,8 +280,8 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_tenestekanal](har_tenestekanal.md) | range | [Tjenestekanal](Tjenestekanal.md) |
-| [Tjeneste](Tjeneste.md) | [har_tenestekanal](har_tenestekanal.md) | range | [Tjenestekanal](Tjenestekanal.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_tenestekanal](har_tenestekanal.md) | range | [Tjenestekanal](tjenestekanal.md) |
+| [Tjeneste](tjeneste.md) | [har_tenestekanal](har_tenestekanal.md) | range | [Tjenestekanal](tjenestekanal.md) |
 
 
 

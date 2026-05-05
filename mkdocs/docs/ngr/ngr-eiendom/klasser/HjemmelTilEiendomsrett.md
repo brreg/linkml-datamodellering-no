@@ -43,7 +43,7 @@ URI: [ngre:HjemmelTilEiendomsrett](https://data.norge.no/vocabulary/ngr-eiendom#
 
 
 ## Inheritance
-* [Hjemmel](Hjemmel.md)
+* [Hjemmel](hjemmel.md)
     * **HjemmelTilEiendomsrett**
 
 
@@ -81,8 +81,8 @@ URI: [ngre:HjemmelTilEiendomsrett](https://data.norge.no/vocabulary/ngr-eiendom#
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Hjemmel](Hjemmel.md) |
-| [har_andel](har_andel.md) | 1..* <br/> [Andel](Andel.md) | Andel(ar) i heimelsdokumentet | [Hjemmel](Hjemmel.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Hjemmel](hjemmel.md) |
+| [har_andel](har_andel.md) | 1..* <br/> [Andel](andel.md) | Andel(ar) i heimelsdokumentet | [Hjemmel](hjemmel.md) |
 
 
 
@@ -92,10 +92,10 @@ URI: [ngre:HjemmelTilEiendomsrett](https://data.norge.no/vocabulary/ngr-eiendom#
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [hjemmelEiendomsrett](hjemmelEiendomsrett.md) | range | [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) |
-| [Eierforhold](Eierforhold.md) | [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | range | [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) |
-| [TinglystEierforhold](TinglystEierforhold.md) | [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | range | [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | range | [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) |
+| [EiendomContainer](eiendomcontainer.md) | [hjemmelEiendomsrett](hjemmeleiendomsrett.md) | range | [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) |
+| [Eierforhold](eierforhold.md) | [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | range | [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) |
+| [TinglystEierforhold](tinglysteierforhold.md) | [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | range | [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | range | [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) |
 
 
 

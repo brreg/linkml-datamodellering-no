@@ -78,7 +78,7 @@ URI: [dct:LinguisticSystem](http://purl.org/dc/terms/LinguisticSystem)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,9 +91,9 @@ URI: [dct:LinguisticSystem](http://purl.org/dc/terms/LinguisticSystem)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Dokument](Dokument.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Modelkatalog](Modelkatalog.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [sprak](sprak.md) | range | [Spraak](Spraak.md) |
+| [Dokument](dokument.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Modelkatalog](modelkatalog.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [sprak](sprak.md) | range | [Spraak](spraak.md) |
 
 
 

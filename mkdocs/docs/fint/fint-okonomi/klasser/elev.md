@@ -22,7 +22,7 @@ Alias: elev
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: elev
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:elev](https://schema.fintlabs.no/elev) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: elev
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: elev
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

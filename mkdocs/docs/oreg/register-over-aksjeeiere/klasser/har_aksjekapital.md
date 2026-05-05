@@ -22,7 +22,7 @@ Alias: har_aksjekapital
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeselskap](Aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
+| [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: har_aksjekapital
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjekapital](Aksjekapital.md) |
-| Domain | [Aksjeselskap](Aksjeselskap.md) |
-| Domain Of | [Aksjeselskap](Aksjeselskap.md) |
+| Range | [Aksjekapital](aksjekapital.md) |
+| Domain | [Aksjeselskap](aksjeselskap.md) |
+| Domain Of | [Aksjeselskap](aksjeselskap.md) |
 
 ### Cardinality and Requirements
 

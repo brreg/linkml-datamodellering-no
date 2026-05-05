@@ -5,7 +5,7 @@ _Valfrie eigenskapar i domenemodellen._
 
 
 
-URI: [Valgfri](Valgfri.md)
+URI: [Valgfri](valgfri.md)
 
 
 

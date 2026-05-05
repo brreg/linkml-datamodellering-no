@@ -22,7 +22,7 @@ Alias: eksamensdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: eksamensdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Eksamensgruppe](Eksamensgruppe.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Eksamensgruppe](eksamensgruppe.md) |
 | Slot URI | [utd:eksamensdato](https://schema.fintlabs.no/utdanning/eksamensdato) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: eksamensdato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Eksamensgruppe](Eksamensgruppe.md) |
+| Owner | [Eksamensgruppe](eksamensgruppe.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: eksamensdato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

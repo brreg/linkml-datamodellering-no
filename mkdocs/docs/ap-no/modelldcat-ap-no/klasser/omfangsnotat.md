@@ -22,7 +22,7 @@ Alias: omfangsnotat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
+| [Kodeelement](kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: omfangsnotat
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Kodeelement](Kodeelement.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Kodeelement](kodeelement.md) |
 | Slot URI | [skos:scopeNote](http://www.w3.org/2004/02/skos/core#scopeNote) |
 
 ### Cardinality and Requirements

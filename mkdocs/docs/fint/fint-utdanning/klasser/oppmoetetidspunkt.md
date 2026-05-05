@@ -22,7 +22,7 @@ Alias: oppmoetetidspunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamen](Eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
+| [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: oppmoetetidspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Eksamen](Eksamen.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Eksamen](eksamen.md) |
 | Slot URI | [utd:oppmoetetidspunkt](https://schema.fintlabs.no/utdanning/oppmoetetidspunkt) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: oppmoetetidspunkt
 
 | Property | Value |
 | --- | --- |
-| Owner | [Eksamen](Eksamen.md) |
+| Owner | [Eksamen](eksamen.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: oppmoetetidspunkt
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -17,12 +17,12 @@ Alias: programomrade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Utdanningsprogram](Utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Arstrinn](Arstrinn.md) | Eit årstrinn i skulen (t |  no  |
-| [OtUngdom](OtUngdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
-| [Programomrademedlemskap](Programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  no  |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  no  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: programomrade
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Arstrinn](Arstrinn.md), [Programomrademedlemskap](Programomrademedlemskap.md), [Utdanningsprogram](Utdanningsprogram.md), [Fag](Fag.md), [Laerling](Laerling.md), [OtUngdom](OtUngdom.md) |
+| Range | [String](string.md) |
+| Domain Of | [Arstrinn](arstrinn.md), [Programomrademedlemskap](programomrademedlemskap.md), [Utdanningsprogram](utdanningsprogram.md), [Fag](fag.md), [Laerling](laerling.md), [OtUngdom](otungdom.md) |
 
 ### Cardinality and Requirements
 

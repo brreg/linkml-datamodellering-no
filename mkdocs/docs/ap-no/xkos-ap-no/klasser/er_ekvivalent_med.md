@@ -22,7 +22,7 @@ Alias: er_ekvivalent_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
+| [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_ekvivalent_med
 
 | Property | Value |
 | --- | --- |
-| Range | [Kategori](Kategori.md) |
-| Domain Of | [Kategori](Kategori.md) |
+| Range | [Kategori](kategori.md) |
+| Domain Of | [Kategori](kategori.md) |
 | Slot URI | [uneskos:broadMatch](http://purl.org/umu/uneskos#broadMatch) |
 
 ### Cardinality and Requirements

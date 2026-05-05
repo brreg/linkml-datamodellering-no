@@ -22,7 +22,7 @@ Alias: registrertAv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: registrertAv
 
 | Property | Value |
 | --- | --- |
-| Range | [Skoleressurs](Skoleressurs.md) |
-| Domain Of | [Fraversregistrering](Fraversregistrering.md) |
+| Range | [Skoleressurs](skoleressurs.md) |
+| Domain Of | [Fraversregistrering](fraversregistrering.md) |
 | Slot URI | [utd:registrertAv](https://schema.fintlabs.no/utdanning/registrertAv) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: registrertAv
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fraversregistrering](Fraversregistrering.md) |
+| Owner | [Fraversregistrering](fraversregistrering.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: registrertAv
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: status
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OtUngdom](OtUngdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: status
 
 | Property | Value |
 | --- | --- |
-| Range | [OtStatus](OtStatus.md) |
-| Domain Of | [OtUngdom](OtUngdom.md) |
+| Range | [OtStatus](otstatus.md) |
+| Domain Of | [OtUngdom](otungdom.md) |
 | Slot URI | [utd:status](https://schema.fintlabs.no/utdanning/status) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: status
 
 | Property | Value |
 | --- | --- |
-| Owner | [OtUngdom](OtUngdom.md) |
+| Owner | [OtUngdom](otungdom.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: status
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

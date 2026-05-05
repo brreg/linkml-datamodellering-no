@@ -22,7 +22,7 @@ Alias: doedssted
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dodsfall](Dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |  yes  |
+| [Dodsfall](dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: doedssted
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Dodsfall](Dodsfall.md) |
+| Range | [String](string.md) |
+| Domain Of | [Dodsfall](dodsfall.md) |
 | Slot URI | [ngrp:doedssted](https://data.norge.no/vocabulary/ngr-person#doedssted) |
 
 ### Cardinality and Requirements

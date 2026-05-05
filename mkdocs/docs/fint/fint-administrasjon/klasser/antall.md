@@ -22,7 +22,7 @@ Alias: antall
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Variabellonn](Variabellonn.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Variabellonn](variabellonn.md) |
 | Slot URI | [adm:antall](https://schema.fintlabs.no/administrasjon/antall) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Owner | [Variabellonn](Variabellonn.md) |
+| Owner | [Variabellonn](variabellonn.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: antall
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

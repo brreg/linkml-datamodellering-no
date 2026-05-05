@@ -17,8 +17,8 @@ Alias: fylke
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: fylke
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [AdministrasjonContainer](AdministrasjonContainer.md), [Kommune](Kommune.md) |
+| Range | [String](string.md) |
+| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md), [Kommune](kommune.md) |
 
 ### Cardinality and Requirements
 

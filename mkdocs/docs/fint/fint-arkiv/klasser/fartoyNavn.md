@@ -22,7 +22,7 @@ Alias: fartoyNavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFartoy](TilskuddFartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fartoyNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [TilskuddFartoy](TilskuddFartoy.md) |
+| Range | [String](string.md) |
+| Domain Of | [TilskuddFartoy](tilskuddfartoy.md) |
 | Slot URI | [ark:fartoyNavn](https://schema.fintlabs.no/arkiv/fartoyNavn) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fartoyNavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [TilskuddFartoy](TilskuddFartoy.md) |
+| Owner | [TilskuddFartoy](tilskuddfartoy.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fartoyNavn
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

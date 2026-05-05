@@ -22,7 +22,7 @@ Alias: dokumentstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dokumentstatus
 
 | Property | Value |
 | --- | --- |
-| Range | [DokumentStatus](DokumentStatus.md) |
-| Domain Of | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [DokumentStatus](dokumentstatus.md) |
+| Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:dokumentstatus](https://schema.fintlabs.no/arkiv/dokumentstatus) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: dokumentstatus
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Owner | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: dokumentstatus
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -37,8 +37,8 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 
 ## Inheritance
 * **GeografiskAdresse**
-    * [OffisiellAdresse](OffisiellAdresse.md)
-    * [Postboksadresse](Postboksadresse.md)
+    * [OffisiellAdresse](offisielladresse.md)
+    * [Postboksadresse](postboksadresse.md)
 
 
 ## Class Properties
@@ -90,7 +90,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

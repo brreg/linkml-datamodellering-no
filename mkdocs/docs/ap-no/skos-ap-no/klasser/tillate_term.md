@@ -22,7 +22,7 @@ Alias: tillate_term
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tillate_term
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [skos:altLabel](http://www.w3.org/2004/02/skos/core#altLabel) |
 
 ### Cardinality and Requirements

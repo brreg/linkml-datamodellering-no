@@ -39,10 +39,10 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 ## Inheritance
 * **KatalogisertRessurs**
-    * [Datasett](Datasett.md)
-    * [Datasettserie](Datasettserie.md)
-    * [Datatjeneste](Datatjeneste.md)
-    * [Katalog](Katalog.md)
+    * [Datasett](datasett.md)
+    * [Datasettserie](datasettserie.md)
+    * [Datatjeneste](datatjeneste.md)
+    * [Katalog](katalog.md)
 
 
 ## Class Properties
@@ -94,7 +94,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -107,7 +107,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Katalogpost](Katalogpost.md) | [primaertema](primaertema.md) | range | [KatalogisertRessurs](KatalogisertRessurs.md) |
+| [Katalogpost](katalogpost.md) | [primaertema](primaertema.md) | range | [KatalogisertRessurs](katalogisertressurs.md) |
 
 
 

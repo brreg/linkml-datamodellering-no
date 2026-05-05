@@ -113,16 +113,16 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
 ## Inheritance
 * **Eigenskap**
-    * [Attributt](Attributt.md)
-    * [Assosiasjon](Assosiasjon.md)
-    * [Rolle](Rolle.md)
-    * [Spesialisering](Spesialisering.md)
-    * [Sammensetning](Sammensetning.md)
-    * [Realisering](Realisering.md)
-    * [Abstraksjon](Abstraksjon.md)
-    * [Avhengighet](Avhengighet.md)
-    * [Samling](Samling.md)
-    * [Valg](Valg.md)
+    * [Attributt](attributt.md)
+    * [Assosiasjon](assosiasjon.md)
+    * [Rolle](rolle.md)
+    * [Spesialisering](spesialisering.md)
+    * [Sammensetning](sammensetning.md)
+    * [Realisering](realisering.md)
+    * [Abstraksjon](abstraksjon.md)
+    * [Avhengighet](avhengighet.md)
+    * [Samling](samling.md)
+    * [Valg](valg.md)
 
 
 ## Class Properties
@@ -239,12 +239,12 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [begrep](begrep.md) | * <br/> [Konsept](Konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [navigerbar](navigerbar.md) | 0..1 <br/> [Boolean](Boolean.md) | Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable) |
-| [min_multiplisitet](min_multiplisitet.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Minste multiplisitet for eigenskapen (modelldcatno:minOccurs) |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [maks_multiplisitet](maks_multiplisitet.md) | 0..1 <br/> [String](String.md) | Høgste multiplisitet — heltalstal, "n" eller "*" (modelldcatno:maxOccurs) |
+| [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [navigerbar](navigerbar.md) | 0..1 <br/> [Boolean](boolean.md) | Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable) |
+| [min_multiplisitet](min_multiplisitet.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Minste multiplisitet for eigenskapen (modelldcatno:minOccurs) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [maks_multiplisitet](maks_multiplisitet.md) | 0..1 <br/> [String](string.md) | Høgste multiplisitet — heltalstal, "n" eller "*" (modelldcatno:maxOccurs) |
 
 
 
@@ -306,12 +306,12 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [har_type](har_type.md) | * <br/> [Modellelement](Modellelement.md) | Type modellelement for eigenskapen (modelldcatno:hasType) |
-| [relasjonsegenskapetikett](relasjonsegenskapetikett.md) | * <br/> [LangString](LangString.md) | Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel) |
-| [sekvensnummer](sekvensnummer.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber) |
-| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) |
-| [danner_symmetri_med](danner_symmetri_med.md) | 0..1 <br/> [Eigenskap](Eigenskap.md) | Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmet... |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [har_type](har_type.md) | * <br/> [Modellelement](modellelement.md) | Type modellelement for eigenskapen (modelldcatno:hasType) |
+| [relasjonsegenskapetikett](relasjonsegenskapetikett.md) | * <br/> [LangString](langstring.md) | Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel) |
+| [sekvensnummer](sekvensnummer.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) |
+| [danner_symmetri_med](danner_symmetri_med.md) | 0..1 <br/> [Eigenskap](eigenskap.md) | Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmet... |
 
 
 
@@ -486,7 +486,7 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -499,26 +499,26 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modellelement](Modellelement.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](Eigenskap.md) |
-| [Objekttype](Objekttype.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](Eigenskap.md) |
-| [RootObjekttype](RootObjekttype.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](Eigenskap.md) |
-| [Datatype](Datatype.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](Eigenskap.md) |
-| [EnkelType](EnkelType.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](Eigenskap.md) |
-| [Kodeliste](Kodeliste.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](Eigenskap.md) |
-| [Modul](Modul.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](Eigenskap.md) |
-| [Eigenskap](Eigenskap.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Attributt](Attributt.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Assosiasjon](Assosiasjon.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Rolle](Rolle.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Spesialisering](Spesialisering.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Sammensetning](Sammensetning.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Realisering](Realisering.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Abstraksjon](Abstraksjon.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Avhengighet](Avhengighet.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Samling](Samling.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [Valg](Valg.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [AlleAv](AlleAv.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
-| [NoenAv](NoenAv.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](Eigenskap.md) |
+| [Modellelement](modellelement.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](eigenskap.md) |
+| [Objekttype](objekttype.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](eigenskap.md) |
+| [RootObjekttype](rootobjekttype.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](eigenskap.md) |
+| [Datatype](datatype.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](eigenskap.md) |
+| [EnkelType](enkeltype.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](eigenskap.md) |
+| [Kodeliste](kodeliste.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](eigenskap.md) |
+| [Modul](modul.md) | [har_eigenskap](har_eigenskap.md) | range | [Eigenskap](eigenskap.md) |
+| [Eigenskap](eigenskap.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Attributt](attributt.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Assosiasjon](assosiasjon.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Rolle](rolle.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Spesialisering](spesialisering.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Sammensetning](sammensetning.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Realisering](realisering.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Abstraksjon](abstraksjon.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Avhengighet](avhengighet.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Samling](samling.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [Valg](valg.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [AlleAv](alleav.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
+| [NoenAv](noenav.md) | [danner_symmetri_med](danner_symmetri_med.md) | range | [Eigenskap](eigenskap.md) |
 
 
 

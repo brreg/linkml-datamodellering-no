@@ -22,7 +22,7 @@ Alias: forersPaaVitnemaal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: forersPaaVitnemaal
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Fraversregistrering](Fraversregistrering.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Fraversregistrering](fraversregistrering.md) |
 | Slot URI | [utd:forersPaaVitnemaal](https://schema.fintlabs.no/utdanning/forersPaaVitnemaal) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: forersPaaVitnemaal
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fraversregistrering](Fraversregistrering.md) |
+| Owner | [Fraversregistrering](fraversregistrering.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: forersPaaVitnemaal
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

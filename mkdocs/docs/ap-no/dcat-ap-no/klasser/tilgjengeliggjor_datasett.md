@@ -22,7 +22,7 @@ Alias: tilgjengeliggjor_datasett
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilgjengeliggjor_datasett
 
 | Property | Value |
 | --- | --- |
-| Range | [Datasett](Datasett.md) |
-| Domain Of | [Datatjeneste](Datatjeneste.md) |
+| Range | [Datasett](datasett.md) |
+| Domain Of | [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:servesDataset](http://www.w3.org/ns/dcat#servesDataset) |
 
 ### Cardinality and Requirements

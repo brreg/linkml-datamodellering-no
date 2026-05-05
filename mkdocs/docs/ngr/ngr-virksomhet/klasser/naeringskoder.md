@@ -17,7 +17,7 @@ Alias: naeringskoder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
+| [VirksomhetContainer](virksomhetcontainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: naeringskoder
 
 | Property | Value |
 | --- | --- |
-| Range | [Naeringskode](Naeringskode.md) |
-| Domain Of | [VirksomhetContainer](VirksomhetContainer.md) |
+| Range | [Naeringskode](naeringskode.md) |
+| Domain Of | [VirksomhetContainer](virksomhetcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: naeringskoder
 
 | Property | Value |
 | --- | --- |
-| Owner | [VirksomhetContainer](VirksomhetContainer.md) |
+| Owner | [VirksomhetContainer](virksomhetcontainer.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Karakterskala](Karakterskala.md) | Skala for karaktersetjing (t |  no  |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Karakterverdi](Karakterverdi.md) |
-| Domain Of | [Karakterskala](Karakterskala.md) |
+| Range | [Karakterverdi](karakterverdi.md) |
+| Domain Of | [Karakterskala](karakterskala.md) |
 | Slot URI | [utd:verdi](https://schema.fintlabs.no/utdanning/verdi) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: verdi
 
 | Property | Value |
 | --- | --- |
-| Owner | [Karakterskala](Karakterskala.md) |
+| Owner | [Karakterskala](karakterskala.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: verdi
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

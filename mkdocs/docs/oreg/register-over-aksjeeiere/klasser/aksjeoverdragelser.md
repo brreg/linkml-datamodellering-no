@@ -22,7 +22,7 @@ Alias: aksjeoverdragelser
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: aksjeoverdragelser
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjeoverdragelse](Aksjeoverdragelse.md) |
-| Domain | [Containerklasse](Containerklasse.md) |
-| Domain Of | [Containerklasse](Containerklasse.md) |
+| Range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
+| Domain | [Containerklasse](containerklasse.md) |
+| Domain Of | [Containerklasse](containerklasse.md) |
 
 ### Cardinality and Requirements
 

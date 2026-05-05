@@ -164,8 +164,8 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [anbefalt_term](anbefalt_term.md) | 1..* <br/> [LangString](LangString.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
-| [er_i_klassifikasjon](er_i_klassifikasjon.md) | 1 <br/> [Klassifikasjon](Klassifikasjon.md) | Klassifikasjonen kategorien tilhøyrer (skos:inScheme) |
+| [anbefalt_term](anbefalt_term.md) | 1..* <br/> [LangString](langstring.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
+| [er_i_klassifikasjon](er_i_klassifikasjon.md) | 1 <br/> [Klassifikasjon](klassifikasjon.md) | Klassifikasjonen kategorien tilhøyrer (skos:inScheme) |
 
 
 
@@ -212,9 +212,9 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilhorande_klassifikasjonsnivaa](tilhorande_klassifikasjonsnivaa.md) | 0..1 <br/> [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Klassifikasjonsnivå kategorien høyrer til (xkos:belongsTo) |
-| [overordna_kategori](overordna_kategori.md) | * <br/> [Kategori](Kategori.md) | Overordna kategori (skos:broader) |
-| [underordna_kategori](underordna_kategori.md) | * <br/> [Kategori](Kategori.md) | Underordna kategori (skos:narrower) |
+| [tilhorande_klassifikasjonsnivaa](tilhorande_klassifikasjonsnivaa.md) | 0..1 <br/> [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Klassifikasjonsnivå kategorien høyrer til (xkos:belongsTo) |
+| [overordna_kategori](overordna_kategori.md) | * <br/> [Kategori](kategori.md) | Overordna kategori (skos:broader) |
+| [underordna_kategori](underordna_kategori.md) | * <br/> [Kategori](kategori.md) | Underordna kategori (skos:narrower) |
 
 
 
@@ -263,10 +263,10 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_notat](har_notat.md) | * <br/> [LangString](LangString.md) | Fritekstnotat om kategorien (skos:note) |
-| [er_ekvivalent_med](er_ekvivalent_med.md) | * <br/> [Kategori](Kategori.md) | Breid ekvivalens til kategori i annan klassifikasjon (uneskos:broadMatch) |
-| [er_eksklusivt_ekvivalent_med](er_eksklusivt_ekvivalent_med.md) | * <br/> [Kategori](Kategori.md) | Eksklusiv breid ekvivalens (xkos:exclusivelyBroadMatch) |
-| [er_ikkje_ekvivalent_med](er_ikkje_ekvivalent_med.md) | * <br/> [Kategori](Kategori.md) | Klar ikkje-ekvivalens til kategori i annan klassifikasjon (xkos:disjointMatch... |
+| [har_notat](har_notat.md) | * <br/> [LangString](langstring.md) | Fritekstnotat om kategorien (skos:note) |
+| [er_ekvivalent_med](er_ekvivalent_med.md) | * <br/> [Kategori](kategori.md) | Breid ekvivalens til kategori i annan klassifikasjon (uneskos:broadMatch) |
+| [er_eksklusivt_ekvivalent_med](er_eksklusivt_ekvivalent_med.md) | * <br/> [Kategori](kategori.md) | Eksklusiv breid ekvivalens (xkos:exclusivelyBroadMatch) |
+| [er_ikkje_ekvivalent_med](er_ikkje_ekvivalent_med.md) | * <br/> [Kategori](kategori.md) | Klar ikkje-ekvivalens til kategori i annan klassifikasjon (xkos:disjointMatch... |
 
 
 
@@ -402,7 +402,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -415,14 +415,14 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | [har_medlem](har_medlem.md) | range | [Kategori](Kategori.md) |
-| [Kategori](Kategori.md) | [overordna_kategori](overordna_kategori.md) | range | [Kategori](Kategori.md) |
-| [Kategori](Kategori.md) | [underordna_kategori](underordna_kategori.md) | range | [Kategori](Kategori.md) |
-| [Kategori](Kategori.md) | [er_ekvivalent_med](er_ekvivalent_med.md) | range | [Kategori](Kategori.md) |
-| [Kategori](Kategori.md) | [er_eksklusivt_ekvivalent_med](er_eksklusivt_ekvivalent_med.md) | range | [Kategori](Kategori.md) |
-| [Kategori](Kategori.md) | [er_ikkje_ekvivalent_med](er_ikkje_ekvivalent_med.md) | range | [Kategori](Kategori.md) |
-| [Kategorisamanlikning](Kategorisamanlikning.md) | [kjeldeomgrep](kjeldeomgrep.md) | range | [Kategori](Kategori.md) |
-| [Kategorisamanlikning](Kategorisamanlikning.md) | [maalomgrep](maalomgrep.md) | range | [Kategori](Kategori.md) |
+| [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | [har_medlem](har_medlem.md) | range | [Kategori](kategori.md) |
+| [Kategori](kategori.md) | [overordna_kategori](overordna_kategori.md) | range | [Kategori](kategori.md) |
+| [Kategori](kategori.md) | [underordna_kategori](underordna_kategori.md) | range | [Kategori](kategori.md) |
+| [Kategori](kategori.md) | [er_ekvivalent_med](er_ekvivalent_med.md) | range | [Kategori](kategori.md) |
+| [Kategori](kategori.md) | [er_eksklusivt_ekvivalent_med](er_eksklusivt_ekvivalent_med.md) | range | [Kategori](kategori.md) |
+| [Kategori](kategori.md) | [er_ikkje_ekvivalent_med](er_ikkje_ekvivalent_med.md) | range | [Kategori](kategori.md) |
+| [Kategorisamanlikning](kategorisamanlikning.md) | [kjeldeomgrep](kjeldeomgrep.md) | range | [Kategori](kategori.md) |
+| [Kategorisamanlikning](kategorisamanlikning.md) | [maalomgrep](maalomgrep.md) | range | [Kategori](kategori.md) |
 
 
 

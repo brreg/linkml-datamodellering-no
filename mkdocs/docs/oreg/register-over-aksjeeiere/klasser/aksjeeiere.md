@@ -22,7 +22,7 @@ Alias: aksjeeiere
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: aksjeeiere
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjeeier](Aksjeeier.md) |
-| Domain | [Containerklasse](Containerklasse.md) |
-| Domain Of | [Containerklasse](Containerklasse.md) |
+| Range | [Aksjeeier](aksjeeier.md) |
+| Domain | [Containerklasse](containerklasse.md) |
+| Domain Of | [Containerklasse](containerklasse.md) |
 
 ### Cardinality and Requirements
 

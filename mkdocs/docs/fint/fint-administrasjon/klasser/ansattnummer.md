@@ -22,7 +22,7 @@ Alias: ansattnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ansattnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:ansattnummer](https://schema.fintlabs.no/administrasjon/ansattnummer) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: ansattnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: ansattnummer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

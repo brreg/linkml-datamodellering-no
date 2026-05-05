@@ -22,7 +22,7 @@ Alias: grunnkretsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Grunnkrets](Grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
+| [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: grunnkretsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Grunnkrets](Grunnkrets.md) |
+| Range | [String](string.md) |
+| Domain Of | [Grunnkrets](grunnkrets.md) |
 | Slot URI | [ngr:grunnkretsnummer](https://data.norge.no/vocabulary/ngr-adresse#grunnkretsnummer) |
 
 ### Cardinality and Requirements

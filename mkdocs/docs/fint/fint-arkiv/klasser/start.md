@@ -22,7 +22,7 @@ Alias: start
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: start
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Periode](Periode.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Periode](periode.md) |
 | Slot URI | [fint:start](https://schema.fintlabs.no/start) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: start
 
 | Property | Value |
 | --- | --- |
-| Owner | [Periode](Periode.md) |
+| Owner | [Periode](periode.md) |
 
 
 

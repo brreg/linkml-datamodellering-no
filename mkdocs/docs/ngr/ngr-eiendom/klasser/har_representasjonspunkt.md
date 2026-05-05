@@ -22,7 +22,7 @@ Alias: har_representasjonspunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_representasjonspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Representasjonspunkt](Representasjonspunkt.md) |
-| Domain Of | [Bygning](Bygning.md) |
+| Range | [Representasjonspunkt](representasjonspunkt.md) |
+| Domain Of | [Bygning](bygning.md) |
 | Slot URI | [ngre:harRepresentasjonspunkt](https://data.norge.no/vocabulary/ngr-eiendom#harRepresentasjonspunkt) |
 
 ### Cardinality and Requirements

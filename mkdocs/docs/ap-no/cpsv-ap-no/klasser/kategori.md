@@ -22,7 +22,7 @@ Alias: kategori
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktpunkt](Kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
+| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kategori
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktpunkt](Kontaktpunkt.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktpunkt](kontaktpunkt.md) |
 | Slot URI | [vcard:category](http://www.w3.org/2006/vcard/ns#category) |
 
 ### Cardinality and Requirements

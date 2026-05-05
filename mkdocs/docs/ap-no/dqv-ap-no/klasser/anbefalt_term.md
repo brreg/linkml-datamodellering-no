@@ -26,7 +26,7 @@ Alias: anbefalt_term
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
+| Range | [LangString](langstring.md) |
 | Slot URI | [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel) |
 
 ### Cardinality and Requirements

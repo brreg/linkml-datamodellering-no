@@ -22,7 +22,7 @@ Alias: fylke
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fylke
 
 | Property | Value |
 | --- | --- |
-| Range | [Fylke](Fylke.md) |
-| Domain Of | [Kommune](Kommune.md) |
+| Range | [Fylke](fylke.md) |
+| Domain Of | [Kommune](kommune.md) |
 | Slot URI | [fint:fylke](https://schema.fintlabs.no/fylke) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fylke
 
 | Property | Value |
 | --- | --- |
-| Owner | [Kommune](Kommune.md) |
+| Owner | [Kommune](kommune.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fylke
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: kan_vaere_aksjeoverdragelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: kan_vaere_aksjeoverdragelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjeoverdragelse](Aksjeoverdragelse.md) |
-| Domain | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
-| Domain Of | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
+| Range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
+| Domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
+| Domain Of | [Eierskapstransaksjon](eierskapstransaksjon.md) |
 
 ### Cardinality and Requirements
 

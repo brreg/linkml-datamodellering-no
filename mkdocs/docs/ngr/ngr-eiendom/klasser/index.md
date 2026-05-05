@@ -12,48 +12,48 @@ Name: ngr-eiendom
 
 | Class | Description |
 | --- | --- |
-| [Andel](Andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |
-| [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |
-| [Borettslag](Borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |
-| [Borettslagsandel](Borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |
-| [Bruksenhet](Bruksenhet.md) | Ei brukseining (leilegheit, kontor o |
-| [Bruksenhetsnummer](Bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |
-| [Bruksnummer](Bruksnummer.md) | Bruksnummer innanfor gardsnamnet |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |
-| [Bygningsnummer](Bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |
-| [Eierforhold](Eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TinglystEierforhold](TinglystEierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
-| [Etasje](Etasje.md) | Ei etasje i ein bygning |
-| [FastEiendom](FastEiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |
-| [Festenummer](Festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |
-| [Gaardsnummer](Gaardsnummer.md) | Gårdsnummer innanfor kommunen |
-| [Hjemmel](Hjemmel.md) | Abstrakt klasse for heimelsdokument |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFesterett](HjemmelTilFesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining i Einingsregisteret |
-| [Kommune](Kommune.md) | Norsk kommune |
-| [Kommunenummer](Kommunenummer.md) | Firesifra kommunenummer (t |
-| [Matrikkelenhet](Matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Anleggseiendom](Anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eierseksjon](Eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Festegrunn](Festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunneiendom](Grunneiendom.md) | Den vanlegaste typen matrikkelenheit |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Jordsameie](Jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |
-| [Matrikkelnummer](Matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |
-| [OffisiellAdresse](OffisiellAdresse.md) | Offisiell adresse tildelt av kommunen |
-| [Person](Person.md) | Ein fysisk person |
-| [Representasjonspunkt](Representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |
-| [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |
-| [Rettighetshaver](Rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |
-| [SamletFastEiendom](SamletFastEiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |
-| [Seksjonsnummer](Seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |
-| [Teig](Teig.md) | Eit samanhengande areal med same type grenser |
-| [TinglystHeftelse](TinglystHeftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |
-| [YtreInngang](YtreInngang.md) | Ytre inngang til ein bygning |
+| [Andel](andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |
+| [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |
+| [Borettslag](borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |
+| [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |
+| [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |
+| [Bruksnummer](bruksnummer.md) | Bruksnummer innanfor gardsnamnet |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |
+| [Bygningsnummer](bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |
+| [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
+| [Etasje](etasje.md) | Ei etasje i ein bygning |
+| [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |
+| [Festenummer](festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |
+| [Gaardsnummer](gaardsnummer.md) | Gårdsnummer innanfor kommunen |
+| [Hjemmel](hjemmel.md) | Abstrakt klasse for heimelsdokument |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining i Einingsregisteret |
+| [Kommune](kommune.md) | Norsk kommune |
+| [Kommunenummer](kommunenummer.md) | Firesifra kommunenummer (t |
+| [Matrikkelenhet](matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Anleggseiendom](anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AnnenMatrikkelenhet](annenmatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Festegrunn](festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunneiendom](grunneiendom.md) | Den vanlegaste typen matrikkelenheit |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |
+| [Matrikkelnummer](matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |
+| [OffisiellAdresse](offisielladresse.md) | Offisiell adresse tildelt av kommunen |
+| [Person](person.md) | Ein fysisk person |
+| [Representasjonspunkt](representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |
+| [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |
+| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |
+| [SamletFastEiendom](samletfasteiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |
+| [Seksjonsnummer](seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |
+| [Teig](teig.md) | Eit samanhengande areal med same type grenser |
+| [TinglystHeftelse](tinglystheftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |
+| [YtreInngang](ytreinngang.md) | Ytre inngang til ein bygning |
 
 
 
@@ -62,7 +62,7 @@ Name: ngr-eiendom
 | Slot | Description |
 | --- | --- |
 | [andeler](andeler.md) |  |
-| [andreMatrikkelenheter](andreMatrikkelenheter.md) |  |
+| [andreMatrikkelenheter](andrematrikkelenheter.md) |  |
 | [anleggseiendommer](anleggseiendommer.md) |  |
 | [bestar_av_bruksnummer](bestar_av_bruksnummer.md) | Bruksnummerdelen av matrikkelnummeret |
 | [bestar_av_bygning](bestar_av_bygning.md) | Bygning(ar) som inngår i denne faste eigedommen |
@@ -88,7 +88,7 @@ Name: ngr-eiendom
 | [etasjenummer](etasjenummer.md) | Etasjenummer (t |
 | [etasjeplan](etasjeplan.md) | Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M) |
 | [etasjer](etasjer.md) |  |
-| [fasteEiendommer](fasteEiendommer.md) |  |
+| [fasteEiendommer](fasteeiendommer.md) |  |
 | [festegrunn](festegrunn.md) |  |
 | [festenummer_verdi](festenummer_verdi.md) | Festenummer (0 |
 | [gaardsnummer_verdi](gaardsnummer_verdi.md) | Gårdsnummer innanfor kommunen |
@@ -111,13 +111,13 @@ Name: ngr-eiendom
 | [har_teig](har_teig.md) | Teigen(e) som tilhøyrer matrikkeleininga |
 | [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | Tinglyste heftingar knytt til eigedommen eller burettslagsandelen |
 | [har_ytre_inngang](har_ytre_inngang.md) | Ytre inngang(ar) til bygningen |
-| [hjemmelEiendomsrett](hjemmelEiendomsrett.md) |  |
-| [hjemmelFesterett](hjemmelFesterett.md) |  |
-| [hjemmelFramfesterett](hjemmelFramfesterett.md) |  |
+| [hjemmelEiendomsrett](hjemmeleiendomsrett.md) |  |
+| [hjemmelFesterett](hjemmelfesterett.md) |  |
+| [hjemmelFramfesterett](hjemmelframfesterett.md) |  |
 | [id](id.md) | URI-identifikator for ressursen |
 | [identifiseres_av](identifiseres_av.md) | Matrikkeleininga som identifiserer denne faste eigedommen |
 | [identifiseres_med](identifiseres_med.md) | Matrikkelnummeret som identifiserer matrikkeleininga |
-| [ikkeTinglystEierforhold](ikkeTinglystEierforhold.md) |  |
+| [ikkeTinglystEierforhold](ikketinglysteierforhold.md) |  |
 | [jordsameier](jordsameier.md) |  |
 | [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | Burettslagsandelen dette eigarforholdet eventuelt gjeld |
 | [kan_vaere_pa](kan_vaere_pa.md) | Matrikkeleininga denne eininga ligg på eller er knytt til |
@@ -136,47 +136,47 @@ Name: ngr-eiendom
 | [seksjonsnummer_verdi](seksjonsnummer_verdi.md) | Seksjonsnummer (0 |
 | [teiger](teiger.md) |  |
 | [tilhoerer_borettslag](tilhoerer_borettslag.md) | Burettslagsandelen tilhøyrer dette burettslaget |
-| [tinglystEierforhold](tinglystEierforhold.md) |  |
-| [tinglystHeftelser](tinglystHeftelser.md) |  |
-| [ytreInnganger](ytreInnganger.md) |  |
+| [tinglystEierforhold](tinglysteierforhold.md) |  |
+| [tinglystHeftelser](tinglystheftelser.md) |  |
+| [ytreInnganger](ytreinnganger.md) |  |
 
 
 ## Enumerations
 
 | Enumeration | Description |
 | --- | --- |
-| [Etasjeplan](Etasjeplan.md) | Kode for kva del av bygningen ei brukseining ligg i |
+| [Etasjeplan](etasjeplan.md) | Kode for kva del av bygningen ei brukseining ligg i |
 
 
 ## Types
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
-| [Obligatorisk](Obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
-| [Valgfri](Valgfri.md) | Valfrie eigenskapar i domenemodellen |
+| [Anbefalt](anbefalt.md) | Anbefalte eigenskapar i domenemodellen |
+| [Obligatorisk](obligatorisk.md) | Obligatoriske eigenskapar i domenemodellen |
+| [Valgfri](valgfri.md) | Valfrie eigenskapar i domenemodellen |

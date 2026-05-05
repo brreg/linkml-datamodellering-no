@@ -22,7 +22,7 @@ Alias: bostedsadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bostedsadresse
 
 | Property | Value |
 | --- | --- |
-| Range | [Adresse](Adresse.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Adresse](adresse.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:bostedsadresse](https://schema.fintlabs.no/bostedsadresse) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: bostedsadresse
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: bostedsadresse
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

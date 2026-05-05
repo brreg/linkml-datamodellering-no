@@ -22,7 +22,7 @@ Alias: tilgangsprotokoll
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tilgangsmetadata](Tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |  yes  |
+| [Tilgangsmetadata](tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilgangsprotokoll
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Tilgangsmetadata](Tilgangsmetadata.md) |
+| Range | [String](string.md) |
+| Domain Of | [Tilgangsmetadata](tilgangsmetadata.md) |
 | Slot URI | [fair:tilgangsprotokoll](https://data.norge.no/fair#tilgangsprotokoll) |
 
 ### Cardinality and Requirements

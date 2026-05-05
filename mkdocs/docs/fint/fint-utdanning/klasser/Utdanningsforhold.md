@@ -37,7 +37,7 @@ URI: [utd:Utdanningsforhold](https://schema.fintlabs.no/utdanning/Utdanningsforh
 
 ## Inheritance
 * **Utdanningsforhold**
-    * [Undervisningsforhold](Undervisningsforhold.md)
+    * [Undervisningsforhold](undervisningsforhold.md)
 
 
 ## Class Properties
@@ -105,8 +105,8 @@ URI: [utd:Utdanningsforhold](https://schema.fintlabs.no/utdanning/Utdanningsforh
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) | Skildring av utdanningsforholdet |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Skildring av utdanningsforholdet |
 
 
 

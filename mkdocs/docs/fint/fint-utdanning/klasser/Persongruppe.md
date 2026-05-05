@@ -22,7 +22,7 @@ Alias: persongruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Persongruppemedlemskap](Persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
+| [Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: persongruppe
 
 | Property | Value |
 | --- | --- |
-| Range | [Persongruppe](Persongruppe.md) |
-| Domain Of | [Persongruppemedlemskap](Persongruppemedlemskap.md) |
+| Range | [Persongruppe](persongruppe.md) |
+| Domain Of | [Persongruppemedlemskap](persongruppemedlemskap.md) |
 | Slot URI | [utd:persongruppe](https://schema.fintlabs.no/utdanning/persongruppe) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: persongruppe
 
 | Property | Value |
 | --- | --- |
-| Owner | [Persongruppemedlemskap](Persongruppemedlemskap.md) |
+| Owner | [Persongruppemedlemskap](persongruppemedlemskap.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: persongruppe
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

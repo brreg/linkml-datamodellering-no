@@ -22,7 +22,7 @@ Alias: maks_inklusiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EnkelType](EnkelType.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
+| [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: maks_inklusiv
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [EnkelType](EnkelType.md) |
+| Range | [String](string.md) |
+| Domain Of | [EnkelType](enkeltype.md) |
 | Slot URI | [xsd:maxInclusive](http://www.w3.org/2001/XMLSchema#maxInclusive) |
 
 ### Cardinality and Requirements

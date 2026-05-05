@@ -22,7 +22,7 @@ Alias: rettighet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identitet](Identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |  no  |
+| [Identitet](identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rettighet
 
 | Property | Value |
 | --- | --- |
-| Range | [Rettighet](Rettighet.md) |
-| Domain Of | [Identitet](Identitet.md) |
+| Range | [Rettighet](rettighet.md) |
+| Domain Of | [Identitet](identitet.md) |
 | Slot URI | [res:rettighet](https://schema.fintlabs.no/ressurs/rettighet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: rettighet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Identitet](Identitet.md) |
+| Owner | [Identitet](identitet.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: rettighet
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

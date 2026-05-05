@@ -22,8 +22,8 @@ Alias: lisens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: lisens
 
 | Property | Value |
 | --- | --- |
-| Range | [Lisensdokument](Lisensdokument.md) |
-| Domain Of | [Modelkatalog](Modelkatalog.md), [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Lisensdokument](lisensdokument.md) |
+| Domain Of | [Modelkatalog](modelkatalog.md), [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:license](http://purl.org/dc/terms/license) |
 
 ### Cardinality and Requirements

@@ -76,9 +76,9 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
 
 ## Inheritance
 * **OrdensvurderingAbstrakt**
-    * [Halvaarsordensvurdering](Halvaarsordensvurdering.md)
-    * [Sluttordensvurdering](Sluttordensvurdering.md)
-    * [Underveisordensvurdering](Underveisordensvurdering.md)
+    * [Halvaarsordensvurdering](halvaarsordensvurdering.md)
+    * [Sluttordensvurdering](sluttordensvurdering.md)
+    * [Underveisordensvurdering](underveisordensvurdering.md)
 
 
 ## Class Properties
@@ -210,12 +210,12 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [kommentar](kommentar.md) | 1 <br/> [String](String.md) | Kommentar til vurderinga |
-| [vurderingsdato](vurderingsdato.md) | 1 <br/> [Datetime](Datetime.md) | Dato og tidspunkt for vurderinga |
-| [atferd](atferd.md) | 0..1 <br/> [Karakterverdi](Karakterverdi.md) | Karakterverdi for åtferd |
-| [orden](orden.md) | 0..1 <br/> [Karakterverdi](Karakterverdi.md) | Karakterverdi for orden |
-| [skoleaar](skoleaar.md) | 0..1 <br/> [Skoleaar](Skoleaar.md) | Skoleåret vurderinga tilhøyrer |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kommentar](kommentar.md) | 1 <br/> [String](string.md) | Kommentar til vurderinga |
+| [vurderingsdato](vurderingsdato.md) | 1 <br/> [Datetime](datetime.md) | Dato og tidspunkt for vurderinga |
+| [atferd](atferd.md) | 0..1 <br/> [Karakterverdi](karakterverdi.md) | Karakterverdi for åtferd |
+| [orden](orden.md) | 0..1 <br/> [Karakterverdi](karakterverdi.md) | Karakterverdi for orden |
+| [skoleaar](skoleaar.md) | 0..1 <br/> [Skoleaar](skoleaar.md) | Skoleåret vurderinga tilhøyrer |
 
 
 

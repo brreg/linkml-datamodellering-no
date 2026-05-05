@@ -22,8 +22,8 @@ Alias: adresseomrade_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adressekode](Adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  no  |
-| [Adressenavn](Adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
+| [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
+| [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: adresseomrade_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Adresseomrade](Adresseomrade.md) |
-| Domain Of | [Adressenavn](Adressenavn.md), [Adressekode](Adressekode.md) |
+| Range | [Adresseomrade](adresseomrade.md) |
+| Domain Of | [Adressenavn](adressenavn.md), [Adressekode](adressekode.md) |
 | Slot URI | [ngr:harAdresseomrade](https://data.norge.no/vocabulary/ngr-adresse#harAdresseomrade) |
 
 ### Cardinality and Requirements

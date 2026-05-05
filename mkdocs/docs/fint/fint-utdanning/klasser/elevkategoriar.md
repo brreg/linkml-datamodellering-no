@@ -17,7 +17,7 @@ Alias: elevkategoriar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: elevkategoriar
 
 | Property | Value |
 | --- | --- |
-| Range | [Elevkategori](Elevkategori.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md) |
+| Range | [Elevkategori](elevkategori.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: elevkategoriar
 
 | Property | Value |
 | --- | --- |
-| Owner | [UtdanningContainer](UtdanningContainer.md) |
+| Owner | [UtdanningContainer](utdanningcontainer.md) |
 
 
 

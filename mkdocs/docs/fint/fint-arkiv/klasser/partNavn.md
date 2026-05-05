@@ -22,7 +22,7 @@ Alias: partNavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Part](Part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: partNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Part](Part.md) |
+| Range | [String](string.md) |
+| Domain Of | [Part](part.md) |
 | Slot URI | [ark:partNavn](https://schema.fintlabs.no/arkiv/partNavn) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: partNavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Part](Part.md) |
+| Owner | [Part](part.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: partNavn
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

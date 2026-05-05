@@ -22,7 +22,7 @@ Alias: fylkesnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fylke](Fylke.md) | Eit norsk fylke |  yes  |
+| [Fylke](fylke.md) | Eit norsk fylke |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fylkesnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fylke](Fylke.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fylke](fylke.md) |
 | Slot URI | [ngr:fylkesnummer](https://data.norge.no/vocabulary/ngr-adresse#fylkesnummer) |
 
 ### Cardinality and Requirements

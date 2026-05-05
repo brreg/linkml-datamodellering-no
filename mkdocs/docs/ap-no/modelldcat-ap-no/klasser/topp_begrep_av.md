@@ -22,7 +22,7 @@ Alias: topp_begrep_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  yes  |
+| [Kodeelement](kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: topp_begrep_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Kodeliste](Kodeliste.md) |
-| Domain Of | [Kodeelement](Kodeelement.md) |
+| Range | [Kodeliste](kodeliste.md) |
+| Domain Of | [Kodeelement](kodeelement.md) |
 | Slot URI | [skos:topConceptOf](http://www.w3.org/2004/02/skos/core#topConceptOf) |
 
 ### Cardinality and Requirements

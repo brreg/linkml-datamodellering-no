@@ -22,8 +22,8 @@ Alias: nokkelord
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
-| [Registrering](Registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: nokkelord
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Registrering](Registrering.md) |
+| Range | [String](string.md) |
+| Domain Of | [Registrering](registrering.md) |
 | Slot URI | [ark:nokkelord](https://schema.fintlabs.no/arkiv/nokkelord) |
 
 ### Cardinality and Requirements
@@ -49,7 +49,7 @@ Alias: nokkelord
 
 | Property | Value |
 | --- | --- |
-| Owner | [Registrering](Registrering.md) |
+| Owner | [Registrering](registrering.md) |
 
 
 
@@ -61,7 +61,7 @@ Alias: nokkelord
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

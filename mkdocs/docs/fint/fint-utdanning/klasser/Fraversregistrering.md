@@ -17,8 +17,8 @@ Alias: fraversregistrering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Elevfravar](Elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  no  |
+| [Elevfravar](elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: fraversregistrering
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Elevfravar](Elevfravar.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Elevfravar](elevfravar.md) |
 
 ### Cardinality and Requirements
 

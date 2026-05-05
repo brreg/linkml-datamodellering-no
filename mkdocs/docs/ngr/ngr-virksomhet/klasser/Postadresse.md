@@ -32,7 +32,7 @@ URI: [ngrv:Postadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Postadre
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **Postadresse**
 
 
@@ -70,7 +70,7 @@ URI: [ngrv:Postadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Postadre
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -80,10 +80,10 @@ URI: [ngrv:Postadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Postadre
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [postadresser](postadresser.md) | range | [Postadresse](Postadresse.md) |
-| [Virksomhet](Virksomhet.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](Postadresse.md) |
-| [Underenhet](Underenhet.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](Postadresse.md) |
-| [Hovedenhet](Hovedenhet.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](Postadresse.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [postadresser](postadresser.md) | range | [Postadresse](postadresse.md) |
+| [Virksomhet](virksomhet.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](postadresse.md) |
+| [Underenhet](underenhet.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](postadresse.md) |
+| [Hovedenhet](hovedenhet.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](postadresse.md) |
 
 
 

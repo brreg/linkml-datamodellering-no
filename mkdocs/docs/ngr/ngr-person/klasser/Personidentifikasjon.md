@@ -66,8 +66,8 @@ URI: [ngrp:Personidentifikasjon](https://data.norge.no/vocabulary/ngr-person#Per
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikasjonstype](identifikasjonstype.md) | 1 <br/> [String](String.md) | Type utanlandsk identifikasjon (t |
-| [identifikatornummer](identifikatornummer.md) | 1 <br/> [String](String.md) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
+| [identifikasjonstype](identifikasjonstype.md) | 1 <br/> [String](string.md) | Type utanlandsk identifikasjon (t |
+| [identifikatornummer](identifikatornummer.md) | 1 <br/> [String](string.md) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
 
 
 
@@ -138,7 +138,7 @@ URI: [ngrp:Personidentifikasjon](https://data.norge.no/vocabulary/ngr-person#Per
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -151,8 +151,8 @@ URI: [ngrp:Personidentifikasjon](https://data.norge.no/vocabulary/ngr-person#Per
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [personidentifikasjonar](personidentifikasjonar.md) | range | [Personidentifikasjon](Personidentifikasjon.md) |
-| [Person](Person.md) | [har_personidentifikasjon](har_personidentifikasjon.md) | range | [Personidentifikasjon](Personidentifikasjon.md) |
+| [PersonContainer](personcontainer.md) | [personidentifikasjonar](personidentifikasjonar.md) | range | [Personidentifikasjon](personidentifikasjon.md) |
+| [Person](person.md) | [har_personidentifikasjon](har_personidentifikasjon.md) | range | [Personidentifikasjon](personidentifikasjon.md) |
 
 
 

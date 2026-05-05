@@ -1,0 +1,1304 @@
+
+
+# Class: Katalog 
+
+
+_Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar._
+
+
+
+
+
+URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Katalog
+    click Katalog href "../Katalog/"
+      KatalogisertRessurs <|-- Katalog
+        click KatalogisertRessurs href "../KatalogisertRessurs/"
+      
+      Katalog : beskrivelse
+        
+      Katalog : datasett
+        
+          
+    
+        
+        
+        Katalog --> "*" Datasett : datasett
+        click Datasett href "../Datasett/"
+    
+
+        
+      Katalog : datatjeneste
+        
+          
+    
+        
+        
+        Katalog --> "*" Datatjeneste : datatjeneste
+        click Datatjeneste href "../Datatjeneste/"
+    
+
+        
+      Katalog : dekningsomrade
+        
+          
+    
+        
+        
+        Katalog --> "*" Konsept : dekningsomrade
+        click Konsept href "../Konsept/"
+    
+
+        
+      Katalog : endringsdato
+        
+      Katalog : gjeldende_lovgivning
+        
+          
+    
+        
+        
+        Katalog --> "*" RegulativRessurs : gjeldende_lovgivning
+        click RegulativRessurs href "../RegulativRessurs/"
+    
+
+        
+      Katalog : har_del
+        
+          
+    
+        
+        
+        Katalog --> "*" Katalog : har_del
+        click Katalog href "../Katalog/"
+    
+
+        
+      Katalog : heimeside
+        
+      Katalog : id
+        
+      Katalog : identifikator_literal
+        
+      Katalog : katalogpost
+        
+          
+    
+        
+        
+        Katalog --> "*" Katalogpost : katalogpost
+        click Katalogpost href "../Katalogpost/"
+    
+
+        
+      Katalog : kontaktpunkt
+        
+          
+    
+        
+        
+        Katalog --> "1..*" Kontaktopplysning : kontaktpunkt
+        click Kontaktopplysning href "../Kontaktopplysning/"
+    
+
+        
+      Katalog : lisens
+        
+          
+    
+        
+        
+        Katalog --> "0..1" Konsept : lisens
+        click Konsept href "../Konsept/"
+    
+
+        
+      Katalog : produsent
+        
+          
+    
+        
+        
+        Katalog --> "0..1" Aktor : produsent
+        click Aktor href "../Aktor/"
+    
+
+        
+      Katalog : rettigheter
+        
+          
+    
+        
+        
+        Katalog --> "0..1" Rettighetserklaring : rettigheter
+        click Rettighetserklaring href "../Rettighetserklaring/"
+    
+
+        
+      Katalog : sprak
+        
+          
+    
+        
+        
+        Katalog --> "*" Spraak : sprak
+        click Spraak href "../Spraak/"
+    
+
+        
+      Katalog : temaer
+        
+          
+    
+        
+        
+        Katalog --> "*" Begrepssamling : temaer
+        click Begrepssamling href "../Begrepssamling/"
+    
+
+        
+      Katalog : tidsrom
+        
+          
+    
+        
+        
+        Katalog --> "*" Tidsrom : tidsrom
+        click Tidsrom href "../Tidsrom/"
+    
+
+        
+      Katalog : tittel
+        
+      Katalog : underkatalog
+        
+          
+    
+        
+        
+        Katalog --> "*" Katalog : underkatalog
+        click Katalog href "../Katalog/"
+    
+
+        
+      Katalog : utgivelsesdato
+        
+      Katalog : utgiver
+        
+          
+    
+        
+        
+        Katalog --> "1" Aktor : utgiver
+        click Aktor href "../Aktor/"
+    
+
+        
+      
+```
+
+
+
+
+
+## Inheritance
+* [KatalogisertRessurs](katalogisertressurs.md)
+    * **Katalog**
+
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+### Obligatorisk
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for hendvendelsar om ressursen |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren som er ansvarleg for å tilgjengeleggjere ressursen |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+    
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+### Anbefalt
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [datasett](datasett.md) | * <br/> [Datasett](datasett.md) | Datasett som er del av katalogen |
+| [datatjeneste](datatjeneste.md) | * <br/> [Datatjeneste](datatjeneste.md) | Datatjeneste som er del av katalogen |
+| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [lisens](lisens.md) | 0..1 <br/> [Konsept](konsept.md) | Lisens for bruk av ressursen |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [temaer](temaer.md) | * <br/> [Begrepssamling](begrepssamling.md) | Temavokabular som vert brukt i katalogen |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+    
+      
+    
+      
+    
+      
+    
+  
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Lovgjeving som gjeld for ressursen |
+| [har_del](har_del.md) | * <br/> [Katalog](katalog.md) | Delkatalog inkludert i denne katalogen |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [underkatalog](underkatalog.md) | * <br/> [Katalog](katalog.md) | Katalog som er ein del av denne katalogen |
+| [katalogpost](katalogpost.md) | * <br/> [Katalogpost](katalogpost.md) | Katalogpostar i katalogen |
+| [produsent](produsent.md) | 0..1 <br/> [Aktor](aktor.md) | Aktøren som primært har skapt ressursen |
+| [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](rettighetserklaring.md) | Rettar knytte til ressursen |
+| [tidsrom](tidsrom.md) | * <br/> [Tidsrom](tidsrom.md) | Tidsperiode ressursen dekkar |
+
+
+
+
+### Arva
+
+| Namn | Kardinalitet og domene | Beskriving | Frå |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [KatalogisertRessurs](katalogisertressurs.md) |
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Katalog](katalog.md) | [har_del](har_del.md) | range | [Katalog](katalog.md) |
+| [Katalog](katalog.md) | [underkatalog](underkatalog.md) | range | [Katalog](katalog.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/samt-bu-skole
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dcat:Catalog |
+| native | samtbuskole:Katalog |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Katalog
+description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
+  katalogar.
+from_schema: https://example.no/ontology/samt-bu-skole
+is_a: KatalogisertRessurs
+slots:
+- beskrivelse
+- kontaktpunkt
+- tittel
+- utgiver
+- datasett
+- datatjeneste
+- dekningsomrade
+- endringsdato
+- heimeside
+- lisens
+- sprak
+- temaer
+- utgivelsesdato
+- gjeldende_lovgivning
+- har_del
+- identifikator_literal
+- underkatalog
+- katalogpost
+- produsent
+- rettigheter
+- tidsrom
+slot_usage:
+  beskrivelse:
+    name: beskrivelse
+    in_subset:
+    - Obligatorisk
+    required: true
+  kontaktpunkt:
+    name: kontaktpunkt
+    in_subset:
+    - Obligatorisk
+    required: true
+  tittel:
+    name: tittel
+    in_subset:
+    - Obligatorisk
+    required: true
+  utgiver:
+    name: utgiver
+    in_subset:
+    - Obligatorisk
+    required: true
+  datasett:
+    name: datasett
+    in_subset:
+    - Anbefalt
+  datatjeneste:
+    name: datatjeneste
+    in_subset:
+    - Anbefalt
+  dekningsomrade:
+    name: dekningsomrade
+    in_subset:
+    - Anbefalt
+  endringsdato:
+    name: endringsdato
+    in_subset:
+    - Anbefalt
+  heimeside:
+    name: heimeside
+    in_subset:
+    - Anbefalt
+  lisens:
+    name: lisens
+    in_subset:
+    - Anbefalt
+  sprak:
+    name: sprak
+    in_subset:
+    - Anbefalt
+  temaer:
+    name: temaer
+    in_subset:
+    - Anbefalt
+  utgivelsesdato:
+    name: utgivelsesdato
+    in_subset:
+    - Anbefalt
+class_uri: dcat:Catalog
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Katalog
+description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
+  katalogar.
+from_schema: https://example.no/ontology/samt-bu-skole
+is_a: KatalogisertRessurs
+slot_usage:
+  beskrivelse:
+    name: beskrivelse
+    in_subset:
+    - Obligatorisk
+    required: true
+  kontaktpunkt:
+    name: kontaktpunkt
+    in_subset:
+    - Obligatorisk
+    required: true
+  tittel:
+    name: tittel
+    in_subset:
+    - Obligatorisk
+    required: true
+  utgiver:
+    name: utgiver
+    in_subset:
+    - Obligatorisk
+    required: true
+  datasett:
+    name: datasett
+    in_subset:
+    - Anbefalt
+  datatjeneste:
+    name: datatjeneste
+    in_subset:
+    - Anbefalt
+  dekningsomrade:
+    name: dekningsomrade
+    in_subset:
+    - Anbefalt
+  endringsdato:
+    name: endringsdato
+    in_subset:
+    - Anbefalt
+  heimeside:
+    name: heimeside
+    in_subset:
+    - Anbefalt
+  lisens:
+    name: lisens
+    in_subset:
+    - Anbefalt
+  sprak:
+    name: sprak
+    in_subset:
+    - Anbefalt
+  temaer:
+    name: temaer
+    in_subset:
+    - Anbefalt
+  utgivelsesdato:
+    name: utgivelsesdato
+    in_subset:
+    - Anbefalt
+attributes:
+  beskrivelse:
+    name: beskrivelse
+    description: Fritekstbeskrivelse av ressursen (dct:description).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:description
+    alias: beskrivelse
+    owner: Katalog
+    domain_of:
+    - RegulativRessurs
+    - Gebyr
+    - Distribusjon
+    - Datasett
+    - Datasettserie
+    - Datatjeneste
+    - Katalogpost
+    - Katalog
+    range: LangString
+    required: true
+    multivalued: true
+  kontaktpunkt:
+    name: kontaktpunkt
+    description: Kontaktinformasjon for hendvendelsar om ressursen.
+    in_subset:
+    - Obligatorisk
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dcat:contactPoint
+    alias: kontaktpunkt
+    owner: Katalog
+    domain_of:
+    - Datasett
+    - Datasettserie
+    - Datatjeneste
+    - Katalog
+    range: Kontaktopplysning
+    required: true
+    multivalued: true
+  tittel:
+    name: tittel
+    description: Namn/tittel på ressursen (dct:title).
+    in_subset:
+    - Obligatorisk
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:title
+    alias: tittel
+    owner: Katalog
+    domain_of:
+    - Standard
+    - RegulativRessurs
+    - Distribusjon
+    - Datasett
+    - Datasettserie
+    - Datatjeneste
+    - Katalogpost
+    - Katalog
+    range: LangString
+    required: true
+    multivalued: true
+  utgiver:
+    name: utgiver
+    description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
+    in_subset:
+    - Obligatorisk
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:publisher
+    alias: utgiver
+    owner: Katalog
+    domain_of:
+    - Datasett
+    - Datasettserie
+    - Datatjeneste
+    - Katalog
+    range: Aktor
+    required: true
+  datasett:
+    name: datasett
+    description: Datasett som er del av katalogen.
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dcat:dataset
+    alias: datasett
+    owner: Katalog
+    domain_of:
+    - Katalog
+    range: Datasett
+    multivalued: true
+  datatjeneste:
+    name: datatjeneste
+    description: Datatjeneste som er del av katalogen.
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dcat:service
+    alias: datatjeneste
+    owner: Katalog
+    domain_of:
+    - Katalog
+    range: Datatjeneste
+    multivalued: true
+  dekningsomrade:
+    name: dekningsomrade
+    description: Geografisk dekningsområde (dct:spatial).
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:spatial
+    alias: dekningsomrade
+    owner: Katalog
+    domain_of:
+    - Datasett
+    - Datasettserie
+    - Katalog
+    range: Konsept
+    multivalued: true
+  endringsdato:
+    name: endringsdato
+    description: Dato for siste endring av ressursen (dct:modified).
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:modified
+    alias: endringsdato
+    owner: Katalog
+    domain_of:
+    - Distribusjon
+    - Datasett
+    - Datasettserie
+    - Katalogpost
+    - Katalog
+    range: date
+  heimeside:
+    name: heimeside
+    description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: foaf:homepage
+    alias: heimeside
+    owner: Katalog
+    domain_of:
+    - Katalog
+    range: uri
+    multivalued: true
+  lisens:
+    name: lisens
+    description: Lisens for bruk av ressursen.
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:license
+    alias: lisens
+    owner: Katalog
+    domain_of:
+    - Distribusjon
+    - Datatjeneste
+    - Katalog
+    range: Konsept
+  sprak:
+    name: sprak
+    description: Språk brukt i ressursen (dct:language).
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:language
+    alias: sprak
+    owner: Katalog
+    domain_of:
+    - RegulativRessurs
+    - Distribusjon
+    - Datasett
+    - Katalogpost
+    - Katalog
+    range: Spraak
+    multivalued: true
+  temaer:
+    name: temaer
+    description: Temavokabular som vert brukt i katalogen.
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dcat:themeTaxonomy
+    alias: temaer
+    owner: Katalog
+    domain_of:
+    - Katalog
+    range: Begrepssamling
+    multivalued: true
+  utgivelsesdato:
+    name: utgivelsesdato
+    description: Dato ressursen vart første gong publisert (dct:issued).
+    in_subset:
+    - Anbefalt
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:issued
+    alias: utgivelsesdato
+    owner: Katalog
+    domain_of:
+    - Distribusjon
+    - Datasett
+    - Datasettserie
+    - Katalogpost
+    - Katalog
+    range: date
+  gjeldende_lovgivning:
+    name: gjeldende_lovgivning
+    description: Lovgjeving som gjeld for ressursen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dcatap:applicableLegislation
+    alias: gjeldende_lovgivning
+    owner: Katalog
+    domain_of:
+    - Distribusjon
+    - Datasett
+    - Datasettserie
+    - Datatjeneste
+    - Katalog
+    range: RegulativRessurs
+    multivalued: true
+  har_del:
+    name: har_del
+    description: Delkatalog inkludert i denne katalogen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:hasPart
+    alias: har_del
+    owner: Katalog
+    domain_of:
+    - Katalog
+    range: Katalog
+    multivalued: true
+  identifikator_literal:
+    name: identifikator_literal
+    description: Tekstleg identifikator for ressursen (dct:identifier).
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:identifier
+    alias: identifikator_literal
+    owner: Katalog
+    domain_of:
+    - Aktor
+    - RegulativRessurs
+    - Datasett
+    - Datatjeneste
+    - Katalog
+    range: string
+  underkatalog:
+    name: underkatalog
+    description: Katalog som er ein del av denne katalogen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dcat:catalog
+    alias: underkatalog
+    owner: Katalog
+    domain_of:
+    - Katalog
+    range: Katalog
+    multivalued: true
+  katalogpost:
+    name: katalogpost
+    description: Katalogpostar i katalogen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dcat:record
+    alias: katalogpost
+    owner: Katalog
+    domain_of:
+    - Katalog
+    range: Katalogpost
+    multivalued: true
+  produsent:
+    name: produsent
+    description: Aktøren som primært har skapt ressursen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:creator
+    alias: produsent
+    owner: Katalog
+    domain_of:
+    - Datasett
+    - Katalog
+    range: Aktor
+  rettigheter:
+    name: rettigheter
+    description: Rettar knytte til ressursen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:rights
+    alias: rettigheter
+    owner: Katalog
+    domain_of:
+    - Distribusjon
+    - Datatjeneste
+    - Katalog
+    range: Rettighetserklaring
+  tidsrom:
+    name: tidsrom
+    description: Tidsperiode ressursen dekkar.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: dct:temporal
+    alias: tidsrom
+    owner: Katalog
+    domain_of:
+    - Datasett
+    - Datasettserie
+    - Katalog
+    range: Tidsrom
+    multivalued: true
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Katalog
+    domain_of:
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Frekvens
+    - ProvenanceStatement
+    - OdrlPolicy
+    - ProvAktivitet
+    - ProvAttributering
+    - Tidsinstant
+    - KatalogisertRessurs
+    - Aktor
+    - Kontaktopplysning
+    - Tidsrom
+    - Standard
+    - RegulativRessurs
+    - Identifikator
+    - Rettighetserklaring
+    - Sjekksum
+    - Gebyr
+    - Relasjon
+    - Distribusjon
+    - Katalogpost
+    range: uriorcurie
+    required: true
+class_uri: dcat:Catalog
+
+```
+</details>

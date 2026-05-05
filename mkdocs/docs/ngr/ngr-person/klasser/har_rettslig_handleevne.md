@@ -22,7 +22,7 @@ Alias: har_rettslig_handleevne
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_rettslig_handleevne
 
 | Property | Value |
 | --- | --- |
-| Range | [RettsligHandleevne](RettsligHandleevne.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [RettsligHandleevne](rettslighandleevne.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harRettsligHandleevne](https://data.norge.no/vocabulary/ngr-person#harRettsligHandleevne) |
 
 ### Cardinality and Requirements

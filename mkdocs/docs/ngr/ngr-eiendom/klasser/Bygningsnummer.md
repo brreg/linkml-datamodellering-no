@@ -59,7 +59,7 @@ URI: [ngre:Bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bygnings
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bygningsnummer_verdi](bygningsnummer_verdi.md) | 1 <br/> [Integer](Integer.md) | Unikt bygningsnummer i Matrikkelen |
+| [bygningsnummer_verdi](bygningsnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Unikt bygningsnummer i Matrikkelen |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bygnings
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,7 +124,7 @@ URI: [ngre:Bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bygnings
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Bygning](Bygning.md) | [har_bygningsnummer](har_bygningsnummer.md) | range | [Bygningsnummer](Bygningsnummer.md) |
+| [Bygning](bygning.md) | [har_bygningsnummer](har_bygningsnummer.md) | range | [Bygningsnummer](bygningsnummer.md) |
 
 
 

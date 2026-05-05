@@ -22,8 +22,8 @@ Alias: er_spesifisert_i
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
-| [Tjenesteresultattype](Tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
+| [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: er_spesifisert_i
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Dokumentasjonstype](Dokumentasjonstype.md), [Tjenesteresultattype](Tjenesteresultattype.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Dokumentasjonstype](dokumentasjonstype.md), [Tjenesteresultattype](tjenesteresultattype.md) |
 | Slot URI | [cv:isSpecifiedIn](http://data.europa.eu/m8g/isSpecifiedIn) |
 
 ### Cardinality and Requirements

@@ -22,8 +22,8 @@ Alias: tilgjengelighet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: tilgjengelighet
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Distribusjon](Distribusjon.md), [Datatjeneste](Datatjeneste.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcatap:availability](http://data.europa.eu/r5r/availability) |
 
 ### Cardinality and Requirements

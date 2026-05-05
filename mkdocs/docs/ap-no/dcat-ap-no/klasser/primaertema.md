@@ -22,7 +22,7 @@ Alias: primaertema
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalogpost](Katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: primaertema
 
 | Property | Value |
 | --- | --- |
-| Range | [KatalogisertRessurs](KatalogisertRessurs.md) |
-| Domain Of | [Katalogpost](Katalogpost.md) |
+| Range | [KatalogisertRessurs](katalogisertressurs.md) |
+| Domain Of | [Katalogpost](katalogpost.md) |
 | Slot URI | [foaf:primaryTopic](http://xmlns.com/foaf/0.1/primaryTopic) |
 
 ### Cardinality and Requirements

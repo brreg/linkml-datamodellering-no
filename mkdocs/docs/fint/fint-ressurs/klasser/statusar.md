@@ -17,7 +17,7 @@ Alias: statusar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RessursContainer](RessursContainer.md) | Rotcontainer for FINT Ressurs-instansar |  no  |
+| [RessursContainer](ressurscontainer.md) | Rotcontainer for FINT Ressurs-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: statusar
 
 | Property | Value |
 | --- | --- |
-| Range | [Status](Status.md) |
-| Domain Of | [RessursContainer](RessursContainer.md) |
+| Range | [Status](status.md) |
+| Domain Of | [RessursContainer](ressurscontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: statusar
 
 | Property | Value |
 | --- | --- |
-| Owner | [RessursContainer](RessursContainer.md) |
+| Owner | [RessursContainer](ressurscontainer.md) |
 
 
 

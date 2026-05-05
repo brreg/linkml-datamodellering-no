@@ -22,7 +22,7 @@ Alias: identitetsgrunnlag_kilde
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identitetsgrunnlag](Identitetsgrunnlag.md) | Grunnlaget som er brukt for å fastsetje identiteten til ein person ved regist... |  yes  |
+| [Identitetsgrunnlag](identitetsgrunnlag.md) | Grunnlaget som er brukt for å fastsetje identiteten til ein person ved regist... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: identitetsgrunnlag_kilde
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Identitetsgrunnlag](Identitetsgrunnlag.md) |
+| Range | [String](string.md) |
+| Domain Of | [Identitetsgrunnlag](identitetsgrunnlag.md) |
 | Slot URI | [ngrp:identitetsgrunnlagKilde](https://data.norge.no/vocabulary/ngr-person#identitetsgrunnlagKilde) |
 
 ### Cardinality and Requirements

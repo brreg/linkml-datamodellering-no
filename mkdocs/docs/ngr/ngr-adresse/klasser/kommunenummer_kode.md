@@ -22,7 +22,7 @@ Alias: kommunenummer_kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](Kommune.md) | Ein norsk kommune |  yes  |
+| [Kommune](kommune.md) | Ein norsk kommune |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kommunenummer_kode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kommune](Kommune.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kommune](kommune.md) |
 | Slot URI | [ngr:kommunenummer](https://data.norge.no/vocabulary/ngr-adresse#kommunenummer) |
 
 ### Cardinality and Requirements

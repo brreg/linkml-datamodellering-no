@@ -17,7 +17,7 @@ Alias: samtykker
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonvernContainer](PersonvernContainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
+| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: samtykker
 
 | Property | Value |
 | --- | --- |
-| Range | [Samtykke](Samtykke.md) |
-| Domain Of | [PersonvernContainer](PersonvernContainer.md) |
+| Range | [Samtykke](samtykke.md) |
+| Domain Of | [PersonvernContainer](personverncontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: samtykker
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonvernContainer](PersonvernContainer.md) |
+| Owner | [PersonvernContainer](personverncontainer.md) |
 
 
 

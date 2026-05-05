@@ -22,7 +22,7 @@ Alias: kjoenn_kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kjoenn](Kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |  yes  |
+| [Kjoenn](kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kjoenn_kode
 
 | Property | Value |
 | --- | --- |
-| Range | [KjoennKode](KjoennKode.md) |
-| Domain Of | [Kjoenn](Kjoenn.md) |
+| Range | [KjoennKode](kjoennkode.md) |
+| Domain Of | [Kjoenn](kjoenn.md) |
 | Slot URI | [ngrp:kjoennKode](https://data.norge.no/vocabulary/ngr-person#kjoennKode) |
 
 ### Cardinality and Requirements

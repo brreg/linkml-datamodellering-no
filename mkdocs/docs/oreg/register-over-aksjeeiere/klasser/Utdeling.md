@@ -89,8 +89,8 @@ URI: [aksje:Utdeling](https://example.no/ontology/aksje#Utdeling)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [belop](belop.md) | 0..1 <br/> [Decimal](Decimal.md) | Monetært beløp |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [belop](belop.md) | 0..1 <br/> [Decimal](decimal.md) | Monetært beløp |
 
 
 
@@ -103,8 +103,8 @@ URI: [aksje:Utdeling](https://example.no/ontology/aksje#Utdeling)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [utdelinger](utdelinger.md) | range | [Utdeling](Utdeling.md) |
-| [Utbytte](Utbytte.md) | [har_utdeling](har_utdeling.md) | range | [Utdeling](Utdeling.md) |
+| [Containerklasse](containerklasse.md) | [utdelinger](utdelinger.md) | range | [Utdeling](utdeling.md) |
+| [Utbytte](utbytte.md) | [har_utdeling](har_utdeling.md) | range | [Utdeling](utdeling.md) |
 
 
 

@@ -5,7 +5,7 @@ _Eigenskapar knytt til FAIR R-prinsippa (Reusable)._
 
 
 
-URI: [Reusable](Reusable.md)
+URI: [Reusable](reusable.md)
 
 
 

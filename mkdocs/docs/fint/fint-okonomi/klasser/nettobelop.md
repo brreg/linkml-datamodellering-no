@@ -22,7 +22,7 @@ Alias: nettobelop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nettobelop
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Fakturagrunnlag](fakturagrunnlag.md) |
 | Slot URI | [okn:nettobelop](https://schema.fintlabs.no/okonomi/nettobelop) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: nettobelop
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Owner | [Fakturagrunnlag](fakturagrunnlag.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: nettobelop
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

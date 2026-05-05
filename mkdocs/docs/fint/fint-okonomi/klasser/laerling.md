@@ -17,8 +17,8 @@ Alias: laerling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: laerling
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Person](Person.md), [Virksomhet](Virksomhet.md) |
+| Range | [String](string.md) |
+| Domain Of | [Person](person.md), [Virksomhet](virksomhet.md) |
 
 ### Cardinality and Requirements
 

@@ -59,7 +59,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [notasjon](notasjon.md) | 1 <br/> [String](String.md) | Notasjon/kode for identifikatoren |
+| [notasjon](notasjon.md) | 1 <br/> [String](string.md) | Notasjon/kode for identifikatoren |
 
 
 
@@ -111,7 +111,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,7 +124,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [annen_identifikator](annen_identifikator.md) | range | [Identifikator](Identifikator.md) |
+| [Datasett](datasett.md) | [annen_identifikator](annen_identifikator.md) | range | [Identifikator](identifikator.md) |
 
 
 

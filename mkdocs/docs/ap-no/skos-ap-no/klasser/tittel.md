@@ -22,7 +22,7 @@ Alias: tittel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tittel
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Samling](Samling.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Samling](samling.md) |
 | Slot URI | [dct:title](http://purl.org/dc/terms/title) |
 
 ### Cardinality and Requirements

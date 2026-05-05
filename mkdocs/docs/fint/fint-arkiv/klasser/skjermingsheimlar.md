@@ -17,7 +17,7 @@ Alias: skjermingsheimlar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ArkivContainer](ArkivContainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
+| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: skjermingsheimlar
 
 | Property | Value |
 | --- | --- |
-| Range | [Skjermingshjemmel](Skjermingshjemmel.md) |
-| Domain Of | [ArkivContainer](ArkivContainer.md) |
+| Range | [Skjermingshjemmel](skjermingshjemmel.md) |
+| Domain Of | [ArkivContainer](arkivcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: skjermingsheimlar
 
 | Property | Value |
 | --- | --- |
-| Owner | [ArkivContainer](ArkivContainer.md) |
+| Owner | [ArkivContainer](arkivcontainer.md) |
 
 
 

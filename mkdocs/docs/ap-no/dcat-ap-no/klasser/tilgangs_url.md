@@ -22,7 +22,7 @@ Alias: tilgangs_url
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilgangs_url
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Distribusjon](Distribusjon.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) |
 
 ### Cardinality and Requirements

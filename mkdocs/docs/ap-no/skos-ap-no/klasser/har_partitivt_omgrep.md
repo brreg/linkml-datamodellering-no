@@ -22,7 +22,7 @@ Alias: har_partitivt_omgrep
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PartitivRelasjon](PartitivRelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
+| [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_partitivt_omgrep
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [PartitivRelasjon](PartitivRelasjon.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [PartitivRelasjon](partitivrelasjon.md) |
 | Slot URI | [skosno:hasPartitiveConcept](https://data.norge.no/vocabulary/skosno#hasPartitiveConcept) |
 
 ### Cardinality and Requirements

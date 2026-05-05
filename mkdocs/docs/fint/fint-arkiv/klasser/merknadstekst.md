@@ -22,7 +22,7 @@ Alias: merknadstekst
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Merknad](Merknad.md) | Merknad knytt til mappe, registrering eller dokumentbeskrivelse |  no  |
+| [Merknad](merknad.md) | Merknad knytt til mappe, registrering eller dokumentbeskrivelse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: merknadstekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Merknad](Merknad.md) |
+| Range | [String](string.md) |
+| Domain Of | [Merknad](merknad.md) |
 | Slot URI | [ark:merknadstekst](https://schema.fintlabs.no/arkiv/merknadstekst) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: merknadstekst
 
 | Property | Value |
 | --- | --- |
-| Owner | [Merknad](Merknad.md) |
+| Owner | [Merknad](merknad.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: merknadstekst
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

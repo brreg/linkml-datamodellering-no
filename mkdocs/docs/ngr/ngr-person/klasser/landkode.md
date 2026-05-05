@@ -22,7 +22,7 @@ Alias: landkode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Statsborgerskap](Statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |  yes  |
+| [Statsborgerskap](statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: landkode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Statsborgerskap](Statsborgerskap.md) |
+| Range | [String](string.md) |
+| Domain Of | [Statsborgerskap](statsborgerskap.md) |
 | Slot URI | [ngrp:landkode](https://data.norge.no/vocabulary/ngr-person#landkode) |
 
 ### Cardinality and Requirements

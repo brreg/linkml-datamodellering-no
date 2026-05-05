@@ -17,8 +17,8 @@ Alias: personalressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md), [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 

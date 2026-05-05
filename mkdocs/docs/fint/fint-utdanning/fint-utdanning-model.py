@@ -1,5 +1,5 @@
 # Auto generated from fint-utdanning-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-04T20:07:44
+# Generation date: 2026-05-05T13:28:11
 # Schema: fint-utdanning
 #
 # id: https://data.norge.no/linkml/fint-utdanning

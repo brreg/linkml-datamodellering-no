@@ -22,7 +22,7 @@ Alias: skoleeierType
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skoleeierType
 
 | Property | Value |
 | --- | --- |
-| Range | [Skoleeiertype](Skoleeiertype.md) |
-| Domain Of | [Skole](Skole.md) |
+| Range | [Skoleeiertype](skoleeiertype.md) |
+| Domain Of | [Skole](skole.md) |
 | Slot URI | [utd:skoleeierType](https://schema.fintlabs.no/utdanning/skoleeierType) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: skoleeierType
 
 | Property | Value |
 | --- | --- |
-| Owner | [Skole](Skole.md) |
+| Owner | [Skole](skole.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: skoleeierType
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: personstatus_type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personstatus](Personstatus.md) | Status for ein person i Folkeregisteret (t |  yes  |
+| [Personstatus](personstatus.md) | Status for ein person i Folkeregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: personstatus_type
 
 | Property | Value |
 | --- | --- |
-| Range | [PersonstatusType](PersonstatusType.md) |
-| Domain Of | [Personstatus](Personstatus.md) |
+| Range | [PersonstatusType](personstatustype.md) |
+| Domain Of | [Personstatus](personstatus.md) |
 | Slot URI | [ngrp:personstatusType](https://data.norge.no/vocabulary/ngr-person#personstatusType) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: er_i_klassifikasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
+| [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_i_klassifikasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Klassifikasjon](Klassifikasjon.md) |
-| Domain Of | [Kategori](Kategori.md) |
+| Range | [Klassifikasjon](klassifikasjon.md) |
+| Domain Of | [Kategori](kategori.md) |
 | Slot URI | [skos:inScheme](http://www.w3.org/2004/02/skos/core#inScheme) |
 
 ### Cardinality and Requirements

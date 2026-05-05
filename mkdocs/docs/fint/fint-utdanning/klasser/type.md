@@ -17,9 +17,9 @@ Alias: type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Varsel](Varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
-| [OtStatus](OtStatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: type
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Varsel](Varsel.md), [OtStatus](OtStatus.md), [Kontaktperson](Kontaktperson.md) |
+| Range | [String](string.md) |
+| Domain Of | [Varsel](varsel.md), [OtStatus](otstatus.md), [Kontaktperson](kontaktperson.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: policy
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: policy
 
 | Property | Value |
 | --- | --- |
-| Range | [OdrlPolicy](OdrlPolicy.md) |
-| Domain Of | [Distribusjon](Distribusjon.md) |
+| Range | [OdrlPolicy](odrlpolicy.md) |
+| Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [odrl:hasPolicy](http://www.w3.org/ns/odrl/2/hasPolicy) |
 
 ### Cardinality and Requirements

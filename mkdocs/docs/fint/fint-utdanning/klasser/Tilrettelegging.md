@@ -17,10 +17,10 @@ Alias: tilrettelegging
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
-| [Elevtilrettelegging](Elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  no  |
+| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: tilrettelegging
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Elevforhold](Elevforhold.md), [Elevtilrettelegging](Elevtilrettelegging.md), [Fag](Fag.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Elevforhold](elevforhold.md), [Elevtilrettelegging](elevtilrettelegging.md), [Fag](fag.md) |
 
 ### Cardinality and Requirements
 

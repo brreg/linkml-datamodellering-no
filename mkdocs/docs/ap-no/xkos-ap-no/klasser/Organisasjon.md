@@ -78,7 +78,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](Organisasjon.md) |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](Organisasjon.md) |
+| [Klassifikasjon](klassifikasjon.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](organisasjon.md) |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](organisasjon.md) |
 
 
 

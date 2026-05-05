@@ -187,7 +187,7 @@ URI: [fint:Person](https://schema.fintlabs.no/Person)
 
 
 ## Inheritance
-* [Aktoer](Aktoer.md)
+* [Aktoer](aktoer.md)
     * **Person**
 
 
@@ -512,24 +512,24 @@ URI: [fint:Person](https://schema.fintlabs.no/Person)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator (tilsvarar systemId i FINT) |
-| [bilde](bilde.md) | 0..1 <br/> [String](String.md) | HTTP(S)-lenkje til eit bilete av personen |
-| [bostedsadresse](bostedsadresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Folkeregistrert adresse til personen |
-| [fodselsdato](fodselsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for fødsel |
-| [fodselsnummer](fodselsnummer.md) | 1 <br/> [Identifikator](Identifikator.md) | Fødselsnummer eller ein av dei fiktive variantane |
-| [navn](navn.md) | 1 <br/> [Personnavn](Personnavn.md) | Namn på personen |
-| [parorende](parorende.md) | * <br/> [Kontaktperson](Kontaktperson.md) | Pårørande kontaktperson til personen |
-| [statsborgerskap](statsborgerskap.md) | * <br/> [Landkode](Landkode.md) | Alle statsborgarskap personen har |
-| [kommune](kommune.md) | 0..1 <br/> [Kommune](Kommune.md) | Kommune der personen er busett |
-| [kjonn](kjonn.md) | 0..1 <br/> [Kjonn](Kjonn.md) | Kjønn for personen |
-| [foreldreansvar](foreldreansvar.md) | * <br/> [Person](Person.md) | Personar denne personen har foreldreansvar for |
-| [foreldre](foreldre.md) | * <br/> [Person](Person.md) | Den/dei som har foreldreansvar til personen |
-| [maalform](maalform.md) | 0..1 <br/> [Spraak](Spraak.md) | Målform personen føretrekkjer |
-| [personalressurs](personalressurs.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Personalressurs (Administrasjon) |
-| [morsmaal](morsmaal.md) | 0..1 <br/> [Spraak](Spraak.md) | Morsmål til personen |
-| [laerling](laerling.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Laerling (Utdanning) |
-| [elev](elev.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Elev (Utdanning) |
-| [otungdom](otungdom.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til OtUngdom (Utdanning) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [bilde](bilde.md) | 0..1 <br/> [String](string.md) | HTTP(S)-lenkje til eit bilete av personen |
+| [bostedsadresse](bostedsadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Folkeregistrert adresse til personen |
+| [fodselsdato](fodselsdato.md) | 0..1 <br/> [Date](date.md) | Dato for fødsel |
+| [fodselsnummer](fodselsnummer.md) | 1 <br/> [Identifikator](identifikator.md) | Fødselsnummer eller ein av dei fiktive variantane |
+| [navn](navn.md) | 1 <br/> [Personnavn](personnavn.md) | Namn på personen |
+| [parorende](parorende.md) | * <br/> [Kontaktperson](kontaktperson.md) | Pårørande kontaktperson til personen |
+| [statsborgerskap](statsborgerskap.md) | * <br/> [Landkode](landkode.md) | Alle statsborgarskap personen har |
+| [kommune](kommune.md) | 0..1 <br/> [Kommune](kommune.md) | Kommune der personen er busett |
+| [kjonn](kjonn.md) | 0..1 <br/> [Kjonn](kjonn.md) | Kjønn for personen |
+| [foreldreansvar](foreldreansvar.md) | * <br/> [Person](person.md) | Personar denne personen har foreldreansvar for |
+| [foreldre](foreldre.md) | * <br/> [Person](person.md) | Den/dei som har foreldreansvar til personen |
+| [maalform](maalform.md) | 0..1 <br/> [Spraak](spraak.md) | Målform personen føretrekkjer |
+| [personalressurs](personalressurs.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Personalressurs (Administrasjon) |
+| [morsmaal](morsmaal.md) | 0..1 <br/> [Spraak](spraak.md) | Morsmål til personen |
+| [laerling](laerling.md) | * <br/> [Uriorcurie](uriorcurie.md) | Referanse til Laerling (Utdanning) |
+| [elev](elev.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Elev (Utdanning) |
+| [otungdom](otungdom.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til OtUngdom (Utdanning) |
 
 
 
@@ -537,8 +537,8 @@ URI: [fint:Person](https://schema.fintlabs.no/Person)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](Kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør | [Aktoer](Aktoer.md) |
-| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Informasjon om postadresse til ein aktør | [Aktoer](Aktoer.md) |
+| --- | --- | --- | --- || [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør | [Aktoer](aktoer.md) |
+| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Informasjon om postadresse til ein aktør | [Aktoer](aktoer.md) |
 
 
 
@@ -548,9 +548,9 @@ URI: [fint:Person](https://schema.fintlabs.no/Person)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Person](Person.md) | [foreldreansvar](foreldreansvar.md) | range | [Person](Person.md) |
-| [Person](Person.md) | [foreldre](foreldre.md) | range | [Person](Person.md) |
-| [Kontaktperson](Kontaktperson.md) | [kontaktperson](kontaktperson.md) | range | [Person](Person.md) |
+| [Person](person.md) | [foreldreansvar](foreldreansvar.md) | range | [Person](person.md) |
+| [Person](person.md) | [foreldre](foreldre.md) | range | [Person](person.md) |
+| [Kontaktperson](kontaktperson.md) | [kontaktperson](kontaktperson.md) | range | [Person](person.md) |
 
 
 
@@ -1082,7 +1082,7 @@ attributes:
     range: uriorcurie
   id:
     name: id
-    description: URI-identifikator (tilsvarar systemId i FINT).
+    description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     identifier: true

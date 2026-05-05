@@ -22,7 +22,7 @@ Alias: har_utenlandsk_identifikasjonsdokument
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_utenlandsk_identifikasjonsdokument
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikasjonsdokument](Identifikasjonsdokument.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Identifikasjonsdokument](identifikasjonsdokument.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harUtenlandskIdentifikasjonsdokument](https://data.norge.no/vocabulary/ngr-person#harUtenlandskIdentifikasjonsdokument) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: har_rolle_i_virksomhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_rolle_i_virksomhet
 
 | Property | Value |
 | --- | --- |
-| Range | [RolleIVirksomhet](RolleIVirksomhet.md) |
-| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Range | [RolleIVirksomhet](rolleivirksomhet.md) |
+| Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:harRolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#harRolleIVirksomhet) |
 
 ### Cardinality and Requirements

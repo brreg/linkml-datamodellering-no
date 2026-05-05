@@ -17,7 +17,7 @@ Alias: kirkesokn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
+| [AdresseContainer](adressecontainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: kirkesokn
 
 | Property | Value |
 | --- | --- |
-| Range | [Kirkesokn](Kirkesokn.md) |
-| Domain Of | [AdresseContainer](AdresseContainer.md) |
+| Range | [Kirkesokn](kirkesokn.md) |
+| Domain Of | [AdresseContainer](adressecontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: kirkesokn
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdresseContainer](AdresseContainer.md) |
+| Owner | [AdresseContainer](adressecontainer.md) |
 
 
 

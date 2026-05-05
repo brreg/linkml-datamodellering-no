@@ -17,10 +17,10 @@ Alias: elev
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Persongruppe](Persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
-| [Elevtilrettelegging](Elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  no  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: elev
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Elevforhold](Elevforhold.md), [Elevtilrettelegging](Elevtilrettelegging.md), [Persongruppe](Persongruppe.md), [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [Elevforhold](elevforhold.md), [Elevtilrettelegging](elevtilrettelegging.md), [Persongruppe](persongruppe.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 

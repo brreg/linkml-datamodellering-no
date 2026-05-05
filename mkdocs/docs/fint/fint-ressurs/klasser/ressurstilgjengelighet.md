@@ -22,7 +22,7 @@ Alias: ressurstilgjengelighet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ressurstilgjengelighet
 
 | Property | Value |
 | --- | --- |
-| Range | [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Range | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:ressurstilgjengelighet](https://schema.fintlabs.no/ressurs/ressurstilgjengelighet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: ressurstilgjengelighet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Owner | [Applikasjonsressurs](applikasjonsressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: ressurstilgjengelighet
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: mellomnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personnavn](Personnavn.md) | Offisielt registrert namn på ein person i Folkeregisteret |  yes  |
+| [Personnavn](personnavn.md) | Offisielt registrert namn på ein person i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: mellomnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Personnavn](Personnavn.md) |
+| Range | [String](string.md) |
+| Domain Of | [Personnavn](personnavn.md) |
 | Slot URI | [ngrp:mellomnavn](https://data.norge.no/vocabulary/ngr-person#mellomnavn) |
 
 ### Cardinality and Requirements

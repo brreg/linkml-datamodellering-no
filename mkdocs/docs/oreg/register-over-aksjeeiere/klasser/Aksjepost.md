@@ -116,9 +116,9 @@ URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [Integer](Integer.md) | Tal aksjar |
-| [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](Aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [Integer](integer.md) | Tal aksjar |
+| [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
 
 
 
@@ -131,8 +131,8 @@ URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeposter](aksjeposter.md) | range | [Aksjepost](Aksjepost.md) |
-| [Eierposisjon](Eierposisjon.md) | [gjelder_aksjepost](gjelder_aksjepost.md) | range | [Aksjepost](Aksjepost.md) |
+| [Containerklasse](containerklasse.md) | [aksjeposter](aksjeposter.md) | range | [Aksjepost](aksjepost.md) |
+| [Eierposisjon](eierposisjon.md) | [gjelder_aksjepost](gjelder_aksjepost.md) | range | [Aksjepost](aksjepost.md) |
 
 
 

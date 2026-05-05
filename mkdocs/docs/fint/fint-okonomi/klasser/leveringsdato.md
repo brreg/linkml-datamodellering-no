@@ -22,7 +22,7 @@ Alias: leveringsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: leveringsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Fakturagrunnlag](fakturagrunnlag.md) |
 | Slot URI | [okn:leveringsdato](https://schema.fintlabs.no/okonomi/leveringsdato) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: leveringsdato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Owner | [Fakturagrunnlag](fakturagrunnlag.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: leveringsdato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

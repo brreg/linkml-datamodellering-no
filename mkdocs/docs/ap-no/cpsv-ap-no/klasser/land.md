@@ -22,7 +22,7 @@ Alias: land
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adresse](Adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |  yes  |
+| [Adresse](adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: land
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Adresse](Adresse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Adresse](adresse.md) |
 | Slot URI | [locn:adminUnitL1](http://www.w3.org/ns/locn#adminUnitL1) |
 
 ### Cardinality and Requirements

@@ -124,9 +124,9 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 
 ## Inheritance
 * **Lonn**
-    * [Fastlonn](Fastlonn.md)
-    * [Fasttillegg](Fasttillegg.md)
-    * [Variabellonn](Variabellonn.md)
+    * [Fastlonn](fastlonn.md)
+    * [Fasttillegg](fasttillegg.md)
+    * [Variabellonn](variabellonn.md)
 
 
 ## Class Properties
@@ -354,18 +354,18 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [anvist](anvist.md) | 0..1 <br/> [Datetime](Datetime.md) | Tidspunkt då lønn vart anvist |
-| [attestert](attestert.md) | 0..1 <br/> [Datetime](Datetime.md) | Tidspunkt då lønn vart attestert |
-| [beskrivelse](beskrivelse.md) | 1 <br/> [String](String.md) | Beskriving av lønn til føring på lønnslipp |
-| [kildesystemId](kildesystemId.md) | 0..1 <br/> [Identifikator](Identifikator.md) | Kjeldesystemets unike identifikator for lønn |
-| [kontert](kontert.md) | 0..1 <br/> [Datetime](Datetime.md) | Tidspunkt då lønn vart kontert |
-| [kontostreng](kontostreng.md) | 1 <br/> [Kontostreng](Kontostreng.md) | Kontering av lønn |
-| [opptjent](opptjent.md) | 0..1 <br/> [Periode](Periode.md) | Periode der lønn vart opptent |
-| [periode](periode.md) | 1 <br/> [Periode](Periode.md) | Periode lønn vert utbetalt |
-| [anviser](anviser.md) | 0..1 <br/> [Personalressurs](Personalressurs.md) | Personalressurs som har anvist lønsmeldinga etter fullmakt |
-| [konterer](konterer.md) | 0..1 <br/> [Personalressurs](Personalressurs.md) | Personalressurs som har kontert lønsmeldinga etter fullmakt |
-| [attestant](attestant.md) | 0..1 <br/> [Personalressurs](Personalressurs.md) | Personalressurs som har attestert lønsmeldinga etter fullmakt |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [anvist](anvist.md) | 0..1 <br/> [Datetime](datetime.md) | Tidspunkt då lønn vart anvist |
+| [attestert](attestert.md) | 0..1 <br/> [Datetime](datetime.md) | Tidspunkt då lønn vart attestert |
+| [beskrivelse](beskrivelse.md) | 1 <br/> [String](string.md) | Beskriving av lønn til føring på lønnslipp |
+| [kildesystemId](kildesystemid.md) | 0..1 <br/> [Identifikator](identifikator.md) | Kjeldesystemets unike identifikator for lønn |
+| [kontert](kontert.md) | 0..1 <br/> [Datetime](datetime.md) | Tidspunkt då lønn vart kontert |
+| [kontostreng](kontostreng.md) | 1 <br/> [Kontostreng](kontostreng.md) | Kontering av lønn |
+| [opptjent](opptjent.md) | 0..1 <br/> [Periode](periode.md) | Periode der lønn vart opptent |
+| [periode](periode.md) | 1 <br/> [Periode](periode.md) | Periode lønn vert utbetalt |
+| [anviser](anviser.md) | 0..1 <br/> [Personalressurs](personalressurs.md) | Personalressurs som har anvist lønsmeldinga etter fullmakt |
+| [konterer](konterer.md) | 0..1 <br/> [Personalressurs](personalressurs.md) | Personalressurs som har kontert lønsmeldinga etter fullmakt |
+| [attestant](attestant.md) | 0..1 <br/> [Personalressurs](personalressurs.md) | Personalressurs som har attestert lønsmeldinga etter fullmakt |
 
 
 

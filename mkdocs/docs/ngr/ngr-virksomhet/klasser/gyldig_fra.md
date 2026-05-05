@@ -22,7 +22,7 @@ Alias: gyldig_fra
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tilstand](Tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
+| [Tilstand](tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gyldig_fra
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Tilstand](Tilstand.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Tilstand](tilstand.md) |
 | Slot URI | [ngrv:gyldigFra](https://data.norge.no/vocabulary/ngr-virksomhet#gyldigFra) |
 
 ### Cardinality and Requirements

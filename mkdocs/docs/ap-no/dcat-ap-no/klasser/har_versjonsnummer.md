@@ -26,7 +26,7 @@ Alias: har_versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
+| Range | [String](string.md) |
 | Slot URI | [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: klassifisering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: klassifisering
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Dokumentasjonstype](Dokumentasjonstype.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Dokumentasjonstype](dokumentasjonstype.md) |
 | Slot URI | [cv:evidenceTypeClassification](http://data.europa.eu/m8g/evidenceTypeClassification) |
 
 ### Cardinality and Requirements

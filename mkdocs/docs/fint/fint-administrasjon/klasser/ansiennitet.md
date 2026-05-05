@@ -22,7 +22,7 @@ Alias: ansiennitet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ansiennitet
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:ansiennitet](https://schema.fintlabs.no/administrasjon/ansiennitet) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: ansiennitet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: ansiennitet
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

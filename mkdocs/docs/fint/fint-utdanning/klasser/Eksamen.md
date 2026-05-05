@@ -17,9 +17,9 @@ Alias: eksamen
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rom](Rom.md) | Eit rom eller lokale ved ein skule |  no  |
-| [Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [Rom](rom.md) | Eit rom eller lokale ved ein skule |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: eksamen
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Rom](Rom.md), [Eksamensgruppe](Eksamensgruppe.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Rom](rom.md), [Eksamensgruppe](eksamensgruppe.md) |
 
 ### Cardinality and Requirements
 

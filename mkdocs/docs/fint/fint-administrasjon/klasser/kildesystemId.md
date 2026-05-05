@@ -17,11 +17,11 @@ Alias: kildesystemId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Lonn](Lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
-| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
 
 
 
@@ -34,8 +34,8 @@ Alias: kildesystemId
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Lonn](Lonn.md), [Fravaer](Fravaer.md) |
+| Range | [String](string.md) |
+| Domain Of | [Lonn](lonn.md), [Fravaer](fravaer.md) |
 
 ### Cardinality and Requirements
 

@@ -15,161 +15,161 @@
 <https://data.norge.no/linkml/ngr-eiendom/EiendomContainer> a owl:Class ;
     rdfs:label "EiendomContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/rettighetshavere> ],
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/TinglystEierforhold> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystEierforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bygning> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygninger> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Eierseksjon> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/eierseksjoner> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ikkeTinglystEierforhold> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Grunneiendom> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/grunneiendommer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Representasjonspunkt> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/representasjonspunkt> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystEierforhold> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelEiendomsrett> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksenhet> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bruksenheter> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/representasjonspunkt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festegrunn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystHeftelser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/andreMatrikkelenheter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Representasjonspunkt> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/representasjonspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilFramfesterett> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFramfesterett> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilFesterett> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFesterett> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygninger> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Andel> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/andeler> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Rettighetshaver> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/rettighetshavere> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Grunneiendom> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/grunneiendommer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/andeler> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/eierseksjoner> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festegrunn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/SamletFastEiendom> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/samlinger> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Jordsameie> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/jordsameier> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslagsandeler> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Teig> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/teiger> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilEiendomsrett> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelEiendomsrett> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Rettighetshaver> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/rettighetshavere> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/YtreInngang> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ytreInnganger> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/andreMatrikkelenheter> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilFesterett> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFesterett> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/TinglystHeftelse> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystHeftelser> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygninger> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ytreInnganger> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilFramfesterett> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFramfesterett> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslag> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Borettslagsandel> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslagsandeler> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/samlinger> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/anleggseiendommer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/IkkeTinglystEierforhold> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ikkeTinglystEierforhold> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelnummer> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/matrikkelnumre> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/AnnenMatrikkelenhet> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/andreMatrikkelenheter> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/rettigheter> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/matrikkelnumre> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/teiger> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystEierforhold> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Festegrunn> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festegrunn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Etasje> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFramfesterett> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/samlinger> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Borettslag> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslag> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/rettigheter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ytreInnganger> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/teiger> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/grunneiendommer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Jordsameie> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/jordsameier> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/TinglystHeftelse> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystHeftelser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFesterett> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksenhet> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bruksenheter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilEiendomsrett> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelEiendomsrett> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/jordsameier> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/IkkeTinglystEierforhold> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ikkeTinglystEierforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/YtreInngang> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ytreInnganger> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/RettighetForAaBenytteEiendom> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/rettigheter> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystHeftelser> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/matrikkelnumre> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ikkeTinglystEierforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFramfesterett> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/fasteEiendommer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Borettslagsandel> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslagsandeler> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Anleggseiendom> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/anleggseiendommer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/AnnenMatrikkelenhet> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/andreMatrikkelenheter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/rettighetshavere> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Festegrunn> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festegrunn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslag> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslagsandeler> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Borettslag> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/borettslag> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/FastEiendom> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/fasteEiendommer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bruksenheter> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/FastEiendom> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/fasteEiendommer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/TinglystEierforhold> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tinglystEierforhold> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Andel> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/andeler> ],
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Teig> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/teiger> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/hjemmelFesterett> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelnummer> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/matrikkelnumre> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/SamletFastEiendom> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/samlinger> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/jordsameier> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Anleggseiendom> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/anleggseiendommer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/grunneiendommer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Eierseksjon> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/eierseksjoner> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bygning> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygninger> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/representasjonspunkt> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/anleggseiendommer> ] ;
     skos:definition "Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking." ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
 
@@ -190,13 +190,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/Eierseksjon> a owl:Class ;
     rdfs:label "Eierseksjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
     skos:definition "Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har einerett til å bruke ein bestemt del av eigedommen, medan heile eigedommen er i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere grunneigendom, festegrunn eller anleggseigendom." ;
@@ -206,13 +206,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/Festegrunn> a owl:Class ;
     rdfs:label "Festegrunn" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
     skos:definition "Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til. Ein festekontrakt gir eksklusiv og langvarig bruksrett til festegrunnen. Kan vere eit bestemt areal eller eit punktfeste." ;
@@ -222,13 +222,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/Grunneiendom> a owl:Class ;
     rdfs:label "Grunneiendom" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
     skos:definition "Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune." ;
@@ -245,10 +245,10 @@
 <https://data.norge.no/linkml/ngr-eiendom/Jordsameie> a owl:Class ;
     rdfs:label "Jordsameie" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_vaere_pa> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
@@ -261,20 +261,20 @@
 <https://data.norge.no/linkml/ngr-eiendom/SamletFastEiendom> a owl:Class ;
     rdfs:label "SamletFastEiendom" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/FastEiendom> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_fast_eiendom> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_fast_eiendom> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_fast_eiendom> ] ;
     skos:definition "Samling av to eller fleire faste eigedommar som er organiserte saman. Lite brukt i praksis i dag." ;
     skos:exactMatch ngre:SamletFastEiendom ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -314,13 +314,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/Anleggsprojeksjonsflate> a owl:Class ;
     rdfs:label "Anleggsprojeksjonsflate" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet og må supplerast på oppdrag." ;
     skos:exactMatch ngre:Anleggsprojeksjonsflate ;
@@ -329,41 +329,41 @@
 <https://data.norge.no/linkml/ngr-eiendom/Bruksenhetsnummer> a owl:Class ;
     rdfs:label "Bruksenhetsnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/nummerering_i_etasjen> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjeplan> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjeplan> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/:Etasjeplan> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjeplan> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/nummerering_i_etasjen> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjeplan> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/nummerering_i_etasjen> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/nummerering_i_etasjen> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjeplan> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/nummerering_i_etasjen> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/nummerering_i_etasjen> ] ;
     skos:definition "Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1 (etasjeplan + etasjenummer + nummerering)." ;
     skos:exactMatch ngre:Bruksenhetsnummer ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -371,19 +371,19 @@
 <https://data.norge.no/linkml/ngr-eiendom/Bruksnummer> a owl:Class ;
     rdfs:label "Bruksnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bruksnummer_verdi> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bruksnummer_verdi> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bruksnummer_verdi> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bruksnummer_verdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
@@ -395,23 +395,23 @@
 <https://data.norge.no/linkml/ngr-eiendom/Bygningsnummer> a owl:Class ;
     rdfs:label "Bygningsnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygningsnummer_verdi> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygningsnummer_verdi> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygningsnummer_verdi> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygningsnummer_verdi> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygningsnummer_verdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bygningsnummer_verdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Offisiell identifikator for ein bygning i Matrikkelen." ;
     skos:exactMatch ngre:Bygningsnummer ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -422,19 +422,19 @@
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festenummer_verdi> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festenummer_verdi> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festenummer_verdi> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/festenummer_verdi> ] ;
     skos:definition "Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret)." ;
     skos:exactMatch ngre:Festenummer ;
@@ -443,22 +443,22 @@
 <https://data.norge.no/linkml/ngr-eiendom/Gaardsnummer> a owl:Class ;
     rdfs:label "Gaardsnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gaardsnummer_verdi> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gaardsnummer_verdi> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gaardsnummer_verdi> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gaardsnummer_verdi> ] ;
     skos:definition "Gårdsnummer innanfor kommunen." ;
     skos:exactMatch ngre:Gaardsnummer ;
@@ -467,23 +467,23 @@
 <https://data.norge.no/linkml/ngr-eiendom/Kommune> a owl:Class ;
     rdfs:label "Kommune" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ] ;
     skos:definition "Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og forvaltast av Nasjonal inndelingsbase." ;
     skos:exactMatch ngre:Kommune ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -491,22 +491,22 @@
 <https://data.norge.no/linkml/ngr-eiendom/Kommunenummer> a owl:Class ;
     rdfs:label "Kommunenummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kommunenummer_verdi> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Firesifra kommunenummer (t.d. 0301 for Oslo)." ;
     skos:exactMatch ngre:Kommunenummer ;
@@ -515,13 +515,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/Person> a owl:Class ;
     rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Ein fysisk person. Tilhøyrer Domene person." ;
     skos:exactMatch ngre:Person ;
@@ -530,22 +530,22 @@
 <https://data.norge.no/linkml/ngr-eiendom/Seksjonsnummer> a owl:Class ;
     rdfs:label "Seksjonsnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/seksjonsnummer_verdi> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/seksjonsnummer_verdi> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/seksjonsnummer_verdi> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/seksjonsnummer_verdi> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret)." ;
     skos:exactMatch ngre:Seksjonsnummer ;
@@ -730,20 +730,20 @@
 <https://data.norge.no/linkml/ngr-eiendom/Andel> a owl:Class ;
     rdfs:label "Andel" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Rettighetshaver> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_rettighetshaver> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Rettighetshaver> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_rettighetshaver> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_rettighetshaver> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_rettighetshaver> ] ;
     skos:definition "Ein eigarandel i eit heimelsdokument (også kalt eierandel). Kvar andel har ein eller fleire rettigheitshavarar." ;
     skos:exactMatch ngre:Andel ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -751,22 +751,22 @@
 <https://data.norge.no/linkml/ngr-eiendom/Borettslag> a owl:Class ;
     rdfs:label "Borettslag" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Hovedenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Hovedenhet> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsbygningen. Burettslagsandelar tilhøyrer eit burettslag." ;
     skos:exactMatch ngre:Borettslag ;
@@ -778,32 +778,32 @@
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_tinglyst_heftelse> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tilhoerer_borettslag> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/TinglystHeftelse> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_tinglyst_heftelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tilhoerer_borettslag> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Borettslag> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tilhoerer_borettslag> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Eierforhold> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Eierforhold> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tilhoerer_borettslag> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/tilhoerer_borettslag> ] ;
     skos:definition "Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad i burettslagsbygningen." ;
     skos:exactMatch ngre:Borettslagsandel ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -811,59 +811,59 @@
 <https://data.norge.no/linkml/ngr-eiendom/Bygning> a owl:Class ;
     rdfs:label "Bygning" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bygningsnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_knyttet_til_matrikkelenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_knyttet_til_matrikkelenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_representasjonspunkt> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/YtreInngang> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_ytre_inngang> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_ytre_inngang> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_knyttet_til_matrikkelenhet> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_etasje> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksenhet> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhet> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhet> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Etasje> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_etasje> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bygningsnummer> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bygningsnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_representasjonspunkt> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Representasjonspunkt> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_representasjonspunkt> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_representasjonspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bygningsnummer> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bygningsnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bygningsnummer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_ytre_inngang> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_knyttet_til_matrikkelenhet> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_representasjonspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksenhet> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhet> ] ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Etasje> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_etasje> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_knyttet_til_matrikkelenhet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bygningsnummer> ] ;
     skos:definition "Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit og kan ha fleire ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i dag spreidd i fleire databasar." ;
     skos:exactMatch ngre:Bygning ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -871,29 +871,23 @@
 <https://data.norge.no/linkml/ngr-eiendom/FastEiendom> a owl:Class ;
     rdfs:label "FastEiendom" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bygning> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_matrikkelenhet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/RettighetForAaBenytteEiendom> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_rettighet> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_tinglyst_heftelse> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bygning> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_rettighet> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_matrikkelenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_matrikkelenhet> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Eierforhold> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_tinglyst_heftelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
@@ -901,25 +895,31 @@
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_av> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bygning> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bygning> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_rettighet> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_matrikkelenhet> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_av> ],
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Eierforhold> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/TinglystHeftelse> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_tinglyst_heftelse> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_eierforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bygning> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bygning> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_av> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_matrikkelenhet> ] ;
     skos:definition "Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast av og består av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige for å benytte eigedommen." ;
     skos:exactMatch ngre:FastEiendom ;
@@ -928,10 +928,10 @@
 <https://data.norge.no/linkml/ngr-eiendom/Hjemmel> a owl:Class ;
     rdfs:label "Hjemmel" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Andel> ;
@@ -940,7 +940,7 @@
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_andel> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset kven som har rett til eigedommen og i kva form, og består av ein eller fleire andeler med kvar sin rettigheitshavar." ;
     skos:exactMatch ngre:Hjemmel ;
@@ -970,13 +970,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/Hovedenhet> a owl:Class ;
     rdfs:label "Hovedenhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar. Tilhøyrer Domene virksomhet." ;
     skos:exactMatch ngre:Hovedenhet ;
@@ -985,59 +985,59 @@
 <https://data.norge.no/linkml/ngr-eiendom/Matrikkelnummer> a owl:Class ;
     rdfs:label "Matrikkelnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bruksnummer> ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Kommunenummer> ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_kommunenummer> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_kommunenummer> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_festenummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_seksjonsnummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Festenummer> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_festenummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bruksnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_gaardsnummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_festenummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Gaardsnummer> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_gaardsnummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_seksjonsnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksnummer> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bruksnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_festenummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Kommunenummer> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_kommunenummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Seksjonsnummer> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_seksjonsnummer> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Festenummer> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_festenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksnummer> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_bruksnummer> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_gaardsnummer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/bestar_av_kommunenummer> ] ;
     skos:definition "Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, gards-, bruks- og eventuelt feste- og seksjonsnummer." ;
     skos:exactMatch ngre:Matrikkelnummer ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -1045,13 +1045,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/OffisiellAdresse> a owl:Class ;
     rdfs:label "OffisiellAdresse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse og forvaltast av Matrikkelen via NGR-adresse." ;
     skos:exactMatch ngre:OffisiellAdresse ;
@@ -1060,41 +1060,41 @@
 <https://data.norge.no/linkml/ngr-eiendom/Representasjonspunkt> a owl:Class ;
     rdfs:label "Representasjonspunkt" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_nord> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinatsystem> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_ost> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:float ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_ost> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_nord> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinatsystem> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_nord> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_nord> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_ost> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_ost> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_ost> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_ost> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinat_nord> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinatsystem> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/koordinatsystem> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen." ;
     skos:exactMatch ngre:Representasjonspunkt ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -1102,13 +1102,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/RettighetForAaBenytteEiendom> a owl:Class ;
     rdfs:label "RettighetForAaBenytteEiendom" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse er registrerte som heftingar i Grunnboka på teneleg eigedom." ;
     skos:exactMatch ngre:RettighetForAaBenytteEiendom ;
@@ -1117,29 +1117,29 @@
 <https://data.norge.no/linkml/ngr-eiendom/Rettighetshaver> a owl:Class ;
     rdfs:label "Rettighetshaver" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Person> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Hovedenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_person> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_hovedenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_av_type_person> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
@@ -1150,17 +1150,20 @@
 <https://data.norge.no/linkml/ngr-eiendom/YtreInngang> a owl:Class ;
     rdfs:label "YtreInngang" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_bruksenhet> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_bruksenhet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/OffisiellAdresse> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ],
@@ -1169,9 +1172,6 @@
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_bruksenhet> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ] ;
     skos:definition "Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen, men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire brukseiningar." ;
     skos:exactMatch ngre:YtreInngang ;
@@ -1372,13 +1372,13 @@
 <https://data.norge.no/linkml/ngr-eiendom/TinglystHeftelse> a owl:Class ;
     rdfs:label "TinglystHeftelse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel. Nokre heftingar har avgrensa geografisk utbreiing og manglar stadfestring." ;
     skos:exactMatch ngre:TinglystHeftelse ;
@@ -1399,47 +1399,47 @@
 <https://data.norge.no/linkml/ngr-eiendom/Bruksenhet> a owl:Class ;
     rdfs:label "Bruksenhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksenhetsnummer> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhetsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_tilknyttet_matrikkelenhet> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ligger_i_etasje> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhetsnummer> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_tilknyttet_matrikkelenhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/OffisiellAdresse> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_tilknyttet_matrikkelenhet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhetsnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Bruksenhetsnummer> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhetsnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_tilknyttet_matrikkelenhet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_tilknyttet_matrikkelenhet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Etasje> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ligger_i_etasje> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ligger_i_etasje> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_offisiell_adresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_bruksenhetsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
     skos:definition "Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit bruksenheitsnummer, ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit." ;
     skos:exactMatch ngre:Bruksenhet ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -1447,38 +1447,8 @@
 <https://data.norge.no/linkml/ngr-eiendom/Eierforhold> a owl:Class ;
     rdfs:label "Eierforhold" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_matrikkelenhet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_gjelde_borettslagsandel> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_framfesterett> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_gjelde_borettslagsandel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Borettslagsandel> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_gjelde_borettslagsandel> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_festerett> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_festerett> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_framfesterett> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilFesterett> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_festerett> ],
@@ -1486,20 +1456,50 @@
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilFramfesterett> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_framfesterett> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_eiendomsrett> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_matrikkelenhet> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_eiendomsrett> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_festerett> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_matrikkelenhet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/HjemmelTilEiendomsrett> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_eiendomsrett> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_eiendomsrett> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_gjelde_borettslagsandel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_eiendomsrett> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_festerett> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_gjelde_borettslagsandel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_matrikkelenhet> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_matrikkelenhet> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_framfesterett> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/gjelder_hjemmel_framfesterett> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Borettslagsandel> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/kan_gjelde_borettslagsandel> ] ;
     skos:definition "Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarforhold gjeld éi matrikkelenheit og kan eventuelt gjelde ein burettslagsandel. Inneheld heimelsdokument som fastset kven som er eigar og på kva vilkår." ;
     skos:exactMatch ngre:Eierforhold ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -1507,23 +1507,23 @@
 <https://data.norge.no/linkml/ngr-eiendom/Etasje> a owl:Class ;
     rdfs:label "Etasje" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ] ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/etasjenummer> ] ;
     skos:definition "Ei etasje i ein bygning." ;
     skos:exactMatch ngre:Etasje ;
     skos:inScheme <https://data.norge.no/linkml/ngr-eiendom> .
@@ -1531,10 +1531,10 @@
 <https://data.norge.no/linkml/ngr-eiendom/Teig> a owl:Class ;
     rdfs:label "Teig" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
@@ -1587,47 +1587,47 @@
 <https://data.norge.no/linkml/ngr-eiendom/Matrikkelenhet> a owl:Class ;
     rdfs:label "Matrikkelenhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ligger_innenfor_kommune> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_teig> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_del_av_teig> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_anleggsprojeksjonsflate> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Anleggsprojeksjonsflate> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_anleggsprojeksjonsflate> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Teig> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_teig> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Teig> ;
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_del_av_teig> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_med> ],
+            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Kommune> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ligger_innenfor_kommune> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_del_av_teig> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ligger_innenfor_kommune> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Teig> ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/er_del_av_teig> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_anleggsprojeksjonsflate> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_med> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/ligger_innenfor_kommune> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_teig> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/har_anleggsprojeksjonsflate> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/ngr-eiendom/Matrikkelnummer> ;
             owl:onProperty <https://data.norge.no/linkml/ngr-eiendom/identifiseres_med> ],

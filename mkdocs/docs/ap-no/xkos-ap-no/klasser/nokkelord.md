@@ -22,7 +22,7 @@ Alias: nokkelord
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nokkelord
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [dcat:keyword](http://www.w3.org/ns/dcat#keyword) |
 
 ### Cardinality and Requirements

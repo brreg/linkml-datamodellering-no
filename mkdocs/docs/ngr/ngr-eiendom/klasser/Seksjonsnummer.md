@@ -59,7 +59,7 @@ URI: [ngre:Seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Seksjons
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [seksjonsnummer_verdi](seksjonsnummer_verdi.md) | 1 <br/> [Integer](Integer.md) | Seksjonsnummer (0 |
+| [seksjonsnummer_verdi](seksjonsnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Seksjonsnummer (0 |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Seksjons
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,7 +124,7 @@ URI: [ngre:Seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Seksjons
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | [bestar_av_seksjonsnummer](bestar_av_seksjonsnummer.md) | range | [Seksjonsnummer](Seksjonsnummer.md) |
+| [Matrikkelnummer](matrikkelnummer.md) | [bestar_av_seksjonsnummer](bestar_av_seksjonsnummer.md) | range | [Seksjonsnummer](seksjonsnummer.md) |
 
 
 

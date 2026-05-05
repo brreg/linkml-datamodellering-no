@@ -1,6 +1,6 @@
 # register-over-aksjeeiere
 
-## Artefaktar
+## Artefacts
 
 | Artefakt | Fil |
 |----------|-----|
@@ -10,8 +10,213 @@
 | OWL ontologi | [register-over-aksjeeiere-ontology.ttl](register-over-aksjeeiere-ontology.ttl) |
 | RDF/Turtle skjema | [register-over-aksjeeiere-schema.ttl](register-over-aksjeeiere-schema.ttl) |
 | Python-klasser | [register-over-aksjeeiere-model.py](register-over-aksjeeiere-model.py) |
+| ER-diagram (Mermaid) | [register-over-aksjeeiere-erdiagram.md](register-over-aksjeeiere-erdiagram.md) |
 | Eksempeldata (Turtle) | [register-over-aksjeeiere-eksempel.ttl](register-over-aksjeeiere-eksempel.ttl) |
 
-## Klassereferanse
+## Oversiktsdiagram
 
-Sjå [klasser og eigenskapar](klasser/index.md) for full dokumentasjon av alle klasser, eigenskapar og typar i dette skjemaet.
+```mermaid
+erDiagram
+Aksje {
+    decimal har_palydende_belop  
+    uriorcurie identifikator  
+}
+Aksjeeier {
+    uriorcurie identifikator  
+    string navn  
+}
+Aksjeeierrettighet {
+    string beskrivelse  
+    uriorcurie identifikator  
+}
+Aksjeinnskudd {
+    decimal gjelder_innbetalt_aksjekapital  
+    decimal gjelder_innbetalt_overkurs  
+    uriorcurie identifikator  
+}
+Aksjekapital {
+    integer har_antall_aksjer  
+    uriorcurie identifikator  
+}
+Aksjeklasse {
+    uriorcurie identifikator  
+    string navn  
+}
+Aksjeoverdragelse {
+    uriorcurie identifikator  
+}
+Aksjepost {
+    integer har_antall_aksjer  
+    uriorcurie identifikator  
+}
+Aksjeselskap {
+    uriorcurie identifikator  
+    string navn  
+}
+    uriorcurie identifikator  
+}
+Eierposisjon {
+    uriorcurie identifikator  
+}
+Eierskapstransaksjon {
+    uriorcurie identifikator  
+    date tidspunkt  
+}
+InnbetaltAksjekapital {
+    decimal belop  
+}
+InnbetaltOverkurs {
+    decimal belop  
+}
+Selskapshendelse {
+    uriorcurie identifikator  
+}
+Utbytte {
+    uriorcurie identifikator  
+    date tidspunkt  
+}
+Utdeling {
+    decimal belop  
+    uriorcurie identifikator  
+}
+Vederlag {
+    decimal belop  
+    uriorcurie identifikator  
+}
+
+Aksje ||--|o Aksjeklasse : "tilhorer_aksjeklasse"
+Aksjeeier ||--|o Eierposisjon : "har_eierposisjon"
+Aksjeeierrettighet ||--|o Aksjeklasse : "gjelder_aksjer_i_aksjeklasse"
+Aksjeoverdragelse ||--|o Vederlag : "kan_ha_vederlag"
+Aksjepost ||--|o Aksjeklasse : "gjelder_aksjer_i_aksjeklasse"
+Aksjeselskap ||--|o Aksje : "utsteder_aksje"
+Aksjeselskap ||--|o Aksjekapital : "har_aksjekapital"
+Eierposisjon ||--|o Aksjepost : "gjelder_aksjepost"
+Eierskapstransaksjon ||--|o Aksjeoverdragelse : "kan_vaere_aksjeoverdragelse"
+Eierskapstransaksjon ||--|o Eierposisjon : "paavirker_eierposisjon"
+Eierskapstransaksjon ||--|o Selskapshendelse : "kan_vaere_selskapshendelse"
+Selskapshendelse ||--|o Aksjeinnskudd : "kan_ha_aksjeinnskudd"
+Utbytte ||--|o Eierposisjon : "er_basert_paa_eierposisjon"
+Utbytte ||--|o Utdeling : "har_utdeling"
+
+```
+
+
+
+LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
+
+
+URI: https://example.no/ontology/aksje-eierskap
+
+Name: aksje_eierskap
+
+
+
+## Classes
+
+| Class | Description |
+| --- | --- |
+| [Aksje](klasser/aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |
+| [Aksjeeier](klasser/aksjeeier.md) | Person eller organisasjon som eig aksjar |
+| [Aksjeeierrettighet](klasser/aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |
+| [Aksjeinnskudd](klasser/aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |
+| [Aksjekapital](klasser/aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |
+| [Aksjeklasse](klasser/aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |
+| [Aksjeoverdragelse](klasser/aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |
+| [Aksjepost](klasser/aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |
+| [Aksjeselskap](klasser/aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |
+| [Containerklasse](klasser/containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |
+| [Eierposisjon](klasser/eierposisjon.md) | Eierens samla posisjon i eit selskap |
+| [Eierskapstransaksjon](klasser/eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |
+| [InnbetaltAksjekapital](klasser/innbetaltaksjekapital.md) | Innbetalt aksjekapital |
+| [InnbetaltOverkurs](klasser/innbetaltoverkurs.md) | Innbetalt overkurs utover pålydande |
+| [Selskapshendelse](klasser/selskapshendelse.md) | Hending som påverkar selskapet sitt eigarskap eller kapital |
+| [Tidspunkt](klasser/tidspunkt.md) | Tidspunkt for ei hending |
+| [Utbytte](klasser/utbytte.md) | Utbytte knytt til ein eigarposisjon |
+| [Utdeling](klasser/utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |
+| [Vederlag](klasser/vederlag.md) | Vederlag knytt til ei aksjeoverdraging |
+
+
+
+## Slots
+
+| Slot | Description |
+| --- | --- |
+| [aksjeeiere](klasser/aksjeeiere.md) | Samling av aksjeeigarar |
+| [aksjeeierrettigheter](klasser/aksjeeierrettigheter.md) | Samling av aksjeeierrettigheiter |
+| [aksjeinnskudder](klasser/aksjeinnskudder.md) | Samling av aksjeinnskot |
+| [aksjekapitaler](klasser/aksjekapitaler.md) | Samling av aksjekapitalar |
+| [aksjeklasser](klasser/aksjeklasser.md) | Samling av aksjeklasser |
+| [aksjeoverdragelser](klasser/aksjeoverdragelser.md) | Samling av aksjeoverdragingar |
+| [aksjeposter](klasser/aksjeposter.md) | Samling av aksjepostar |
+| [aksjer](klasser/aksjer.md) | Samling av aksjar |
+| [aksjeselskaper](klasser/aksjeselskaper.md) | Samling av aksjeselskap |
+| [antall](klasser/antall.md) | Numerisk verdi |
+| [belop](klasser/belop.md) | Monetært beløp |
+| [beskrivelse](klasser/beskrivelse.md) | Tekstleg forklaring av instansen |
+| [dato](klasser/dato.md) | Kalenderdato |
+| [eierposisjoner](klasser/eierposisjoner.md) | Samling av eigarposisjonar |
+| [eierskapstransaksjoner](klasser/eierskapstransaksjoner.md) | Samling av eigarskapstransaksjonar |
+| [er_basert_paa_eierposisjon](klasser/er_basert_paa_eierposisjon.md) | Utbytte knytt til eigarposisjonen |
+| [gjelder_aksjepost](klasser/gjelder_aksjepost.md) | Aksjepost som inngår i eigarposisjonen |
+| [gjelder_aksjer_i_aksjeklasse](klasser/gjelder_aksjer_i_aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
+| [gjelder_innbetalt_aksjekapital](klasser/gjelder_innbetalt_aksjekapital.md) | Innbetalt aksjekapital |
+| [gjelder_innbetalt_overkurs](klasser/gjelder_innbetalt_overkurs.md) | Innbetalt overkurs |
+| [har_aksjekapital](klasser/har_aksjekapital.md) | Aksjekapital som høyrer til selskapet |
+| [har_antall_aksjer](klasser/har_antall_aksjer.md) | Tal aksjar |
+| [har_eierposisjon](klasser/har_eierposisjon.md) | Eierposisjon aksjeeigaren har |
+| [har_palydende_belop](klasser/har_palydende_belop.md) | Pålydande verdi for aksja |
+| [har_utdeling](klasser/har_utdeling.md) | Utdeling knytt til utbyttet |
+| [identifikator](klasser/identifikator.md) | Global identifikator for instansen |
+| [innbetalt_aksjekapitaler](klasser/innbetalt_aksjekapitaler.md) | Samling av innbetalt aksjekapital |
+| [innbetalt_overkurser](klasser/innbetalt_overkurser.md) | Samling av innbetalt overkurs |
+| [kan_ha_aksjeinnskudd](klasser/kan_ha_aksjeinnskudd.md) | Aksjeinnskot i selskapshending |
+| [kan_ha_vederlag](klasser/kan_ha_vederlag.md) | Vederlag for aksjeoverdraging |
+| [kan_vaere_aksjeoverdragelse](klasser/kan_vaere_aksjeoverdragelse.md) | Aksjeoverdraging i transaksjonen |
+| [kan_vaere_selskapshendelse](klasser/kan_vaere_selskapshendelse.md) | Selskapshendelse i transaksjonen |
+| [navn](klasser/navn.md) | Namn på instansen |
+| [paavirker_eierposisjon](klasser/paavirker_eierposisjon.md) | Eierskapstransaksjon knytt til eigarposisjonen |
+| [selskapshendelser](klasser/selskapshendelser.md) | Samling av selskapshendingar |
+| [tidspunkt](klasser/tidspunkt.md) | Tidspunkt for utbytte/eierskapstransaksjon |
+| [tilhorer_aksjeklasse](klasser/tilhorer_aksjeklasse.md) | Klassen aksja høyrer til |
+| [utbytter](klasser/utbytter.md) | Samling av utbytte |
+| [utdelinger](klasser/utdelinger.md) | Samling av utdelingar |
+| [utsteder_aksje](klasser/utsteder_aksje.md) | Aksje utstedt av selskapet |
+| [vederlager](klasser/vederlager.md) | Samling av vederlag |
+
+
+## Enumerations
+
+| Enumeration | Description |
+| --- | --- |
+
+
+## Types
+
+| Type | Description |
+| --- | --- |
+| [Boolean](klasser/boolean.md) | A binary (true or false) value |
+| [Curie](klasser/curie.md) | a compact URI |
+| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
+| [Datetime](klasser/datetime.md) | The combination of a date and time |
+| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
+| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](klasser/integer.md) | An integer |
+| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](klasser/string.md) | A character string |
+| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](klasser/uri.md) | a complete URI |
+| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
+
+
+## Subsets
+
+| Subset | Description |
+| --- | --- |

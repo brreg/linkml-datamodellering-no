@@ -37,7 +37,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 
 ## Inheritance
 * **Kvalitetsdimensjon**
-    * [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md)
+    * [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md)
 
 
 ## Class Properties
@@ -86,8 +86,8 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](LangString.md) | Føretrekt term/namn for dimensjonen eller målet |
-| [har_definisjon](har_definisjon.md) | * <br/> [LangString](LangString.md) | Definisjon av dimensjonen eller målet |
+| [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrekt term/namn for dimensjonen eller målet |
+| [har_definisjon](har_definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av dimensjonen eller målet |
 
 
 
@@ -145,7 +145,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -158,11 +158,11 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Kvalitetsdeldimensjon](Kvalitetsdeldimensjon.md) | [er_deldimensjon_av](er_deldimensjon_av.md) | range | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| [Brukartilbakemelding](Brukartilbakemelding.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| [Kvalitetssertifikat](Kvalitetssertifikat.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
-| [Standard](Standard.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](Kvalitetsdimensjon.md) |
+| [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | [er_deldimensjon_av](er_deldimensjon_av.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| [Brukartilbakemelding](brukartilbakemelding.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| [Standard](standard.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 
 
 

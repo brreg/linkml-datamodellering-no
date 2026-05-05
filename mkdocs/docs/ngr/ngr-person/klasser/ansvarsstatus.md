@@ -22,7 +22,7 @@ Alias: ansvarsstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ForeldreansvarForelder](ForeldreansvarForelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |  yes  |
+| [ForeldreansvarForelder](foreldreansvarforelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: ansvarsstatus
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [ForeldreansvarForelder](ForeldreansvarForelder.md) |
+| Range | [String](string.md) |
+| Domain Of | [ForeldreansvarForelder](foreldreansvarforelder.md) |
 | Slot URI | [ngrp:ansvarsstatus](https://data.norge.no/vocabulary/ngr-person#ansvarsstatus) |
 
 ### Cardinality and Requirements

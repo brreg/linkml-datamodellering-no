@@ -22,7 +22,7 @@ Alias: dokumentobjekt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dokumentobjekt
 
 | Property | Value |
 | --- | --- |
-| Range | [Dokumentobjekt](Dokumentobjekt.md) |
-| Domain Of | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [Dokumentobjekt](dokumentobjekt.md) |
+| Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:dokumentobjekt](https://schema.fintlabs.no/arkiv/dokumentobjekt) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: dokumentobjekt
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Owner | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: dokumentobjekt
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -31,13 +31,14 @@ artifact_label() {
         context.jsonld) echo "JSON-LD kontekst" ;;
         schema.json)    echo "JSON Schema" ;;
         model.py)       echo "Python-klasser" ;;
+        erdiagram.md)   echo "ER-diagram (Mermaid)" ;;
         eksempel.ttl)   echo "Eksempeldata (Turtle)" ;;
         *)              echo "$1" ;;
     esac
 }
 
 # Rekkjefølgje på artefaktar i tabellen
-ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json ontology.ttl schema.ttl model.py eksempel.ttl"
+ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json ontology.ttl schema.ttl model.py erdiagram.md eksempel.ttl"
 
 # ---------------------------------------------------------------------------
 # Steg 1: Rens tidlegare genererte domene-katalogar frå docs/
@@ -50,7 +51,9 @@ fi
 for domain_dir in "$GEN"/*/; do
     [ -d "$domain_dir" ] || continue
     domain=$(basename "$domain_dir")
-    rm -rf "${DOCS:?}/${domain}"
+    # find -depth -delete tømer innhaldet nedanfrå og opp (unngår NTFS rm -rf-feil på WSL2)
+    find "${DOCS}/${domain}" -mindepth 1 -depth -delete 2>/dev/null || true
+    rmdir "${DOCS}/${domain}" 2>/dev/null || true
 done
 
 # ---------------------------------------------------------------------------
@@ -78,6 +81,19 @@ for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
         # Kopier gen-doc markdown-filer til klasser/-underkatalog
         if [ -d "$schema_dir/docs" ]; then
             find "$schema_dir/docs" -name "*.md" -exec cp {} "$out/klasser/" \;
+            # Rename alle .md-filer til lowercase (via .tmp for case-insensitive filsystem)
+            for f in "$out/klasser/"*.md; do
+                [ -f "$f" ] || continue
+                base=$(basename "$f")
+                lower=$(echo "$base" | tr '[:upper:]' '[:lower:]')
+                if [ "$base" != "$lower" ]; then
+                    mv "$f" "$out/klasser/${lower}.tmp"
+                    mv "$out/klasser/${lower}.tmp" "$out/klasser/$lower"
+                fi
+            done
+            # Oppdater alle interne .md-lenkjer til lowercase
+            find "$out/klasser" -maxdepth 1 -name "*.md" \
+                -exec sed -i 's/](\([^)]*\.md\))/](\L\1)/g' {} \;
         fi
 
         # ----------------------------------------------------------------
@@ -99,23 +115,34 @@ for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
             done
 
             if $has_artifact; then
-                echo "## Artefaktar"
+                echo "## Artifacts"
                 echo ""
                 echo "| Artefakt | Fil |"
                 echo "|----------|-----|"
                 printf '%s' "$artifact_rows"
             fi
 
-            # Lenke til klasse-referansen om gen-doc vart køyrt.
-            # index.md har full klasseliste; <schema>.md er berre ei minimal skjemaoversikt.
-            klasse_doc=""
-            [ -f "$out/klasser/index.md" ] && klasse_doc="klasser/index.md"
-            [ -z "$klasse_doc" ] && [ -f "$out/klasser/${schema}.md" ] && klasse_doc="klasser/${schema}.md"
-            if [ -n "$klasse_doc" ]; then
+            # Embed oversiktsdiagram frå gen-erdiagram
+            erdiagram_file="$out/${schema}-erdiagram.md"
+            if [ -f "$erdiagram_file" ]; then
                 echo ""
-                echo "## Klassereferanse"
+                echo "## Oversiktsdiagram"
                 echo ""
-                echo "Sjå [klasser og eigenskapar](${klasse_doc}) for full dokumentasjon av alle klasser, eigenskapar og typar i dette skjemaet."
+                # Hopp over H1 i erdiagram.md (skriv berre diagramblokka)
+                awk 'NR==1 && /^# / { next } 1' "$erdiagram_file"
+            fi
+
+            # Inline klasseliste frå gen-doc direkte i index.md
+            klasse_src=""
+            [ -f "$out/klasser/index.md" ] && klasse_src="$out/klasser/index.md"
+            [ -z "$klasse_src" ] && [ -f "$out/klasser/${schema}.md" ] && klasse_src="$out/klasser/${schema}.md"
+
+            if [ -n "$klasse_src" ]; then
+                echo ""
+                # Hopp over H1 (duplisert frå schema-tittelen) og juster relative lenkjer
+                # sidan index.md ligg eit nivå over klasser/
+                awk 'NR==1 && /^# / { next } 1' "$klasse_src" \
+                    | sed 's/](\([^)]*\.md\))/](klasser\/\1)/g'
             fi
         } > "$out/index.md"
 
@@ -151,8 +178,8 @@ done
 # ---------------------------------------------------------------------------
 {
 cat << 'STATIC'
-site_name: LinkML W3C-profiler
-site_description: Norske W3C-applikasjonsprofiler og domenemodeller i LinkML-format
+site_name:  Norske W3C-profiler og offentlige domenemodeller i LinkML-format
+site_description: Norske W3C-applikasjonsprofiler og offentlige domenemodeller i LinkML-format
 site_url: https://example.org/linkml-w3c-no-profiles
 docs_dir: docs
 
@@ -167,6 +194,9 @@ theme:
     - scheme: default
       primary: indigo
       accent: indigo
+
+plugins:
+  - search
 
 markdown_extensions:
   - admonition
@@ -204,17 +234,7 @@ STATIC
 
         schemas_str="${DOMAIN_SCHEMA_LIST[$domain]:-}"
         for schema in $schemas_str; do
-            klasse_nav=""
-            [ -f "$DOCS/$domain/$schema/klasser/index.md" ] && klasse_nav="${domain}/${schema}/klasser/index.md"
-            [ -z "$klasse_nav" ] && [ -f "$DOCS/$domain/$schema/klasser/${schema}.md" ] && klasse_nav="${domain}/${schema}/klasser/${schema}.md"
-
-            if [ -n "$klasse_nav" ]; then
-                echo "      - '${schema}':"
-                echo "          - Oversikt: ${domain}/${schema}/index.md"
-                echo "          - Klasser: ${klasse_nav}"
-            else
-                echo "      - '${schema}': ${domain}/${schema}/index.md"
-            fi
+            echo "      - '${schema}': ${domain}/${schema}/index.md"
         done
     done
 } > "$MKDOCS_YML"

@@ -22,7 +22,7 @@ Alias: sprak
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sprak
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [Spraak](spraak.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [dct:language](http://purl.org/dc/terms/language) |
 
 ### Cardinality and Requirements

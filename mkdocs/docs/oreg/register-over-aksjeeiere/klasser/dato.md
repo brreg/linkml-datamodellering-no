@@ -22,7 +22,7 @@ Alias: dato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tidspunkt](Tidspunkt.md) | Tidspunkt for ei hending |  no  |
+| [Tidspunkt](tidspunkt.md) | Tidspunkt for ei hending |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Tidspunkt](Tidspunkt.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Tidspunkt](tidspunkt.md) |
 
 ### Cardinality and Requirements
 

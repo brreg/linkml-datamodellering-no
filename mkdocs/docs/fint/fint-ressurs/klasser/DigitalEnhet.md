@@ -22,7 +22,7 @@ Alias: digitalEnhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |  no  |
+| [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: digitalEnhet
 
 | Property | Value |
 | --- | --- |
-| Range | [DigitalEnhet](DigitalEnhet.md) |
-| Domain Of | [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) |
+| Range | [DigitalEnhet](digitalenhet.md) |
+| Domain Of | [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) |
 | Slot URI | [res:digitalEnhet](https://schema.fintlabs.no/ressurs/digitalEnhet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: digitalEnhet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) |
+| Owner | [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: digitalEnhet
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

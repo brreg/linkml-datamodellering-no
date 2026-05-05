@@ -22,9 +22,9 @@ Alias: type_concept
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktor](Aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
-| [Lisensdokument](Lisensdokument.md) | Eit lisensdokument (dct:LicenseDocument) |  no  |
+| [Lisensdokument](lisensdokument.md) | Eit lisensdokument (dct:LicenseDocument) |  no  |
+| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: type_concept
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Aktor](Aktor.md), [Lisensdokument](Lisensdokument.md), [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Aktor](aktor.md), [Lisensdokument](lisensdokument.md), [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:type](http://purl.org/dc/terms/type) |
 
 ### Cardinality and Requirements

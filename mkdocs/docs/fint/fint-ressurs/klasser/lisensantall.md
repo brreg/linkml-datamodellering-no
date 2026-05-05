@@ -17,8 +17,8 @@ Alias: lisensantall
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: lisensantall
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md), [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |
+| Range | [String](string.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md), [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
 
 ### Cardinality and Requirements
 

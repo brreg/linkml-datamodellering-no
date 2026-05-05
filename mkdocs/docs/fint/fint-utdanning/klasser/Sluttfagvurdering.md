@@ -17,8 +17,8 @@ Alias: sluttfagvurdering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevvurdering](Elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  no  |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: sluttfagvurdering
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Elevvurdering](Elevvurdering.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Elevvurdering](elevvurdering.md) |
 
 ### Cardinality and Requirements
 

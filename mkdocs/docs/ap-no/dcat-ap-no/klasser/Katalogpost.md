@@ -22,7 +22,7 @@ Alias: katalogpost
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: katalogpost
 
 | Property | Value |
 | --- | --- |
-| Range | [Katalogpost](Katalogpost.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Katalogpost](katalogpost.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dcat:record](http://www.w3.org/ns/dcat#record) |
 
 ### Cardinality and Requirements

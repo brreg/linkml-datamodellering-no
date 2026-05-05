@@ -17,10 +17,10 @@ Alias: gruppemedlemskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Undervisningsgruppe](Undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
-| [Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
-| [Programomrade](Programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
-| [Kontaktlaerergruppe](Kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: gruppemedlemskap
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktlaerergruppe](Kontaktlaerergruppe.md), [Programomrade](Programomrade.md), [Undervisningsgruppe](Undervisningsgruppe.md), [Eksamensgruppe](Eksamensgruppe.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktlaerergruppe](kontaktlaerergruppe.md), [Programomrade](programomrade.md), [Undervisningsgruppe](undervisningsgruppe.md), [Eksamensgruppe](eksamensgruppe.md) |
 
 ### Cardinality and Requirements
 

@@ -36,7 +36,7 @@ URI: [ngr:Stemmekrets](https://data.norge.no/vocabulary/ngr-adresse#Stemmekrets)
 
 
 ## Inheritance
-* [GeografiskOmrade](GeografiskOmrade.md)
+* [GeografiskOmrade](geografiskomrade.md)
     * **Stemmekrets**
 
 
@@ -89,7 +89,7 @@ URI: [ngr:Stemmekrets](https://data.norge.no/vocabulary/ngr-adresse#Stemmekrets)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [stemmekretsnummer](stemmekretsnummer.md) | 0..1 <br/> [String](String.md) | Stemmekretsnummer |
+| [stemmekretsnummer](stemmekretsnummer.md) | 0..1 <br/> [String](string.md) | Stemmekretsnummer |
 
 
 
@@ -97,8 +97,8 @@ URI: [ngr:Stemmekrets](https://data.norge.no/vocabulary/ngr-adresse#Stemmekrets)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](GeografiskOmrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](String.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](GeografiskOmrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 
@@ -108,7 +108,7 @@ URI: [ngr:Stemmekrets](https://data.norge.no/vocabulary/ngr-adresse#Stemmekrets)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [stemmekretsar](stemmekretsar.md) | range | [Stemmekrets](Stemmekrets.md) |
+| [AdresseContainer](adressecontainer.md) | [stemmekretsar](stemmekretsar.md) | range | [Stemmekrets](stemmekrets.md) |
 
 
 

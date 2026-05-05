@@ -137,7 +137,7 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **OffisiellAdresse**
 
 
@@ -205,10 +205,10 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kommunenummer_ref](kommunenummer_ref.md) | 1 <br/> [Kommune](Kommune.md) | Kommunen denne adressa ligg i |
-| [adressenavn_ref](adressenavn_ref.md) | 1 <br/> [Adressenavn](Adressenavn.md) | Adressenavn (vegnamn o |
-| [adressekode_ref](adressekode_ref.md) | 1 <br/> [Adressekode](Adressekode.md) | Kommunal adressekode for adressa |
-| [geografisk_omrade](geografisk_omrade.md) | 1..* <br/> [GeografiskOmrade](GeografiskOmrade.md) | Geografiske inndelingar (kommune, poststed, grunnkrets osv |
+| [kommunenummer_ref](kommunenummer_ref.md) | 1 <br/> [Kommune](kommune.md) | Kommunen denne adressa ligg i |
+| [adressenavn_ref](adressenavn_ref.md) | 1 <br/> [Adressenavn](adressenavn.md) | Adressenavn (vegnamn o |
+| [adressekode_ref](adressekode_ref.md) | 1 <br/> [Adressekode](adressekode.md) | Kommunal adressekode for adressa |
+| [geografisk_omrade](geografisk_omrade.md) | 1..* <br/> [GeografiskOmrade](geografiskomrade.md) | Geografiske inndelingar (kommune, poststed, grunnkrets osv |
 
 
 
@@ -259,8 +259,8 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [husnummer_ref](husnummer_ref.md) | 0..1 <br/> [Husnummer](Husnummer.md) | Husnummer (nummer + bokstav) for adressa |
-| [representasjonspunkt_ref](representasjonspunkt_ref.md) | 0..1 <br/> [Representasjonspunkt](Representasjonspunkt.md) | Geografisk punkt som representerer adressas posisjon |
+| [husnummer_ref](husnummer_ref.md) | 0..1 <br/> [Husnummer](husnummer.md) | Husnummer (nummer + bokstav) for adressa |
+| [representasjonspunkt_ref](representasjonspunkt_ref.md) | 0..1 <br/> [Representasjonspunkt](representasjonspunkt.md) | Geografisk punkt som representerer adressas posisjon |
 
 
 
@@ -319,12 +319,12 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bruksenhetsnummer_ref](bruksenhetsnummer_ref.md) | 0..1 <br/> [Bruksenhetsnummer](Bruksenhetsnummer.md) | Bruksenhetsnummer for leilegheit eller lokale |
-| [adressetilleggsnavn](adressetilleggsnavn.md) | 0..1 <br/> [String](String.md) | Offisielt tilleggsnamn til vegadressa (t |
-| [matrikkelnummer](matrikkelnummer.md) | 0..1 <br/> [String](String.md) | Matrikkelnummer for adresser utan vegadresse (t |
-| [adresserer_bygning](adresserer_bygning.md) | 0..1 <br/> [Bygning](Bygning.md) | Bygning denne adressa er tildelt (forvaltar: Matrikkelen) |
-| [adresserer_bruksenhet](adresserer_bruksenhet.md) | 0..1 <br/> [Bruksenhet](Bruksenhet.md) | Brukseining denne adressa er tildelt (forvaltar: Matrikkelen) |
-| [adresserer_annet_objekt](adresserer_annet_objekt.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Anna objekt (t |
+| [bruksenhetsnummer_ref](bruksenhetsnummer_ref.md) | 0..1 <br/> [Bruksenhetsnummer](bruksenhetsnummer.md) | Bruksenhetsnummer for leilegheit eller lokale |
+| [adressetilleggsnavn](adressetilleggsnavn.md) | 0..1 <br/> [String](string.md) | Offisielt tilleggsnamn til vegadressa (t |
+| [matrikkelnummer](matrikkelnummer.md) | 0..1 <br/> [String](string.md) | Matrikkelnummer for adresser utan vegadresse (t |
+| [adresserer_bygning](adresserer_bygning.md) | 0..1 <br/> [Bygning](bygning.md) | Bygning denne adressa er tildelt (forvaltar: Matrikkelen) |
+| [adresserer_bruksenhet](adresserer_bruksenhet.md) | 0..1 <br/> [Bruksenhet](bruksenhet.md) | Brukseining denne adressa er tildelt (forvaltar: Matrikkelen) |
+| [adresserer_annet_objekt](adresserer_annet_objekt.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Anna objekt (t |
 
 
 
@@ -493,7 +493,7 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -503,7 +503,7 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [offisielleAdresser](offisielleAdresser.md) | range | [OffisiellAdresse](OffisiellAdresse.md) |
+| [AdresseContainer](adressecontainer.md) | [offisielleAdresser](offisielleadresser.md) | range | [OffisiellAdresse](offisielladresse.md) |
 
 
 

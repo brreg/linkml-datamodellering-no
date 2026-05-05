@@ -22,7 +22,7 @@ Alias: temaer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: temaer
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrepssamling](Begrepssamling.md) |
-| Domain Of | [Modelkatalog](Modelkatalog.md) |
+| Range | [Begrepssamling](begrepssamling.md) |
+| Domain Of | [Modelkatalog](modelkatalog.md) |
 | Slot URI | [dcat:themeTaxonomy](http://www.w3.org/ns/dcat#themeTaxonomy) |
 
 ### Cardinality and Requirements

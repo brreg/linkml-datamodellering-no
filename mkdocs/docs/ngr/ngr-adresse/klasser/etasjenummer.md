@@ -22,7 +22,7 @@ Alias: etasjenummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksenhetsnummer](Bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |  yes  |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: etasjenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Bruksenhetsnummer](Bruksenhetsnummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Bruksenhetsnummer](bruksenhetsnummer.md) |
 | Slot URI | [ngr:etasjenummer](https://data.norge.no/vocabulary/ngr-adresse#etasjenummer) |
 
 ### Cardinality and Requirements

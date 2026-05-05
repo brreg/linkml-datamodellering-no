@@ -22,7 +22,7 @@ Alias: aktiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sensor](Sensor.md) | Ein sensor for ein eksamen |  no  |
+| [Sensor](sensor.md) | Ein sensor for ein eksamen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: aktiv
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Sensor](Sensor.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Sensor](sensor.md) |
 | Slot URI | [utd:aktiv](https://schema.fintlabs.no/utdanning/aktiv) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: aktiv
 
 | Property | Value |
 | --- | --- |
-| Owner | [Sensor](Sensor.md) |
+| Owner | [Sensor](sensor.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: aktiv
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

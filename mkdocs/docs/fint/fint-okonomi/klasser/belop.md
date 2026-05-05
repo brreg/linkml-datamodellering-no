@@ -17,9 +17,9 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postering](Postering.md) | Føring på ein konto i rekneskapet |  no  |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Faktura](Faktura.md), [Transaksjon](Transaksjon.md), [Postering](Postering.md) |
+| Range | [String](string.md) |
+| Domain Of | [Faktura](faktura.md), [Transaksjon](transaksjon.md), [Postering](postering.md) |
 
 ### Cardinality and Requirements
 

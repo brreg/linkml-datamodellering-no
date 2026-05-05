@@ -22,7 +22,7 @@ Alias: poststed_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postboksadresse](Postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |  yes  |
+| [Postboksadresse](postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: poststed_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Poststed](Poststed.md) |
-| Domain Of | [Postboksadresse](Postboksadresse.md) |
+| Range | [Poststed](poststed.md) |
+| Domain Of | [Postboksadresse](postboksadresse.md) |
 | Slot URI | [ngr:referererTilPoststed](https://data.norge.no/vocabulary/ngr-adresse#referererTilPoststed) |
 
 ### Cardinality and Requirements

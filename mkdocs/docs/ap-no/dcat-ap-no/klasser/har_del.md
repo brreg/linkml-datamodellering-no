@@ -22,7 +22,7 @@ Alias: har_del
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_del
 
 | Property | Value |
 | --- | --- |
-| Range | [Katalog](Katalog.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Katalog](katalog.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dct:hasPart](http://purl.org/dc/terms/hasPart) |
 
 ### Cardinality and Requirements

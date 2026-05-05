@@ -22,7 +22,7 @@ Alias: tilknyttetAv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilknyttetAv
 
 | Property | Value |
 | --- | --- |
-| Range | [Arkivressurs](Arkivressurs.md) |
-| Domain Of | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [Arkivressurs](arkivressurs.md) |
+| Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:tilknyttetAv](https://schema.fintlabs.no/arkiv/tilknyttetAv) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: tilknyttetAv
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Owner | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: tilknyttetAv
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

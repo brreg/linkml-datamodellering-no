@@ -22,7 +22,7 @@ Alias: produsent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: produsent
 
 | Property | Value |
 | --- | --- |
-| Range | [Produsent](Produsent.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md) |
+| Range | [Produsent](produsent.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md) |
 | Slot URI | [res:produsent](https://schema.fintlabs.no/ressurs/produsent) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: produsent
 
 | Property | Value |
 | --- | --- |
-| Owner | [DigitalEnhet](DigitalEnhet.md) |
+| Owner | [DigitalEnhet](digitalenhet.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: produsent
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

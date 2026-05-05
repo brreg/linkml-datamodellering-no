@@ -22,7 +22,7 @@ Alias: nivaa_djupn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
+| [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nivaa_djupn
 
 | Property | Value |
 | --- | --- |
-| Range | [NonNegativeInteger](NonNegativeInteger.md) |
-| Domain Of | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
+| Range | [NonNegativeInteger](nonnegativeinteger.md) |
+| Domain Of | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
 | Slot URI | [xkos:depth](http://rdf-vocabulary.ddialliance.org/xkos#depth) |
 
 ### Cardinality and Requirements

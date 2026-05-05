@@ -22,7 +22,7 @@ Alias: periode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: periode
 
 | Property | Value |
 | --- | --- |
-| Range | [Periode](Periode.md) |
-| Domain Of | [Fraversregistrering](Fraversregistrering.md) |
+| Range | [Periode](periode.md) |
+| Domain Of | [Fraversregistrering](fraversregistrering.md) |
 | Slot URI | [utd:periode](https://schema.fintlabs.no/utdanning/periode) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: periode
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fraversregistrering](Fraversregistrering.md) |
+| Owner | [Fraversregistrering](fraversregistrering.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: periode
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

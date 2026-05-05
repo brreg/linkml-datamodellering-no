@@ -22,7 +22,7 @@ Alias: identifikasjonstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personidentifikasjon](Personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |  yes  |
+| [Personidentifikasjon](personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: identifikasjonstype
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Personidentifikasjon](Personidentifikasjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [Personidentifikasjon](personidentifikasjon.md) |
 | Slot URI | [ngrp:identifikasjonstype](https://data.norge.no/vocabulary/ngr-person#identifikasjonstype) |
 
 ### Cardinality and Requirements

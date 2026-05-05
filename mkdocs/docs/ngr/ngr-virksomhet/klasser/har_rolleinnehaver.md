@@ -22,7 +22,7 @@ Alias: har_rolleinnehaver
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RolleIVirksomhet](RolleIVirksomhet.md) | Ein definert rolle i ei hovudeining (t |  yes  |
+| [RolleIVirksomhet](rolleivirksomhet.md) | Ein definert rolle i ei hovudeining (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_rolleinnehaver
 
 | Property | Value |
 | --- | --- |
-| Range | [Rolleinnehaver](Rolleinnehaver.md) |
-| Domain Of | [RolleIVirksomhet](RolleIVirksomhet.md) |
+| Range | [Rolleinnehaver](rolleinnehaver.md) |
+| Domain Of | [RolleIVirksomhet](rolleivirksomhet.md) |
 | Slot URI | [ngrv:harRolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#harRolleinnehaver) |
 
 ### Cardinality and Requirements

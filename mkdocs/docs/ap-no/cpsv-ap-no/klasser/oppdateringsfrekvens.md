@@ -22,7 +22,7 @@ Alias: oppdateringsfrekvens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: oppdateringsfrekvens
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity) |
 
 ### Cardinality and Requirements

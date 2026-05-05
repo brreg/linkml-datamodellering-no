@@ -60,7 +60,7 @@ journalpostar:
     journalposttype: finta:journalposttype/inngaaende-dokument
     journalstatus: finta:journalstatus/journalfoert
     arkivertAv: finta:arkivressurs/ar-1
-    opprettetAv: "Ola Nordmann"
+    opprettetAv: finta:arkivressurs/ar-1
     opprettetDato: "2024-02-15T09:05:00Z"
     journalDato: "2024-02-15T09:05:00Z"
     journalAr: "2024"
@@ -72,7 +72,7 @@ journalpostar:
     journalposttype: finta:journalposttype/utgaaende-dokument
     journalstatus: finta:journalstatus/journalfoert
     arkivertAv: finta:arkivressurs/ar-1
-    opprettetAv: "Kari Olsen"
+    opprettetAv: finta:arkivressurs/ar-1
     opprettetDato: "2024-03-10T13:00:00Z"
     journalDato: "2024-03-10T13:00:00Z"
     journalAr: "2024"

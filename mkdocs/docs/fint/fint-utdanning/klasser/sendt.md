@@ -22,7 +22,7 @@ Alias: sendt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Varsel](Varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
+| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sendt
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Varsel](Varsel.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Varsel](varsel.md) |
 | Slot URI | [utd:sendt](https://schema.fintlabs.no/utdanning/sendt) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: sendt
 
 | Property | Value |
 | --- | --- |
-| Owner | [Varsel](Varsel.md) |
+| Owner | [Varsel](varsel.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: sendt
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

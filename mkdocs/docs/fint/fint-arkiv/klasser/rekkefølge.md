@@ -22,7 +22,7 @@ Alias: rekkefølge
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klasse](Klasse.md) | Ein klasse i eit klassifikasjonssystem |  no  |
+| [Klasse](klasse.md) | Ein klasse i eit klassifikasjonssystem |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rekkefølge
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Klasse](Klasse.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Klasse](klasse.md) |
 | Slot URI | [ark:rekkefolge](https://schema.fintlabs.no/arkiv/rekkefolge) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: rekkefølge
 
 | Property | Value |
 | --- | --- |
-| Owner | [Klasse](Klasse.md) |
+| Owner | [Klasse](klasse.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: rekkefølge
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

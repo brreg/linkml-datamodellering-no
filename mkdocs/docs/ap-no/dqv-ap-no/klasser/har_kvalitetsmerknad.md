@@ -22,7 +22,7 @@ Alias: har_kvalitetsmerknad
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |  yes  |
+| [Datasett](datasett.md) | Eit datasett (dcat:Dataset) utvida med DQV-AP-NO-eigenskapar for kvalitetsinf... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_kvalitetsmerknad
 
 | Property | Value |
 | --- | --- |
-| Range | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dqv:hasQualityAnnotation](http://www.w3.org/ns/dqv#hasQualityAnnotation) |
 
 ### Cardinality and Requirements

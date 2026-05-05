@@ -22,7 +22,7 @@ Alias: avskrivningsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Avskrivning](Avskrivning.md) | Avskriving av ein journalpost (markering som ferdigbehandla) |  no  |
+| [Avskrivning](avskrivning.md) | Avskriving av ein journalpost (markering som ferdigbehandla) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: avskrivningsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Avskrivning](Avskrivning.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Avskrivning](avskrivning.md) |
 | Slot URI | [ark:avskrivningsdato](https://schema.fintlabs.no/arkiv/avskrivningsdato) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: avskrivningsdato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Avskrivning](Avskrivning.md) |
+| Owner | [Avskrivning](avskrivning.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: avskrivningsdato
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

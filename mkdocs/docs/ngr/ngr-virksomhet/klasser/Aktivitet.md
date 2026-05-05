@@ -59,7 +59,7 @@ URI: [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [aktivitet_beskrivelse](aktivitet_beskrivelse.md) | 1 <br/> [String](String.md) | Skildring av kva aktivitet verksemda utøver (formålsparagraf o |
+| [aktivitet_beskrivelse](aktivitet_beskrivelse.md) | 1 <br/> [String](string.md) | Skildring av kva aktivitet verksemda utøver (formålsparagraf o |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,8 +124,8 @@ URI: [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [aktivitetar](aktivitetar.md) | range | [Aktivitet](Aktivitet.md) |
-| [Hovedenhet](Hovedenhet.md) | [utoevar_aktivitet](utoevar_aktivitet.md) | range | [Aktivitet](Aktivitet.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [aktivitetar](aktivitetar.md) | range | [Aktivitet](aktivitet.md) |
+| [Hovedenhet](hovedenhet.md) | [utoevar_aktivitet](utoevar_aktivitet.md) | range | [Aktivitet](aktivitet.md) |
 
 
 

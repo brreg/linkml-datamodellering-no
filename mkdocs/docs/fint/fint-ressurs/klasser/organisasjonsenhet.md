@@ -22,7 +22,7 @@ Alias: organisasjonsenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhetsgruppe](Enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |  no  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjonsenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Enhetsgruppe](Enhetsgruppe.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Enhetsgruppe](enhetsgruppe.md) |
 | Slot URI | [res:organisasjonsenhet](https://schema.fintlabs.no/ressurs/organisasjonsenhet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: organisasjonsenhet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Enhetsgruppe](Enhetsgruppe.md) |
+| Owner | [Enhetsgruppe](enhetsgruppe.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: organisasjonsenhet
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

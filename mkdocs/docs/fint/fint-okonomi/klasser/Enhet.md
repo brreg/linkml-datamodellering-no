@@ -22,7 +22,7 @@ Alias: enhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: enhet
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Vare](Vare.md) |
+| Range | [String](string.md) |
+| Domain Of | [Vare](vare.md) |
 | Slot URI | [okn:enhet](https://schema.fintlabs.no/okonomi/enhet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: enhet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Vare](Vare.md) |
+| Owner | [Vare](vare.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: enhet
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: rettslig_handleevne_type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RettsligHandleevne](RettsligHandleevne.md) | Registrering av avgrensing i rettsleg handleevne for ein person, t |  yes  |
+| [RettsligHandleevne](rettslighandleevne.md) | Registrering av avgrensing i rettsleg handleevne for ein person, t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rettslig_handleevne_type
 
 | Property | Value |
 | --- | --- |
-| Range | [RettsligHandleevneType](RettsligHandleevneType.md) |
-| Domain Of | [RettsligHandleevne](RettsligHandleevne.md) |
+| Range | [RettsligHandleevneType](rettslighandleevnetype.md) |
+| Domain Of | [RettsligHandleevne](rettslighandleevne.md) |
 | Slot URI | [ngrp:rettsligHandleevneType](https://data.norge.no/vocabulary/ngr-person#rettsligHandleevneType) |
 
 ### Cardinality and Requirements

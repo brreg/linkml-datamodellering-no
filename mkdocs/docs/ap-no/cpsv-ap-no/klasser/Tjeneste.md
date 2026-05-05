@@ -385,12 +385,12 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](Kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
-| [har_tenesteresultattype](har_tenesteresultattype.md) | 1..* <br/> [Tjenesteresultattype](Tjenesteresultattype.md) | Typen resultat tenesta kan produsere |
-| [eigd_av](eigd_av.md) | 1..* <br/> [Aktor](Aktor.md) | Aktør som eig eller er ansvarleg for tenesta |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
+| [har_tenesteresultattype](har_tenesteresultattype.md) | 1..* <br/> [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat tenesta kan produsere |
+| [eigd_av](eigd_av.md) | 1..* <br/> [Aktor](aktor.md) | Aktør som eig eller er ansvarleg for tenesta |
 
 
 
@@ -506,12 +506,12 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tema](tema.md) | * <br/> [Konsept](Konsept.md) | Emne/tema tenesta handlar om |
-| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](Konsept.md) | Geografisk dekningsområde (dct:spatial) |
-| [har_dokumentasjonstype](har_dokumentasjonstype.md) | * <br/> [Dokumentasjonstype](Dokumentasjonstype.md) | Dokumentasjon som krevst for tenesta |
-| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [status](status.md) | 0..1 <br/> [Konsept](Konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
-| [temaomrade](temaomrade.md) | * <br/> [Konsept](Konsept.md) | Tematisk område for tenesta |
+| [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om |
+| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [har_dokumentasjonstype](har_dokumentasjonstype.md) | * <br/> [Dokumentasjonstype](dokumentasjonstype.md) | Dokumentasjon som krevst for tenesta |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
+| [temaomrade](temaomrade.md) | * <br/> [Konsept](konsept.md) | Tematisk område for tenesta |
 
 
 
@@ -649,23 +649,23 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](Duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](Uri.md) | Datasett som beskriv ressursen |
-| [er_del_av](er_del_av.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Tenesta er del av ei anna teneste |
-| [har_del](har_del.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Deltenester som inngår i denne tenesta |
-| [har_tenestekanal](har_tenestekanal.md) | * <br/> [Tjenestekanal](Tjenestekanal.md) | Kanal for tilgang til tenesta |
-| [har_deltaking](har_deltaking.md) | * <br/> [Deltagelse](Deltagelse.md) | Deltakarar med spesifikke roller i levering av tenesta |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [relatert_teneste](relatert_teneste.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Relatert teneste |
-| [er_gruppert_av](er_gruppert_av.md) | * <br/> [Hendelse](Hendelse.md) | Hending(ar) som grupperer tenesta |
-| [er_klassifisert_av](er_klassifisert_av.md) | * <br/> [Konsept](Konsept.md) | Omgrep tenesta er klassifisert med |
-| [folger](folger.md) | * <br/> [Regel](Regel.md) | Regelverk tenesta følgjer |
-| [har_gebyr](har_gebyr.md) | * <br/> [Gebyr](Gebyr.md) | Gebyr knytt til tenesta |
-| [har_regulativ_ressurs](har_regulativ_ressurs.md) | * <br/> [RegulativRessurs](RegulativRessurs.md) | Regulativ ressurs (lov, forskrift) knytt til tenesta |
-| [krev](krev.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Teneste eller ressurs denne tenesta krev |
-| [malgruppe](malgruppe.md) | * <br/> [Konsept](Konsept.md) | Målgruppe for tenesta |
-| [nokkelord](nokkelord.md) | * <br/> [LangString](LangString.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
-| [sektor](sektor.md) | * <br/> [Konsept](Konsept.md) | Industri/sektor tenesta tilhøyrer |
+| [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen |
+| [er_del_av](er_del_av.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Tenesta er del av ei anna teneste |
+| [har_del](har_del.md) | * <br/> [Uriorcurie](uriorcurie.md) | Deltenester som inngår i denne tenesta |
+| [har_tenestekanal](har_tenestekanal.md) | * <br/> [Tjenestekanal](tjenestekanal.md) | Kanal for tilgang til tenesta |
+| [har_deltaking](har_deltaking.md) | * <br/> [Deltagelse](deltagelse.md) | Deltakarar med spesifikke roller i levering av tenesta |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [relatert_teneste](relatert_teneste.md) | * <br/> [Uriorcurie](uriorcurie.md) | Relatert teneste |
+| [er_gruppert_av](er_gruppert_av.md) | * <br/> [Hendelse](hendelse.md) | Hending(ar) som grupperer tenesta |
+| [er_klassifisert_av](er_klassifisert_av.md) | * <br/> [Konsept](konsept.md) | Omgrep tenesta er klassifisert med |
+| [folger](folger.md) | * <br/> [Regel](regel.md) | Regelverk tenesta følgjer |
+| [har_gebyr](har_gebyr.md) | * <br/> [Gebyr](gebyr.md) | Gebyr knytt til tenesta |
+| [har_regulativ_ressurs](har_regulativ_ressurs.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Regulativ ressurs (lov, forskrift) knytt til tenesta |
+| [krev](krev.md) | * <br/> [Uriorcurie](uriorcurie.md) | Teneste eller ressurs denne tenesta krev |
+| [malgruppe](malgruppe.md) | * <br/> [Konsept](konsept.md) | Målgruppe for tenesta |
+| [nokkelord](nokkelord.md) | * <br/> [LangString](langstring.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
+| [sektor](sektor.md) | * <br/> [Konsept](konsept.md) | Industri/sektor tenesta tilhøyrer |
 
 
 
@@ -1068,8 +1068,8 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 

@@ -91,8 +91,8 @@ URI: [fint:Virksomhet](https://schema.fintlabs.no/Virksomhet)
 
 
 ## Inheritance
-* [Aktoer](Aktoer.md)
-    * [Enhet](Enhet.md)
+* [Aktoer](aktoer.md)
+    * [Enhet](enhet.md)
         * **Virksomhet**
 
 
@@ -177,9 +177,9 @@ URI: [fint:Virksomhet](https://schema.fintlabs.no/Virksomhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator (tilsvarar systemId i FINT) |
-| [virksomhetsId](virksomhetsId.md) | 1 <br/> [Identifikator](Identifikator.md) | Intern unik identifikator i økonomisystemet |
-| [laerling](laerling.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Laerling (Utdanning) i verksemda |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [virksomhetsId](virksomhetsid.md) | 1 <br/> [Identifikator](identifikator.md) | Intern unik identifikator i økonomisystemet |
+| [laerling](laerling.md) | * <br/> [Uriorcurie](uriorcurie.md) | Referanse til Laerling (Utdanning) i verksemda |
 
 
 
@@ -187,11 +187,11 @@ URI: [fint:Virksomhet](https://schema.fintlabs.no/Virksomhet)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [forretningsadresse](forretningsadresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Besøksadresse til ein organisasjonseining i einingsregisteret | [Enhet](Enhet.md) |
-| [organisasjonsnavn](organisasjonsnavn.md) | 0..1 <br/> [String](String.md) | Namn på eining registrert i Einingsregisteret | [Enhet](Enhet.md) |
-| [organisasjonsnummer](organisasjonsnummer.md) | 0..1 <br/> [Identifikator](Identifikator.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret | [Enhet](Enhet.md) |
-| [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](Kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør | [Aktoer](Aktoer.md) |
-| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Informasjon om postadresse til ein aktør | [Aktoer](Aktoer.md) |
+| --- | --- | --- | --- || [forretningsadresse](forretningsadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Besøksadresse til ein organisasjonseining i einingsregisteret | [Enhet](enhet.md) |
+| [organisasjonsnavn](organisasjonsnavn.md) | 0..1 <br/> [String](string.md) | Namn på eining registrert i Einingsregisteret | [Enhet](enhet.md) |
+| [organisasjonsnummer](organisasjonsnummer.md) | 0..1 <br/> [Identifikator](identifikator.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret | [Enhet](enhet.md) |
+| [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør | [Aktoer](aktoer.md) |
+| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Informasjon om postadresse til ein aktør | [Aktoer](aktoer.md) |
 
 
 
@@ -318,7 +318,7 @@ attributes:
     multivalued: true
   id:
     name: id
-    description: URI-identifikator (tilsvarar systemId i FINT).
+    description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     identifier: true

@@ -22,7 +22,7 @@ Alias: personopplysning
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: personopplysning
 
 | Property | Value |
 | --- | --- |
-| Range | [Personopplysning](Personopplysning.md) |
-| Domain Of | [Behandling](Behandling.md) |
+| Range | [Personopplysning](personopplysning.md) |
+| Domain Of | [Behandling](behandling.md) |
 | Slot URI | [pvn:personopplysning](https://schema.fintlabs.no/personvern/personopplysning) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: personopplysning
 
 | Property | Value |
 | --- | --- |
-| Owner | [Behandling](Behandling.md) |
+| Owner | [Behandling](behandling.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: personopplysning
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

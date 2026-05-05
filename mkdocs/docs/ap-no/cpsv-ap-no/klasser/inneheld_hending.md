@@ -22,7 +22,7 @@ Alias: inneheld_hending
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: inneheld_hending
 
 | Property | Value |
 | --- | --- |
-| Range | [Hendelse](Hendelse.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Hendelse](hendelse.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dcatno:containsEvent](https://data.norge.no/vocabulary/dcatno#containsEvent) |
 
 ### Cardinality and Requirements

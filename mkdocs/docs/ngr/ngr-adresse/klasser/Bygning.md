@@ -78,7 +78,7 @@ URI: [ngr:Bygning](https://data.norge.no/vocabulary/ngr-adresse#Bygning)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [ngr:Bygning](https://data.norge.no/vocabulary/ngr-adresse#Bygning)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [bygningar](bygningar.md) | range | [Bygning](Bygning.md) |
-| [OffisiellAdresse](OffisiellAdresse.md) | [adresserer_bygning](adresserer_bygning.md) | range | [Bygning](Bygning.md) |
+| [AdresseContainer](adressecontainer.md) | [bygningar](bygningar.md) | range | [Bygning](bygning.md) |
+| [OffisiellAdresse](offisielladresse.md) | [adresserer_bygning](adresserer_bygning.md) | range | [Bygning](bygning.md) |
 
 
 

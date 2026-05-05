@@ -22,7 +22,7 @@ Alias: adresserer_bygning
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: adresserer_bygning
 
 | Property | Value |
 | --- | --- |
-| Range | [Bygning](Bygning.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [Bygning](bygning.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:adressererBygning](https://data.norge.no/vocabulary/ngr-adresse#adressererBygning) |
 
 ### Cardinality and Requirements

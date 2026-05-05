@@ -22,7 +22,7 @@ Alias: malgruppe_def
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Definisjon](Definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  yes  |
+| [Definisjon](definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: malgruppe_def
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [Definisjon](Definisjon.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [Definisjon](definisjon.md) |
 | Slot URI | [dct:audience](http://purl.org/dc/terms/audience) |
 
 ### Cardinality and Requirements

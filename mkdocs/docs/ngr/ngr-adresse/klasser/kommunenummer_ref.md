@@ -22,7 +22,7 @@ Alias: kommunenummer_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kommunenummer_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Kommune](Kommune.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [Kommune](kommune.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:harKommunenummer](https://data.norge.no/vocabulary/ngr-adresse#harKommunenummer) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: sensornummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sensor](Sensor.md) | Ein sensor for ein eksamen |  no  |
+| [Sensor](sensor.md) | Ein sensor for ein eksamen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sensornummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Sensor](Sensor.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Sensor](sensor.md) |
 | Slot URI | [utd:sensornummer](https://schema.fintlabs.no/utdanning/sensornummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: sensornummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Sensor](Sensor.md) |
+| Owner | [Sensor](sensor.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: sensornummer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

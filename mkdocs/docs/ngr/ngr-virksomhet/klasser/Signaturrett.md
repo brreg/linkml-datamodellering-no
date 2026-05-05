@@ -59,7 +59,7 @@ URI: [ngrv:Signaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#Signatu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [signaturrett_bestemmelse](signaturrett_bestemmelse.md) | 1 <br/> [String](String.md) | Tekstleg bestemmelse om signaturrett (t |
+| [signaturrett_bestemmelse](signaturrett_bestemmelse.md) | 1 <br/> [String](string.md) | Tekstleg bestemmelse om signaturrett (t |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngrv:Signaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#Signatu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,8 +124,8 @@ URI: [ngrv:Signaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#Signatu
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [signaturrettar](signaturrettar.md) | range | [Signaturrett](Signaturrett.md) |
-| [Hovedenhet](Hovedenhet.md) | [har_bestemmelser_om_signaturrett](har_bestemmelser_om_signaturrett.md) | range | [Signaturrett](Signaturrett.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [signaturrettar](signaturrettar.md) | range | [Signaturrett](signaturrett.md) |
+| [Hovedenhet](hovedenhet.md) | [har_bestemmelser_om_signaturrett](har_bestemmelser_om_signaturrett.md) | range | [Signaturrett](signaturrett.md) |
 
 
 

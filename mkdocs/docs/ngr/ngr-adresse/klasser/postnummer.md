@@ -22,7 +22,7 @@ Alias: postnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Poststed](Poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  yes  |
+| [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: postnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Poststed](Poststed.md) |
+| Range | [String](string.md) |
+| Domain Of | [Poststed](poststed.md) |
 | Slot URI | [locn:postCode](http://www.w3.org/ns/locn#postCode) |
 
 ### Cardinality and Requirements

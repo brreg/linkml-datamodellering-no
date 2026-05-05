@@ -78,10 +78,10 @@ URI: [utd:FagvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Fagvurderin
 
 ## Inheritance
 * **FagvurderingAbstrakt**
-    * [Eksamensvurdering](Eksamensvurdering.md)
-    * [Halvaarsfagvurdering](Halvaarsfagvurdering.md)
-    * [Sluttfagvurdering](Sluttfagvurdering.md)
-    * [Underveisfagvurdering](Underveisfagvurdering.md)
+    * [Eksamensvurdering](eksamensvurdering.md)
+    * [Halvaarsfagvurdering](halvaarsfagvurdering.md)
+    * [Sluttfagvurdering](sluttfagvurdering.md)
+    * [Underveisfagvurdering](underveisfagvurdering.md)
 
 
 ## Class Properties
@@ -213,12 +213,12 @@ URI: [utd:FagvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Fagvurderin
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [kommentar](kommentar.md) | 1 <br/> [String](String.md) | Kommentar til vurderinga |
-| [vurderingsdato](vurderingsdato.md) | 1 <br/> [Datetime](Datetime.md) | Dato og tidspunkt for vurderinga |
-| [fag](fag.md) | 0..1 <br/> [Fag](Fag.md) | Faget vurderinga gjeld |
-| [skoleaar](skoleaar.md) | 0..1 <br/> [Skoleaar](Skoleaar.md) | Skoleåret vurderinga tilhøyrer |
-| [karakter](karakter.md) | 0..1 <br/> [Karakterverdi](Karakterverdi.md) | Karakterverdien gjeve i vurderinga |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kommentar](kommentar.md) | 1 <br/> [String](string.md) | Kommentar til vurderinga |
+| [vurderingsdato](vurderingsdato.md) | 1 <br/> [Datetime](datetime.md) | Dato og tidspunkt for vurderinga |
+| [fag](fag.md) | 0..1 <br/> [Fag](fag.md) | Faget vurderinga gjeld |
+| [skoleaar](skoleaar.md) | 0..1 <br/> [Skoleaar](skoleaar.md) | Skoleåret vurderinga tilhøyrer |
+| [karakter](karakter.md) | 0..1 <br/> [Karakterverdi](karakterverdi.md) | Karakterverdien gjeve i vurderinga |
 
 
 

@@ -87,8 +87,8 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
 ## Inheritance
 * **Hendelse**
-    * [Livshendelse](Livshendelse.md)
-    * [Virksomhetshendelse](Virksomhetshendelse.md)
+    * [Livshendelse](livshendelse.md)
+    * [Virksomhetshendelse](virksomhetshendelse.md)
 
 
 ## Class Properties
@@ -144,9 +144,9 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](Kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
 
 
 
@@ -188,8 +188,8 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [kan_utlose](kan_utlose.md) | * <br/> [OffentligTjeneste](OffentligTjeneste.md) | Offentlege tenester hendinga kan utløyse |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [kan_utlose](kan_utlose.md) | * <br/> [OffentligTjeneste](offentligtjeneste.md) | Offentlege tenester hendinga kan utløyse |
 
 
 
@@ -233,9 +233,9 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tema](tema.md) | * <br/> [Konsept](Konsept.md) | Emne/tema tenesta handlar om |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](Uri.md) | Datasett som beskriv ressursen |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -358,7 +358,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -371,11 +371,11 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [er_gruppert_av](er_gruppert_av.md) | range | [Hendelse](Hendelse.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [er_gruppert_av](er_gruppert_av.md) | range | [Hendelse](Hendelse.md) |
-| [Tjeneste](Tjeneste.md) | [er_gruppert_av](er_gruppert_av.md) | range | [Hendelse](Hendelse.md) |
-| [Tjenesteresultattype](Tjenesteresultattype.md) | [kan_skape_hending](kan_skape_hending.md) | range | [Hendelse](Hendelse.md) |
-| [Katalog](Katalog.md) | [inneheld_hending](inneheld_hending.md) | range | [Hendelse](Hendelse.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [er_gruppert_av](er_gruppert_av.md) | range | [Hendelse](hendelse.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [er_gruppert_av](er_gruppert_av.md) | range | [Hendelse](hendelse.md) |
+| [Tjeneste](tjeneste.md) | [er_gruppert_av](er_gruppert_av.md) | range | [Hendelse](hendelse.md) |
+| [Tjenesteresultattype](tjenesteresultattype.md) | [kan_skape_hending](kan_skape_hending.md) | range | [Hendelse](hendelse.md) |
+| [Katalog](katalog.md) | [inneheld_hending](inneheld_hending.md) | range | [Hendelse](hendelse.md) |
 
 
 

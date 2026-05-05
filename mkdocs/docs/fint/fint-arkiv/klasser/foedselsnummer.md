@@ -17,8 +17,8 @@ Alias: foedselsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Part](Part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
-| [Korrespondansepart](Korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: foedselsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Korrespondansepart](Korrespondansepart.md), [Part](Part.md) |
+| Range | [String](string.md) |
+| Domain Of | [Korrespondansepart](korrespondansepart.md), [Part](part.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: sektorkode_kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sektorkode](Sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |  yes  |
+| [Sektorkode](sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sektorkode_kode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Sektorkode](Sektorkode.md) |
+| Range | [String](string.md) |
+| Domain Of | [Sektorkode](sektorkode.md) |
 | Slot URI | [ngrv:sektorkodeKode](https://data.norge.no/vocabulary/ngr-virksomhet#sektorkodeKode) |
 
 ### Cardinality and Requirements

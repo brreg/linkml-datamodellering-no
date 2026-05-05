@@ -22,7 +22,7 @@ Alias: organisasjonselement
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturautsteder](Fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
+| [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Fakturautsteder](Fakturautsteder.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Fakturautsteder](fakturautsteder.md) |
 | Slot URI | [okn:organisasjonselement](https://schema.fintlabs.no/okonomi/organisasjonselement) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fakturautsteder](Fakturautsteder.md) |
+| Owner | [Fakturautsteder](fakturautsteder.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: organisasjonselement
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

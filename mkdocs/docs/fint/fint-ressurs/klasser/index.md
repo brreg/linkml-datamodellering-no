@@ -13,41 +13,41 @@ Name: fint-ressurs
 
 | Class | Description |
 | --- | --- |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Fysiske private personar |
-| [Applikasjon](Applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |
-| [Applikasjonskategori](Applikasjonskategori.md) | Kategori av applikasjonar |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |
-| [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](Fylke.md) | Liste over Norges fylker |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](Kommune.md) | Liste over Norges kommunar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |
-| [Brukertype](Brukertype.md) | Dei ulike brukartypane som kan nytte lisensen (t |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |
-| [Enhetsgruppe](Enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |
-| [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |
-| [Enhetstype](Enhetstype.md) | Type digital eining (t |
-| [Handhevingstype](Handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast (Håndhevingstype) |
-| [Identifikator](Identifikator.md) | Unik identifikasjon til eit objekt |
-| [Identitet](Identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |
-| [Lisensmodell](Lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
-| [Personnavn](Personnavn.md) | Namn på ein person |
-| [Plattform](Plattform.md) | Plattforma tenesta kan leverast på (t |
-| [Produsent](Produsent.md) | Produsent av ei digital eining |
-| [RessursContainer](RessursContainer.md) | Rotcontainer for FINT Ressurs-instansar |
-| [Rettighet](Rettighet.md) | Ei namngitt rettighet |
-| [Status](Status.md) | Status på ei digital eining i fagsystemet |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](person.md) | Fysiske private personar |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |
+| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |
+| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Liste over Norges fylker |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | Liste over Norges kommunar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |
+| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen (t |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |
+| [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |
+| [Enhetstype](enhetstype.md) | Type digital eining (t |
+| [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast (Håndhevingstype) |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |
+| [Identitet](identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |
+| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
+| [Personnavn](personnavn.md) | Namn på ein person |
+| [Plattform](plattform.md) | Plattforma tenesta kan leverast på (t |
+| [Produsent](produsent.md) | Produsent av ei digital eining |
+| [RessursContainer](ressurscontainer.md) | Rotcontainer for FINT Ressurs-instansar |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |
+| [Status](status.md) | Status på ei digital eining i fagsystemet |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |
 
 
 
@@ -71,9 +71,9 @@ Name: fint-ressurs
 | [brukertypar](brukertypar.md) |  |
 | [brukertype](brukertype.md) | For kva brukertypar denne lisensen er gyldig |
 | [bruksnummer](bruksnummer.md) | Fortløpande nummerering av bruk under gårdsnummer |
-| [dataobjektId](dataobjektId.md) | Einingsens ID i datakatalogen (t |
-| [digitaleEiningar](digitaleEiningar.md) |  |
-| [digitalEnhet](digitalEnhet.md) | Den digitale eininga dette medlemskapet tilhøyrer |
+| [dataobjektId](dataobjektid.md) | Einingsens ID i datakatalogen (t |
+| [digitaleEiningar](digitaleeiningar.md) |  |
+| [digitalEnhet](digitalenhet.md) | Den digitale eininga dette medlemskapet tilhøyrer |
 | [eier](eier.md) | Referanse til Organisasjonselement som har eigarskap til lisensen |
 | [einingsgruppedmedlemskap](einingsgruppedmedlemskap.md) |  |
 | [einingsgrupper](einingsgrupper.md) |  |
@@ -98,7 +98,7 @@ Name: fint-ressurs
 | [gyldighetsperiode](gyldighetsperiode.md) | Start- og sluttdato for gyldighetsperioden til applikasjonen |
 | [handhaevingstypar](handhaevingstypar.md) |  |
 | [handhevingstype](handhevingstype.md) | Korleis det skal handhevast når lisensantall vert overskredet (Håndhevingstyp... |
-| [id](id.md) | URI-identifikator (tilsvarar systemId i FINT) |
+| [id](id.md) | URI-identifikator for ressursen |
 | [identifikatorverdi](identifikatorverdi.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
 | [identitet](identitet.md) | Identitetar knytt til rettigheta |
 | [identitetar](identitetar.md) |  |
@@ -109,7 +109,7 @@ Name: fint-ressurs
 | [konsument](konsument.md) | Referanse til Organisasjonselement som har tilgang til denne ressursen |
 | [kontaktinformasjon](kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør |
 | [kontaktperson](kontaktperson.md) | Personar kontaktpersonen er pårørande for |
-| [kreverGodkjenning](kreverGodkjenning.md) | True dersom tildeling av ressursen krev godkjenning av leiar/tenestteforvalta... |
+| [kreverGodkjenning](krevergodkjenning.md) | True dersom tildeling av ressursen krev godkjenning av leiar/tenestteforvalta... |
 | [laerling](laerling.md) | Referanse til Laerling (Utdanning) |
 | [land](land.md) | Land der adressa befinn seg |
 | [lisensantall](lisensantall.md) | Totalt tal på lisensar |
@@ -151,7 +151,7 @@ Name: fint-ressurs
 | [statusar](statusar.md) |  |
 | [telefonnummer](telefonnummer.md) | Telefonnummer |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 
 ## Enumerations
@@ -164,31 +164,31 @@ Name: fint-ressurs
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalt eigensskap |
-| [Obligatorisk](Obligatorisk.md) | Obligatorisk eigensskap |
-| [Valgfri](Valgfri.md) | Valfri eigensskap |
+| [Anbefalt](anbefalt.md) | Anbefalt eigensskap |
+| [Obligatorisk](obligatorisk.md) | Obligatorisk eigensskap |
+| [Valgfri](valgfri.md) | Valfri eigensskap |

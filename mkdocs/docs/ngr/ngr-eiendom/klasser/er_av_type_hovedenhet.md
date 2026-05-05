@@ -22,8 +22,8 @@ Alias: er_av_type_hovedenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighetshaver](Rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  yes  |
-| [Borettslag](Borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |  yes  |
+| [Borettslag](borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |  yes  |
+| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: er_av_type_hovedenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Hovedenhet](Hovedenhet.md) |
-| Domain Of | [Rettighetshaver](Rettighetshaver.md), [Borettslag](Borettslag.md) |
+| Range | [Hovedenhet](hovedenhet.md) |
+| Domain Of | [Rettighetshaver](rettighetshaver.md), [Borettslag](borettslag.md) |
 | Slot URI | [ngre:erAvTypeHovedenhet](https://data.norge.no/vocabulary/ngr-eiendom#erAvTypeHovedenhet) |
 
 ### Cardinality and Requirements

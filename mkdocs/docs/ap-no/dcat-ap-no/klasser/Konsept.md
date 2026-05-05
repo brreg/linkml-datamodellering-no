@@ -78,7 +78,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,26 +91,26 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Aktor](Aktor.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [RegulativRessurs](RegulativRessurs.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Gebyr](Gebyr.md) | [valuta](valuta.md) | range | [Konsept](Konsept.md) |
-| [Relasjon](Relasjon.md) | [har_rolle](har_rolle.md) | range | [Konsept](Konsept.md) |
-| [Distribusjon](Distribusjon.md) | [lisens](lisens.md) | range | [Konsept](Konsept.md) |
-| [Distribusjon](Distribusjon.md) | [status](status.md) | range | [Konsept](Konsept.md) |
-| [Distribusjon](Distribusjon.md) | [tilgjengelighet](tilgjengelighet.md) | range | [Konsept](Konsept.md) |
-| [Datasett](Datasett.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Datasett](Datasett.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Datasett](Datasett.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [Datasett](Datasett.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Datasettserie](Datasettserie.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Datasettserie](Datasettserie.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [Datatjeneste](Datatjeneste.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Datatjeneste](Datatjeneste.md) | [tilgjengelighet](tilgjengelighet.md) | range | [Konsept](Konsept.md) |
-| [Datatjeneste](Datatjeneste.md) | [lisens](lisens.md) | range | [Konsept](Konsept.md) |
-| [Datatjeneste](Datatjeneste.md) | [status](status.md) | range | [Konsept](Konsept.md) |
-| [Katalogpost](Katalogpost.md) | [status](status.md) | range | [Konsept](Konsept.md) |
-| [Katalog](Katalog.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [Katalog](Katalog.md) | [lisens](lisens.md) | range | [Konsept](Konsept.md) |
+| [Aktor](aktor.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [RegulativRessurs](regulativressurs.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Gebyr](gebyr.md) | [valuta](valuta.md) | range | [Konsept](konsept.md) |
+| [Relasjon](relasjon.md) | [har_rolle](har_rolle.md) | range | [Konsept](konsept.md) |
+| [Distribusjon](distribusjon.md) | [lisens](lisens.md) | range | [Konsept](konsept.md) |
+| [Distribusjon](distribusjon.md) | [status](status.md) | range | [Konsept](konsept.md) |
+| [Distribusjon](distribusjon.md) | [tilgjengelighet](tilgjengelighet.md) | range | [Konsept](konsept.md) |
+| [Datasett](datasett.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Datasett](datasett.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Datasett](datasett.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [Datasett](datasett.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Datasettserie](datasettserie.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Datasettserie](datasettserie.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [Datatjeneste](datatjeneste.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Datatjeneste](datatjeneste.md) | [tilgjengelighet](tilgjengelighet.md) | range | [Konsept](konsept.md) |
+| [Datatjeneste](datatjeneste.md) | [lisens](lisens.md) | range | [Konsept](konsept.md) |
+| [Datatjeneste](datatjeneste.md) | [status](status.md) | range | [Konsept](konsept.md) |
+| [Katalogpost](katalogpost.md) | [status](status.md) | range | [Konsept](konsept.md) |
+| [Katalog](katalog.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [Katalog](katalog.md) | [lisens](lisens.md) | range | [Konsept](konsept.md) |
 
 
 

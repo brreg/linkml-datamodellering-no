@@ -22,7 +22,7 @@ Alias: tittel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](Standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
+| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tittel
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Standard](Standard.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Standard](standard.md) |
 | Slot URI | [dct:title](http://purl.org/dc/terms/title) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: har_forventet_datatype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsmaal](Kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_forventet_datatype
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Kvalitetsmaal](Kvalitetsmaal.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Kvalitetsmaal](kvalitetsmaal.md) |
 | Slot URI | [dqv:expectedDataType](http://www.w3.org/ns/dqv#expectedDataType) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: eigd_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](Tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: eigd_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Aktor](Aktor.md) |
-| Domain Of | [Tjeneste](Tjeneste.md) |
+| Range | [Aktor](aktor.md) |
+| Domain Of | [Tjeneste](tjeneste.md) |
 | Slot URI | [cv:ownedBy](http://data.europa.eu/m8g/ownedBy) |
 
 ### Cardinality and Requirements

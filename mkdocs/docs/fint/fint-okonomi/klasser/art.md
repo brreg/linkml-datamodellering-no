@@ -22,7 +22,7 @@ Alias: art
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontostreng](Kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |  no  |
+| [Kontostreng](kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: art
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontostreng](Kontostreng.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontostreng](kontostreng.md) |
 | Slot URI | [okn:art](https://schema.fintlabs.no/okonomi/art) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: art
 
 | Property | Value |
 | --- | --- |
-| Owner | [Kontostreng](Kontostreng.md) |
+| Owner | [Kontostreng](kontostreng.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: art
 ## In Subsets
 
 
-* [Anbefalt](Anbefalt.md)
+* [Anbefalt](anbefalt.md)
 
 
 

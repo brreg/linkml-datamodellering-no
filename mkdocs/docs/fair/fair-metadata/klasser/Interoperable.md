@@ -5,7 +5,7 @@ _Eigenskapar knytt til FAIR I-prinsippa (Interoperable)._
 
 
 
-URI: [Interoperable](Interoperable.md)
+URI: [Interoperable](interoperable.md)
 
 
 

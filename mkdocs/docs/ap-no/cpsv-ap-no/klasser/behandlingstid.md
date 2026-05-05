@@ -22,9 +22,9 @@ Alias: behandlingstid
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenestekanal](Tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
-| [OffentligTjeneste](OffentligTjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
-| [Tjeneste](Tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: behandlingstid
 
 | Property | Value |
 | --- | --- |
-| Range | [Duration](Duration.md) |
-| Domain Of | [OffentligTjeneste](OffentligTjeneste.md), [Tjeneste](Tjeneste.md), [Tjenestekanal](Tjenestekanal.md) |
+| Range | [Duration](duration.md) |
+| Domain Of | [OffentligTjeneste](offentligtjeneste.md), [Tjeneste](tjeneste.md), [Tjenestekanal](tjenestekanal.md) |
 | Slot URI | [cv:processingTime](http://data.europa.eu/m8g/processingTime) |
 
 ### Cardinality and Requirements

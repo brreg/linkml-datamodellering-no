@@ -22,7 +22,7 @@ Alias: kan_ha_aksjeinnskudd
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Selskapshendelse](Selskapshendelse.md) | Hending som påverkar selskapet sitt eigarskap eller kapital |  no  |
+| [Selskapshendelse](selskapshendelse.md) | Hending som påverkar selskapet sitt eigarskap eller kapital |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: kan_ha_aksjeinnskudd
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjeinnskudd](Aksjeinnskudd.md) |
-| Domain | [Selskapshendelse](Selskapshendelse.md) |
-| Domain Of | [Selskapshendelse](Selskapshendelse.md) |
+| Range | [Aksjeinnskudd](aksjeinnskudd.md) |
+| Domain | [Selskapshendelse](selskapshendelse.md) |
+| Domain Of | [Selskapshendelse](selskapshendelse.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: gjeld_for_tidsrom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gjeld_for_tidsrom
 
 | Property | Value |
 | --- | --- |
-| Range | [Tidsrom](Tidsrom.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [Tidsrom](tidsrom.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [dct:temporal](http://purl.org/dc/terms/temporal) |
 
 ### Cardinality and Requirements

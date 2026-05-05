@@ -159,11 +159,11 @@ URI: [utd:Avbruddsaarsak](https://schema.fintlabs.no/utdanning/Avbruddsaarsak)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [kode](kode.md) | 1 <br/> [String](String.md) |  |
-| [navn](navn.md) | 1 <br/> [String](String.md) |  |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) |  |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](Boolean.md) |  |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kode](kode.md) | 1 <br/> [String](string.md) |  |
+| [navn](navn.md) | 1 <br/> [String](string.md) |  |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) |  |
+| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) |  |
 
 
 
@@ -176,8 +176,8 @@ URI: [utd:Avbruddsaarsak](https://schema.fintlabs.no/utdanning/Avbruddsaarsak)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | [avbruddsaarsaker](avbruddsaarsaker.md) | range | [Avbruddsaarsak](Avbruddsaarsak.md) |
-| [Elevforhold](Elevforhold.md) | [avbruddsarsak](avbruddsarsak.md) | range | [Avbruddsaarsak](Avbruddsaarsak.md) |
+| [UtdanningContainer](utdanningcontainer.md) | [avbruddsaarsaker](avbruddsaarsaker.md) | range | [Avbruddsaarsak](avbruddsaarsak.md) |
+| [Elevforhold](elevforhold.md) | [avbruddsarsak](avbruddsarsak.md) | range | [Avbruddsaarsak](avbruddsaarsak.md) |
 
 
 

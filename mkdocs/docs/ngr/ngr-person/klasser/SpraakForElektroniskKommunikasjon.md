@@ -59,7 +59,7 @@ URI: [ngrp:SpraakForElektroniskKommunikasjon](https://data.norge.no/vocabulary/n
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [spraakkode](spraakkode.md) | 1 <br/> [String](String.md) | BCP 47 språkkode for føretrekt kommunikasjonsspråk (t |
+| [spraakkode](spraakkode.md) | 1 <br/> [String](string.md) | BCP 47 språkkode for føretrekt kommunikasjonsspråk (t |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngrp:SpraakForElektroniskKommunikasjon](https://data.norge.no/vocabulary/n
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,8 +124,8 @@ URI: [ngrp:SpraakForElektroniskKommunikasjon](https://data.norge.no/vocabulary/n
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [spraak](spraak.md) | range | [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) |
-| [Person](Person.md) | [har_valgt_spraak](har_valgt_spraak.md) | range | [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) |
+| [PersonContainer](personcontainer.md) | [spraak](spraak.md) | range | [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) |
+| [Person](person.md) | [har_valgt_spraak](har_valgt_spraak.md) | range | [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) |
 
 
 

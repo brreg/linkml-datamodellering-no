@@ -22,7 +22,7 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: person
 
 | Property | Value |
 | --- | --- |
-| Range | [Person](Person.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Person](person.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:person](https://schema.fintlabs.no/administrasjon/person) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: person
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: person
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

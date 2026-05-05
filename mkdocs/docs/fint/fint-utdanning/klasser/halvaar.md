@@ -22,7 +22,7 @@ Alias: halvaar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravarsoversikt](Fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
+| [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: halvaar
 
 | Property | Value |
 | --- | --- |
-| Range | [Fravarsprosent](Fravarsprosent.md) |
-| Domain Of | [Fravarsoversikt](Fravarsoversikt.md) |
+| Range | [Fravarsprosent](fravarsprosent.md) |
+| Domain Of | [Fravarsoversikt](fravarsoversikt.md) |
 | Slot URI | [utd:halvaar](https://schema.fintlabs.no/utdanning/halvaar) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: halvaar
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravarsoversikt](Fravarsoversikt.md) |
+| Owner | [Fravarsoversikt](fravarsoversikt.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: halvaar
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

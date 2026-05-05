@@ -17,8 +17,8 @@ Alias: adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: adresse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Faktura](Faktura.md), [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [String](string.md) |
+| Domain Of | [Faktura](faktura.md), [Matrikkelnummer](matrikkelnummer.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: inneheld_teneste
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: inneheld_teneste
 
 | Property | Value |
 | --- | --- |
-| Range | [OffentligTjeneste](OffentligTjeneste.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [OffentligTjeneste](offentligtjeneste.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dcatno:containsService](https://data.norge.no/vocabulary/dcatno#containsService) |
 
 ### Cardinality and Requirements

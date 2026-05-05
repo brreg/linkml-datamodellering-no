@@ -22,7 +22,7 @@ Alias: tidsopplosning
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tidsopplosning
 
 | Property | Value |
 | --- | --- |
-| Range | [Duration](Duration.md) |
-| Domain Of | [Distribusjon](Distribusjon.md) |
+| Range | [Duration](duration.md) |
+| Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:temporalResolution](http://www.w3.org/ns/dcat#temporalResolution) |
 
 ### Cardinality and Requirements

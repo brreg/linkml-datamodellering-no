@@ -22,7 +22,7 @@ Alias: har_verge
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_verge
 
 | Property | Value |
 | --- | --- |
-| Range | [Verge](Verge.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Verge](verge.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harVerge](https://data.norge.no/vocabulary/ngr-person#harVerge) |
 
 ### Cardinality and Requirements

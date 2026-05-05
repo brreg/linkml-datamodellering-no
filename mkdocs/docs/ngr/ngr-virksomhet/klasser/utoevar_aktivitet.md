@@ -22,7 +22,7 @@ Alias: utoevar_aktivitet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: utoevar_aktivitet
 
 | Property | Value |
 | --- | --- |
-| Range | [Aktivitet](Aktivitet.md) |
-| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Range | [Aktivitet](aktivitet.md) |
+| Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:utoevarAktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#utoevarAktivitet) |
 
 ### Cardinality and Requirements

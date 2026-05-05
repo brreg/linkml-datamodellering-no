@@ -22,7 +22,7 @@ Alias: har_bygningsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_bygningsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Bygningsnummer](Bygningsnummer.md) |
-| Domain Of | [Bygning](Bygning.md) |
+| Range | [Bygningsnummer](bygningsnummer.md) |
+| Domain Of | [Bygning](bygning.md) |
 | Slot URI | [ngre:harBygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#harBygningsnummer) |
 
 ### Cardinality and Requirements

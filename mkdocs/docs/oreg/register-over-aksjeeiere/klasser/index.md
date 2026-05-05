@@ -13,25 +13,25 @@ Name: aksje_eierskap
 
 | Class | Description |
 | --- | --- |
-| [Aksje](Aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |
-| [Aksjeeier](Aksjeeier.md) | Person eller organisasjon som eig aksjar |
-| [Aksjeeierrettighet](Aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |
-| [Aksjeinnskudd](Aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |
-| [Aksjekapital](Aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |
-| [Aksjeklasse](Aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |
-| [Aksjeoverdragelse](Aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |
-| [Aksjepost](Aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |
-| [Aksjeselskap](Aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |
-| [Containerklasse](Containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |
-| [Eierposisjon](Eierposisjon.md) | Eierens samla posisjon i eit selskap |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |
-| [InnbetaltAksjekapital](InnbetaltAksjekapital.md) | Innbetalt aksjekapital |
-| [InnbetaltOverkurs](InnbetaltOverkurs.md) | Innbetalt overkurs utover pålydande |
-| [Selskapshendelse](Selskapshendelse.md) | Hending som påverkar selskapet sitt eigarskap eller kapital |
-| [Tidspunkt](Tidspunkt.md) | Tidspunkt for ei hending |
-| [Utbytte](Utbytte.md) | Utbytte knytt til ein eigarposisjon |
-| [Utdeling](Utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |
-| [Vederlag](Vederlag.md) | Vederlag knytt til ei aksjeoverdraging |
+| [Aksje](aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |
+| [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |
+| [Aksjeeierrettighet](aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |
+| [Aksjeinnskudd](aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |
+| [Aksjekapital](aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |
+| [Aksjeklasse](aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |
+| [Aksjeoverdragelse](aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |
+| [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |
+| [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |
+| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |
+| [Eierposisjon](eierposisjon.md) | Eierens samla posisjon i eit selskap |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |
+| [InnbetaltAksjekapital](innbetaltaksjekapital.md) | Innbetalt aksjekapital |
+| [InnbetaltOverkurs](innbetaltoverkurs.md) | Innbetalt overkurs utover pålydande |
+| [Selskapshendelse](selskapshendelse.md) | Hending som påverkar selskapet sitt eigarskap eller kapital |
+| [Tidspunkt](tidspunkt.md) | Tidspunkt for ei hending |
+| [Utbytte](utbytte.md) | Utbytte knytt til ein eigarposisjon |
+| [Utdeling](utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |
+| [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |
 
 
 
@@ -92,25 +92,25 @@ Name: aksje_eierskap
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets

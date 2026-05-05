@@ -22,7 +22,7 @@ Alias: samanliknar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: samanliknar
 
 | Property | Value |
 | --- | --- |
-| Range | [Klassifikasjon](Klassifikasjon.md) |
-| Domain Of | [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) |
+| Range | [Klassifikasjon](klassifikasjon.md) |
+| Domain Of | [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) |
 | Slot URI | [xkos:compares](http://rdf-vocabulary.ddialliance.org/xkos#compares) |
 
 ### Cardinality and Requirements

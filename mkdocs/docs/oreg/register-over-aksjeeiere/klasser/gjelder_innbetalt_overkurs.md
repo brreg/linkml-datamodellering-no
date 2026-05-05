@@ -22,7 +22,7 @@ Alias: gjelder_innbetalt_overkurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeinnskudd](Aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |  no  |
+| [Aksjeinnskudd](aksjeinnskudd.md) | Innskot knytt til aksjar i samband med selskapshending |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: gjelder_innbetalt_overkurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Decimal](Decimal.md) |
-| Domain | [Aksjeinnskudd](Aksjeinnskudd.md) |
-| Domain Of | [Aksjeinnskudd](Aksjeinnskudd.md) |
+| Range | [Decimal](decimal.md) |
+| Domain | [Aksjeinnskudd](aksjeinnskudd.md) |
+| Domain Of | [Aksjeinnskudd](aksjeinnskudd.md) |
 
 ### Cardinality and Requirements
 

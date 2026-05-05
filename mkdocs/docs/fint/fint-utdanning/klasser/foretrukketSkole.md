@@ -22,7 +22,7 @@ Alias: foretrukketSkole
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foretrukketSkole
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 | Slot URI | [utd:foretrukketSkole](https://schema.fintlabs.no/utdanning/foretrukketSkole) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: foretrukketSkole
 
 | Property | Value |
 | --- | --- |
-| Owner | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Owner | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: foretrukketSkole
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

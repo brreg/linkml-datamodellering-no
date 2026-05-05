@@ -22,7 +22,7 @@ Alias: statsborgerskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: statsborgerskap
 
 | Property | Value |
 | --- | --- |
-| Range | [Landkode](Landkode.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Landkode](landkode.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:statsborgerskap](https://schema.fintlabs.no/statsborgerskap) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: statsborgerskap
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: statsborgerskap
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

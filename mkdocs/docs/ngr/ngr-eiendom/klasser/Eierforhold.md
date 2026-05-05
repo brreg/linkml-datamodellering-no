@@ -92,8 +92,8 @@ URI: [ngre:Eierforhold](https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
 
 ## Inheritance
 * **Eierforhold**
-    * [TinglystEierforhold](TinglystEierforhold.md)
-    * [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md)
+    * [TinglystEierforhold](tinglysteierforhold.md)
+    * [IkkeTinglystEierforhold](ikketinglysteierforhold.md)
 
 
 ## Class Properties
@@ -136,7 +136,7 @@ URI: [ngre:Eierforhold](https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | 1 <br/> [Matrikkelenhet](Matrikkelenhet.md) | Matrikkeleininga dette eigarforholdet gjeld |
+| [gjelder_matrikkelenhet](gjelder_matrikkelenhet.md) | 1 <br/> [Matrikkelenhet](matrikkelenhet.md) | Matrikkeleininga dette eigarforholdet gjeld |
 
 
 
@@ -195,10 +195,10 @@ URI: [ngre:Eierforhold](https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | 0..1 <br/> [Borettslagsandel](Borettslagsandel.md) | Burettslagsandelen dette eigarforholdet eventuelt gjeld |
-| [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | 0..1 <br/> [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) | Heimelsdokument for eigedomsrett knytt til dette eigarforholdet |
-| [gjelder_hjemmel_festerett](gjelder_hjemmel_festerett.md) | 0..1 <br/> [HjemmelTilFesterett](HjemmelTilFesterett.md) | Heimelsdokument for festerett knytt til dette eigarforholdet |
-| [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | 0..1 <br/> [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) | Heimelsdokument for framfesterett knytt til dette eigarforholdet |
+| [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | 0..1 <br/> [Borettslagsandel](borettslagsandel.md) | Burettslagsandelen dette eigarforholdet eventuelt gjeld |
+| [gjelder_hjemmel_eiendomsrett](gjelder_hjemmel_eiendomsrett.md) | 0..1 <br/> [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett knytt til dette eigarforholdet |
+| [gjelder_hjemmel_festerett](gjelder_hjemmel_festerett.md) | 0..1 <br/> [HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett knytt til dette eigarforholdet |
+| [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | 0..1 <br/> [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett knytt til dette eigarforholdet |
 
 
 
@@ -282,7 +282,7 @@ URI: [ngre:Eierforhold](https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -295,8 +295,8 @@ URI: [ngre:Eierforhold](https://data.norge.no/vocabulary/ngr-eiendom#Eierforhold
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [FastEiendom](FastEiendom.md) | [har_eierforhold](har_eierforhold.md) | range | [Eierforhold](Eierforhold.md) |
-| [Borettslagsandel](Borettslagsandel.md) | [har_eierforhold](har_eierforhold.md) | range | [Eierforhold](Eierforhold.md) |
+| [FastEiendom](fasteiendom.md) | [har_eierforhold](har_eierforhold.md) | range | [Eierforhold](eierforhold.md) |
+| [Borettslagsandel](borettslagsandel.md) | [har_eierforhold](har_eierforhold.md) | range | [Eierforhold](eierforhold.md) |
 
 
 

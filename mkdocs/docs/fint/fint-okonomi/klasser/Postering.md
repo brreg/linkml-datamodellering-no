@@ -22,7 +22,7 @@ Alias: postering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: postering
 
 | Property | Value |
 | --- | --- |
-| Range | [Postering](Postering.md) |
-| Domain Of | [Transaksjon](Transaksjon.md) |
+| Range | [Postering](postering.md) |
+| Domain Of | [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:postering](https://schema.fintlabs.no/okonomi/postering) |
 
 ### Cardinality and Requirements
@@ -49,7 +49,7 @@ Alias: postering
 
 | Property | Value |
 | --- | --- |
-| Owner | [Transaksjon](Transaksjon.md) |
+| Owner | [Transaksjon](transaksjon.md) |
 
 
 
@@ -61,7 +61,7 @@ Alias: postering
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

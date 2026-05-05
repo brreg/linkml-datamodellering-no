@@ -17,14 +17,14 @@ Alias: arbeidsforhold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Arbeidslokasjon](Arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  no  |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Organisasjonselement](Organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
-| [AdministrasjonContainer](AdministrasjonContainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
-| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: arbeidsforhold
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [AdministrasjonContainer](AdministrasjonContainer.md), [Fastlonn](Fastlonn.md), [Fasttillegg](Fasttillegg.md), [Variabellonn](Variabellonn.md), [Fravaer](Fravaer.md), [Arbeidslokasjon](Arbeidslokasjon.md), [Organisasjonselement](Organisasjonselement.md), [Personalressurs](Personalressurs.md) |
+| Range | [String](string.md) |
+| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md), [Fastlonn](fastlonn.md), [Fasttillegg](fasttillegg.md), [Variabellonn](variabellonn.md), [Fravaer](fravaer.md), [Arbeidslokasjon](arbeidslokasjon.md), [Organisasjonselement](organisasjonselement.md), [Personalressurs](personalressurs.md) |
 
 ### Cardinality and Requirements
 

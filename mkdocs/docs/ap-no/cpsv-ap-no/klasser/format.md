@@ -26,7 +26,7 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [Mediatype](Mediatype.md) |
+| Range | [Mediatype](mediatype.md) |
 | Slot URI | [dct:format](http://purl.org/dc/terms/format) |
 
 ### Cardinality and Requirements

@@ -22,8 +22,8 @@ Alias: versjonsmerknad
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: versjonsmerknad
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Datasett](Datasett.md), [Datatjeneste](Datatjeneste.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [adms:versionNotes](http://www.w3.org/ns/adms#versionNotes) |
 
 ### Cardinality and Requirements

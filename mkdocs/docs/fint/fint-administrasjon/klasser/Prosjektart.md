@@ -17,8 +17,8 @@ Alias: prosjektart
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontostreng](Kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  no  |
-| [Prosjekt](Prosjekt.md) | Del av kontostrengen som peikar på løpande prosjekt |  no  |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  no  |
+| [Prosjekt](prosjekt.md) | Del av kontostrengen som peikar på løpande prosjekt |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: prosjektart
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontostreng](Kontostreng.md), [Prosjekt](Prosjekt.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontostreng](kontostreng.md), [Prosjekt](prosjekt.md) |
 
 ### Cardinality and Requirements
 

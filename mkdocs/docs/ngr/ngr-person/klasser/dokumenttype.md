@@ -22,7 +22,7 @@ Alias: dokumenttype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identifikasjonsdokument](Identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
+| [Identifikasjonsdokument](identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dokumenttype
 
 | Property | Value |
 | --- | --- |
-| Range | [IdentifikasjonsdokumentType](IdentifikasjonsdokumentType.md) |
-| Domain Of | [Identifikasjonsdokument](Identifikasjonsdokument.md) |
+| Range | [IdentifikasjonsdokumentType](identifikasjonsdokumenttype.md) |
+| Domain Of | [Identifikasjonsdokument](identifikasjonsdokument.md) |
 | Slot URI | [ngrp:dokumenttype](https://data.norge.no/vocabulary/ngr-person#dokumenttype) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: signaturrett_bestemmelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Signaturrett](Signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |  yes  |
+| [Signaturrett](signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: signaturrett_bestemmelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Signaturrett](Signaturrett.md) |
+| Range | [String](string.md) |
+| Domain Of | [Signaturrett](signaturrett.md) |
 | Slot URI | [ngrv:signaturrettBestemmelse](https://data.norge.no/vocabulary/ngr-virksomhet#signaturrettBestemmelse) |
 
 ### Cardinality and Requirements

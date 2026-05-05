@@ -22,7 +22,7 @@ Alias: relasjontype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AssosiativRelasjon](AssosiativRelasjon.md) | Ein assosiativ relasjon mellom to omgrep |  yes  |
+| [AssosiativRelasjon](assosiativrelasjon.md) | Ein assosiativ relasjon mellom to omgrep |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: relasjontype
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [AssosiativRelasjon](AssosiativRelasjon.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [AssosiativRelasjon](assosiativrelasjon.md) |
 | Slot URI | [skosno:relationRole](https://data.norge.no/vocabulary/skosno#relationRole) |
 
 ### Cardinality and Requirements

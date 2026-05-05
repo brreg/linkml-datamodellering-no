@@ -22,7 +22,7 @@ Alias: tema
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tema
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [dct:subject](http://purl.org/dc/terms/subject) |
 
 ### Cardinality and Requirements

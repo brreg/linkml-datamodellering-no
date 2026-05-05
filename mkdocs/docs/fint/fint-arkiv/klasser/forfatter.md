@@ -17,9 +17,9 @@ Alias: forfatter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
-| [Registrering](Registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: forfatter
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Registrering](Registrering.md), [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Registrering](registrering.md), [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 ### Cardinality and Requirements
 

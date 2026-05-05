@@ -78,7 +78,7 @@ URI: [ngr:Bruksenhet](https://data.norge.no/vocabulary/ngr-adresse#Bruksenhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [ngr:Bruksenhet](https://data.norge.no/vocabulary/ngr-adresse#Bruksenhet)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [bruksenheter](bruksenheter.md) | range | [Bruksenhet](Bruksenhet.md) |
-| [OffisiellAdresse](OffisiellAdresse.md) | [adresserer_bruksenhet](adresserer_bruksenhet.md) | range | [Bruksenhet](Bruksenhet.md) |
+| [AdresseContainer](adressecontainer.md) | [bruksenheter](bruksenheter.md) | range | [Bruksenhet](bruksenhet.md) |
+| [OffisiellAdresse](offisielladresse.md) | [adresserer_bruksenhet](adresserer_bruksenhet.md) | range | [Bruksenhet](bruksenhet.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: er_kvalitetsmaaling_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsmaaling](Kvalitetsmaaling.md) | Ei konkret måling av eit kvalitetsmål for eit datasett |  yes  |
+| [Kvalitetsmaaling](kvalitetsmaaling.md) | Ei konkret måling av eit kvalitetsmål for eit datasett |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_kvalitetsmaaling_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Kvalitetsmaal](Kvalitetsmaal.md) |
-| Domain Of | [Kvalitetsmaaling](Kvalitetsmaaling.md) |
+| Range | [Kvalitetsmaal](kvalitetsmaal.md) |
+| Domain Of | [Kvalitetsmaaling](kvalitetsmaaling.md) |
 | Slot URI | [dqv:isMeasurementOf](http://www.w3.org/ns/dqv#isMeasurementOf) |
 
 ### Cardinality and Requirements

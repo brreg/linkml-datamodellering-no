@@ -22,15 +22,15 @@ Alias: gyldig_fra_og_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Statsborgerskap](Statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |  yes  |
-| [Personstatus](Personstatus.md) | Status for ein person i Folkeregisteret (t |  yes  |
-| [Sivilstand](Sivilstand.md) | Sivilstand registrert på ein person i Folkeregisteret |  yes  |
-| [Postadresse](Postadresse.md) | Adressa der personen mottar post |  yes  |
-| [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) | Registrering av at ein person har reservert seg mot digital kommunikasjon frå... |  yes  |
-| [Opphold](Opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |  yes  |
-| [Oppholdsadresse](Oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |  yes  |
-| [Bostedsadresse](Bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |  yes  |
-| [Kjoenn](Kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |  yes  |
+| [Personstatus](personstatus.md) | Status for ein person i Folkeregisteret (t |  yes  |
+| [Statsborgerskap](statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |  yes  |
+| [Bostedsadresse](bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |  yes  |
+| [Postadresse](postadresse.md) | Adressa der personen mottar post |  yes  |
+| [Sivilstand](sivilstand.md) | Sivilstand registrert på ein person i Folkeregisteret |  yes  |
+| [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) | Registrering av at ein person har reservert seg mot digital kommunikasjon frå... |  yes  |
+| [Kjoenn](kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |  yes  |
+| [Opphold](opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |  yes  |
+| [Oppholdsadresse](oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |  yes  |
 
 
 
@@ -43,8 +43,8 @@ Alias: gyldig_fra_og_med
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Kjoenn](Kjoenn.md), [Sivilstand](Sivilstand.md), [Personstatus](Personstatus.md), [Statsborgerskap](Statsborgerskap.md), [Opphold](Opphold.md), [Bostedsadresse](Bostedsadresse.md), [Postadresse](Postadresse.md), [Oppholdsadresse](Oppholdsadresse.md), [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Kjoenn](kjoenn.md), [Sivilstand](sivilstand.md), [Personstatus](personstatus.md), [Statsborgerskap](statsborgerskap.md), [Opphold](opphold.md), [Bostedsadresse](bostedsadresse.md), [Postadresse](postadresse.md), [Oppholdsadresse](oppholdsadresse.md), [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) |
 | Slot URI | [ngrp:gyldigFraOgMed](https://data.norge.no/vocabulary/ngr-person#gyldigFraOgMed) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: har_bestemmelser_om_signaturrett
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_bestemmelser_om_signaturrett
 
 | Property | Value |
 | --- | --- |
-| Range | [Signaturrett](Signaturrett.md) |
-| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Range | [Signaturrett](signaturrett.md) |
+| Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:harBestemmelserOmSignaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#harBestemmelserOmSignaturrett) |
 
 ### Cardinality and Requirements

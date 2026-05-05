@@ -22,8 +22,8 @@ Alias: identifikator_literal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: identifikator_literal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md), [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) |
+| Range | [String](string.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md), [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: foedselsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Foedsel](Foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |  yes  |
+| [Foedsel](foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foedselsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Foedsel](Foedsel.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Foedsel](foedsel.md) |
 | Slot URI | [ngrp:foedselsdato](https://data.norge.no/vocabulary/ngr-person#foedselsdato) |
 
 ### Cardinality and Requirements

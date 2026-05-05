@@ -5,7 +5,7 @@ _Obligatoriske eigenskapar i domenemodellen._
 
 
 
-URI: [Obligatorisk](Obligatorisk.md)
+URI: [Obligatorisk](obligatorisk.md)
 
 
 

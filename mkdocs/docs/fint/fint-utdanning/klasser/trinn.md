@@ -17,8 +17,8 @@ Alias: trinn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Programomrade](Programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
-| [Klasse](Klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: trinn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Klasse](Klasse.md), [Programomrade](Programomrade.md) |
+| Range | [String](string.md) |
+| Domain Of | [Klasse](klasse.md), [Programomrade](programomrade.md) |
 
 ### Cardinality and Requirements
 

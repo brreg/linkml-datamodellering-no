@@ -22,7 +22,7 @@ Alias: har_sivilstand
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_sivilstand
 
 | Property | Value |
 | --- | --- |
-| Range | [Sivilstand](Sivilstand.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Sivilstand](sivilstand.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harSivilstand](https://data.norge.no/vocabulary/ngr-person#harSivilstand) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: valuta
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: valuta
 
 | Property | Value |
 | --- | --- |
-| Range | [Valuta](Valuta.md) |
-| Domain Of | [Transaksjon](Transaksjon.md) |
+| Range | [OkonomiValuta](okonomivaluta.md) |
+| Domain Of | [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:valuta](https://schema.fintlabs.no/okonomi/valuta) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: valuta
 
 | Property | Value |
 | --- | --- |
-| Owner | [Transaksjon](Transaksjon.md) |
+| Owner | [Transaksjon](transaksjon.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: valuta
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 
@@ -106,7 +106,7 @@ alias: valuta
 owner: Transaksjon
 domain_of:
 - Transaksjon
-range: Valuta
+range: OkonomiValuta
 required: true
 
 ```

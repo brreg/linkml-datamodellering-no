@@ -17,8 +17,8 @@ Alias: vare
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturautsteder](Fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
-| [Fakturalinje](Fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
+| [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
+| [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: vare
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fakturautsteder](Fakturautsteder.md), [Fakturalinje](Fakturalinje.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fakturautsteder](fakturautsteder.md), [Fakturalinje](fakturalinje.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: rett_identitet_er_ukjent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FalskIdentitet](FalskIdentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |  yes  |
+| [FalskIdentitet](falskidentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rett_identitet_er_ukjent
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [FalskIdentitet](FalskIdentitet.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [FalskIdentitet](falskidentitet.md) |
 | Slot URI | [ngrp:rettIdentitetErUkjent](https://data.norge.no/vocabulary/ngr-person#rettIdentitetErUkjent) |
 
 ### Cardinality and Requirements

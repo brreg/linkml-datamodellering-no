@@ -22,7 +22,7 @@ Alias: spesifiserer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: spesifiserer
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [xkos:specializes](http://rdf-vocabulary.ddialliance.org/xkos#specializes) |
 
 ### Cardinality and Requirements

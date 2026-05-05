@@ -86,7 +86,7 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 
 
 ## Inheritance
-* [Hendelse](Hendelse.md)
+* [Hendelse](hendelse.md)
     * **Livshendelse**
 
 
@@ -122,7 +122,7 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kan_utlose_behov_for](kan_utlose_behov_for.md) | * <br/> [Uriorcurie](Uriorcurie.md) | Tenester det kan oppstå behov for som følgje av hendinga |
+| [kan_utlose_behov_for](kan_utlose_behov_for.md) | * <br/> [Uriorcurie](uriorcurie.md) | Tenester det kan oppstå behov for som følgje av hendinga |
 
 
 
@@ -155,15 +155,15 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Hendelse](Hendelse.md) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) | [Hendelse](Hendelse.md) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Hendelse](Hendelse.md) |
-| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](Kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen | [Hendelse](Hendelse.md) |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Hendelse](Hendelse.md) |
-| [kan_utlose](kan_utlose.md) | * <br/> [OffentligTjeneste](OffentligTjeneste.md) | Offentlege tenester hendinga kan utløyse | [Hendelse](Hendelse.md) |
-| [tema](tema.md) | * <br/> [Konsept](Konsept.md) | Emne/tema tenesta handlar om | [Hendelse](Hendelse.md) |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](Uri.md) | Datasett som beskriv ressursen | [Hendelse](Hendelse.md) |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) | [Hendelse](Hendelse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Hendelse](hendelse.md) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Hendelse](hendelse.md) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Hendelse](hendelse.md) |
+| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen | [Hendelse](hendelse.md) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Hendelse](hendelse.md) |
+| [kan_utlose](kan_utlose.md) | * <br/> [OffentligTjeneste](offentligtjeneste.md) | Offentlege tenester hendinga kan utløyse | [Hendelse](hendelse.md) |
+| [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om | [Hendelse](hendelse.md) |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen | [Hendelse](hendelse.md) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) | [Hendelse](hendelse.md) |
 
 
 

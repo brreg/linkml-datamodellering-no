@@ -492,22 +492,22 @@ URI: [https://schema.fintlabs.no/ressurs/:RessursContainer](https://schema.fintl
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [applikasjonar](applikasjonar.md) | * <br/> [Applikasjon](Applikasjon.md) |  |
-| [applikasjonsressursar](applikasjonsressursar.md) | * <br/> [Applikasjonsressurs](Applikasjonsressurs.md) |  |
-| [applikasjonsressurstilgjengelegheit](applikasjonsressurstilgjengelegheit.md) | * <br/> [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |  |
-| [digitaleEiningar](digitaleEiningar.md) | * <br/> [DigitalEnhet](DigitalEnhet.md) |  |
-| [einingsgrupper](einingsgrupper.md) | * <br/> [Enhetsgruppe](Enhetsgruppe.md) |  |
-| [einingsgruppedmedlemskap](einingsgruppedmedlemskap.md) | * <br/> [Enhetsgruppemedlemskap](Enhetsgruppemedlemskap.md) |  |
-| [identitetar](identitetar.md) | * <br/> [Identitet](Identitet.md) |  |
-| [rettigheiter](rettigheiter.md) | * <br/> [Rettighet](Rettighet.md) |  |
-| [applikasjonskategoriar](applikasjonskategoriar.md) | * <br/> [Applikasjonskategori](Applikasjonskategori.md) |  |
-| [brukertypar](brukertypar.md) | * <br/> [Brukertype](Brukertype.md) |  |
-| [einingstypar](einingstypar.md) | * <br/> [Enhetstype](Enhetstype.md) |  |
-| [handhaevingstypar](handhaevingstypar.md) | * <br/> [Handhevingstype](Handhevingstype.md) |  |
-| [lisensmodellar](lisensmodellar.md) | * <br/> [Lisensmodell](Lisensmodell.md) |  |
-| [plattformar](plattformar.md) | * <br/> [Plattform](Plattform.md) |  |
-| [produsentar](produsentar.md) | * <br/> [Produsent](Produsent.md) |  |
-| [statusar](statusar.md) | * <br/> [Status](Status.md) |  |
+| [applikasjonar](applikasjonar.md) | * <br/> [Applikasjon](applikasjon.md) |  |
+| [applikasjonsressursar](applikasjonsressursar.md) | * <br/> [Applikasjonsressurs](applikasjonsressurs.md) |  |
+| [applikasjonsressurstilgjengelegheit](applikasjonsressurstilgjengelegheit.md) | * <br/> [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |  |
+| [digitaleEiningar](digitaleeiningar.md) | * <br/> [DigitalEnhet](digitalenhet.md) |  |
+| [einingsgrupper](einingsgrupper.md) | * <br/> [Enhetsgruppe](enhetsgruppe.md) |  |
+| [einingsgruppedmedlemskap](einingsgruppedmedlemskap.md) | * <br/> [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) |  |
+| [identitetar](identitetar.md) | * <br/> [Identitet](identitet.md) |  |
+| [rettigheiter](rettigheiter.md) | * <br/> [Rettighet](rettighet.md) |  |
+| [applikasjonskategoriar](applikasjonskategoriar.md) | * <br/> [Applikasjonskategori](applikasjonskategori.md) |  |
+| [brukertypar](brukertypar.md) | * <br/> [Brukertype](brukertype.md) |  |
+| [einingstypar](einingstypar.md) | * <br/> [Enhetstype](enhetstype.md) |  |
+| [handhaevingstypar](handhaevingstypar.md) | * <br/> [Handhevingstype](handhevingstype.md) |  |
+| [lisensmodellar](lisensmodellar.md) | * <br/> [Lisensmodell](lisensmodell.md) |  |
+| [plattformar](plattformar.md) | * <br/> [Plattform](plattform.md) |  |
+| [produsentar](produsentar.md) | * <br/> [Produsent](produsent.md) |  |
+| [statusar](statusar.md) | * <br/> [Status](status.md) |  |
 
 
 

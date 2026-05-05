@@ -222,15 +222,15 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [anvendelsesretningslinjer](anvendelsesretningslinjer.md) | 0..1 <br/> [String](String.md) | Retningslinjer for gjenbruk av data |
-| [jurisdiksjon](jurisdiksjon.md) | 0..1 <br/> [String](String.md) | Jurisdiksjon for rettigheitserklæringa |
-| [krediteringstekst](krediteringstekst.md) | 0..1 <br/> [String](String.md) | Tekst som skal brukast ved kreditering |
-| [krediteringsurl](krediteringsurl.md) | 0..1 <br/> [Uri](Uri.md) | URL for kreditering av rettshavar |
-| [opphavsrettserklaring](opphavsrettserklaring.md) | 0..1 <br/> [String](String.md) | Opphavsrettserklæring |
-| [opphavsrettsinnehaver](opphavsrettsinnehaver.md) | 0..1 <br/> [String](String.md) | Namn på opphavsrettsinnehavar |
-| [opphavsrettsnotis](opphavsrettsnotis.md) | 0..1 <br/> [String](String.md) | Opphavsrettsnotis |
-| [opphavsrettsaar](opphavsrettsaar.md) | 0..1 <br/> [GYear](GYear.md) | Årstal for opphavsrett |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [anvendelsesretningslinjer](anvendelsesretningslinjer.md) | 0..1 <br/> [String](string.md) | Retningslinjer for gjenbruk av data |
+| [jurisdiksjon](jurisdiksjon.md) | 0..1 <br/> [String](string.md) | Jurisdiksjon for rettigheitserklæringa |
+| [krediteringstekst](krediteringstekst.md) | 0..1 <br/> [String](string.md) | Tekst som skal brukast ved kreditering |
+| [krediteringsurl](krediteringsurl.md) | 0..1 <br/> [Uri](uri.md) | URL for kreditering av rettshavar |
+| [opphavsrettserklaring](opphavsrettserklaring.md) | 0..1 <br/> [String](string.md) | Opphavsrettserklæring |
+| [opphavsrettsinnehaver](opphavsrettsinnehaver.md) | 0..1 <br/> [String](string.md) | Namn på opphavsrettsinnehavar |
+| [opphavsrettsnotis](opphavsrettsnotis.md) | 0..1 <br/> [String](string.md) | Opphavsrettsnotis |
+| [opphavsrettsaar](opphavsrettsaar.md) | 0..1 <br/> [GYear](gyear.md) | Årstal for opphavsrett |
 
 
 
@@ -243,11 +243,11 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](Rettighetserklaring.md) |
-| [Datasett](Datasett.md) | [tilgangsrettigheter](tilgangsrettigheter.md) | range | [Rettighetserklaring](Rettighetserklaring.md) |
-| [Datatjeneste](Datatjeneste.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](Rettighetserklaring.md) |
-| [Datatjeneste](Datatjeneste.md) | [tilgangsrettigheter](tilgangsrettigheter.md) | range | [Rettighetserklaring](Rettighetserklaring.md) |
-| [Katalog](Katalog.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](Rettighetserklaring.md) |
+| [Distribusjon](distribusjon.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Datasett](datasett.md) | [tilgangsrettigheter](tilgangsrettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Datatjeneste](datatjeneste.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Datatjeneste](datatjeneste.md) | [tilgangsrettigheter](tilgangsrettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Katalog](katalog.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
 
 
 

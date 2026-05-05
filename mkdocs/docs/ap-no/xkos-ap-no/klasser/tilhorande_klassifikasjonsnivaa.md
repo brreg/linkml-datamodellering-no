@@ -22,7 +22,7 @@ Alias: tilhorande_klassifikasjonsnivaa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
+| [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilhorande_klassifikasjonsnivaa
 
 | Property | Value |
 | --- | --- |
-| Range | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
-| Domain Of | [Kategori](Kategori.md) |
+| Range | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
+| Domain Of | [Kategori](kategori.md) |
 | Slot URI | [xkos:belongsTo](http://rdf-vocabulary.ddialliance.org/xkos#belongsTo) |
 
 ### Cardinality and Requirements

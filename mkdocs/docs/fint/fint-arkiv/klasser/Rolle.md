@@ -22,7 +22,7 @@ Alias: rolle
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tilgang](Tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  no  |
+| [Tilgang](tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rolle
 
 | Property | Value |
 | --- | --- |
-| Range | [Rolle](Rolle.md) |
-| Domain Of | [Tilgang](Tilgang.md) |
+| Range | [Rolle](rolle.md) |
+| Domain Of | [Tilgang](tilgang.md) |
 | Slot URI | [ark:rolle](https://schema.fintlabs.no/arkiv/rolle) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: rolle
 
 | Property | Value |
 | --- | --- |
-| Owner | [Tilgang](Tilgang.md) |
+| Owner | [Tilgang](tilgang.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: rolle
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

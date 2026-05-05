@@ -24,7 +24,7 @@ Alias: kreverGodkjenning
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: kreverGodkjenning
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:kreverGodkjenning](https://schema.fintlabs.no/ressurs/kreverGodkjenning) |
 
 ### Cardinality and Requirements
@@ -49,7 +49,7 @@ Alias: kreverGodkjenning
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Owner | [Applikasjonsressurs](applikasjonsressurs.md) |
 
 
 
@@ -61,7 +61,7 @@ Alias: kreverGodkjenning
 ## In Subsets
 
 
-* [Anbefalt](Anbefalt.md)
+* [Anbefalt](anbefalt.md)
 
 
 

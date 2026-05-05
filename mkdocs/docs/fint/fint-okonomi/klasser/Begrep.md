@@ -60,11 +60,11 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 ## Inheritance
 * **Begrep**
-    * [Landkode](Landkode.md)
-    * [Kjonn](Kjonn.md)
-    * [Fylke](Fylke.md)
-    * [Kommune](Kommune.md)
-    * [Spraak](Spraak.md)
+    * [Landkode](landkode.md)
+    * [Kjonn](kjonn.md)
+    * [Fylke](fylke.md)
+    * [Kommune](kommune.md)
+    * [Spraak](spraak.md)
 
 
 ## Class Properties
@@ -180,11 +180,11 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator (tilsvarar systemId/fakturanummer/transaksjonsId i FINT) |
-| [kode](kode.md) | 1 <br/> [String](String.md) | Verdi som identifiserer omgrepet |
-| [navn](navn.md) | 1 <br/> [String](String.md) | Hovudnamn for omgrepet |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) | Angir gyldighetsperioden for eit omgrep/kode |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](Boolean.md) | Angir at koden er passiv og ikkje kan veljast |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet |
+| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for omgrepet |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Angir gyldighetsperioden for eit omgrep/kode |
+| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast |
 
 
 
@@ -254,7 +254,7 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     range: string
     required: true
@@ -270,8 +270,9 @@ attributes:
     - Leverandorgruppe
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
+    - Valuta
     - Person
     - Kontaktperson
     range: string
@@ -286,7 +287,7 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     - Identifikator
     range: Periode
@@ -301,7 +302,7 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     range: boolean
 class_uri: fint:Begrep
@@ -330,7 +331,7 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     range: string
     required: true
@@ -348,8 +349,9 @@ attributes:
     - Leverandorgruppe
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
+    - Valuta
     - Person
     - Kontaktperson
     range: string
@@ -366,7 +368,7 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     - Identifikator
     range: Periode
@@ -383,13 +385,12 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     range: boolean
   id:
     name: id
-    description: URI-identifikator (tilsvarar systemId/fakturanummer/transaksjonsId
-      i FINT).
+    description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     identifier: true
@@ -405,8 +406,9 @@ attributes:
     - Leverandorgruppe
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
+    - Valuta
     - Person
     - Kontaktperson
     - Virksomhet

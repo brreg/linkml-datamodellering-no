@@ -5,7 +5,7 @@ _Obligatorisk eigensskap._
 
 
 
-URI: [Obligatorisk](Obligatorisk.md)
+URI: [Obligatorisk](obligatorisk.md)
 
 
 
@@ -74,41 +74,12 @@ URI: [Obligatorisk](Obligatorisk.md)
 
 
 
-        
-
-
 
         
 
 
 
-
         
-
-
-
-
-
-
-        
-
-        
-
-
-        
-
-
-
-
-
-
-        
-
-        
-
-        
-
-
 
 
 
@@ -122,11 +93,30 @@ URI: [Obligatorisk](Obligatorisk.md)
 
 
 
+        
+
+        
+
 
         
 
 
 
+
+
+
+        
+
+        
+
+        
+
+
+
+
+
+
+        
 
 
 
@@ -143,6 +133,19 @@ URI: [Obligatorisk](Obligatorisk.md)
 
 
 
+        
+
+
+
+
+
+        
+
+
+
+
+
+
 
 
 
@@ -160,6 +163,8 @@ URI: [Obligatorisk](Obligatorisk.md)
         
 
 
+
+        
 
 
         
@@ -224,6 +229,7 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [antall](antall.md) | Mengd av varen levert |
 | [belop](belop.md) | Beløp mottakar skal betale, i øre (beløp) |
 | [bilagsdato](bilagsdato.md) | Dato bilaget er registrert |
+| [bokstavkode](bokstavkode.md) | Bokstavkode for aktuell valuta |
 | [dato](dato.md) | Dato for utferding av faktura |
 | [debet](debet.md) | Angir om posteringa er debet eller kredit |
 | [enhet](enhet.md) | Namn på mengdeeininga varen leverast i |
@@ -238,15 +244,16 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [merverdiavgift](merverdiavgift.md) | Varens avgiftsklasse og -sats |
 | [mottaker](mottaker.md) | Namn på mottakar |
 | [navn](navn.md) | Juridisk namn på fakturutstedar |
+| [nummerkode](nummerkode.md) | Nummerkode for aktuell valuta |
 | [ordrenummer](ordrenummer.md) | Unik identifikator for ordren det skal utferdigast faktura på |
 | [person](person.md) | Referanse til Person (Administrasjon) som skal betale faktura |
 | [postering](postering.md) | Posteringar tilhøyrande transaksjonen |
-| [posteringsId](posteringsId.md) | Intern unik identifikator i økonomisystemet |
+| [posteringsId](posteringsid.md) | Intern unik identifikator i økonomisystemet |
 | [pris](pris.md) | Pris per eining levert, i øre |
 | [sats](sats.md) | Sats for merverdiavgift |
-| [transaksjonsId](transaksjonsId.md) | Intern unik identifikator i økonomisystemet |
+| [transaksjonsId](transaksjonsid.md) | Intern unik identifikator i økonomisystemet |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
 | [valuta](valuta.md) | Valuta for oppgjeve beløp |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 

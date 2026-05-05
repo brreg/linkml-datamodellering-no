@@ -22,8 +22,8 @@ Alias: har_referanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kodeliste](Kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
-| [Standard](Standard.md) | Ein standard (dct:Standard) |  no  |
+| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
+| [Kodeliste](kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: har_referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Standard](Standard.md), [Kodeliste](Kodeliste.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Standard](standard.md), [Kodeliste](kodeliste.md) |
 | Slot URI | [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso) |
 
 ### Cardinality and Requirements

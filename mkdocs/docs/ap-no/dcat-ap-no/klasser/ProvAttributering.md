@@ -78,7 +78,7 @@ URI: [prov:Attribution](http://www.w3.org/ns/prov#Attribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [prov:Attribution](http://www.w3.org/ns/prov#Attribution)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [annen_ansvarlig_aktor](annen_ansvarlig_aktor.md) | range | [ProvAttributering](ProvAttributering.md) |
+| [Datasett](datasett.md) | [annen_ansvarlig_aktor](annen_ansvarlig_aktor.md) | range | [ProvAttributering](provattributering.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: har_verdi_fra
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Attributt](Attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
+| [Attributt](attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_verdi_fra
 
 | Property | Value |
 | --- | --- |
-| Range | [Kodeliste](Kodeliste.md) |
-| Domain Of | [Attributt](Attributt.md) |
+| Range | [Kodeliste](kodeliste.md) |
+| Domain Of | [Attributt](attributt.md) |
 | Slot URI | [modelldcatno:hasValueFrom](https://data.norge.no/vocabulary/modelldcatno#hasValueFrom) |
 
 ### Cardinality and Requirements

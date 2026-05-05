@@ -43,7 +43,7 @@ URI: [ngre:HjemmelTilFramfesterett](https://data.norge.no/vocabulary/ngr-eiendom
 
 
 ## Inheritance
-* [Hjemmel](Hjemmel.md)
+* [Hjemmel](hjemmel.md)
     * **HjemmelTilFramfesterett**
 
 
@@ -81,8 +81,8 @@ URI: [ngre:HjemmelTilFramfesterett](https://data.norge.no/vocabulary/ngr-eiendom
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Hjemmel](Hjemmel.md) |
-| [har_andel](har_andel.md) | 1..* <br/> [Andel](Andel.md) | Andel(ar) i heimelsdokumentet | [Hjemmel](Hjemmel.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Hjemmel](hjemmel.md) |
+| [har_andel](har_andel.md) | 1..* <br/> [Andel](andel.md) | Andel(ar) i heimelsdokumentet | [Hjemmel](hjemmel.md) |
 
 
 
@@ -92,10 +92,10 @@ URI: [ngre:HjemmelTilFramfesterett](https://data.norge.no/vocabulary/ngr-eiendom
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [hjemmelFramfesterett](hjemmelFramfesterett.md) | range | [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) |
-| [Eierforhold](Eierforhold.md) | [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | range | [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) |
-| [TinglystEierforhold](TinglystEierforhold.md) | [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | range | [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | range | [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) |
+| [EiendomContainer](eiendomcontainer.md) | [hjemmelFramfesterett](hjemmelframfesterett.md) | range | [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) |
+| [Eierforhold](eierforhold.md) | [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | range | [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) |
+| [TinglystEierforhold](tinglysteierforhold.md) | [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | range | [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | [gjelder_hjemmel_framfesterett](gjelder_hjemmel_framfesterett.md) | range | [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) |
 
 
 

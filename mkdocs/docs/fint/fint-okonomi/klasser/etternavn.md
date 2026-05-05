@@ -22,7 +22,7 @@ Alias: etternavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personnavn](Personnavn.md) | Namn på ein person |  no  |
+| [Personnavn](personnavn.md) | Namn på ein person |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: etternavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Personnavn](Personnavn.md) |
+| Range | [String](string.md) |
+| Domain Of | [Personnavn](personnavn.md) |
 | Slot URI | [fint:etternavn](https://schema.fintlabs.no/etternavn) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: etternavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personnavn](Personnavn.md) |
+| Owner | [Personnavn](personnavn.md) |
 
 
 

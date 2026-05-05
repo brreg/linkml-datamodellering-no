@@ -89,8 +89,8 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_generisk_omgrep](har_generisk_omgrep.md) | * <br/> [Begrep](Begrep.md) | Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept) |
-| [har_spesifikt_omgrep](har_spesifikt_omgrep.md) | * <br/> [Begrep](Begrep.md) | Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept) |
+| [har_generisk_omgrep](har_generisk_omgrep.md) | * <br/> [Begrep](begrep.md) | Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept) |
+| [har_spesifikt_omgrep](har_spesifikt_omgrep.md) | * <br/> [Begrep](begrep.md) | Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept) |
 
 
 
@@ -115,7 +115,7 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [inndelingskriterium](inndelingskriterium.md) | * <br/> [LangString](LangString.md) | Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description... |
+| [inndelingskriterium](inndelingskriterium.md) | * <br/> [LangString](langstring.md) | Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description... |
 
 
 
@@ -189,7 +189,7 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -202,7 +202,7 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Begrep](Begrep.md) | [har_generisk_relasjon](har_generisk_relasjon.md) | range | [GeneriskRelasjon](GeneriskRelasjon.md) |
+| [Begrep](begrep.md) | [har_generisk_relasjon](har_generisk_relasjon.md) | range | [GeneriskRelasjon](generiskrelasjon.md) |
 
 
 

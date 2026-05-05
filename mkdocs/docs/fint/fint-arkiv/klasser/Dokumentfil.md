@@ -132,10 +132,10 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [data](data.md) | 1 <br/> [String](String.md) | Dokumentfilens data, koda som Base64 |
-| [filnavn](filnavn.md) | 0..1 <br/> [String](String.md) | Dokumentfilens namn |
-| [format](format.md) | 1 <br/> [String](String.md) | Format på dokumentfil, som IANA Media Type |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [data](data.md) | 1 <br/> [String](string.md) | Dokumentfilens data, koda som Base64 |
+| [filnavn](filnavn.md) | 0..1 <br/> [String](string.md) | Dokumentfilens namn |
+| [format](format.md) | 1 <br/> [String](string.md) | Format på dokumentfil, som IANA Media Type |
 
 
 
@@ -148,8 +148,8 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [ArkivContainer](ArkivContainer.md) | [dokumentfiler](dokumentfiler.md) | range | [Dokumentfil](Dokumentfil.md) |
-| [Dokumentobjekt](Dokumentobjekt.md) | [referanseDokumentfil](referanseDokumentfil.md) | range | [Dokumentfil](Dokumentfil.md) |
+| [ArkivContainer](arkivcontainer.md) | [dokumentfiler](dokumentfiler.md) | range | [Dokumentfil](dokumentfil.md) |
+| [Dokumentobjekt](dokumentobjekt.md) | [referanseDokumentfil](referansedokumentfil.md) | range | [Dokumentfil](dokumentfil.md) |
 
 
 

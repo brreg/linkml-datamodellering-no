@@ -78,7 +78,7 @@ URI: [prov:Activity](http://www.w3.org/ns/prov#Activity)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [prov:Activity](http://www.w3.org/ns/prov#Activity)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [ble_generert_ved](ble_generert_ved.md) | range | [ProvAktivitet](ProvAktivitet.md) |
+| [Datasett](datasett.md) | [ble_generert_ved](ble_generert_ved.md) | range | [ProvAktivitet](provaktivitet.md) |
 
 
 

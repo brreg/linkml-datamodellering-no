@@ -22,7 +22,7 @@ Alias: fodselsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fodselsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:fodselsdato](https://schema.fintlabs.no/fodselsdato) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: fodselsdato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: fodselsdato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

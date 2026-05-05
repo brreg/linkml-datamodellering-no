@@ -22,7 +22,7 @@ Alias: tekst
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Varsel](Varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
+| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Varsel](Varsel.md) |
+| Range | [String](string.md) |
+| Domain Of | [Varsel](varsel.md) |
 | Slot URI | [utd:tekst](https://schema.fintlabs.no/utdanning/tekst) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: tekst
 
 | Property | Value |
 | --- | --- |
-| Owner | [Varsel](Varsel.md) |
+| Owner | [Varsel](varsel.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: tekst
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: opprettet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samtykke](Samtykke.md) | Tillating til behandling av personopplysning |  no  |
+| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: opprettet
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Samtykke](Samtykke.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Samtykke](samtykke.md) |
 | Slot URI | [pvn:opprettet](https://schema.fintlabs.no/personvern/opprettet) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: opprettet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Samtykke](Samtykke.md) |
+| Owner | [Samtykke](samtykke.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: opprettet
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

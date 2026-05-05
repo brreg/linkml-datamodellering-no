@@ -22,7 +22,7 @@ Alias: tilhoerer_borettslag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Borettslagsandel](Borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
+| [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilhoerer_borettslag
 
 | Property | Value |
 | --- | --- |
-| Range | [Borettslag](Borettslag.md) |
-| Domain Of | [Borettslagsandel](Borettslagsandel.md) |
+| Range | [Borettslag](borettslag.md) |
+| Domain Of | [Borettslagsandel](borettslagsandel.md) |
 | Slot URI | [ngre:tilhoererBorettslag](https://data.norge.no/vocabulary/ngr-eiendom#tilhoererBorettslag) |
 
 ### Cardinality and Requirements

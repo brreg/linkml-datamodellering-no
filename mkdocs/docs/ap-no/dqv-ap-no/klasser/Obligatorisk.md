@@ -5,7 +5,7 @@ _Obligatoriske eigenskapar i ein AP-NO-profil._
 
 
 
-URI: [Obligatorisk](Obligatorisk.md)
+URI: [Obligatorisk](obligatorisk.md)
 
 
 

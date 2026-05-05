@@ -49,7 +49,7 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
 
 
 ## Inheritance
-* [Begrep](Begrep.md)
+* [Begrep](begrep.md)
     * **Spraak**
 
 
@@ -87,11 +87,11 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator (tilsvarar systemId i FINT) | [Begrep](Begrep.md) |
-| [kode](kode.md) | 1 <br/> [String](String.md) | Verdi som identifiserer omgrepet | [Begrep](Begrep.md) |
-| [navn](navn.md) | 1 <br/> [String](String.md) | Hovudnamn for omgrepet | [Begrep](Begrep.md) |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) | Angir gyldighetsperioden for eit omgrep/kode | [Begrep](Begrep.md) |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](Boolean.md) | Angir at koden er passiv og ikkje kan veljast | [Begrep](Begrep.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Begrep](begrep.md) |
+| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet | [Begrep](begrep.md) |
+| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for omgrepet | [Begrep](begrep.md) |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Angir gyldighetsperioden for eit omgrep/kode | [Begrep](begrep.md) |
+| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast | [Begrep](begrep.md) |
 
 
 
@@ -101,8 +101,8 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Person](Person.md) | [maalform](maalform.md) | range | [Spraak](Spraak.md) |
-| [Person](Person.md) | [morsmaal](morsmaal.md) | range | [Spraak](Spraak.md) |
+| [Person](person.md) | [maalform](maalform.md) | range | [Spraak](spraak.md) |
+| [Person](person.md) | [morsmaal](morsmaal.md) | range | [Spraak](spraak.md) |
 
 
 
@@ -169,7 +169,7 @@ is_a: Begrep
 attributes:
   id:
     name: id
-    description: URI-identifikator (tilsvarar systemId i FINT).
+    description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-personvern
     rank: 1000
     identifier: true

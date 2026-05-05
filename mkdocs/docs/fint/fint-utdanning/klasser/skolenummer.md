@@ -22,7 +22,7 @@ Alias: skolenummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skolenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Skole](Skole.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Skole](skole.md) |
 | Slot URI | [utd:skolenummer](https://schema.fintlabs.no/utdanning/skolenummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: skolenummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Skole](Skole.md) |
+| Owner | [Skole](skole.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: skolenummer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

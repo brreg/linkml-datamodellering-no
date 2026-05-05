@@ -22,7 +22,7 @@ Alias: festenummer_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Festenummer](Festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |  yes  |
+| [Festenummer](festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: festenummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Festenummer](Festenummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Festenummer](festenummer.md) |
 | Slot URI | [ngre:festenummer](https://data.norge.no/vocabulary/ngr-eiendom#festenummer) |
 
 ### Cardinality and Requirements

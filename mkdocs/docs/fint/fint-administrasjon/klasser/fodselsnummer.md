@@ -22,7 +22,7 @@ Alias: fodselsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fodselsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:fodselsnummer](https://schema.fintlabs.no/fodselsnummer) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fodselsnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fodselsnummer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

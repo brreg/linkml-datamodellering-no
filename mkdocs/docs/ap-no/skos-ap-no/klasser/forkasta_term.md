@@ -22,7 +22,7 @@ Alias: forkasta_term
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: forkasta_term
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [skos:hiddenLabel](http://www.w3.org/2004/02/skos/core#hiddenLabel) |
 
 ### Cardinality and Requirements

@@ -17,9 +17,9 @@ Alias: laerling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: laerling
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [AvlagtProve](AvlagtProve.md), [Person](Person.md), [Virksomhet](Virksomhet.md) |
+| Range | [String](string.md) |
+| Domain Of | [AvlagtProve](avlagtprove.md), [Person](person.md), [Virksomhet](virksomhet.md) |
 
 ### Cardinality and Requirements
 

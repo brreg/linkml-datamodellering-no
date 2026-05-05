@@ -22,7 +22,7 @@ Alias: adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: adresse
 
 | Property | Value |
 | --- | --- |
-| Range | [Adresse](Adresse.md) |
-| Domain Of | [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [Adresse](adresse.md) |
+| Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [fint:adresse](https://schema.fintlabs.no/adresse) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: adresse
 
 | Property | Value |
 | --- | --- |
-| Owner | [Matrikkelnummer](Matrikkelnummer.md) |
+| Owner | [Matrikkelnummer](matrikkelnummer.md) |
 
 
 

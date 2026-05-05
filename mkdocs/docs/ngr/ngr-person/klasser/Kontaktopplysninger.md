@@ -87,8 +87,8 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [epostadresse_verdi](epostadresse_verdi.md) | 0..1 <br/> [String](String.md) | E-postadresse |
-| [mobiltelefonnummer](mobiltelefonnummer.md) | 0..1 <br/> [String](String.md) | Mobiltelefonnummer registrert i KRR |
+| [epostadresse_verdi](epostadresse_verdi.md) | 0..1 <br/> [String](string.md) | E-postadresse |
+| [mobiltelefonnummer](mobiltelefonnummer.md) | 0..1 <br/> [String](string.md) | Mobiltelefonnummer registrert i KRR |
 
 
 
@@ -113,7 +113,7 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [sist_oppdatert](sist_oppdatert.md) | 0..1 <br/> [Date](Date.md) | Dato kontaktopplysningane sist vart oppdatert |
+| [sist_oppdatert](sist_oppdatert.md) | 0..1 <br/> [Date](date.md) | Dato kontaktopplysningane sist vart oppdatert |
 
 
 
@@ -171,7 +171,7 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -184,8 +184,8 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [kontaktopplysningar](kontaktopplysningar.md) | range | [Kontaktopplysninger](Kontaktopplysninger.md) |
-| [Person](Person.md) | [har_kontaktopplysninger](har_kontaktopplysninger.md) | range | [Kontaktopplysninger](Kontaktopplysninger.md) |
+| [PersonContainer](personcontainer.md) | [kontaktopplysningar](kontaktopplysningar.md) | range | [Kontaktopplysninger](kontaktopplysninger.md) |
+| [Person](person.md) | [har_kontaktopplysninger](har_kontaktopplysninger.md) | range | [Kontaktopplysninger](kontaktopplysninger.md) |
 
 
 

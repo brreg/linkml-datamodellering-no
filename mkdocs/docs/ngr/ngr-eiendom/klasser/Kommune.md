@@ -59,7 +59,7 @@ URI: [ngre:Kommune](https://data.norge.no/vocabulary/ngr-eiendom#Kommune)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kommunenummer_verdi](kommunenummer_verdi.md) | 1 <br/> [String](String.md) | Firesifra kommunenummer (t |
+| [kommunenummer_verdi](kommunenummer_verdi.md) | 1 <br/> [String](string.md) | Firesifra kommunenummer (t |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Kommune](https://data.norge.no/vocabulary/ngr-eiendom#Kommune)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,13 +124,13 @@ URI: [ngre:Kommune](https://data.norge.no/vocabulary/ngr-eiendom#Kommune)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Matrikkelenhet](Matrikkelenhet.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](Kommune.md) |
-| [Grunneiendom](Grunneiendom.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](Kommune.md) |
-| [Festegrunn](Festegrunn.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](Kommune.md) |
-| [Jordsameie](Jordsameie.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](Kommune.md) |
-| [Eierseksjon](Eierseksjon.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](Kommune.md) |
-| [Anleggseiendom](Anleggseiendom.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](Kommune.md) |
-| [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](Kommune.md) |
+| [Matrikkelenhet](matrikkelenhet.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](kommune.md) |
+| [Grunneiendom](grunneiendom.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](kommune.md) |
+| [Festegrunn](festegrunn.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](kommune.md) |
+| [Jordsameie](jordsameie.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](kommune.md) |
+| [Eierseksjon](eierseksjon.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](kommune.md) |
+| [Anleggseiendom](anleggseiendom.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](kommune.md) |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | [ligger_innenfor_kommune](ligger_innenfor_kommune.md) | range | [Kommune](kommune.md) |
 
 
 

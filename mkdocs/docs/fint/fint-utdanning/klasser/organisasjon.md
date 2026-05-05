@@ -22,7 +22,7 @@ Alias: organisasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Skole](Skole.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Skole](skole.md) |
 | Slot URI | [utd:organisasjon](https://schema.fintlabs.no/utdanning/organisasjon) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: organisasjon
 
 | Property | Value |
 | --- | --- |
-| Owner | [Skole](Skole.md) |
+| Owner | [Skole](skole.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: organisasjon
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

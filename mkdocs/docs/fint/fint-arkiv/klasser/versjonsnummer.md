@@ -22,7 +22,7 @@ Alias: versjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentobjekt](Dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
+| [Dokumentobjekt](dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Dokumentobjekt](Dokumentobjekt.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:versjonsnummer](https://schema.fintlabs.no/arkiv/versjonsnummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentobjekt](Dokumentobjekt.md) |
+| Owner | [Dokumentobjekt](dokumentobjekt.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: versjonsnummer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

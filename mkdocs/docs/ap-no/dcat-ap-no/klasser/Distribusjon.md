@@ -295,7 +295,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilgangs_url](tilgangs_url.md) | 1..* <br/> [Uri](Uri.md) | URL for tilgang til distribusjonen |
+| [tilgangs_url](tilgangs_url.md) | 1..* <br/> [Uri](uri.md) | URL for tilgang til distribusjonen |
 
 
 
@@ -388,11 +388,11 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [format](format.md) | 0..1 <br/> [Mediatype](Mediatype.md) | Filformat eller medietype (dct:format) |
-| [lisens](lisens.md) | 0..1 <br/> [Konsept](Konsept.md) | Lisens for bruk av ressursen |
-| [status](status.md) | 0..1 <br/> [Konsept](Konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
-| [tilgjengelighet](tilgjengelighet.md) | 0..1 <br/> [Konsept](Konsept.md) | Planlagt tilgjengelegheit for ressursen |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [format](format.md) | 0..1 <br/> [Mediatype](mediatype.md) | Filformat eller medietype (dct:format) |
+| [lisens](lisens.md) | 0..1 <br/> [Konsept](konsept.md) | Lisens for bruk av ressursen |
+| [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
+| [tilgjengelighet](tilgjengelighet.md) | 0..1 <br/> [Konsept](konsept.md) | Planlagt tilgjengelegheit for ressursen |
 
 
 
@@ -684,24 +684,24 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [dokumentasjon](dokumentasjon.md) | * <br/> [Uri](Uri.md) | Lenke til dokumentasjon om ressursen |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [filstorrelse](filstorrelse.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Filstørrelse i bytes |
-| [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](RegulativRessurs.md) | Lovgjeving som gjeld for ressursen |
-| [i_samsvar_med](i_samsvar_med.md) | * <br/> [Standard](Standard.md) | Standard ressursen er i samsvar med |
-| [komprimeringsformat](komprimeringsformat.md) | 0..1 <br/> [Mediatype](Mediatype.md) | Komprimeringsformat brukt i distribusjonen |
-| [medietype](medietype.md) | 0..1 <br/> [Mediatype](Mediatype.md) | Medietype i samsvar med IANA-registeret |
-| [nedlastningslenke](nedlastningslenke.md) | * <br/> [Uri](Uri.md) | Direkte nedlastingslenke for distribusjonsfila |
-| [pakkeformat](pakkeformat.md) | 0..1 <br/> [Mediatype](Mediatype.md) | Pakkeformat brukt i distribusjonen |
-| [policy](policy.md) | 0..1 <br/> [OdrlPolicy](OdrlPolicy.md) | ODRL-policy som regulerer bruk av ressursen |
-| [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](Rettighetserklaring.md) | Rettar knytte til ressursen |
-| [sjekksum](sjekksum.md) | 0..1 <br/> [Sjekksum](Sjekksum.md) | Sjekksum for distribusjonsfila |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [tidsopplosning](tidsopplosning.md) | 0..1 <br/> [Duration](Duration.md) | Minste tidsoppløysing i datasettet |
-| [tilgangstjeneste](tilgangstjeneste.md) | * <br/> [Datatjeneste](Datatjeneste.md) | Datatjeneste som gjev tilgang til distribusjonen |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](Date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [dokumentasjon](dokumentasjon.md) | * <br/> [Uri](uri.md) | Lenke til dokumentasjon om ressursen |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [filstorrelse](filstorrelse.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Filstørrelse i bytes |
+| [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Lovgjeving som gjeld for ressursen |
+| [i_samsvar_med](i_samsvar_med.md) | * <br/> [Standard](standard.md) | Standard ressursen er i samsvar med |
+| [komprimeringsformat](komprimeringsformat.md) | 0..1 <br/> [Mediatype](mediatype.md) | Komprimeringsformat brukt i distribusjonen |
+| [medietype](medietype.md) | 0..1 <br/> [Mediatype](mediatype.md) | Medietype i samsvar med IANA-registeret |
+| [nedlastningslenke](nedlastningslenke.md) | * <br/> [Uri](uri.md) | Direkte nedlastingslenke for distribusjonsfila |
+| [pakkeformat](pakkeformat.md) | 0..1 <br/> [Mediatype](mediatype.md) | Pakkeformat brukt i distribusjonen |
+| [policy](policy.md) | 0..1 <br/> [OdrlPolicy](odrlpolicy.md) | ODRL-policy som regulerer bruk av ressursen |
+| [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](rettighetserklaring.md) | Rettar knytte til ressursen |
+| [sjekksum](sjekksum.md) | 0..1 <br/> [Sjekksum](sjekksum.md) | Sjekksum for distribusjonsfila |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [tidsopplosning](tidsopplosning.md) | 0..1 <br/> [Duration](duration.md) | Minste tidsoppløysing i datasettet |
+| [tilgangstjeneste](tilgangstjeneste.md) | * <br/> [Datatjeneste](datatjeneste.md) | Datatjeneste som gjev tilgang til distribusjonen |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -714,8 +714,8 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [datasettdistribusjon](datasettdistribusjon.md) | range | [Distribusjon](Distribusjon.md) |
-| [Datasett](Datasett.md) | [eksempeldata](eksempeldata.md) | range | [Distribusjon](Distribusjon.md) |
+| [Datasett](datasett.md) | [datasettdistribusjon](datasettdistribusjon.md) | range | [Distribusjon](distribusjon.md) |
+| [Datasett](datasett.md) | [eksempeldata](eksempeldata.md) | range | [Distribusjon](distribusjon.md) |
 
 
 

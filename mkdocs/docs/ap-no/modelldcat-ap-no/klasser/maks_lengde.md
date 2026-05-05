@@ -22,7 +22,7 @@ Alias: maks_lengde
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EnkelType](EnkelType.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
+| [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: maks_lengde
 
 | Property | Value |
 | --- | --- |
-| Range | [NonNegativeInteger](NonNegativeInteger.md) |
-| Domain Of | [EnkelType](EnkelType.md) |
+| Range | [NonNegativeInteger](nonnegativeinteger.md) |
+| Domain Of | [EnkelType](enkeltype.md) |
 | Slot URI | [xsd:maxLength](http://www.w3.org/2001/XMLSchema#maxLength) |
 
 ### Cardinality and Requirements

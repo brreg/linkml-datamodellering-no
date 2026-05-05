@@ -22,7 +22,7 @@ Alias: er_profil_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_profil_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Standard](Standard.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Standard](standard.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [prof:isProfileOf](http://www.w3.org/ns/dx/prof/isProfileOf) |
 
 ### Cardinality and Requirements

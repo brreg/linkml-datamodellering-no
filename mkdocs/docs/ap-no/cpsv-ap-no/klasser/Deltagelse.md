@@ -110,8 +110,8 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_rolle](har_rolle.md) | 0..1 <br/> [Konsept](Konsept.md) | Rolla aktøren har i ei deltaking |
-| [deltakar](deltakar.md) | 0..1 <br/> [Aktor](Aktor.md) | Aktøren som deltek |
+| [har_rolle](har_rolle.md) | 0..1 <br/> [Konsept](konsept.md) | Rolla aktøren har i ei deltaking |
+| [deltakar](deltakar.md) | 0..1 <br/> [Aktor](aktor.md) | Aktøren som deltek |
 
 
 
@@ -156,7 +156,7 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -169,10 +169,10 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_deltaking](har_deltaking.md) | range | [Deltagelse](Deltagelse.md) |
-| [Tjeneste](Tjeneste.md) | [har_deltaking](har_deltaking.md) | range | [Deltagelse](Deltagelse.md) |
-| [Aktor](Aktor.md) | [deltek_i](deltek_i.md) | range | [Deltagelse](Deltagelse.md) |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | [deltek_i](deltek_i.md) | range | [Deltagelse](Deltagelse.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_deltaking](har_deltaking.md) | range | [Deltagelse](deltagelse.md) |
+| [Tjeneste](tjeneste.md) | [har_deltaking](har_deltaking.md) | range | [Deltagelse](deltagelse.md) |
+| [Aktor](aktor.md) | [deltek_i](deltek_i.md) | range | [Deltagelse](deltagelse.md) |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | [deltek_i](deltek_i.md) | range | [Deltagelse](deltagelse.md) |
 
 
 

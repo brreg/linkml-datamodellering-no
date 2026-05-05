@@ -22,7 +22,7 @@ Alias: endretDato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Karakterhistorie](Karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
+| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: endretDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Karakterhistorie](Karakterhistorie.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Karakterhistorie](karakterhistorie.md) |
 | Slot URI | [utd:endretDato](https://schema.fintlabs.no/utdanning/endretDato) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: endretDato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Karakterhistorie](Karakterhistorie.md) |
+| Owner | [Karakterhistorie](karakterhistorie.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: endretDato
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

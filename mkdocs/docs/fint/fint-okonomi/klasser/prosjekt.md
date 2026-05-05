@@ -22,7 +22,7 @@ Alias: prosjekt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontostreng](Kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |  no  |
+| [Kontostreng](kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: prosjekt
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontostreng](Kontostreng.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontostreng](kontostreng.md) |
 | Slot URI | [okn:prosjekt](https://schema.fintlabs.no/okonomi/prosjekt) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: prosjekt
 
 | Property | Value |
 | --- | --- |
-| Owner | [Kontostreng](Kontostreng.md) |
+| Owner | [Kontostreng](kontostreng.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: prosjekt
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

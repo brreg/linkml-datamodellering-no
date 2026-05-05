@@ -105,8 +105,8 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [String](String.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) | Perioden ein gjeven identifikator er gyldig |
+| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [String](string.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Perioden ein gjeven identifikator er gyldig |
 
 
 
@@ -119,15 +119,17 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Faktura](Faktura.md) | [fakturanummer](fakturanummer.md) | range | [Identifikator](Identifikator.md) |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | [ordrenummer](ordrenummer.md) | range | [Identifikator](Identifikator.md) |
-| [Transaksjon](Transaksjon.md) | [transaksjonsId](transaksjonsId.md) | range | [Identifikator](Identifikator.md) |
-| [Postering](Postering.md) | [posteringsId](posteringsId.md) | range | [Identifikator](Identifikator.md) |
-| [Leverandor](Leverandor.md) | [leverandornummer](leverandornummer.md) | range | [Identifikator](Identifikator.md) |
-| [Enhet](Enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Person](Person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Virksomhet](Virksomhet.md) | [virksomhetsId](virksomhetsId.md) | range | [Identifikator](Identifikator.md) |
-| [Virksomhet](Virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
+| [Faktura](faktura.md) | [fakturanummer](fakturanummer.md) | range | [Identifikator](identifikator.md) |
+| [Fakturagrunnlag](fakturagrunnlag.md) | [ordrenummer](ordrenummer.md) | range | [Identifikator](identifikator.md) |
+| [Transaksjon](transaksjon.md) | [transaksjonsId](transaksjonsid.md) | range | [Identifikator](identifikator.md) |
+| [Postering](postering.md) | [posteringsId](posteringsid.md) | range | [Identifikator](identifikator.md) |
+| [Leverandor](leverandor.md) | [leverandornummer](leverandornummer.md) | range | [Identifikator](identifikator.md) |
+| [Enhet](enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [bokstavkode](bokstavkode.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [nummerkode](nummerkode.md) | range | [Identifikator](identifikator.md) |
+| [Person](person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [virksomhetsId](virksomhetsid.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
 
 
 
@@ -197,7 +199,7 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     - Identifikator
     range: Periode
@@ -238,7 +240,7 @@ attributes:
     domain_of:
     - Vare
     - Merverdiavgift
-    - Valuta
+    - OkonomiValuta
     - Begrep
     - Identifikator
     range: Periode

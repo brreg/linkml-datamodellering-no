@@ -22,7 +22,7 @@ Alias: bruksnummer_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksnummer](Bruksnummer.md) | Bruksnummer innanfor gardsnamnet |  yes  |
+| [Bruksnummer](bruksnummer.md) | Bruksnummer innanfor gardsnamnet |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bruksnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Bruksnummer](Bruksnummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Bruksnummer](bruksnummer.md) |
 | Slot URI | [ngre:bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#bruksnummer) |
 
 ### Cardinality and Requirements

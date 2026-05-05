@@ -93,7 +93,7 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 
 
 ## Inheritance
-* [Modellelement](Modellelement.md)
+* [Modellelement](modellelement.md)
     * **EnkelType**
 
 
@@ -189,7 +189,7 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [typedefinisjon_referanse](typedefinisjon_referanse.md) | 0..1 <br/> [Uri](Uri.md) | Referanse til typedefinisjon (modelldcatno:typeDefinitionReference) |
+| [typedefinisjon_referanse](typedefinisjon_referanse.md) | 0..1 <br/> [Uri](uri.md) | Referanse til typedefinisjon (modelldcatno:typeDefinitionReference) |
 
 
 
@@ -321,16 +321,16 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fraksjonssifre](fraksjonssifre.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Maks tal på desimalsiffer (xsd:fractionDigits) |
-| [lengde](lengde.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Nøyaktig lengd av strengen (xsd:length) |
-| [maks_eksklusiv](maks_eksklusiv.md) | 0..1 <br/> [String](String.md) | Eksklusiv maksimumsverdi (xsd:maxExclusive) |
-| [maks_inklusiv](maks_inklusiv.md) | 0..1 <br/> [String](String.md) | Inklusiv maksimumsverdi (xsd:maxInclusive) |
-| [maks_lengde](maks_lengde.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Maksimal lengd av strengen (xsd:maxLength) |
-| [min_eksklusiv](min_eksklusiv.md) | 0..1 <br/> [String](String.md) | Eksklusiv minimumsverdi (xsd:minExclusive) |
-| [min_inklusiv](min_inklusiv.md) | 0..1 <br/> [String](String.md) | Inklusiv minimumsverdi (xsd:minInclusive) |
-| [min_lengde](min_lengde.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Minimal lengd av strengen (xsd:minLength) |
-| [monster](monster.md) | 0..1 <br/> [String](String.md) | Regulært uttrykk for tillate strengverdiar (xsd:pattern) |
-| [totalt_sifre](totalt_sifre.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Maks totalt tal på siffer (xsd:totalDigits) |
+| [fraksjonssifre](fraksjonssifre.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Maks tal på desimalsiffer (xsd:fractionDigits) |
+| [lengde](lengde.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Nøyaktig lengd av strengen (xsd:length) |
+| [maks_eksklusiv](maks_eksklusiv.md) | 0..1 <br/> [String](string.md) | Eksklusiv maksimumsverdi (xsd:maxExclusive) |
+| [maks_inklusiv](maks_inklusiv.md) | 0..1 <br/> [String](string.md) | Inklusiv maksimumsverdi (xsd:maxInclusive) |
+| [maks_lengde](maks_lengde.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Maksimal lengd av strengen (xsd:maxLength) |
+| [min_eksklusiv](min_eksklusiv.md) | 0..1 <br/> [String](string.md) | Eksklusiv minimumsverdi (xsd:minExclusive) |
+| [min_inklusiv](min_inklusiv.md) | 0..1 <br/> [String](string.md) | Inklusiv minimumsverdi (xsd:minInclusive) |
+| [min_lengde](min_lengde.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Minimal lengd av strengen (xsd:minLength) |
+| [monster](monster.md) | 0..1 <br/> [String](string.md) | Regulært uttrykk for tillate strengverdiar (xsd:pattern) |
+| [totalt_sifre](totalt_sifre.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Maks totalt tal på siffer (xsd:totalDigits) |
 
 
 
@@ -338,13 +338,13 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](Modellelement.md) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](Modellelement.md) |
-| [begrep](begrep.md) | * <br/> [Konsept](Konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](Modellelement.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](Modellelement.md) |
-| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](Eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](Modellelement.md) |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](Modellelement.md) |
-| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](Modellelement.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](modellelement.md) |
+| [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](modellelement.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
+| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](modellelement.md) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](modellelement.md) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](modellelement.md) |
 
 
 
@@ -354,7 +354,7 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Attributt](Attributt.md) | [har_enkel_type](har_enkel_type.md) | range | [EnkelType](EnkelType.md) |
+| [Attributt](attributt.md) | [har_enkel_type](har_enkel_type.md) | range | [EnkelType](enkeltype.md) |
 
 
 

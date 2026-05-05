@@ -22,7 +22,7 @@ Alias: er_i_samsvar_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_i_samsvar_med
 
 | Property | Value |
 | --- | --- |
-| Range | [Standard](Standard.md) |
-| Domain Of | [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [Standard](standard.md) |
+| Domain Of | [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [dct:conformsTo](http://purl.org/dc/terms/conformsTo) |
 
 ### Cardinality and Requirements

@@ -78,7 +78,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [navn_aktor](navn_aktor.md) | 1..* <br/> [LangString](LangString.md) | Namn på aktøren |
+| [navn_aktor](navn_aktor.md) | 1..* <br/> [LangString](langstring.md) | Namn på aktøren |
 
 
 
@@ -156,9 +156,9 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -171,12 +171,12 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [utgiver](utgiver.md) | range | [Aktor](Aktor.md) |
-| [Datasett](Datasett.md) | [produsent](produsent.md) | range | [Aktor](Aktor.md) |
-| [Datasettserie](Datasettserie.md) | [utgiver](utgiver.md) | range | [Aktor](Aktor.md) |
-| [Datatjeneste](Datatjeneste.md) | [utgiver](utgiver.md) | range | [Aktor](Aktor.md) |
-| [Katalog](Katalog.md) | [utgiver](utgiver.md) | range | [Aktor](Aktor.md) |
-| [Katalog](Katalog.md) | [produsent](produsent.md) | range | [Aktor](Aktor.md) |
+| [Datasett](datasett.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
+| [Datasett](datasett.md) | [produsent](produsent.md) | range | [Aktor](aktor.md) |
+| [Datasettserie](datasettserie.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
+| [Datatjeneste](datatjeneste.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
+| [Katalog](katalog.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
+| [Katalog](katalog.md) | [produsent](produsent.md) | range | [Aktor](aktor.md) |
 
 
 

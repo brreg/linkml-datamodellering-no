@@ -22,7 +22,7 @@ Alias: partRolle
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Part](Part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: partRolle
 
 | Property | Value |
 | --- | --- |
-| Range | [PartRolle](PartRolle.md) |
-| Domain Of | [Part](Part.md) |
+| Range | [PartRolle](partrolle.md) |
+| Domain Of | [Part](part.md) |
 | Slot URI | [ark:partRolle](https://schema.fintlabs.no/arkiv/partRolle) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: partRolle
 
 | Property | Value |
 | --- | --- |
-| Owner | [Part](Part.md) |
+| Owner | [Part](part.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: partRolle
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

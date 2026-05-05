@@ -22,8 +22,8 @@ Alias: inndelingskriterium
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PartitivRelasjon](PartitivRelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
-| [GeneriskRelasjon](GeneriskRelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
+| [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
+| [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: inndelingskriterium
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [GeneriskRelasjon](GeneriskRelasjon.md), [PartitivRelasjon](PartitivRelasjon.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [GeneriskRelasjon](generiskrelasjon.md), [PartitivRelasjon](partitivrelasjon.md) |
 | Slot URI | [dct:description](http://purl.org/dc/terms/description) |
 
 ### Cardinality and Requirements

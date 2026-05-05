@@ -22,7 +22,7 @@ Alias: generertAvAktivitet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Proveniensmetadata](Proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |  yes  |
+| [Proveniensmetadata](proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: generertAvAktivitet
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Proveniensmetadata](Proveniensmetadata.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Proveniensmetadata](proveniensmetadata.md) |
 | Slot URI | [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: bestar_av_kommunenummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  yes  |
+| [Matrikkelnummer](matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bestar_av_kommunenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Kommunenummer](Kommunenummer.md) |
-| Domain Of | [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [Kommunenummer](kommunenummer.md) |
+| Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [ngre:bestarAvKommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvKommunenummer) |
 
 ### Cardinality and Requirements

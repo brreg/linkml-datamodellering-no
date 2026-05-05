@@ -22,7 +22,7 @@ Alias: organisasjonselement
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samtykke](Samtykke.md) | Tillating til behandling av personopplysning |  no  |
+| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Samtykke](Samtykke.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Samtykke](samtykke.md) |
 | Slot URI | [pvn:organisasjonselement](https://schema.fintlabs.no/personvern/organisasjonselement) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Owner | [Samtykke](Samtykke.md) |
+| Owner | [Samtykke](samtykke.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: organisasjonselement
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

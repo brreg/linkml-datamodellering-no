@@ -22,7 +22,7 @@ Alias: har_datatype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Attributt](Attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
+| [Attributt](attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_datatype
 
 | Property | Value |
 | --- | --- |
-| Range | [Datatype](Datatype.md) |
-| Domain Of | [Attributt](Attributt.md) |
+| Range | [Datatype](datatype.md) |
+| Domain Of | [Attributt](attributt.md) |
 | Slot URI | [modelldcatno:hasDataType](https://data.norge.no/vocabulary/modelldcatno#hasDataType) |
 
 ### Cardinality and Requirements

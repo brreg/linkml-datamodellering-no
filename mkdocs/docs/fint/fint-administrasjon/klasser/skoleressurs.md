@@ -22,7 +22,7 @@ Alias: skoleressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: skoleressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:skoleressurs](https://schema.fintlabs.no/administrasjon/skoleressurs) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: skoleressurs
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: skoleressurs
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

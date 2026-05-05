@@ -17,18 +17,18 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](Tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |  no  |
-| [Personopplysning](Personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Behandlingsgrunnlag](Behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
 
 
 
@@ -41,8 +41,8 @@ Alias: navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Tjeneste](Tjeneste.md), [Behandlingsgrunnlag](Behandlingsgrunnlag.md), [Personopplysning](Personopplysning.md), [Begrep](Begrep.md), [Valuta](Valuta.md), [Person](Person.md), [Kontaktperson](Kontaktperson.md) |
+| Range | [String](string.md) |
+| Domain Of | [Tjeneste](tjeneste.md), [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md), [Begrep](begrep.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md) |
 
 ### Cardinality and Requirements
 

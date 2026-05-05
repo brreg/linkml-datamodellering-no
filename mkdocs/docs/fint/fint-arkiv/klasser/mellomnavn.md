@@ -22,7 +22,7 @@ Alias: mellomnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personnavn](Personnavn.md) | Namn på ein person |  no  |
+| [Personnavn](personnavn.md) | Namn på ein person |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: mellomnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Personnavn](Personnavn.md) |
+| Range | [String](string.md) |
+| Domain Of | [Personnavn](personnavn.md) |
 | Slot URI | [fint:mellomnavn](https://schema.fintlabs.no/mellomnavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: mellomnavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personnavn](Personnavn.md) |
+| Owner | [Personnavn](personnavn.md) |
 
 
 

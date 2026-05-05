@@ -22,7 +22,7 @@ Alias: sjekksumverdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sjekksum](Sjekksum.md) | Ein sjekksum for ein distribusjon |  yes  |
+| [Sjekksum](sjekksum.md) | Ein sjekksum for ein distribusjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sjekksumverdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Sjekksum](Sjekksum.md) |
+| Range | [String](string.md) |
+| Domain Of | [Sjekksum](sjekksum.md) |
 | Slot URI | [spdx:checksumValue](http://spdx.org/rdf/terms#checksumValue) |
 
 ### Cardinality and Requirements

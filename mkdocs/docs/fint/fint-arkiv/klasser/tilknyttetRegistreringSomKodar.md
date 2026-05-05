@@ -17,7 +17,7 @@ Alias: tilknyttetRegistreringSomKodar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ArkivContainer](ArkivContainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
+| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: tilknyttetRegistreringSomKodar
 
 | Property | Value |
 | --- | --- |
-| Range | [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md) |
-| Domain Of | [ArkivContainer](ArkivContainer.md) |
+| Range | [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) |
+| Domain Of | [ArkivContainer](arkivcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: tilknyttetRegistreringSomKodar
 
 | Property | Value |
 | --- | --- |
-| Owner | [ArkivContainer](ArkivContainer.md) |
+| Owner | [ArkivContainer](arkivcontainer.md) |
 
 
 

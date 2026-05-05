@@ -116,9 +116,9 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_i_samsvar_med](er_i_samsvar_med.md) | * <br/> [Standard](Standard.md) | Standard eller spesifikasjon datasettet er i samsvar med |
-| [har_kvalitetsmerknad](har_kvalitetsmerknad.md) | * <br/> [Kvalitetsmerknad](Kvalitetsmerknad.md) | Kvalitetsmerknad knytt til datasettet |
-| [har_kvalitetsmaaling](har_kvalitetsmaaling.md) | * <br/> [Kvalitetsmaaling](Kvalitetsmaaling.md) | Kvalitetsmåling knytt til datasettet |
+| [er_i_samsvar_med](er_i_samsvar_med.md) | * <br/> [Standard](standard.md) | Standard eller spesifikasjon datasettet er i samsvar med |
+| [har_kvalitetsmerknad](har_kvalitetsmerknad.md) | * <br/> [Kvalitetsmerknad](kvalitetsmerknad.md) | Kvalitetsmerknad knytt til datasettet |
+| [har_kvalitetsmaaling](har_kvalitetsmaaling.md) | * <br/> [Kvalitetsmaaling](kvalitetsmaaling.md) | Kvalitetsmåling knytt til datasettet |
 
 
 
@@ -192,7 +192,7 @@ URI: [dcat:Dataset](http://www.w3.org/ns/dcat#Dataset)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

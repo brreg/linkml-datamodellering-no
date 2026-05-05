@@ -17,10 +17,10 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
-| [Rettighet](Rettighet.md) | Ei namngitt rettighet |  no  |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
-| [Applikasjon](Applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |  no  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Applikasjon](Applikasjon.md), [Applikasjonsressurs](Applikasjonsressurs.md), [Rettighet](Rettighet.md), [Periode](Periode.md) |
+| Range | [String](string.md) |
+| Domain Of | [Applikasjon](applikasjon.md), [Applikasjonsressurs](applikasjonsressurs.md), [Rettighet](rettighet.md), [Periode](periode.md) |
 
 ### Cardinality and Requirements
 

@@ -22,7 +22,7 @@ Alias: valuta
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Gebyr](Gebyr.md) | Eit gebyr knytt til ei teneste |  yes  |
+| [Gebyr](gebyr.md) | Eit gebyr knytt til ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: valuta
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Gebyr](Gebyr.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Gebyr](gebyr.md) |
 | Slot URI | [cv:currency](http://data.europa.eu/m8g/currency) |
 
 ### Cardinality and Requirements

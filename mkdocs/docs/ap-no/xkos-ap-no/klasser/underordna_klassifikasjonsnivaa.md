@@ -22,7 +22,7 @@ Alias: underordna_klassifikasjonsnivaa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
+| [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: underordna_klassifikasjonsnivaa
 
 | Property | Value |
 | --- | --- |
-| Range | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
-| Domain Of | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
+| Range | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
+| Domain Of | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
 | Slot URI | [xkos:nextLevel](http://rdf-vocabulary.ddialliance.org/xkos#nextLevel) |
 
 ### Cardinality and Requirements

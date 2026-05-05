@@ -187,9 +187,9 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](Organisasjon.md) | Organisasjon som er ansvarleg utgjevar (dct:publisher) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon som er ansvarleg utgjevar (dct:publisher) |
 
 
 
@@ -266,15 +266,15 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tema](tema.md) | * <br/> [Konsept](Konsept.md) | Fagleg tema klassifikasjonen dekkjer (dct:subject) |
-| [nokkelord](nokkelord.md) | * <br/> [LangString](LangString.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](String.md) | Versjonsnummer for ressursen (owl:versionInfo) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](Date.md) | Dato ressursen vart første gong publisert (dct:issued) |
-| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [gjeld_for_tidsrom](gjeld_for_tidsrom.md) | 0..1 <br/> [Tidsrom](Tidsrom.md) | Tidsrom klassifikasjonen er gyldig for (dct:temporal) |
-| [antall_nivaa](antall_nivaa.md) | 0..1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Antal nivå i klassifikasjonen (xkos:numberOfLevels) |
+| [tema](tema.md) | * <br/> [Konsept](konsept.md) | Fagleg tema klassifikasjonen dekkjer (dct:subject) |
+| [nokkelord](nokkelord.md) | * <br/> [LangString](langstring.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [gjeld_for_tidsrom](gjeld_for_tidsrom.md) | 0..1 <br/> [Tidsrom](tidsrom.md) | Tidsrom klassifikasjonen er gyldig for (dct:temporal) |
+| [antall_nivaa](antall_nivaa.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Antal nivå i klassifikasjonen (xkos:numberOfLevels) |
 
 
 
@@ -337,8 +337,8 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_samanlikna_med](er_samanlikna_med.md) | * <br/> [Klassifikasjon](Klassifikasjon.md) | Klassifikasjonar som er samanlikna (xkos:compares) |
-| [forste_nivaa](forste_nivaa.md) | * <br/> [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Toppnivå i klassifikasjonen (xkos:levels) |
+| [er_samanlikna_med](er_samanlikna_med.md) | * <br/> [Klassifikasjon](klassifikasjon.md) | Klassifikasjonar som er samanlikna (xkos:compares) |
+| [forste_nivaa](forste_nivaa.md) | * <br/> [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Toppnivå i klassifikasjonen (xkos:levels) |
 
 
 
@@ -546,8 +546,8 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 
 
 
@@ -560,9 +560,9 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | [er_samanlikna_med](er_samanlikna_med.md) | range | [Klassifikasjon](Klassifikasjon.md) |
-| [Kategori](Kategori.md) | [er_i_klassifikasjon](er_i_klassifikasjon.md) | range | [Klassifikasjon](Klassifikasjon.md) |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | [samanliknar](samanliknar.md) | range | [Klassifikasjon](Klassifikasjon.md) |
+| [Klassifikasjon](klassifikasjon.md) | [er_samanlikna_med](er_samanlikna_med.md) | range | [Klassifikasjon](klassifikasjon.md) |
+| [Kategori](kategori.md) | [er_i_klassifikasjon](er_i_klassifikasjon.md) | range | [Klassifikasjon](klassifikasjon.md) |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | [samanliknar](samanliknar.md) | range | [Klassifikasjon](klassifikasjon.md) |
 
 
 

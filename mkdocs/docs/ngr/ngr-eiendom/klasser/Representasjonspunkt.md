@@ -17,7 +17,7 @@ Alias: representasjonspunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: representasjonspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Representasjonspunkt](Representasjonspunkt.md) |
-| Domain Of | [EiendomContainer](EiendomContainer.md) |
+| Range | [Representasjonspunkt](representasjonspunkt.md) |
+| Domain Of | [EiendomContainer](eiendomcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: representasjonspunkt
 
 | Property | Value |
 | --- | --- |
-| Owner | [EiendomContainer](EiendomContainer.md) |
+| Owner | [EiendomContainer](eiendomcontainer.md) |
 
 
 

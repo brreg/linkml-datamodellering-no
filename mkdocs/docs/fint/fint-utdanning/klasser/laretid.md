@@ -22,7 +22,7 @@ Alias: laretid
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: laretid
 
 | Property | Value |
 | --- | --- |
-| Range | [Periode](Periode.md) |
-| Domain Of | [Laerling](Laerling.md) |
+| Range | [Periode](periode.md) |
+| Domain Of | [Laerling](laerling.md) |
 | Slot URI | [utd:laretid](https://schema.fintlabs.no/utdanning/laretid) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: laretid
 
 | Property | Value |
 | --- | --- |
-| Owner | [Laerling](Laerling.md) |
+| Owner | [Laerling](laerling.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: laretid
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

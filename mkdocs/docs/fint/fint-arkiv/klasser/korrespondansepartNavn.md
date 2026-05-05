@@ -22,7 +22,7 @@ Alias: korrespondansepartNavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Korrespondansepart](Korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: korrespondansepartNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Korrespondansepart](Korrespondansepart.md) |
+| Range | [String](string.md) |
+| Domain Of | [Korrespondansepart](korrespondansepart.md) |
 | Slot URI | [ark:korrespondansepartNavn](https://schema.fintlabs.no/arkiv/korrespondansepartNavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: korrespondansepartNavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Korrespondansepart](Korrespondansepart.md) |
+| Owner | [Korrespondansepart](korrespondansepart.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: korrespondansepartNavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

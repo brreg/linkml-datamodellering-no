@@ -22,7 +22,7 @@ Alias: personalressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:personalressurs](https://schema.fintlabs.no/personalressurs) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: personalressurs
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

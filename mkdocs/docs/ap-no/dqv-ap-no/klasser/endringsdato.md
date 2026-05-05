@@ -26,7 +26,7 @@ Alias: endringsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
+| Range | [Date](date.md) |
 | Slot URI | [dct:modified](http://purl.org/dc/terms/modified) |
 
 ### Cardinality and Requirements

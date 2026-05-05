@@ -22,7 +22,7 @@ Alias: stemmekretsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Stemmekrets](Stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
+| [Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: stemmekretsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Stemmekrets](Stemmekrets.md) |
+| Range | [String](string.md) |
+| Domain Of | [Stemmekrets](stemmekrets.md) |
 | Slot URI | [ngr:stemmekretsnummer](https://data.norge.no/vocabulary/ngr-adresse#stemmekretsnummer) |
 
 ### Cardinality and Requirements

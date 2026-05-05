@@ -17,9 +17,9 @@ Alias: kontaktperson
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Part](Part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
-| [Korrespondansepart](Korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: kontaktperson
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Korrespondansepart](Korrespondansepart.md), [Part](Part.md), [Kontaktperson](Kontaktperson.md) |
+| Range | [String](string.md) |
+| Domain Of | [Korrespondansepart](korrespondansepart.md), [Part](part.md), [Kontaktperson](kontaktperson.md) |
 
 ### Cardinality and Requirements
 

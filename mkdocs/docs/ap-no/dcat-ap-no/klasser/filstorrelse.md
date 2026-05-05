@@ -22,7 +22,7 @@ Alias: filstorrelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: filstorrelse
 
 | Property | Value |
 | --- | --- |
-| Range | [NonNegativeInteger](NonNegativeInteger.md) |
-| Domain Of | [Distribusjon](Distribusjon.md) |
+| Range | [NonNegativeInteger](nonnegativeinteger.md) |
+| Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:byteSize](http://www.w3.org/ns/dcat#byteSize) |
 
 ### Cardinality and Requirements

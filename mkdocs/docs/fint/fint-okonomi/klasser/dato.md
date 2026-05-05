@@ -22,7 +22,7 @@ Alias: dato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: dato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Faktura](Faktura.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Faktura](faktura.md) |
 | Slot URI | [okn:dato](https://schema.fintlabs.no/okonomi/dato) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: dato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Faktura](Faktura.md) |
+| Owner | [Faktura](faktura.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: dato
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

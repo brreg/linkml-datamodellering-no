@@ -22,17 +22,17 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kategori](Kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  no  |
-| [Konsept](Konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |  no  |
-| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  no  |
-| [Kategorisamanlikning](Kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |  no  |
-| [Begrepssamling](Begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |  no  |
-| [Spraak](Spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |  no  |
-| [Mediatype](Mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |  no  |
-| [Organisasjon](Organisasjon.md) | Ein organisasjon eller aktør (foaf:Agent) |  no  |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  no  |
-| [Tidsrom](Tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |  no  |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  no  |
+| [Spraak](spraak.md) | Ein språkreferanse (dct:LinguisticSystem) |  no  |
+| [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  no  |
+| [Mediatype](mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |  no  |
+| [Organisasjon](organisasjon.md) | Ein organisasjon eller aktør (foaf:Agent) |  no  |
+| [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  no  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  no  |
+| [Begrepssamling](begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |  no  |
+| [Tidsrom](tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |  no  |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  no  |
+| [Konsept](konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |  no  |
+| [Kategorisamanlikning](kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |  no  |
 
 
 
@@ -45,8 +45,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md), [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md), [Kategori](Kategori.md), [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md), [Kategorisamanlikning](Kategorisamanlikning.md), [Organisasjon](Organisasjon.md), [Tidsrom](Tidsrom.md), [Spraak](Spraak.md), [Mediatype](Mediatype.md), [Konsept](Konsept.md), [Begrepssamling](Begrepssamling.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md), [Klassifikasjonsnivaa](klassifikasjonsnivaa.md), [Kategori](kategori.md), [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md), [Kategorisamanlikning](kategorisamanlikning.md), [Organisasjon](organisasjon.md), [Tidsrom](tidsrom.md), [Spraak](spraak.md), [Mediatype](mediatype.md), [Konsept](konsept.md), [Begrepssamling](begrepssamling.md) |
 
 ### Cardinality and Requirements
 

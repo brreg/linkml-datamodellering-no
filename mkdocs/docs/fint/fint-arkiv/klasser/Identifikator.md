@@ -105,8 +105,8 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [String](String.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) | Perioden ein gjeven identifikator er gyldig |
+| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [String](string.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Perioden ein gjeven identifikator er gyldig |
 
 
 
@@ -119,24 +119,24 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Mappe](Mappe.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [Saksmappe](Saksmappe.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [Arkivressurs](Arkivressurs.md) | [kildesystemId](kildesystemId.md) | range | [Identifikator](Identifikator.md) |
-| [Sak](Sak.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [Personalmappe](Personalmappe.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | [soeknadsnummer](soeknadsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [TilskuddFartoy](TilskuddFartoy.md) | [soeknadsnummer](soeknadsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [TilskuddFartoy](TilskuddFartoy.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | [soeknadsnummer](soeknadsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) | [mappeId](mappeId.md) | range | [Identifikator](Identifikator.md) |
-| [Enhet](Enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Valuta](Valuta.md) | [bokstavkode](bokstavkode.md) | range | [Identifikator](Identifikator.md) |
-| [Valuta](Valuta.md) | [nummerkode](nummerkode.md) | range | [Identifikator](Identifikator.md) |
-| [Person](Person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Virksomhet](Virksomhet.md) | [virksomhetsId](virksomhetsId.md) | range | [Identifikator](Identifikator.md) |
-| [Virksomhet](Virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
+| [Mappe](mappe.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [Saksmappe](saksmappe.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [Arkivressurs](arkivressurs.md) | [kildesystemId](kildesystemid.md) | range | [Identifikator](identifikator.md) |
+| [Sak](sak.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [Personalmappe](personalmappe.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | [soeknadsnummer](soeknadsnummer.md) | range | [Identifikator](identifikator.md) |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [TilskuddFartoy](tilskuddfartoy.md) | [soeknadsnummer](soeknadsnummer.md) | range | [Identifikator](identifikator.md) |
+| [TilskuddFartoy](tilskuddfartoy.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | [soeknadsnummer](soeknadsnummer.md) | range | [Identifikator](identifikator.md) |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
+| [Enhet](enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [bokstavkode](bokstavkode.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [nummerkode](nummerkode.md) | range | [Identifikator](identifikator.md) |
+| [Person](person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [virksomhetsId](virksomhetsid.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
 
 
 

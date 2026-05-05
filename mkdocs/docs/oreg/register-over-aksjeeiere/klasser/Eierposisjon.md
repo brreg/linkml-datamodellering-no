@@ -98,8 +98,8 @@ URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [gjelder_aksjepost](gjelder_aksjepost.md) | 0..1 <br/> [Aksjepost](Aksjepost.md) | Aksjepost som inngår i eigarposisjonen |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [gjelder_aksjepost](gjelder_aksjepost.md) | 0..1 <br/> [Aksjepost](aksjepost.md) | Aksjepost som inngår i eigarposisjonen |
 
 
 
@@ -112,11 +112,11 @@ URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [eierposisjoner](eierposisjoner.md) | range | [Eierposisjon](Eierposisjon.md) |
-| [Aksjeeier](Aksjeeier.md) | [har_eierposisjon](har_eierposisjon.md) | range | [Eierposisjon](Eierposisjon.md) |
-| [Eierposisjon](Eierposisjon.md) | [gjelder_aksjepost](gjelder_aksjepost.md) | domain | [Eierposisjon](Eierposisjon.md) |
-| [Utbytte](Utbytte.md) | [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | range | [Eierposisjon](Eierposisjon.md) |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | [paavirker_eierposisjon](paavirker_eierposisjon.md) | range | [Eierposisjon](Eierposisjon.md) |
+| [Containerklasse](containerklasse.md) | [eierposisjoner](eierposisjoner.md) | range | [Eierposisjon](eierposisjon.md) |
+| [Aksjeeier](aksjeeier.md) | [har_eierposisjon](har_eierposisjon.md) | range | [Eierposisjon](eierposisjon.md) |
+| [Eierposisjon](eierposisjon.md) | [gjelder_aksjepost](gjelder_aksjepost.md) | domain | [Eierposisjon](eierposisjon.md) |
+| [Utbytte](utbytte.md) | [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | range | [Eierposisjon](eierposisjon.md) |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | [paavirker_eierposisjon](paavirker_eierposisjon.md) | range | [Eierposisjon](eierposisjon.md) |
 
 
 

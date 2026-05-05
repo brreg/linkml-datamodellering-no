@@ -22,7 +22,7 @@ Alias: virksomhetsId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: virksomhetsId
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Virksomhet](Virksomhet.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Virksomhet](virksomhet.md) |
 | Slot URI | [fint:virksomhetsId](https://schema.fintlabs.no/virksomhetsId) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: virksomhetsId
 
 | Property | Value |
 | --- | --- |
-| Owner | [Virksomhet](Virksomhet.md) |
+| Owner | [Virksomhet](virksomhet.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: virksomhetsId
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

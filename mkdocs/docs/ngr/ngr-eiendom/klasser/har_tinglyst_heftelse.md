@@ -22,8 +22,8 @@ Alias: har_tinglyst_heftelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FastEiendom](FastEiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
-| [Borettslagsandel](Borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
+| [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
+| [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: har_tinglyst_heftelse
 
 | Property | Value |
 | --- | --- |
-| Range | [TinglystHeftelse](TinglystHeftelse.md) |
-| Domain Of | [FastEiendom](FastEiendom.md), [Borettslagsandel](Borettslagsandel.md) |
+| Range | [TinglystHeftelse](tinglystheftelse.md) |
+| Domain Of | [FastEiendom](fasteiendom.md), [Borettslagsandel](borettslagsandel.md) |
 | Slot URI | [ngre:harTinglystHeftelse](https://data.norge.no/vocabulary/ngr-eiendom#harTinglystHeftelse) |
 
 ### Cardinality and Requirements

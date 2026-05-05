@@ -22,7 +22,7 @@ Alias: personalressurskategori
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: personalressurskategori
 
 | Property | Value |
 | --- | --- |
-| Range | [Personalressurskategori](Personalressurskategori.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Personalressurskategori](personalressurskategori.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:personalressurskategori](https://schema.fintlabs.no/administrasjon/personalressurskategori) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: personalressurskategori
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: personalressurskategori
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

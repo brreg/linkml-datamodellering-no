@@ -22,7 +22,7 @@ Alias: kontaktperson
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kontaktperson
 
 | Property | Value |
 | --- | --- |
-| Range | [Person](Person.md) |
-| Domain Of | [Kontaktperson](Kontaktperson.md) |
+| Range | [Person](person.md) |
+| Domain Of | [Kontaktperson](kontaktperson.md) |
 | Slot URI | [fint:kontaktpersonFor](https://schema.fintlabs.no/kontaktpersonFor) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: kontaktperson
 
 | Property | Value |
 | --- | --- |
-| Owner | [Kontaktperson](Kontaktperson.md) |
+| Owner | [Kontaktperson](kontaktperson.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: kontaktperson
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

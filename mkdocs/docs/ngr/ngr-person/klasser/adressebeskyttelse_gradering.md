@@ -22,7 +22,7 @@ Alias: adressebeskyttelse_gradering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adressebeskyttelse](Adressebeskyttelse.md) | Gradering av adressebeskyttelse for innflyttede personar til Noreg |  yes  |
+| [Adressebeskyttelse](adressebeskyttelse.md) | Gradering av adressebeskyttelse for innflyttede personar til Noreg |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: adressebeskyttelse_gradering
 
 | Property | Value |
 | --- | --- |
-| Range | [AdressebeskyttelseGradering](AdressebeskyttelseGradering.md) |
-| Domain Of | [Adressebeskyttelse](Adressebeskyttelse.md) |
+| Range | [AdressebeskyttelseGradering](adressebeskyttelsegradering.md) |
+| Domain Of | [Adressebeskyttelse](adressebeskyttelse.md) |
 | Slot URI | [ngrp:adressebeskyttelseGradering](https://data.norge.no/vocabulary/ngr-person#adressebeskyttelseGradering) |
 
 ### Cardinality and Requirements

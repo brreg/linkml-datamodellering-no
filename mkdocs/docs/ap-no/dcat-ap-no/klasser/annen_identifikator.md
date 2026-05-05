@@ -22,7 +22,7 @@ Alias: annen_identifikator
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: annen_identifikator
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [adms:identifier](http://www.w3.org/ns/adms#identifier) |
 
 ### Cardinality and Requirements

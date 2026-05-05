@@ -22,7 +22,7 @@ Alias: i_skjema
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  yes  |
+| [Kodeelement](kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: i_skjema
 
 | Property | Value |
 | --- | --- |
-| Range | [Kodeliste](Kodeliste.md) |
-| Domain Of | [Kodeelement](Kodeelement.md) |
+| Range | [Kodeliste](kodeliste.md) |
+| Domain Of | [Kodeelement](kodeelement.md) |
 | Slot URI | [skos:inScheme](http://www.w3.org/2004/02/skos/core#inScheme) |
 
 ### Cardinality and Requirements

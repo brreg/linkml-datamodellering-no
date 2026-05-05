@@ -22,7 +22,7 @@ Alias: adressenavn_tekst
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adressenavn](Adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
+| [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: adressenavn_tekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Adressenavn](Adressenavn.md) |
+| Range | [String](string.md) |
+| Domain Of | [Adressenavn](adressenavn.md) |
 | Slot URI | [locn:thoroughfare](http://www.w3.org/ns/locn#thoroughfare) |
 
 ### Cardinality and Requirements

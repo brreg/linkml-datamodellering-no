@@ -78,7 +78,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,9 +91,9 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | [har_maal](har_maal.md) | range | [DcatRessurs](DcatRessurs.md) |
-| [Brukartilbakemelding](Brukartilbakemelding.md) | [har_maal](har_maal.md) | range | [DcatRessurs](DcatRessurs.md) |
-| [Kvalitetssertifikat](Kvalitetssertifikat.md) | [har_maal](har_maal.md) | range | [DcatRessurs](DcatRessurs.md) |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | [har_maal](har_maal.md) | range | [DcatRessurs](dcatressurs.md) |
+| [Brukartilbakemelding](brukartilbakemelding.md) | [har_maal](har_maal.md) | range | [DcatRessurs](dcatressurs.md) |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | [har_maal](har_maal.md) | range | [DcatRessurs](dcatressurs.md) |
 
 
 

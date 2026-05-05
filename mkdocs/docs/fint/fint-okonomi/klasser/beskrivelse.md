@@ -17,8 +17,8 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Transaksjon](Transaksjon.md), [Periode](Periode.md) |
+| Range | [String](string.md) |
+| Domain Of | [Transaksjon](transaksjon.md), [Periode](periode.md) |
 
 ### Cardinality and Requirements
 

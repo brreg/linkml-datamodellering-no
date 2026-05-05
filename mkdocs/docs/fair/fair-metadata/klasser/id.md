@@ -22,7 +22,7 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  no  |
+| [FAIRMetadata](fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [FAIRMetadata](fairmetadata.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 
 ### Cardinality and Requirements

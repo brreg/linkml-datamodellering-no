@@ -92,7 +92,7 @@ postboksar:
     postboksnummer: 1382
 
 bygningar:
-  - id: https://example.org/bygning/12345
+  - https://example.org/bygning/12345
 
 bruksenheter:
-  - id: https://example.org/bruksenhet/1
+  - https://example.org/bruksenhet/1

@@ -17,7 +17,7 @@ Alias: utflytting
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: utflytting
 
 | Property | Value |
 | --- | --- |
-| Range | [UtflyttingFraNorge](UtflyttingFraNorge.md) |
-| Domain Of | [PersonContainer](PersonContainer.md) |
+| Range | [UtflyttingFraNorge](utflyttingfranorge.md) |
+| Domain Of | [PersonContainer](personcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: utflytting
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonContainer](PersonContainer.md) |
+| Owner | [PersonContainer](personcontainer.md) |
 
 
 

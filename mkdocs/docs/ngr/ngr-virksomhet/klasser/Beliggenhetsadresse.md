@@ -32,7 +32,7 @@ URI: [ngrv:Beliggenhetsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **Beliggenhetsadresse**
 
 
@@ -70,7 +70,7 @@ URI: [ngrv:Beliggenhetsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -80,8 +80,8 @@ URI: [ngrv:Beliggenhetsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [beliggenhetsadresser](beliggenhetsadresser.md) | range | [Beliggenhetsadresse](Beliggenhetsadresse.md) |
-| [Underenhet](Underenhet.md) | [har_beliggenhetsadresse](har_beliggenhetsadresse.md) | range | [Beliggenhetsadresse](Beliggenhetsadresse.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [beliggenhetsadresser](beliggenhetsadresser.md) | range | [Beliggenhetsadresse](beliggenhetsadresse.md) |
+| [Underenhet](underenhet.md) | [har_beliggenhetsadresse](har_beliggenhetsadresse.md) | range | [Beliggenhetsadresse](beliggenhetsadresse.md) |
 
 
 

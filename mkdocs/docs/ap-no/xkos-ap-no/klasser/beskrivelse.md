@@ -22,7 +22,7 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  no  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [dct:description](http://purl.org/dc/terms/description) |
 
 ### Cardinality and Requirements

@@ -24,7 +24,7 @@ Alias: metadataPersistens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tilgangsmetadata](Tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |  yes  |
+| [Tilgangsmetadata](tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: metadataPersistens
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](Boolean.md) |
-| Domain Of | [Tilgangsmetadata](Tilgangsmetadata.md) |
+| Range | [Boolean](boolean.md) |
+| Domain Of | [Tilgangsmetadata](tilgangsmetadata.md) |
 | Slot URI | [fair:metadataPersistens](https://data.norge.no/fair#metadataPersistens) |
 
 ### Cardinality and Requirements

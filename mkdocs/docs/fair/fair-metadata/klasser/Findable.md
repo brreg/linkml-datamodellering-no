@@ -5,7 +5,7 @@ _Eigenskapar knytt til FAIR F-prinsippa (Findable)._
 
 
 
-URI: [Findable](Findable.md)
+URI: [Findable](findable.md)
 
 
 

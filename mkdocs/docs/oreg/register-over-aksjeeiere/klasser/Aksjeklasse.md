@@ -89,8 +89,8 @@ URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [navn](navn.md) | 0..1 <br/> [String](String.md) | Namn på instansen |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [navn](navn.md) | 0..1 <br/> [String](string.md) | Namn på instansen |
 
 
 
@@ -103,10 +103,10 @@ URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeklasser](aksjeklasser.md) | range | [Aksjeklasse](Aksjeklasse.md) |
-| [Aksje](Aksje.md) | [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | range | [Aksjeklasse](Aksjeklasse.md) |
-| [Aksjeeierrettighet](Aksjeeierrettighet.md) | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | range | [Aksjeklasse](Aksjeklasse.md) |
-| [Aksjepost](Aksjepost.md) | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | range | [Aksjeklasse](Aksjeklasse.md) |
+| [Containerklasse](containerklasse.md) | [aksjeklasser](aksjeklasser.md) | range | [Aksjeklasse](aksjeklasse.md) |
+| [Aksje](aksje.md) | [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | range | [Aksjeklasse](aksjeklasse.md) |
+| [Aksjeeierrettighet](aksjeeierrettighet.md) | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | range | [Aksjeklasse](aksjeklasse.md) |
+| [Aksjepost](aksjepost.md) | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | range | [Aksjeklasse](aksjeklasse.md) |
 
 
 

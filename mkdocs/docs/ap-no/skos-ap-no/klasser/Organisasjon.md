@@ -78,7 +78,7 @@ URI: [org:Organization](http://www.w3.org/ns/org#Organization)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,9 +91,9 @@ URI: [org:Organization](http://www.w3.org/ns/org#Organization)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Begrep](Begrep.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](Organisasjon.md) |
-| [Begrep](Begrep.md) | [ansvarleg_verksemd](ansvarleg_verksemd.md) | range | [Organisasjon](Organisasjon.md) |
-| [Samling](Samling.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](Organisasjon.md) |
+| [Begrep](begrep.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](organisasjon.md) |
+| [Begrep](begrep.md) | [ansvarleg_verksemd](ansvarleg_verksemd.md) | range | [Organisasjon](organisasjon.md) |
+| [Samling](samling.md) | [utgjevar](utgjevar.md) | range | [Organisasjon](organisasjon.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: enhetskostnad
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: enhetskostnad
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:enhetskostnad](https://schema.fintlabs.no/ressurs/enhetskostnad) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: enhetskostnad
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Owner | [Applikasjonsressurs](applikasjonsressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: enhetskostnad
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -1,0 +1,104 @@
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ngr: <https://data.norge.no/vocabulary/ngr-adresse#> .
+@prefix ns1: <https://data.norge.no/linkml/ngr-adresse/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.org/adresse/offisiell/1> a ngr:OffisiellAdresse ;
+    ngr:adressererBygning <https://example.org/bygning/12345> ;
+    ngr:harAdressekode <https://example.org/adressekode/13019> ;
+    ngr:harAdressenavn <https://example.org/adressenavn/13019> ;
+    ngr:harHusnummer <https://example.org/husnummer/1> ;
+    ngr:harKommunenummer <https://example.org/kommune/0301> ;
+    ngr:harRepresentasjonspunkt <https://example.org/punkt/1> ;
+    ngr:referererTilGeografiskOmrade <https://example.org/grunnkrets/03010101>,
+        <https://example.org/kommune/0301>,
+        <https://example.org/poststed/0150> .
+
+<https://example.org/adresse/offisiell/2> a ngr:OffisiellAdresse ;
+    ngr:adressererBruksenhet <https://example.org/bruksenhet/1> ;
+    ngr:adressetilleggsnavn "Storgarden" ;
+    ngr:harAdressekode <https://example.org/adressekode/13019> ;
+    ngr:harAdressenavn <https://example.org/adressenavn/13019> ;
+    ngr:harBruksenhetsnummer <https://example.org/bruksenhet-nr/1> ;
+    ngr:harHusnummer <https://example.org/husnummer/2> ;
+    ngr:harKommunenummer <https://example.org/kommune/0301> ;
+    ngr:harRepresentasjonspunkt <https://example.org/punkt/1> ;
+    ngr:referererTilGeografiskOmrade <https://example.org/kommune/0301>,
+        <https://example.org/poststed/0150> .
+
+<https://example.org/adresse/postboks/1> a ngr:Postboksadresse ;
+    ngr:harPostboks <https://example.org/postboks/1> ;
+    ngr:postboksanleggsnavn "Digdir" ;
+    ngr:referererTilPoststed <https://example.org/poststed/0101> .
+
+<https://example.org/bruksenhet-nr/1> a ngr:Bruksenhetsnummer ;
+    ngr:etasjenummer 2 ;
+    ngr:etasjeplan "H" ;
+    ngr:nummereringIEtasjen 1 .
+
+<https://example.org/bruksenhet/1> a ngr:Bruksenhet .
+
+<https://example.org/bygning/12345> a ngr:Bygning .
+
+<https://example.org/grunnkrets/03010101> a ngr:Grunnkrets ;
+    ngr:grunnkretsnummer "03010101" ;
+    ngr:namn "Kvadraturen" .
+
+<https://example.org/husnummer/1> a ngr:Husnummer ;
+    ngr:nummer 22 .
+
+<https://example.org/husnummer/2> a ngr:Husnummer ;
+    ngr:bokstav "B" ;
+    ngr:nummer 22 .
+
+<https://example.org/postboks/1> a ngr:Postboks ;
+    ngr:postboksnummer 1382 .
+
+<https://example.org/poststed/0101> a ngr:Poststed ;
+    locn:postCode "0101" ;
+    ngr:namn "Oslo" .
+
+<https://example.org/adressenavn/13019> a ngr:Adressenavn ;
+    locn:thoroughfare "Karl Johans gate" ;
+    ngr:harAdressekode <https://example.org/adressekode/13019> ;
+    ngr:harAdresseomrade <https://example.org/adresseomrade/oslo-sentrum> .
+
+<https://example.org/adresseomrade/oslo-sentrum> a ngr:Adresseomrade ;
+    ngr:namn "Oslo sentrum" .
+
+<https://example.org/poststed/0150> a ngr:Poststed ;
+    locn:postCode "0150" ;
+    ngr:namn "Oslo" .
+
+<https://example.org/punkt/1> a ngr:Representasjonspunkt ;
+    ngr:koordinatNord "6651192.0"^^xsd:float ;
+    ngr:koordinatOst "262893.0"^^xsd:float ;
+    ngr:koordinatsystem "EPSG:25833" .
+
+<https://example.org/adressekode/13019> a ngr:Adressekode ;
+    ngr:harAdresseomrade <https://example.org/adresseomrade/oslo-sentrum> ;
+    ngr:kode 13019 .
+
+<https://example.org/kommune/0301> a ngr:Kommune ;
+    ngr:kommunenummer "0301" ;
+    ngr:namn "Oslo" .
+
+[] a ns1:AdresseContainer ;
+    ns1:adressekoder <https://example.org/adressekode/13019> ;
+    ns1:adressenavn <https://example.org/adressenavn/13019> ;
+    ns1:adresseomrader <https://example.org/adresseomrade/oslo-sentrum> ;
+    ns1:bruksenheter <https://example.org/bruksenhet/1> ;
+    ns1:bruksenhetsnummer <https://example.org/bruksenhet-nr/1> ;
+    ns1:bygningar <https://example.org/bygning/12345> ;
+    ns1:grunnkretsar <https://example.org/grunnkrets/03010101> ;
+    ns1:husnummer <https://example.org/husnummer/1>,
+        <https://example.org/husnummer/2> ;
+    ns1:kommunar <https://example.org/kommune/0301> ;
+    ns1:offisielleAdresser <https://example.org/adresse/offisiell/1>,
+        <https://example.org/adresse/offisiell/2> ;
+    ns1:postboksadresser <https://example.org/adresse/postboks/1> ;
+    ns1:postboksar <https://example.org/postboks/1> ;
+    ns1:poststeder <https://example.org/poststed/0101>,
+        <https://example.org/poststed/0150> ;
+    ns1:representasjonspunkt <https://example.org/punkt/1> .
+

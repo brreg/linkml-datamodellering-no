@@ -17,8 +17,8 @@ Alias: karakterstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Karakterhistorie](Karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
+| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: karakterstatus
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Karakterhistorie](Karakterhistorie.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Karakterhistorie](karakterhistorie.md) |
 
 ### Cardinality and Requirements
 

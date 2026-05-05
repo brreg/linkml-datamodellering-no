@@ -22,8 +22,8 @@ Alias: har_offisiell_adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksenhet](Bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
-| [YtreInngang](YtreInngang.md) | Ytre inngang til ein bygning |  yes  |
+| [YtreInngang](ytreinngang.md) | Ytre inngang til ein bygning |  yes  |
+| [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: har_offisiell_adresse
 
 | Property | Value |
 | --- | --- |
-| Range | [OffisiellAdresse](OffisiellAdresse.md) |
-| Domain Of | [YtreInngang](YtreInngang.md), [Bruksenhet](Bruksenhet.md) |
+| Range | [OffisiellAdresse](offisielladresse.md) |
+| Domain Of | [YtreInngang](ytreinngang.md), [Bruksenhet](bruksenhet.md) |
 | Slot URI | [ngre:harOffisiellAdresse](https://data.norge.no/vocabulary/ngr-eiendom#harOffisiellAdresse) |
 
 ### Cardinality and Requirements

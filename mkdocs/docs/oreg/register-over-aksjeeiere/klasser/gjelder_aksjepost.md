@@ -22,7 +22,7 @@ Alias: gjelder_aksjepost
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierposisjon](Eierposisjon.md) | Eierens samla posisjon i eit selskap |  no  |
+| [Eierposisjon](eierposisjon.md) | Eierens samla posisjon i eit selskap |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: gjelder_aksjepost
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjepost](Aksjepost.md) |
-| Domain | [Eierposisjon](Eierposisjon.md) |
-| Domain Of | [Eierposisjon](Eierposisjon.md) |
+| Range | [Aksjepost](aksjepost.md) |
+| Domain | [Eierposisjon](eierposisjon.md) |
+| Domain Of | [Eierposisjon](eierposisjon.md) |
 
 ### Cardinality and Requirements
 

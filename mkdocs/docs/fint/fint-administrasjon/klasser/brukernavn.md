@@ -22,7 +22,7 @@ Alias: brukernavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: brukernavn
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Personalressurs](Personalressurs.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:brukernavn](https://schema.fintlabs.no/administrasjon/brukernavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: brukernavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalressurs](Personalressurs.md) |
+| Owner | [Personalressurs](personalressurs.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: brukernavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

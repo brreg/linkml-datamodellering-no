@@ -22,13 +22,13 @@ Alias: har_eigenskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EnkelType](EnkelType.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
-| [Kodeliste](Kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
-| [Modellelement](Modellelement.md) | Abstrakt basisklasse for alle modellelement i ein informasjonsmodell |  yes  |
-| [RootObjekttype](RootObjekttype.md) | Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen |  no  |
-| [Datatype](Datatype.md) | Ein datatype — ein strukturert samansett type |  no  |
-| [Objekttype](Objekttype.md) | Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen |  no  |
-| [Modul](Modul.md) | Ein modul som grupperer modellelement i informasjonsmodellen |  no  |
+| [Modul](modul.md) | Ein modul som grupperer modellelement i informasjonsmodellen |  no  |
+| [Kodeliste](kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
+| [RootObjekttype](rootobjekttype.md) | Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen |  no  |
+| [Datatype](datatype.md) | Ein datatype — ein strukturert samansett type |  no  |
+| [Objekttype](objekttype.md) | Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen |  no  |
+| [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
+| [Modellelement](modellelement.md) | Abstrakt basisklasse for alle modellelement i ein informasjonsmodell |  yes  |
 
 
 
@@ -41,8 +41,8 @@ Alias: har_eigenskap
 
 | Property | Value |
 | --- | --- |
-| Range | [Eigenskap](Eigenskap.md) |
-| Domain Of | [Modellelement](Modellelement.md) |
+| Range | [Eigenskap](eigenskap.md) |
+| Domain Of | [Modellelement](modellelement.md) |
 | Slot URI | [modelldcatno:hasProperty](https://data.norge.no/vocabulary/modelldcatno#hasProperty) |
 
 ### Cardinality and Requirements

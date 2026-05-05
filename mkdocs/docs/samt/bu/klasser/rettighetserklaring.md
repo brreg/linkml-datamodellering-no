@@ -1,0 +1,448 @@
+
+
+# Class: Rettighetserklaring 
+
+
+_Ei erklæring om rettar til ein ressurs (ODRS)._
+
+
+
+
+
+URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
+
+
+
+
+
+```mermaid
+ classDiagram
+    class Rettighetserklaring
+    click Rettighetserklaring href "../Rettighetserklaring/"
+      Rettighetserklaring : anvendelsesretningslinjer
+        
+      Rettighetserklaring : id
+        
+      Rettighetserklaring : jurisdiksjon
+        
+      Rettighetserklaring : krediteringstekst
+        
+      Rettighetserklaring : krediteringsurl
+        
+      Rettighetserklaring : opphavsrettsaar
+        
+      Rettighetserklaring : opphavsrettserklaring
+        
+      Rettighetserklaring : opphavsrettsinnehaver
+        
+      Rettighetserklaring : opphavsrettsnotis
+        
+      
+```
+
+
+
+
+<!-- no inheritance hierarchy -->
+
+## Class Properties
+
+| Property | Value |
+| --- | --- |
+| Class URI | [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement) |
+
+
+## Eigenskapar
+
+
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+
+
+
+
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+  
+  
+  
+  
+    
+  
+
+
+### Andre
+
+| Namn | Kardinalitet og domene | Beskriving |
+| --- | --- | --- |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [anvendelsesretningslinjer](anvendelsesretningslinjer.md) | 0..1 <br/> [String](string.md) | Retningslinjer for gjenbruk av data |
+| [jurisdiksjon](jurisdiksjon.md) | 0..1 <br/> [String](string.md) | Jurisdiksjon for rettigheitserklæringa |
+| [krediteringstekst](krediteringstekst.md) | 0..1 <br/> [String](string.md) | Tekst som skal brukast ved kreditering |
+| [krediteringsurl](krediteringsurl.md) | 0..1 <br/> [Uri](uri.md) | URL for kreditering av rettshavar |
+| [opphavsrettserklaring](opphavsrettserklaring.md) | 0..1 <br/> [String](string.md) | Opphavsrettserklæring |
+| [opphavsrettsinnehaver](opphavsrettsinnehaver.md) | 0..1 <br/> [String](string.md) | Namn på opphavsrettsinnehavar |
+| [opphavsrettsnotis](opphavsrettsnotis.md) | 0..1 <br/> [String](string.md) | Opphavsrettsnotis |
+| [opphavsrettsaar](opphavsrettsaar.md) | 0..1 <br/> [GYear](gyear.md) | Årstal for opphavsrett |
+
+
+
+
+
+
+
+
+## Usages
+
+| used by | used in | type | used |
+| ---  | --- | --- | --- |
+| [Distribusjon](distribusjon.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Datasett](datasett.md) | [tilgangsrettigheter](tilgangsrettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Datatjeneste](datatjeneste.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Datatjeneste](datatjeneste.md) | [tilgangsrettigheter](tilgangsrettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+| [Katalog](katalog.md) | [rettigheter](rettigheter.md) | range | [Rettighetserklaring](rettighetserklaring.md) |
+
+
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/samt-bu-skole
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:RightsStatement |
+| native | samtbuskole:Rettighetserklaring |
+
+
+
+
+
+
+## LinkML Source
+
+<!-- TODO: investigate https://stackoverflow.com/questions/37606292/how-to-create-tabbed-code-blocks-in-mkdocs-or-sphinx -->
+
+### Direct
+
+<details>
+```yaml
+name: Rettighetserklaring
+description: Ei erklæring om rettar til ein ressurs (ODRS).
+from_schema: https://example.no/ontology/samt-bu-skole
+slots:
+- id
+- anvendelsesretningslinjer
+- jurisdiksjon
+- krediteringstekst
+- krediteringsurl
+- opphavsrettserklaring
+- opphavsrettsinnehaver
+- opphavsrettsnotis
+- opphavsrettsaar
+class_uri: dct:RightsStatement
+
+```
+</details>
+
+### Induced
+
+<details>
+```yaml
+name: Rettighetserklaring
+description: Ei erklæring om rettar til ein ressurs (ODRS).
+from_schema: https://example.no/ontology/samt-bu-skole
+attributes:
+  id:
+    name: id
+    description: URI-identifikator for ressursen.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    identifier: true
+    alias: id
+    owner: Rettighetserklaring
+    domain_of:
+    - Spraak
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Frekvens
+    - ProvenanceStatement
+    - OdrlPolicy
+    - ProvAktivitet
+    - ProvAttributering
+    - Tidsinstant
+    - KatalogisertRessurs
+    - Aktor
+    - Kontaktopplysning
+    - Tidsrom
+    - Standard
+    - RegulativRessurs
+    - Identifikator
+    - Rettighetserklaring
+    - Sjekksum
+    - Gebyr
+    - Relasjon
+    - Distribusjon
+    - Katalogpost
+    range: uriorcurie
+    required: true
+  anvendelsesretningslinjer:
+    name: anvendelsesretningslinjer
+    description: Retningslinjer for gjenbruk av data.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:reuserGuidelines
+    alias: anvendelsesretningslinjer
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: string
+  jurisdiksjon:
+    name: jurisdiksjon
+    description: Jurisdiksjon for rettigheitserklæringa.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:jurisdiction
+    alias: jurisdiksjon
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: string
+  krediteringstekst:
+    name: krediteringstekst
+    description: Tekst som skal brukast ved kreditering.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:attributionText
+    alias: krediteringstekst
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: string
+  krediteringsurl:
+    name: krediteringsurl
+    description: URL for kreditering av rettshavar.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:attributionURL
+    alias: krediteringsurl
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: uri
+  opphavsrettserklaring:
+    name: opphavsrettserklaring
+    description: Opphavsrettserklæring.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:copyrightStatement
+    alias: opphavsrettserklaring
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: string
+  opphavsrettsinnehaver:
+    name: opphavsrettsinnehaver
+    description: Namn på opphavsrettsinnehavar.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:copyrightHolder
+    alias: opphavsrettsinnehaver
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: string
+  opphavsrettsnotis:
+    name: opphavsrettsnotis
+    description: Opphavsrettsnotis.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:copyrightNotice
+    alias: opphavsrettsnotis
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: string
+  opphavsrettsaar:
+    name: opphavsrettsaar
+    description: Årstal for opphavsrett.
+    from_schema: https://example.no/ontology/samt-bu-skole
+    rank: 1000
+    slot_uri: odrs:copyrightYear
+    alias: opphavsrettsaar
+    owner: Rettighetserklaring
+    domain_of:
+    - Rettighetserklaring
+    range: GYear
+class_uri: dct:RightsStatement
+
+```
+</details>

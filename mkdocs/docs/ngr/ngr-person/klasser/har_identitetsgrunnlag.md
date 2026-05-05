@@ -22,7 +22,7 @@ Alias: har_identitetsgrunnlag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_identitetsgrunnlag
 
 | Property | Value |
 | --- | --- |
-| Range | [Identitetsgrunnlag](Identitetsgrunnlag.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Identitetsgrunnlag](identitetsgrunnlag.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harIdentitetsgrunnlag](https://data.norge.no/vocabulary/ngr-person#harIdentitetsgrunnlag) |
 
 ### Cardinality and Requirements

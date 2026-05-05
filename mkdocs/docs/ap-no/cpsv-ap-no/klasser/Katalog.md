@@ -192,12 +192,12 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [inneheld_teneste](inneheld_teneste.md) | 1..* <br/> [OffentligTjeneste](OffentligTjeneste.md) | Offentlege tenester i katalogen |
-| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](Kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
-| [utgjevar](utgjevar.md) | 1 <br/> [Aktor](Aktor.md) | Utgjevar av katalogen |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [inneheld_teneste](inneheld_teneste.md) | 1..* <br/> [OffentligTjeneste](offentligtjeneste.md) | Offentlege tenester i katalogen |
+| [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
+| [utgjevar](utgjevar.md) | 1 <br/> [Aktor](aktor.md) | Utgjevar av katalogen |
 
 
 
@@ -264,13 +264,13 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](Konsept.md) | Geografisk dekningsområde (dct:spatial) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [oppdateringsfrekvens](oppdateringsfrekvens.md) | 0..1 <br/> [Konsept](Konsept.md) | Kor ofte katalogen vert oppdatert |
-| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [inneheld_hending](inneheld_hending.md) | * <br/> [Hendelse](Hendelse.md) | Hendingar i katalogen |
-| [lisens](lisens.md) | 0..1 <br/> [Uri](Uri.md) | Lisens for katalogen |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
+| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [oppdateringsfrekvens](oppdateringsfrekvens.md) | 0..1 <br/> [Konsept](konsept.md) | Kor ofte katalogen vert oppdatert |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [inneheld_hending](inneheld_hending.md) | * <br/> [Hendelse](hendelse.md) | Hendingar i katalogen |
+| [lisens](lisens.md) | 0..1 <br/> [Uri](uri.md) | Lisens for katalogen |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 
 
 
@@ -504,7 +504,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

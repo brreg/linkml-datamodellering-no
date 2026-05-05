@@ -22,10 +22,10 @@ Alias: kan_vaere_pa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierseksjon](Eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  yes  |
-| [Festegrunn](Festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |  yes  |
-| [Grunneiendom](Grunneiendom.md) | Den vanlegaste typen matrikkelenheit |  yes  |
-| [Jordsameie](Jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  yes  |
+| [Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  yes  |
+| [Festegrunn](festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |  yes  |
+| [Grunneiendom](grunneiendom.md) | Den vanlegaste typen matrikkelenheit |  yes  |
+| [Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  yes  |
 
 
 
@@ -38,8 +38,8 @@ Alias: kan_vaere_pa
 
 | Property | Value |
 | --- | --- |
-| Range | [Matrikkelenhet](Matrikkelenhet.md) |
-| Domain Of | [Grunneiendom](Grunneiendom.md), [Festegrunn](Festegrunn.md), [Jordsameie](Jordsameie.md), [Eierseksjon](Eierseksjon.md) |
+| Range | [Matrikkelenhet](matrikkelenhet.md) |
+| Domain Of | [Grunneiendom](grunneiendom.md), [Festegrunn](festegrunn.md), [Jordsameie](jordsameie.md), [Eierseksjon](eierseksjon.md) |
 | Slot URI | [ngre:kanVaerePa](https://data.norge.no/vocabulary/ngr-eiendom#kanVaerePa) |
 
 ### Cardinality and Requirements

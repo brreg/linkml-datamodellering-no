@@ -22,7 +22,7 @@ Alias: arbeidslokasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: arbeidslokasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Arbeidslokasjon](Arbeidslokasjon.md) |
-| Domain Of | [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [Arbeidslokasjon](arbeidslokasjon.md) |
+| Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:arbeidslokasjon](https://schema.fintlabs.no/administrasjon/arbeidslokasjon) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: arbeidslokasjon
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidsforhold](Arbeidsforhold.md) |
+| Owner | [Arbeidsforhold](arbeidsforhold.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: arbeidslokasjon
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

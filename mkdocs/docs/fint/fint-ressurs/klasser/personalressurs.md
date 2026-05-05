@@ -17,9 +17,9 @@ Alias: personalressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identitet](Identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Identitet](identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md), [Identitet](Identitet.md), [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md), [Identitet](identitet.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 

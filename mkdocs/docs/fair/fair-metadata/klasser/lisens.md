@@ -22,7 +22,7 @@ Alias: lisens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Gjenbruksmetadata](Gjenbruksmetadata.md) | Metadata som støttar gjenbruk av ressursen (FAIR R1 |  yes  |
+| [Gjenbruksmetadata](gjenbruksmetadata.md) | Metadata som støttar gjenbruk av ressursen (FAIR R1 |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: lisens
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Gjenbruksmetadata](Gjenbruksmetadata.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Gjenbruksmetadata](gjenbruksmetadata.md) |
 | Slot URI | [dct:license](http://purl.org/dc/terms/license) |
 
 ### Cardinality and Requirements

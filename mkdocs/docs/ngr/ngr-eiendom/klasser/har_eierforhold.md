@@ -22,8 +22,8 @@ Alias: har_eierforhold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FastEiendom](FastEiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
-| [Borettslagsandel](Borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
+| [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
+| [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: har_eierforhold
 
 | Property | Value |
 | --- | --- |
-| Range | [Eierforhold](Eierforhold.md) |
-| Domain Of | [FastEiendom](FastEiendom.md), [Borettslagsandel](Borettslagsandel.md) |
+| Range | [Eierforhold](eierforhold.md) |
+| Domain Of | [FastEiendom](fasteiendom.md), [Borettslagsandel](borettslagsandel.md) |
 | Slot URI | [ngre:harEierforhold](https://data.norge.no/vocabulary/ngr-eiendom#harEierforhold) |
 
 ### Cardinality and Requirements

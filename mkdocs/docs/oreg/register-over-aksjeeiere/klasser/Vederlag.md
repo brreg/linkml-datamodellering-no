@@ -89,8 +89,8 @@ URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [belop](belop.md) | 0..1 <br/> [Decimal](Decimal.md) | Monetært beløp |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [belop](belop.md) | 0..1 <br/> [Decimal](decimal.md) | Monetært beløp |
 
 
 
@@ -103,8 +103,8 @@ URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [vederlager](vederlager.md) | range | [Vederlag](Vederlag.md) |
-| [Aksjeoverdragelse](Aksjeoverdragelse.md) | [kan_ha_vederlag](kan_ha_vederlag.md) | range | [Vederlag](Vederlag.md) |
+| [Containerklasse](containerklasse.md) | [vederlager](vederlager.md) | range | [Vederlag](vederlag.md) |
+| [Aksjeoverdragelse](aksjeoverdragelse.md) | [kan_ha_vederlag](kan_ha_vederlag.md) | range | [Vederlag](vederlag.md) |
 
 
 

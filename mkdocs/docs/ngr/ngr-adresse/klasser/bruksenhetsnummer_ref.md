@@ -22,7 +22,7 @@ Alias: bruksenhetsnummer_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffisiellAdresse](OffisiellAdresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bruksenhetsnummer_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Bruksenhetsnummer](Bruksenhetsnummer.md) |
-| Domain Of | [OffisiellAdresse](OffisiellAdresse.md) |
+| Range | [Bruksenhetsnummer](bruksenhetsnummer.md) |
+| Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:harBruksenhetsnummer](https://data.norge.no/vocabulary/ngr-adresse#harBruksenhetsnummer) |
 
 ### Cardinality and Requirements

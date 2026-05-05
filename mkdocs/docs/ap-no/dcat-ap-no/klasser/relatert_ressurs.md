@@ -22,7 +22,7 @@ Alias: relatert_ressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: relatert_ressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:relation](http://purl.org/dc/terms/relation) |
 
 ### Cardinality and Requirements

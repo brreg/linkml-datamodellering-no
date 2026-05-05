@@ -105,8 +105,8 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -119,8 +119,8 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | [lisens](lisens.md) | range | [Lisensdokument](Lisensdokument.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [lisens](lisens.md) | range | [Lisensdokument](Lisensdokument.md) |
+| [Modelkatalog](modelkatalog.md) | [lisens](lisens.md) | range | [Lisensdokument](lisensdokument.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [lisens](lisens.md) | range | [Lisensdokument](lisensdokument.md) |
 
 
 

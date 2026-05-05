@@ -22,7 +22,7 @@ Alias: enhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OtUngdom](OtUngdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: enhet
 
 | Property | Value |
 | --- | --- |
-| Range | [OtEnhet](OtEnhet.md) |
-| Domain Of | [OtUngdom](OtUngdom.md) |
+| Range | [OtEnhet](otenhet.md) |
+| Domain Of | [OtUngdom](otungdom.md) |
 | Slot URI | [utd:enhet](https://schema.fintlabs.no/utdanning/enhet) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: enhet
 
 | Property | Value |
 | --- | --- |
-| Owner | [OtUngdom](OtUngdom.md) |
+| Owner | [OtUngdom](otungdom.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: enhet
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

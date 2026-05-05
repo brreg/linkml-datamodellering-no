@@ -22,7 +22,7 @@ Alias: leder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonselement](Organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: leder
 
 | Property | Value |
 | --- | --- |
-| Range | [Personalressurs](Personalressurs.md) |
-| Domain Of | [Organisasjonselement](Organisasjonselement.md) |
+| Range | [Personalressurs](personalressurs.md) |
+| Domain Of | [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [adm:leder](https://schema.fintlabs.no/administrasjon/leder) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: leder
 
 | Property | Value |
 | --- | --- |
-| Owner | [Organisasjonselement](Organisasjonselement.md) |
+| Owner | [Organisasjonselement](organisasjonselement.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: leder
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

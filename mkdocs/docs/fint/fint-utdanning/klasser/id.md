@@ -22,87 +22,87 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Provestatus](Provestatus.md) | Status for ei lærlingprøve |  no  |
-| [Karakterhistorie](Karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
-| [Kontaktlaerergruppe](Kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
-| [Betalingsstatus](Betalingsstatus.md) | Betalingsstatus for eksamensavgift |  no  |
-| [Termin](Termin.md) | Ein skuleterm (t |  no  |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
-| [Avbruddsaarsak](Avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  no  |
-| [Karakterverdi](Karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
-| [Elevkategori](Elevkategori.md) | Kategori for eit elevforhold (t |  no  |
-| [Utdanningsprogram](Utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
-| [Klassemedlemskap](Klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
-| [Undervisningsgruppemedlemskap](Undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
-| [Skoleaar](Skoleaar.md) | Eit skoleår (t |  no  |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |  no  |
-| [Sluttordensvurdering](Sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  no  |
-| [Elev](Elev.md) | Ein elev registrert i skulesystemet |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Sensor](Sensor.md) | Ein sensor for ein eksamen |  no  |
-| [Halvaarsordensvurdering](Halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  no  |
-| [Time](Time.md) | Ein time i timeplanen |  no  |
-| [OrdensvurderingAbstrakt](OrdensvurderingAbstrakt.md) | Abstrakt basisklasse for ordensvurderingar |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Underveisfagvurdering](Underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
-| [Vitnemalsmerknad](Vitnemalsmerknad.md) | Merknad på vitnemål |  no  |
-| [Eksamensvurdering](Eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
-| [Gruppemedlemskap](Gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |  no  |
-| [Undervisningsforhold](Undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
-| [Brevtype](Brevtype.md) | Type brev knytt til lærlingprøve |  no  |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
-| [Bevistype](Bevistype.md) | Type kompetansebevis for lærling |  no  |
-| [Fagmerknad](Fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  no  |
-| [Faggruppe](Faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  no  |
-| [Persongruppe](Persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
-| [Gruppe](Gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |  no  |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Fullfortkode](Fullfortkode.md) | Kode for fullførtresultat av lærling |  no  |
-| [Kontaktlaerergruppemedlemskap](Kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  no  |
-| [Rom](Rom.md) | Eit rom eller lokale ved ein skule |  no  |
-| [Elevtilrettelegging](Elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  no  |
-| [Klasse](Klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
-| [Tilrettelegging](Tilrettelegging.md) | Type tilrettelegging for elevar (t |  no  |
-| [Undervisningsgruppe](Undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
-| [OtEnhet](OtEnhet.md) | Eining i oppfølgingstenesta (OT) |  no  |
-| [Karakterskala](Karakterskala.md) | Skala for karaktersetjing (t |  no  |
-| [Sluttfagvurdering](Sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
-| [Skoleressurs](Skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
-| [Elevfravar](Elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  no  |
-| [Programomrade](Programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
-| [Anmerkninger](Anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
-| [Faggruppemedlemskap](Faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
-| [Fravarsoversikt](Fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
-| [Arstrinn](Arstrinn.md) | Eit årstrinn i skulen (t |  no  |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [FagvurderingAbstrakt](FagvurderingAbstrakt.md) | Abstrakt basisklasse for fagvurderingar |  no  |
-| [Elevvurdering](Elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  no  |
-| [Fagstatus](Fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  no  |
-| [Programomrademedlemskap](Programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  no  |
-| [Varsel](Varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
-| [Halvaarsfagvurdering](Halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
-| [OtStatus](OtStatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
-| [Karakterstatus](Karakterstatus.md) | Status for ein karakter (t |  no  |
-| [Persongruppemedlemskap](Persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
-| [OtUngdom](OtUngdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Fravartype](Fravartype.md) | Type fråvær (t |  no  |
-| [Eksamen](Eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |  no  |
-| [Skoleeiertype](Skoleeiertype.md) | Type skuleeigartilknyting |  no  |
-| [Utdanningsforhold](Utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |  no  |
-| [Eksamensform](Eksamensform.md) | Form for gjennomføring av eksamen |  no  |
-| [Underveisordensvurdering](Underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  no  |
-| [Varseltype](Varseltype.md) | Type varsel knytt til ein elev |  no  |
+| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |  no  |
+| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
+| [Time](time.md) | Ein time i timeplanen |  no  |
+| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |  no  |
+| [Fravartype](fravartype.md) | Type fråvær (t |  no  |
+| [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  no  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  no  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  no  |
+| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  no  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |  no  |
+| [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
+| [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
+| [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  no  |
+| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |  no  |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
+| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  no  |
+| [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  no  |
+| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
+| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  no  |
+| [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |  no  |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Utdanningsforhold](utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Elevfravar](elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  no  |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
+| [Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  no  |
+| [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md) | Abstrakt basisklasse for ordensvurderingar |  no  |
+| [Sensor](sensor.md) | Ein sensor for ein eksamen |  no  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
+| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |  no  |
+| [Provestatus](provestatus.md) | Status for ei lærlingprøve |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Rom](rom.md) | Eit rom eller lokale ved ein skule |  no  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  no  |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  no  |
+| [Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
+| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |  no  |
+| [Betalingsstatus](betalingsstatus.md) | Betalingsstatus for eksamensavgift |  no  |
+| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  no  |
+| [Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
+| [Termin](termin.md) | Ein skuleterm (t |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [Gruppemedlemskap](gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |  no  |
+| [Avbruddsaarsak](avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  no  |
+| [Gruppe](gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |  no  |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
+| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |  no  |
+| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |  no  |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  no  |
+| [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |  no  |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
+| [Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  no  |
+| [FagvurderingAbstrakt](fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |  no  |
+| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  no  |
+| [Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  no  |
+| [Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  no  |
+| [Skoleaar](skoleaar.md) | Eit skoleår (t |  no  |
+| [Anmerkninger](anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |  no  |
 
 
 
@@ -115,8 +115,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Gruppe](Gruppe.md), [Gruppemedlemskap](Gruppemedlemskap.md), [Utdanningsforhold](Utdanningsforhold.md), [Elev](Elev.md), [Elevforhold](Elevforhold.md), [Elevtilrettelegging](Elevtilrettelegging.md), [Skole](Skole.md), [Skoleressurs](Skoleressurs.md), [Varsel](Varsel.md), [Eksamen](Eksamen.md), [Rom](Rom.md), [Time](Time.md), [FagvurderingAbstrakt](FagvurderingAbstrakt.md), [OrdensvurderingAbstrakt](OrdensvurderingAbstrakt.md), [Anmerkninger](Anmerkninger.md), [Elevfravar](Elevfravar.md), [Elevvurdering](Elevvurdering.md), [Fravarsoversikt](Fravarsoversikt.md), [Fraversregistrering](Fraversregistrering.md), [Karakterhistorie](Karakterhistorie.md), [Sensor](Sensor.md), [AvlagtProve](AvlagtProve.md), [Laerling](Laerling.md), [OtUngdom](OtUngdom.md), [Avbruddsaarsak](Avbruddsaarsak.md), [Betalingsstatus](Betalingsstatus.md), [Bevistype](Bevistype.md), [Brevtype](Brevtype.md), [Eksamensform](Eksamensform.md), [Elevkategori](Elevkategori.md), [Fagmerknad](Fagmerknad.md), [Fagstatus](Fagstatus.md), [Fravartype](Fravartype.md), [Fullfortkode](Fullfortkode.md), [Karakterskala](Karakterskala.md), [Karakterstatus](Karakterstatus.md), [Karakterverdi](Karakterverdi.md), [OtEnhet](OtEnhet.md), [OtStatus](OtStatus.md), [Provestatus](Provestatus.md), [Skoleaar](Skoleaar.md), [Skoleeiertype](Skoleeiertype.md), [Termin](Termin.md), [Tilrettelegging](Tilrettelegging.md), [Varseltype](Varseltype.md), [Vitnemalsmerknad](Vitnemalsmerknad.md), [Begrep](Begrep.md), [Valuta](Valuta.md), [Person](Person.md), [Kontaktperson](Kontaktperson.md), [Virksomhet](Virksomhet.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Gruppe](gruppe.md), [Gruppemedlemskap](gruppemedlemskap.md), [Utdanningsforhold](utdanningsforhold.md), [Elev](elev.md), [Elevforhold](elevforhold.md), [Elevtilrettelegging](elevtilrettelegging.md), [Skole](skole.md), [Skoleressurs](skoleressurs.md), [Varsel](varsel.md), [Eksamen](eksamen.md), [Rom](rom.md), [Time](time.md), [FagvurderingAbstrakt](fagvurderingabstrakt.md), [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md), [Anmerkninger](anmerkninger.md), [Elevfravar](elevfravar.md), [Elevvurdering](elevvurdering.md), [Fravarsoversikt](fravarsoversikt.md), [Fraversregistrering](fraversregistrering.md), [Karakterhistorie](karakterhistorie.md), [Sensor](sensor.md), [AvlagtProve](avlagtprove.md), [Laerling](laerling.md), [OtUngdom](otungdom.md), [Avbruddsaarsak](avbruddsaarsak.md), [Betalingsstatus](betalingsstatus.md), [Bevistype](bevistype.md), [Brevtype](brevtype.md), [Eksamensform](eksamensform.md), [Elevkategori](elevkategori.md), [Fagmerknad](fagmerknad.md), [Fagstatus](fagstatus.md), [Fravartype](fravartype.md), [Fullfortkode](fullfortkode.md), [Karakterskala](karakterskala.md), [Karakterstatus](karakterstatus.md), [Karakterverdi](karakterverdi.md), [OtEnhet](otenhet.md), [OtStatus](otstatus.md), [Provestatus](provestatus.md), [Skoleaar](skoleaar.md), [Skoleeiertype](skoleeiertype.md), [Termin](termin.md), [Tilrettelegging](tilrettelegging.md), [Varseltype](varseltype.md), [Vitnemalsmerknad](vitnemalsmerknad.md), [Begrep](begrep.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md), [Virksomhet](virksomhet.md) |
 
 ### Cardinality and Requirements
 

@@ -118,10 +118,10 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [full_adresse](full_adresse.md) | * <br/> [String](String.md) | Full adresse som fritekst |
-| [postnummer](postnummer.md) | 0..1 <br/> [String](String.md) | Postnummer |
-| [poststad](poststad.md) | * <br/> [LangString](LangString.md) | Poststad/by |
-| [land](land.md) | 0..1 <br/> [String](String.md) | Land (ISO 3166-1 alpha-2 kode) |
+| [full_adresse](full_adresse.md) | * <br/> [String](string.md) | Full adresse som fritekst |
+| [postnummer](postnummer.md) | 0..1 <br/> [String](string.md) | Postnummer |
+| [poststad](poststad.md) | * <br/> [LangString](langstring.md) | Poststad/by |
+| [land](land.md) | 0..1 <br/> [String](string.md) | Land (ISO 3166-1 alpha-2 kode) |
 
 
 
@@ -192,7 +192,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -205,8 +205,8 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Aktor](Aktor.md) | [adresse_ref](adresse_ref.md) | range | [Adresse](Adresse.md) |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | [adresse_ref](adresse_ref.md) | range | [Adresse](Adresse.md) |
+| [Aktor](aktor.md) | [adresse_ref](adresse_ref.md) | range | [Adresse](adresse.md) |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | [adresse_ref](adresse_ref.md) | range | [Adresse](adresse.md) |
 
 
 

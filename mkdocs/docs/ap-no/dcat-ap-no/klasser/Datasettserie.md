@@ -139,7 +139,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
 
 ## Inheritance
-* [KatalogisertRessurs](KatalogisertRessurs.md)
+* [KatalogisertRessurs](katalogisertressurs.md)
     * **Datasettserie**
 
 
@@ -212,11 +212,11 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](Kontaktopplysning.md) | Kontaktinformasjon for hendvendelsar om ressursen |
-| [tema](tema.md) | 1..* <br/> [Konsept](Konsept.md) | Tema frå eit kontrollert vokabular |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [utgiver](utgiver.md) | 1 <br/> [Aktor](Aktor.md) | Aktøren som er ansvarleg for å tilgjengeleggjere ressursen |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for hendvendelsar om ressursen |
+| [tema](tema.md) | 1..* <br/> [Konsept](konsept.md) | Tema frå eit kontrollert vokabular |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren som er ansvarleg for å tilgjengeleggjere ressursen |
 
 
 
@@ -274,10 +274,10 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](Konsept.md) | Geografisk dekningsområde (dct:spatial) |
-| [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](RegulativRessurs.md) | Lovgjeving som gjeld for ressursen |
-| [siste](siste.md) | 0..1 <br/> [Datasett](Datasett.md) | Siste datasett i ei datasettserie |
-| [tidsrom](tidsrom.md) | * <br/> [Tidsrom](Tidsrom.md) | Tidsperiode ressursen dekkar |
+| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Lovgjeving som gjeld for ressursen |
+| [siste](siste.md) | 0..1 <br/> [Datasett](datasett.md) | Siste datasett i ei datasettserie |
+| [tidsrom](tidsrom.md) | * <br/> [Tidsrom](tidsrom.md) | Tidsperiode ressursen dekkar |
 
 
 
@@ -477,10 +477,10 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [frekvens](frekvens.md) | 0..1 <br/> [Frekvens](Frekvens.md) | Oppdateringsfrekvens for datasettet |
-| [forste](forste.md) | 0..1 <br/> [Datasett](Datasett.md) | Første datasett i ei datasettserie |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](Date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [frekvens](frekvens.md) | 0..1 <br/> [Frekvens](frekvens.md) | Oppdateringsfrekvens for datasettet |
+| [forste](forste.md) | 0..1 <br/> [Datasett](datasett.md) | Første datasett i ei datasettserie |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -488,7 +488,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [KatalogisertRessurs](KatalogisertRessurs.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [KatalogisertRessurs](katalogisertressurs.md) |
 
 
 
@@ -498,7 +498,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [i_serie](i_serie.md) | range | [Datasettserie](Datasettserie.md) |
+| [Datasett](datasett.md) | [i_serie](i_serie.md) | range | [Datasettserie](datasettserie.md) |
 
 
 

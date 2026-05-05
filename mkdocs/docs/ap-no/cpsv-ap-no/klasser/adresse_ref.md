@@ -22,8 +22,8 @@ Alias: adresse_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktor](Aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
-| [OffentligOrganisasjon](OffentligOrganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: adresse_ref
 
 | Property | Value |
 | --- | --- |
-| Range | [Adresse](Adresse.md) |
-| Domain Of | [Aktor](Aktor.md) |
+| Range | [Adresse](adresse.md) |
+| Domain Of | [Aktor](aktor.md) |
 | Slot URI | [locn:address](http://www.w3.org/ns/locn#address) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: inneholder_objekttype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Attributt](Attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
+| [Attributt](attributt.md) | Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: inneholder_objekttype
 
 | Property | Value |
 | --- | --- |
-| Range | [Objekttype](Objekttype.md) |
-| Domain Of | [Attributt](Attributt.md) |
+| Range | [Objekttype](objekttype.md) |
+| Domain Of | [Attributt](attributt.md) |
 | Slot URI | [modelldcatno:containsObjectType](https://data.norge.no/vocabulary/modelldcatno#containsObjectType) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: virksomhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Leverandor](Leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: virksomhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Leverandor](Leverandor.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Leverandor](leverandor.md) |
 | Slot URI | [okn:virksomhet](https://schema.fintlabs.no/okonomi/virksomhet) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: virksomhet
 
 | Property | Value |
 | --- | --- |
-| Owner | [Leverandor](Leverandor.md) |
+| Owner | [Leverandor](leverandor.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: virksomhet
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -17,17 +17,17 @@ Alias: elevforhold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faggruppemedlemskap](Faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
-| [Fravarsoversikt](Fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
-| [Persongruppemedlemskap](Persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
-| [Elevfravar](Elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  no  |
-| [Kontaktlaerergruppemedlemskap](Kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  no  |
-| [Klassemedlemskap](Klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
-| [Elevvurdering](Elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  no  |
-| [Programomrademedlemskap](Programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  no  |
-| [Undervisningsgruppemedlemskap](Undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Elevfravar](elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |  no  |
+| [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  no  |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  no  |
+| [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |  no  |
+| [Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
+| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
+| [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  no  |
+| [Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -40,8 +40,8 @@ Alias: elevforhold
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [UtdanningContainer](UtdanningContainer.md), [Klassemedlemskap](Klassemedlemskap.md), [Kontaktlaerergruppemedlemskap](Kontaktlaerergruppemedlemskap.md), [Persongruppemedlemskap](Persongruppemedlemskap.md), [Programomrademedlemskap](Programomrademedlemskap.md), [Faggruppemedlemskap](Faggruppemedlemskap.md), [Undervisningsgruppemedlemskap](Undervisningsgruppemedlemskap.md), [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md), [Elevfravar](Elevfravar.md), [Elevvurdering](Elevvurdering.md), [Fravarsoversikt](Fravarsoversikt.md) |
+| Range | [String](string.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md), [Klassemedlemskap](klassemedlemskap.md), [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md), [Persongruppemedlemskap](persongruppemedlemskap.md), [Programomrademedlemskap](programomrademedlemskap.md), [Faggruppemedlemskap](faggruppemedlemskap.md), [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md), [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md), [Elevfravar](elevfravar.md), [Elevvurdering](elevvurdering.md), [Fravarsoversikt](fravarsoversikt.md) |
 
 ### Cardinality and Requirements
 

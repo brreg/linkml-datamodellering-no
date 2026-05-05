@@ -22,7 +22,7 @@ Alias: er_tilknyttet_matrikkelenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bruksenhet](Bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
+| [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_tilknyttet_matrikkelenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Matrikkelenhet](Matrikkelenhet.md) |
-| Domain Of | [Bruksenhet](Bruksenhet.md) |
+| Range | [Matrikkelenhet](matrikkelenhet.md) |
+| Domain Of | [Bruksenhet](bruksenhet.md) |
 | Slot URI | [ngre:erTilknyttetMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#erTilknyttetMatrikkelenhet) |
 
 ### Cardinality and Requirements

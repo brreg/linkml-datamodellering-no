@@ -22,7 +22,7 @@ Alias: brukertype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](Applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: brukertype
 
 | Property | Value |
 | --- | --- |
-| Range | [Brukertype](Brukertype.md) |
-| Domain Of | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Range | [Brukertype](brukertype.md) |
+| Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:brukertype](https://schema.fintlabs.no/ressurs/brukertype) |
 
 ### Cardinality and Requirements
@@ -49,7 +49,7 @@ Alias: brukertype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| Owner | [Applikasjonsressurs](applikasjonsressurs.md) |
 
 
 
@@ -61,7 +61,7 @@ Alias: brukertype
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

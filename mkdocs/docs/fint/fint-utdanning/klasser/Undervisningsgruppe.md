@@ -17,10 +17,10 @@ Alias: undervisningsgruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Undervisningsgruppemedlemskap](Undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
-| [Time](Time.md) | Ein time i timeplanen |  no  |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Time](time.md) | Ein time i timeplanen |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: undervisningsgruppe
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fag](Fag.md), [Time](Time.md), [Undervisningsgruppemedlemskap](Undervisningsgruppemedlemskap.md), [Fraversregistrering](Fraversregistrering.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fag](fag.md), [Time](time.md), [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md), [Fraversregistrering](fraversregistrering.md) |
 
 ### Cardinality and Requirements
 

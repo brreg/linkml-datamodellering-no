@@ -22,7 +22,7 @@ Alias: er_del_av_katalog
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_del_av_katalog
 
 | Property | Value |
 | --- | --- |
-| Range | [Modelkatalog](Modelkatalog.md) |
-| Domain Of | [Modelkatalog](Modelkatalog.md) |
+| Range | [Modelkatalog](modelkatalog.md) |
+| Domain Of | [Modelkatalog](modelkatalog.md) |
 | Slot URI | [dct:isPartOf](http://purl.org/dc/terms/isPartOf) |
 
 ### Cardinality and Requirements

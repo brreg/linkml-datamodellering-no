@@ -17,7 +17,7 @@ Alias: rollerIVirksomhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
+| [VirksomhetContainer](virksomhetcontainer.md) | Rotklasse for NGR-virksomhet-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: rollerIVirksomhet
 
 | Property | Value |
 | --- | --- |
-| Range | [RolleIVirksomhet](RolleIVirksomhet.md) |
-| Domain Of | [VirksomhetContainer](VirksomhetContainer.md) |
+| Range | [RolleIVirksomhet](rolleivirksomhet.md) |
+| Domain Of | [VirksomhetContainer](virksomhetcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: rollerIVirksomhet
 
 | Property | Value |
 | --- | --- |
-| Owner | [VirksomhetContainer](VirksomhetContainer.md) |
+| Owner | [VirksomhetContainer](virksomhetcontainer.md) |
 
 
 

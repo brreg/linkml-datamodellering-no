@@ -22,7 +22,7 @@ Alias: typedefinisjon_referanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EnkelType](EnkelType.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  yes  |
+| [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: typedefinisjon_referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [EnkelType](EnkelType.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [EnkelType](enkeltype.md) |
 | Slot URI | [modelldcatno:typeDefinitionReference](https://data.norge.no/vocabulary/modelldcatno#typeDefinitionReference) |
 
 ### Cardinality and Requirements

@@ -116,9 +116,9 @@ URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [navn](navn.md) | 0..1 <br/> [String](String.md) | Namn på instansen |
-| [har_eierposisjon](har_eierposisjon.md) | 0..1 <br/> [Eierposisjon](Eierposisjon.md) | Eierposisjon aksjeeigaren har |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [navn](navn.md) | 0..1 <br/> [String](string.md) | Namn på instansen |
+| [har_eierposisjon](har_eierposisjon.md) | 0..1 <br/> [Eierposisjon](eierposisjon.md) | Eierposisjon aksjeeigaren har |
 
 
 
@@ -131,8 +131,8 @@ URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [aksjeeiere](aksjeeiere.md) | range | [Aksjeeier](Aksjeeier.md) |
-| [Aksjeeier](Aksjeeier.md) | [har_eierposisjon](har_eierposisjon.md) | domain | [Aksjeeier](Aksjeeier.md) |
+| [Containerklasse](containerklasse.md) | [aksjeeiere](aksjeeiere.md) | range | [Aksjeeier](aksjeeier.md) |
+| [Aksjeeier](aksjeeier.md) | [har_eierposisjon](har_eierposisjon.md) | domain | [Aksjeeier](aksjeeier.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: rolleinnehaver_navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolleinnehaver](Rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |  yes  |
+| [Rolleinnehaver](rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: rolleinnehaver_navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Rolleinnehaver](Rolleinnehaver.md) |
+| Range | [String](string.md) |
+| Domain Of | [Rolleinnehaver](rolleinnehaver.md) |
 | Slot URI | [ngrv:rolleinnehaverNavn](https://data.norge.no/vocabulary/ngr-virksomhet#rolleinnehaverNavn) |
 
 ### Cardinality and Requirements

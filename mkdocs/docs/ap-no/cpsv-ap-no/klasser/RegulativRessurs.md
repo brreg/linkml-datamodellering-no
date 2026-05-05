@@ -114,9 +114,9 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -174,7 +174,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -187,9 +187,9 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](RegulativRessurs.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](RegulativRessurs.md) |
-| [Tjeneste](Tjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](RegulativRessurs.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](regulativressurs.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](regulativressurs.md) |
+| [Tjeneste](tjeneste.md) | [har_regulativ_ressurs](har_regulativ_ressurs.md) | range | [RegulativRessurs](regulativressurs.md) |
 
 
 

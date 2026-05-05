@@ -59,7 +59,7 @@ URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kommunenummer_verdi](kommunenummer_verdi.md) | 1 <br/> [String](String.md) | Firesifra kommunenummer (t |
+| [kommunenummer_verdi](kommunenummer_verdi.md) | 1 <br/> [String](string.md) | Firesifra kommunenummer (t |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,7 +124,7 @@ URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenu
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | [bestar_av_kommunenummer](bestar_av_kommunenummer.md) | range | [Kommunenummer](Kommunenummer.md) |
+| [Matrikkelnummer](matrikkelnummer.md) | [bestar_av_kommunenummer](bestar_av_kommunenummer.md) | range | [Kommunenummer](kommunenummer.md) |
 
 
 

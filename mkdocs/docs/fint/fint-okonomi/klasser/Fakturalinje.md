@@ -141,10 +141,10 @@ URI: [okn:Fakturalinje](https://schema.fintlabs.no/okonomi/Fakturalinje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [antall](antall.md) | 1 <br/> [Float](Float.md) | Mengd av varen levert |
-| [pris](pris.md) | 1 <br/> [Integer](Integer.md) | Pris per eining levert, i øre |
-| [fritekst](fritekst.md) | * <br/> [String](String.md) | Fritekst som skildrar varen slik han er levert |
-| [vare](vare.md) | 1 <br/> [Vare](Vare.md) | Vare i vareregisteret |
+| [antall](antall.md) | 1 <br/> [Float](float.md) | Mengd av varen levert |
+| [pris](pris.md) | 1 <br/> [Integer](integer.md) | Pris per eining levert, i øre |
+| [fritekst](fritekst.md) | * <br/> [String](string.md) | Fritekst som skildrar varen slik han er levert |
+| [vare](vare.md) | 1 <br/> [Vare](vare.md) | Vare i vareregisteret |
 
 
 
@@ -157,7 +157,7 @@ URI: [okn:Fakturalinje](https://schema.fintlabs.no/okonomi/Fakturalinje)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | [fakturalinjer](fakturalinjer.md) | range | [Fakturalinje](Fakturalinje.md) |
+| [Fakturagrunnlag](fakturagrunnlag.md) | [fakturalinjer](fakturalinjer.md) | range | [Fakturalinje](fakturalinje.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: kommunenummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kommunenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Kommune](Kommune.md) |
-| Domain Of | [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [Kommune](kommune.md) |
+| Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [fint:kommunenummer](https://schema.fintlabs.no/kommunenummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: kommunenummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Matrikkelnummer](Matrikkelnummer.md) |
+| Owner | [Matrikkelnummer](matrikkelnummer.md) |
 
 
 

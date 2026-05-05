@@ -22,7 +22,7 @@ Alias: kan_vaere_av_type_person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolleinnehaver](Rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |  yes  |
+| [Rolleinnehaver](rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kan_vaere_av_type_person
 
 | Property | Value |
 | --- | --- |
-| Range | [Person](Person.md) |
-| Domain Of | [Rolleinnehaver](Rolleinnehaver.md) |
+| Range | [Person](person.md) |
+| Domain Of | [Rolleinnehaver](rolleinnehaver.md) |
 | Slot URI | [ngrv:kanVaereAvTypePerson](https://data.norge.no/vocabulary/ngr-virksomhet#kanVaereAvTypePerson) |
 
 ### Cardinality and Requirements

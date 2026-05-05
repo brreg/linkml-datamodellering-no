@@ -94,8 +94,8 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [nivaa_djupn](nivaa_djupn.md) | 1 <br/> [NonNegativeInteger](NonNegativeInteger.md) | Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth) |
-| [har_medlem](har_medlem.md) | 1..* <br/> [Kategori](Kategori.md) | Kategoriar som høyrer til dette nivået (skos:member) |
+| [nivaa_djupn](nivaa_djupn.md) | 1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth) |
+| [har_medlem](har_medlem.md) | 1..* <br/> [Kategori](kategori.md) | Kategoriar som høyrer til dette nivået (skos:member) |
 
 
 
@@ -123,7 +123,7 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
 
@@ -151,7 +151,7 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [underordna_klassifikasjonsnivaa](underordna_klassifikasjonsnivaa.md) | * <br/> [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | Underordna klassifikasjonsnivå (xkos:nextLevel) |
+| [underordna_klassifikasjonsnivaa](underordna_klassifikasjonsnivaa.md) | * <br/> [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Underordna klassifikasjonsnivå (xkos:nextLevel) |
 
 
 
@@ -222,7 +222,7 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -235,9 +235,9 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | [forste_nivaa](forste_nivaa.md) | range | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
-| [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) | [underordna_klassifikasjonsnivaa](underordna_klassifikasjonsnivaa.md) | range | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
-| [Kategori](Kategori.md) | [tilhorande_klassifikasjonsnivaa](tilhorande_klassifikasjonsnivaa.md) | range | [Klassifikasjonsnivaa](Klassifikasjonsnivaa.md) |
+| [Klassifikasjon](klassifikasjon.md) | [forste_nivaa](forste_nivaa.md) | range | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
+| [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | [underordna_klassifikasjonsnivaa](underordna_klassifikasjonsnivaa.md) | range | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
+| [Kategori](kategori.md) | [tilhorande_klassifikasjonsnivaa](tilhorande_klassifikasjonsnivaa.md) | range | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) |
 
 
 

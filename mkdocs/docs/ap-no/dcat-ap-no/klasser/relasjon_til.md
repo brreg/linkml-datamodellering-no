@@ -22,7 +22,7 @@ Alias: relasjon_til
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Relasjon](Relasjon.md) | Ein kvalifisert relasjon mellom to ressursar |  yes  |
+| [Relasjon](relasjon.md) | Ein kvalifisert relasjon mellom to ressursar |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: relasjon_til
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Relasjon](Relasjon.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Relasjon](relasjon.md) |
 | Slot URI | [dct:relation](http://purl.org/dc/terms/relation) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: provestatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |  no  |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: provestatus
 
 | Property | Value |
 | --- | --- |
-| Range | [Provestatus](Provestatus.md) |
-| Domain Of | [AvlagtProve](AvlagtProve.md) |
+| Range | [Provestatus](provestatus.md) |
+| Domain Of | [AvlagtProve](avlagtprove.md) |
 | Slot URI | [utd:provestatus](https://schema.fintlabs.no/utdanning/provestatus) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: provestatus
 
 | Property | Value |
 | --- | --- |
-| Owner | [AvlagtProve](AvlagtProve.md) |
+| Owner | [AvlagtProve](avlagtprove.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: provestatus
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: nedlastningslenke
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nedlastningslenke
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Distribusjon](Distribusjon.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL) |
 
 ### Cardinality and Requirements

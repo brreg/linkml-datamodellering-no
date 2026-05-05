@@ -78,7 +78,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_kvalitetsmaaling_av](er_kvalitetsmaaling_av.md) | 1 <br/> [Kvalitetsmaal](Kvalitetsmaal.md) | Kvalitetsmålet denne målinga er ei måling av |
+| [er_kvalitetsmaaling_av](er_kvalitetsmaaling_av.md) | 1 <br/> [Kvalitetsmaal](kvalitetsmaal.md) | Kvalitetsmålet denne målinga er ei måling av |
 
 
 
@@ -103,7 +103,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_verdi](har_verdi.md) | 0..1 <br/> [String](String.md) | Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Litera... |
+| [har_verdi](har_verdi.md) | 0..1 <br/> [String](string.md) | Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Litera... |
 
 
 
@@ -128,7 +128,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_merknad](har_merknad.md) | * <br/> [LangString](LangString.md) | Fritekstmerknad (rdfs:comment) |
+| [har_merknad](har_merknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad (rdfs:comment) |
 
 
 
@@ -186,7 +186,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -199,7 +199,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [har_kvalitetsmaaling](har_kvalitetsmaaling.md) | range | [Kvalitetsmaaling](Kvalitetsmaaling.md) |
+| [Datasett](datasett.md) | [har_kvalitetsmaaling](har_kvalitetsmaaling.md) | range | [Kvalitetsmaaling](kvalitetsmaaling.md) |
 
 
 

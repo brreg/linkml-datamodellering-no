@@ -39,9 +39,9 @@ URI: [ngrp:GeografiskAdresse](https://data.norge.no/vocabulary/ngr-person#Geogra
 
 ## Inheritance
 * **GeografiskAdresse**
-    * [Bostedsadresse](Bostedsadresse.md)
-    * [Postadresse](Postadresse.md)
-    * [Oppholdsadresse](Oppholdsadresse.md)
+    * [Bostedsadresse](bostedsadresse.md)
+    * [Postadresse](postadresse.md)
+    * [Oppholdsadresse](oppholdsadresse.md)
 
 
 ## Class Properties
@@ -93,7 +93,7 @@ URI: [ngrp:GeografiskAdresse](https://data.norge.no/vocabulary/ngr-person#Geogra
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

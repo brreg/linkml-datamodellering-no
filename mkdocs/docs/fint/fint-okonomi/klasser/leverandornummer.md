@@ -22,7 +22,7 @@ Alias: leverandornummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Leverandor](Leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: leverandornummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Leverandor](Leverandor.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Leverandor](leverandor.md) |
 | Slot URI | [okn:leverandornummer](https://schema.fintlabs.no/okonomi/leverandornummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: leverandornummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Leverandor](Leverandor.md) |
+| Owner | [Leverandor](leverandor.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: leverandornummer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

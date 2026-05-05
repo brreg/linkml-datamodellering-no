@@ -22,7 +22,7 @@ Alias: datasettdistribusjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: datasettdistribusjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Distribusjon](Distribusjon.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Distribusjon](distribusjon.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dcat:distribution](http://www.w3.org/ns/dcat#distribution) |
 
 ### Cardinality and Requirements

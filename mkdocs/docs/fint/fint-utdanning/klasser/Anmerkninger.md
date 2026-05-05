@@ -141,10 +141,10 @@ URI: [utd:Anmerkninger](https://schema.fintlabs.no/utdanning/Anmerkninger)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [atferd](atferd.md) | 1 <br/> [Integer](Integer.md) | Antal åtferdsanmerkningar |
-| [orden](orden.md) | 1 <br/> [Integer](Integer.md) | Antal ordensanmerkningar |
-| [skoleaar](skoleaar.md) | 0..1 <br/> [Skoleaar](Skoleaar.md) | Skoleåret anmerkningane gjeld |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [atferd](atferd.md) | 1 <br/> [Integer](integer.md) | Antal åtferdsanmerkningar |
+| [orden](orden.md) | 1 <br/> [Integer](integer.md) | Antal ordensanmerkningar |
+| [skoleaar](skoleaar.md) | 0..1 <br/> [Skoleaar](skoleaar.md) | Skoleåret anmerkningane gjeld |
 
 
 
@@ -157,7 +157,7 @@ URI: [utd:Anmerkninger](https://schema.fintlabs.no/utdanning/Anmerkninger)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | [anmerkningar](anmerkningar.md) | range | [Anmerkninger](Anmerkninger.md) |
+| [UtdanningContainer](utdanningcontainer.md) | [anmerkningar](anmerkningar.md) | range | [Anmerkninger](anmerkninger.md) |
 
 
 

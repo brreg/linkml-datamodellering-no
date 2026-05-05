@@ -1,0 +1,99 @@
+
+
+# Slot: lisens 
+
+
+_Lisens for bruk av ressursen._
+
+
+
+
+
+URI: [dct:license](http://purl.org/dc/terms/license)
+Alias: lisens
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md), [Katalog](katalog.md) |
+| Slot URI | [dct:license](http://purl.org/dc/terms/license) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/samt-bu-skole
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:license |
+| native | samtbuskole:lisens |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: lisens
+description: Lisens for bruk av ressursen.
+from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
+slot_uri: dct:license
+alias: lisens
+domain_of:
+- Distribusjon
+- Datatjeneste
+- Katalog
+range: Konsept
+
+```
+</details>

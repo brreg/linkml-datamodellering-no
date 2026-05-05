@@ -22,7 +22,7 @@ Alias: serienummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: serienummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md) |
+| Range | [String](string.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md) |
 | Slot URI | [res:serienummer](https://schema.fintlabs.no/ressurs/serienummer) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: serienummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [DigitalEnhet](DigitalEnhet.md) |
+| Owner | [DigitalEnhet](digitalenhet.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: serienummer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

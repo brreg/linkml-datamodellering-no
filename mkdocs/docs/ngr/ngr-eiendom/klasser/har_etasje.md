@@ -22,7 +22,7 @@ Alias: har_etasje
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_etasje
 
 | Property | Value |
 | --- | --- |
-| Range | [Etasje](Etasje.md) |
-| Domain Of | [Bygning](Bygning.md) |
+| Range | [Etasje](etasje.md) |
+| Domain Of | [Bygning](bygning.md) |
 | Slot URI | [ngre:harEtasje](https://data.norge.no/vocabulary/ngr-eiendom#harEtasje) |
 
 ### Cardinality and Requirements

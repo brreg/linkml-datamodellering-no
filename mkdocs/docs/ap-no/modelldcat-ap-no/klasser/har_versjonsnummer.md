@@ -22,8 +22,8 @@ Alias: har_versjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
-| [Standard](Standard.md) | Ein standard (dct:Standard) |  no  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: har_versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Standard](Standard.md), [Informasjonsmodell](Informasjonsmodell.md) |
+| Range | [String](string.md) |
+| Domain Of | [Standard](standard.md), [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo) |
 
 ### Cardinality and Requirements

@@ -22,10 +22,10 @@ Alias: postadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -38,8 +38,8 @@ Alias: postadresse
 
 | Property | Value |
 | --- | --- |
-| Range | [Adresse](Adresse.md) |
-| Domain Of | [Aktoer](Aktoer.md) |
+| Range | [Adresse](adresse.md) |
+| Domain Of | [Aktoer](aktoer.md) |
 | Slot URI | [fint:postadresse](https://schema.fintlabs.no/postadresse) |
 
 ### Cardinality and Requirements
@@ -50,7 +50,7 @@ Alias: postadresse
 
 | Property | Value |
 | --- | --- |
-| Owner | [Aktoer](Aktoer.md) |
+| Owner | [Aktoer](aktoer.md) |
 
 
 
@@ -62,7 +62,7 @@ Alias: postadresse
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

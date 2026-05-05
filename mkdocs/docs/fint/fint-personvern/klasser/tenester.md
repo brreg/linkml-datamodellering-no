@@ -17,7 +17,7 @@ Alias: tenester
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonvernContainer](PersonvernContainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
+| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: tenester
 
 | Property | Value |
 | --- | --- |
-| Range | [Tjeneste](Tjeneste.md) |
-| Domain Of | [PersonvernContainer](PersonvernContainer.md) |
+| Range | [Tjeneste](tjeneste.md) |
+| Domain Of | [PersonvernContainer](personverncontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: tenester
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonvernContainer](PersonvernContainer.md) |
+| Owner | [PersonvernContainer](personverncontainer.md) |
 
 
 

@@ -17,9 +17,9 @@ Alias: plattform
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
-| [Enhetsgruppe](Enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |  no  |
-| [Applikasjon](Applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar (t |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: plattform
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Applikasjon](Applikasjon.md), [DigitalEnhet](DigitalEnhet.md), [Enhetsgruppe](Enhetsgruppe.md) |
+| Range | [String](string.md) |
+| Domain Of | [Applikasjon](applikasjon.md), [DigitalEnhet](digitalenhet.md), [Enhetsgruppe](enhetsgruppe.md) |
 
 ### Cardinality and Requirements
 

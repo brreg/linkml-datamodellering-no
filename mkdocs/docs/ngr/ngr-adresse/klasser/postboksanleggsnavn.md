@@ -22,7 +22,7 @@ Alias: postboksanleggsnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postboksadresse](Postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |  yes  |
+| [Postboksadresse](postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: postboksanleggsnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Postboksadresse](Postboksadresse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Postboksadresse](postboksadresse.md) |
 | Slot URI | [ngr:postboksanleggsnavn](https://data.norge.no/vocabulary/ngr-adresse#postboksanleggsnavn) |
 
 ### Cardinality and Requirements

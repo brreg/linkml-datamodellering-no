@@ -22,7 +22,7 @@ Alias: morsmaal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: morsmaal
 
 | Property | Value |
 | --- | --- |
-| Range | [Spraak](Spraak.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Spraak](spraak.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:morsmaal](https://schema.fintlabs.no/morsmaal) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: morsmaal
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: morsmaal
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

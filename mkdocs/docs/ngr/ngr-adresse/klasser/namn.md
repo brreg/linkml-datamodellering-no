@@ -22,17 +22,17 @@ Alias: namn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fylke](Fylke.md) | Eit norsk fylke |  no  |
-| [Tettsted](Tettsted.md) | Eit tettbygd område definert av SSB |  no  |
-| [Kirkesokn](Kirkesokn.md) | Eit kyrkjesokn |  no  |
-| [Grunnkrets](Grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
-| [Stemmekrets](Stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
-| [Poststed](Poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  no  |
-| [KommunalKrets](KommunalKrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
-| [Adresseomrade](Adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |  no  |
-| [GeografiskOmrade](GeografiskOmrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |  no  |
-| [Svalbard](Svalbard.md) | Svalbard som særskild geografisk område |  no  |
-| [Kommune](Kommune.md) | Ein norsk kommune |  no  |
+| [Kommune](kommune.md) | Ein norsk kommune |  no  |
+| [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |  no  |
+| [Fylke](fylke.md) | Eit norsk fylke |  no  |
+| [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |  no  |
+| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |  no  |
+| [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
+| [Adresseomrade](adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |  no  |
+| [KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
+| [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  no  |
+| [Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
+| [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |  no  |
 
 
 
@@ -45,8 +45,8 @@ Alias: namn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Adresseomrade](Adresseomrade.md), [GeografiskOmrade](GeografiskOmrade.md) |
+| Range | [String](string.md) |
+| Domain Of | [Adresseomrade](adresseomrade.md), [GeografiskOmrade](geografiskomrade.md) |
 | Slot URI | [ngr:namn](https://data.norge.no/vocabulary/ngr-adresse#namn) |
 
 ### Cardinality and Requirements

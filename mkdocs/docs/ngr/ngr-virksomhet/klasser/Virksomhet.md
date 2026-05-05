@@ -109,8 +109,8 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 
 ## Inheritance
 * **Virksomhet**
-    * [Underenhet](Underenhet.md)
-    * [Hovedenhet](Hovedenhet.md)
+    * [Underenhet](underenhet.md)
+    * [Hovedenhet](hovedenhet.md)
 
 
 ## Class Properties
@@ -173,11 +173,11 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [String](String.md) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret |
-| [navn](navn.md) | 1 <br/> [String](String.md) | Registrert namn på verksemda i Enhetsregisteret |
-| [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | 1 <br/> [Organisasjonsform](Organisasjonsform.md) | Organisasjonsform (juridisk form) for verksemda |
-| [har_varslingsadresse](har_varslingsadresse.md) | 1 <br/> [Varslingsadresse](Varslingsadresse.md) | Offisiell varslingsadresse for offentlege meldingar |
-| [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | 1..* <br/> [Naeringskode](Naeringskode.md) | Næringskode(r) verksemda er klassifisert under (1–3) |
+| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [String](string.md) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret |
+| [navn](navn.md) | 1 <br/> [String](string.md) | Registrert namn på verksemda i Enhetsregisteret |
+| [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | 1 <br/> [Organisasjonsform](organisasjonsform.md) | Organisasjonsform (juridisk form) for verksemda |
+| [har_varslingsadresse](har_varslingsadresse.md) | 1 <br/> [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for offentlege meldingar |
+| [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | 1..* <br/> [Naeringskode](naeringskode.md) | Næringskode(r) verksemda er klassifisert under (1–3) |
 
 
 
@@ -222,8 +222,8 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_tilstand](har_tilstand.md) | * <br/> [Tilstand](Tilstand.md) | Registrert tilstand (status) for verksemda, inkl |
-| [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](Postadresse.md) | Postadressa verksemda mottar post på |
+| [har_tilstand](har_tilstand.md) | * <br/> [Tilstand](tilstand.md) | Registrert tilstand (status) for verksemda, inkl |
+| [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](postadresse.md) | Postadressa verksemda mottar post på |
 
 
 
@@ -268,8 +268,8 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_kontaktinformasjon](har_kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](Kontaktinformasjon.md) | Kontaktinformasjon registrert på verksemda |
-| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [Integer](Integer.md) | Antal tilsette i verksemda (rapportert til a-ordninga) |
+| [har_kontaktinformasjon](har_kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon registrert på verksemda |
+| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [Integer](integer.md) | Antal tilsette i verksemda (rapportert til a-ordninga) |
 
 
 
@@ -405,7 +405,7 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

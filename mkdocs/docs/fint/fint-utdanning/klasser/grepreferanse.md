@@ -17,10 +17,10 @@ Alias: grepreferanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Arstrinn](Arstrinn.md) | Eit årstrinn i skulen (t |  no  |
-| [Programomrade](Programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
-| [Utdanningsprogram](Utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  no  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: grepreferanse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Arstrinn](Arstrinn.md), [Programomrade](Programomrade.md), [Utdanningsprogram](Utdanningsprogram.md), [Fag](Fag.md) |
+| Range | [String](string.md) |
+| Domain Of | [Arstrinn](arstrinn.md), [Programomrade](programomrade.md), [Utdanningsprogram](utdanningsprogram.md), [Fag](fag.md) |
 
 ### Cardinality and Requirements
 

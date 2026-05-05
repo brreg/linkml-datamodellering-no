@@ -22,7 +22,7 @@ Alias: adresselinje
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |  no  |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: adresselinje
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Adresse](Adresse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Adresse](adresse.md) |
 | Slot URI | [fint:adresselinje](https://schema.fintlabs.no/adresselinje) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: adresselinje
 
 | Property | Value |
 | --- | --- |
-| Owner | [Adresse](Adresse.md) |
+| Owner | [Adresse](adresse.md) |
 
 
 

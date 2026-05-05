@@ -78,7 +78,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,35 +91,35 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Aktor](Aktor.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Lisensdokument](Lisensdokument.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Modelkatalog](Modelkatalog.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [tema](tema.md) | range | [Konsept](Konsept.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](Konsept.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [status](status.md) | range | [Konsept](Konsept.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [type_concept](type_concept.md) | range | [Konsept](Konsept.md) |
-| [Modellelement](Modellelement.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Objekttype](Objekttype.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [RootObjekttype](RootObjekttype.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Datatype](Datatype.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [EnkelType](EnkelType.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Kodeliste](Kodeliste.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Modul](Modul.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Eigenskap](Eigenskap.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Attributt](Attributt.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Assosiasjon](Assosiasjon.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Rolle](Rolle.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Spesialisering](Spesialisering.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Sammensetning](Sammensetning.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Realisering](Realisering.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Abstraksjon](Abstraksjon.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Avhengighet](Avhengighet.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Samling](Samling.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Valg](Valg.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [AlleAv](AlleAv.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [NoenAv](NoenAv.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
-| [Kodeelement](Kodeelement.md) | [begrep](begrep.md) | range | [Konsept](Konsept.md) |
+| [Aktor](aktor.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Lisensdokument](lisensdokument.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Modelkatalog](modelkatalog.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [tema](tema.md) | range | [Konsept](konsept.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [dekningsomrade](dekningsomrade.md) | range | [Konsept](konsept.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [status](status.md) | range | [Konsept](konsept.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [type_concept](type_concept.md) | range | [Konsept](konsept.md) |
+| [Modellelement](modellelement.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Objekttype](objekttype.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [RootObjekttype](rootobjekttype.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Datatype](datatype.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [EnkelType](enkeltype.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Kodeliste](kodeliste.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Modul](modul.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Eigenskap](eigenskap.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Attributt](attributt.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Assosiasjon](assosiasjon.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Rolle](rolle.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Spesialisering](spesialisering.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Sammensetning](sammensetning.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Realisering](realisering.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Abstraksjon](abstraksjon.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Avhengighet](avhengighet.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Samling](samling.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Valg](valg.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [AlleAv](alleav.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [NoenAv](noenav.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
+| [Kodeelement](kodeelement.md) | [begrep](begrep.md) | range | [Konsept](konsept.md) |
 
 
 

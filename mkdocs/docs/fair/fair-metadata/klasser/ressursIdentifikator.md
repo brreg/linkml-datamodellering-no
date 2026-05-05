@@ -24,7 +24,7 @@ Alias: ressursIdentifikator
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
+| [FAIRMetadata](fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: ressursIdentifikator
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [FAIRMetadata](fairmetadata.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 
 ### Cardinality and Requirements

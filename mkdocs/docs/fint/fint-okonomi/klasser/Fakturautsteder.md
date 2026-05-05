@@ -17,8 +17,8 @@ Alias: fakturautsteder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: fakturautsteder
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fakturagrunnlag](Fakturagrunnlag.md), [Vare](Vare.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fakturagrunnlag](fakturagrunnlag.md), [Vare](vare.md) |
 
 ### Cardinality and Requirements
 

@@ -22,8 +22,8 @@ Alias: format
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [Mediatype](Mediatype.md) |
-| Domain Of | [Distribusjon](Distribusjon.md), [Datatjeneste](Datatjeneste.md) |
+| Range | [Mediatype](mediatype.md) |
+| Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dct:format](http://purl.org/dc/terms/format) |
 
 ### Cardinality and Requirements

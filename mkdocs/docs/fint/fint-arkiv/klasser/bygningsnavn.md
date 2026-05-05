@@ -22,7 +22,7 @@ Alias: bygningsnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bygningsnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) |
+| Range | [String](string.md) |
+| Domain Of | [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) |
 | Slot URI | [ark:bygningsnavn](https://schema.fintlabs.no/arkiv/bygningsnavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: bygningsnavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) |
+| Owner | [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: bygningsnavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

@@ -21,28 +21,28 @@ cv:Cost a sh:NodeShape ;
     rdfs:comment "Eit gebyr knytt til bruk av ein datatjeneste." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Beløp for gebyret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cv:hasValue ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Lenke til dokumentasjon om ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path foaf:page ],
-        [ sh:class skos:Concept ;
+    sh:property [ sh:class skos:Concept ;
             sh:description "Valuta (cv:currency)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path cv:currency ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beløp for gebyret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path cv:hasValue ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Lenke til dokumentasjon om ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path foaf:page ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -82,14 +82,7 @@ spdx:Checksum a sh:NodeShape ;
     rdfs:comment "Ein sjekksum for ein distribusjon." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Sjekksumverdi som heksadesimal streng." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -102,7 +95,14 @@ spdx:Checksum a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path spdx:algorithm ] ;
+            sh:path spdx:algorithm ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass spdx:Checksum .
 
 skos:ConceptScheme a sh:NodeShape ;
@@ -147,48 +147,6 @@ dcat:CatalogRecord a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path dct:conformsTo ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:modified ],
-        [ sh:class dct:LinguisticSystem ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path dct:language ],
-        [ sh:class dcat:Resource ;
-            sh:description "Ressursen katalogposten primært beskriv." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path foaf:primaryTopic ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Kjelde for katalogposten (ekstern oppføring)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path dct:source ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path dct:title ],
-        [ sh:class skos:Concept ;
-            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path adms:status ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:issued ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -196,29 +154,106 @@ dcat:CatalogRecord a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class dct:LinguisticSystem ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path dct:language ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path dct:title ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:modified ],
         [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
-            sh:path dct:description ] ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Kjelde for katalogposten (ekstern oppføring)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path dct:source ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:issued ],
+        [ sh:class dcat:Resource ;
+            sh:description "Ressursen katalogposten primært beskriv." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path foaf:primaryTopic ],
+        [ sh:class skos:Concept ;
+            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path adms:status ] ;
     sh:targetClass dcat:CatalogRecord .
 
 dcat:DatasetSeries a sh:NodeShape ;
     rdfs:comment "Ei serie av relaterte datasett publisert separat men med felles metadata." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path dct:description ],
+            sh:order 13 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:class dct:Frequency ;
             sh:description "Oppdateringsfrekvens for datasettet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 10 ;
             sh:path dct:accrualPeriodicity ],
+        [ sh:class vcard:Kind ;
+            sh:description "Kontaktinformasjon for hendvendelsar om ressursen." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dcat:contactPoint ],
+        [ sh:class skos:Concept ;
+            sh:description "Geografisk dekningsområde (dct:spatial)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dct:spatial ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:title ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path dct:description ],
+        [ sh:class eli:LegalResource ;
+            sh:description "Lovgjeving som gjeld for ressursen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path dcatap:applicableLegislation ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path dct:issued ],
         [ sh:class foaf:Agent ;
             sh:description "Aktøren som er ansvarleg for å tilgjengeleggjere ressursen." ;
             sh:maxCount 1 ;
@@ -226,21 +261,11 @@ dcat:DatasetSeries a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path dct:publisher ],
-        [ sh:class eli:LegalResource ;
-            sh:description "Lovgjeving som gjeld for ressursen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path dcatap:applicableLegislation ],
         [ sh:class dct:PeriodOfTime ;
             sh:description "Tidsperiode ressursen dekkar." ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path dct:temporal ],
-        [ sh:class skos:Concept ;
-            sh:description "Geografisk dekningsområde (dct:spatial)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dct:spatial ],
         [ sh:class dcat:Dataset ;
             sh:description "Første datasett i ei datasettserie." ;
             sh:maxCount 1 ;
@@ -259,51 +284,19 @@ dcat:DatasetSeries a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path dct:modified ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class vcard:Kind ;
-            sh:description "Kontaktinformasjon for hendvendelsar om ressursen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path dcat:contactPoint ],
         [ sh:class dcat:Dataset ;
             sh:description "Siste datasett i ei datasettserie." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
-            sh:path dcat:last ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dct:issued ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:title ] ;
+            sh:path dcat:last ] ;
     sh:targetClass dcat:DatasetSeries .
 
 dcat:Relationship a sh:NodeShape ;
     rdfs:comment "Ein kvalifisert relasjon mellom to ressursar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:Concept ;
-            sh:description "Rolle ein aktør eller ressurs har i ein relasjon." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path dcat:hadRole ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "Den relaterte ressursen i ein kvalifisert relasjon." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -316,13 +309,20 @@ dcat:Relationship a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Rolle ein aktør eller ressurs har i ein relasjon." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dcat:hadRole ] ;
     sh:targetClass dcat:Relationship .
 
 dcat:Resource a sh:NodeShape ;
     rdfs:comment "Basisklasse for ressursar som kan katalogiserast." ;
     sh:closed true ;
-    sh:ignoredProperties ( dct:type cv:hasCost dcat:first dct:title prov:wasGeneratedBy dct:identifier dcat:service dct:publisher dct:accrualPeriodicity dct:rights adms:identifier dct:provenance dcat:inSeries dcat:keyword dcat:servesDataset dcatap:applicableLegislation dct:temporal rdf:type dct:issued dcat:last dct:source dcat:version dcat:theme dcatap:availability dcat:endpointURL dcat:endpointDescription dcat:distribution adms:versionNotes dct:spatial dcat:dataset foaf:homepage dct:relation dcat:record dct:accessRights dct:description dct:hasPart dct:modified prov:qualifiedAttribution dcat:contactPoint dcat:landingPage dct:creator dct:format dct:license dct:subject dcat:themeTaxonomy foaf:page dct:language adms:status adms:sample dcat:catalog dct:conformsTo dcat:qualifiedRelation ) ;
+    sh:ignoredProperties ( dcat:servesDataset cv:hasCost dcat:last dct:relation rdf:type dcatap:availability dcat:first dcatap:applicableLegislation dcat:catalog dct:conformsTo dct:modified dcat:landingPage dcat:dataset dct:license dct:subject dcat:service dcat:record adms:versionNotes dct:issued dcat:distribution dcat:keyword prov:wasGeneratedBy prov:qualifiedAttribution dct:provenance dcat:theme adms:status dcat:qualifiedRelation dcat:inSeries dct:rights dct:identifier dct:publisher dct:temporal dct:hasPart dcat:endpointDescription dct:format dcat:version dct:accessRights dcat:themeTaxonomy dct:accrualPeriodicity dct:type dcat:contactPoint dct:spatial dcat:endpointURL dct:language adms:sample foaf:homepage dct:title adms:identifier dct:source foaf:page dct:creator dct:description ) ;
     sh:property [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -388,33 +388,87 @@ dcat:Catalog a sh:NodeShape ;
     rdfs:comment "Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:ConceptScheme ;
-            sh:description "Temavokabular som vert brukt i katalogen." ;
+    sh:property [ sh:class foaf:Agent ;
+            sh:description "Aktøren som primært har skapt ressursen." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path dcat:themeTaxonomy ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
+            sh:order 18 ;
+            sh:path dct:creator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:title ],
+            sh:order 15 ;
+            sh:path dct:identifier ],
+        [ sh:class dct:LinguisticSystem ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path dct:language ],
+        [ sh:class dct:PeriodOfTime ;
+            sh:description "Tidsperiode ressursen dekkar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path dct:temporal ],
+        [ sh:class dcat:Catalog ;
+            sh:description "Delkatalog inkludert i denne katalogen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path dct:hasPart ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path foaf:homepage ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path dct:description ],
+        [ sh:class eli:LegalResource ;
+            sh:description "Lovgjeving som gjeld for ressursen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path dcatap:applicableLegislation ],
         [ sh:class skos:Concept ;
             sh:description "Lisens for bruk av ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path dct:license ],
-        [ sh:class dcat:Catalog ;
-            sh:description "Delkatalog inkludert i denne katalogen." ;
+        [ sh:class dcat:Dataset ;
+            sh:description "Datasett som er del av katalogen." ;
             sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path dct:hasPart ],
+            sh:order 4 ;
+            sh:path dcat:dataset ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path dct:issued ],
+        [ sh:class skos:ConceptScheme ;
+            sh:description "Temavokabular som vert brukt i katalogen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path dcat:themeTaxonomy ],
+        [ sh:class dcat:Catalog ;
+            sh:description "Katalog som er ein del av denne katalogen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path dcat:catalog ],
+        [ sh:class dct:RightsStatement ;
+            sh:description "Rettar knytte til ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path dct:rights ],
+        [ sh:class dcat:DataService ;
+            sh:description "Datatjeneste som er del av katalogen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dcat:service ],
         [ sh:class foaf:Agent ;
             sh:description "Aktøren som er ansvarleg for å tilgjengeleggjere ressursen." ;
             sh:maxCount 1 ;
@@ -422,50 +476,6 @@ dcat:Catalog a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path dct:publisher ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dct:issued ],
-        [ sh:class dcat:CatalogRecord ;
-            sh:description "Katalogpostar i katalogen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path dcat:record ],
-        [ sh:class dcat:Catalog ;
-            sh:description "Katalog som er ein del av denne katalogen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path dcat:catalog ],
-        [ sh:class vcard:Kind ;
-            sh:description "Kontaktinformasjon for hendvendelsar om ressursen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path dcat:contactPoint ],
-        [ sh:class dct:PeriodOfTime ;
-            sh:description "Tidsperiode ressursen dekkar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 20 ;
-            sh:path dct:temporal ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path dct:modified ],
-        [ sh:class eli:LegalResource ;
-            sh:description "Lovgjeving som gjeld for ressursen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path dcatap:applicableLegislation ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -473,98 +483,134 @@ dcat:Catalog a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 21 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path dct:identifier ],
-        [ sh:class foaf:Agent ;
-            sh:description "Aktøren som primært har skapt ressursen." ;
-            sh:maxCount 1 ;
+        [ sh:class vcard:Kind ;
+            sh:description "Kontaktinformasjon for hendvendelsar om ressursen." ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path dct:creator ],
-        [ sh:class dct:RightsStatement ;
-            sh:description "Rettar knytte til ressursen." ;
-            sh:maxCount 1 ;
+            sh:order 1 ;
+            sh:path dcat:contactPoint ],
+        [ sh:class dcat:CatalogRecord ;
+            sh:description "Katalogpostar i katalogen." ;
             sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path dct:rights ],
-        [ sh:class dct:LinguisticSystem ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path dct:language ],
-        [ sh:class dcat:DataService ;
-            sh:description "Datatjeneste som er del av katalogen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dcat:service ],
+            sh:order 17 ;
+            sh:path dcat:record ],
         [ sh:class skos:Concept ;
             sh:description "Geografisk dekningsområde (dct:spatial)." ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path dct:spatial ],
-        [ sh:class dcat:Dataset ;
-            sh:description "Datasett som er del av katalogen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path dcat:dataset ] ;
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:title ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path dct:modified ] ;
     sh:targetClass dcat:Catalog .
 
 dcat:DataService a sh:NodeShape ;
     rdfs:comment "Ei samling operasjonar tilgjengeleg via eit API-grensesnitt." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class dct:Standard ;
-            sh:description "Standard ressursen er i samsvar med." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path dct:conformsTo ],
-        [ sh:class cv:Cost ;
+    sh:property [ sh:class cv:Cost ;
             sh:description "Gebyr knytt til bruk av datatjenesten." ;
             sh:nodeKind sh:IRI ;
             sh:order 14 ;
             sh:path cv:hasCost ],
-        [ sh:class skos:Concept ;
-            sh:description "Lisens for bruk av ressursen." ;
-            sh:maxCount 1 ;
+        [ sh:class dct:Standard ;
+            sh:description "Standard ressursen er i samsvar med." ;
             sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path dct:license ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+            sh:order 7 ;
+            sh:path dct:conformsTo ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 22 ;
-            sh:path adms:versionNotes ],
+            sh:order 15 ;
+            sh:path dct:identifier ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Nettside med informasjon om ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path dcat:landingPage ],
         [ sh:datatype xsd:string ;
             sh:description "Versjonsnummer." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 21 ;
             sh:path dcat:version ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URL til beskriving av endepunktet (t.d. OpenAPI-dokument)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path dcat:endpointDescription ],
         [ sh:class eli:LegalResource ;
             sh:description "Lovgjeving som gjeld for ressursen." ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path dcatap:applicableLegislation ],
+        [ sh:class dct:RightsStatement ;
+            sh:description "Rettar knytte til ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path dct:rights ],
         [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dct:description ],
+            sh:order 22 ;
+            sh:path adms:versionNotes ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Lenke til dokumentasjon om ressursen." ;
             sh:nodeKind sh:Literal ;
             sh:order 13 ;
             sh:path foaf:page ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path dct:description ],
+        [ sh:class skos:Concept ;
+            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path adms:status ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Lisens for bruk av ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path dct:license ],
         [ sh:class skos:Concept ;
             sh:description "Planlagt tilgjengelegheit for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 11 ;
             sh:path dcatap:availability ],
+        [ sh:class dct:MediaTypeOrExtent ;
+            sh:description "Filformat eller medietype (dct:format)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dct:format ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path dcat:keyword ],
         [ sh:class dct:RightsStatement ;
             sh:description "Tilgangsrettar for ressursen." ;
             sh:maxCount 1 ;
@@ -576,46 +622,23 @@ dcat:DataService a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path dcat:theme ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URL til beskriving av endepunktet (t.d. OpenAPI-dokument)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dcat:endpointDescription ],
-        [ sh:class dcat:Dataset ;
-            sh:description "Datasett som datatjenesten tilgjengeleggjer." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path dcat:servesDataset ],
-        [ sh:class vcard:Kind ;
-            sh:description "Kontaktinformasjon for hendvendelsar om ressursen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path dcat:contactPoint ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path dct:title ],
+        [ sh:class dcat:Dataset ;
+            sh:description "Datasett som datatjenesten tilgjengeleggjer." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path dcat:servesDataset ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "Nettside med informasjon om ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path dcat:landingPage ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
+            sh:description "URL til datatjenestens endepunkt." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 23 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path adms:status ],
+            sh:order 0 ;
+            sh:path dcat:endpointURL ],
         [ sh:class foaf:Agent ;
             sh:description "Aktøren som er ansvarleg for å tilgjengeleggjere ressursen." ;
             sh:maxCount 1 ;
@@ -623,88 +646,128 @@ dcat:DataService a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path dct:publisher ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path dct:identifier ],
-        [ sh:class dct:RightsStatement ;
-            sh:description "Rettar knytte til ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path dct:rights ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dcat:keyword ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URL til datatjenestens endepunkt." ;
+        [ sh:class vcard:Kind ;
+            sh:description "Kontaktinformasjon for hendvendelsar om ressursen." ;
             sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path dcat:endpointURL ],
-        [ sh:class dct:MediaTypeOrExtent ;
-            sh:description "Filformat eller medietype (dct:format)." ;
-            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dct:format ] ;
+            sh:order 1 ;
+            sh:path dcat:contactPoint ] ;
     sh:targetClass dcat:DataService .
 
 dcat:Distribution a sh:NodeShape ;
     rdfs:comment "Ein spesifikk representasjon/nedlastbar form av eit datasett." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class dct:RightsStatement ;
-            sh:description "Rettar knytte til ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path dct:rights ],
-        [ sh:class odrl:Policy ;
-            sh:description "ODRL-policy som regulerer bruk av ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path odrl:hasPolicy ],
-        [ sh:class skos:Concept ;
-            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path adms:status ],
-        [ sh:class skos:Concept ;
-            sh:description "Planlagt tilgjengelegheit for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path dcatap:availability ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URL for tilgang til distribusjonen." ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:duration ;
-            sh:description "Minste tidsoppløysing i datasettet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 20 ;
-            sh:path dcat:temporalResolution ],
-        [ sh:class dct:MediaTypeOrExtent ;
-            sh:description "Filformat eller medietype (dct:format)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path dct:format ],
+            sh:order 1 ;
+            sh:path dcat:accessURL ],
         [ sh:datatype xsd:date ;
             sh:description "Dato for siste endring av ressursen (dct:modified)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path dct:modified ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ],
+        [ sh:class dct:MediaTypeOrExtent ;
+            sh:description "Medietype i samsvar med IANA-registeret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path dcat:mediaType ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Direkte nedlastingslenke for distribusjonsfila." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path dcat:downloadURL ],
+        [ sh:class skos:Concept ;
+            sh:description "Lisens for bruk av ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path dct:license ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Lenke til dokumentasjon om ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path foaf:page ],
+        [ sh:class dct:MediaTypeOrExtent ;
+            sh:description "Komprimeringsformat brukt i distribusjonen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path dcat:compressFormat ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path dct:issued ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Filstørrelse i bytes." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path dcat:byteSize ],
+        [ sh:class spdx:Checksum ;
+            sh:description "Sjekksum for distribusjonsfila." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path spdx:checksum ],
+        [ sh:class dct:MediaTypeOrExtent ;
+            sh:description "Filformat eller medietype (dct:format)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:format ],
+        [ sh:class dcat:DataService ;
+            sh:description "Datatjeneste som gjev tilgang til distribusjonen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path dcat:accessService ],
+        [ sh:class dct:MediaTypeOrExtent ;
+            sh:description "Pakkeformat brukt i distribusjonen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path dcat:packageFormat ],
+        [ sh:class skos:Concept ;
+            sh:description "Planlagt tilgjengelegheit for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path dcatap:availability ],
+        [ sh:class dct:RightsStatement ;
+            sh:description "Rettar knytte til ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path dct:rights ],
+        [ sh:class dct:LinguisticSystem ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path dct:language ],
+        [ sh:class odrl:Policy ;
+            sh:description "ODRL-policy som regulerer bruk av ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path odrl:hasPolicy ],
         [ sh:class eli:LegalResource ;
             sh:description "Lovgjeving som gjeld for ressursen." ;
             sh:nodeKind sh:IRI ;
@@ -715,110 +778,35 @@ dcat:Distribution a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 11 ;
             sh:path dct:conformsTo ],
-        [ sh:class dct:LinguisticSystem ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path dct:language ],
-        [ sh:class dct:MediaTypeOrExtent ;
-            sh:description "Komprimeringsformat brukt i distribusjonen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path dcat:compressFormat ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Filstørrelse i bytes." ;
+        [ sh:datatype xsd:duration ;
+            sh:description "Minste tidsoppløysing i datasettet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path dcat:byteSize ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Direkte nedlastingslenke for distribusjonsfila." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path dcat:downloadURL ],
-        [ sh:class dct:MediaTypeOrExtent ;
-            sh:description "Pakkeformat brukt i distribusjonen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path dcat:packageFormat ],
-        [ sh:class spdx:Checksum ;
-            sh:description "Sjekksum for distribusjonsfila." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path spdx:checksum ],
-        [ sh:class dcat:DataService ;
-            sh:description "Datatjeneste som gjev tilgang til distribusjonen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path dcat:accessService ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Lisens for bruk av ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path dct:license ],
-        [ sh:class dct:MediaTypeOrExtent ;
-            sh:description "Medietype i samsvar med IANA-registeret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path dcat:mediaType ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Lenke til dokumentasjon om ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path foaf:page ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URL for tilgang til distribusjonen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dcat:accessURL ],
+            sh:order 20 ;
+            sh:path dcat:temporalResolution ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
             sh:order 22 ;
             sh:path dct:title ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
+        [ sh:class skos:Concept ;
+            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 23 ;
-            sh:path dct:issued ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path adms:status ] ;
     sh:targetClass dcat:Distribution .
 
 dct:PeriodOfTime a sh:NodeShape ;
     rdfs:comment "Eit tidsintervall med start- og sluttdato." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class time1:Instant ;
-            sh:description "Starttidspunkt for eit tidsrom." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path time1:hasBeginning ],
-        [ sh:class time1:Instant ;
-            sh:description "Sluttidspunkt for eit tidsrom." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path time1:hasEnd ],
-        [ sh:datatype xsd:date ;
-            sh:description "Sluttdato for tidsrommet." ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Startdato for tidsrommet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dcat:endDate ],
+            sh:order 1 ;
+            sh:path dcat:startDate ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -826,19 +814,42 @@ dct:PeriodOfTime a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class time1:Instant ;
+            sh:description "Starttidspunkt for eit tidsrom." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path time1:hasBeginning ],
         [ sh:datatype xsd:date ;
-            sh:description "Startdato for tidsrommet." ;
+            sh:description "Sluttdato for tidsrommet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dcat:startDate ] ;
+            sh:order 2 ;
+            sh:path dcat:endDate ],
+        [ sh:class time1:Instant ;
+            sh:description "Sluttidspunkt for eit tidsrom." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path time1:hasEnd ] ;
     sh:targetClass dct:PeriodOfTime .
 
 dct:Standard a sh:NodeShape ;
     rdfs:comment "Ein standard som ein ressurs er i samsvar med." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Versjonsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dcat:version ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path rdfs:seeAlso ],
+        [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -850,18 +861,7 @@ dct:Standard a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path rdfs:seeAlso ],
-        [ sh:datatype xsd:string ;
-            sh:description "Versjonsnummer." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dcat:version ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass dct:Standard .
 
 vcard:Kind a sh:NodeShape ;
@@ -869,6 +869,18 @@ vcard:Kind a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "Nettside for kontakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path vcard:hasURL ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Formatert namn (vCard)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path vcard:fn ],
+        [ sh:datatype xsd:anyURI ;
             sh:description "E-postadresse til kontaktpunktet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -880,19 +892,7 @@ vcard:Kind a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Nettside for kontakt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path vcard:hasURL ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Formatert namn (vCard)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path vcard:fn ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass vcard:Kind .
 
 dct:LinguisticSystem a sh:NodeShape ;
@@ -925,23 +925,36 @@ dct:RightsStatement a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekst som skal brukast ved kreditering." ;
+            sh:description "Opphavsrettsnotis." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path odrs:attributionText ],
+            sh:order 7 ;
+            sh:path odrs:copyrightNotice ],
         [ sh:datatype xsd:string ;
             sh:description "Opphavsrettserklæring." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path odrs:copyrightStatement ],
+        [ sh:datatype xsd:gYear ;
+            sh:description "Årstal for opphavsrett." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path odrs:copyrightYear ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URL for kreditering av rettshavar." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path odrs:attributionURL ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype xsd:string ;
             sh:description "Jurisdiksjon for rettigheitserklæringa." ;
             sh:maxCount 1 ;
@@ -949,92 +962,82 @@ dct:RightsStatement a sh:NodeShape ;
             sh:order 2 ;
             sh:path odrs:jurisdiction ],
         [ sh:datatype xsd:string ;
-            sh:description "Opphavsrettsnotis." ;
+            sh:description "Tekst som skal brukast ved kreditering." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path odrs:copyrightNotice ],
-        [ sh:datatype xsd:string ;
-            sh:description "Namn på opphavsrettsinnehavar." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path odrs:copyrightHolder ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:gYear ;
-            sh:description "Årstal for opphavsrett." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path odrs:copyrightYear ],
+            sh:order 3 ;
+            sh:path odrs:attributionText ],
         [ sh:datatype xsd:string ;
             sh:description "Retningslinjer for gjenbruk av data." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path odrs:reuserGuidelines ] ;
+            sh:path odrs:reuserGuidelines ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på opphavsrettsinnehavar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path odrs:copyrightHolder ] ;
     sh:targetClass dct:RightsStatement .
 
 dcat:Dataset a sh:NodeShape ;
     rdfs:comment "Ei samling av data utgjeven eller kuratert av éin aktør." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class prov:Activity ;
-            sh:description "Aktiviteten som genererte datasettet." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:class dct:LinguisticSystem ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path prov:wasGeneratedBy ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 31 ;
-            sh:path adms:versionNotes ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 19 ;
-            sh:path dct:modified ],
+            sh:order 27 ;
+            sh:path dct:language ],
         [ sh:class skos:Concept ;
             sh:description "Tema frå eit kontrollert vokabular." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path dcat:theme ],
-        [ sh:class prov:Attribution ;
-            sh:description "Kvalifisert attributering til ansvarleg aktør." ;
+        [ sh:class dct:Standard ;
+            sh:description "Standard ressursen er i samsvar med." ;
             sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path prov:qualifiedAttribution ],
-        [ sh:class foaf:Agent ;
-            sh:description "Aktøren som er ansvarleg for å tilgjengeleggjere ressursen." ;
-            sh:maxCount 1 ;
+            sh:order 21 ;
+            sh:path dct:conformsTo ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path dct:publisher ],
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Versjonsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 30 ;
+            sh:path dcat:version ],
         [ sh:class eli:LegalResource ;
             sh:description "Lovgjeving som gjeld for ressursen." ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path dcatap:applicableLegislation ],
-        [ sh:class dct:LinguisticSystem ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
+        [ sh:datatype rdf:langString ;
+            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path dcat:keyword ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Generisk relasjon til ein annan ressurs." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 26 ;
+            sh:path dct:relation ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Nettside med informasjon om ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 24 ;
+            sh:path dcat:landingPage ],
+        [ sh:class dcat:Distribution ;
+            sh:description "Eksempeldata som distribusjon." ;
             sh:nodeKind sh:IRI ;
-            sh:order 27 ;
-            sh:path dct:language ],
-        [ sh:class dcat:Dataset ;
-            sh:description "Datasett dette datasettet er avleidd frå." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path dct:source ],
+            sh:order 18 ;
+            sh:path adms:sample ],
         [ sh:class vcard:Kind ;
             sh:description "Kontaktinformasjon for hendvendelsar om ressursen." ;
             sh:minCount 1 ;
@@ -1042,26 +1045,98 @@ dcat:Dataset a sh:NodeShape ;
             sh:order 1 ;
             sh:path dcat:contactPoint ],
         [ sh:class foaf:Agent ;
+            sh:description "Aktøren som er ansvarleg for å tilgjengeleggjere ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path dct:publisher ],
+        [ sh:class dct:RightsStatement ;
+            sh:description "Tilgangsrettar for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path dct:accessRights ],
+        [ sh:class dcat:Distribution ;
+            sh:description "Tilgjengelege distribusjonar av datasettet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path dcat:distribution ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep som datasettet handlar om." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dct:subject ],
+        [ sh:class foaf:Agent ;
             sh:description "Aktøren som primært har skapt ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 25 ;
             sh:path dct:creator ],
-        [ sh:class dcat:Distribution ;
-            sh:description "Eksempeldata som distribusjon." ;
+        [ sh:class dcat:Dataset ;
+            sh:description "Datasett dette datasettet er avleidd frå." ;
             sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path adms:sample ],
+            sh:order 23 ;
+            sh:path dct:source ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path dct:type ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Lenke til dokumentasjon om ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path foaf:page ],
+        [ sh:class skos:Concept ;
+            sh:description "Geografisk dekningsområde (dct:spatial)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path dct:spatial ],
         [ sh:class dcat:DatasetSeries ;
             sh:description "Datasettserie dette datasettet er ein del av." ;
             sh:nodeKind sh:IRI ;
             sh:order 22 ;
             sh:path dcat:inSeries ],
-        [ sh:class dct:Standard ;
-            sh:description "Standard ressursen er i samsvar med." ;
+        [ sh:class adms:Identifier ;
+            sh:description "Alternativ identifikator frå eit anna system." ;
             sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path dct:conformsTo ],
+            sh:order 14 ;
+            sh:path adms:identifier ],
+        [ sh:class prov:Attribution ;
+            sh:description "Kvalifisert attributering til ansvarleg aktør." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path prov:qualifiedAttribution ],
+        [ sh:class prov:Activity ;
+            sh:description "Aktiviteten som genererte datasettet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path prov:wasGeneratedBy ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:title ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 19 ;
+            sh:path dct:modified ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 31 ;
+            sh:path adms:versionNotes ],
+        [ sh:class dcat:Relationship ;
+            sh:description "Kvalifisert relasjon til ein annan ressurs." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path dcat:qualifiedRelation ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -1069,110 +1144,51 @@ dcat:Dataset a sh:NodeShape ;
             sh:order 20 ;
             sh:path dct:identifier ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "Nettside med informasjon om ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 24 ;
-            sh:path dcat:landingPage ],
-        [ sh:class adms:Identifier ;
-            sh:description "Alternativ identifikator frå eit anna system." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path adms:identifier ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 29 ;
-            sh:path dct:issued ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Generisk relasjon til ein annan ressurs." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 26 ;
-            sh:path dct:relation ],
-        [ sh:class skos:Concept ;
-            sh:description "Geografisk dekningsområde (dct:spatial)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path dct:spatial ],
-        [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 32 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 28 ;
-            sh:path dct:type ],
-        [ sh:class dcat:Relationship ;
-            sh:description "Kvalifisert relasjon til ein annan ressurs." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path dcat:qualifiedRelation ],
-        [ sh:class dct:PeriodOfTime ;
-            sh:description "Tidsperiode ressursen dekkar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path dct:temporal ],
         [ sh:class dct:ProvenanceStatement ;
             sh:description "Opphav og eigarskapshistorikk for ressursen." ;
             sh:nodeKind sh:IRI ;
             sh:order 17 ;
             sh:path dct:provenance ],
-        [ sh:datatype xsd:string ;
-            sh:description "Versjonsnummer." ;
+        [ sh:class dct:PeriodOfTime ;
+            sh:description "Tidsperiode ressursen dekkar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path dct:temporal ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 30 ;
-            sh:path dcat:version ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Lenke til dokumentasjon om ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path foaf:page ],
-        [ sh:class dct:RightsStatement ;
-            sh:description "Tilgangsrettar for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path dct:accessRights ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path dcat:keyword ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep som datasettet handlar om." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dct:subject ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:title ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path dct:description ],
-        [ sh:class dcat:Distribution ;
-            sh:description "Tilgjengelege distribusjonar av datasettet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path dcat:distribution ] ;
+            sh:order 29 ;
+            sh:path dct:issued ] ;
     sh:targetClass dcat:Dataset .
 
 eli:LegalResource a sh:NodeShape ;
     rdfs:comment "Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path rdfs:seeAlso ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path dct:type ],
+        [ sh:class dct:LinguisticSystem ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path dct:language ],
+        [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
@@ -1182,58 +1198,11 @@ eli:LegalResource a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path dct:relation ],
-        [ sh:class dct:LinguisticSystem ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path dct:language ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path rdfs:seeAlso ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:identifier ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path dct:type ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path dct:title ] ;
-    sh:targetClass eli:LegalResource .
-
-foaf:Agent a sh:NodeShape ;
-    rdfs:comment "Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path dct:type ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn på aktøren." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path foaf:name ],
+            sh:path dct:title ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1247,6 +1216,37 @@ foaf:Agent a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path dct:identifier ] ;
+    sh:targetClass eli:LegalResource .
+
+foaf:Agent a sh:NodeShape ;
+    rdfs:comment "Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Namn på aktøren." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path foaf:name ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:identifier ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:type ] ;
     sh:targetClass foaf:Agent .
 
 skos:Concept a sh:NodeShape ;

@@ -22,7 +22,7 @@ Alias: utstedingsstad
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentasjonstype](Dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: utstedingsstad
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Dokumentasjonstype](Dokumentasjonstype.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Dokumentasjonstype](dokumentasjonstype.md) |
 | Slot URI | [cccevno:acceptableIssuingPlace](https://data.norge.no/vocabulary/cccevno#acceptableIssuingPlace) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: har_utdeling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Utbytte](Utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
+| [Utbytte](utbytte.md) | Utbytte knytt til ein eigarposisjon |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: har_utdeling
 
 | Property | Value |
 | --- | --- |
-| Range | [Utdeling](Utdeling.md) |
-| Domain | [Utbytte](Utbytte.md) |
-| Domain Of | [Utbytte](Utbytte.md) |
+| Range | [Utdeling](utdeling.md) |
+| Domain | [Utbytte](utbytte.md) |
+| Domain Of | [Utbytte](utbytte.md) |
 
 ### Cardinality and Requirements
 

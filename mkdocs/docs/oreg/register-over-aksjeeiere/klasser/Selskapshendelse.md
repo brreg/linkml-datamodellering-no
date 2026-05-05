@@ -98,8 +98,8 @@ URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | 0..1 <br/> [Aksjeinnskudd](Aksjeinnskudd.md) | Aksjeinnskot i selskapshending |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | 0..1 <br/> [Aksjeinnskudd](aksjeinnskudd.md) | Aksjeinnskot i selskapshending |
 
 
 
@@ -112,9 +112,9 @@ URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [selskapshendelser](selskapshendelser.md) | range | [Selskapshendelse](Selskapshendelse.md) |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | range | [Selskapshendelse](Selskapshendelse.md) |
-| [Selskapshendelse](Selskapshendelse.md) | [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | domain | [Selskapshendelse](Selskapshendelse.md) |
+| [Containerklasse](containerklasse.md) | [selskapshendelser](selskapshendelser.md) | range | [Selskapshendelse](selskapshendelse.md) |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | range | [Selskapshendelse](selskapshendelse.md) |
+| [Selskapshendelse](selskapshendelse.md) | [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | domain | [Selskapshendelse](selskapshendelse.md) |
 
 
 

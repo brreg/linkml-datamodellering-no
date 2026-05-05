@@ -84,12 +84,12 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 ## Inheritance
 * **Modellelement**
-    * [Objekttype](Objekttype.md)
-    * [RootObjekttype](RootObjekttype.md)
-    * [Datatype](Datatype.md)
-    * [EnkelType](EnkelType.md)
-    * [Kodeliste](Kodeliste.md)
-    * [Modul](Modul.md)
+    * [Objekttype](objekttype.md)
+    * [RootObjekttype](rootobjekttype.md)
+    * [Datatype](datatype.md)
+    * [EnkelType](enkeltype.md)
+    * [Kodeliste](kodeliste.md)
+    * [Modul](modul.md)
 
 
 ## Class Properties
@@ -135,7 +135,7 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
 
@@ -173,9 +173,9 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [begrep](begrep.md) | * <br/> [Konsept](Konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](Eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) |
+| [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) |
 
 
 
@@ -211,8 +211,8 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) |
 
 
 
@@ -309,7 +309,7 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -322,40 +322,40 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | [inneholder_modellelement](inneholder_modellelement.md) | range | [Modellelement](Modellelement.md) |
-| [Eigenskap](Eigenskap.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Attributt](Attributt.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Assosiasjon](Assosiasjon.md) | [refererer_til](refererer_til.md) | range | [Modellelement](Modellelement.md) |
-| [Assosiasjon](Assosiasjon.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Rolle](Rolle.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Spesialisering](Spesialisering.md) | [har_generelt_begrep](har_generelt_begrep.md) | range | [Modellelement](Modellelement.md) |
-| [Spesialisering](Spesialisering.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Sammensetning](Sammensetning.md) | [inneholder](inneholder.md) | range | [Modellelement](Modellelement.md) |
-| [Sammensetning](Sammensetning.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Realisering](Realisering.md) | [har_leverandor](har_leverandor.md) | range | [Modellelement](Modellelement.md) |
-| [Realisering](Realisering.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Abstraksjon](Abstraksjon.md) | [er_abstraksjon_av](er_abstraksjon_av.md) | range | [Modellelement](Modellelement.md) |
-| [Abstraksjon](Abstraksjon.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Avhengighet](Avhengighet.md) | [avhengig_av](avhengig_av.md) | range | [Modellelement](Modellelement.md) |
-| [Avhengighet](Avhengighet.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Samling](Samling.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Valg](Valg.md) | [har_noe](har_noe.md) | range | [Modellelement](Modellelement.md) |
-| [Valg](Valg.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [AlleAv](AlleAv.md) | [har_noe](har_noe.md) | range | [Modellelement](Modellelement.md) |
-| [AlleAv](AlleAv.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [NoenAv](NoenAv.md) | [har_noe](har_noe.md) | range | [Modellelement](Modellelement.md) |
-| [NoenAv](NoenAv.md) | [har_type](har_type.md) | range | [Modellelement](Modellelement.md) |
-| [Merknad](Merknad.md) | [annoterer](annoterer.md) | range | [Modellelement](Modellelement.md) |
-| [Betingelsesregel](Betingelsesregel.md) | [betinger](betinger.md) | range | [Modellelement](Modellelement.md) |
-| [Betingelsesregel](Betingelsesregel.md) | [annoterer](annoterer.md) | range | [Modellelement](Modellelement.md) |
-| [Og](Og.md) | [betinger](betinger.md) | range | [Modellelement](Modellelement.md) |
-| [Og](Og.md) | [annoterer](annoterer.md) | range | [Modellelement](Modellelement.md) |
-| [Eller](Eller.md) | [betinger](betinger.md) | range | [Modellelement](Modellelement.md) |
-| [Eller](Eller.md) | [annoterer](annoterer.md) | range | [Modellelement](Modellelement.md) |
-| [XEllerY](XEllerY.md) | [betinger](betinger.md) | range | [Modellelement](Modellelement.md) |
-| [XEllerY](XEllerY.md) | [annoterer](annoterer.md) | range | [Modellelement](Modellelement.md) |
-| [Ikke](Ikke.md) | [betinger](betinger.md) | range | [Modellelement](Modellelement.md) |
-| [Ikke](Ikke.md) | [annoterer](annoterer.md) | range | [Modellelement](Modellelement.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [inneholder_modellelement](inneholder_modellelement.md) | range | [Modellelement](modellelement.md) |
+| [Eigenskap](eigenskap.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Attributt](attributt.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Assosiasjon](assosiasjon.md) | [refererer_til](refererer_til.md) | range | [Modellelement](modellelement.md) |
+| [Assosiasjon](assosiasjon.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Rolle](rolle.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Spesialisering](spesialisering.md) | [har_generelt_begrep](har_generelt_begrep.md) | range | [Modellelement](modellelement.md) |
+| [Spesialisering](spesialisering.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Sammensetning](sammensetning.md) | [inneholder](inneholder.md) | range | [Modellelement](modellelement.md) |
+| [Sammensetning](sammensetning.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Realisering](realisering.md) | [har_leverandor](har_leverandor.md) | range | [Modellelement](modellelement.md) |
+| [Realisering](realisering.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Abstraksjon](abstraksjon.md) | [er_abstraksjon_av](er_abstraksjon_av.md) | range | [Modellelement](modellelement.md) |
+| [Abstraksjon](abstraksjon.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Avhengighet](avhengighet.md) | [avhengig_av](avhengig_av.md) | range | [Modellelement](modellelement.md) |
+| [Avhengighet](avhengighet.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Samling](samling.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Valg](valg.md) | [har_noe](har_noe.md) | range | [Modellelement](modellelement.md) |
+| [Valg](valg.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [AlleAv](alleav.md) | [har_noe](har_noe.md) | range | [Modellelement](modellelement.md) |
+| [AlleAv](alleav.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [NoenAv](noenav.md) | [har_noe](har_noe.md) | range | [Modellelement](modellelement.md) |
+| [NoenAv](noenav.md) | [har_type](har_type.md) | range | [Modellelement](modellelement.md) |
+| [Merknad](merknad.md) | [annoterer](annoterer.md) | range | [Modellelement](modellelement.md) |
+| [Betingelsesregel](betingelsesregel.md) | [betinger](betinger.md) | range | [Modellelement](modellelement.md) |
+| [Betingelsesregel](betingelsesregel.md) | [annoterer](annoterer.md) | range | [Modellelement](modellelement.md) |
+| [Og](og.md) | [betinger](betinger.md) | range | [Modellelement](modellelement.md) |
+| [Og](og.md) | [annoterer](annoterer.md) | range | [Modellelement](modellelement.md) |
+| [Eller](eller.md) | [betinger](betinger.md) | range | [Modellelement](modellelement.md) |
+| [Eller](eller.md) | [annoterer](annoterer.md) | range | [Modellelement](modellelement.md) |
+| [XEllerY](xellery.md) | [betinger](betinger.md) | range | [Modellelement](modellelement.md) |
+| [XEllerY](xellery.md) | [annoterer](annoterer.md) | range | [Modellelement](modellelement.md) |
+| [Ikke](ikke.md) | [betinger](betinger.md) | range | [Modellelement](modellelement.md) |
+| [Ikke](ikke.md) | [annoterer](annoterer.md) | range | [Modellelement](modellelement.md) |
 
 
 

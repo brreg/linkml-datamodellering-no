@@ -22,7 +22,7 @@ Alias: har_versjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](Standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
+| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Standard](Standard.md) |
+| Range | [String](string.md) |
+| Domain Of | [Standard](standard.md) |
 | Slot URI | [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo) |
 
 ### Cardinality and Requirements

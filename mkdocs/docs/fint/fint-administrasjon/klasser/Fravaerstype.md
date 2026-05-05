@@ -22,7 +22,7 @@ Alias: fravaerstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fravaerstype
 
 | Property | Value |
 | --- | --- |
-| Range | [Fravaerstype](Fravaerstype.md) |
-| Domain Of | [Fravaer](Fravaer.md) |
+| Range | [Fravaerstype](fravaerstype.md) |
+| Domain Of | [Fravaer](fravaer.md) |
 | Slot URI | [adm:fravaerstype](https://schema.fintlabs.no/administrasjon/fravaerstype) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fravaerstype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravaer](Fravaer.md) |
+| Owner | [Fravaer](fravaer.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fravaerstype
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

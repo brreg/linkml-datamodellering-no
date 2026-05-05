@@ -96,7 +96,7 @@ URI: [ngre:Borettslagsandel](https://data.norge.no/vocabulary/ngr-eiendom#Borett
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilhoerer_borettslag](tilhoerer_borettslag.md) | 1 <br/> [Borettslag](Borettslag.md) | Burettslagsandelen tilhøyrer dette burettslaget |
+| [tilhoerer_borettslag](tilhoerer_borettslag.md) | 1 <br/> [Borettslag](borettslag.md) | Burettslagsandelen tilhøyrer dette burettslaget |
 
 
 
@@ -121,7 +121,7 @@ URI: [ngre:Borettslagsandel](https://data.norge.no/vocabulary/ngr-eiendom#Borett
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_eierforhold](har_eierforhold.md) | * <br/> [Eierforhold](Eierforhold.md) | Eigarforhold knytt til eigedommen eller burettslagsandelen |
+| [har_eierforhold](har_eierforhold.md) | * <br/> [Eierforhold](eierforhold.md) | Eigarforhold knytt til eigedommen eller burettslagsandelen |
 
 
 
@@ -146,7 +146,7 @@ URI: [ngre:Borettslagsandel](https://data.norge.no/vocabulary/ngr-eiendom#Borett
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | * <br/> [TinglystHeftelse](TinglystHeftelse.md) | Tinglyste heftingar knytt til eigedommen eller burettslagsandelen |
+| [har_tinglyst_heftelse](har_tinglyst_heftelse.md) | * <br/> [TinglystHeftelse](tinglystheftelse.md) | Tinglyste heftingar knytt til eigedommen eller burettslagsandelen |
 
 
 
@@ -204,7 +204,7 @@ URI: [ngre:Borettslagsandel](https://data.norge.no/vocabulary/ngr-eiendom#Borett
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -217,10 +217,10 @@ URI: [ngre:Borettslagsandel](https://data.norge.no/vocabulary/ngr-eiendom#Borett
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [borettslagsandeler](borettslagsandeler.md) | range | [Borettslagsandel](Borettslagsandel.md) |
-| [Eierforhold](Eierforhold.md) | [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | range | [Borettslagsandel](Borettslagsandel.md) |
-| [TinglystEierforhold](TinglystEierforhold.md) | [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | range | [Borettslagsandel](Borettslagsandel.md) |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | range | [Borettslagsandel](Borettslagsandel.md) |
+| [EiendomContainer](eiendomcontainer.md) | [borettslagsandeler](borettslagsandeler.md) | range | [Borettslagsandel](borettslagsandel.md) |
+| [Eierforhold](eierforhold.md) | [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | range | [Borettslagsandel](borettslagsandel.md) |
+| [TinglystEierforhold](tinglysteierforhold.md) | [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | range | [Borettslagsandel](borettslagsandel.md) |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | [kan_gjelde_borettslagsandel](kan_gjelde_borettslagsandel.md) | range | [Borettslagsandel](borettslagsandel.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: postboksnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postboks](Postboks.md) | Ei postboks registrert i Postboksregisteret |  yes  |
+| [Postboks](postboks.md) | Ei postboks registrert i Postboksregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: postboksnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Postboks](Postboks.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Postboks](postboks.md) |
 | Slot URI | [ngr:postboksnummer](https://data.norge.no/vocabulary/ngr-adresse#postboksnummer) |
 
 ### Cardinality and Requirements

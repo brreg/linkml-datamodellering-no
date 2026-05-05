@@ -22,9 +22,9 @@ Alias: er_motivert_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetssertifikat](Kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
-| [Brukartilbakemelding](Brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
+| [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: er_motivert_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 | Slot URI | [oa:motivatedBy](http://www.w3.org/ns/oa#motivatedBy) |
 
 ### Cardinality and Requirements

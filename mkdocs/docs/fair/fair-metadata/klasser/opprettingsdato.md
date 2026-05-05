@@ -22,7 +22,7 @@ Alias: opprettingsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Proveniensmetadata](Proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |  yes  |
+| [Proveniensmetadata](proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: opprettingsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Proveniensmetadata](Proveniensmetadata.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Proveniensmetadata](proveniensmetadata.md) |
 | Slot URI | [dct:created](http://purl.org/dc/terms/created) |
 
 ### Cardinality and Requirements

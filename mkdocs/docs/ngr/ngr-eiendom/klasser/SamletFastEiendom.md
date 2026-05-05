@@ -68,7 +68,7 @@ URI: [ngre:SamletFastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#Samle
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bestar_av_fast_eiendom](bestar_av_fast_eiendom.md) | 1..* <br/> [FastEiendom](FastEiendom.md) | Faste eigedommar som inngår i samlinga (minimum 2) |
+| [bestar_av_fast_eiendom](bestar_av_fast_eiendom.md) | 1..* <br/> [FastEiendom](fasteiendom.md) | Faste eigedommar som inngår i samlinga (minimum 2) |
 
 
 
@@ -120,7 +120,7 @@ URI: [ngre:SamletFastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#Samle
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -133,7 +133,7 @@ URI: [ngre:SamletFastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#Samle
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [samlinger](samlinger.md) | range | [SamletFastEiendom](SamletFastEiendom.md) |
+| [EiendomContainer](eiendomcontainer.md) | [samlinger](samlinger.md) | range | [SamletFastEiendom](samletfasteiendom.md) |
 
 
 

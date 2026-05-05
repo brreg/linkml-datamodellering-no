@@ -17,8 +17,8 @@ Alias: mottaker
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: mottaker
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Faktura](Faktura.md), [Fakturagrunnlag](Fakturagrunnlag.md) |
+| Range | [String](string.md) |
+| Domain Of | [Faktura](faktura.md), [Fakturagrunnlag](fakturagrunnlag.md) |
 
 ### Cardinality and Requirements
 

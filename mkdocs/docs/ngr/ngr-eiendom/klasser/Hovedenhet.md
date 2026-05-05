@@ -78,7 +78,7 @@ URI: [ngre:Hovedenhet](https://data.norge.no/vocabulary/ngr-eiendom#Hovedenhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [ngre:Hovedenhet](https://data.norge.no/vocabulary/ngr-eiendom#Hovedenhet)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Rettighetshaver](Rettighetshaver.md) | [er_av_type_hovedenhet](er_av_type_hovedenhet.md) | range | [Hovedenhet](Hovedenhet.md) |
-| [Borettslag](Borettslag.md) | [er_av_type_hovedenhet](er_av_type_hovedenhet.md) | range | [Hovedenhet](Hovedenhet.md) |
+| [Rettighetshaver](rettighetshaver.md) | [er_av_type_hovedenhet](er_av_type_hovedenhet.md) | range | [Hovedenhet](hovedenhet.md) |
+| [Borettslag](borettslag.md) | [er_av_type_hovedenhet](er_av_type_hovedenhet.md) | range | [Hovedenhet](hovedenhet.md) |
 
 
 

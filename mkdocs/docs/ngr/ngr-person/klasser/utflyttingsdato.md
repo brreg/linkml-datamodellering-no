@@ -22,7 +22,7 @@ Alias: utflyttingsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtflyttingFraNorge](UtflyttingFraNorge.md) | Registrering av utflytting frå Noreg i Folkeregisteret |  yes  |
+| [UtflyttingFraNorge](utflyttingfranorge.md) | Registrering av utflytting frå Noreg i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: utflyttingsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [UtflyttingFraNorge](UtflyttingFraNorge.md) |
+| Range | [Date](date.md) |
+| Domain Of | [UtflyttingFraNorge](utflyttingfranorge.md) |
 | Slot URI | [ngrp:utflyttingsdato](https://data.norge.no/vocabulary/ngr-person#utflyttingsdato) |
 
 ### Cardinality and Requirements

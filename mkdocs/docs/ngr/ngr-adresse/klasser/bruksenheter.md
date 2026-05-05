@@ -17,7 +17,7 @@ Alias: bruksenheter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
+| [AdresseContainer](adressecontainer.md) | Rotklasse for NGR-adresse-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: bruksenheter
 
 | Property | Value |
 | --- | --- |
-| Range | [Bruksenhet](Bruksenhet.md) |
-| Domain Of | [AdresseContainer](AdresseContainer.md) |
+| Range | [Bruksenhet](bruksenhet.md) |
+| Domain Of | [AdresseContainer](adressecontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: bruksenheter
 
 | Property | Value |
 | --- | --- |
-| Owner | [AdresseContainer](AdresseContainer.md) |
+| Owner | [AdresseContainer](adressecontainer.md) |
 
 
 

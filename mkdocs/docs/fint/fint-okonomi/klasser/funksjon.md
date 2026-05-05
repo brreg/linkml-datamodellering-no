@@ -22,7 +22,7 @@ Alias: funksjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontostreng](Kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |  no  |
+| [Kontostreng](kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: funksjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontostreng](Kontostreng.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontostreng](kontostreng.md) |
 | Slot URI | [okn:funksjon](https://schema.fintlabs.no/okonomi/funksjon) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: funksjon
 
 | Property | Value |
 | --- | --- |
-| Owner | [Kontostreng](Kontostreng.md) |
+| Owner | [Kontostreng](kontostreng.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: funksjon
 ## In Subsets
 
 
-* [Anbefalt](Anbefalt.md)
+* [Anbefalt](anbefalt.md)
 
 
 

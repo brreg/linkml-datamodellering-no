@@ -22,7 +22,7 @@ Alias: bokstavkode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bokstavkode
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Valuta](Valuta.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Valuta](valuta.md) |
 | Slot URI | [fint:bokstavkode](https://schema.fintlabs.no/bokstavkode) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: bokstavkode
 
 | Property | Value |
 | --- | --- |
-| Owner | [Valuta](Valuta.md) |
+| Owner | [Valuta](valuta.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: bokstavkode
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

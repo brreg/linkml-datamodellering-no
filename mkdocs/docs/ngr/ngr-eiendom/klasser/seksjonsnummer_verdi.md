@@ -22,7 +22,7 @@ Alias: seksjonsnummer_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Seksjonsnummer](Seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |  yes  |
+| [Seksjonsnummer](seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: seksjonsnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Seksjonsnummer](Seksjonsnummer.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Seksjonsnummer](seksjonsnummer.md) |
 | Slot URI | [ngre:seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#seksjonsnummer) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: naeringskode_kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Naeringskode](Naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |  yes  |
+| [Naeringskode](naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: naeringskode_kode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Naeringskode](Naeringskode.md) |
+| Range | [String](string.md) |
+| Domain Of | [Naeringskode](naeringskode.md) |
 | Slot URI | [ngrv:naeringskodeKode](https://data.norge.no/vocabulary/ngr-virksomhet#naeringskodeKode) |
 
 ### Cardinality and Requirements

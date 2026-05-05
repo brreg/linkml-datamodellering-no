@@ -82,7 +82,7 @@ URI: [ngre:YtreInngang](https://data.norge.no/vocabulary/ngr-eiendom#YtreInngang
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gjelder_bruksenhet](gjelder_bruksenhet.md) | 1..* <br/> [Bruksenhet](Bruksenhet.md) | Brukseiningane den ytre inngangen gir tilgang til |
+| [gjelder_bruksenhet](gjelder_bruksenhet.md) | 1..* <br/> [Bruksenhet](bruksenhet.md) | Brukseiningane den ytre inngangen gir tilgang til |
 
 
 
@@ -104,7 +104,7 @@ URI: [ngre:YtreInngang](https://data.norge.no/vocabulary/ngr-eiendom#YtreInngang
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_offisiell_adresse](har_offisiell_adresse.md) | 0..1 <br/> [OffisiellAdresse](OffisiellAdresse.md) | Offisiell adresse for den ytre inngangen eller brukseininga |
+| [har_offisiell_adresse](har_offisiell_adresse.md) | 0..1 <br/> [OffisiellAdresse](offisielladresse.md) | Offisiell adresse for den ytre inngangen eller brukseininga |
 
 
 
@@ -162,7 +162,7 @@ URI: [ngre:YtreInngang](https://data.norge.no/vocabulary/ngr-eiendom#YtreInngang
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -175,8 +175,8 @@ URI: [ngre:YtreInngang](https://data.norge.no/vocabulary/ngr-eiendom#YtreInngang
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [ytreInnganger](ytreInnganger.md) | range | [YtreInngang](YtreInngang.md) |
-| [Bygning](Bygning.md) | [har_ytre_inngang](har_ytre_inngang.md) | range | [YtreInngang](YtreInngang.md) |
+| [EiendomContainer](eiendomcontainer.md) | [ytreInnganger](ytreinnganger.md) | range | [YtreInngang](ytreinngang.md) |
+| [Bygning](bygning.md) | [har_ytre_inngang](har_ytre_inngang.md) | range | [YtreInngang](ytreinngang.md) |
 
 
 

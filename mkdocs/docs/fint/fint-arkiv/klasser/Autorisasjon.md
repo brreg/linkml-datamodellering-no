@@ -22,7 +22,7 @@ Alias: autorisasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arkivressurs](Arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
+| [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: autorisasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Autorisasjon](Autorisasjon.md) |
-| Domain Of | [Arkivressurs](Arkivressurs.md) |
+| Range | [Autorisasjon](autorisasjon.md) |
+| Domain Of | [Arkivressurs](arkivressurs.md) |
 | Slot URI | [ark:autorisasjon](https://schema.fintlabs.no/arkiv/autorisasjon) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: autorisasjon
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arkivressurs](Arkivressurs.md) |
+| Owner | [Arkivressurs](arkivressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: autorisasjon
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

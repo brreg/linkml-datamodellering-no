@@ -17,11 +17,11 @@ Alias: klasse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Arstrinn](Arstrinn.md) | Eit årstrinn i skulen (t |  no  |
-| [Kontaktlaerergruppe](Kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
-| [Klassemedlemskap](Klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
-| [Undervisningsforhold](Undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  no  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
 
 
 
@@ -34,8 +34,8 @@ Alias: klasse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Klassemedlemskap](Klassemedlemskap.md), [Kontaktlaerergruppe](Kontaktlaerergruppe.md), [Skole](Skole.md), [Arstrinn](Arstrinn.md), [Undervisningsforhold](Undervisningsforhold.md) |
+| Range | [String](string.md) |
+| Domain Of | [Klassemedlemskap](klassemedlemskap.md), [Kontaktlaerergruppe](kontaktlaerergruppe.md), [Skole](skole.md), [Arstrinn](arstrinn.md), [Undervisningsforhold](undervisningsforhold.md) |
 
 ### Cardinality and Requirements
 

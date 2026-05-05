@@ -102,32 +102,32 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 ## Inheritance
 * **Begrep**
-    * [Aktivitet](Aktivitet.md)
-    * [Anlegg](Anlegg.md)
-    * [Ansvar](Ansvar.md)
-    * [Art](Art.md)
-    * [Arbeidsforholdstype](Arbeidsforholdstype.md)
-    * [Diverse](Diverse.md)
-    * [Formaal](Formaal.md)
-    * [Fravaersgrunn](Fravaersgrunn.md)
-    * [Fravaerstype](Fravaerstype.md)
-    * [Funksjon](Funksjon.md)
-    * [Kontrakt](Kontrakt.md)
-    * [Lonsart](Lonsart.md)
-    * [Lopenummer](Lopenummer.md)
-    * [Objekt](Objekt.md)
-    * [Organisasjonstype](Organisasjonstype.md)
-    * [Personalressurskategori](Personalressurskategori.md)
-    * [Prosjekt](Prosjekt.md)
-    * [Prosjektart](Prosjektart.md)
-    * [Ramme](Ramme.md)
-    * [Stillingskode](Stillingskode.md)
-    * [Uketimetall](Uketimetall.md)
-    * [Landkode](Landkode.md)
-    * [Kjonn](Kjonn.md)
-    * [Fylke](Fylke.md)
-    * [Kommune](Kommune.md)
-    * [Spraak](Spraak.md)
+    * [Aktivitet](aktivitet.md)
+    * [Anlegg](anlegg.md)
+    * [Ansvar](ansvar.md)
+    * [Art](art.md)
+    * [Arbeidsforholdstype](arbeidsforholdstype.md)
+    * [Diverse](diverse.md)
+    * [Formaal](formaal.md)
+    * [Fravaersgrunn](fravaersgrunn.md)
+    * [Fravaerstype](fravaerstype.md)
+    * [Funksjon](funksjon.md)
+    * [Kontrakt](kontrakt.md)
+    * [Lonsart](lonsart.md)
+    * [Lopenummer](lopenummer.md)
+    * [Objekt](objekt.md)
+    * [Organisasjonstype](organisasjonstype.md)
+    * [Personalressurskategori](personalressurskategori.md)
+    * [Prosjekt](prosjekt.md)
+    * [Prosjektart](prosjektart.md)
+    * [Ramme](ramme.md)
+    * [Stillingskode](stillingskode.md)
+    * [Uketimetall](uketimetall.md)
+    * [Landkode](landkode.md)
+    * [Kjonn](kjonn.md)
+    * [Fylke](fylke.md)
+    * [Kommune](kommune.md)
+    * [Spraak](spraak.md)
 
 
 ## Class Properties
@@ -243,11 +243,11 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [kode](kode.md) | 1 <br/> [String](String.md) | Verdi som identifiserer omgrepet |
-| [navn](navn.md) | 1 <br/> [String](String.md) | Hovudnamn for omgrepet |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) | Angir gyldighetsperioden for eit omgrep/kode |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](Boolean.md) | Angir at koden er passiv og ikkje kan veljast |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet |
+| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for omgrepet |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Angir gyldighetsperioden for eit omgrep/kode |
+| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast |
 
 
 

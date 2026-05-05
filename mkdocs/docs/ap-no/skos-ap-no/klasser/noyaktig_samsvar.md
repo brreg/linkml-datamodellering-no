@@ -22,7 +22,7 @@ Alias: noyaktig_samsvar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: noyaktig_samsvar
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [skos:exactMatch](http://www.w3.org/2004/02/skos/core#exactMatch) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: otungdom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: otungdom
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [fint:otungdom](https://schema.fintlabs.no/otungdom) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: otungdom
 
 | Property | Value |
 | --- | --- |
-| Owner | [Person](Person.md) |
+| Owner | [Person](person.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: otungdom
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

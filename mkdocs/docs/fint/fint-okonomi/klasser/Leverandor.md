@@ -17,8 +17,8 @@ Alias: leverandor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Leverandorgruppe](Leverandorgruppe.md) | Gruppering av leverandørar (Leverandørgruppe) |  no  |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar (Leverandørgruppe) |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: leverandor
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Transaksjon](Transaksjon.md), [Leverandorgruppe](Leverandorgruppe.md) |
+| Range | [String](string.md) |
+| Domain Of | [Transaksjon](transaksjon.md), [Leverandorgruppe](leverandorgruppe.md) |
 
 ### Cardinality and Requirements
 

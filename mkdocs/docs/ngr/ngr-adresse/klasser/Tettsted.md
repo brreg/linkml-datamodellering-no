@@ -36,7 +36,7 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
 
 
 ## Inheritance
-* [GeografiskOmrade](GeografiskOmrade.md)
+* [GeografiskOmrade](geografiskomrade.md)
     * **Tettsted**
 
 
@@ -89,7 +89,7 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tettstedsnummer](tettstedsnummer.md) | 0..1 <br/> [String](String.md) | SSB-tettstedsnummer |
+| [tettstedsnummer](tettstedsnummer.md) | 0..1 <br/> [String](string.md) | SSB-tettstedsnummer |
 
 
 
@@ -97,8 +97,8 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](GeografiskOmrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](String.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](GeografiskOmrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 
@@ -108,7 +108,7 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [tettstadar](tettstadar.md) | range | [Tettsted](Tettsted.md) |
+| [AdresseContainer](adressecontainer.md) | [tettstadar](tettstadar.md) | range | [Tettsted](tettsted.md) |
 
 
 

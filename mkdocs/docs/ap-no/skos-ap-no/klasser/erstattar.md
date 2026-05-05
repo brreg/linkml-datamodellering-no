@@ -22,7 +22,7 @@ Alias: erstattar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: erstattar
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [dct:replaces](http://purl.org/dc/terms/replaces) |
 
 ### Cardinality and Requirements

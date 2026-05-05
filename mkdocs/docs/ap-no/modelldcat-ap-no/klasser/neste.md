@@ -22,7 +22,7 @@ Alias: neste
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
+| [Kodeelement](kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: neste
 
 | Property | Value |
 | --- | --- |
-| Range | [Kodeelement](Kodeelement.md) |
-| Domain Of | [Kodeelement](Kodeelement.md) |
+| Range | [Kodeelement](kodeelement.md) |
+| Domain Of | [Kodeelement](kodeelement.md) |
 | Slot URI | [xkos:next](http://rdf-vocabulary.ddialliance.org/xkos#next) |
 
 ### Cardinality and Requirements

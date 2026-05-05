@@ -17,8 +17,8 @@ Alias: pris
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
-| [Fakturalinje](Fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
+| [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: pris
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fakturalinje](Fakturalinje.md), [Vare](Vare.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fakturalinje](fakturalinje.md), [Vare](vare.md) |
 
 ### Cardinality and Requirements
 

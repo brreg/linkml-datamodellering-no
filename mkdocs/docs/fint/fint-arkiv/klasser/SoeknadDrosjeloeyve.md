@@ -17,7 +17,7 @@ Alias: soeknadDrosjeloeyve
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ArkivContainer](ArkivContainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
+| [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: soeknadDrosjeloeyve
 
 | Property | Value |
 | --- | --- |
-| Range | [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) |
-| Domain Of | [ArkivContainer](ArkivContainer.md) |
+| Range | [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) |
+| Domain Of | [ArkivContainer](arkivcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: soeknadDrosjeloeyve
 
 | Property | Value |
 | --- | --- |
-| Owner | [ArkivContainer](ArkivContainer.md) |
+| Owner | [ArkivContainer](arkivcontainer.md) |
 
 
 

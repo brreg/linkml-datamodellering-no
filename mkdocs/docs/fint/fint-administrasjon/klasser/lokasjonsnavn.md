@@ -22,7 +22,7 @@ Alias: lokasjonsnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidslokasjon](Arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  no  |
+| [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: lokasjonsnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Arbeidslokasjon](Arbeidslokasjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [Arbeidslokasjon](arbeidslokasjon.md) |
 | Slot URI | [adm:lokasjonsnavn](https://schema.fintlabs.no/administrasjon/lokasjonsnavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: lokasjonsnavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arbeidslokasjon](Arbeidslokasjon.md) |
+| Owner | [Arbeidslokasjon](arbeidslokasjon.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: lokasjonsnavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

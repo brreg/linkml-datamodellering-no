@@ -112,8 +112,8 @@ URI: [ngre:Bruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#Bruksenhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_bruksenhetsnummer](har_bruksenhetsnummer.md) | 1 <br/> [Bruksenhetsnummer](Bruksenhetsnummer.md) | Bruksenheitsnummeret for brukseininga |
-| [ligger_i_etasje](ligger_i_etasje.md) | 1..* <br/> [Etasje](Etasje.md) | Etasjen(e) brukseininga ligg i |
+| [har_bruksenhetsnummer](har_bruksenhetsnummer.md) | 1 <br/> [Bruksenhetsnummer](bruksenhetsnummer.md) | Bruksenheitsnummeret for brukseininga |
+| [ligger_i_etasje](ligger_i_etasje.md) | 1..* <br/> [Etasje](etasje.md) | Etasjen(e) brukseininga ligg i |
 
 
 
@@ -141,7 +141,7 @@ URI: [ngre:Bruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#Bruksenhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_tilknyttet_matrikkelenhet](er_tilknyttet_matrikkelenhet.md) | 0..1 <br/> [Matrikkelenhet](Matrikkelenhet.md) | Matrikkeleininga brukseininga er knytt til |
+| [er_tilknyttet_matrikkelenhet](er_tilknyttet_matrikkelenhet.md) | 0..1 <br/> [Matrikkelenhet](matrikkelenhet.md) | Matrikkeleininga brukseininga er knytt til |
 
 
 
@@ -169,7 +169,7 @@ URI: [ngre:Bruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#Bruksenhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_offisiell_adresse](har_offisiell_adresse.md) | 0..1 <br/> [OffisiellAdresse](OffisiellAdresse.md) | Offisiell adresse for den ytre inngangen eller brukseininga |
+| [har_offisiell_adresse](har_offisiell_adresse.md) | 0..1 <br/> [OffisiellAdresse](offisielladresse.md) | Offisiell adresse for den ytre inngangen eller brukseininga |
 
 
 
@@ -240,7 +240,7 @@ URI: [ngre:Bruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#Bruksenhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -253,9 +253,9 @@ URI: [ngre:Bruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#Bruksenhet)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | [bruksenheter](bruksenheter.md) | range | [Bruksenhet](Bruksenhet.md) |
-| [Bygning](Bygning.md) | [har_bruksenhet](har_bruksenhet.md) | range | [Bruksenhet](Bruksenhet.md) |
-| [YtreInngang](YtreInngang.md) | [gjelder_bruksenhet](gjelder_bruksenhet.md) | range | [Bruksenhet](Bruksenhet.md) |
+| [EiendomContainer](eiendomcontainer.md) | [bruksenheter](bruksenheter.md) | range | [Bruksenhet](bruksenhet.md) |
+| [Bygning](bygning.md) | [har_bruksenhet](har_bruksenhet.md) | range | [Bruksenhet](bruksenhet.md) |
+| [YtreInngang](ytreinngang.md) | [gjelder_bruksenhet](gjelder_bruksenhet.md) | range | [Bruksenhet](bruksenhet.md) |
 
 
 

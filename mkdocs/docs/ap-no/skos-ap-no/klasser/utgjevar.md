@@ -22,8 +22,8 @@ Alias: utgjevar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: utgjevar
 
 | Property | Value |
 | --- | --- |
-| Range | [Organisasjon](Organisasjon.md) |
-| Domain Of | [Begrep](Begrep.md), [Samling](Samling.md) |
+| Range | [Organisasjon](organisasjon.md) |
+| Domain Of | [Begrep](begrep.md), [Samling](samling.md) |
 | Slot URI | [dct:publisher](http://purl.org/dc/terms/publisher) |
 
 ### Cardinality and Requirements

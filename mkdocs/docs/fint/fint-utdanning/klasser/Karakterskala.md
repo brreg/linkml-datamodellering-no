@@ -204,13 +204,13 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [kode](kode.md) | 1 <br/> [String](String.md) |  |
-| [navn](navn.md) | 1 <br/> [String](String.md) |  |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) |  |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](Boolean.md) |  |
-| [verdi](verdi.md) | * <br/> [Karakterverdi](Karakterverdi.md) | Karakterverdiar i denne skalaen |
-| [vigoreferanse](vigoreferanse.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Vigo-systemet |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [kode](kode.md) | 1 <br/> [String](string.md) |  |
+| [navn](navn.md) | 1 <br/> [String](string.md) |  |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) |  |
+| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) |  |
+| [verdi](verdi.md) | * <br/> [Karakterverdi](karakterverdi.md) | Karakterverdiar i denne skalaen |
+| [vigoreferanse](vigoreferanse.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Vigo-systemet |
 
 
 
@@ -223,8 +223,8 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [UtdanningContainer](UtdanningContainer.md) | [karakterskalaer](karakterskalaer.md) | range | [Karakterskala](Karakterskala.md) |
-| [Karakterverdi](Karakterverdi.md) | [skala](skala.md) | range | [Karakterskala](Karakterskala.md) |
+| [UtdanningContainer](utdanningcontainer.md) | [karakterskalaer](karakterskalaer.md) | range | [Karakterskala](karakterskala.md) |
+| [Karakterverdi](karakterverdi.md) | [skala](skala.md) | range | [Karakterskala](karakterskala.md) |
 
 
 

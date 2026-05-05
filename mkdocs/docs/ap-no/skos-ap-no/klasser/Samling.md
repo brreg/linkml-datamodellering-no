@@ -119,11 +119,11 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [medlem](medlem.md) | 1..* <br/> [Begrep](Begrep.md) | Omgrep som er medlem av samlinga (skos:member) |
-| [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | 1..* <br/> [VCardKontakt](VCardKontakt.md) | Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](Organisasjon.md) | Organisasjon ansvarleg for å publisere omgrepet (dct:publisher) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [medlem](medlem.md) | 1..* <br/> [Begrep](begrep.md) | Omgrep som er medlem av samlinga (skos:member) |
+| [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | 1..* <br/> [VCardKontakt](vcardkontakt.md) | Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon ansvarleg for å publisere omgrepet (dct:publisher) |
 
 
 
@@ -157,7 +157,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 
 
 
@@ -279,7 +279,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -292,7 +292,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Begrep](Begrep.md) | [er_medlem_av](er_medlem_av.md) | range | [Samling](Samling.md) |
+| [Begrep](begrep.md) | [er_medlem_av](er_medlem_av.md) | range | [Samling](samling.md) |
 
 
 

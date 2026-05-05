@@ -22,7 +22,7 @@ Alias: tilgang
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arkivressurs](Arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
+| [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilgang
 
 | Property | Value |
 | --- | --- |
-| Range | [Tilgang](Tilgang.md) |
-| Domain Of | [Arkivressurs](Arkivressurs.md) |
+| Range | [Tilgang](tilgang.md) |
+| Domain Of | [Arkivressurs](arkivressurs.md) |
 | Slot URI | [ark:tilgang](https://schema.fintlabs.no/arkiv/tilgang) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: tilgang
 
 | Property | Value |
 | --- | --- |
-| Owner | [Arkivressurs](Arkivressurs.md) |
+| Owner | [Arkivressurs](arkivressurs.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: tilgang
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

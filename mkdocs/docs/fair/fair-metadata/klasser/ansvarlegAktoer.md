@@ -24,7 +24,7 @@ Alias: ansvarlegAktoer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Proveniensmetadata](Proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |  yes  |
+| [Proveniensmetadata](proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: ansvarlegAktoer
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Proveniensmetadata](Proveniensmetadata.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Proveniensmetadata](proveniensmetadata.md) |
 | Slot URI | [prov:wasAttributedTo](http://www.w3.org/ns/prov#wasAttributedTo) |
 
 ### Cardinality and Requirements

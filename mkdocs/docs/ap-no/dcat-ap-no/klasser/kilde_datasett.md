@@ -22,7 +22,7 @@ Alias: kilde_datasett
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: kilde_datasett
 
 | Property | Value |
 | --- | --- |
-| Range | [Datasett](Datasett.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [Datasett](datasett.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:source](http://purl.org/dc/terms/source) |
 
 ### Cardinality and Requirements

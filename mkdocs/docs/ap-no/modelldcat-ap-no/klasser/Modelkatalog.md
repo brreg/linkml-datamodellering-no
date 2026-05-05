@@ -220,12 +220,12 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [har_del](har_del.md) | 1..* <br/> [KatalogisertRessurs](KatalogisertRessurs.md) | Del-ressurs inkludert i denne katalogen (dct:hasPart) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](Kontaktopplysning.md) | Kontaktinformasjon for ressursen (dcat:contactPoint) |
-| [utgiver](utgiver.md) | 1 <br/> [Aktor](Aktor.md) | Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [har_del](har_del.md) | 1..* <br/> [KatalogisertRessurs](katalogisertressurs.md) | Del-ressurs inkludert i denne katalogen (dct:hasPart) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ressursen (dcat:contactPoint) |
+| [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher) |
 
 
 
@@ -298,13 +298,13 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [lisens](lisens.md) | 0..1 <br/> [Lisensdokument](Lisensdokument.md) | Lisens for bruk av ressursen (dct:license) |
-| [modell](modell.md) | * <br/> [Informasjonsmodell](Informasjonsmodell.md) | Informasjonsmodellar i modelkatalogen (modelldcatno:model) |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [tema](tema.md) | * <br/> [Konsept](Konsept.md) | Tema frå eit kontrollert vokabular (dcat:theme) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](Date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [lisens](lisens.md) | 0..1 <br/> [Lisensdokument](lisensdokument.md) | Lisens for bruk av ressursen (dct:license) |
+| [modell](modell.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Informasjonsmodellar i modelkatalogen (modelldcatno:model) |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [tema](tema.md) | * <br/> [Konsept](konsept.md) | Tema frå eit kontrollert vokabular (dcat:theme) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -367,8 +367,8 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [temaer](temaer.md) | * <br/> [Begrepssamling](Begrepssamling.md) | Temavokabular brukt i katalogen (dcat:themeTaxonomy) |
-| [er_del_av_katalog](er_del_av_katalog.md) | 0..1 <br/> [Modelkatalog](Modelkatalog.md) | Overordna modelkatalog (dct:isPartOf) |
+| [temaer](temaer.md) | * <br/> [Begrepssamling](begrepssamling.md) | Temavokabular brukt i katalogen (dcat:themeTaxonomy) |
+| [er_del_av_katalog](er_del_av_katalog.md) | 0..1 <br/> [Modelkatalog](modelkatalog.md) | Overordna modelkatalog (dct:isPartOf) |
 
 
 
@@ -582,7 +582,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -595,7 +595,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | [er_del_av_katalog](er_del_av_katalog.md) | range | [Modelkatalog](Modelkatalog.md) |
+| [Modelkatalog](modelkatalog.md) | [er_del_av_katalog](er_del_av_katalog.md) | range | [Modelkatalog](modelkatalog.md) |
 
 
 

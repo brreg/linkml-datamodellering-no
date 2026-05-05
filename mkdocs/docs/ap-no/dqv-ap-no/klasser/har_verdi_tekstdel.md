@@ -22,7 +22,7 @@ Alias: har_verdi_tekstdel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tekstdel](Tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
+| [Tekstdel](tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_verdi_tekstdel
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Tekstdel](Tekstdel.md) |
+| Range | [String](string.md) |
+| Domain Of | [Tekstdel](tekstdel.md) |
 | Slot URI | [rdfs:value](http://www.w3.org/2000/01/rdf-schema#value) |
 
 ### Cardinality and Requirements

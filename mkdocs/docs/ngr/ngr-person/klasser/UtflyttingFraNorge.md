@@ -69,7 +69,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [utflyttingsdato](utflyttingsdato.md) | 1 <br/> [Date](Date.md) | Dato personen vart registrert utflytta frå Noreg |
+| [utflyttingsdato](utflyttingsdato.md) | 1 <br/> [Date](date.md) | Dato personen vart registrert utflytta frå Noreg |
 
 
 
@@ -94,7 +94,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilflyttingsland](tilflyttingsland.md) | 0..1 <br/> [String](String.md) | ISO 3166-1 landkode for landet personen flytta til |
+| [tilflyttingsland](tilflyttingsland.md) | 0..1 <br/> [String](string.md) | ISO 3166-1 landkode for landet personen flytta til |
 
 
 
@@ -119,7 +119,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilflyttingssted_i_utlandet](tilflyttingssted_i_utlandet.md) | 0..1 <br/> [String](String.md) | Stad i utlandet personen flytta til |
+| [tilflyttingssted_i_utlandet](tilflyttingssted_i_utlandet.md) | 0..1 <br/> [String](string.md) | Stad i utlandet personen flytta til |
 
 
 
@@ -177,7 +177,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -190,8 +190,8 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [utflytting](utflytting.md) | range | [UtflyttingFraNorge](UtflyttingFraNorge.md) |
-| [Person](Person.md) | [har_utflytting_fra_norge](har_utflytting_fra_norge.md) | range | [UtflyttingFraNorge](UtflyttingFraNorge.md) |
+| [PersonContainer](personcontainer.md) | [utflytting](utflytting.md) | range | [UtflyttingFraNorge](utflyttingfranorge.md) |
+| [Person](person.md) | [har_utflytting_fra_norge](har_utflytting_fra_norge.md) | range | [UtflyttingFraNorge](utflyttingfranorge.md) |
 
 
 

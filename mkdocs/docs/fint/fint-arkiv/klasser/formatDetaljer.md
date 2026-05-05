@@ -22,7 +22,7 @@ Alias: formatDetaljer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentobjekt](Dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
+| [Dokumentobjekt](dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: formatDetaljer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Dokumentobjekt](Dokumentobjekt.md) |
+| Range | [String](string.md) |
+| Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:formatDetaljer](https://schema.fintlabs.no/arkiv/formatDetaljer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: formatDetaljer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentobjekt](Dokumentobjekt.md) |
+| Owner | [Dokumentobjekt](dokumentobjekt.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: formatDetaljer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

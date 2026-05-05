@@ -22,7 +22,7 @@ Alias: koordinatsystem
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Representasjonspunkt](Representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |  yes  |
+| [Representasjonspunkt](representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: koordinatsystem
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Representasjonspunkt](Representasjonspunkt.md) |
+| Range | [String](string.md) |
+| Domain Of | [Representasjonspunkt](representasjonspunkt.md) |
 | Slot URI | [ngr:koordinatsystem](https://data.norge.no/vocabulary/ngr-adresse#koordinatsystem) |
 
 ### Cardinality and Requirements

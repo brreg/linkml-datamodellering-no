@@ -34,7 +34,7 @@ URI: [ngr:Svalbard](https://data.norge.no/vocabulary/ngr-adresse#Svalbard)
 
 
 ## Inheritance
-* [GeografiskOmrade](GeografiskOmrade.md)
+* [GeografiskOmrade](geografiskomrade.md)
     * **Svalbard**
 
 
@@ -72,8 +72,8 @@ URI: [ngr:Svalbard](https://data.norge.no/vocabulary/ngr-adresse#Svalbard)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](GeografiskOmrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](String.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](GeografiskOmrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 
@@ -83,7 +83,7 @@ URI: [ngr:Svalbard](https://data.norge.no/vocabulary/ngr-adresse#Svalbard)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [AdresseContainer](AdresseContainer.md) | [svalbardOmrader](svalbardOmrader.md) | range | [Svalbard](Svalbard.md) |
+| [AdresseContainer](adressecontainer.md) | [svalbardOmrader](svalbardomrader.md) | range | [Svalbard](svalbard.md) |
 
 
 

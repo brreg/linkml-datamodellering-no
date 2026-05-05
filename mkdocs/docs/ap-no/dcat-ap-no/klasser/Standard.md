@@ -69,7 +69,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
 
@@ -147,9 +147,9 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [har_referanse](har_referanse.md) | * <br/> [Uri](Uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
-| [versjon](versjon.md) | 0..1 <br/> [String](String.md) | Versjonsnummer |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [har_referanse](har_referanse.md) | * <br/> [Uri](uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
+| [versjon](versjon.md) | 0..1 <br/> [String](string.md) | Versjonsnummer |
 
 
 
@@ -162,10 +162,10 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](Standard.md) |
-| [Datasett](Datasett.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](Standard.md) |
-| [Datatjeneste](Datatjeneste.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](Standard.md) |
-| [Katalogpost](Katalogpost.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](Standard.md) |
+| [Distribusjon](distribusjon.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](standard.md) |
+| [Datasett](datasett.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](standard.md) |
+| [Datatjeneste](datatjeneste.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](standard.md) |
+| [Katalogpost](katalogpost.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](standard.md) |
 
 
 

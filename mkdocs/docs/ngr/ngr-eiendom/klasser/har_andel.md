@@ -22,10 +22,10 @@ Alias: har_andel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [HjemmelTilFesterett](HjemmelTilFesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |  no  |
-| [Hjemmel](Hjemmel.md) | Abstrakt klasse for heimelsdokument |  yes  |
-| [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
-| [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |  no  |
+| [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |  no  |
+| [Hjemmel](hjemmel.md) | Abstrakt klasse for heimelsdokument |  yes  |
+| [HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |  no  |
+| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
 
 
 
@@ -38,8 +38,8 @@ Alias: har_andel
 
 | Property | Value |
 | --- | --- |
-| Range | [Andel](Andel.md) |
-| Domain Of | [Hjemmel](Hjemmel.md) |
+| Range | [Andel](andel.md) |
+| Domain Of | [Hjemmel](hjemmel.md) |
 | Slot URI | [ngre:harAndel](https://data.norge.no/vocabulary/ngr-eiendom#harAndel) |
 
 ### Cardinality and Requirements

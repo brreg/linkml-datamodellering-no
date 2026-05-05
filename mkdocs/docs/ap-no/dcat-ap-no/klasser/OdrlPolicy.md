@@ -78,7 +78,7 @@ URI: [odrl:Policy](http://www.w3.org/ns/odrl/2/Policy)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [odrl:Policy](http://www.w3.org/ns/odrl/2/Policy)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | [policy](policy.md) | range | [OdrlPolicy](OdrlPolicy.md) |
+| [Distribusjon](distribusjon.md) | [policy](policy.md) | range | [OdrlPolicy](odrlpolicy.md) |
 
 
 

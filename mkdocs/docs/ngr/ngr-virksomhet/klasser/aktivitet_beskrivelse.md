@@ -22,7 +22,7 @@ Alias: aktivitet_beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktivitet](Aktivitet.md) | Skildring av kva aktivitet ei hovudeining utøver |  yes  |
+| [Aktivitet](aktivitet.md) | Skildring av kva aktivitet ei hovudeining utøver |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: aktivitet_beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Aktivitet](Aktivitet.md) |
+| Range | [String](string.md) |
+| Domain Of | [Aktivitet](aktivitet.md) |
 | Slot URI | [ngrv:aktivitetBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#aktivitetBeskrivelse) |
 
 ### Cardinality and Requirements

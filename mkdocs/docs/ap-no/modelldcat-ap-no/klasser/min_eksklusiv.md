@@ -22,7 +22,7 @@ Alias: min_eksklusiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EnkelType](EnkelType.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
+| [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: min_eksklusiv
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [EnkelType](EnkelType.md) |
+| Range | [String](string.md) |
+| Domain Of | [EnkelType](enkeltype.md) |
 | Slot URI | [xsd:minExclusive](http://www.w3.org/2001/XMLSchema#minExclusive) |
 
 ### Cardinality and Requirements

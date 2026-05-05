@@ -22,51 +22,51 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [TilskuddFredaBygningPrivatEie](TilskuddFredaBygningPrivatEie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
-| [TilskuddFartoy](TilskuddFartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
-| [Registrering](Registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [DokumentType](DokumentType.md) | Type dokument |  no  |
-| [Personalmappe](Personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
-| [DispensasjonAutomatiskFredaKulturminne](DispensasjonAutomatiskFredaKulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
-| [AdministrativEnhet](AdministrativEnhet.md) | Administrativ eining med ansvar for saksbehandling |  no  |
-| [KorrespondansepartType](KorrespondansepartType.md) | Type korrespondansepart |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Saksmappetype](Saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  no  |
-| [Tilgangsgruppe](Tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  no  |
-| [Klassifikasjonstype](Klassifikasjonstype.md) | Type klassifikasjonssystem |  no  |
-| [Dokumentfil](Dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
-| [DokumentStatus](DokumentStatus.md) | Status til eit dokument |  no  |
-| [Mappe](Mappe.md) | Abstrakt basisklasse for alle mappetypar |  no  |
-| [Autorisasjon](Autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Arkivressurs](Arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Arkivdel](Arkivdel.md) | Ein vilkårleg definert del av eit arkiv |  no  |
-| [Saksstatus](Saksstatus.md) | Status til saksmappa |  no  |
-| [Skjermingshjemmel](Skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  no  |
-| [Format](Format.md) | Dokumentets filformat |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Sak](Sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md) | Kva rolle dokumentet har i høve registreringa (t |  no  |
-| [SoeknadDrosjeloeyve](SoeknadDrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Rolle](Rolle.md) | Rolla til ein arkivressurs |  no  |
-| [Merknadstype](Merknadstype.md) | Namn på type merknad |  no  |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |  no  |
-| [JournalStatus](JournalStatus.md) | Status til journalposten |  no  |
-| [PartRolle](PartRolle.md) | Rolla til ein part |  no  |
-| [Saksmappe](Saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |  no  |
-| [JournalpostType](JournalpostType.md) | Namn på type journalpost |  no  |
-| [Klassifikasjonssystem](Klassifikasjonssystem.md) | Overordna struktur for mappene i ein eller fleire arkivdelar |  no  |
-| [Tilgang](Tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  no  |
-| [Tilgangsrestriksjon](Tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  no  |
-| [Variantformat](Variantformat.md) | Angiving av kva variant eit dokument førekjem i |  no  |
+| [Sak](sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
+| [Autorisasjon](autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
+| [Merknadstype](merknadstype.md) | Namn på type merknad |  no  |
+| [Klassifikasjonstype](klassifikasjonstype.md) | Type klassifikasjonssystem |  no  |
+| [Rolle](rolle.md) | Rolla til ein arkivressurs |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  no  |
+| [Saksstatus](saksstatus.md) | Status til saksmappa |  no  |
+| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [Mappe](mappe.md) | Abstrakt basisklasse for alle mappetypar |  no  |
+| [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |  no  |
+| [DokumentType](dokumenttype.md) | Type dokument |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
+| [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |  no  |
+| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  no  |
+| [JournalpostType](journalposttype.md) | Namn på type journalpost |  no  |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Dokumentfil](dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
+| [JournalStatus](journalstatus.md) | Status til journalposten |  no  |
+| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  no  |
+| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Tilgang](tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  no  |
+| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Format](format.md) | Dokumentets filformat |  no  |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  no  |
+| [AdministrativEnhet](administrativenhet.md) | Administrativ eining med ansvar for saksbehandling |  no  |
+| [Arkivdel](arkivdel.md) | Ein vilkårleg definert del av eit arkiv |  no  |
+| [Klassifikasjonssystem](klassifikasjonssystem.md) | Overordna struktur for mappene i ein eller fleire arkivdelar |  no  |
+| [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  no  |
+| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [PartRolle](partrolle.md) | Rolla til ein part |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Saksmappe](saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -79,8 +79,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Mappe](Mappe.md), [Registrering](Registrering.md), [AdministrativEnhet](AdministrativEnhet.md), [Arkivdel](Arkivdel.md), [Arkivressurs](Arkivressurs.md), [Autorisasjon](Autorisasjon.md), [Dokumentfil](Dokumentfil.md), [Klassifikasjonssystem](Klassifikasjonssystem.md), [Tilgang](Tilgang.md), [Dokumentbeskrivelse](Dokumentbeskrivelse.md), [DokumentStatus](DokumentStatus.md), [DokumentType](DokumentType.md), [Format](Format.md), [JournalpostType](JournalpostType.md), [JournalStatus](JournalStatus.md), [Klassifikasjonstype](Klassifikasjonstype.md), [KorrespondansepartType](KorrespondansepartType.md), [Merknadstype](Merknadstype.md), [PartRolle](PartRolle.md), [Rolle](Rolle.md), [Saksmappetype](Saksmappetype.md), [Saksstatus](Saksstatus.md), [Skjermingshjemmel](Skjermingshjemmel.md), [Tilgangsgruppe](Tilgangsgruppe.md), [Tilgangsrestriksjon](Tilgangsrestriksjon.md), [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md), [Variantformat](Variantformat.md), [Begrep](Begrep.md), [Valuta](Valuta.md), [Person](Person.md), [Kontaktperson](Kontaktperson.md), [Virksomhet](Virksomhet.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Mappe](mappe.md), [Registrering](registrering.md), [AdministrativEnhet](administrativenhet.md), [Arkivdel](arkivdel.md), [Arkivressurs](arkivressurs.md), [Autorisasjon](autorisasjon.md), [Dokumentfil](dokumentfil.md), [Klassifikasjonssystem](klassifikasjonssystem.md), [Tilgang](tilgang.md), [Dokumentbeskrivelse](dokumentbeskrivelse.md), [DokumentStatus](dokumentstatus.md), [DokumentType](dokumenttype.md), [Format](format.md), [JournalpostType](journalposttype.md), [JournalStatus](journalstatus.md), [Klassifikasjonstype](klassifikasjonstype.md), [KorrespondansepartType](korrespondanseparttype.md), [Merknadstype](merknadstype.md), [PartRolle](partrolle.md), [Rolle](rolle.md), [Saksmappetype](saksmappetype.md), [Saksstatus](saksstatus.md), [Skjermingshjemmel](skjermingshjemmel.md), [Tilgangsgruppe](tilgangsgruppe.md), [Tilgangsrestriksjon](tilgangsrestriksjon.md), [TilknyttetRegistreringSom](tilknyttetregistreringsom.md), [Variantformat](variantformat.md), [Begrep](begrep.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md), [Virksomhet](virksomhet.md) |
 
 ### Cardinality and Requirements
 

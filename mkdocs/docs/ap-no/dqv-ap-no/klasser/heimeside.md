@@ -26,7 +26,7 @@ Alias: heimeside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
+| Range | [Uri](uri.md) |
 | Slot URI | [foaf:homepage](http://xmlns.com/foaf/0.1/homepage) |
 
 ### Cardinality and Requirements

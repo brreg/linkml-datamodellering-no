@@ -22,7 +22,7 @@ Alias: bruksnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bruksnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Matrikkelnummer](Matrikkelnummer.md) |
+| Range | [String](string.md) |
+| Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [fint:bruksnummer](https://schema.fintlabs.no/bruksnummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: bruksnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Matrikkelnummer](Matrikkelnummer.md) |
+| Owner | [Matrikkelnummer](matrikkelnummer.md) |
 
 
 

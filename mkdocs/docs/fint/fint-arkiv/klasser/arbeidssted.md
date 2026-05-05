@@ -22,7 +22,7 @@ Alias: arbeidssted
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalmappe](Personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: arbeidssted
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Personalmappe](Personalmappe.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Personalmappe](personalmappe.md) |
 | Slot URI | [ark:arbeidssted](https://schema.fintlabs.no/arkiv/arbeidssted) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: arbeidssted
 
 | Property | Value |
 | --- | --- |
-| Owner | [Personalmappe](Personalmappe.md) |
+| Owner | [Personalmappe](personalmappe.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: arbeidssted
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

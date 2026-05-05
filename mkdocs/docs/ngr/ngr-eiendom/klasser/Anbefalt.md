@@ -5,7 +5,7 @@ _Anbefalte eigenskapar i domenemodellen._
 
 
 
-URI: [Anbefalt](Anbefalt.md)
+URI: [Anbefalt](anbefalt.md)
 
 
 

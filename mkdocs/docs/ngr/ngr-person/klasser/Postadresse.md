@@ -36,7 +36,7 @@ URI: [ngrp:Postadresse](https://data.norge.no/vocabulary/ngr-person#Postadresse)
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **Postadresse**
 
 
@@ -78,7 +78,7 @@ URI: [ngrp:Postadresse](https://data.norge.no/vocabulary/ngr-person#Postadresse)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](Date.md) | Dato opplysinga er gyldig frå og med |
+| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig frå og med |
 
 
 
@@ -97,7 +97,7 @@ URI: [ngrp:Postadresse](https://data.norge.no/vocabulary/ngr-person#Postadresse)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [Date](Date.md) | Dato opplysinga er gyldig til og med |
+| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig til og med |
 
 
 
@@ -136,7 +136,7 @@ URI: [ngrp:Postadresse](https://data.norge.no/vocabulary/ngr-person#Postadresse)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -146,8 +146,8 @@ URI: [ngrp:Postadresse](https://data.norge.no/vocabulary/ngr-person#Postadresse)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [postadresser](postadresser.md) | range | [Postadresse](Postadresse.md) |
-| [Person](Person.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](Postadresse.md) |
+| [PersonContainer](personcontainer.md) | [postadresser](postadresser.md) | range | [Postadresse](postadresse.md) |
+| [Person](person.md) | [mottar_post_paa](mottar_post_paa.md) | range | [Postadresse](postadresse.md) |
 
 
 

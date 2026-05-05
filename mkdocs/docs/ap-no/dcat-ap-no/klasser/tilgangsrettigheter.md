@@ -22,8 +22,8 @@ Alias: tilgangsrettigheter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: tilgangsrettigheter
 
 | Property | Value |
 | --- | --- |
-| Range | [Rettighetserklaring](Rettighetserklaring.md) |
-| Domain Of | [Datasett](Datasett.md), [Datatjeneste](Datatjeneste.md) |
+| Range | [Rettighetserklaring](rettighetserklaring.md) |
+| Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dct:accessRights](http://purl.org/dc/terms/accessRights) |
 
 ### Cardinality and Requirements

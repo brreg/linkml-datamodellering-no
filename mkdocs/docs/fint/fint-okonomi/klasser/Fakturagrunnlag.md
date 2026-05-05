@@ -17,9 +17,9 @@ Alias: fakturagrunnlag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OkonomiContainer](OkonomiContainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
-| [Fakturautsteder](Fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [OkonomiContainer](okonomicontainer.md) | Rotcontainer for FINT Økonomi-instansar |  no  |
 
 
 
@@ -32,8 +32,8 @@ Alias: fakturagrunnlag
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [OkonomiContainer](OkonomiContainer.md), [Faktura](Faktura.md), [Fakturautsteder](Fakturautsteder.md) |
+| Range | [String](string.md) |
+| Domain Of | [OkonomiContainer](okonomicontainer.md), [Faktura](faktura.md), [Fakturautsteder](fakturautsteder.md) |
 
 ### Cardinality and Requirements
 

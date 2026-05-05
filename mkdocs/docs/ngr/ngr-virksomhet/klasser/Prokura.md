@@ -59,7 +59,7 @@ URI: [ngrv:Prokura](https://data.norge.no/vocabulary/ngr-virksomhet#Prokura)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [prokura_bestemmelse](prokura_bestemmelse.md) | 1 <br/> [String](String.md) | Tekstleg bestemmelse om prokura og kven som er tildelt den |
+| [prokura_bestemmelse](prokura_bestemmelse.md) | 1 <br/> [String](string.md) | Tekstleg bestemmelse om prokura og kven som er tildelt den |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngrv:Prokura](https://data.norge.no/vocabulary/ngr-virksomhet#Prokura)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,8 +124,8 @@ URI: [ngrv:Prokura](https://data.norge.no/vocabulary/ngr-virksomhet#Prokura)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [prokuraer](prokuraer.md) | range | [Prokura](Prokura.md) |
-| [Hovedenhet](Hovedenhet.md) | [har_bestemmelser_om_prokura](har_bestemmelser_om_prokura.md) | range | [Prokura](Prokura.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [prokuraer](prokuraer.md) | range | [Prokura](prokura.md) |
+| [Hovedenhet](hovedenhet.md) | [har_bestemmelser_om_prokura](har_bestemmelser_om_prokura.md) | range | [Prokura](prokura.md) |
 
 
 

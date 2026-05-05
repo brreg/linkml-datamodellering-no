@@ -26,7 +26,7 @@ Alias: type_concept
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
+| Range | [Konsept](konsept.md) |
 | Slot URI | [dct:type](http://purl.org/dc/terms/type) |
 
 ### Cardinality and Requirements

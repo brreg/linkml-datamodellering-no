@@ -17,8 +17,8 @@ Alias: ressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
-| [Applikasjon](Applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  no  |
+| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: ressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Applikasjon](Applikasjon.md), [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) |
+| Range | [String](string.md) |
+| Domain Of | [Applikasjon](applikasjon.md), [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
 
 ### Cardinality and Requirements
 

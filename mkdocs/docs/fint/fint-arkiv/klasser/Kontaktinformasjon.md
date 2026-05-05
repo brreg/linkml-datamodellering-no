@@ -17,13 +17,13 @@ Alias: kontaktinformasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  no  |
-| [Korrespondansepart](Korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
-| [Part](Part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: kontaktinformasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Korrespondansepart](Korrespondansepart.md), [Part](Part.md), [Aktoer](Aktoer.md), [Kontaktperson](Kontaktperson.md) |
+| Range | [String](string.md) |
+| Domain Of | [Korrespondansepart](korrespondansepart.md), [Part](part.md), [Aktoer](aktoer.md), [Kontaktperson](kontaktperson.md) |
 
 ### Cardinality and Requirements
 

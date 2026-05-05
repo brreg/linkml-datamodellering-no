@@ -22,7 +22,7 @@ Alias: varslingsverdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Varslingsadresse](Varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |  yes  |
+| [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: varslingsverdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Varslingsadresse](Varslingsadresse.md) |
+| Range | [String](string.md) |
+| Domain Of | [Varslingsadresse](varslingsadresse.md) |
 | Slot URI | [ngrv:varslingsverdi](https://data.norge.no/vocabulary/ngr-virksomhet#varslingsverdi) |
 
 ### Cardinality and Requirements

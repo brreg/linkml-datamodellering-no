@@ -22,47 +22,47 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierforhold](Eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  no  |
-| [Bruksenhet](Bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  no  |
-| [Eierseksjon](Eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  no  |
-| [Kommune](Kommune.md) | Norsk kommune |  no  |
-| [Seksjonsnummer](Seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |  no  |
-| [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |  no  |
-| [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |  no  |
-| [YtreInngang](YtreInngang.md) | Ytre inngang til ein bygning |  no  |
-| [Bygning](Bygning.md) | Ein bygning registrert i Matrikkelen |  no  |
-| [Representasjonspunkt](Representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |  no  |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining i Einingsregisteret |  no  |
-| [Grunneiendom](Grunneiendom.md) | Den vanlegaste typen matrikkelenheit |  no  |
-| [Matrikkelnummer](Matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  no  |
-| [Teig](Teig.md) | Eit samanhengande areal med same type grenser |  no  |
-| [Borettslag](Borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |  no  |
-| [Jordsameie](Jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  no  |
-| [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
-| [Gaardsnummer](Gaardsnummer.md) | Gårdsnummer innanfor kommunen |  no  |
-| [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |  no  |
-| [Matrikkelenhet](Matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |  no  |
-| [FastEiendom](FastEiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  no  |
-| [Hjemmel](Hjemmel.md) | Abstrakt klasse for heimelsdokument |  no  |
-| [Kommunenummer](Kommunenummer.md) | Firesifra kommunenummer (t |  no  |
-| [Bygningsnummer](Bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |  no  |
-| [TinglystEierforhold](TinglystEierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
-| [Borettslagsandel](Borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  no  |
-| [HjemmelTilFesterett](HjemmelTilFesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |  no  |
-| [Andel](Andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |  no  |
-| [Festegrunn](Festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |  no  |
-| [Anleggseiendom](Anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |  no  |
-| [SamletFastEiendom](SamletFastEiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |  no  |
-| [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |  no  |
-| [TinglystHeftelse](TinglystHeftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |  no  |
-| [Rettighetshaver](Rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  no  |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
-| [Festenummer](Festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |  no  |
-| [Bruksenhetsnummer](Bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |  no  |
-| [Bruksnummer](Bruksnummer.md) | Bruksnummer innanfor gardsnamnet |  no  |
-| [Etasje](Etasje.md) | Ei etasje i ein bygning |  no  |
-| [Person](Person.md) | Ein fysisk person |  no  |
-| [OffisiellAdresse](OffisiellAdresse.md) | Offisiell adresse tildelt av kommunen |  no  |
+| [Bygningsnummer](bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |  no  |
+| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
+| [Representasjonspunkt](representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |  no  |
+| [SamletFastEiendom](samletfasteiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |  no  |
+| [Matrikkelnummer](matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |  no  |
+| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  no  |
+| [Person](person.md) | Ein fysisk person |  no  |
+| [Grunneiendom](grunneiendom.md) | Den vanlegaste typen matrikkelenheit |  no  |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
+| [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |  no  |
+| [Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  no  |
+| [Hjemmel](hjemmel.md) | Abstrakt klasse for heimelsdokument |  no  |
+| [Andel](andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |  no  |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |  no  |
+| [Teig](teig.md) | Eit samanhengande areal med same type grenser |  no  |
+| [Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  no  |
+| [Borettslag](borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |  no  |
+| [Gaardsnummer](gaardsnummer.md) | Gårdsnummer innanfor kommunen |  no  |
+| [Festenummer](festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |  no  |
+| [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |  no  |
+| [YtreInngang](ytreinngang.md) | Ytre inngang til ein bygning |  no  |
+| [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |  no  |
+| [OffisiellAdresse](offisielladresse.md) | Offisiell adresse tildelt av kommunen |  no  |
+| [Anleggseiendom](anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |  no  |
+| [HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |  no  |
+| [Etasje](etasje.md) | Ei etasje i ein bygning |  no  |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |  no  |
+| [Festegrunn](festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |  no  |
+| [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  no  |
+| [Bruksnummer](bruksnummer.md) | Bruksnummer innanfor gardsnamnet |  no  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining i Einingsregisteret |  no  |
+| [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  no  |
+| [Matrikkelenhet](matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |  no  |
+| [Kommune](kommune.md) | Norsk kommune |  no  |
+| [Seksjonsnummer](seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |  no  |
+| [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |  no  |
+| [TinglystHeftelse](tinglystheftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |  no  |
+| [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  no  |
+| [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  no  |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
+| [Kommunenummer](kommunenummer.md) | Firesifra kommunenummer (t |  no  |
 
 
 
@@ -75,8 +75,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [FastEiendom](FastEiendom.md), [SamletFastEiendom](SamletFastEiendom.md), [Borettslagsandel](Borettslagsandel.md), [Matrikkelenhet](Matrikkelenhet.md), [Matrikkelnummer](Matrikkelnummer.md), [Kommunenummer](Kommunenummer.md), [Gaardsnummer](Gaardsnummer.md), [Bruksnummer](Bruksnummer.md), [Festenummer](Festenummer.md), [Seksjonsnummer](Seksjonsnummer.md), [Bygning](Bygning.md), [Bygningsnummer](Bygningsnummer.md), [Representasjonspunkt](Representasjonspunkt.md), [YtreInngang](YtreInngang.md), [Bruksenhet](Bruksenhet.md), [Bruksenhetsnummer](Bruksenhetsnummer.md), [Etasje](Etasje.md), [Teig](Teig.md), [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md), [Eierforhold](Eierforhold.md), [Hjemmel](Hjemmel.md), [Andel](Andel.md), [Rettighetshaver](Rettighetshaver.md), [TinglystHeftelse](TinglystHeftelse.md), [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md), [Borettslag](Borettslag.md), [OffisiellAdresse](OffisiellAdresse.md), [Person](Person.md), [Hovedenhet](Hovedenhet.md), [Kommune](Kommune.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [FastEiendom](fasteiendom.md), [SamletFastEiendom](samletfasteiendom.md), [Borettslagsandel](borettslagsandel.md), [Matrikkelenhet](matrikkelenhet.md), [Matrikkelnummer](matrikkelnummer.md), [Kommunenummer](kommunenummer.md), [Gaardsnummer](gaardsnummer.md), [Bruksnummer](bruksnummer.md), [Festenummer](festenummer.md), [Seksjonsnummer](seksjonsnummer.md), [Bygning](bygning.md), [Bygningsnummer](bygningsnummer.md), [Representasjonspunkt](representasjonspunkt.md), [YtreInngang](ytreinngang.md), [Bruksenhet](bruksenhet.md), [Bruksenhetsnummer](bruksenhetsnummer.md), [Etasje](etasje.md), [Teig](teig.md), [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md), [Eierforhold](eierforhold.md), [Hjemmel](hjemmel.md), [Andel](andel.md), [Rettighetshaver](rettighetshaver.md), [TinglystHeftelse](tinglystheftelse.md), [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md), [Borettslag](borettslag.md), [OffisiellAdresse](offisielladresse.md), [Person](person.md), [Hovedenhet](hovedenhet.md), [Kommune](kommune.md) |
 
 ### Cardinality and Requirements
 

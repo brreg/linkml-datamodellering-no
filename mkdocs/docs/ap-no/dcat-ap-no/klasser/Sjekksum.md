@@ -22,7 +22,7 @@ Alias: sjekksum
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Distribusjon](Distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sjekksum
 
 | Property | Value |
 | --- | --- |
-| Range | [Sjekksum](Sjekksum.md) |
-| Domain Of | [Distribusjon](Distribusjon.md) |
+| Range | [Sjekksum](sjekksum.md) |
+| Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [spdx:checksum](http://spdx.org/rdf/terms#checksum) |
 
 ### Cardinality and Requirements

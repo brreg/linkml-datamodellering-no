@@ -22,7 +22,7 @@ Alias: krediteringsurl
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighetserklaring](Rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |  no  |
+| [Rettighetserklaring](rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: krediteringsurl
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](Uri.md) |
-| Domain Of | [Rettighetserklaring](Rettighetserklaring.md) |
+| Range | [Uri](uri.md) |
+| Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:attributionURL](http://schema.theodi.org/odrs#attributionURL) |
 
 ### Cardinality and Requirements

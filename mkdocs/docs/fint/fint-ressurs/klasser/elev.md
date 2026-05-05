@@ -17,8 +17,8 @@ Alias: elev
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [DigitalEnhet](DigitalEnhet.md) | Ei digital eining som t |  no  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: elev
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [DigitalEnhet](DigitalEnhet.md), [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [DigitalEnhet](digitalenhet.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 

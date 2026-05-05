@@ -22,7 +22,7 @@ Alias: land
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |  no  |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: land
 
 | Property | Value |
 | --- | --- |
-| Range | [Landkode](Landkode.md) |
-| Domain Of | [Adresse](Adresse.md) |
+| Range | [Landkode](landkode.md) |
+| Domain Of | [Adresse](adresse.md) |
 | Slot URI | [fint:land](https://schema.fintlabs.no/land) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: land
 
 | Property | Value |
 | --- | --- |
-| Owner | [Adresse](Adresse.md) |
+| Owner | [Adresse](adresse.md) |
 
 
 

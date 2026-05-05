@@ -22,7 +22,7 @@ Alias: gjenbruksmetadata
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FAIRMetadata](FAIRMetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
+| [FAIRMetadata](fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: gjenbruksmetadata
 
 | Property | Value |
 | --- | --- |
-| Range | [Gjenbruksmetadata](Gjenbruksmetadata.md) |
-| Domain Of | [FAIRMetadata](FAIRMetadata.md) |
+| Range | [Gjenbruksmetadata](gjenbruksmetadata.md) |
+| Domain Of | [FAIRMetadata](fairmetadata.md) |
 | Slot URI | [fair:gjenbruksmetadata](https://data.norge.no/fair#gjenbruksmetadata) |
 
 ### Cardinality and Requirements

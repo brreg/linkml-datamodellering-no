@@ -22,7 +22,7 @@ Alias: har_falsk_identitet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_falsk_identitet
 
 | Property | Value |
 | --- | --- |
-| Range | [FalskIdentitet](FalskIdentitet.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [FalskIdentitet](falskidentitet.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harFalskIdentitet](https://data.norge.no/vocabulary/ngr-person#harFalskIdentitet) |
 
 ### Cardinality and Requirements

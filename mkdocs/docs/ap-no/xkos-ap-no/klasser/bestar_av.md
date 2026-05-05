@@ -22,7 +22,7 @@ Alias: bestar_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bestar_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Kategorisamanlikning](Kategorisamanlikning.md) |
-| Domain Of | [Klassifikasjonssamanlikning](Klassifikasjonssamanlikning.md) |
+| Range | [Kategorisamanlikning](kategorisamanlikning.md) |
+| Domain Of | [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) |
 | Slot URI | [xkos:madeOf](http://rdf-vocabulary.ddialliance.org/xkos#madeOf) |
 
 ### Cardinality and Requirements

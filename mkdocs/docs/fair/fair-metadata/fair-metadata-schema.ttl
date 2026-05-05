@@ -12,14 +12,14 @@
     pav:version "1.0.0" ;
     sh:declare [ sh:namespace "https://data.norge.no/fair#"^^xsd:anyURI ;
             sh:prefix "fair" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
         [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
             sh:prefix "dct" ],
         [ sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ;
             sh:prefix "prov" ],
         [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ] ;
+            sh:prefix "dcat" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ] ;
     linkml:classes <https://data.norge.no/FAIRMetadata>,
         <https://data.norge.no/Gjenbruksmetadata>,
         <https://data.norge.no/Katalogregistrering>,
@@ -29,7 +29,7 @@
     linkml:default_range <https://data.norge.no/string> ;
     linkml:description """FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
 """ ;
-    linkml:generation_date "2026-05-04T20:06:20"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-05T13:26:32"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.7.0" ;

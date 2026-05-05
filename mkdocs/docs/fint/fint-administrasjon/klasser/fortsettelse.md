@@ -22,7 +22,7 @@ Alias: fortsettelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fortsettelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Fravaer](Fravaer.md) |
-| Domain Of | [Fravaer](Fravaer.md) |
+| Range | [Fravaer](fravaer.md) |
+| Domain Of | [Fravaer](fravaer.md) |
 | Slot URI | [adm:fortsettelse](https://schema.fintlabs.no/administrasjon/fortsettelse) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: fortsettelse
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravaer](Fravaer.md) |
+| Owner | [Fravaer](fravaer.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: fortsettelse
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

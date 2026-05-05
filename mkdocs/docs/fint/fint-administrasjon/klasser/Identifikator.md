@@ -105,8 +105,8 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [String](String.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
-| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](Periode.md) | Perioden ein gjeven identifikator er gyldig |
+| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [String](string.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
+| [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Perioden ein gjeven identifikator er gyldig |
 
 
 
@@ -119,25 +119,25 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Lonn](Lonn.md) | [kildesystemId](kildesystemId.md) | range | [Identifikator](Identifikator.md) |
-| [Fastlonn](Fastlonn.md) | [kildesystemId](kildesystemId.md) | range | [Identifikator](Identifikator.md) |
-| [Fasttillegg](Fasttillegg.md) | [kildesystemId](kildesystemId.md) | range | [Identifikator](Identifikator.md) |
-| [Variabellonn](Variabellonn.md) | [kildesystemId](kildesystemId.md) | range | [Identifikator](Identifikator.md) |
-| [Fravaer](Fravaer.md) | [kildesystemId](kildesystemId.md) | range | [Identifikator](Identifikator.md) |
-| [Rolle](Rolle.md) | [rolleNavn](rolleNavn.md) | range | [Identifikator](Identifikator.md) |
-| [Arbeidslokasjon](Arbeidslokasjon.md) | [lokasjonskode](lokasjonskode.md) | range | [Identifikator](Identifikator.md) |
-| [Arbeidslokasjon](Arbeidslokasjon.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Organisasjonselement](Organisasjonselement.md) | [organisasjonsId](organisasjonsId.md) | range | [Identifikator](Identifikator.md) |
-| [Organisasjonselement](Organisasjonselement.md) | [organisasjonsKode](organisasjonsKode.md) | range | [Identifikator](Identifikator.md) |
-| [Organisasjonselement](Organisasjonselement.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Personalressurs](Personalressurs.md) | [ansattnummer](ansattnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Personalressurs](Personalressurs.md) | [brukernavn](brukernavn.md) | range | [Identifikator](Identifikator.md) |
-| [Enhet](Enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Valuta](Valuta.md) | [bokstavkode](bokstavkode.md) | range | [Identifikator](Identifikator.md) |
-| [Valuta](Valuta.md) | [nummerkode](nummerkode.md) | range | [Identifikator](Identifikator.md) |
-| [Person](Person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](Identifikator.md) |
-| [Virksomhet](Virksomhet.md) | [virksomhetsId](virksomhetsId.md) | range | [Identifikator](Identifikator.md) |
-| [Virksomhet](Virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](Identifikator.md) |
+| [Lonn](lonn.md) | [kildesystemId](kildesystemid.md) | range | [Identifikator](identifikator.md) |
+| [Fastlonn](fastlonn.md) | [kildesystemId](kildesystemid.md) | range | [Identifikator](identifikator.md) |
+| [Fasttillegg](fasttillegg.md) | [kildesystemId](kildesystemid.md) | range | [Identifikator](identifikator.md) |
+| [Variabellonn](variabellonn.md) | [kildesystemId](kildesystemid.md) | range | [Identifikator](identifikator.md) |
+| [Fravaer](fravaer.md) | [kildesystemId](kildesystemid.md) | range | [Identifikator](identifikator.md) |
+| [Rolle](rolle.md) | [rolleNavn](rollenavn.md) | range | [Identifikator](identifikator.md) |
+| [Arbeidslokasjon](arbeidslokasjon.md) | [lokasjonskode](lokasjonskode.md) | range | [Identifikator](identifikator.md) |
+| [Arbeidslokasjon](arbeidslokasjon.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Organisasjonselement](organisasjonselement.md) | [organisasjonsId](organisasjonsid.md) | range | [Identifikator](identifikator.md) |
+| [Organisasjonselement](organisasjonselement.md) | [organisasjonsKode](organisasjonskode.md) | range | [Identifikator](identifikator.md) |
+| [Organisasjonselement](organisasjonselement.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Personalressurs](personalressurs.md) | [ansattnummer](ansattnummer.md) | range | [Identifikator](identifikator.md) |
+| [Personalressurs](personalressurs.md) | [brukernavn](brukernavn.md) | range | [Identifikator](identifikator.md) |
+| [Enhet](enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [bokstavkode](bokstavkode.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [nummerkode](nummerkode.md) | range | [Identifikator](identifikator.md) |
+| [Person](person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [virksomhetsId](virksomhetsid.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
 
 
 

@@ -71,7 +71,7 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
 
 
 ## Inheritance
-* [Modellelement](Modellelement.md)
+* [Modellelement](modellelement.md)
     * **Modul**
 
 
@@ -109,13 +109,13 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](Modellelement.md) |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](Modellelement.md) |
-| [begrep](begrep.md) | * <br/> [Konsept](Konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](Modellelement.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](Modellelement.md) |
-| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](Eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](Modellelement.md) |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](Modellelement.md) |
-| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](Modellelement.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](modellelement.md) |
+| [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](modellelement.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
+| [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](modellelement.md) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](modellelement.md) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](modellelement.md) |
 
 
 
@@ -125,32 +125,32 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modellelement](Modellelement.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Objekttype](Objekttype.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [RootObjekttype](RootObjekttype.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Datatype](Datatype.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [EnkelType](EnkelType.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Kodeliste](Kodeliste.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Modul](Modul.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Eigenskap](Eigenskap.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Attributt](Attributt.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Assosiasjon](Assosiasjon.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Rolle](Rolle.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Spesialisering](Spesialisering.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Sammensetning](Sammensetning.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Realisering](Realisering.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Abstraksjon](Abstraksjon.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Avhengighet](Avhengighet.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Samling](Samling.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Valg](Valg.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [AlleAv](AlleAv.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [NoenAv](NoenAv.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Merknad](Merknad.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Betingelsesregel](Betingelsesregel.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Og](Og.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Eller](Eller.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [XEllerY](XEllerY.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
-| [Ikke](Ikke.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](Modul.md) |
+| [Modellelement](modellelement.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Objekttype](objekttype.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [RootObjekttype](rootobjekttype.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Datatype](datatype.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [EnkelType](enkeltype.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Kodeliste](kodeliste.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Modul](modul.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Eigenskap](eigenskap.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Attributt](attributt.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Assosiasjon](assosiasjon.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Rolle](rolle.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Spesialisering](spesialisering.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Sammensetning](sammensetning.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Realisering](realisering.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Abstraksjon](abstraksjon.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Avhengighet](avhengighet.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Samling](samling.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Valg](valg.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [AlleAv](alleav.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [NoenAv](noenav.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Merknad](merknad.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Betingelsesregel](betingelsesregel.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Og](og.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Eller](eller.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [XEllerY](xellery.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
+| [Ikke](ikke.md) | [tilhorer_modul](tilhorer_modul.md) | range | [Modul](modul.md) |
 
 
 

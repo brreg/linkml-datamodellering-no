@@ -22,7 +22,7 @@ Alias: er_klassifisert_i_sektorkode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hovedenhet](Hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_klassifisert_i_sektorkode
 
 | Property | Value |
 | --- | --- |
-| Range | [Sektorkode](Sektorkode.md) |
-| Domain Of | [Hovedenhet](Hovedenhet.md) |
+| Range | [Sektorkode](sektorkode.md) |
+| Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:erKlassifisertISektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#erKlassifisertISektorkode) |
 
 ### Cardinality and Requirements

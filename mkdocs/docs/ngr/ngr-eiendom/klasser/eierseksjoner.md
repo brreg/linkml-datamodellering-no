@@ -17,7 +17,7 @@ Alias: eierseksjoner
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EiendomContainer](EiendomContainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
+| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: eierseksjoner
 
 | Property | Value |
 | --- | --- |
-| Range | [Eierseksjon](Eierseksjon.md) |
-| Domain Of | [EiendomContainer](EiendomContainer.md) |
+| Range | [Eierseksjon](eierseksjon.md) |
+| Domain Of | [EiendomContainer](eiendomcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: eierseksjoner
 
 | Property | Value |
 | --- | --- |
-| Owner | [EiendomContainer](EiendomContainer.md) |
+| Owner | [EiendomContainer](eiendomcontainer.md) |
 
 
 

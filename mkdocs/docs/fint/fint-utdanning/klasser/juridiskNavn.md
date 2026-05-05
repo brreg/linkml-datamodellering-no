@@ -22,7 +22,7 @@ Alias: juridiskNavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: juridiskNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skole](Skole.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skole](skole.md) |
 | Slot URI | [utd:juridiskNavn](https://schema.fintlabs.no/utdanning/juridiskNavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: juridiskNavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Skole](Skole.md) |
+| Owner | [Skole](skole.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: juridiskNavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

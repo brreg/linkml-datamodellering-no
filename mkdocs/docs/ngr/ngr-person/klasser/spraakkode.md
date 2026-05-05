@@ -22,7 +22,7 @@ Alias: spraakkode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) | Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, va... |  yes  |
+| [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) | Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, va... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: spraakkode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) |
 | Slot URI | [ngrp:spraakkode](https://data.norge.no/vocabulary/ngr-person#spraakkode) |
 
 ### Cardinality and Requirements

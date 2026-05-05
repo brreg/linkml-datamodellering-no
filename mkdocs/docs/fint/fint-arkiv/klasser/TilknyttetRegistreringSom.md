@@ -22,7 +22,7 @@ Alias: tilknyttetRegistreringSom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](Dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tilknyttetRegistreringSom
 
 | Property | Value |
 | --- | --- |
-| Range | [TilknyttetRegistreringSom](TilknyttetRegistreringSom.md) |
-| Domain Of | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Range | [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) |
+| Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:tilknyttetRegistreringSom](https://schema.fintlabs.no/arkiv/tilknyttetRegistreringSom) |
 
 ### Cardinality and Requirements
@@ -49,7 +49,7 @@ Alias: tilknyttetRegistreringSom
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentbeskrivelse](Dokumentbeskrivelse.md) |
+| Owner | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 
 
 
@@ -61,7 +61,7 @@ Alias: tilknyttetRegistreringSom
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

@@ -22,7 +22,7 @@ Alias: har_palydende_belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksje](Aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |  no  |
+| [Aksje](aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |  no  |
 
 
 
@@ -35,9 +35,9 @@ Alias: har_palydende_belop
 
 | Property | Value |
 | --- | --- |
-| Range | [Decimal](Decimal.md) |
-| Domain | [Aksje](Aksje.md) |
-| Domain Of | [Aksje](Aksje.md) |
+| Range | [Decimal](decimal.md) |
+| Domain | [Aksje](aksje.md) |
+| Domain Of | [Aksje](aksje.md) |
 
 ### Cardinality and Requirements
 

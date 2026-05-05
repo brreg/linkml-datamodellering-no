@@ -26,7 +26,7 @@ Alias: identifikator_literal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
+| Range | [String](string.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 
 ### Cardinality and Requirements

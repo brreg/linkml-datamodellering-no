@@ -22,8 +22,8 @@ Alias: produsent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: produsent
 
 | Property | Value |
 | --- | --- |
-| Range | [Aktor](Aktor.md) |
-| Domain Of | [Datasett](Datasett.md), [Katalog](Katalog.md) |
+| Range | [Aktor](aktor.md) |
+| Domain Of | [Datasett](datasett.md), [Katalog](katalog.md) |
 | Slot URI | [dct:creator](http://purl.org/dc/terms/creator) |
 
 ### Cardinality and Requirements

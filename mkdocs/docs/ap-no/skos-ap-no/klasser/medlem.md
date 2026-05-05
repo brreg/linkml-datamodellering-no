@@ -22,7 +22,7 @@ Alias: medlem
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](Samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: medlem
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [Samling](Samling.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [Samling](samling.md) |
 | Slot URI | [skos:member](http://www.w3.org/2004/02/skos/core#member) |
 
 ### Cardinality and Requirements

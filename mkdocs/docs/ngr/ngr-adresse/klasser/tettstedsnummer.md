@@ -22,7 +22,7 @@ Alias: tettstedsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tettsted](Tettsted.md) | Eit tettbygd område definert av SSB |  no  |
+| [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tettstedsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Tettsted](Tettsted.md) |
+| Range | [String](string.md) |
+| Domain Of | [Tettsted](tettsted.md) |
 | Slot URI | [ngr:tettstedsnummer](https://data.norge.no/vocabulary/ngr-adresse#tettstedsnummer) |
 
 ### Cardinality and Requirements

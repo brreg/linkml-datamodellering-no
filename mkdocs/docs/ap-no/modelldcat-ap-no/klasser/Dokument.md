@@ -150,10 +150,10 @@ URI: [foaf:Document](http://xmlns.com/foaf/0.1/Document)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [format](format.md) | 0..1 <br/> [Mediatype](Mediatype.md) | Filformat eller medietype (dct:format) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [format](format.md) | 0..1 <br/> [Mediatype](mediatype.md) | Filformat eller medietype (dct:format) |
 
 
 
@@ -166,7 +166,7 @@ URI: [foaf:Document](http://xmlns.com/foaf/0.1/Document)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Informasjonsmodell](Informasjonsmodell.md) | [har_format](har_format.md) | range | [Dokument](Dokument.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [har_format](har_format.md) | range | [Dokument](dokument.md) |
 
 
 

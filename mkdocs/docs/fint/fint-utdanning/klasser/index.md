@@ -13,97 +13,97 @@ Name: fint-utdanning
 
 | Class | Description |
 | --- | --- |
-| [Adresse](Adresse.md) | Fysisk adresse eller postadresse |
-| [Aktoer](Aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](Enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](Person.md) | Fysiske private personar |
-| [Anmerkninger](Anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |
-| [Avbruddsaarsak](Avbruddsaarsak.md) | Årsak til avbrot frå opplæring |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](Fylke.md) | Liste over Norges fylker |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](Kommune.md) | Liste over Norges kommunar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |
-| [Betalingsstatus](Betalingsstatus.md) | Betalingsstatus for eksamensavgift |
-| [Bevistype](Bevistype.md) | Type kompetansebevis for lærling |
-| [Brevtype](Brevtype.md) | Type brev knytt til lærlingprøve |
-| [Eksamen](Eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |
-| [Eksamensform](Eksamensform.md) | Form for gjennomføring av eksamen |
-| [Elev](Elev.md) | Ein elev registrert i skulesystemet |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |
-| [Elevfravar](Elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |
-| [Elevkategori](Elevkategori.md) | Kategori for eit elevforhold (t |
-| [Elevtilrettelegging](Elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |
-| [Elevvurdering](Elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |
-| [Fagmerknad](Fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |
-| [Fagstatus](Fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |
-| [FagvurderingAbstrakt](FagvurderingAbstrakt.md) | Abstrakt basisklasse for fagvurderingar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensvurdering](Eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsfagvurdering](Halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttfagvurdering](Sluttfagvurdering.md) | Sluttkarakter i eit fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisfagvurdering](Underveisfagvurdering.md) | Underveisfagvurdering for ein elev |
-| [Fravarsoversikt](Fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |
-| [Fravarsprosent](Fravarsprosent.md) | Kompleks type som representerer fråværsprosent for ein periode |
-| [Fravartype](Fravartype.md) | Type fråvær (t |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |
-| [Fullfortkode](Fullfortkode.md) | Kode for fullførtresultat av lærling |
-| [Gruppe](Gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Arstrinn](Arstrinn.md) | Eit årstrinn i skulen (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppe](Eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fag](Fag.md) | Eit skulefag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppe](Faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klasse](Klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppe](Kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppe](Persongruppe.md) | Ei gruppe elevar definert for personlege føremål |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrade](Programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppe](Undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Utdanningsprogram](Utdanningsprogram.md) | Eit utdanningsprogram (t |
-| [Gruppemedlemskap](Gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppemedlemskap](Faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klassemedlemskap](Klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppemedlemskap](Kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppemedlemskap](Persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrademedlemskap](Programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppemedlemskap](Undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |
-| [Identifikator](Identifikator.md) | Unik identifikasjon til eit objekt |
-| [Karakterhistorie](Karakterhistorie.md) | Historikk over endringar i ein karakter |
-| [Karakterskala](Karakterskala.md) | Skala for karaktersetjing (t |
-| [Karakterstatus](Karakterstatus.md) | Status for ein karakter (t |
-| [Karakterverdi](Karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |
-| [Matrikkelnummer](Matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
-| [OrdensvurderingAbstrakt](OrdensvurderingAbstrakt.md) | Abstrakt basisklasse for ordensvurderingar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsordensvurdering](Halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttordensvurdering](Sluttordensvurdering.md) | Sluttordensvurdering for ein elev |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisordensvurdering](Underveisordensvurdering.md) | Underveisordensvurdering for ein elev |
-| [OtEnhet](OtEnhet.md) | Eining i oppfølgingstenesta (OT) |
-| [OtStatus](OtStatus.md) | Status for ein ungdom i oppfølgingstenesta |
-| [OtUngdom](OtUngdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |
-| [Periode](Periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
-| [Personnavn](Personnavn.md) | Namn på ein person |
-| [Provestatus](Provestatus.md) | Status for ei lærlingprøve |
-| [Rom](Rom.md) | Eit rom eller lokale ved ein skule |
-| [Sensor](Sensor.md) | Ein sensor for ein eksamen |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |
-| [Skoleaar](Skoleaar.md) | Eit skoleår (t |
-| [Skoleeiertype](Skoleeiertype.md) | Type skuleeigartilknyting |
-| [Skoleressurs](Skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |
-| [Termin](Termin.md) | Ein skuleterm (t |
-| [Tilrettelegging](Tilrettelegging.md) | Type tilrettelegging for elevar (t |
-| [Time](Time.md) | Ein time i timeplanen |
-| [UtdanningContainer](UtdanningContainer.md) | Rotcontainer for FINT Utdanning-instansar |
-| [Utdanningsforhold](Utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsforhold](Undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |
-| [Varsel](Varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |
-| [Varseltype](Varseltype.md) | Type varsel knytt til ein elev |
-| [Vitnemalsmerknad](Vitnemalsmerknad.md) | Merknad på vitnemål |
+| [Adresse](adresse.md) | Fysisk adresse eller postadresse |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](person.md) | Fysiske private personar |
+| [Anmerkninger](anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |
+| [Avbruddsaarsak](avbruddsaarsak.md) | Årsak til avbrot frå opplæring |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Liste over Norges fylker |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | Liste over Norges kommunar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |
+| [Betalingsstatus](betalingsstatus.md) | Betalingsstatus for eksamensavgift |
+| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |
+| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |
+| [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |
+| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |
+| [Elevfravar](elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |
+| [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |
+| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |
+| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |
+| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |
+| [FagvurderingAbstrakt](fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |
+| [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |
+| [Fravarsprosent](fravarsprosent.md) | Kompleks type som representerer fråværsprosent for ein periode |
+| [Fravartype](fravartype.md) | Type fråvær (t |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |
+| [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |
+| [Gruppe](gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fag](fag.md) | Eit skulefag |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |
+| [Gruppemedlemskap](gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |
+| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |
+| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |
+| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
+| [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md) | Abstrakt basisklasse for ordensvurderingar |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |
+| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
+| [Personnavn](personnavn.md) | Namn på ein person |
+| [Provestatus](provestatus.md) | Status for ei lærlingprøve |
+| [Rom](rom.md) | Eit rom eller lokale ved ein skule |
+| [Sensor](sensor.md) | Ein sensor for ein eksamen |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |
+| [Skoleaar](skoleaar.md) | Eit skoleår (t |
+| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |
+| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |
+| [Termin](termin.md) | Ein skuleterm (t |
+| [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |
+| [Time](time.md) | Ein time i timeplanen |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |
+| [Utdanningsforhold](utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |
+| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |
+| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |
+| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |
+| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |
 
 
 
@@ -135,7 +135,7 @@ Name: fint-utdanning
 | [brevtype](brevtype.md) | Type brev knytt til prøva |
 | [bruksnummer](bruksnummer.md) | Fortløpande nummerering av bruk under gårdsnummer |
 | [delegert](delegert.md) | Angir om deltakinga er delegert |
-| [delegertTil](delegertTil.md) | Referanse til den deltakinga er delegert til |
+| [delegertTil](delegerttil.md) | Referanse til den deltakinga er delegert til |
 | [domenenavn](domenenavn.md) | Domenenamn for skulen |
 | [eksamen](eksamen.md) |  |
 | [eksamensdato](eksamensdato.md) | Dato for eksamenen |
@@ -153,7 +153,7 @@ Name: fint-utdanning
 | [elevnummer](elevnummer.md) | Skulens interne elevnummer |
 | [elevtilrettelegging](elevtilrettelegging.md) |  |
 | [elevvurdering](elevvurdering.md) |  |
-| [endretDato](endretDato.md) | Dato og tidspunkt for endringa |
+| [endretDato](endretdato.md) | Dato og tidspunkt for endringa |
 | [enhet](enhet.md) | OT-eining knytt til ungdommen |
 | [epostadresse](epostadresse.md) | Namngitt elektronisk adresse for mottak av e-post |
 | [etternavn](etternavn.md) | Etternamn til personen |
@@ -170,9 +170,9 @@ Name: fint-utdanning
 | [fodselsnummer](fodselsnummer.md) | Fødselsnummer eller ein av dei fiktive variantane |
 | [foreldre](foreldre.md) | Den/dei som har foreldreansvar til personen |
 | [foreldreansvar](foreldreansvar.md) | Personar denne personen har foreldreansvar for |
-| [forersPaaVitnemaal](forersPaaVitnemaal.md) | Angir om fråværet vert ført på vitnemålet |
-| [foretrukketSensor](foretrukketSensor.md) | Angir om sensor er føretrekt |
-| [foretrukketSkole](foretrukketSkole.md) | Angir om skulen er føretrekt for eksamenen |
+| [forersPaaVitnemaal](forerspaavitnemaal.md) | Angir om fråværet vert ført på vitnemålet |
+| [foretrukketSensor](foretrukketsensor.md) | Angir om sensor er føretrekt |
+| [foretrukketSkole](foretrukketskole.md) | Angir om skulen er føretrekt for eksamenen |
 | [fornavn](fornavn.md) | Fornamn til personen |
 | [forretningsadresse](forretningsadresse.md) | Forretningsadresse til skulen |
 | [fravaerstimer](fravaerstimer.md) | Antal fråværstimar |
@@ -194,7 +194,7 @@ Name: fint-utdanning
 | [halvaarsordensvurdering](halvaarsordensvurdering.md) |  |
 | [id](id.md) | URI-identifikator for ressursen |
 | [identifikatorverdi](identifikatorverdi.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
-| [juridiskNavn](juridiskNavn.md) | Juridisk namn på skulen |
+| [juridiskNavn](juridisknavn.md) | Juridisk namn på skulen |
 | [kandidatnummer](kandidatnummer.md) | Kandidatnummer for eksamenen |
 | [karakter](karakter.md) | Karakterverdien gjeve i vurderinga |
 | [karakteransvarlig](karakteransvarlig.md) | Skoleressurs som er ansvarleg for karakteren |
@@ -230,17 +230,17 @@ Name: fint-utdanning
 | [nettsted](nettsted.md) | Adresse til eit nettstad |
 | [nummerkode](nummerkode.md) | Nummerkode for aktuell valuta |
 | [nus](nus.md) | NUS-kode knytt til eksamensgruppemedlemskapet |
-| [oppdatertAv](oppdatertAv.md) | Skoleressurs som oppdaterte karakteren |
+| [oppdatertAv](oppdatertav.md) | Skoleressurs som oppdaterte karakteren |
 | [oppmoetetidspunkt](oppmoetetidspunkt.md) | Tidspunkt for oppmøte til eksamenen |
-| [opprinneligKarakterstatus](opprinneligKarakterstatus.md) | Opphavleg karakterstatus før endringa |
-| [opprinneligKarakterverdi](opprinneligKarakterverdi.md) | Opphavleg karakterverdi før endringa |
+| [opprinneligKarakterstatus](opprinneligkarakterstatus.md) | Opphavleg karakterstatus før endringa |
+| [opprinneligKarakterverdi](opprinneligkarakterverdi.md) | Opphavleg karakterverdi før endringa |
 | [orden](orden.md) | Karakterverdi for orden |
 | [organisasjon](organisasjon.md) | Referanse til Organisasjonselement i Administrasjon-domenet |
 | [organisasjonsnavn](organisasjonsnavn.md) | Organisasjonsnamn for skulen |
 | [organisasjonsnummer](organisasjonsnummer.md) | Organisasjonsnummer-identifikator |
-| [otEnheter](otEnheter.md) |  |
-| [otStatus](otStatus.md) |  |
-| [otUngdom](otUngdom.md) |  |
+| [otEnheter](otenheter.md) |  |
+| [otStatus](otstatus.md) |  |
+| [otUngdom](otungdom.md) |  |
 | [otungdom](otungdom.md) | Referanse til OtUngdom (Utdanning) |
 | [parorende](parorende.md) | Pårørande kontaktperson til personen |
 | [passiv](passiv.md) |  |
@@ -260,7 +260,7 @@ Name: fint-utdanning
 | [provedato](provedato.md) | Dato prøva vart avlagt |
 | [provestatus](provestatus.md) | Status for prøva |
 | [provestatuser](provestatuser.md) |  |
-| [registrertAv](registrertAv.md) | Skoleressurs som registrerte fråværet |
+| [registrertAv](registrertav.md) | Skoleressurs som registrerte fråværet |
 | [rom](rom.md) |  |
 | [seksjonsnummer](seksjonsnummer.md) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
 | [sendt](sendt.md) | Dato varselet vart sendt |
@@ -271,8 +271,8 @@ Name: fint-utdanning
 | [skolar](skolar.md) |  |
 | [skole](skole.md) | Skulen eleven er tilknytt |
 | [skoleaar](skoleaar.md) |  |
-| [skoleaarFravar](skoleaarFravar.md) | Fråværsprosent for heile skoleåret |
-| [skoleeierType](skoleeierType.md) | Kategori for skuleeigartilknyting |
+| [skoleaarFravar](skoleaarfravar.md) | Fråværsprosent for heile skoleåret |
+| [skoleeierType](skoleeiertype.md) | Kategori for skuleeigartilknyting |
 | [skoleeijartypar](skoleeijartypar.md) |  |
 | [skolenummer](skolenummer.md) | Nasjonal skulenummer-identifikator |
 | [skoleressurs](skoleressurs.md) | Skoleressursar knytt til gruppa |
@@ -291,7 +291,7 @@ Name: fint-utdanning
 | [tilrettelegging](tilrettelegging.md) |  |
 | [timar](timar.md) |  |
 | [time](time.md) | Timar haldne i dette rommet |
-| [tosprakligFagopplaering](tosprakligFagopplaering.md) | Indikerer om eleven har tospråkleg fagopplæring |
+| [tosprakligFagopplaering](tosprakligfagopplaering.md) | Indikerer om eleven har tospråkleg fagopplæring |
 | [trinn](trinn.md) | Årstrinnet klassen tilhøyrer |
 | [type](type.md) | Type varsel |
 | [underveisfagvurdering](underveisfagvurdering.md) |  |
@@ -307,7 +307,7 @@ Name: fint-utdanning
 | [varseltypar](varseltypar.md) |  |
 | [verdi](verdi.md) | Karakterverdiar i denne skalaen |
 | [vigoreferanse](vigoreferanse.md) | Referanse til Vigo-systemet |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 | [vitnemalsmerknad](vitnemalsmerknad.md) |  |
 | [vurderingsdato](vurderingsdato.md) | Dato og tidspunkt for vurderinga |
 
@@ -322,31 +322,31 @@ Name: fint-utdanning
 
 | Type | Description |
 | --- | --- |
-| [Boolean](Boolean.md) | A binary (true or false) value |
-| [Curie](Curie.md) | a compact URI |
-| [Date](Date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](DateOrDatetime.md) | Either a date or a datetime |
-| [Datetime](Datetime.md) | The combination of a date and time |
-| [Decimal](Decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](Double.md) | A real number that conforms to the xsd:double specification |
-| [Float](Float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](Integer.md) | An integer |
-| [Jsonpath](Jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](Jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](Ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](Nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](Objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](Sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](String.md) | A character string |
-| [Time](Time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](Uri.md) | a complete URI |
-| [Uriorcurie](Uriorcurie.md) | a URI or a CURIE |
+| [Boolean](boolean.md) | A binary (true or false) value |
+| [Curie](curie.md) | a compact URI |
+| [Date](date.md) | a date (year, month and day) in an idealized calendar |
+| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
+| [Datetime](datetime.md) | The combination of a date and time |
+| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
+| [Double](double.md) | A real number that conforms to the xsd:double specification |
+| [Float](float.md) | A real number that conforms to the xsd:float specification |
+| [Integer](integer.md) | An integer |
+| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
+| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
+| [Ncname](ncname.md) | Prefix part of CURIE |
+| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
+| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
+| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
+| [String](string.md) | A character string |
+| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
+| [Uri](uri.md) | a complete URI |
+| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
 
 | Subset | Description |
 | --- | --- |
-| [Anbefalt](Anbefalt.md) | Anbefalt eigensskap |
-| [Obligatorisk](Obligatorisk.md) | Obligatorisk eigensskap |
-| [Valgfri](Valgfri.md) | Valfri eigensskap |
+| [Anbefalt](anbefalt.md) | Anbefalt eigensskap |
+| [Obligatorisk](obligatorisk.md) | Obligatorisk eigensskap |
+| [Valgfri](valgfri.md) | Valfri eigensskap |

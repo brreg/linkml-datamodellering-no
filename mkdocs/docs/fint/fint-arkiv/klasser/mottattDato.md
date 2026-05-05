@@ -22,7 +22,7 @@ Alias: mottattDato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](Journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: mottattDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Journalpost](Journalpost.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Journalpost](journalpost.md) |
 | Slot URI | [ark:mottattDato](https://schema.fintlabs.no/arkiv/mottattDato) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: mottattDato
 
 | Property | Value |
 | --- | --- |
-| Owner | [Journalpost](Journalpost.md) |
+| Owner | [Journalpost](journalpost.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: mottattDato
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

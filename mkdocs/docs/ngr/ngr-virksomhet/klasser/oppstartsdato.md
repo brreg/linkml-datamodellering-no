@@ -22,7 +22,7 @@ Alias: oppstartsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](Underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: oppstartsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Underenhet](Underenhet.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Underenhet](underenhet.md) |
 | Slot URI | [ngrv:oppstartsdato](https://data.norge.no/vocabulary/ngr-virksomhet#oppstartsdato) |
 
 ### Cardinality and Requirements

@@ -22,9 +22,9 @@ Alias: gjelder_matrikkelenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eierforhold](Eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
-| [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
-| [TinglystEierforhold](TinglystEierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
+| [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: gjelder_matrikkelenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Matrikkelenhet](Matrikkelenhet.md) |
-| Domain Of | [Eierforhold](Eierforhold.md) |
+| Range | [Matrikkelenhet](matrikkelenhet.md) |
+| Domain Of | [Eierforhold](eierforhold.md) |
 | Slot URI | [ngre:gjelderMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#gjelderMatrikkelenhet) |
 
 ### Cardinality and Requirements

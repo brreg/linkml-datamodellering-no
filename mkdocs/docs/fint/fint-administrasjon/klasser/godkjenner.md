@@ -22,7 +22,7 @@ Alias: godkjenner
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravaer](Fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: godkjenner
 
 | Property | Value |
 | --- | --- |
-| Range | [Personalressurs](Personalressurs.md) |
-| Domain Of | [Fravaer](Fravaer.md) |
+| Range | [Personalressurs](personalressurs.md) |
+| Domain Of | [Fravaer](fravaer.md) |
 | Slot URI | [adm:godkjenner](https://schema.fintlabs.no/administrasjon/godkjenner) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: godkjenner
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fravaer](Fravaer.md) |
+| Owner | [Fravaer](fravaer.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: godkjenner
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

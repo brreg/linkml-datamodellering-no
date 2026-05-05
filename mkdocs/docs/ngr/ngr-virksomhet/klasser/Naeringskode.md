@@ -69,7 +69,7 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [naeringskode_kode](naeringskode_kode.md) | 1 <br/> [String](String.md) | NACE-kode for næringsgruppering (t |
+| [naeringskode_kode](naeringskode_kode.md) | 1 <br/> [String](string.md) | NACE-kode for næringsgruppering (t |
 
 
 
@@ -96,8 +96,8 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [naeringskode_beskrivelse](naeringskode_beskrivelse.md) | 0..1 <br/> [String](String.md) | Tekstleg skildring av næringskoden |
-| [er_hovednaeringskode](er_hovednaeringskode.md) | 0..1 <br/> [Boolean](Boolean.md) | Om dette er hovudnæringskoden til verksemda |
+| [naeringskode_beskrivelse](naeringskode_beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av næringskoden |
+| [er_hovednaeringskode](er_hovednaeringskode.md) | 0..1 <br/> [Boolean](boolean.md) | Om dette er hovudnæringskoden til verksemda |
 
 
 
@@ -171,7 +171,7 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -184,10 +184,10 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [naeringskoder](naeringskoder.md) | range | [Naeringskode](Naeringskode.md) |
-| [Virksomhet](Virksomhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](Naeringskode.md) |
-| [Underenhet](Underenhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](Naeringskode.md) |
-| [Hovedenhet](Hovedenhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](Naeringskode.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [naeringskoder](naeringskoder.md) | range | [Naeringskode](naeringskode.md) |
+| [Virksomhet](virksomhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](naeringskode.md) |
+| [Underenhet](underenhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](naeringskode.md) |
+| [Hovedenhet](hovedenhet.md) | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | range | [Naeringskode](naeringskode.md) |
 
 
 

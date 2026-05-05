@@ -22,7 +22,7 @@ Alias: har_del_omgrep
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_del_omgrep
 
 | Property | Value |
 | --- | --- |
-| Range | [Begrep](Begrep.md) |
-| Domain Of | [Begrep](Begrep.md) |
+| Range | [Begrep](begrep.md) |
+| Domain Of | [Begrep](begrep.md) |
 | Slot URI | [xkos:hasPart](http://rdf-vocabulary.ddialliance.org/xkos#hasPart) |
 
 ### Cardinality and Requirements

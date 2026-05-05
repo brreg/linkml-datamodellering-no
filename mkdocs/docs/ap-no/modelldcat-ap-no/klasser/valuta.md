@@ -26,7 +26,7 @@ Alias: valuta
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
+| Range | [Konsept](konsept.md) |
 | Slot URI | [cv:currency](http://data.europa.eu/m8g/currency) |
 
 ### Cardinality and Requirements

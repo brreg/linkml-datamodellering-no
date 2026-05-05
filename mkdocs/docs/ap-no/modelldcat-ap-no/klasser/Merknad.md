@@ -61,7 +61,7 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 
 ## Inheritance
 * **Merknad**
-    * [Betingelsesregel](Betingelsesregel.md)
+    * [Betingelsesregel](betingelsesregel.md)
 
 
 ## Class Properties
@@ -132,10 +132,10 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [annoterer](annoterer.md) | * <br/> [Modellelement](Modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) |
-| [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](LangString.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [tittel](tittel.md) | * <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
+| [annoterer](annoterer.md) | * <br/> [Modellelement](modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) |
+| [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
 
@@ -166,7 +166,7 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](Modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) |
+| [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) |
 
 
 
@@ -250,7 +250,7 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 

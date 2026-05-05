@@ -22,7 +22,7 @@ Alias: fullfortkode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AvlagtProve](AvlagtProve.md) | Ei avlagt prøve for ein lærling |  no  |
+| [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fullfortkode
 
 | Property | Value |
 | --- | --- |
-| Range | [Fullfortkode](Fullfortkode.md) |
-| Domain Of | [AvlagtProve](AvlagtProve.md) |
+| Range | [Fullfortkode](fullfortkode.md) |
+| Domain Of | [AvlagtProve](avlagtprove.md) |
 | Slot URI | [utd:fullfortkode](https://schema.fintlabs.no/utdanning/fullfortkode) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: fullfortkode
 
 | Property | Value |
 | --- | --- |
-| Owner | [AvlagtProve](AvlagtProve.md) |
+| Owner | [AvlagtProve](avlagtprove.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: fullfortkode
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

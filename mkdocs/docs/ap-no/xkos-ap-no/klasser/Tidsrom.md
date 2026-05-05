@@ -114,9 +114,9 @@ URI: [dct:PeriodOfTime](http://purl.org/dc/terms/PeriodOfTime)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [tidsrom_start](tidsrom_start.md) | 0..1 <br/> [Date](Date.md) | Startdato for tidsromet (dct:startDate) |
-| [tidsrom_slutt](tidsrom_slutt.md) | 0..1 <br/> [Date](Date.md) | Sluttdato for tidsromet (dct:endDate) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [tidsrom_start](tidsrom_start.md) | 0..1 <br/> [Date](date.md) | Startdato for tidsromet (dct:startDate) |
+| [tidsrom_slutt](tidsrom_slutt.md) | 0..1 <br/> [Date](date.md) | Sluttdato for tidsromet (dct:endDate) |
 
 
 
@@ -129,7 +129,7 @@ URI: [dct:PeriodOfTime](http://purl.org/dc/terms/PeriodOfTime)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | [gjeld_for_tidsrom](gjeld_for_tidsrom.md) | range | [Tidsrom](Tidsrom.md) |
+| [Klassifikasjon](klassifikasjon.md) | [gjeld_for_tidsrom](gjeld_for_tidsrom.md) | range | [Tidsrom](tidsrom.md) |
 
 
 

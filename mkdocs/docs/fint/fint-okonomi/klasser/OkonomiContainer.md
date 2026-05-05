@@ -113,8 +113,8 @@ URI: [https://schema.fintlabs.no/okonomi/:OkonomiContainer](https://schema.fintl
     
         
         
-        OkonomiContainer --> "*" Valuta : valutaer
-        click Valuta href "../Valuta/"
+        OkonomiContainer --> "*" OkonomiValuta : valutaer
+        click OkonomiValuta href "../OkonomiValuta/"
     
 
         
@@ -330,16 +330,16 @@ URI: [https://schema.fintlabs.no/okonomi/:OkonomiContainer](https://schema.fintl
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fakturaer](fakturaer.md) | * <br/> [Faktura](Faktura.md) |  |
-| [fakturagrunnlag](fakturagrunnlag.md) | * <br/> [Fakturagrunnlag](Fakturagrunnlag.md) |  |
-| [fakturautstederear](fakturautstederear.md) | * <br/> [Fakturautsteder](Fakturautsteder.md) |  |
-| [transaksjonar](transaksjonar.md) | * <br/> [Transaksjon](Transaksjon.md) |  |
-| [posteringar](posteringar.md) | * <br/> [Postering](Postering.md) |  |
-| [leverandorar](leverandorar.md) | * <br/> [Leverandor](Leverandor.md) |  |
-| [leverandorgrupper](leverandorgrupper.md) | * <br/> [Leverandorgruppe](Leverandorgruppe.md) |  |
-| [varer](varer.md) | * <br/> [Vare](Vare.md) |  |
-| [merverdiavgifter](merverdiavgifter.md) | * <br/> [Merverdiavgift](Merverdiavgift.md) |  |
-| [valutaer](valutaer.md) | * <br/> [Valuta](Valuta.md) |  |
+| [fakturaer](fakturaer.md) | * <br/> [Faktura](faktura.md) |  |
+| [fakturagrunnlag](fakturagrunnlag.md) | * <br/> [Fakturagrunnlag](fakturagrunnlag.md) |  |
+| [fakturautstederear](fakturautstederear.md) | * <br/> [Fakturautsteder](fakturautsteder.md) |  |
+| [transaksjonar](transaksjonar.md) | * <br/> [Transaksjon](transaksjon.md) |  |
+| [posteringar](posteringar.md) | * <br/> [Postering](postering.md) |  |
+| [leverandorar](leverandorar.md) | * <br/> [Leverandor](leverandor.md) |  |
+| [leverandorgrupper](leverandorgrupper.md) | * <br/> [Leverandorgruppe](leverandorgruppe.md) |  |
+| [varer](varer.md) | * <br/> [Vare](vare.md) |  |
+| [merverdiavgifter](merverdiavgifter.md) | * <br/> [Merverdiavgift](merverdiavgift.md) |  |
+| [valutaer](valutaer.md) | * <br/> [OkonomiValuta](okonomivaluta.md) |  |
 
 
 
@@ -494,7 +494,7 @@ attributes:
     rank: 1000
     domain_of:
     - OkonomiContainer
-    range: Valuta
+    range: OkonomiValuta
     multivalued: true
     inlined: true
     inlined_as_list: true
@@ -620,7 +620,7 @@ attributes:
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
-    range: Valuta
+    range: OkonomiValuta
     multivalued: true
     inlined_as_list: true
 tree_root: true

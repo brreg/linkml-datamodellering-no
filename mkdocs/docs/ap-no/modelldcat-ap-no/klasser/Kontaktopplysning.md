@@ -78,7 +78,7 @@ URI: [vcard:Organization](http://www.w3.org/2006/vcard/ns#Organization)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [vcard:Organization](http://www.w3.org/2006/vcard/ns#Organization)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Modelkatalog](Modelkatalog.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](Kontaktopplysning.md) |
-| [Informasjonsmodell](Informasjonsmodell.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](Kontaktopplysning.md) |
+| [Modelkatalog](modelkatalog.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
+| [Informasjonsmodell](informasjonsmodell.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 
 
 

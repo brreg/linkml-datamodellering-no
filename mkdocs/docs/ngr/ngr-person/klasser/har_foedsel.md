@@ -22,7 +22,7 @@ Alias: har_foedsel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_foedsel
 
 | Property | Value |
 | --- | --- |
-| Range | [Foedsel](Foedsel.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Foedsel](foedsel.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harFoedsel](https://data.norge.no/vocabulary/ngr-person#harFoedsel) |
 
 ### Cardinality and Requirements

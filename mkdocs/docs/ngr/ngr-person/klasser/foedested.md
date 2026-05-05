@@ -22,7 +22,7 @@ Alias: foedested
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Foedsel](Foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |  yes  |
+| [Foedsel](foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foedested
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Foedsel](Foedsel.md) |
+| Range | [String](string.md) |
+| Domain Of | [Foedsel](foedsel.md) |
 | Slot URI | [ngrp:foedested](https://data.norge.no/vocabulary/ngr-person#foedested) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: nus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nus
 
 | Property | Value |
 | --- | --- |
-| Range | [Karakterstatus](Karakterstatus.md) |
-| Domain Of | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Range | [Karakterstatus](karakterstatus.md) |
+| Domain Of | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 | Slot URI | [utd:nus](https://schema.fintlabs.no/utdanning/nus) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: nus
 
 | Property | Value |
 | --- | --- |
-| Owner | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Owner | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: nus
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

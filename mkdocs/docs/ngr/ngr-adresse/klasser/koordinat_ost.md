@@ -22,7 +22,7 @@ Alias: koordinat_ost
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Representasjonspunkt](Representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |  yes  |
+| [Representasjonspunkt](representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: koordinat_ost
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](Float.md) |
-| Domain Of | [Representasjonspunkt](Representasjonspunkt.md) |
+| Range | [Float](float.md) |
+| Domain Of | [Representasjonspunkt](representasjonspunkt.md) |
 | Slot URI | [ngr:koordinatOst](https://data.norge.no/vocabulary/ngr-adresse#koordinatOst) |
 
 ### Cardinality and Requirements

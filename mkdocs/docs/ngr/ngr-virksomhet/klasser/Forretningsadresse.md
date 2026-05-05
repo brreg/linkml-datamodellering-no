@@ -32,7 +32,7 @@ URI: [ngrv:Forretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#F
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **Forretningsadresse**
 
 
@@ -70,7 +70,7 @@ URI: [ngrv:Forretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#F
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -80,8 +80,8 @@ URI: [ngrv:Forretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#F
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [VirksomhetContainer](VirksomhetContainer.md) | [forretningsadresser](forretningsadresser.md) | range | [Forretningsadresse](Forretningsadresse.md) |
-| [Hovedenhet](Hovedenhet.md) | [har_forretningsadresse](har_forretningsadresse.md) | range | [Forretningsadresse](Forretningsadresse.md) |
+| [VirksomhetContainer](virksomhetcontainer.md) | [forretningsadresser](forretningsadresser.md) | range | [Forretningsadresse](forretningsadresse.md) |
+| [Hovedenhet](hovedenhet.md) | [har_forretningsadresse](har_forretningsadresse.md) | range | [Forretningsadresse](forretningsadresse.md) |
 
 
 

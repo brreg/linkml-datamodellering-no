@@ -22,7 +22,7 @@ Alias: karakteransvarlig
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Varsel](Varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
+| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: karakteransvarlig
 
 | Property | Value |
 | --- | --- |
-| Range | [Skoleressurs](Skoleressurs.md) |
-| Domain Of | [Varsel](Varsel.md) |
+| Range | [Skoleressurs](skoleressurs.md) |
+| Domain Of | [Varsel](varsel.md) |
 | Slot URI | [utd:karakteransvarlig](https://schema.fintlabs.no/utdanning/karakteransvarlig) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: karakteransvarlig
 
 | Property | Value |
 | --- | --- |
-| Owner | [Varsel](Varsel.md) |
+| Owner | [Varsel](varsel.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: karakteransvarlig
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

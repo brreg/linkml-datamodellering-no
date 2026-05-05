@@ -17,8 +17,8 @@ Alias: stedfortreder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fullmakt](Fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
-| [Personalressurs](Personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: stedfortreder
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Fullmakt](Fullmakt.md), [Personalressurs](Personalressurs.md) |
+| Range | [String](string.md) |
+| Domain Of | [Fullmakt](fullmakt.md), [Personalressurs](personalressurs.md) |
 
 ### Cardinality and Requirements
 

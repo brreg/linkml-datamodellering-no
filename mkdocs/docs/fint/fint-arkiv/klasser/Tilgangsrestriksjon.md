@@ -17,8 +17,8 @@ Alias: tilgangsrestriksjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skjerming](Skjerming.md) | Skjerming av mappe, registrering eller dokument etter offentleglova |  no  |
-| [Autorisasjon](Autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
+| [Autorisasjon](autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |  no  |
+| [Skjerming](skjerming.md) | Skjerming av mappe, registrering eller dokument etter offentleglova |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: tilgangsrestriksjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Autorisasjon](Autorisasjon.md), [Skjerming](Skjerming.md) |
+| Range | [String](string.md) |
+| Domain Of | [Autorisasjon](autorisasjon.md), [Skjerming](skjerming.md) |
 
 ### Cardinality and Requirements
 

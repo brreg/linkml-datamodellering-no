@@ -170,11 +170,11 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Global identifikator for instansen |
-| [tidspunkt](tidspunkt.md) | 0..1 <br/> [Date](Date.md) | Tidspunkt for utbytte/eierskapstransaksjon |
-| [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | 0..1 <br/> [Aksjeoverdragelse](Aksjeoverdragelse.md) | Aksjeoverdraging i transaksjonen |
-| [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | 0..1 <br/> [Selskapshendelse](Selskapshendelse.md) | Selskapshendelse i transaksjonen |
-| [paavirker_eierposisjon](paavirker_eierposisjon.md) | 0..1 <br/> [Eierposisjon](Eierposisjon.md) | Eierskapstransaksjon knytt til eigarposisjonen |
+| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [tidspunkt](tidspunkt.md) | 0..1 <br/> [Date](date.md) | Tidspunkt for utbytte/eierskapstransaksjon |
+| [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | 0..1 <br/> [Aksjeoverdragelse](aksjeoverdragelse.md) | Aksjeoverdraging i transaksjonen |
+| [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | 0..1 <br/> [Selskapshendelse](selskapshendelse.md) | Selskapshendelse i transaksjonen |
+| [paavirker_eierposisjon](paavirker_eierposisjon.md) | 0..1 <br/> [Eierposisjon](eierposisjon.md) | Eierskapstransaksjon knytt til eigarposisjonen |
 
 
 
@@ -187,10 +187,10 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](Containerklasse.md) | [eierskapstransaksjoner](eierskapstransaksjoner.md) | range | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | domain | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | domain | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
-| [Eierskapstransaksjon](Eierskapstransaksjon.md) | [paavirker_eierposisjon](paavirker_eierposisjon.md) | domain | [Eierskapstransaksjon](Eierskapstransaksjon.md) |
+| [Containerklasse](containerklasse.md) | [eierskapstransaksjoner](eierskapstransaksjoner.md) | range | [Eierskapstransaksjon](eierskapstransaksjon.md) |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
+| [Eierskapstransaksjon](eierskapstransaksjon.md) | [paavirker_eierposisjon](paavirker_eierposisjon.md) | domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
 
 
 

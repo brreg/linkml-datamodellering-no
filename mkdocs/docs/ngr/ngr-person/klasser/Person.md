@@ -488,14 +488,14 @@ URI: [ngrp:Person](https://data.norge.no/vocabulary/ngr-person#Person)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_personnavn](har_personnavn.md) | 1 <br/> [Personnavn](Personnavn.md) | Offisielt registrert namn på personen |
-| [har_folkeregisteridentifikator](har_folkeregisteridentifikator.md) | 1 <br/> [Folkeregisteridentifikator](Folkeregisteridentifikator.md) | Unik identifikator i Folkeregisteret (fødselsnummer eller D-nummer) |
-| [har_kjoenn](har_kjoenn.md) | 1 <br/> [Kjoenn](Kjoenn.md) | Kjønn registrert på personen |
-| [har_sivilstand](har_sivilstand.md) | 1 <br/> [Sivilstand](Sivilstand.md) | Sivilstand registrert på personen |
-| [har_personstatus](har_personstatus.md) | 1 <br/> [Personstatus](Personstatus.md) | Status for personen i Folkeregisteret |
-| [har_statsborgerskap](har_statsborgerskap.md) | 1..* <br/> [Statsborgerskap](Statsborgerskap.md) | Statsborgerskap registrert på personen (minimum 1) |
-| [har_foedsel](har_foedsel.md) | 1 <br/> [Foedsel](Foedsel.md) | Fødselsinformasjon om personen |
-| [har_valgt_spraak](har_valgt_spraak.md) | 1 <br/> [SpraakForElektroniskKommunikasjon](SpraakForElektroniskKommunikasjon.md) | Føretrekt språk for elektronisk kommunikasjon valt av personen |
+| [har_personnavn](har_personnavn.md) | 1 <br/> [Personnavn](personnavn.md) | Offisielt registrert namn på personen |
+| [har_folkeregisteridentifikator](har_folkeregisteridentifikator.md) | 1 <br/> [Folkeregisteridentifikator](folkeregisteridentifikator.md) | Unik identifikator i Folkeregisteret (fødselsnummer eller D-nummer) |
+| [har_kjoenn](har_kjoenn.md) | 1 <br/> [Kjoenn](kjoenn.md) | Kjønn registrert på personen |
+| [har_sivilstand](har_sivilstand.md) | 1 <br/> [Sivilstand](sivilstand.md) | Sivilstand registrert på personen |
+| [har_personstatus](har_personstatus.md) | 1 <br/> [Personstatus](personstatus.md) | Status for personen i Folkeregisteret |
+| [har_statsborgerskap](har_statsborgerskap.md) | 1..* <br/> [Statsborgerskap](statsborgerskap.md) | Statsborgerskap registrert på personen (minimum 1) |
+| [har_foedsel](har_foedsel.md) | 1 <br/> [Foedsel](foedsel.md) | Fødselsinformasjon om personen |
+| [har_valgt_spraak](har_valgt_spraak.md) | 1 <br/> [SpraakForElektroniskKommunikasjon](spraakforelektroniskkommunikasjon.md) | Føretrekt språk for elektronisk kommunikasjon valt av personen |
 
 
 
@@ -603,8 +603,8 @@ URI: [ngrp:Person](https://data.norge.no/vocabulary/ngr-person#Person)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_personidentifikasjon](har_personidentifikasjon.md) | * <br/> [Personidentifikasjon](Personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av personen |
-| [har_bosted_paa](har_bosted_paa.md) | 0..1 <br/> [Bostedsadresse](Bostedsadresse.md) | Adressa personen er registrert busett på |
+| [har_personidentifikasjon](har_personidentifikasjon.md) | * <br/> [Personidentifikasjon](personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av personen |
+| [har_bosted_paa](har_bosted_paa.md) | 0..1 <br/> [Bostedsadresse](bostedsadresse.md) | Adressa personen er registrert busett på |
 
 
 
@@ -748,26 +748,26 @@ URI: [ngrp:Person](https://data.norge.no/vocabulary/ngr-person#Person)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_falsk_identitet](har_falsk_identitet.md) | 0..1 <br/> [FalskIdentitet](FalskIdentitet.md) | Registrering av at personen har opptrådt med falsk identitet |
-| [har_utenlandsk_identifikasjonsdokument](har_utenlandsk_identifikasjonsdokument.md) | * <br/> [Identifikasjonsdokument](Identifikasjonsdokument.md) | Utanlandske identifikasjonsdokument knytt til personen |
-| [har_identitetsgrunnlag](har_identitetsgrunnlag.md) | 0..1 <br/> [Identitetsgrunnlag](Identitetsgrunnlag.md) | Grunnlaget for personens identitetsfastsetjing |
-| [har_lovlig_opphold](har_lovlig_opphold.md) | 0..1 <br/> [Opphold](Opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar |
-| [har_foreldreansvar_forelder](har_foreldreansvar_forelder.md) | * <br/> [ForeldreansvarForelder](ForeldreansvarForelder.md) | Personar med juridisk foreldreansvar for denne personen (maks 2) |
-| [har_foreldreansvar_barn](har_foreldreansvar_barn.md) | * <br/> [ForeldreansvarBarn](ForeldreansvarBarn.md) | Barn som denne personen har juridisk foreldreansvar for |
-| [har_familierelasjon_forelder](har_familierelasjon_forelder.md) | * <br/> [FamilierelasjonForelder](FamilierelasjonForelder.md) | Familierelasjonar der den relaterte personen er forelder (maks 2) |
-| [har_familierelasjon_barn](har_familierelasjon_barn.md) | * <br/> [FamilierelasjonBarn](FamilierelasjonBarn.md) | Familierelasjonar der den relaterte personen er barn |
-| [har_familierelasjon_ektefelle](har_familierelasjon_ektefelle.md) | 0..1 <br/> [FamilierelasjonEktefelle](FamilierelasjonEktefelle.md) | Familierelasjon til ektefelle eller registrert partnar |
-| [har_dodsfall](har_dodsfall.md) | 0..1 <br/> [Dodsfall](Dodsfall.md) | Dødsfallsinformasjon om personen |
-| [har_kontaktinformasjon_doedsbo](har_kontaktinformasjon_doedsbo.md) | 0..1 <br/> [KontaktinformasjonDoedsbo](KontaktinformasjonDoedsbo.md) | Kontaktinformasjon for personens dødsbu |
-| [har_innflytting_til_norge](har_innflytting_til_norge.md) | 0..1 <br/> [InnflyttingTilNorge](InnflyttingTilNorge.md) | Siste innflyttingsregistrering til Noreg |
-| [har_utflytting_fra_norge](har_utflytting_fra_norge.md) | 0..1 <br/> [UtflyttingFraNorge](UtflyttingFraNorge.md) | Siste utflyttingsregistrering frå Noreg |
-| [har_adressebeskyttelse](har_adressebeskyttelse.md) | 0..1 <br/> [Adressebeskyttelse](Adressebeskyttelse.md) | Adressebeskyttelse registrert på personen |
-| [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](Postadresse.md) | Adressa personen mottar post på |
-| [oppholder_seg_paa](oppholder_seg_paa.md) | 0..1 <br/> [Oppholdsadresse](Oppholdsadresse.md) | Adressa personen faktisk oppheld seg på |
-| [har_verge](har_verge.md) | * <br/> [Verge](Verge.md) | Verje(r) oppnemnd for personen |
-| [har_rettslig_handleevne](har_rettslig_handleevne.md) | 0..1 <br/> [RettsligHandleevne](RettsligHandleevne.md) | Avgrensing i rettsleg handleevne registrert for personen |
-| [har_reservasjon_mot_kommunikasjon](har_reservasjon_mot_kommunikasjon.md) | 0..1 <br/> [ReservasjonMotKommunikasjonPaaNett](ReservasjonMotKommunikasjonPaaNett.md) | Reservasjon mot digital kommunikasjon frå det offentlege |
-| [har_kontaktopplysninger](har_kontaktopplysninger.md) | 0..1 <br/> [Kontaktopplysninger](Kontaktopplysninger.md) | Kontaktopplysningar registrert i KRR |
+| [har_falsk_identitet](har_falsk_identitet.md) | 0..1 <br/> [FalskIdentitet](falskidentitet.md) | Registrering av at personen har opptrådt med falsk identitet |
+| [har_utenlandsk_identifikasjonsdokument](har_utenlandsk_identifikasjonsdokument.md) | * <br/> [Identifikasjonsdokument](identifikasjonsdokument.md) | Utanlandske identifikasjonsdokument knytt til personen |
+| [har_identitetsgrunnlag](har_identitetsgrunnlag.md) | 0..1 <br/> [Identitetsgrunnlag](identitetsgrunnlag.md) | Grunnlaget for personens identitetsfastsetjing |
+| [har_lovlig_opphold](har_lovlig_opphold.md) | 0..1 <br/> [Opphold](opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar |
+| [har_foreldreansvar_forelder](har_foreldreansvar_forelder.md) | * <br/> [ForeldreansvarForelder](foreldreansvarforelder.md) | Personar med juridisk foreldreansvar for denne personen (maks 2) |
+| [har_foreldreansvar_barn](har_foreldreansvar_barn.md) | * <br/> [ForeldreansvarBarn](foreldreansvarbarn.md) | Barn som denne personen har juridisk foreldreansvar for |
+| [har_familierelasjon_forelder](har_familierelasjon_forelder.md) | * <br/> [FamilierelasjonForelder](familierelasjonforelder.md) | Familierelasjonar der den relaterte personen er forelder (maks 2) |
+| [har_familierelasjon_barn](har_familierelasjon_barn.md) | * <br/> [FamilierelasjonBarn](familierelasjonbarn.md) | Familierelasjonar der den relaterte personen er barn |
+| [har_familierelasjon_ektefelle](har_familierelasjon_ektefelle.md) | 0..1 <br/> [FamilierelasjonEktefelle](familierelasjonektefelle.md) | Familierelasjon til ektefelle eller registrert partnar |
+| [har_dodsfall](har_dodsfall.md) | 0..1 <br/> [Dodsfall](dodsfall.md) | Dødsfallsinformasjon om personen |
+| [har_kontaktinformasjon_doedsbo](har_kontaktinformasjon_doedsbo.md) | 0..1 <br/> [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) | Kontaktinformasjon for personens dødsbu |
+| [har_innflytting_til_norge](har_innflytting_til_norge.md) | 0..1 <br/> [InnflyttingTilNorge](innflyttingtilnorge.md) | Siste innflyttingsregistrering til Noreg |
+| [har_utflytting_fra_norge](har_utflytting_fra_norge.md) | 0..1 <br/> [UtflyttingFraNorge](utflyttingfranorge.md) | Siste utflyttingsregistrering frå Noreg |
+| [har_adressebeskyttelse](har_adressebeskyttelse.md) | 0..1 <br/> [Adressebeskyttelse](adressebeskyttelse.md) | Adressebeskyttelse registrert på personen |
+| [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](postadresse.md) | Adressa personen mottar post på |
+| [oppholder_seg_paa](oppholder_seg_paa.md) | 0..1 <br/> [Oppholdsadresse](oppholdsadresse.md) | Adressa personen faktisk oppheld seg på |
+| [har_verge](har_verge.md) | * <br/> [Verge](verge.md) | Verje(r) oppnemnd for personen |
+| [har_rettslig_handleevne](har_rettslig_handleevne.md) | 0..1 <br/> [RettsligHandleevne](rettslighandleevne.md) | Avgrensing i rettsleg handleevne registrert for personen |
+| [har_reservasjon_mot_kommunikasjon](har_reservasjon_mot_kommunikasjon.md) | 0..1 <br/> [ReservasjonMotKommunikasjonPaaNett](reservasjonmotkommunikasjonpaanett.md) | Reservasjon mot digital kommunikasjon frå det offentlege |
+| [har_kontaktopplysninger](har_kontaktopplysninger.md) | 0..1 <br/> [Kontaktopplysninger](kontaktopplysninger.md) | Kontaktopplysningar registrert i KRR |
 
 
 
@@ -1176,7 +1176,7 @@ URI: [ngrp:Person](https://data.norge.no/vocabulary/ngr-person#Person)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -1189,15 +1189,15 @@ URI: [ngrp:Person](https://data.norge.no/vocabulary/ngr-person#Person)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [personar](personar.md) | range | [Person](Person.md) |
-| [FalskIdentitet](FalskIdentitet.md) | [rett_identitet](rett_identitet.md) | range | [Person](Person.md) |
-| [Sivilstand](Sivilstand.md) | [relatert_ved_sivilstand](relatert_ved_sivilstand.md) | range | [Person](Person.md) |
-| [ForeldreansvarForelder](ForeldreansvarForelder.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](Person.md) |
-| [ForeldreansvarBarn](ForeldreansvarBarn.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](Person.md) |
-| [FamilierelasjonForelder](FamilierelasjonForelder.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](Person.md) |
-| [FamilierelasjonBarn](FamilierelasjonBarn.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](Person.md) |
-| [FamilierelasjonEktefelle](FamilierelasjonEktefelle.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](Person.md) |
-| [Verge](Verge.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](Person.md) |
+| [PersonContainer](personcontainer.md) | [personar](personar.md) | range | [Person](person.md) |
+| [FalskIdentitet](falskidentitet.md) | [rett_identitet](rett_identitet.md) | range | [Person](person.md) |
+| [Sivilstand](sivilstand.md) | [relatert_ved_sivilstand](relatert_ved_sivilstand.md) | range | [Person](person.md) |
+| [ForeldreansvarForelder](foreldreansvarforelder.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](person.md) |
+| [ForeldreansvarBarn](foreldreansvarbarn.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](person.md) |
+| [FamilierelasjonForelder](familierelasjonforelder.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](person.md) |
+| [FamilierelasjonBarn](familierelasjonbarn.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](person.md) |
+| [FamilierelasjonEktefelle](familierelasjonektefelle.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](person.md) |
+| [Verge](verge.md) | [er_av_type_person](er_av_type_person.md) | range | [Person](person.md) |
 
 
 

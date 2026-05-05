@@ -348,19 +348,19 @@ URI: [res:Applikasjonsressurs](https://schema.fintlabs.no/ressurs/Applikasjonsre
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator (tilsvarar systemId i FINT) |
-| [navn](navn.md) | 1 <br/> [String](String.md) |  |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](String.md) |  |
-| [gyldighetsperiode](gyldighetsperiode.md) | 1 <br/> [Periode](Periode.md) | Start- og sluttdato for gyldighetsperioden til ressursen |
-| [enhetskostnad](enhetskostnad.md) | 0..1 <br/> [Integer](Integer.md) | Kostnad per ressurs |
-| [kreverGodkjenning](kreverGodkjenning.md) | 0..1 <br/> [Boolean](Boolean.md) | True dersom tildeling av ressursen krev godkjenning av leiar/tenestteforvalta... |
-| [lisensantall](lisensantall.md) | 0..1 <br/> [Integer](Integer.md) | Totalt tal på lisensar |
-| [eier](eier.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | Referanse til Organisasjonselement som har eigarskap til lisensen |
-| [applikasjon](applikasjon.md) | 1 <br/> [Applikasjon](Applikasjon.md) | Applikasjonen denne ressursen (lisensen) er knytt til |
-| [brukertype](brukertype.md) | 1..* <br/> [Brukertype](Brukertype.md) | For kva brukertypar denne lisensen er gyldig |
-| [handhevingstype](handhevingstype.md) | 0..1 <br/> [Handhevingstype](Handhevingstype.md) | Korleis det skal handhevast når lisensantall vert overskredet (Håndhevingstyp... |
-| [lisensmodell](lisensmodell.md) | 0..1 <br/> [Lisensmodell](Lisensmodell.md) | Kva lisensmodell applikasjonsressursen har |
-| [ressurstilgjengelighet](ressurstilgjengelighet.md) | * <br/> [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) | Angir kva organisasjonseining og kor mange ressursar som skal tilordnast |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [navn](navn.md) | 1 <br/> [String](string.md) |  |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) |  |
+| [gyldighetsperiode](gyldighetsperiode.md) | 1 <br/> [Periode](periode.md) | Start- og sluttdato for gyldighetsperioden til ressursen |
+| [enhetskostnad](enhetskostnad.md) | 0..1 <br/> [Integer](integer.md) | Kostnad per ressurs |
+| [kreverGodkjenning](krevergodkjenning.md) | 0..1 <br/> [Boolean](boolean.md) | True dersom tildeling av ressursen krev godkjenning av leiar/tenestteforvalta... |
+| [lisensantall](lisensantall.md) | 0..1 <br/> [Integer](integer.md) | Totalt tal på lisensar |
+| [eier](eier.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Organisasjonselement som har eigarskap til lisensen |
+| [applikasjon](applikasjon.md) | 1 <br/> [Applikasjon](applikasjon.md) | Applikasjonen denne ressursen (lisensen) er knytt til |
+| [brukertype](brukertype.md) | 1..* <br/> [Brukertype](brukertype.md) | For kva brukertypar denne lisensen er gyldig |
+| [handhevingstype](handhevingstype.md) | 0..1 <br/> [Handhevingstype](handhevingstype.md) | Korleis det skal handhevast når lisensantall vert overskredet (Håndhevingstyp... |
+| [lisensmodell](lisensmodell.md) | 0..1 <br/> [Lisensmodell](lisensmodell.md) | Kva lisensmodell applikasjonsressursen har |
+| [ressurstilgjengelighet](ressurstilgjengelighet.md) | * <br/> [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Angir kva organisasjonseining og kor mange ressursar som skal tilordnast |
 
 
 
@@ -373,9 +373,9 @@ URI: [res:Applikasjonsressurs](https://schema.fintlabs.no/ressurs/Applikasjonsre
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [RessursContainer](RessursContainer.md) | [applikasjonsressursar](applikasjonsressursar.md) | range | [Applikasjonsressurs](Applikasjonsressurs.md) |
-| [Applikasjon](Applikasjon.md) | [ressurs](ressurs.md) | range | [Applikasjonsressurs](Applikasjonsressurs.md) |
-| [Applikasjonsressurstilgjengelighet](Applikasjonsressurstilgjengelighet.md) | [ressurs](ressurs.md) | range | [Applikasjonsressurs](Applikasjonsressurs.md) |
+| [RessursContainer](ressurscontainer.md) | [applikasjonsressursar](applikasjonsressursar.md) | range | [Applikasjonsressurs](applikasjonsressurs.md) |
+| [Applikasjon](applikasjon.md) | [ressurs](ressurs.md) | range | [Applikasjonsressurs](applikasjonsressurs.md) |
+| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | [ressurs](ressurs.md) | range | [Applikasjonsressurs](applikasjonsressurs.md) |
 
 
 
@@ -811,7 +811,7 @@ attributes:
     multivalued: true
   id:
     name: id
-    description: URI-identifikator (tilsvarar systemId i FINT).
+    description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     identifier: true

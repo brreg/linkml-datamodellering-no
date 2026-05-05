@@ -22,7 +22,7 @@ Alias: filnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Bilag](Bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |  no  |
+| [Bilag](bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: filnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Bilag](Bilag.md) |
+| Range | [String](string.md) |
+| Domain Of | [Bilag](bilag.md) |
 | Slot URI | [okn:filnavn](https://schema.fintlabs.no/okonomi/filnavn) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: filnavn
 
 | Property | Value |
 | --- | --- |
-| Owner | [Bilag](Bilag.md) |
+| Owner | [Bilag](bilag.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: filnavn
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

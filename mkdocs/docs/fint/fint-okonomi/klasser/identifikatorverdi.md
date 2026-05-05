@@ -22,7 +22,7 @@ Alias: identifikatorverdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Identifikator](Identifikator.md) | Unik identifikasjon til eit objekt |  no  |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: identifikatorverdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Identifikator](Identifikator.md) |
+| Range | [String](string.md) |
+| Domain Of | [Identifikator](identifikator.md) |
 | Slot URI | [fint:identifikatorverdi](https://schema.fintlabs.no/identifikatorverdi) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: identifikatorverdi
 
 | Property | Value |
 | --- | --- |
-| Owner | [Identifikator](Identifikator.md) |
+| Owner | [Identifikator](identifikator.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: eksklusjonsnotat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kodeelement](Kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
+| [Kodeelement](kodeelement.md) | Eit element i ei kodeliste (modelldcatno:CodeElement) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: eksklusjonsnotat
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Kodeelement](Kodeelement.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Kodeelement](kodeelement.md) |
 | Slot URI | [xkos:exclusionNote](http://rdf-vocabulary.ddialliance.org/xkos#exclusionNote) |
 
 ### Cardinality and Requirements

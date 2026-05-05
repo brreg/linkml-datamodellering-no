@@ -59,7 +59,7 @@ URI: [ngre:Festenummer](https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [festenummer_verdi](festenummer_verdi.md) | 1 <br/> [Integer](Integer.md) | Festenummer (0 |
+| [festenummer_verdi](festenummer_verdi.md) | 1 <br/> [Integer](integer.md) | Festenummer (0 |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Festenummer](https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,7 +124,7 @@ URI: [ngre:Festenummer](https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | [bestar_av_festenummer](bestar_av_festenummer.md) | range | [Festenummer](Festenummer.md) |
+| [Matrikkelnummer](matrikkelnummer.md) | [bestar_av_festenummer](bestar_av_festenummer.md) | range | [Festenummer](festenummer.md) |
 
 
 

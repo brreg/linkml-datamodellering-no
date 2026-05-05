@@ -22,9 +22,9 @@ Alias: har_tekstdel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetssertifikat](Kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
-| [Kvalitetsmerknad](Kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
-| [Brukartilbakemelding](Brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
+| [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: har_tekstdel
 
 | Property | Value |
 | --- | --- |
-| Range | [Tekstdel](Tekstdel.md) |
-| Domain Of | [Kvalitetsmerknad](Kvalitetsmerknad.md) |
+| Range | [Tekstdel](tekstdel.md) |
+| Domain Of | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 | Slot URI | [oa:hasBody](http://www.w3.org/ns/oa#hasBody) |
 
 ### Cardinality and Requirements

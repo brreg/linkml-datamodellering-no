@@ -1,5 +1,5 @@
 # Auto generated from fint-arkiv-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-04T20:07:31
+# Generation date: 2026-05-05T13:27:56
 # Schema: fint-arkiv
 #
 # id: https://data.norge.no/linkml/fint-arkiv

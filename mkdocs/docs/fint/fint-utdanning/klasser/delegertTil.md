@@ -22,7 +22,7 @@ Alias: delegertTil
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: delegertTil
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 | Slot URI | [utd:delegertTil](https://schema.fintlabs.no/utdanning/delegertTil) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: delegertTil
 
 | Property | Value |
 | --- | --- |
-| Owner | [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) |
+| Owner | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: delegertTil
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

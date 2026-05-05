@@ -22,7 +22,7 @@ Alias: har_innflytting_til_norge
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_innflytting_til_norge
 
 | Property | Value |
 | --- | --- |
-| Range | [InnflyttingTilNorge](InnflyttingTilNorge.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [InnflyttingTilNorge](innflyttingtilnorge.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harInnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#harInnflyttingTilNorge) |
 
 ### Cardinality and Requirements

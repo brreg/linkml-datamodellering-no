@@ -59,7 +59,7 @@ URI: [ngre:Gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnumm
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gaardsnummer_verdi](gaardsnummer_verdi.md) | 1 <br/> [Integer](Integer.md) | Gårdsnummer innanfor kommunen |
+| [gaardsnummer_verdi](gaardsnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Gårdsnummer innanfor kommunen |
 
 
 
@@ -111,7 +111,7 @@ URI: [ngre:Gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnumm
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -124,7 +124,7 @@ URI: [ngre:Gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnumm
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Matrikkelnummer](Matrikkelnummer.md) | [bestar_av_gaardsnummer](bestar_av_gaardsnummer.md) | range | [Gaardsnummer](Gaardsnummer.md) |
+| [Matrikkelnummer](matrikkelnummer.md) | [bestar_av_gaardsnummer](bestar_av_gaardsnummer.md) | range | [Gaardsnummer](gaardsnummer.md) |
 
 
 

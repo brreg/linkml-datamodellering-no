@@ -78,7 +78,7 @@ URI: [dct:ProvenanceStatement](http://purl.org/dc/terms/ProvenanceStatement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,7 +91,7 @@ URI: [dct:ProvenanceStatement](http://purl.org/dc/terms/ProvenanceStatement)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datasett](Datasett.md) | [eierskapshistorikk](eierskapshistorikk.md) | range | [ProvenanceStatement](ProvenanceStatement.md) |
+| [Datasett](datasett.md) | [eierskapshistorikk](eierskapshistorikk.md) | range | [ProvenanceStatement](provenancestatement.md) |
 
 
 

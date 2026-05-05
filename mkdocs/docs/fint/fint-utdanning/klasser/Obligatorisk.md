@@ -5,7 +5,7 @@ _Obligatorisk eigensskap._
 
 
 
-URI: [Obligatorisk](Obligatorisk.md)
+URI: [Obligatorisk](obligatorisk.md)
 
 
 
@@ -372,9 +372,9 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [bokstavkode](bokstavkode.md) | Bokstavkode for aktuell valuta |
 | [elev](elev.md) | Eleven dette forholdet gjeld |
 | [elevnummer](elevnummer.md) | Skulens interne elevnummer |
-| [endretDato](endretDato.md) | Dato og tidspunkt for endringa |
+| [endretDato](endretdato.md) | Dato og tidspunkt for endringa |
 | [fodselsnummer](fodselsnummer.md) | Fødselsnummer eller ein av dei fiktive variantane |
-| [forersPaaVitnemaal](forersPaaVitnemaal.md) | Angir om fråværet vert ført på vitnemålet |
+| [forersPaaVitnemaal](forerspaavitnemaal.md) | Angir om fråværet vert ført på vitnemålet |
 | [fravaerstimer](fravaerstimer.md) | Antal fråværstimar |
 | [fravartype](fravartype.md) | Type fråvær |
 | [fylke](fylke.md) | Fylket kommunen høyrer til |
@@ -391,10 +391,10 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [prosent](prosent.md) | Fråværsprosent (heiltal) |
 | [skala](skala.md) | Karakterskalaen denne verdien tilhøyrer |
 | [skole](skole.md) | Skulen eleven er tilknytt |
-| [skoleaarFravar](skoleaarFravar.md) | Fråværsprosent for heile skoleåret |
+| [skoleaarFravar](skoleaarfravar.md) | Fråværsprosent for heile skoleåret |
 | [skolenummer](skolenummer.md) | Nasjonal skulenummer-identifikator |
 | [undervisningstimer](undervisningstimer.md) | Totalt antal undervisningstimar |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 | [vurderingsdato](vurderingsdato.md) | Dato og tidspunkt for vurderinga |
 
 

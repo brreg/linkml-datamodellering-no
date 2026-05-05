@@ -22,7 +22,7 @@ Alias: nettsted
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktinformasjon](Kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |  no  |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: nettsted
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktinformasjon](Kontaktinformasjon.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [fint:nettsted](https://schema.fintlabs.no/nettsted) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: nettsted
 
 | Property | Value |
 | --- | --- |
-| Owner | [Kontaktinformasjon](Kontaktinformasjon.md) |
+| Owner | [Kontaktinformasjon](kontaktinformasjon.md) |
 
 
 

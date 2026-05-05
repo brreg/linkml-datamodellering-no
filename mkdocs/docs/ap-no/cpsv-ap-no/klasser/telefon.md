@@ -22,7 +22,7 @@ Alias: telefon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktpunkt](Kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
+| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: telefon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontaktpunkt](Kontaktpunkt.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontaktpunkt](kontaktpunkt.md) |
 | Slot URI | [cv:telephone](http://data.europa.eu/m8g/telephone) |
 
 ### Cardinality and Requirements

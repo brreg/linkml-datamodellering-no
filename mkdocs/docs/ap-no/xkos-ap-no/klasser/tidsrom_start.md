@@ -22,7 +22,7 @@ Alias: tidsrom_start
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tidsrom](Tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |  no  |
+| [Tidsrom](tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tidsrom_start
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Tidsrom](Tidsrom.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [dct:startDate](http://purl.org/dc/terms/startDate) |
 
 ### Cardinality and Requirements

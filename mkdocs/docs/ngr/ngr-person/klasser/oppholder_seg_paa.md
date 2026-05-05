@@ -22,7 +22,7 @@ Alias: oppholder_seg_paa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: oppholder_seg_paa
 
 | Property | Value |
 | --- | --- |
-| Range | [Oppholdsadresse](Oppholdsadresse.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Oppholdsadresse](oppholdsadresse.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:oppholderSegPaa](https://data.norge.no/vocabulary/ngr-person#oppholderSegPaa) |
 
 ### Cardinality and Requirements

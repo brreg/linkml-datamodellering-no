@@ -78,7 +78,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,8 +91,8 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Begrep](Begrep.md) | [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | range | [VCardKontakt](VCardKontakt.md) |
-| [Samling](Samling.md) | [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | range | [VCardKontakt](VCardKontakt.md) |
+| [Begrep](begrep.md) | [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | range | [VCardKontakt](vcardkontakt.md) |
+| [Samling](samling.md) | [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | range | [VCardKontakt](vcardkontakt.md) |
 
 
 

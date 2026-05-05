@@ -22,7 +22,7 @@ Alias: verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Gebyr](Gebyr.md) | Eit gebyr knytt til ei teneste |  yes  |
+| [Gebyr](gebyr.md) | Eit gebyr knytt til ei teneste |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](Float.md) |
-| Domain Of | [Gebyr](Gebyr.md) |
+| Range | [Float](float.md) |
+| Domain Of | [Gebyr](gebyr.md) |
 | Slot URI | [cv:value](http://data.europa.eu/m8g/value) |
 
 ### Cardinality and Requirements

@@ -78,7 +78,7 @@ URI: [ngre:Anleggsprojeksjonsflate](https://data.norge.no/vocabulary/ngr-eiendom
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -91,13 +91,13 @@ URI: [ngre:Anleggsprojeksjonsflate](https://data.norge.no/vocabulary/ngr-eiendom
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Matrikkelenhet](Matrikkelenhet.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) |
-| [Grunneiendom](Grunneiendom.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) |
-| [Festegrunn](Festegrunn.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) |
-| [Jordsameie](Jordsameie.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) |
-| [Eierseksjon](Eierseksjon.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) |
-| [Anleggseiendom](Anleggseiendom.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) |
-| [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](Anleggsprojeksjonsflate.md) |
+| [Matrikkelenhet](matrikkelenhet.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) |
+| [Grunneiendom](grunneiendom.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) |
+| [Festegrunn](festegrunn.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) |
+| [Jordsameie](jordsameie.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) |
+| [Eierseksjon](eierseksjon.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) |
+| [Anleggseiendom](anleggseiendom.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | [har_anleggsprojeksjonsflate](har_anleggsprojeksjonsflate.md) | range | [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) |
 
 
 

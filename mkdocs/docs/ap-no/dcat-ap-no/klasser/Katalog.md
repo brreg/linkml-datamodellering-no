@@ -209,7 +209,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 
 ## Inheritance
-* [KatalogisertRessurs](KatalogisertRessurs.md)
+* [KatalogisertRessurs](katalogisertressurs.md)
     * **Katalog**
 
 
@@ -304,10 +304,10 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](Kontaktopplysning.md) | Kontaktinformasjon for hendvendelsar om ressursen |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [utgiver](utgiver.md) | 1 <br/> [Aktor](Aktor.md) | Aktøren som er ansvarleg for å tilgjengeleggjere ressursen |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for hendvendelsar om ressursen |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren som er ansvarleg for å tilgjengeleggjere ressursen |
 
 
 
@@ -399,15 +399,15 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [datasett](datasett.md) | * <br/> [Datasett](Datasett.md) | Datasett som er del av katalogen |
-| [datatjeneste](datatjeneste.md) | * <br/> [Datatjeneste](Datatjeneste.md) | Datatjeneste som er del av katalogen |
-| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](Konsept.md) | Geografisk dekningsområde (dct:spatial) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](Date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [heimeside](heimeside.md) | * <br/> [Uri](Uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [lisens](lisens.md) | 0..1 <br/> [Konsept](Konsept.md) | Lisens for bruk av ressursen |
-| [sprak](sprak.md) | * <br/> [Spraak](Spraak.md) | Språk brukt i ressursen (dct:language) |
-| [temaer](temaer.md) | * <br/> [Begrepssamling](Begrepssamling.md) | Temavokabular som vert brukt i katalogen |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](Date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [datasett](datasett.md) | * <br/> [Datasett](datasett.md) | Datasett som er del av katalogen |
+| [datatjeneste](datatjeneste.md) | * <br/> [Datatjeneste](datatjeneste.md) | Datatjeneste som er del av katalogen |
+| [dekningsomrade](dekningsomrade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [lisens](lisens.md) | 0..1 <br/> [Konsept](konsept.md) | Lisens for bruk av ressursen |
+| [sprak](sprak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
+| [temaer](temaer.md) | * <br/> [Begrepssamling](begrepssamling.md) | Temavokabular som vert brukt i katalogen |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -711,14 +711,14 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](RegulativRessurs.md) | Lovgjeving som gjeld for ressursen |
-| [har_del](har_del.md) | * <br/> [Katalog](Katalog.md) | Delkatalog inkludert i denne katalogen |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [underkatalog](underkatalog.md) | * <br/> [Katalog](Katalog.md) | Katalog som er ein del av denne katalogen |
-| [katalogpost](katalogpost.md) | * <br/> [Katalogpost](Katalogpost.md) | Katalogpostar i katalogen |
-| [produsent](produsent.md) | 0..1 <br/> [Aktor](Aktor.md) | Aktøren som primært har skapt ressursen |
-| [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](Rettighetserklaring.md) | Rettar knytte til ressursen |
-| [tidsrom](tidsrom.md) | * <br/> [Tidsrom](Tidsrom.md) | Tidsperiode ressursen dekkar |
+| [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Lovgjeving som gjeld for ressursen |
+| [har_del](har_del.md) | * <br/> [Katalog](katalog.md) | Delkatalog inkludert i denne katalogen |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [underkatalog](underkatalog.md) | * <br/> [Katalog](katalog.md) | Katalog som er ein del av denne katalogen |
+| [katalogpost](katalogpost.md) | * <br/> [Katalogpost](katalogpost.md) | Katalogpostar i katalogen |
+| [produsent](produsent.md) | 0..1 <br/> [Aktor](aktor.md) | Aktøren som primært har skapt ressursen |
+| [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](rettighetserklaring.md) | Rettar knytte til ressursen |
+| [tidsrom](tidsrom.md) | * <br/> [Tidsrom](tidsrom.md) | Tidsperiode ressursen dekkar |
 
 
 
@@ -726,7 +726,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [KatalogisertRessurs](KatalogisertRessurs.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [KatalogisertRessurs](katalogisertressurs.md) |
 
 
 
@@ -736,8 +736,8 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Katalog](Katalog.md) | [har_del](har_del.md) | range | [Katalog](Katalog.md) |
-| [Katalog](Katalog.md) | [underkatalog](underkatalog.md) | range | [Katalog](Katalog.md) |
+| [Katalog](katalog.md) | [har_del](har_del.md) | range | [Katalog](katalog.md) |
+| [Katalog](katalog.md) | [underkatalog](underkatalog.md) | range | [Katalog](katalog.md) |
 
 
 

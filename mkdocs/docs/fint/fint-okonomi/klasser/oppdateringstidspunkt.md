@@ -22,7 +22,7 @@ Alias: oppdateringstidspunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: oppdateringstidspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](Datetime.md) |
-| Domain Of | [Transaksjon](Transaksjon.md) |
+| Range | [Datetime](datetime.md) |
+| Domain Of | [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:oppdateringstidspunkt](https://schema.fintlabs.no/okonomi/oppdateringstidspunkt) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: oppdateringstidspunkt
 
 | Property | Value |
 | --- | --- |
-| Owner | [Transaksjon](Transaksjon.md) |
+| Owner | [Transaksjon](transaksjon.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: oppdateringstidspunkt
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

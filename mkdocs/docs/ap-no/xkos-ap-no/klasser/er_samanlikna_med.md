@@ -22,7 +22,7 @@ Alias: er_samanlikna_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](Klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: er_samanlikna_med
 
 | Property | Value |
 | --- | --- |
-| Range | [Klassifikasjon](Klassifikasjon.md) |
-| Domain Of | [Klassifikasjon](Klassifikasjon.md) |
+| Range | [Klassifikasjon](klassifikasjon.md) |
+| Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [xkos:compares](http://rdf-vocabulary.ddialliance.org/xkos#compares) |
 
 ### Cardinality and Requirements

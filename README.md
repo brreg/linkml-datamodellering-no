@@ -1,6 +1,6 @@
 # linkml-w3c-no-profiles
 
-Modellerer norske W3C-applikasjonsprofiler og tilknytte domenemodeller i [LinkML-format](https://linkml.io/).
+Modellerer norske W3C-applikasjonsprofiler og norske offentlige domenemodeller i [LinkML-format](https://linkml.io/).
 
 **Ny domenemodell?** Sjå [docs/ny-domenemodell.md](docs/ny-domenemodell.md) for steg-for-steg-rettleiing.
 
@@ -38,6 +38,7 @@ Nye skjema under `src/linkml/<domene>/<namn>/<namn>-schema.yaml` vert oppdaga au
 | `make gen-jsonschema` | Generer JSON Schema (`*-schema.json`) for alle skjema |
 | `make gen-owl` | Generer OWL/Turtle-ontologi (`*-ontology.ttl`) for alle skjema |
 | `make gen-rdf` | Generer RDF/Turtle-graf av skjemaet for alle skjema |
+| `make gen-erdiagram` | Generer Mermaid ER-diagram (`*-erdiagram.md`) for alle skjema |
 | `make docs` | Generer HTML-klassereferanse til `generated/` for alle skjema |
 | `make clean` | Slett `generated/` |
 
@@ -61,21 +62,23 @@ Nye domene vert oppdaga automatisk frå `src/linkml/` — ingen endringar i Make
 |---|---|
 | `make publish` | Kopier genererte artefaktar til portalen og oppdater nav |
 | `make docs-serve` | Start lokal dev-server på http://localhost:8000 |
-| `make docs-build` | Bygg statisk HTML til `mkdocs/site/` |
+| `make docs-build` | Bygg statisk HTML til `mkdocs/site/` (reint bygg) |
+| `make docs-build-fast` | Bygg berre endra sider (`--dirty`) — for iterativ utvikling |
 
 **Korleis publiseringa fungerer:**
 
-`make publish` køyrer `scripts/publish.sh` som:
+`make publish` køyrer `mkdocs/publish.sh` som:
 
 1. Kopier artefaktar frå `generated/<domene>/<skjema>/` til `mkdocs/docs/<domene>/<skjema>/`
 2. Kopier gen-doc markdown-sider (`generated/…/docs/*.md`) til `mkdocs/docs/<domene>/<skjema>/klasser/`
-3. Genererer ei `index.md` per skjema med artefakttabell og lenke til klassereferanse
-4. Genererer ei `index.md` per domene med oversikt over alle skjema og tilgjengelege artefaktar
-5. Regenererer `mkdocs/mkdocs.yml` med oppdatert navigasjonsstruktur
+3. Genererer `klasser/modell.md` per skjema — ER-diagram (Mermaid) øvst, deretter klassetabell og eigenskapar
+4. Genererer ei `index.md` per skjema med artefakttabell og lenke til modell-sida
+5. Genererer ei `index.md` per domene med oversikt over alle skjema og tilgjengelege artefaktar
+6. Regenererer `mkdocs/mkdocs.yml` med oppdatert navigasjonsstruktur
 
 Nye domene og skjema dukkar opp automatisk i portalen neste gong `make publish` vert køyrt — ingen manuell konfigurasjon.
 
-Artefaktar som ikkje finst (t.d. fordi eit generator-steg ikkje er køyrt) vert stillteiande utelate frå tabellen. Klassereferansen (`Klasser`-lenka i nav) krev at `make docs` er køyrt for domenet.
+Artefaktar som ikkje finst vert stillteiande utelate. `Modell`-sida i nav krev at både `make docs` (klasseliste) og `make gen-erdiagram` (diagram) er køyrde for domenet — køyr `make publish` etter begge for å synkronisere.
 
 ### Valider (lint) enkeltskjema direkte
 

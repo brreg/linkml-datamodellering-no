@@ -22,7 +22,7 @@ Alias: oppdatertAv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Karakterhistorie](Karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
+| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: oppdatertAv
 
 | Property | Value |
 | --- | --- |
-| Range | [Skoleressurs](Skoleressurs.md) |
-| Domain Of | [Karakterhistorie](Karakterhistorie.md) |
+| Range | [Skoleressurs](skoleressurs.md) |
+| Domain Of | [Karakterhistorie](karakterhistorie.md) |
 | Slot URI | [utd:oppdatertAv](https://schema.fintlabs.no/utdanning/oppdatertAv) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: oppdatertAv
 
 | Property | Value |
 | --- | --- |
-| Owner | [Karakterhistorie](Karakterhistorie.md) |
+| Owner | [Karakterhistorie](karakterhistorie.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: oppdatertAv
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

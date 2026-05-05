@@ -36,7 +36,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 
 
 ## Inheritance
-* [GeografiskAdresse](GeografiskAdresse.md)
+* [GeografiskAdresse](geografiskadresse.md)
     * **Bostedsadresse**
 
 
@@ -78,7 +78,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](Date.md) | Dato opplysinga er gyldig frå og med |
+| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig frå og med |
 
 
 
@@ -97,7 +97,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [Date](Date.md) | Dato opplysinga er gyldig til og med |
+| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig til og med |
 
 
 
@@ -136,7 +136,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](GeografiskAdresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 
@@ -146,8 +146,8 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | [bostedsadresser](bostedsadresser.md) | range | [Bostedsadresse](Bostedsadresse.md) |
-| [Person](Person.md) | [har_bosted_paa](har_bosted_paa.md) | range | [Bostedsadresse](Bostedsadresse.md) |
+| [PersonContainer](personcontainer.md) | [bostedsadresser](bostedsadresser.md) | range | [Bostedsadresse](bostedsadresse.md) |
+| [Person](person.md) | [har_bosted_paa](har_bosted_paa.md) | range | [Bostedsadresse](bostedsadresse.md) |
 
 
 

@@ -3,7 +3,7 @@
 # Slot: id 
 
 
-_URI-identifikator (tilsvarar systemId i FINT)._
+_URI-identifikator for ressursen._
 
 
 
@@ -22,21 +22,21 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](Tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Valuta](Valuta.md) | Valutakodar for offisielle valutaer |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Personopplysning](Personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Samtykke](Samtykke.md) | Tillating til behandling av personopplysning |  no  |
-| [Behandlingsgrunnlag](Behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
+| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
 
 
 
@@ -49,8 +49,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Behandling](Behandling.md), [Samtykke](Samtykke.md), [Tjeneste](Tjeneste.md), [Behandlingsgrunnlag](Behandlingsgrunnlag.md), [Personopplysning](Personopplysning.md), [Begrep](Begrep.md), [Valuta](Valuta.md), [Person](Person.md), [Kontaktperson](Kontaktperson.md), [Virksomhet](Virksomhet.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Behandling](behandling.md), [Samtykke](samtykke.md), [Tjeneste](tjeneste.md), [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md), [Begrep](begrep.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md), [Virksomhet](virksomhet.md) |
 
 ### Cardinality and Requirements
 
@@ -103,7 +103,7 @@ Alias: id
 <details>
 ```yaml
 name: id
-description: URI-identifikator (tilsvarar systemId i FINT).
+description: URI-identifikator for ressursen.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 identifier: true

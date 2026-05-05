@@ -22,7 +22,7 @@ Alias: tekst
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Definisjon](Definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  yes  |
+| [Definisjon](definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: tekst
 
 | Property | Value |
 | --- | --- |
-| Range | [LangString](LangString.md) |
-| Domain Of | [Definisjon](Definisjon.md) |
+| Range | [LangString](langstring.md) |
+| Domain Of | [Definisjon](definisjon.md) |
 | Slot URI | [rdf:value](http://www.w3.org/1999/02/22-rdf-syntax-ns#value) |
 
 ### Cardinality and Requirements

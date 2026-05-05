@@ -186,12 +186,12 @@ URI: [fint:Matrikkelnummer](https://schema.fintlabs.no/Matrikkelnummer)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [adresse](adresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Adresse til matrikkeleining |
-| [bruksnummer](bruksnummer.md) | 0..1 <br/> [String](String.md) | Fortløpande nummerering av bruk under gårdsnummer |
-| [festenummer](festenummer.md) | 0..1 <br/> [String](String.md) | Fortløpande nummerering av festar under gårdsnummer/bruksnummer |
-| [gaardsnummer](gaardsnummer.md) | 0..1 <br/> [String](String.md) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
-| [seksjonsnummer](seksjonsnummer.md) | 0..1 <br/> [String](String.md) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
-| [kommunenummer](kommunenummer.md) | 0..1 <br/> [Kommune](Kommune.md) | Nummerering av kommunen i høve til SSB si offisielle liste |
+| [adresse](adresse.md) | 0..1 <br/> [Adresse](adresse.md) | Adresse til matrikkeleining |
+| [bruksnummer](bruksnummer.md) | 0..1 <br/> [String](string.md) | Fortløpande nummerering av bruk under gårdsnummer |
+| [festenummer](festenummer.md) | 0..1 <br/> [String](string.md) | Fortløpande nummerering av festar under gårdsnummer/bruksnummer |
+| [gaardsnummer](gaardsnummer.md) | 0..1 <br/> [String](string.md) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
+| [seksjonsnummer](seksjonsnummer.md) | 0..1 <br/> [String](string.md) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
+| [kommunenummer](kommunenummer.md) | 0..1 <br/> [Kommune](kommune.md) | Nummerering av kommunen i høve til SSB si offisielle liste |
 
 
 

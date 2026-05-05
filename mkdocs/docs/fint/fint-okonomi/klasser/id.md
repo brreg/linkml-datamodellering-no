@@ -3,7 +3,7 @@
 # Slot: id 
 
 
-_URI-identifikator (tilsvarar systemId/fakturanummer/transaksjonsId i FINT)._
+_URI-identifikator for ressursen._
 
 
 
@@ -22,25 +22,26 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Fakturagrunnlag](Fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Merverdiavgift](Merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Kontaktperson](Kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Vare](Vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Virksomhet](Virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Postering](Postering.md) | Føring på ein konto i rekneskapet |  no  |
-| [Leverandorgruppe](Leverandorgruppe.md) | Gruppering av leverandørar (Leverandørgruppe) |  no  |
-| [Leverandor](Leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Faktura](Faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
-| [Fakturautsteder](Fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
-| [Transaksjon](Transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
-| [Valuta](Valuta.md) | Valuta for transaksjonsbeløp |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
+| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester (Leverandør) |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar (Leverandørgruppe) |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
 
 
 
@@ -53,8 +54,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Faktura](Faktura.md), [Fakturagrunnlag](Fakturagrunnlag.md), [Fakturautsteder](Fakturautsteder.md), [Transaksjon](Transaksjon.md), [Postering](Postering.md), [Leverandor](Leverandor.md), [Leverandorgruppe](Leverandorgruppe.md), [Vare](Vare.md), [Merverdiavgift](Merverdiavgift.md), [Valuta](Valuta.md), [Begrep](Begrep.md), [Person](Person.md), [Kontaktperson](Kontaktperson.md), [Virksomhet](Virksomhet.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Faktura](faktura.md), [Fakturagrunnlag](fakturagrunnlag.md), [Fakturautsteder](fakturautsteder.md), [Transaksjon](transaksjon.md), [Postering](postering.md), [Leverandor](leverandor.md), [Leverandorgruppe](leverandorgruppe.md), [Vare](vare.md), [Merverdiavgift](merverdiavgift.md), [OkonomiValuta](okonomivaluta.md), [Begrep](begrep.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md), [Virksomhet](virksomhet.md) |
 
 ### Cardinality and Requirements
 
@@ -107,8 +108,7 @@ Alias: id
 <details>
 ```yaml
 name: id
-description: URI-identifikator (tilsvarar systemId/fakturanummer/transaksjonsId i
-  FINT).
+description: URI-identifikator for ressursen.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 identifier: true
@@ -123,8 +123,9 @@ domain_of:
 - Leverandorgruppe
 - Vare
 - Merverdiavgift
-- Valuta
+- OkonomiValuta
 - Begrep
+- Valuta
 - Person
 - Kontaktperson
 - Virksomhet

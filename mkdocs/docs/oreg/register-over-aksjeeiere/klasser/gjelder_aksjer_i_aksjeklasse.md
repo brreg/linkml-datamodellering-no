@@ -22,8 +22,8 @@ Alias: gjelder_aksjer_i_aksjeklasse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeeierrettighet](Aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
-| [Aksjepost](Aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
+| [Aksjeeierrettighet](aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
+| [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: gjelder_aksjer_i_aksjeklasse
 
 | Property | Value |
 | --- | --- |
-| Range | [Aksjeklasse](Aksjeklasse.md) |
-| Domain Of | [Aksjeeierrettighet](Aksjeeierrettighet.md), [Aksjepost](Aksjepost.md) |
+| Range | [Aksjeklasse](aksjeklasse.md) |
+| Domain Of | [Aksjeeierrettighet](aksjeeierrettighet.md), [Aksjepost](aksjepost.md) |
 
 ### Cardinality and Requirements
 

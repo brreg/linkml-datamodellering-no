@@ -22,7 +22,7 @@ Alias: bedrift
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Laerling](Laerling.md) | Ein lærling i yrkesopplæring |  no  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: bedrift
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](Uriorcurie.md) |
-| Domain Of | [Laerling](Laerling.md) |
+| Range | [Uriorcurie](uriorcurie.md) |
+| Domain Of | [Laerling](laerling.md) |
 | Slot URI | [utd:bedrift](https://schema.fintlabs.no/utdanning/bedrift) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: bedrift
 
 | Property | Value |
 | --- | --- |
-| Owner | [Laerling](Laerling.md) |
+| Owner | [Laerling](laerling.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: bedrift
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

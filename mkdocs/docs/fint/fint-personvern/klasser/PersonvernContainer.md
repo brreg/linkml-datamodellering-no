@@ -195,11 +195,11 @@ URI: [https://schema.fintlabs.no/personvern/:PersonvernContainer](https://schema
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [behandlingar](behandlingar.md) | * <br/> [Behandling](Behandling.md) |  |
-| [samtykker](samtykker.md) | * <br/> [Samtykke](Samtykke.md) |  |
-| [tenester](tenester.md) | * <br/> [Tjeneste](Tjeneste.md) |  |
-| [behandlingsgrunnlag](behandlingsgrunnlag.md) | * <br/> [Behandlingsgrunnlag](Behandlingsgrunnlag.md) |  |
-| [personopplysningar](personopplysningar.md) | * <br/> [Personopplysning](Personopplysning.md) |  |
+| [behandlingar](behandlingar.md) | * <br/> [Behandling](behandling.md) |  |
+| [samtykker](samtykker.md) | * <br/> [Samtykke](samtykke.md) |  |
+| [tenester](tenester.md) | * <br/> [Tjeneste](tjeneste.md) |  |
+| [behandlingsgrunnlag](behandlingsgrunnlag.md) | * <br/> [Behandlingsgrunnlag](behandlingsgrunnlag.md) |  |
+| [personopplysningar](personopplysningar.md) | * <br/> [Personopplysning](personopplysning.md) |  |
 
 
 

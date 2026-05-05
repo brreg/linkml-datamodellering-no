@@ -22,7 +22,7 @@ Alias: sluttdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tidsrom](Tidsrom.md) | Eit tidsintervall med start- og sluttdato |  no  |
+| [Tidsrom](tidsrom.md) | Eit tidsintervall med start- og sluttdato |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: sluttdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Tidsrom](Tidsrom.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [dcat:endDate](http://www.w3.org/ns/dcat#endDate) |
 
 ### Cardinality and Requirements

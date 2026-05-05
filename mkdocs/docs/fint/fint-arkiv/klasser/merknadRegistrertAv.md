@@ -22,7 +22,7 @@ Alias: merknadRegistrertAv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Merknad](Merknad.md) | Merknad knytt til mappe, registrering eller dokumentbeskrivelse |  no  |
+| [Merknad](merknad.md) | Merknad knytt til mappe, registrering eller dokumentbeskrivelse |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: merknadRegistrertAv
 
 | Property | Value |
 | --- | --- |
-| Range | [Arkivressurs](Arkivressurs.md) |
-| Domain Of | [Merknad](Merknad.md) |
+| Range | [Arkivressurs](arkivressurs.md) |
+| Domain Of | [Merknad](merknad.md) |
 | Slot URI | [ark:merknadRegistrertAv](https://schema.fintlabs.no/arkiv/merknadRegistrertAv) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: merknadRegistrertAv
 
 | Property | Value |
 | --- | --- |
-| Owner | [Merknad](Merknad.md) |
+| Owner | [Merknad](merknad.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: merknadRegistrertAv
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

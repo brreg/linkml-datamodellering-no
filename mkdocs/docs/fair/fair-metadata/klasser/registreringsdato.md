@@ -22,7 +22,7 @@ Alias: registreringsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalogregistrering](Katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |  yes  |
+| [Katalogregistrering](katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: registreringsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Katalogregistrering](Katalogregistrering.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Katalogregistrering](katalogregistrering.md) |
 | Slot URI | [fair:registreringsdato](https://data.norge.no/fair#registreringsdato) |
 
 ### Cardinality and Requirements

@@ -22,9 +22,9 @@ Alias: type_concept
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
-| [Aktor](Aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
-| [RegulativRessurs](RegulativRessurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
+| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: type_concept
 
 | Property | Value |
 | --- | --- |
-| Range | [Konsept](Konsept.md) |
-| Domain Of | [Aktor](Aktor.md), [RegulativRessurs](RegulativRessurs.md), [Datasett](Datasett.md) |
+| Range | [Konsept](konsept.md) |
+| Domain Of | [Aktor](aktor.md), [RegulativRessurs](regulativressurs.md), [Datasett](datasett.md) |
 | Slot URI | [dct:type](http://purl.org/dc/terms/type) |
 
 ### Cardinality and Requirements

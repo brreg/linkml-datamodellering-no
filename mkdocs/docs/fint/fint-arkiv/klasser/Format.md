@@ -22,7 +22,7 @@ Alias: format
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentfil](Dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
+| [Dokumentfil](dokumentfil.md) | Sjølve dokumentfila med data og metadata |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Dokumentfil](Dokumentfil.md) |
+| Range | [String](string.md) |
+| Domain Of | [Dokumentfil](dokumentfil.md) |
 | Slot URI | [ark:format](https://schema.fintlabs.no/arkiv/format) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Owner | [Dokumentfil](Dokumentfil.md) |
+| Owner | [Dokumentfil](dokumentfil.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: format
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

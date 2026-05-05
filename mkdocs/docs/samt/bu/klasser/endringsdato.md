@@ -1,0 +1,103 @@
+
+
+# Slot: endringsdato 
+
+
+_Dato for siste endring av ressursen (dct:modified)._
+
+
+
+
+
+URI: [dct:modified](http://purl.org/dc/terms/modified)
+Alias: endringsdato
+
+<!-- no inheritance hierarchy -->
+
+
+
+
+
+## Applicable Classes
+
+| Name | Description | Modifies Slot |
+| --- | --- | --- |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
+
+
+
+
+
+
+## Properties
+
+### Type and Range
+
+| Property | Value |
+| --- | --- |
+| Range | [Date](date.md) |
+| Domain Of | [Distribusjon](distribusjon.md), [Datasett](datasett.md), [Datasettserie](datasettserie.md), [Katalogpost](katalogpost.md), [Katalog](katalog.md) |
+| Slot URI | [dct:modified](http://purl.org/dc/terms/modified) |
+
+### Cardinality and Requirements
+
+| Property | Value |
+| --- | --- |
+
+
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://example.no/ontology/samt-bu-skole
+
+
+
+
+## Mappings
+
+| Mapping Type | Mapped Value |
+| ---  | ---  |
+| self | dct:modified |
+| native | samtbuskole:endringsdato |
+
+
+
+
+## LinkML Source
+
+<details>
+```yaml
+name: endringsdato
+description: Dato for siste endring av ressursen (dct:modified).
+from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
+slot_uri: dct:modified
+alias: endringsdato
+domain_of:
+- Distribusjon
+- Datasett
+- Datasettserie
+- Katalogpost
+- Katalog
+range: date
+
+```
+</details>

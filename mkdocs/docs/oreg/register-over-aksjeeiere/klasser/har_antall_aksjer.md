@@ -22,8 +22,8 @@ Alias: har_antall_aksjer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjekapital](Aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |  no  |
-| [Aksjepost](Aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
+| [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
+| [Aksjekapital](aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |  no  |
 
 
 
@@ -36,8 +36,8 @@ Alias: har_antall_aksjer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](Integer.md) |
-| Domain Of | [Aksjekapital](Aksjekapital.md), [Aksjepost](Aksjepost.md) |
+| Range | [Integer](integer.md) |
+| Domain Of | [Aksjekapital](aksjekapital.md), [Aksjepost](aksjepost.md) |
 
 ### Cardinality and Requirements
 

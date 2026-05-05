@@ -22,7 +22,7 @@ Alias: har_dodsfall
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
+| [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_dodsfall
 
 | Property | Value |
 | --- | --- |
-| Range | [Dodsfall](Dodsfall.md) |
-| Domain Of | [Person](Person.md) |
+| Range | [Dodsfall](dodsfall.md) |
+| Domain Of | [Person](person.md) |
 | Slot URI | [ngrp:harDodsfall](https://data.norge.no/vocabulary/ngr-person#harDodsfall) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: har_leverandor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Realisering](Realisering.md) | Ein realisering — ein implementasjonsrelasjon mellom modellelement |  yes  |
+| [Realisering](realisering.md) | Ein realisering — ein implementasjonsrelasjon mellom modellelement |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_leverandor
 
 | Property | Value |
 | --- | --- |
-| Range | [Modellelement](Modellelement.md) |
-| Domain Of | [Realisering](Realisering.md) |
+| Range | [Modellelement](modellelement.md) |
+| Domain Of | [Realisering](realisering.md) |
 | Slot URI | [modelldcatno:hasSupplier](https://data.norge.no/vocabulary/modelldcatno#hasSupplier) |
 
 ### Cardinality and Requirements

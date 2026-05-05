@@ -59,7 +59,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 ## Inheritance
 * **Aktor**
-    * [OffentligOrganisasjon](OffentligOrganisasjon.md)
+    * [OffentligOrganisasjon](offentligorganisasjon.md)
 
 
 ## Class Properties
@@ -101,8 +101,8 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
 
 
 
@@ -151,8 +151,8 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [adresse_ref](adresse_ref.md) | 0..1 <br/> [Adresse](Adresse.md) | Postadresse knytt til aktøren |
-| [deltek_i](deltek_i.md) | * <br/> [Deltagelse](Deltagelse.md) | Deltakingar aktøren er del av |
+| [adresse_ref](adresse_ref.md) | 0..1 <br/> [Adresse](adresse.md) | Postadresse knytt til aktøren |
+| [deltek_i](deltek_i.md) | * <br/> [Deltagelse](deltagelse.md) | Deltakingar aktøren er del av |
 
 
 
@@ -223,7 +223,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -236,9 +236,9 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Tjeneste](Tjeneste.md) | [eigd_av](eigd_av.md) | range | [Aktor](Aktor.md) |
-| [Deltagelse](Deltagelse.md) | [deltakar](deltakar.md) | range | [Aktor](Aktor.md) |
-| [Katalog](Katalog.md) | [utgjevar](utgjevar.md) | range | [Aktor](Aktor.md) |
+| [Tjeneste](tjeneste.md) | [eigd_av](eigd_av.md) | range | [Aktor](aktor.md) |
+| [Deltagelse](deltagelse.md) | [deltakar](deltakar.md) | range | [Aktor](aktor.md) |
+| [Katalog](katalog.md) | [utgjevar](utgjevar.md) | range | [Aktor](aktor.md) |
 
 
 

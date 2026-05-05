@@ -159,11 +159,11 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
-| [belop](belop.md) | 0..1 <br/> [String](String.md) | Beløp for gebyret |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [dokumentasjon](dokumentasjon.md) | * <br/> [Uri](Uri.md) | Lenke til dokumentasjon om ressursen |
-| [valuta](valuta.md) | 0..1 <br/> [Konsept](Konsept.md) | Valuta (cv:currency) |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [belop](belop.md) | 0..1 <br/> [String](string.md) | Beløp for gebyret |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [dokumentasjon](dokumentasjon.md) | * <br/> [Uri](uri.md) | Lenke til dokumentasjon om ressursen |
+| [valuta](valuta.md) | 0..1 <br/> [Konsept](konsept.md) | Valuta (cv:currency) |
 
 
 
@@ -176,7 +176,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Datatjeneste](Datatjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](Gebyr.md) |
+| [Datatjeneste](datatjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](gebyr.md) |
 
 
 

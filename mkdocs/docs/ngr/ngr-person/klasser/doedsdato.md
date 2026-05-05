@@ -22,7 +22,7 @@ Alias: doedsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dodsfall](Dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |  yes  |
+| [Dodsfall](dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: doedsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](Date.md) |
-| Domain Of | [Dodsfall](Dodsfall.md) |
+| Range | [Date](date.md) |
+| Domain Of | [Dodsfall](dodsfall.md) |
 | Slot URI | [ngrp:doedsdato](https://data.norge.no/vocabulary/ngr-person#doedsdato) |
 
 ### Cardinality and Requirements

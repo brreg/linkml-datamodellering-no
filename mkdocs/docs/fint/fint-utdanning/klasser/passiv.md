@@ -17,34 +17,34 @@ Alias: passiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](Begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Landkode](Landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Tilrettelegging](Tilrettelegging.md) | Type tilrettelegging for elevar (t |  no  |
-| [Fagstatus](Fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  no  |
-| [Provestatus](Provestatus.md) | Status for ei lærlingprøve |  no  |
-| [OtStatus](OtStatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
-| [OtEnhet](OtEnhet.md) | Eining i oppfølgingstenesta (OT) |  no  |
-| [Karakterskala](Karakterskala.md) | Skala for karaktersetjing (t |  no  |
-| [Betalingsstatus](Betalingsstatus.md) | Betalingsstatus for eksamensavgift |  no  |
-| [Karakterstatus](Karakterstatus.md) | Status for ein karakter (t |  no  |
-| [Vitnemalsmerknad](Vitnemalsmerknad.md) | Merknad på vitnemål |  no  |
-| [Termin](Termin.md) | Ein skuleterm (t |  no  |
-| [Brevtype](Brevtype.md) | Type brev knytt til lærlingprøve |  no  |
-| [Avbruddsaarsak](Avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  no  |
-| [Karakterverdi](Karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
-| [Elevkategori](Elevkategori.md) | Kategori for eit elevforhold (t |  no  |
-| [Fravartype](Fravartype.md) | Type fråvær (t |  no  |
-| [Bevistype](Bevistype.md) | Type kompetansebevis for lærling |  no  |
-| [Fagmerknad](Fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  no  |
-| [Kjonn](Kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Skoleaar](Skoleaar.md) | Eit skoleår (t |  no  |
-| [Spraak](Spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Fylke](Fylke.md) | Liste over Norges fylker |  no  |
-| [Skoleeiertype](Skoleeiertype.md) | Type skuleeigartilknyting |  no  |
-| [Fullfortkode](Fullfortkode.md) | Kode for fullførtresultat av lærling |  no  |
-| [Eksamensform](Eksamensform.md) | Form for gjennomføring av eksamen |  no  |
-| [Kommune](Kommune.md) | Liste over Norges kommunar |  no  |
-| [Varseltype](Varseltype.md) | Type varsel knytt til ein elev |  no  |
+| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |  no  |
+| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |  no  |
+| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |  no  |
+| [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |  no  |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  no  |
+| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |  no  |
+| [Fravartype](fravartype.md) | Type fråvær (t |  no  |
+| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |  no  |
+| [Provestatus](provestatus.md) | Status for ei lærlingprøve |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  no  |
+| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |  no  |
+| [Betalingsstatus](betalingsstatus.md) | Betalingsstatus for eksamensavgift |  no  |
+| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  no  |
+| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  no  |
+| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  no  |
+| [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |  no  |
+| [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |  no  |
+| [Termin](termin.md) | Ein skuleterm (t |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Skoleaar](skoleaar.md) | Eit skoleår (t |  no  |
+| [Avbruddsaarsak](avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  no  |
 
 
 
@@ -57,8 +57,8 @@ Alias: passiv
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Avbruddsaarsak](Avbruddsaarsak.md), [Betalingsstatus](Betalingsstatus.md), [Bevistype](Bevistype.md), [Brevtype](Brevtype.md), [Eksamensform](Eksamensform.md), [Elevkategori](Elevkategori.md), [Fagmerknad](Fagmerknad.md), [Fagstatus](Fagstatus.md), [Fravartype](Fravartype.md), [Fullfortkode](Fullfortkode.md), [Karakterskala](Karakterskala.md), [Karakterstatus](Karakterstatus.md), [Karakterverdi](Karakterverdi.md), [OtEnhet](OtEnhet.md), [OtStatus](OtStatus.md), [Provestatus](Provestatus.md), [Skoleaar](Skoleaar.md), [Skoleeiertype](Skoleeiertype.md), [Termin](Termin.md), [Tilrettelegging](Tilrettelegging.md), [Varseltype](Varseltype.md), [Vitnemalsmerknad](Vitnemalsmerknad.md), [Begrep](Begrep.md) |
+| Range | [String](string.md) |
+| Domain Of | [Avbruddsaarsak](avbruddsaarsak.md), [Betalingsstatus](betalingsstatus.md), [Bevistype](bevistype.md), [Brevtype](brevtype.md), [Eksamensform](eksamensform.md), [Elevkategori](elevkategori.md), [Fagmerknad](fagmerknad.md), [Fagstatus](fagstatus.md), [Fravartype](fravartype.md), [Fullfortkode](fullfortkode.md), [Karakterskala](karakterskala.md), [Karakterstatus](karakterstatus.md), [Karakterverdi](karakterverdi.md), [OtEnhet](otenhet.md), [OtStatus](otstatus.md), [Provestatus](provestatus.md), [Skoleaar](skoleaar.md), [Skoleeiertype](skoleeiertype.md), [Termin](termin.md), [Tilrettelegging](tilrettelegging.md), [Varseltype](varseltype.md), [Vitnemalsmerknad](vitnemalsmerknad.md), [Begrep](begrep.md) |
 
 ### Cardinality and Requirements
 

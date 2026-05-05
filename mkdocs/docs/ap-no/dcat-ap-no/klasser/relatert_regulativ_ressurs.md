@@ -22,7 +22,7 @@ Alias: relatert_regulativ_ressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RegulativRessurs](RegulativRessurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
+| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: relatert_regulativ_ressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [RegulativRessurs](RegulativRessurs.md) |
-| Domain Of | [RegulativRessurs](RegulativRessurs.md) |
+| Range | [RegulativRessurs](regulativressurs.md) |
+| Domain Of | [RegulativRessurs](regulativressurs.md) |
 | Slot URI | [dct:relation](http://purl.org/dc/terms/relation) |
 
 ### Cardinality and Requirements

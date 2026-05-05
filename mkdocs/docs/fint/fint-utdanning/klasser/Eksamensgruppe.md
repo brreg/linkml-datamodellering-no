@@ -17,14 +17,14 @@ Alias: eksamensgruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](Skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
-| [Fag](Fag.md) | Eit skulefag |  no  |
-| [Sensor](Sensor.md) | Ein sensor for ein eksamen |  no  |
-| [Eksamen](Eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
-| [Eksamensvurdering](Eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
-| [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
-| [Undervisningsforhold](Undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
-| [Sluttfagvurdering](Sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
+| [Fag](fag.md) | Eit skulefag |  no  |
+| [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
+| [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  no  |
+| [Sensor](sensor.md) | Ein sensor for ein eksamen |  no  |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  no  |
 
 
 
@@ -37,8 +37,8 @@ Alias: eksamensgruppe
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skole](Skole.md), [Eksamen](Eksamen.md), [Fag](Fag.md), [Undervisningsforhold](Undervisningsforhold.md), [Eksamensgruppemedlemskap](Eksamensgruppemedlemskap.md), [Eksamensvurdering](Eksamensvurdering.md), [Sensor](Sensor.md), [Sluttfagvurdering](Sluttfagvurdering.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skole](skole.md), [Eksamen](eksamen.md), [Fag](fag.md), [Undervisningsforhold](undervisningsforhold.md), [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md), [Eksamensvurdering](eksamensvurdering.md), [Sensor](sensor.md), [Sluttfagvurdering](sluttfagvurdering.md) |
 
 ### Cardinality and Requirements
 

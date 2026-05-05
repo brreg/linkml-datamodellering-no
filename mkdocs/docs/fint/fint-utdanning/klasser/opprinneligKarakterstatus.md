@@ -22,7 +22,7 @@ Alias: opprinneligKarakterstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Karakterhistorie](Karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
+| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: opprinneligKarakterstatus
 
 | Property | Value |
 | --- | --- |
-| Range | [Karakterstatus](Karakterstatus.md) |
-| Domain Of | [Karakterhistorie](Karakterhistorie.md) |
+| Range | [Karakterstatus](karakterstatus.md) |
+| Domain Of | [Karakterhistorie](karakterhistorie.md) |
 | Slot URI | [utd:opprinneligKarakterstatus](https://schema.fintlabs.no/utdanning/opprinneligKarakterstatus) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: opprinneligKarakterstatus
 
 | Property | Value |
 | --- | --- |
-| Owner | [Karakterhistorie](Karakterhistorie.md) |
+| Owner | [Karakterhistorie](karakterhistorie.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: opprinneligKarakterstatus
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

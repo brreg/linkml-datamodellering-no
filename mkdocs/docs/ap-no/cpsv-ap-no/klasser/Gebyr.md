@@ -127,10 +127,10 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | * <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [verdi](verdi.md) | 0..1 <br/> [Float](Float.md) | Verdien av gebyret |
-| [valuta](valuta.md) | 0..1 <br/> [Konsept](Konsept.md) | Valuta (cv:currency) |
+| [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [verdi](verdi.md) | 0..1 <br/> [Float](float.md) | Verdien av gebyret |
+| [valuta](valuta.md) | 0..1 <br/> [Konsept](konsept.md) | Valuta (cv:currency) |
 
 
 
@@ -201,7 +201,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -214,9 +214,9 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](Gebyr.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](Gebyr.md) |
-| [Tjeneste](Tjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](Gebyr.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](gebyr.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](gebyr.md) |
+| [Tjeneste](tjeneste.md) | [har_gebyr](har_gebyr.md) | range | [Gebyr](gebyr.md) |
 
 
 

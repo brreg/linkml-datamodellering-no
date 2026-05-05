@@ -3,16 +3,18 @@
 Dette repoet inneheld norske W3C-applikasjonsprofiler og domenemodeller
 modellert i [LinkML](https://linkml.io/).
 
+[Github repo](https://github.com/brreg/linkml-w3c-no-profiles) 
+
 ## AP-NO Profiler for RDF baserte ressurser
 
-| Profil | Beskriving | Status |
+| Profil | Beskriving |
 |---|---|---|
-| **DCAT-AP-NO** | Datakatalogar | ✅ |
-| **SKOS-AP-NO** | Begrepssamlingar | ✅ |
-| **CPSV-AP-NO** | Offentlege tenester | ✅ |
-| **DQV-AP-NO** | Datakvalitet | ✅ |
-| **ModelldCAT-AP-NO** | Informasjonsmodellar | ✅ |
-| **XKOS-AP-NO** | Utvida klassifikasjon | ✅ |
+| **DCAT-AP-NO** | Datakatalogar |
+| **SKOS-AP-NO** | Begrepssamlingar |
+| **CPSV-AP-NO** | Offentlege tenester |
+| **DQV-AP-NO** | Datakvalitet |
+| **ModelldCAT-AP-NO** | Informasjonsmodellar |
+| **XKOS-AP-NO** | Utvida klassifikasjon |
 
 ## Domenemodeller
 

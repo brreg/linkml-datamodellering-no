@@ -132,10 +132,10 @@ URI: [okn:Kontostreng](https://schema.fintlabs.no/okonomi/Kontostreng)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [art](art.md) | 0..1 <br/> [String](String.md) | Artskonto (type utgift/inntekt) |
-| [funksjon](funksjon.md) | 0..1 <br/> [String](String.md) | Funksjonskode (KOSTRA) |
-| [ansvar](ansvar.md) | 0..1 <br/> [String](String.md) | Ansvarsomrade |
-| [prosjekt](prosjekt.md) | 0..1 <br/> [String](String.md) | Prosjektkode |
+| [art](art.md) | 0..1 <br/> [String](string.md) | Artskonto (type utgift/inntekt) |
+| [funksjon](funksjon.md) | 0..1 <br/> [String](string.md) | Funksjonskode (KOSTRA) |
+| [ansvar](ansvar.md) | 0..1 <br/> [String](string.md) | Ansvarsomrade |
+| [prosjekt](prosjekt.md) | 0..1 <br/> [String](string.md) | Prosjektkode |
 
 
 
@@ -148,8 +148,8 @@ URI: [okn:Kontostreng](https://schema.fintlabs.no/okonomi/Kontostreng)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Postering](Postering.md) | [kontering](kontering.md) | range | [Kontostreng](Kontostreng.md) |
-| [Vare](Vare.md) | [kontering](kontering.md) | range | [Kontostreng](Kontostreng.md) |
+| [Postering](postering.md) | [kontering](kontering.md) | range | [Kontostreng](kontostreng.md) |
+| [Vare](vare.md) | [kontering](kontering.md) | range | [Kontostreng](kontostreng.md) |
 
 
 

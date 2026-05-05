@@ -22,7 +22,7 @@ Alias: elevnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elev](Elev.md) | Ein elev registrert i skulesystemet |  no  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: elevnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Identifikator](Identifikator.md) |
-| Domain Of | [Elev](Elev.md) |
+| Range | [Identifikator](identifikator.md) |
+| Domain Of | [Elev](elev.md) |
 | Slot URI | [utd:elevnummer](https://schema.fintlabs.no/utdanning/elevnummer) |
 
 ### Cardinality and Requirements
@@ -47,7 +47,7 @@ Alias: elevnummer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Elev](Elev.md) |
+| Owner | [Elev](elev.md) |
 
 
 
@@ -59,7 +59,7 @@ Alias: elevnummer
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

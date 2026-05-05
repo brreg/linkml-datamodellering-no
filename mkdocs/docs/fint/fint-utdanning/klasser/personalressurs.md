@@ -17,8 +17,8 @@ Alias: personalressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](Person.md) | Fysiske private personar |  no  |
-| [Skoleressurs](Skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Skoleressurs](Skoleressurs.md), [Person](Person.md) |
+| Range | [String](string.md) |
+| Domain Of | [Skoleressurs](skoleressurs.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 

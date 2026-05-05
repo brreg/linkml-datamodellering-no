@@ -762,32 +762,32 @@ URI: [https://data.norge.no/linkml/ngr-eiendom/EiendomContainer](https://data.no
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fasteEiendommer](fasteEiendommer.md) | * <br/> [FastEiendom](FastEiendom.md) |  |
-| [samlinger](samlinger.md) | * <br/> [SamletFastEiendom](SamletFastEiendom.md) |  |
-| [borettslagsandeler](borettslagsandeler.md) | * <br/> [Borettslagsandel](Borettslagsandel.md) |  |
-| [grunneiendommer](grunneiendommer.md) | * <br/> [Grunneiendom](Grunneiendom.md) |  |
-| [festegrunn](festegrunn.md) | * <br/> [Festegrunn](Festegrunn.md) |  |
-| [jordsameier](jordsameier.md) | * <br/> [Jordsameie](Jordsameie.md) |  |
-| [eierseksjoner](eierseksjoner.md) | * <br/> [Eierseksjon](Eierseksjon.md) |  |
-| [anleggseiendommer](anleggseiendommer.md) | * <br/> [Anleggseiendom](Anleggseiendom.md) |  |
-| [andreMatrikkelenheter](andreMatrikkelenheter.md) | * <br/> [AnnenMatrikkelenhet](AnnenMatrikkelenhet.md) |  |
-| [matrikkelnumre](matrikkelnumre.md) | * <br/> [Matrikkelnummer](Matrikkelnummer.md) |  |
-| [bygninger](bygninger.md) | * <br/> [Bygning](Bygning.md) |  |
-| [ytreInnganger](ytreInnganger.md) | * <br/> [YtreInngang](YtreInngang.md) |  |
-| [bruksenheter](bruksenheter.md) | * <br/> [Bruksenhet](Bruksenhet.md) |  |
-| [etasjer](etasjer.md) | * <br/> [Etasje](Etasje.md) |  |
-| [teiger](teiger.md) | * <br/> [Teig](Teig.md) |  |
-| [tinglystEierforhold](tinglystEierforhold.md) | * <br/> [TinglystEierforhold](TinglystEierforhold.md) |  |
-| [ikkeTinglystEierforhold](ikkeTinglystEierforhold.md) | * <br/> [IkkeTinglystEierforhold](IkkeTinglystEierforhold.md) |  |
-| [hjemmelEiendomsrett](hjemmelEiendomsrett.md) | * <br/> [HjemmelTilEiendomsrett](HjemmelTilEiendomsrett.md) |  |
-| [hjemmelFesterett](hjemmelFesterett.md) | * <br/> [HjemmelTilFesterett](HjemmelTilFesterett.md) |  |
-| [hjemmelFramfesterett](hjemmelFramfesterett.md) | * <br/> [HjemmelTilFramfesterett](HjemmelTilFramfesterett.md) |  |
-| [andeler](andeler.md) | * <br/> [Andel](Andel.md) |  |
-| [rettighetshavere](rettighetshavere.md) | * <br/> [Rettighetshaver](Rettighetshaver.md) |  |
-| [tinglystHeftelser](tinglystHeftelser.md) | * <br/> [TinglystHeftelse](TinglystHeftelse.md) |  |
-| [rettigheter](rettigheter.md) | * <br/> [RettighetForAaBenytteEiendom](RettighetForAaBenytteEiendom.md) |  |
-| [borettslag](borettslag.md) | * <br/> [Borettslag](Borettslag.md) |  |
-| [representasjonspunkt](representasjonspunkt.md) | * <br/> [Representasjonspunkt](Representasjonspunkt.md) |  |
+| [fasteEiendommer](fasteeiendommer.md) | * <br/> [FastEiendom](fasteiendom.md) |  |
+| [samlinger](samlinger.md) | * <br/> [SamletFastEiendom](samletfasteiendom.md) |  |
+| [borettslagsandeler](borettslagsandeler.md) | * <br/> [Borettslagsandel](borettslagsandel.md) |  |
+| [grunneiendommer](grunneiendommer.md) | * <br/> [Grunneiendom](grunneiendom.md) |  |
+| [festegrunn](festegrunn.md) | * <br/> [Festegrunn](festegrunn.md) |  |
+| [jordsameier](jordsameier.md) | * <br/> [Jordsameie](jordsameie.md) |  |
+| [eierseksjoner](eierseksjoner.md) | * <br/> [Eierseksjon](eierseksjon.md) |  |
+| [anleggseiendommer](anleggseiendommer.md) | * <br/> [Anleggseiendom](anleggseiendom.md) |  |
+| [andreMatrikkelenheter](andrematrikkelenheter.md) | * <br/> [AnnenMatrikkelenhet](annenmatrikkelenhet.md) |  |
+| [matrikkelnumre](matrikkelnumre.md) | * <br/> [Matrikkelnummer](matrikkelnummer.md) |  |
+| [bygninger](bygninger.md) | * <br/> [Bygning](bygning.md) |  |
+| [ytreInnganger](ytreinnganger.md) | * <br/> [YtreInngang](ytreinngang.md) |  |
+| [bruksenheter](bruksenheter.md) | * <br/> [Bruksenhet](bruksenhet.md) |  |
+| [etasjer](etasjer.md) | * <br/> [Etasje](etasje.md) |  |
+| [teiger](teiger.md) | * <br/> [Teig](teig.md) |  |
+| [tinglystEierforhold](tinglysteierforhold.md) | * <br/> [TinglystEierforhold](tinglysteierforhold.md) |  |
+| [ikkeTinglystEierforhold](ikketinglysteierforhold.md) | * <br/> [IkkeTinglystEierforhold](ikketinglysteierforhold.md) |  |
+| [hjemmelEiendomsrett](hjemmeleiendomsrett.md) | * <br/> [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) |  |
+| [hjemmelFesterett](hjemmelfesterett.md) | * <br/> [HjemmelTilFesterett](hjemmeltilfesterett.md) |  |
+| [hjemmelFramfesterett](hjemmelframfesterett.md) | * <br/> [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) |  |
+| [andeler](andeler.md) | * <br/> [Andel](andel.md) |  |
+| [rettighetshavere](rettighetshavere.md) | * <br/> [Rettighetshaver](rettighetshaver.md) |  |
+| [tinglystHeftelser](tinglystheftelser.md) | * <br/> [TinglystHeftelse](tinglystheftelse.md) |  |
+| [rettigheter](rettigheter.md) | * <br/> [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) |  |
+| [borettslag](borettslag.md) | * <br/> [Borettslag](borettslag.md) |  |
+| [representasjonspunkt](representasjonspunkt.md) | * <br/> [Representasjonspunkt](representasjonspunkt.md) |  |
 
 
 

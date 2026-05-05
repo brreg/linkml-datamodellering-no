@@ -57,8 +57,8 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 
 ## Inheritance
 * **Aktoer**
-    * [Enhet](Enhet.md)
-    * [Person](Person.md)
+    * [Enhet](enhet.md)
+    * [Person](person.md)
 
 
 ## Class Properties
@@ -126,8 +126,8 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](Kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør |
-| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](Adresse.md) | Informasjon om postadresse til ein aktør |
+| [kontaktinformasjon](kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør |
+| [postadresse](postadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Informasjon om postadresse til ein aktør |
 
 
 

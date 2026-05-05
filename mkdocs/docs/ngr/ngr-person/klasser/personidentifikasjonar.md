@@ -17,7 +17,7 @@ Alias: personidentifikasjonar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonContainer](PersonContainer.md) | Rotklasse for NGR-person-datafiler |  no  |
+| [PersonContainer](personcontainer.md) | Rotklasse for NGR-person-datafiler |  no  |
 
 
 
@@ -30,8 +30,8 @@ Alias: personidentifikasjonar
 
 | Property | Value |
 | --- | --- |
-| Range | [Personidentifikasjon](Personidentifikasjon.md) |
-| Domain Of | [PersonContainer](PersonContainer.md) |
+| Range | [Personidentifikasjon](personidentifikasjon.md) |
+| Domain Of | [PersonContainer](personcontainer.md) |
 
 ### Cardinality and Requirements
 
@@ -42,7 +42,7 @@ Alias: personidentifikasjonar
 
 | Property | Value |
 | --- | --- |
-| Owner | [PersonContainer](PersonContainer.md) |
+| Owner | [PersonContainer](personcontainer.md) |
 
 
 

@@ -22,7 +22,7 @@ Alias: foreldrerelasjon_type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [FamilierelasjonForelder](FamilierelasjonForelder.md) | Familierelasjon der den relaterte personen er forelder |  yes  |
+| [FamilierelasjonForelder](familierelasjonforelder.md) | Familierelasjon der den relaterte personen er forelder |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: foreldrerelasjon_type
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [FamilierelasjonForelder](FamilierelasjonForelder.md) |
+| Range | [String](string.md) |
+| Domain Of | [FamilierelasjonForelder](familierelasjonforelder.md) |
 | Slot URI | [ngrp:foreldrerelasjonType](https://data.norge.no/vocabulary/ngr-person#foreldrerelasjonType) |
 
 ### Cardinality and Requirements

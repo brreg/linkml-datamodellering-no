@@ -17,8 +17,8 @@ Alias: slettet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](Tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
-| [Behandling](Behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 
 
 
@@ -31,8 +31,8 @@ Alias: slettet
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Behandling](Behandling.md), [Tjeneste](Tjeneste.md) |
+| Range | [String](string.md) |
+| Domain Of | [Behandling](behandling.md), [Tjeneste](tjeneste.md) |
 
 ### Cardinality and Requirements
 

@@ -22,10 +22,10 @@ Alias: kontostreng
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Lonn](Lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
-| [Fasttillegg](Fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Variabellonn](Variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Fastlonn](Fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
 
 
 
@@ -38,8 +38,8 @@ Alias: kontostreng
 
 | Property | Value |
 | --- | --- |
-| Range | [Kontostreng](Kontostreng.md) |
-| Domain Of | [Lonn](Lonn.md) |
+| Range | [Kontostreng](kontostreng.md) |
+| Domain Of | [Lonn](lonn.md) |
 | Slot URI | [adm:kontostreng](https://schema.fintlabs.no/administrasjon/kontostreng) |
 
 ### Cardinality and Requirements
@@ -51,7 +51,7 @@ Alias: kontostreng
 
 | Property | Value |
 | --- | --- |
-| Owner | [Lonn](Lonn.md) |
+| Owner | [Lonn](lonn.md) |
 
 
 
@@ -63,7 +63,7 @@ Alias: kontostreng
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

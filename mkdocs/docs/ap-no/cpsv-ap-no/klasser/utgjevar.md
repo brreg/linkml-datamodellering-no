@@ -22,7 +22,7 @@ Alias: utgjevar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](Katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 
 
 
@@ -35,8 +35,8 @@ Alias: utgjevar
 
 | Property | Value |
 | --- | --- |
-| Range | [Aktor](Aktor.md) |
-| Domain Of | [Katalog](Katalog.md) |
+| Range | [Aktor](aktor.md) |
+| Domain Of | [Katalog](katalog.md) |
 | Slot URI | [dct:publisher](http://purl.org/dc/terms/publisher) |
 
 ### Cardinality and Requirements

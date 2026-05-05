@@ -22,7 +22,7 @@ Alias: fraversregistreringer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevforhold](Elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fraversregistreringer
 
 | Property | Value |
 | --- | --- |
-| Range | [Elevfravar](Elevfravar.md) |
-| Domain Of | [Elevforhold](Elevforhold.md) |
+| Range | [Elevfravar](elevfravar.md) |
+| Domain Of | [Elevforhold](elevforhold.md) |
 | Slot URI | [utd:fraversregistreringer](https://schema.fintlabs.no/utdanning/fraversregistreringer) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fraversregistreringer
 
 | Property | Value |
 | --- | --- |
-| Owner | [Elevforhold](Elevforhold.md) |
+| Owner | [Elevforhold](elevforhold.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fraversregistreringer
 ## In Subsets
 
 
-* [Valgfri](Valgfri.md)
+* [Valgfri](valgfri.md)
 
 
 

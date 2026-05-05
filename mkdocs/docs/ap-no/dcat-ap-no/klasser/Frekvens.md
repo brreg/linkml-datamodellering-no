@@ -22,7 +22,7 @@ Alias: frekvens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasettserie](Datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: frekvens
 
 | Property | Value |
 | --- | --- |
-| Range | [Frekvens](Frekvens.md) |
-| Domain Of | [Datasettserie](Datasettserie.md) |
+| Range | [Frekvens](frekvens.md) |
+| Domain Of | [Datasettserie](datasettserie.md) |
 | Slot URI | [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity) |
 
 ### Cardinality and Requirements

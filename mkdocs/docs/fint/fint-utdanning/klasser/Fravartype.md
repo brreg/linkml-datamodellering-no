@@ -22,7 +22,7 @@ Alias: fravartype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fraversregistrering](Fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: fravartype
 
 | Property | Value |
 | --- | --- |
-| Range | [Fravartype](Fravartype.md) |
-| Domain Of | [Fraversregistrering](Fraversregistrering.md) |
+| Range | [Fravartype](fravartype.md) |
+| Domain Of | [Fraversregistrering](fraversregistrering.md) |
 | Slot URI | [utd:fravartype](https://schema.fintlabs.no/utdanning/fravartype) |
 
 ### Cardinality and Requirements
@@ -48,7 +48,7 @@ Alias: fravartype
 
 | Property | Value |
 | --- | --- |
-| Owner | [Fraversregistrering](Fraversregistrering.md) |
+| Owner | [Fraversregistrering](fraversregistrering.md) |
 
 
 
@@ -60,7 +60,7 @@ Alias: fravartype
 ## In Subsets
 
 
-* [Obligatorisk](Obligatorisk.md)
+* [Obligatorisk](obligatorisk.md)
 
 
 

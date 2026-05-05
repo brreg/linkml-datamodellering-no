@@ -17,10 +17,10 @@ Alias: art
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](Arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
-| [Kontostreng](Kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  no  |
-| [Fullmakt](Fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
-| [Lonsart](Lonsart.md) | Type ytelse |  no  |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  no  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  no  |
+| [Lonsart](lonsart.md) | Type ytelse |  no  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  no  |
 
 
 
@@ -33,8 +33,8 @@ Alias: art
 
 | Property | Value |
 | --- | --- |
-| Range | [String](String.md) |
-| Domain Of | [Kontostreng](Kontostreng.md), [Lonsart](Lonsart.md), [Fullmakt](Fullmakt.md), [Arbeidsforhold](Arbeidsforhold.md) |
+| Range | [String](string.md) |
+| Domain Of | [Kontostreng](kontostreng.md), [Lonsart](lonsart.md), [Fullmakt](fullmakt.md), [Arbeidsforhold](arbeidsforhold.md) |
 
 ### Cardinality and Requirements
 

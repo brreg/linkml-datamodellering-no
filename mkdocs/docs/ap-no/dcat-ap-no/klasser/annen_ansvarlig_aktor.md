@@ -22,7 +22,7 @@ Alias: annen_ansvarlig_aktor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](Datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: annen_ansvarlig_aktor
 
 | Property | Value |
 | --- | --- |
-| Range | [ProvAttributering](ProvAttributering.md) |
-| Domain Of | [Datasett](Datasett.md) |
+| Range | [ProvAttributering](provattributering.md) |
+| Domain Of | [Datasett](datasett.md) |
 | Slot URI | [prov:qualifiedAttribution](http://www.w3.org/ns/prov#qualifiedAttribution) |
 
 ### Cardinality and Requirements

@@ -22,7 +22,7 @@ Alias: har_gebyr
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](Datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 
 
 
@@ -35,8 +35,8 @@ Alias: har_gebyr
 
 | Property | Value |
 | --- | --- |
-| Range | [Gebyr](Gebyr.md) |
-| Domain Of | [Datatjeneste](Datatjeneste.md) |
+| Range | [Gebyr](gebyr.md) |
+| Domain Of | [Datatjeneste](datatjeneste.md) |
 | Slot URI | [cv:hasCost](http://data.europa.eu/m8g/hasCost) |
 
 ### Cardinality and Requirements

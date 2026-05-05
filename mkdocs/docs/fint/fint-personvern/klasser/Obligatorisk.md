@@ -5,7 +5,7 @@ _Obligatorisk eigensskap._
 
 
 
-URI: [Obligatorisk](Obligatorisk.md)
+URI: [Obligatorisk](obligatorisk.md)
 
 
 
@@ -172,6 +172,6 @@ URI: [Obligatorisk](Obligatorisk.md)
 | [personopplysning](personopplysning.md) | Opplysning eller vurdering som kan knytast til ein enkeltperson |
 | [tjeneste](tjeneste.md) | Tenesta som behandlinga tilhøyrer |
 | [type](type.md) | Beskriv kva slags type kontaktperson |
-| [virksomhetsId](virksomhetsId.md) | Intern unik identifikator i økonomisystemet |
+| [virksomhetsId](virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 

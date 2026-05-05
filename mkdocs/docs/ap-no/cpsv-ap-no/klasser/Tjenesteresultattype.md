@@ -123,8 +123,8 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1..* <br/> [LangString](LangString.md) | Namn/tittel på ressursen (dct:title) |
-| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](LangString.md) | Fritekstbeskrivelse av ressursen (dct:description) |
+| [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
+| [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 
 
 
@@ -164,7 +164,7 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [mogleg_sprak](mogleg_sprak.md) | * <br/> [Spraak](Spraak.md) | Mogleg språk for tenesteresultatet |
+| [mogleg_sprak](mogleg_sprak.md) | * <br/> [Spraak](spraak.md) | Mogleg språk for tenesteresultatet |
 
 
 
@@ -212,11 +212,11 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](String.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](Uri.md) | Datasett som beskriv ressursen |
-| [er_spesifisert_i](er_spesifisert_i.md) | 0..1 <br/> [Uriorcurie](Uriorcurie.md) | Liste eller spesifikasjon ressursen er del av |
-| [kan_skape_hending](kan_skape_hending.md) | * <br/> [Hendelse](Hendelse.md) | Hending tenesteresultatet kan skape |
-| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](Konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen |
+| [er_spesifisert_i](er_spesifisert_i.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Liste eller spesifikasjon ressursen er del av |
+| [kan_skape_hending](kan_skape_hending.md) | * <br/> [Hendelse](hendelse.md) | Hending tenesteresultatet kan skape |
+| [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
 
@@ -339,7 +339,7 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](Uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
 
 
 
@@ -352,9 +352,9 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [LovpalagtTjeneste](LovpalagtTjeneste.md) | [har_tenesteresultattype](har_tenesteresultattype.md) | range | [Tjenesteresultattype](Tjenesteresultattype.md) |
-| [OffentligTjeneste](OffentligTjeneste.md) | [har_tenesteresultattype](har_tenesteresultattype.md) | range | [Tjenesteresultattype](Tjenesteresultattype.md) |
-| [Tjeneste](Tjeneste.md) | [har_tenesteresultattype](har_tenesteresultattype.md) | range | [Tjenesteresultattype](Tjenesteresultattype.md) |
+| [LovpalagtTjeneste](lovpalagttjeneste.md) | [har_tenesteresultattype](har_tenesteresultattype.md) | range | [Tjenesteresultattype](tjenesteresultattype.md) |
+| [OffentligTjeneste](offentligtjeneste.md) | [har_tenesteresultattype](har_tenesteresultattype.md) | range | [Tjenesteresultattype](tjenesteresultattype.md) |
+| [Tjeneste](tjeneste.md) | [har_tenesteresultattype](har_tenesteresultattype.md) | range | [Tjenesteresultattype](tjenesteresultattype.md) |
 
 
 
