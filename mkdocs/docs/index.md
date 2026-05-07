@@ -8,7 +8,7 @@ modellert i [LinkML](https://linkml.io/).
 ## AP-NO Profiler for RDF baserte ressurser
 
 | Profil | Beskriving |
-|---|---|---|
+|---|---|
 | **DCAT-AP-NO** | Datakatalogar |
 | **SKOS-AP-NO** | Begrepssamlingar |
 | **CPSV-AP-NO** | Offentlege tenester |

@@ -14,7 +14,8 @@
       "Bash(make docs-build *)",
       "Bash(podman ps *)",
       "Bash(podman exec *)",
-      "Bash(python3 *)"
+      "Bash(python3 *)",
+      "Bash(xxd)"
     ]
   },
   "enabledMcpjsonServers": [

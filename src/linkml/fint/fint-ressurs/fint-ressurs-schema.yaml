@@ -21,6 +21,276 @@ prefixes:
   res:    https://schema.fintlabs.no/ressurs/
 
 # ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # --- RessursContainer-lister ----------------------------------------------
+
+  applikasjonar:
+    slot_uri: res:applikasjonar
+    range: Applikasjon
+    multivalued: true
+    inlined_as_list: true
+
+  applikasjonsressursar:
+    slot_uri: res:applikasjonsressursar
+    range: Applikasjonsressurs
+    multivalued: true
+    inlined_as_list: true
+
+  applikasjonsressurstilgjengelegheit:
+    slot_uri: res:applikasjonsressurstilgjengelegheit
+    range: Applikasjonsressurstilgjengelighet
+    multivalued: true
+    inlined_as_list: true
+
+  digitaleEiningar:
+    slot_uri: res:digitaleEiningar
+    range: DigitalEnhet
+    multivalued: true
+    inlined_as_list: true
+
+  einingsgrupper:
+    slot_uri: res:einingsgrupper
+    range: Enhetsgruppe
+    multivalued: true
+    inlined_as_list: true
+
+  einingsgruppedmedlemskap:
+    slot_uri: res:einingsgruppedmedlemskap
+    range: Enhetsgruppemedlemskap
+    multivalued: true
+    inlined_as_list: true
+
+  identitetar:
+    slot_uri: res:identitetar
+    range: Identitet
+    multivalued: true
+    inlined_as_list: true
+
+  rettigheiter:
+    slot_uri: res:rettigheiter
+    range: Rettighet
+    multivalued: true
+    inlined_as_list: true
+
+  applikasjonskategoriar:
+    slot_uri: res:applikasjonskategoriar
+    range: Applikasjonskategori
+    multivalued: true
+    inlined_as_list: true
+
+  brukertypar:
+    slot_uri: res:brukertypar
+    range: Brukertype
+    multivalued: true
+    inlined_as_list: true
+
+  einingstypar:
+    slot_uri: res:einingstypar
+    range: Enhetstype
+    multivalued: true
+    inlined_as_list: true
+
+  handhaevingstypar:
+    slot_uri: res:handhaevingstypar
+    range: Handhevingstype
+    multivalued: true
+    inlined_as_list: true
+
+  lisensmodellar:
+    slot_uri: res:lisensmodellar
+    range: Lisensmodell
+    multivalued: true
+    inlined_as_list: true
+
+  plattformar:
+    slot_uri: res:plattformar
+    range: Plattform
+    multivalued: true
+    inlined_as_list: true
+
+  produsentar:
+    slot_uri: res:produsentar
+    range: Produsent
+    multivalued: true
+    inlined_as_list: true
+
+  statusar:
+    slot_uri: res:statusar
+    range: Status
+    multivalued: true
+    inlined_as_list: true
+
+  # --- Felles res-slots (delt mellom fleire klasser) ------------------------
+
+  naam:
+    slot_uri: res:naam
+    range: string
+    description: Namn på ressursen eller kodeverk-elementet.
+
+  plattform:
+    slot_uri: res:plattform
+    range: Plattform
+    description: Plattforma ressursen er knytt til.
+
+  enhetstype:
+    slot_uri: res:enhetstype
+    range: Enhetstype
+    description: Type digital eining.
+
+  enhetsgruppemedlemskap:
+    slot_uri: res:enhetsgruppemedlemskap
+    range: Enhetsgruppemedlemskap
+    multivalued: true
+    description: Einingsgruppemelemskap.
+
+  personalressurs:
+    slot_uri: res:personalressurs
+    range: uriorcurie
+    description: Referanse til Personalressurs (Administrasjon).
+
+  eier:
+    slot_uri: res:eier
+    range: uriorcurie
+    description: Referanse til Organisasjonselement som har eigarskap.
+
+  lisensantall:
+    slot_uri: res:lisensantall
+    range: integer
+    description: Totalt tal på lisensar.
+
+  # --- ressurs.eiendel ------------------------------------------------------
+
+  applikasjonsressurs:
+    slot_uri: res:applikasjonsressurs
+    range: Applikasjonsressurs
+    multivalued: true
+    description: Ulike ressursar (lisensar) knytt til ein applikasjon.
+
+  applikasjonskategori:
+    slot_uri: res:applikasjonskategori
+    range: Applikasjonskategori
+    multivalued: true
+    description: Kategoriar av applikasjonar.
+
+  applikasjon:
+    slot_uri: res:applikasjon
+    range: Applikasjon
+    description: Applikasjonen ressursen (lisensen) er knytt til.
+
+  brukertype:
+    slot_uri: res:brukertype
+    range: Brukertype
+    multivalued: true
+    description: For kva brukertypar lisensen er gyldig.
+
+  handhevingstype:
+    slot_uri: res:handhevingstype
+    range: Handhevingstype
+    description: Korleis lisensmodellen skal handhevast.
+
+  lisensmodell:
+    slot_uri: res:lisensmodell
+    range: Lisensmodell
+    description: Lisensmodellen applikasjonsressursen har.
+
+  ressurstilgjengelighet:
+    slot_uri: res:ressurstilgjengelighet
+    range: Applikasjonsressurstilgjengelighet
+    multivalued: true
+    description: Angir kva organisasjonseining og kor mange ressursar som skal tilordnast.
+
+  enhetskostnad:
+    slot_uri: res:enhetskostnad
+    range: integer
+    description: Kostnad per ressurs.
+
+  kreverGodkjenning:
+    slot_uri: res:kreverGodkjenning
+    range: boolean
+    description: True dersom tildeling av ressursen krev godkjenning.
+
+  konsument:
+    slot_uri: res:konsument
+    range: uriorcurie
+    description: Referanse til Organisasjonselement som har tilgang til ressursen.
+
+  ressursRef:
+    slot_uri: res:ressursRef
+    range: Applikasjonsressurs
+    description: Ressursen organisasjonselementet har tilgang til.
+
+  # --- ressurs.datautstyr ---------------------------------------------------
+
+  serienummer:
+    slot_uri: res:serienummer
+    range: string
+    description: Unikt serienummer frå einingsprodusentens.
+
+  dataobjektId:
+    slot_uri: res:dataobjektId
+    range: Identifikator
+    inlined: true
+    description: Einingsens ID i datakatalogen.
+
+  flerbrukerenhet:
+    slot_uri: res:flerbrukerenhet
+    range: boolean
+    description: Kvifor eininga er ein- eller flerbrukarenheit.
+
+  privateid:
+    slot_uri: res:privateid
+    range: boolean
+    description: Angir om eininga er eigd av organisasjonen eller privatperson.
+
+  administrator:
+    slot_uri: res:administrator
+    range: uriorcurie
+    description: Referanse til Organisasjonselement som administrerer eininga.
+
+  status:
+    slot_uri: res:status
+    range: Status
+    description: Status på eininga i fagsystemet.
+
+  produsent:
+    slot_uri: res:produsent
+    range: Produsent
+    description: Namn på produsenten av eininga.
+
+  organisasjonsenhet:
+    slot_uri: res:organisasjonsenhet
+    range: uriorcurie
+    description: Referanse til Organisasjonselement grupperinga er tilknytt.
+
+  digitalEnhet:
+    slot_uri: res:digitalEnhet
+    range: DigitalEnhet
+    description: Den digitale eininga dette medlemskapet tilhøyrer.
+
+  enhetsgruppe:
+    slot_uri: res:enhetsgruppe
+    range: Enhetsgruppe
+    description: Einingsgruppen dette medlemskapet tilhøyrer.
+
+  # --- ressurs.tilgang ------------------------------------------------------
+
+  rettighet:
+    slot_uri: res:rettighet
+    range: Rettighet
+    multivalued: true
+    description: Rettigheiter knytt til identiteten.
+
+  identitet:
+    slot_uri: res:identitet
+    range: Identitet
+    multivalued: true
+    description: Identitetar knytt til rettigheta.
+
+# ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
 
@@ -29,75 +299,27 @@ classes:
   RessursContainer:
     tree_root: true
     description: Rotcontainer for FINT Ressurs-instansar.
-    attributes:
+    slots:
       # ressurs.eiendel
-      applikasjonar:
-        range: Applikasjon
-        multivalued: true
-        inlined_as_list: true
-      applikasjonsressursar:
-        range: Applikasjonsressurs
-        multivalued: true
-        inlined_as_list: true
-      applikasjonsressurstilgjengelegheit:
-        range: Applikasjonsressurstilgjengelighet
-        multivalued: true
-        inlined_as_list: true
+      - applikasjonar
+      - applikasjonsressursar
+      - applikasjonsressurstilgjengelegheit
       # ressurs.datautstyr
-      digitaleEiningar:
-        range: DigitalEnhet
-        multivalued: true
-        inlined_as_list: true
-      einingsgrupper:
-        range: Enhetsgruppe
-        multivalued: true
-        inlined_as_list: true
-      einingsgruppedmedlemskap:
-        range: Enhetsgruppemedlemskap
-        multivalued: true
-        inlined_as_list: true
+      - digitaleEiningar
+      - einingsgrupper
+      - einingsgruppedmedlemskap
       # ressurs.tilgang
-      identitetar:
-        range: Identitet
-        multivalued: true
-        inlined_as_list: true
-      rettigheiter:
-        range: Rettighet
-        multivalued: true
-        inlined_as_list: true
+      - identitetar
+      - rettigheiter
       # ressurs.kodeverk
-      applikasjonskategoriar:
-        range: Applikasjonskategori
-        multivalued: true
-        inlined_as_list: true
-      brukertypar:
-        range: Brukertype
-        multivalued: true
-        inlined_as_list: true
-      einingstypar:
-        range: Enhetstype
-        multivalued: true
-        inlined_as_list: true
-      handhaevingstypar:
-        range: Handhevingstype
-        multivalued: true
-        inlined_as_list: true
-      lisensmodellar:
-        range: Lisensmodell
-        multivalued: true
-        inlined_as_list: true
-      plattformar:
-        range: Plattform
-        multivalued: true
-        inlined_as_list: true
-      produsentar:
-        range: Produsent
-        multivalued: true
-        inlined_as_list: true
-      statusar:
-        range: Status
-        multivalued: true
-        inlined_as_list: true
+      - applikasjonskategoriar
+      - brukertypar
+      - einingstypar
+      - handhaevingstypar
+      - lisensmodellar
+      - plattformar
+      - produsentar
+      - statusar
 
   # =========================================================================
   # ressurs.eiendel
@@ -108,45 +330,32 @@ classes:
     class_uri: res:Applikasjon
     slots:
       - id
-    attributes:
-      navn:
-        slot_uri: res:navn
-        range: string
+      - naam
+      - beskrivelse
+      - gyldighetsperiode
+      - plattform
+      - applikasjonsressurs
+      - applikasjonskategori
+    slot_usage:
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: res:beskrivelse
-        range: string
         in_subset:
           - Valgfri
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
         required: true
-        inlined: true
-        description: Start- og sluttdato for gyldighetsperioden til applikasjonen.
         in_subset:
           - Obligatorisk
       plattform:
-        slot_uri: res:plattform
-        range: Plattform
         multivalued: true
-        description: Den eller dei plattformane applikasjonen kan køyre på.
         in_subset:
           - Valgfri
-      ressurs:
-        slot_uri: res:applikasjonsressurs
-        range: Applikasjonsressurs
-        multivalued: true
-        description: Ulike ressursar (lisensar) knytt til denne applikasjonen.
+      applikasjonsressurs:
         in_subset:
           - Valgfri
       applikasjonskategori:
-        slot_uri: res:applikasjonskategori
-        range: Applikasjonskategori
-        multivalued: true
-        description: Kategoriar av applikasjonar.
         in_subset:
           - Valgfri
 
@@ -155,85 +364,58 @@ classes:
     class_uri: res:Applikasjonsressurs
     slots:
       - id
-    attributes:
-      navn:
-        slot_uri: res:navn
-        range: string
+      - naam
+      - beskrivelse
+      - gyldighetsperiode
+      - enhetskostnad
+      - kreverGodkjenning
+      - lisensantall
+      - eier
+      - applikasjon
+      - brukertype
+      - handhevingstype
+      - lisensmodell
+      - ressurstilgjengelighet
+    slot_usage:
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: res:beskrivelse
-        range: string
         in_subset:
           - Valgfri
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
         required: true
-        inlined: true
-        description: Start- og sluttdato for gyldighetsperioden til ressursen.
         in_subset:
           - Obligatorisk
       enhetskostnad:
-        slot_uri: res:enhetskostnad
-        range: integer
-        description: Kostnad per ressurs.
         in_subset:
           - Valgfri
       kreverGodkjenning:
-        slot_uri: res:kreverGodkjenning
-        range: boolean
-        description: >
-          True dersom tildeling av ressursen krev godkjenning av
-          leiar/tenestteforvaltar eller tenesteeigr.
         in_subset:
           - Anbefalt
       lisensantall:
-        slot_uri: res:lisensantall
-        range: integer
-        description: Totalt tal på lisensar.
         in_subset:
           - Anbefalt
       eier:
-        slot_uri: res:eier
-        range: uriorcurie
         required: true
-        description: Referanse til Organisasjonselement som har eigarskap til lisensen.
         in_subset:
           - Obligatorisk
       applikasjon:
-        slot_uri: res:applikasjon
-        range: Applikasjon
         required: true
-        description: Applikasjonen denne ressursen (lisensen) er knytt til.
         in_subset:
           - Obligatorisk
       brukertype:
-        slot_uri: res:brukertype
-        range: Brukertype
-        multivalued: true
         required: true
-        description: For kva brukertypar denne lisensen er gyldig.
         in_subset:
           - Obligatorisk
       handhevingstype:
-        slot_uri: res:handhevingstype
-        range: Handhevingstype
-        description: "Korleis det skal handhevast når lisensantall vert overskredet (Håndhevingstype)."
         in_subset:
           - Valgfri
       lisensmodell:
-        slot_uri: res:lisensmodell
-        range: Lisensmodell
-        description: Kva lisensmodell applikasjonsressursen har.
         in_subset:
           - Valgfri
       ressurstilgjengelighet:
-        slot_uri: res:ressurstilgjengelighet
-        range: Applikasjonsressurstilgjengelighet
-        multivalued: true
-        description: Angir kva organisasjonseining og kor mange ressursar som skal tilordnast.
         in_subset:
           - Valgfri
 
@@ -242,33 +424,24 @@ classes:
     class_uri: res:Applikasjonsressurstilgjengelighet
     slots:
       - id
-    attributes:
+      - gyldighetsperiode
+      - lisensantall
+      - konsument
+      - ressursRef
+    slot_usage:
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
         required: true
-        inlined: true
-        description: Gyldighetsperioden til applikasjonsressurstilgjengelegheita.
         in_subset:
           - Obligatorisk
       lisensantall:
-        slot_uri: res:lisensantall
-        range: integer
-        description: Totalt tal på lisensar tilgjengeleg for brukarar i konsumenten.
         in_subset:
           - Valgfri
       konsument:
-        slot_uri: res:konsument
-        range: uriorcurie
         required: true
-        description: Referanse til Organisasjonselement som har tilgang til denne ressursen.
         in_subset:
           - Obligatorisk
-      ressurs:
-        slot_uri: res:ressursRef
-        range: Applikasjonsressurs
+      ressursRef:
         required: true
-        description: Ressursen organisasjonselementet har tilgang til.
         in_subset:
           - Obligatorisk
 
@@ -277,141 +450,100 @@ classes:
   # =========================================================================
 
   DigitalEnhet:
-    description: "Ei digital eining som t.d. PC, nettbrett eller mobil."
+    description: Ei digital eining som t.d. PC, nettbrett eller mobil.
     class_uri: res:DigitalEnhet
     slots:
       - id
-    attributes:
+      - serienummer
+      - naam
+      - dataobjektId
+      - flerbrukerenhet
+      - privateid
+      - administrator
+      - eier
+      - personalressurs
+      - elev
+      - status
+      - enhetstype
+      - plattform
+      - produsent
+      - enhetsgruppemedlemskap
+    slot_usage:
       serienummer:
-        slot_uri: res:serienummer
-        range: string
         required: true
-        description: Unikt serienummer frå einingsprodusentens.
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: res:navn
-        range: string
-        description: Namnet slik det framkjem i fagsystemet/datakatalogen.
+      naam:
         in_subset:
           - Valgfri
       dataobjektId:
-        slot_uri: res:dataobjektId
-        range: Identifikator
-        inlined: true
-        description: Einingsens ID i datakatalogen (t.d. ObjectId i Azure AD).
         in_subset:
           - Valgfri
       flerbrukerenhet:
-        slot_uri: res:flerbrukerenhet
-        range: boolean
-        description: Kvifor eininga er ein- eller flerbrukarenheit.
         in_subset:
           - Valgfri
       privateid:
-        slot_uri: res:privateid
-        range: boolean
-        description: Angir om eininga er eigd av organisasjonen eller privatperson.
         in_subset:
           - Valgfri
       administrator:
-        slot_uri: res:administrator
-        range: uriorcurie
         required: true
-        description: Referanse til Organisasjonselement som administrerer eininga.
         in_subset:
           - Obligatorisk
       eier:
-        slot_uri: res:eier
-        range: uriorcurie
-        description: Referanse til Organisasjonselement som eig eininga (om ikkje privateid).
         in_subset:
           - Valgfri
       personalressurs:
-        slot_uri: res:personalressurs
-        range: uriorcurie
-        description: Referanse til Personalressurs (Administrasjon) som nyttar eininga.
         in_subset:
           - Valgfri
       elev:
-        slot_uri: res:elev
-        range: uriorcurie
-        description: Referanse til Elev (Utdanning) som nyttar eininga.
         in_subset:
           - Valgfri
       status:
-        slot_uri: res:status
-        range: Status
-        description: Status på eininga i fagsystemet.
         in_subset:
           - Valgfri
       enhetstype:
-        slot_uri: res:enhetstype
-        range: Enhetstype
         required: true
-        description: "Type digital eining: Mobiltelefon, datamaskin, nettbrett."
         in_subset:
           - Obligatorisk
       plattform:
-        slot_uri: res:plattform
-        range: Plattform
         required: true
-        description: "Operativsystemplattform: Windows, macOS, Linux, iOS, Android."
         in_subset:
           - Obligatorisk
       produsent:
-        slot_uri: res:produsent
-        range: Produsent
-        description: Namn på produsenten av eininga.
         in_subset:
           - Valgfri
       enhetsgruppemedlemskap:
-        slot_uri: res:enhetsgruppemedlemskap
-        range: Enhetsgruppemedlemskap
-        multivalued: true
-        description: Einingsgruppene eininga er medlem av.
         in_subset:
           - Valgfri
 
   Enhetsgruppe:
-    description: Ei gruppering av einsarta digitale einingar (t.d. klassesett med iPadar).
+    description: Ei gruppering av einsarta digitale einingar.
     class_uri: res:Enhetsgruppe
     slots:
       - id
-    attributes:
-      navn:
-        slot_uri: res:navn
-        range: string
+      - naam
+      - organisasjonsenhet
+      - enhetstype
+      - plattform
+      - enhetsgruppemedlemskap
+    slot_usage:
+      naam:
         required: true
-        description: Namnet slik det framkjem i fagsystemet.
         in_subset:
           - Obligatorisk
       organisasjonsenhet:
-        slot_uri: res:organisasjonsenhet
-        range: uriorcurie
         required: true
-        description: Referanse til Organisasjonselement grupperinga er tilknytt.
         in_subset:
           - Obligatorisk
       enhetstype:
-        slot_uri: res:enhetstype
-        range: Enhetstype
         required: true
-        description: "Type digital eining: Mobiltelefon, datamaskin, nettbrett."
         in_subset:
           - Obligatorisk
       plattform:
-        slot_uri: res:plattform
-        range: Plattform
         required: true
-        description: "Operativsystemplattform: Windows, macOS, Linux, iOS, Android."
         in_subset:
           - Obligatorisk
       enhetsgruppemedlemskap:
-        slot_uri: res:enhetsgruppemedlemskap
-        range: Enhetsgruppemedlemskap
-        multivalued: true
-        description: Digitale einingar som er med i denne einingsgruppen.
         in_subset:
           - Valgfri
 
@@ -420,19 +552,15 @@ classes:
     class_uri: res:Enhetsgruppemedlemskap
     slots:
       - id
-    attributes:
+      - digitalEnhet
+      - enhetsgruppe
+    slot_usage:
       digitalEnhet:
-        slot_uri: res:digitalEnhet
-        range: DigitalEnhet
         required: true
-        description: Den digitale eininga dette medlemskapet tilhøyrer.
         in_subset:
           - Obligatorisk
       enhetsgruppe:
-        slot_uri: res:enhetsgruppe
-        range: Enhetsgruppe
         required: true
-        description: Einingsgruppen dette medlemskapet tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -445,71 +573,52 @@ classes:
     class_uri: res:Identitet
     slots:
       - id
-    attributes:
+      - personalressurs
+      - rettighet
+    slot_usage:
       personalressurs:
-        slot_uri: res:personalressurs
-        range: uriorcurie
-        description: Referanse til Personalressurs (Administrasjon) knytt til identiteten.
         in_subset:
           - Valgfri
       rettighet:
-        slot_uri: res:rettighet
-        range: Rettighet
-        multivalued: true
-        description: Rettigheiter knytt til identiteten.
         in_subset:
           - Valgfri
 
   Rettighet:
-    description: Ei namngitt rettighet. Kva rettigheta gir tilgang til er systemspesifikt.
+    description: Ei namngitt rettighet.
     class_uri: res:Rettighet
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - beskrivelse
+      - gyldighetsperiode
+      - passiv
+      - identitet
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-        description: Verdi som identifiserer omgrepet.
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
-        description: Hovudnamn for omgrepet.
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: res:beskrivelse
-        range: string
         required: true
-        description: Ei skildring av kva rettigheta inneber.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Angir gyldighetsperioden for omgrepet/koden.
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
-        description: Angir at koden er passiv og ikkje kan veljast.
         in_subset:
           - Valgfri
       identitet:
-        slot_uri: res:identitet
-        range: Identitet
-        multivalued: true
-        description: Identitetar knytt til rettigheta.
         in_subset:
           - Valgfri
 
   # =========================================================================
-  # ressurs.kodeverk  (felles mønster: id, kode, navn, gyldighetsperiode?, passiv?)
+  # ressurs.kodeverk
   # =========================================================================
 
   Applikasjonskategori:
@@ -517,178 +626,165 @@ classes:
     class_uri: res:Applikasjonskategori
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
+        in_subset:
+          - Valgfri
 
   Brukertype:
-    description: "Dei ulike brukartypane som kan nytte lisensen (t.d. Ansatt, Elev)."
+    description: Dei ulike brukartypane som kan nytte lisensen.
     class_uri: res:Brukertype
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
+        in_subset:
+          - Valgfri
 
   Enhetstype:
-    description: "Type digital eining (t.d. Mobiltelefon, Datamaskin, Nettbrett)."
+    description: Type digital eining.
     class_uri: res:Enhetstype
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
+        in_subset:
+          - Valgfri
 
   Handhevingstype:
-    description: "Korleis ulike lisensmodellar kan handhevast (Håndhevingstype)."
+    description: Korleis ulike lisensmodellar kan handhevast.
     class_uri: res:Handhevingstype
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
+        in_subset:
+          - Valgfri
 
   Lisensmodell:
     description: Lisensmodellar som kan knytast til ein lisens.
     class_uri: res:Lisensmodell
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
+        in_subset:
+          - Valgfri
 
   Plattform:
-    description: "Plattforma tenesta kan leverast på (t.d. Windows, macOS, iOS, Android)."
+    description: Plattforma tenesta kan leverast på.
     class_uri: res:Plattform
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
+        in_subset:
+          - Valgfri
 
   Produsent:
     description: Produsent av ei digital eining.
     class_uri: res:Produsent
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
+        in_subset:
+          - Valgfri
 
   Status:
     description: Status på ei digital eining i fagsystemet.
     class_uri: res:Status
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: res:kode
-        range: string
         required: true
-      navn:
-        slot_uri: res:navn
-        range: string
+      naam:
         required: true
       gyldighetsperiode:
-        slot_uri: res:gyldighetsperiode
-        range: Periode
-        inlined: true
+        in_subset:
+          - Valgfri
       passiv:
-        slot_uri: res:passiv
-        range: boolean
-
-# ---------------------------------------------------------------------------
-# Slots
-# ---------------------------------------------------------------------------
-
+        in_subset:
+          - Valgfri

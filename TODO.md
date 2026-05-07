@@ -1,11 +1,19 @@
+remodellere fint modellar til å benytte slots istadenfor atributter
+
+remodellere ngr modellar til å benytte slots istadenfor atributter
 Modellere opp BR modell fra MagicDraw
 erstatte æøå med ae oe aa i alle klasse og slotnavn.
+
+forbere nav menyen med markering av alle nivå som inngår i gjeldande sidehierarki og ikkje kollapse menyen når du trykker på ei klasse for å vise detaljsida om den
 
 fjærne container klasse fra gen-docs generert dokumentajson
 fjærne container klasse fra ER-oversiktsdiagram
 
-remodellere fint modellar til å benytte slots istadenfor atributter
-remodellere ngr modellar til å benytte slots istadenfor atributter
+forfine ap-no validatoren
+oreg og samt oversiktsdiagram rendrer ikkje
+
+
+
 gen-doc: endre generering av docs slik at index.html grupperer klasser som er i subset Obligatorisk først, fulgt av Anbefalt og Valgfri
 fikse warning ved bygg av dokportal
 INFO    -  Building documentation...

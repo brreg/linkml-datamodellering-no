@@ -19,6 +19,805 @@ prefixes:
   ark:    https://schema.fintlabs.no/arkiv/
 
 # ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # --- ArkivContainer-lister ------------------------------------------------
+
+  arkivdelar:
+    slot_uri: ark:arkivdelar
+    range: Arkivdel
+    multivalued: true
+    inlined_as_list: true
+
+  arkivressursar:
+    slot_uri: ark:arkivressursar
+    range: Arkivressurs
+    multivalued: true
+    inlined_as_list: true
+
+  autorisasjonar:
+    slot_uri: ark:autorisasjonar
+    range: Autorisasjon
+    multivalued: true
+    inlined_as_list: true
+
+  administrativeEiningar:
+    slot_uri: ark:administrativeEiningar
+    range: AdministrativEnhet
+    multivalued: true
+    inlined_as_list: true
+
+  dokumentfiler:
+    slot_uri: ark:dokumentfiler
+    range: Dokumentfil
+    multivalued: true
+    inlined_as_list: true
+
+  dokumentbeskrivelsar:
+    slot_uri: ark:dokumentbeskrivelsar
+    range: Dokumentbeskrivelse
+    multivalued: true
+    inlined_as_list: true
+
+  journalpostar:
+    slot_uri: ark:journalpostar
+    range: Journalpost
+    multivalued: true
+    inlined_as_list: true
+
+  tilgangar:
+    slot_uri: ark:tilgangar
+    range: Tilgang
+    multivalued: true
+    inlined_as_list: true
+
+  sakar:
+    slot_uri: ark:sakar
+    range: Sak
+    multivalued: true
+    inlined_as_list: true
+
+  personalmappe_liste:
+    slot_uri: ark:personalmappe
+    range: Personalmappe
+    multivalued: true
+    inlined_as_list: true
+
+  dispensasjonAutomatiskFredaKulturminne_liste:
+    slot_uri: ark:dispensasjonAutomatiskFredaKulturminne
+    range: DispensasjonAutomatiskFredaKulturminne
+    multivalued: true
+    inlined_as_list: true
+
+  tilskuddFartoy_liste:
+    slot_uri: ark:tilskuddFartoy
+    range: TilskuddFartoy
+    multivalued: true
+    inlined_as_list: true
+
+  tilskuddFredaBygningPrivatEie_liste:
+    slot_uri: ark:tilskuddFredaBygningPrivatEie
+    range: TilskuddFredaBygningPrivatEie
+    multivalued: true
+    inlined_as_list: true
+
+  soeknadDrosjeloeyve_liste:
+    slot_uri: ark:soeknadDrosjeloeyve
+    range: SoeknadDrosjeloeyve
+    multivalued: true
+    inlined_as_list: true
+
+  dokumentstatuskodar:
+    slot_uri: ark:dokumentstatuskodar
+    range: DokumentStatus
+    multivalued: true
+    inlined_as_list: true
+
+  dokumenttypar:
+    slot_uri: ark:dokumenttypar
+    range: DokumentType
+    multivalued: true
+    inlined_as_list: true
+
+  formatar:
+    slot_uri: ark:formatar
+    range: Format
+    multivalued: true
+    inlined_as_list: true
+
+  journalposttypar:
+    slot_uri: ark:journalposttypar
+    range: JournalpostType
+    multivalued: true
+    inlined_as_list: true
+
+  journalstatuskodar:
+    slot_uri: ark:journalstatuskodar
+    range: JournalStatus
+    multivalued: true
+    inlined_as_list: true
+
+  klassifikasjonstypar:
+    slot_uri: ark:klassifikasjonstypar
+    range: Klassifikasjonstype
+    multivalued: true
+    inlined_as_list: true
+
+  korrespondanseparttypar:
+    slot_uri: ark:korrespondanseparttypar
+    range: KorrespondansepartType
+    multivalued: true
+    inlined_as_list: true
+
+  merknadstypar:
+    slot_uri: ark:merknadstypar
+    range: Merknadstype
+    multivalued: true
+    inlined_as_list: true
+
+  partRollar:
+    slot_uri: ark:partRollar
+    range: PartRolle
+    multivalued: true
+    inlined_as_list: true
+
+  rollar:
+    slot_uri: ark:rollar
+    range: Rolle
+    multivalued: true
+    inlined_as_list: true
+
+  saksmappetypar:
+    slot_uri: ark:saksmappetypar
+    range: Saksmappetype
+    multivalued: true
+    inlined_as_list: true
+
+  sakstatuskodar:
+    slot_uri: ark:sakstatuskodar
+    range: Saksstatus
+    multivalued: true
+    inlined_as_list: true
+
+  skjermingsheimlar:
+    slot_uri: ark:skjermingsheimlar
+    range: Skjermingshjemmel
+    multivalued: true
+    inlined_as_list: true
+
+  tilgangsgrupper:
+    slot_uri: ark:tilgangsgrupper
+    range: Tilgangsgruppe
+    multivalued: true
+    inlined_as_list: true
+
+  tilgangsrestriksjonar:
+    slot_uri: ark:tilgangsrestriksjonar
+    range: Tilgangsrestriksjon
+    multivalued: true
+    inlined_as_list: true
+
+  tilknyttetRegistreringSomKodar:
+    slot_uri: ark:tilknyttetRegistreringSomKodar
+    range: TilknyttetRegistreringSom
+    multivalued: true
+    inlined_as_list: true
+
+  variantformatar:
+    slot_uri: ark:variantformatar
+    range: Variantformat
+    multivalued: true
+    inlined_as_list: true
+
+  # --- Felles ark-slots (delt mellom fleire klasser) ------------------------
+
+  tittel:
+    slot_uri: ark:tittel
+    range: string
+    description: Tittel eller namn på arkivenheten.
+
+  avsluttetDato:
+    slot_uri: ark:avsluttetDato
+    range: datetime
+    description: Dato og klokkeslett når arkivenheten vart avslutta/lukka.
+
+  opprettetDato:
+    slot_uri: ark:opprettetDato
+    range: datetime
+    description: Dato og klokkeslett arkivenheten vart oppretta/registrert.
+
+  offentligTittel:
+    slot_uri: ark:offentligTittel
+    range: string
+    description: Offentleg tittel der skjerma ord er fjerna.
+
+  klasse:
+    slot_uri: ark:klasse
+    range: Klasse
+    description: Klassifisering av arkivenhet.
+
+  part:
+    slot_uri: ark:part
+    range: Part
+    multivalued: true
+    inlined_as_list: true
+    description: Partar til arkivenhet.
+
+  merknad:
+    slot_uri: ark:merknad
+    range: Merknad
+    multivalued: true
+    inlined_as_list: true
+    description: Merknader knytt til arkivenhet.
+
+  skjerming:
+    slot_uri: ark:skjerming
+    range: Skjerming
+    inlined: true
+    description: Skjerming av arkivenhet.
+
+  arkivdel:
+    slot_uri: ark:arkivdel
+    range: Arkivdel
+    description: Arkivdel arkivenheten tilhøyrer.
+
+  opprettetAv:
+    slot_uri: ark:opprettetAv
+    range: Arkivressurs
+    description: Person som oppretta/registrerte arkivenheten.
+
+  avsluttetAv:
+    slot_uri: ark:avsluttetAv
+    range: Arkivressurs
+    description: Person som avslutta/lukka arkivenheten.
+
+  noekkelord:
+    slot_uri: ark:noekkelord
+    range: string
+    multivalued: true
+    description: Nøkkelord som skildrar innhaldet (Mappe).
+
+  mappeId:
+    slot_uri: ark:mappeId
+    range: Identifikator
+    inlined: true
+    description: Eintydig identifikasjon av mappa innanfor arkivet.
+
+  tilgangsgruppe:
+    slot_uri: ark:tilgangsgruppe
+    range: Tilgangsgruppe
+    description: Tilgangsgruppe som har tilgang til arkivenheten.
+
+  administrativEnhet:
+    slot_uri: ark:administrativEnhet
+    range: AdministrativEnhet
+    description: Administrativ eining som har ansvar for saksbehandlinga.
+
+  journalenhet:
+    slot_uri: ark:journalenhet
+    range: AdministrativEnhet
+    description: Eining med arkivmessig ansvar.
+
+  arkivressurs:
+    slot_uri: ark:arkivressurs
+    range: Arkivressurs
+    multivalued: true
+    description: Arkivressursar.
+
+  tilgangsrestriksjon:
+    slot_uri: ark:tilgangsrestriksjon
+    range: Tilgangsrestriksjon
+    description: Tilgangsrestriksjon.
+
+  forfatter:
+    slot_uri: ark:forfatter
+    range: string
+    multivalued: true
+    description: Namn på person eller organisasjon som skapte dokumentet.
+
+  # --- Saksmappe ------------------------------------------------------------
+
+  journalpost:
+    slot_uri: ark:journalpost
+    range: Journalpost
+    multivalued: true
+    description: Journalpostar knytt til saksmappa.
+
+  saksaar:
+    slot_uri: ark:saksaar
+    range: string
+    description: Inngår i M003 mappeID — viser året saksmappa vart oppretta.
+
+  saksdato:
+    slot_uri: ark:saksdato
+    range: datetime
+    description: Datoen saka er oppretta.
+
+  sakssekvensnummer:
+    slot_uri: ark:sakssekvensnummer
+    range: string
+    description: Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta.
+
+  utlaantDato:
+    slot_uri: ark:utlaantDato
+    range: datetime
+    description: Dato ein fysisk saksmappe eller journalpost vart utlånt.
+
+  saksmappetype:
+    slot_uri: ark:saksmappetype
+    range: Saksmappetype
+    description: Type saksmappe.
+
+  saksstatus:
+    slot_uri: ark:saksstatus
+    range: Saksstatus
+    description: Status til saksmappa.
+
+  saksansvarlig:
+    slot_uri: ark:saksansvarlig
+    range: Arkivressurs
+    description: Person som er saksansvarleg.
+
+  # --- Registrering ---------------------------------------------------------
+
+  arkivertDato:
+    slot_uri: ark:arkivertDato
+    range: datetime
+    description: Dato og klokkeslett alle dokument knytt til registreringa vart arkivert.
+
+  dokumentbeskrivelse:
+    slot_uri: ark:dokumentbeskrivelse
+    range: Dokumentbeskrivelse
+    multivalued: true
+    description: Dokumentbeskrivelsar til ei registrering.
+
+  korrespondansepart:
+    slot_uri: ark:korrespondansepart
+    range: Korrespondansepart
+    multivalued: true
+    inlined_as_list: true
+    description: Mottakar eller sendar av arkivdokument.
+
+  nokkelord:
+    slot_uri: ark:nokkelord
+    range: string
+    multivalued: true
+    description: Nøkkelord som skildrar innhaldet (Registrering).
+
+  referanseArkivDel:
+    slot_uri: ark:referanseArkivDel
+    range: string
+    multivalued: true
+    description: Referanse til arkivdelen denne arkivenheten er tilknytt.
+
+  registreringsId:
+    slot_uri: ark:registreringsId
+    range: string
+    description: Inngår i M004 journalpostID.
+
+  saksbehandler:
+    slot_uri: ark:saksbehandler
+    range: Arkivressurs
+    description: Person som er saksbehandlar.
+
+  arkivertAv:
+    slot_uri: ark:arkivertAv
+    range: Arkivressurs
+    description: Person som arkiverte arkivenheten.
+
+  # --- AdministrativEnhet / Personalmappe -----------------------------------
+
+  # navn: string — brukt av AdministrativEnhet og alle kodeverk-klassar
+  naam:
+    slot_uri: ark:naam
+    range: string
+    description: Namn på arkivenhet eller kodeverk-element.
+
+  # personnavn: Personnavn — brukt av Personalmappe (same slot_uri som naam, ulik range)
+  personnavn:
+    slot_uri: ark:personnavn
+    range: Personnavn
+    inlined: true
+    description: Namn på person (Personnavn-objekt).
+
+  organisasjonselement:
+    slot_uri: ark:organisasjonselement
+    range: uriorcurie
+    description: Referanse til Organisasjonselement i Administrasjon-domenet.
+
+  # --- Arkivressurs ---------------------------------------------------------
+
+  kildesystemId:
+    slot_uri: ark:kildesystemId
+    range: Identifikator
+    inlined: true
+    description: Kildesystemets identifikator for arkivressursen.
+
+  personalressurs:
+    slot_uri: ark:personalressurs
+    range: uriorcurie
+    description: Referanse til Personalressurs i Administrasjon-domenet.
+
+  autorisasjon:
+    slot_uri: ark:autorisasjon
+    range: Autorisasjon
+    multivalued: true
+    description: Autorisasjonar gjevne til arkivressursen.
+
+  tilgang:
+    slot_uri: ark:tilgang
+    range: Tilgang
+    multivalued: true
+    description: Tilgangar gjevne til arkivressursen.
+
+  # --- Autorisasjon ---------------------------------------------------------
+
+  administrativenhet:
+    slot_uri: ark:administrativenhet
+    range: AdministrativEnhet
+    multivalued: true
+    description: Administrative einingar autorisasjonen er gyldig for.
+
+  # --- Klassifikasjonssystem ------------------------------------------------
+
+  klassifikasjonssystem:
+    slot_uri: ark:klassifikasjonssystem
+    range: Klassifikasjonssystem
+    description: Klassifikasjonssystem.
+
+  klassifikasjonstype:
+    slot_uri: ark:klassifikasjonstype
+    range: Klassifikasjonstype
+    description: Type klassifikasjonssystem.
+
+  avsluttetAvNavn:
+    slot_uri: ark:avsluttetAvNavn
+    range: string
+    description: Namn på person som avslutta/lukka arkivenheten.
+
+  opprettetAvNavn:
+    slot_uri: ark:opprettetAvNavn
+    range: string
+    description: Namn på person som oppretta/registrerte arkivenheten.
+
+  # --- Tilgang --------------------------------------------------------------
+
+  rolle:
+    slot_uri: ark:rolle
+    range: Rolle
+    description: Rolle tilknytt tilgangen.
+
+  # --- Dokumentfil ----------------------------------------------------------
+
+  data:
+    slot_uri: ark:data
+    range: string
+    description: Dokumentfilens data, koda som Base64.
+
+  filnavn:
+    slot_uri: ark:filnavn
+    range: string
+    description: Dokumentfilens namn.
+
+  format:
+    slot_uri: ark:format
+    range: string
+    description: Format på dokumentfil, som IANA Media Type.
+
+  # --- Journalpost ----------------------------------------------------------
+
+  antallVedlegg:
+    slot_uri: ark:antallVedlegg
+    range: integer
+    description: Antal fysiske vedlegg til eit fysisk hoveddokument.
+
+  avskrivning:
+    slot_uri: ark:avskrivning
+    range: Avskrivning
+    inlined: true
+    description: Avskriving av journalposten.
+
+  dokumentetsDato:
+    slot_uri: ark:dokumentetsDato
+    range: datetime
+    description: Dato påført sjølve dokumentet.
+
+  forfallsDato:
+    slot_uri: ark:forfallsDato
+    range: datetime
+    description: Frist for å svare på eit inngåande dokument.
+
+  journalAr:
+    slot_uri: ark:journalAr
+    range: string
+    description: Året journalposten vart oppretta.
+
+  journalDato:
+    slot_uri: ark:journalDato
+    range: datetime
+    description: Datoen journalposten er oppretta/arkivert.
+
+  journalPostnummer:
+    slot_uri: ark:journalPostnummer
+    range: integer
+    description: Rekkjefølgja journalpostane vart oppretta innanfor saksmappa.
+
+  journalSekvensnummer:
+    slot_uri: ark:journalSekvensnummer
+    range: integer
+    description: Rekkjefølgja journalposten vart oppretta under året.
+
+  mottattDato:
+    slot_uri: ark:mottattDato
+    range: datetime
+    description: Dato eit eksternt dokument vart motteke.
+
+  offentlighetsvurdertDato:
+    slot_uri: ark:offentlighetsvurdertDato
+    range: datetime
+    description: Datoen offentlegheitsvurdering vart gjennomført.
+
+  sendtDato:
+    slot_uri: ark:sendtDato
+    range: datetime
+    description: Dato eit internt produsert dokument vart sendt/ekspedert.
+
+  journalposttype:
+    slot_uri: ark:journalposttype
+    range: JournalpostType
+    description: Namn på type journalpost.
+
+  journalstatus:
+    slot_uri: ark:journalstatus
+    range: JournalStatus
+    description: Status til journalposten.
+
+  # --- Dokumentbeskrivelse --------------------------------------------------
+
+  dokumentnummer:
+    slot_uri: ark:dokumentnummer
+    range: integer
+    description: Identifikasjon av dokumenta innanfor ei registrering.
+
+  dokumentobjekt:
+    slot_uri: ark:dokumentobjekt
+    range: Dokumentobjekt
+    multivalued: true
+    inlined_as_list: true
+    description: Dokumentobjekt tilhøyrande dokumentbeskrivelsa.
+
+  referanseArkivdel:
+    slot_uri: ark:referanseArkivdel
+    range: string
+    multivalued: true
+    description: Referanse til arkivdelen denne arkivenheten er tilknytt.
+
+  tilknyttetDato:
+    slot_uri: ark:tilknyttetDato
+    range: datetime
+    description: Datoen eit dokument vart knytt til ei registrering.
+
+  dokumentstatus:
+    slot_uri: ark:dokumentstatus
+    range: DokumentStatus
+    description: Status til dokumentet.
+
+  dokumentType:
+    slot_uri: ark:dokumentType
+    range: DokumentType
+    description: Namn på type dokument.
+
+  tilknyttetRegistreringSom:
+    slot_uri: ark:tilknyttetRegistreringSom
+    range: TilknyttetRegistreringSom
+    multivalued: true
+    description: Rolle dokumentet har i høve registreringa.
+
+  tilknyttetAv:
+    slot_uri: ark:tilknyttetAv
+    range: Arkivressurs
+    description: Person som knytte dokumentet til registreringa.
+
+  # --- Dokumentobjekt -------------------------------------------------------
+
+  filstorrelse:
+    slot_uri: ark:filstorrelse
+    range: string
+    description: Storleiken på fila i antal bytes.
+
+  formatDetaljer:
+    slot_uri: ark:formatDetaljer
+    range: string
+    description: Nærare spesifikasjon av dokumentets format.
+
+  sjekksum:
+    slot_uri: ark:sjekksum
+    range: string
+    description: Verdi som gir integritetssikring til dokumentets innhald.
+
+  sjekksumAlgoritme:
+    slot_uri: ark:sjekksumAlgoritme
+    range: string
+    description: Algoritme nytta for å berekne sjekksummen.
+
+  versjonsnummer:
+    slot_uri: ark:versjonsnummer
+    range: integer
+    description: Identifikasjon av versjonar innanfor same dokument.
+
+  filformat:
+    slot_uri: ark:filformat
+    range: Format
+    description: Dokumentets format.
+
+  variantFormat:
+    slot_uri: ark:variantFormat
+    range: Variantformat
+    description: Kva variant dokumentet førekjem i.
+
+  referanseDokumentfil:
+    slot_uri: ark:referanseDokumentfil
+    range: Dokumentfil
+    description: Referanse til fila som inneheld det elektroniske dokumentet.
+
+  # --- Klasse ---------------------------------------------------------------
+
+  klasseId:
+    slot_uri: ark:klasseId
+    range: string
+    description: Eintydig identifikasjon av klassen innanfor klassifikasjonssystemet.
+
+  rekkefølge:
+    slot_uri: ark:rekkefolge
+    range: integer
+    description: Rekkjefølgje for klassifiseringar.
+
+  # --- Korrespondansepart / Part --------------------------------------------
+
+  foedselsnummer:
+    slot_uri: ark:foedselsnummer
+    range: string
+    description: Fødselsnummer.
+
+  # Brukt i Korrespondansepart og Part: ark:kontaktperson (string).
+  # Ulikt frå fint-common sin 'kontaktperson' (fint:kontaktpersonFor, range Person).
+  kontaktperson_str:
+    slot_uri: ark:kontaktperson
+    range: string
+    description: Kontaktperson hos ein organisasjon som er avsender, mottakar eller sakspart.
+
+  korrespondansepartNavn:
+    slot_uri: ark:korrespondansepartNavn
+    range: string
+    description: Namn på person eller organisasjon som er avsender eller mottakar.
+
+  # ark:organisasjonsnummer (string) — ulikt frå fint-common sin (fint:organisasjonsnummer, Identifikator).
+  orgnummer:
+    slot_uri: ark:organisasjonsnummer
+    range: string
+    description: Organisasjonsnummer.
+
+  korrespondanseparttype:
+    slot_uri: ark:korrespondanseparttype
+    range: KorrespondansepartType
+    description: Type korrespondansepart.
+
+  partNavn:
+    slot_uri: ark:partNavn
+    range: string
+    description: Namn på verksemd eller person som er part.
+
+  partRolle:
+    slot_uri: ark:partRolle
+    range: PartRolle
+    description: Rolla til parten.
+
+  # --- Merknad --------------------------------------------------------------
+
+  merknadsdato:
+    slot_uri: ark:merknadsdato
+    range: datetime
+    description: Dato og klokkeslett merknaden vart registrert.
+
+  merknadstekst:
+    slot_uri: ark:merknadstekst
+    range: string
+    description: Merknad frå saksbehandlar, leiar eller arkivpersonale.
+
+  merknadstype:
+    slot_uri: ark:merknadstype
+    range: Merknadstype
+    description: Type merknad.
+
+  merknadRegistrertAv:
+    slot_uri: ark:merknadRegistrertAv
+    range: Arkivressurs
+    description: Person som registrerte merknaden.
+
+  # --- Skjerming ------------------------------------------------------------
+
+  skjermingshjemmel:
+    slot_uri: ark:skjermingshjemmel
+    range: Skjermingshjemmel
+    description: Skjermingsheimelen.
+
+  # --- Avskrivning ----------------------------------------------------------
+
+  avskrevetAv:
+    slot_uri: ark:avskrevetAv
+    range: string
+    description: Person som avskriva journalposten.
+
+  avskrivningsdato:
+    slot_uri: ark:avskrivningsdato
+    range: datetime
+    description: Dato og klokkeslett for avskrivinga.
+
+  avskrivningsmate:
+    slot_uri: ark:avskrivningsmate
+    range: string
+    description: Korleis journalposten er avskriven.
+
+  # --- Personalmappe --------------------------------------------------------
+
+  person:
+    slot_uri: ark:person
+    range: uriorcurie
+    description: Referanse til Person i Administrasjon-domenet.
+
+  leder:
+    slot_uri: ark:leder
+    range: uriorcurie
+    description: Referanse til Personalressurs som er arbeidstakarens leiar.
+
+  arbeidssted:
+    slot_uri: ark:arbeidssted
+    range: uriorcurie
+    description: Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad.
+
+  # --- Kulturminnevern / Samferdsel -----------------------------------------
+
+  kulturminneId:
+    slot_uri: ark:kulturminneId
+    range: string
+    description: Kulturminnets ID i Askeladden.
+
+  matrikkelnummer:
+    slot_uri: ark:matrikkelnummer
+    range: Matrikkelnummer
+    inlined: true
+    description: Kulturminnets/bygningens identifikator i Matrikkelen.
+
+  soeknadsnummer:
+    slot_uri: ark:soeknadsnummer
+    range: Identifikator
+    inlined: true
+    description: Søknadsnummer frå Digisak.
+
+  tiltak:
+    slot_uri: ark:tiltak
+    range: string
+    description: Skildrar kva tiltak som skal utførast på eigedommen.
+
+  fartoyNavn:
+    slot_uri: ark:fartoyNavn
+    range: string
+    description: Fartøyets namn.
+
+  kallesignal:
+    slot_uri: ark:kallesignal
+    range: string
+    description: Fartøyets kallesignal.
+
+  bygningsnavn:
+    slot_uri: ark:bygningsnavn
+    range: string
+    description: Bygningens namn.
+
+# ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
 
@@ -27,138 +826,46 @@ classes:
   ArkivContainer:
     tree_root: true
     description: Rotcontainer for FINT Arkiv-instansar.
-    attributes:
+    slots:
       # arkiv.noark - Hauptklassar
-      arkivdelar:
-        range: Arkivdel
-        multivalued: true
-        inlined_as_list: true
-      arkivressursar:
-        range: Arkivressurs
-        multivalued: true
-        inlined_as_list: true
-      autorisasjonar:
-        range: Autorisasjon
-        multivalued: true
-        inlined_as_list: true
-      administrativeEiningar:
-        range: AdministrativEnhet
-        multivalued: true
-        inlined_as_list: true
-      dokumentfiler:
-        range: Dokumentfil
-        multivalued: true
-        inlined_as_list: true
-      dokumentbeskrivelsar:
-        range: Dokumentbeskrivelse
-        multivalued: true
-        inlined_as_list: true
-      journalpostar:
-        range: Journalpost
-        multivalued: true
-        inlined_as_list: true
-      klassifikasjonssystem:
-        range: Klassifikasjonssystem
-        multivalued: true
-        inlined_as_list: true
-      tilgangar:
-        range: Tilgang
-        multivalued: true
-        inlined_as_list: true
-      sakar:
-        range: Sak
-        multivalued: true
-        inlined_as_list: true
+      - arkivdelar
+      - arkivressursar
+      - autorisasjonar
+      - administrativeEiningar
+      - dokumentfiler
+      - dokumentbeskrivelsar
+      - journalpostar
+      - klassifikasjonssystem
+      - tilgangar
+      - sakar
       # arkiv.personal
-      personalmappe:
-        range: Personalmappe
-        multivalued: true
-        inlined_as_list: true
+      - personalmappe_liste
       # arkiv.kulturminnevern
-      dispensasjonAutomatiskFredaKulturminne:
-        range: DispensasjonAutomatiskFredaKulturminne
-        multivalued: true
-        inlined_as_list: true
-      tilskuddFartoy:
-        range: TilskuddFartoy
-        multivalued: true
-        inlined_as_list: true
-      tilskuddFredaBygningPrivatEie:
-        range: TilskuddFredaBygningPrivatEie
-        multivalued: true
-        inlined_as_list: true
+      - dispensasjonAutomatiskFredaKulturminne_liste
+      - tilskuddFartoy_liste
+      - tilskuddFredaBygningPrivatEie_liste
       # arkiv.samferdsel
-      soeknadDrosjeloeyve:
-        range: SoeknadDrosjeloeyve
-        multivalued: true
-        inlined_as_list: true
+      - soeknadDrosjeloeyve_liste
       # arkiv.kodeverk
-      dokumentstatuskodar:
-        range: DokumentStatus
-        multivalued: true
-        inlined_as_list: true
-      dokumenttypar:
-        range: DokumentType
-        multivalued: true
-        inlined_as_list: true
-      formatar:
-        range: Format
-        multivalued: true
-        inlined_as_list: true
-      journalposttypar:
-        range: JournalpostType
-        multivalued: true
-        inlined_as_list: true
-      journalstatuskodar:
-        range: JournalStatus
-        multivalued: true
-        inlined_as_list: true
-      klassifikasjonstypar:
-        range: Klassifikasjonstype
-        multivalued: true
-        inlined_as_list: true
-      korrespondanseparttypar:
-        range: KorrespondansepartType
-        multivalued: true
-        inlined_as_list: true
-      merknadstypar:
-        range: Merknadstype
-        multivalued: true
-        inlined_as_list: true
-      partRollar:
-        range: PartRolle
-        multivalued: true
-        inlined_as_list: true
-      rollar:
-        range: Rolle
-        multivalued: true
-        inlined_as_list: true
-      saksmappetypar:
-        range: Saksmappetype
-        multivalued: true
-        inlined_as_list: true
-      sakstatuskodar:
-        range: Saksstatus
-        multivalued: true
-        inlined_as_list: true
-      skjermingsheimlar:
-        range: Skjermingshjemmel
-        multivalued: true
-        inlined_as_list: true
-      tilgangsgrupper:
-        range: Tilgangsgruppe
-        multivalued: true
-        inlined_as_list: true
-      tilgangsrestriksjonar:
-        range: Tilgangsrestriksjon
-        multivalued: true
-        inlined_as_list: true
-      tilknyttetRegistreringSomKodar:
-        range: TilknyttetRegistreringSom
-        multivalued: true
-        inlined_as_list: true
-      variantformatar:
-        range: Variantformat
+      - dokumentstatuskodar
+      - dokumenttypar
+      - formatar
+      - journalposttypar
+      - journalstatuskodar
+      - klassifikasjonstypar
+      - korrespondanseparttypar
+      - merknadstypar
+      - partRollar
+      - rollar
+      - saksmappetypar
+      - sakstatuskodar
+      - skjermingsheimlar
+      - tilgangsgrupper
+      - tilgangsrestriksjonar
+      - tilknyttetRegistreringSomKodar
+      - variantformatar
+    slot_usage:
+      klassifikasjonssystem:
         multivalued: true
         inlined_as_list: true
 
@@ -170,99 +877,64 @@ classes:
     class_uri: ark:Mappe
     slots:
       - id
-    attributes:
+      - avsluttetDato
+      - beskrivelse
+      - klasse
+      - mappeId
+      - merknad
+      - noekkelord
+      - offentligTittel
+      - opprettetDato
+      - part
+      - skjerming
+      - tittel
+      - arkivdel
+      - avsluttetAv
+      - opprettetAv
+    slot_usage:
       avsluttetDato:
-        slot_uri: ark:avsluttetDato
-        range: datetime
-        description: Dato og klokkeslett når arkivenheten vart avslutta/lukka.
         in_subset:
           - Valgfri
       beskrivelse:
-        slot_uri: ark:beskrivelse
-        range: string
-        description: Tekstleg skildring av arkivenheten.
         in_subset:
           - Valgfri
       klasse:
-        slot_uri: ark:klasse
-        range: Klasse
         multivalued: true
         inlined_as_list: true
-        description: Klassifisering av mappe.
         in_subset:
           - Valgfri
       mappeId:
-        slot_uri: ark:mappeId
-        range: Identifikator
-        inlined: true
-        description: Eintydig identifikasjon av mappa innanfor arkivet.
         in_subset:
           - Valgfri
       merknad:
-        slot_uri: ark:merknad
-        range: Merknad
-        multivalued: true
-        inlined_as_list: true
-        description: Merknader knytt til mappe.
         in_subset:
           - Valgfri
       noekkelord:
-        slot_uri: ark:noekkelord
-        range: string
-        multivalued: true
-        description: Nøkkelord som skildrar innhaldet.
         in_subset:
           - Valgfri
       offentligTittel:
-        slot_uri: ark:offentligTittel
-        range: string
-        description: Offentleg tittel der skjerma ord er fjerna.
         in_subset:
           - Valgfri
       opprettetDato:
-        slot_uri: ark:opprettetDato
-        range: datetime
-        description: Dato og klokkeslett arkivenheten vart oppretta/registrert.
         in_subset:
           - Valgfri
       part:
-        slot_uri: ark:part
-        range: Part
-        multivalued: true
-        inlined_as_list: true
-        description: Partar til mappe.
         in_subset:
           - Valgfri
       skjerming:
-        slot_uri: ark:skjerming
-        range: Skjerming
-        inlined: true
-        description: Skjerming av mappe.
         in_subset:
           - Valgfri
       tittel:
-        slot_uri: ark:tittel
-        range: string
-        description: Tittel eller namn på arkivenheten.
         in_subset:
           - Valgfri
       arkivdel:
-        slot_uri: ark:arkivdel
-        range: Arkivdel
-        description: Arkivdel mappa tilhøyrer.
         in_subset:
           - Valgfri
       avsluttetAv:
-        slot_uri: ark:avsluttetAv
-        range: Arkivressurs
-        description: Person som avslutta/lukka arkivenheten.
         in_subset:
           - Valgfri
       opprettetAv:
-        slot_uri: ark:opprettetAv
-        range: Arkivressurs
         required: true
-        description: Person som oppretta/registrerte arkivenheten.
         in_subset:
           - Obligatorisk
 
@@ -271,75 +943,53 @@ classes:
     is_a: Mappe
     description: Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark.
     class_uri: ark:Saksmappe
-    attributes:
+    slots:
+      - journalpost
+      - saksaar
+      - saksdato
+      - sakssekvensnummer
+      - utlaantDato
+      - saksmappetype
+      - saksstatus
+      - tilgangsgruppe
+      - journalenhet
+      - administrativEnhet
+      - saksansvarlig
+    slot_usage:
       journalpost:
-        slot_uri: ark:journalpost
-        range: Journalpost
-        multivalued: true
-        description: Journalpostar knytt til saksmappa.
         in_subset:
           - Valgfri
       saksaar:
-        slot_uri: ark:saksaar
-        range: string
-        description: Inngår i M003 mappeID — viser året saksmappa vart oppretta.
         in_subset:
           - Valgfri
       saksdato:
-        slot_uri: ark:saksdato
-        range: datetime
-        description: Datoen saka er oppretta.
         in_subset:
           - Valgfri
       sakssekvensnummer:
-        slot_uri: ark:sakssekvensnummer
-        range: string
-        description: Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta.
         in_subset:
           - Valgfri
       utlaantDato:
-        slot_uri: ark:utlaantDato
-        range: datetime
-        description: Dato ein fysisk saksmappe eller journalpost vart utlånt.
         in_subset:
           - Valgfri
       saksmappetype:
-        slot_uri: ark:saksmappetype
-        range: Saksmappetype
-        description: Type saksmappe.
         in_subset:
           - Valgfri
       saksstatus:
-        slot_uri: ark:saksstatus
-        range: Saksstatus
         required: true
-        description: Status til saksmappa.
         in_subset:
           - Obligatorisk
       tilgangsgruppe:
-        slot_uri: ark:tilgangsgruppe
-        range: Tilgangsgruppe
-        description: Tilgangsgruppe som har tilgang til saksmappa.
         in_subset:
           - Valgfri
       journalenhet:
-        slot_uri: ark:journalenhet
-        range: AdministrativEnhet
-        description: Eining med arkivmessig ansvar for saksmappa.
         in_subset:
           - Valgfri
       administrativEnhet:
-        slot_uri: ark:administrativEnhet
-        range: AdministrativEnhet
         required: true
-        description: Administrativ eining som har ansvar for saksbehandlinga.
         in_subset:
           - Obligatorisk
       saksansvarlig:
-        slot_uri: ark:saksansvarlig
-        range: Arkivressurs
         required: true
-        description: Person som er saksansvarleg.
         in_subset:
           - Obligatorisk
 
@@ -349,146 +999,93 @@ classes:
     class_uri: ark:Registrering
     slots:
       - id
-    attributes:
+      - arkivertDato
+      - beskrivelse
+      - dokumentbeskrivelse
+      - forfatter
+      - klasse
+      - korrespondansepart
+      - merknad
+      - nokkelord
+      - offentligTittel
+      - opprettetDato
+      - part
+      - referanseArkivDel
+      - registreringsId
+      - skjerming
+      - tittel
+      - tilgangsgruppe
+      - administrativEnhet
+      - arkivdel
+      - saksbehandler
+      - arkivertAv
+      - opprettetAv
+    slot_usage:
       arkivertDato:
-        slot_uri: ark:arkivertDato
-        range: datetime
-        description: Dato og klokkeslett alle dokument knytt til registreringa vart arkivert.
         in_subset:
           - Valgfri
       beskrivelse:
-        slot_uri: ark:beskrivelse
-        range: string
-        description: Tekstleg skildring av arkivenheten.
         in_subset:
           - Valgfri
       dokumentbeskrivelse:
-        slot_uri: ark:dokumentbeskrivelse
-        range: Dokumentbeskrivelse
-        multivalued: true
-        description: Dokumentbeskrivelsar til ei registrering.
         in_subset:
           - Valgfri
       forfatter:
-        slot_uri: ark:forfatter
-        range: string
-        multivalued: true
-        description: Namn på person eller organisasjon som skapte dokumentet.
         in_subset:
           - Valgfri
       klasse:
-        slot_uri: ark:klasse
-        range: Klasse
         inlined: true
-        description: Klassifisering av registrering.
         in_subset:
           - Valgfri
       korrespondansepart:
-        slot_uri: ark:korrespondansepart
-        range: Korrespondansepart
-        multivalued: true
-        inlined_as_list: true
-        description: Mottakar eller sendar av arkivdokument.
         in_subset:
           - Valgfri
       merknad:
-        slot_uri: ark:merknad
-        range: Merknad
-        multivalued: true
-        inlined_as_list: true
-        description: Merknader til registrering.
         in_subset:
           - Valgfri
       nokkelord:
-        slot_uri: ark:nokkelord
-        range: string
-        multivalued: true
-        description: Nøkkelord som skildrar innhaldet.
         in_subset:
           - Valgfri
       offentligTittel:
-        slot_uri: ark:offentligTittel
-        range: string
-        description: Offentleg tittel der skjerma ord er fjerna.
         in_subset:
           - Valgfri
       opprettetDato:
-        slot_uri: ark:opprettetDato
-        range: datetime
-        description: Dato og klokkeslett arkivenheten vart oppretta/registrert.
         in_subset:
           - Valgfri
       part:
-        slot_uri: ark:part
-        range: Part
-        multivalued: true
-        inlined_as_list: true
-        description: Partar til registrering.
         in_subset:
           - Valgfri
       referanseArkivDel:
-        slot_uri: ark:referanseArkivDel
-        range: string
-        multivalued: true
-        description: Referanse til arkivdelen denne arkivenheten er tilknytt.
         in_subset:
           - Valgfri
       registreringsId:
-        slot_uri: ark:registreringsId
-        range: string
-        description: Inngår i M004 journalpostID.
         in_subset:
           - Valgfri
       skjerming:
-        slot_uri: ark:skjerming
-        range: Skjerming
-        inlined: true
-        description: Skjerming av registrering.
         in_subset:
           - Valgfri
       tittel:
-        slot_uri: ark:tittel
-        range: string
         required: true
-        description: Tittel eller namn på arkivenheten.
         in_subset:
           - Obligatorisk
       tilgangsgruppe:
-        slot_uri: ark:tilgangsgruppe
-        range: Tilgangsgruppe
-        description: Tilgangsgruppe som har tilgang til registreringa.
         in_subset:
           - Valgfri
       administrativEnhet:
-        slot_uri: ark:administrativEnhet
-        range: AdministrativEnhet
-        description: Administrativ eining som har ansvar for saksbehandlinga.
         in_subset:
           - Valgfri
       arkivdel:
-        slot_uri: ark:arkivdel
-        range: Arkivdel
-        description: Arkivdel registreringa tilhøyrer.
         in_subset:
           - Valgfri
       saksbehandler:
-        slot_uri: ark:saksbehandler
-        range: Arkivressurs
-        description: Person som er saksbehandlar.
         in_subset:
           - Valgfri
       arkivertAv:
-        slot_uri: ark:arkivertAv
-        range: Arkivressurs
         required: true
-        description: Person som arkiverte arkivenheten.
         in_subset:
           - Obligatorisk
       opprettetAv:
-        slot_uri: ark:opprettetAv
-        range: Arkivressurs
         required: true
-        description: Person som oppretta/registrerte arkivenheten.
         in_subset:
           - Obligatorisk
 
@@ -499,25 +1096,18 @@ classes:
     class_uri: ark:AdministrativEnhet
     slots:
       - id
-    attributes:
-      navn:
-        slot_uri: ark:navn
-        range: string
+      - naam
+      - gyldighetsperiode
+      - organisasjonselement
+    slot_usage:
+      naam:
         required: true
-        description: Namn på administrativ eining.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Periode der den administrative eininga er gyldig.
         in_subset:
           - Valgfri
       organisasjonselement:
-        slot_uri: ark:organisasjonselement
-        range: uriorcurie
-        description: Referanse til Organisasjonselement i Administrasjon-domenet.
         in_subset:
           - Valgfri
 
@@ -526,19 +1116,15 @@ classes:
     class_uri: ark:Arkivdel
     slots:
       - id
-    attributes:
+      - tittel
+      - klassifikasjonssystem
+    slot_usage:
       tittel:
-        slot_uri: ark:tittel
-        range: string
         required: true
-        description: Tittel eller namn på arkivdelen.
         in_subset:
           - Obligatorisk
       klassifikasjonssystem:
-        slot_uri: ark:klassifikasjonssystem
-        range: Klassifikasjonssystem
         multivalued: true
-        description: Klassifikasjonssystem nytta i arkivdelen.
         in_subset:
           - Valgfri
 
@@ -547,33 +1133,22 @@ classes:
     class_uri: ark:Arkivressurs
     slots:
       - id
-    attributes:
+      - kildesystemId
+      - personalressurs
+      - autorisasjon
+      - tilgang
+    slot_usage:
       kildesystemId:
-        slot_uri: ark:kildesystemId
-        range: Identifikator
-        inlined: true
-        description: Kildesystemets identifikator for arkivressursen.
         in_subset:
           - Valgfri
       personalressurs:
-        slot_uri: ark:personalressurs
-        range: uriorcurie
         required: true
-        description: Referanse til Personalressurs i Administrasjon-domenet.
         in_subset:
           - Obligatorisk
       autorisasjon:
-        slot_uri: ark:autorisasjon
-        range: Autorisasjon
-        multivalued: true
-        description: Autorisasjonar gjevne til arkivressursen.
         in_subset:
           - Valgfri
       tilgang:
-        slot_uri: ark:tilgang
-        range: Tilgang
-        multivalued: true
-        description: Tilgangar gjevne til arkivressursen.
         in_subset:
           - Valgfri
 
@@ -582,27 +1157,19 @@ classes:
     class_uri: ark:Autorisasjon
     slots:
       - id
-    attributes:
+      - tilgangsrestriksjon
+      - administrativenhet
+      - arkivressurs
+    slot_usage:
       tilgangsrestriksjon:
-        slot_uri: ark:tilgangsrestriksjon
-        range: Tilgangsrestriksjon
         multivalued: true
         required: true
-        description: Tilgangsrestriksjonar autorisasjonen er gjeven for.
         in_subset:
           - Obligatorisk
       administrativenhet:
-        slot_uri: ark:administrativenhet
-        range: AdministrativEnhet
-        multivalued: true
-        description: Administrative einingar autorisasjonen er gyldig for.
         in_subset:
           - Valgfri
       arkivressurs:
-        slot_uri: ark:arkivressurs
-        range: Arkivressurs
-        multivalued: true
-        description: Arkivressursar som har fått autorisasjonen.
         in_subset:
           - Valgfri
 
@@ -611,25 +1178,19 @@ classes:
     class_uri: ark:Dokumentfil
     slots:
       - id
-    attributes:
+      - data
+      - filnavn
+      - format
+    slot_usage:
       data:
-        slot_uri: ark:data
-        range: string
         required: true
-        description: Dokumentfilens data, koda som Base64.
         in_subset:
           - Obligatorisk
       filnavn:
-        slot_uri: ark:filnavn
-        range: string
-        description: Dokumentfilens namn.
         in_subset:
           - Valgfri
       format:
-        slot_uri: ark:format
-        range: string
         required: true
-        description: Format på dokumentfil, som IANA Media Type.
         in_subset:
           - Obligatorisk
 
@@ -637,92 +1198,64 @@ classes:
     is_a: Registrering
     description: Ein journalpost (inn- eller utgåande dokument, notat o.l.) i ei saksmappe.
     class_uri: ark:Journalpost
-    attributes:
+    slots:
+      - antallVedlegg
+      - avskrivning
+      - dokumentetsDato
+      - forfallsDato
+      - journalAr
+      - journalDato
+      - journalPostnummer
+      - journalSekvensnummer
+      - mottattDato
+      - offentlighetsvurdertDato
+      - sendtDato
+      - journalposttype
+      - journalstatus
+      - journalenhet
+    slot_usage:
       antallVedlegg:
-        slot_uri: ark:antallVedlegg
-        range: integer
-        description: Antal fysiske vedlegg til eit fysisk hoveddokument.
         in_subset:
           - Valgfri
       avskrivning:
-        slot_uri: ark:avskrivning
-        range: Avskrivning
-        inlined: true
-        description: Avskriving av journalposten.
         in_subset:
           - Valgfri
       dokumentetsDato:
-        slot_uri: ark:dokumentetsDato
-        range: datetime
-        description: Dato påført sjølve dokumentet.
         in_subset:
           - Valgfri
       forfallsDato:
-        slot_uri: ark:forfallsDato
-        range: datetime
-        description: Frist for å svare på eit inngåande dokument.
         in_subset:
           - Valgfri
       journalAr:
-        slot_uri: ark:journalAr
-        range: string
-        description: Året journalposten vart oppretta.
         in_subset:
           - Valgfri
       journalDato:
-        slot_uri: ark:journalDato
-        range: datetime
-        description: Datoen journalposten er oppretta/arkivert.
         in_subset:
           - Valgfri
       journalPostnummer:
-        slot_uri: ark:journalPostnummer
-        range: integer
-        description: Rekkjefølgja journalpostane vart oppretta innanfor saksmappa.
         in_subset:
           - Valgfri
       journalSekvensnummer:
-        slot_uri: ark:journalSekvensnummer
-        range: integer
-        description: Rekkjefølgja journalposten vart oppretta under året.
         in_subset:
           - Valgfri
       mottattDato:
-        slot_uri: ark:mottattDato
-        range: datetime
-        description: Dato eit eksternt dokument vart motteke.
         in_subset:
           - Valgfri
       offentlighetsvurdertDato:
-        slot_uri: ark:offentlighetsvurdertDato
-        range: datetime
-        description: Datoen offentlegheitsvurdering vart gjennomført.
         in_subset:
           - Valgfri
       sendtDato:
-        slot_uri: ark:sendtDato
-        range: datetime
-        description: Dato eit internt produsert dokument vart sendt/ekspedert.
         in_subset:
           - Valgfri
       journalposttype:
-        slot_uri: ark:journalposttype
-        range: JournalpostType
         required: true
-        description: Namn på type journalpost.
         in_subset:
           - Obligatorisk
       journalstatus:
-        slot_uri: ark:journalstatus
-        range: JournalStatus
         required: true
-        description: Status til journalposten.
         in_subset:
           - Obligatorisk
       journalenhet:
-        slot_uri: ark:journalenhet
-        range: AdministrativEnhet
-        description: Eining med arkivmessig ansvar for journalposten.
         in_subset:
           - Valgfri
 
@@ -731,67 +1264,49 @@ classes:
     class_uri: ark:Klassifikasjonssystem
     slots:
       - id
-    attributes:
-      avsluttetAv:
-        slot_uri: ark:avsluttetAvNavn
-        range: string
-        description: Namn på person som avslutta/lukka arkivenheten.
+      - avsluttetAvNavn
+      - avsluttetDato
+      - beskrivelse
+      - klasse
+      - opprettetAvNavn
+      - opprettetDato
+      - tittel
+      - klassifikasjonstype
+      - arkivdel
+    slot_usage:
+      avsluttetAvNavn:
         in_subset:
           - Valgfri
       avsluttetDato:
-        slot_uri: ark:avsluttetDato
-        range: datetime
-        description: Dato og klokkeslett arkivenheten vart avslutta/lukka.
         in_subset:
           - Valgfri
       beskrivelse:
-        slot_uri: ark:beskrivelse
-        range: string
-        description: Tekstleg skildring av arkivenheten.
         in_subset:
           - Valgfri
       klasse:
-        slot_uri: ark:klasse
-        range: Klasse
         multivalued: true
         inlined_as_list: true
         required: true
-        description: Klassar tilhøyrande klassifikasjonssystemet.
         in_subset:
           - Obligatorisk
-      opprettetAv:
-        slot_uri: ark:opprettetAvNavn
-        range: string
+      opprettetAvNavn:
         required: true
-        description: Namn på person som oppretta/registrerte arkivenheten.
         in_subset:
           - Obligatorisk
       opprettetDato:
-        slot_uri: ark:opprettetDato
-        range: datetime
         required: true
-        description: Dato og klokkeslett arkivenheten vart oppretta/registrert.
         in_subset:
           - Obligatorisk
       tittel:
-        slot_uri: ark:tittel
-        range: string
         required: true
-        description: Tittel eller namn på arkivenheten.
         in_subset:
           - Obligatorisk
       klassifikasjonstype:
-        slot_uri: ark:klassifikasjonstype
-        range: Klassifikasjonstype
-        description: Type klassifikasjonssystem.
         in_subset:
           - Valgfri
       arkivdel:
-        slot_uri: ark:arkivdel
-        range: Arkivdel
         multivalued: true
         required: true
-        description: Arkivdelar klassifikasjonssystemet nyttast i.
         in_subset:
           - Obligatorisk
 
@@ -800,38 +1315,27 @@ classes:
     class_uri: ark:Tilgang
     slots:
       - id
-    attributes:
+      - tittel
+      - rolle
+      - administrativEnhet
+      - arkivdel
+      - arkivressurs
+    slot_usage:
       tittel:
-        slot_uri: ark:tittel
-        range: string
         required: true
-        description: Tittel eller namn på tilgangen.
         in_subset:
           - Obligatorisk
       rolle:
-        slot_uri: ark:rolle
-        range: Rolle
         required: true
-        description: Rolle tilknytt tilgangen.
         in_subset:
           - Obligatorisk
       administrativEnhet:
-        slot_uri: ark:administrativEnhet
-        range: AdministrativEnhet
-        description: Administrativ eining tilknytt tilgangen.
         in_subset:
           - Valgfri
       arkivdel:
-        slot_uri: ark:arkivdel
-        range: Arkivdel
-        description: Arkivdel tilknytt tilgangen.
         in_subset:
           - Valgfri
       arkivressurs:
-        slot_uri: ark:arkivressurs
-        range: Arkivressurs
-        multivalued: true
-        description: Arkivressursar som er tildelt tilgangen.
         in_subset:
           - Valgfri
 
@@ -848,41 +1352,31 @@ classes:
     is_a: Saksmappe
     description: Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold.
     class_uri: ark:Personalmappe
-    attributes:
-      navn:
-        slot_uri: ark:navn
-        range: Personnavn
-        inlined: true
+    slots:
+      - personnavn
+      - person
+      - leder
+      - arbeidssted
+      - personalressurs
+    slot_usage:
+      personnavn:
         required: true
-        description: Namn på arbeidstakaren personalmappe gjeld for.
         in_subset:
           - Obligatorisk
       person:
-        slot_uri: ark:person
-        range: uriorcurie
         required: true
-        description: Referanse til Person i Administrasjon-domenet.
         in_subset:
           - Obligatorisk
       leder:
-        slot_uri: ark:leder
-        range: uriorcurie
         required: true
-        description: Referanse til Personalressurs som er arbeidstakarens leiar.
         in_subset:
           - Obligatorisk
       arbeidssted:
-        slot_uri: ark:arbeidssted
-        range: uriorcurie
         required: true
-        description: Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad.
         in_subset:
           - Obligatorisk
       personalressurs:
-        slot_uri: ark:personalressurs
-        range: uriorcurie
         required: true
-        description: Referanse til Personalressurs som personalmappe gjeld for.
         in_subset:
           - Obligatorisk
 
@@ -892,34 +1386,25 @@ classes:
     is_a: Saksmappe
     description: Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.
     class_uri: ark:DispensasjonAutomatiskFredaKulturminne
-    attributes:
+    slots:
+      - kulturminneId
+      - matrikkelnummer
+      - soeknadsnummer
+      - tiltak
+    slot_usage:
       kulturminneId:
-        slot_uri: ark:kulturminneId
-        range: string
         required: true
-        description: Kulturminnets ID i Askeladden.
         in_subset:
           - Obligatorisk
       matrikkelnummer:
-        slot_uri: ark:matrikkelnummer
-        range: Matrikkelnummer
-        inlined: true
         required: true
-        description: Kulturminnets identifikator i Matrikkelen.
         in_subset:
           - Obligatorisk
       soeknadsnummer:
-        slot_uri: ark:soeknadsnummer
-        range: Identifikator
-        inlined: true
         required: true
-        description: Søknadsnummer frå Digisak.
         in_subset:
           - Obligatorisk
       tiltak:
-        slot_uri: ark:tiltak
-        range: string
-        description: Skildrar kva tiltak som skal utførast på eigedommen.
         in_subset:
           - Valgfri
 
@@ -927,34 +1412,26 @@ classes:
     is_a: Saksmappe
     description: Sak om søknad om tilskudd til freda fartøy.
     class_uri: ark:TilskuddFartoy
-    attributes:
+    slots:
+      - fartoyNavn
+      - kallesignal
+      - kulturminneId
+      - soeknadsnummer
+    slot_usage:
       fartoyNavn:
-        slot_uri: ark:fartoyNavn
-        range: string
         required: true
-        description: Fartøyets namn.
         in_subset:
           - Obligatorisk
       kallesignal:
-        slot_uri: ark:kallesignal
-        range: string
         required: true
-        description: Fartøyets kallesignal.
         in_subset:
           - Obligatorisk
       kulturminneId:
-        slot_uri: ark:kulturminneId
-        range: string
         required: true
-        description: Fartøyets ID i Askeladden.
         in_subset:
           - Obligatorisk
       soeknadsnummer:
-        slot_uri: ark:soeknadsnummer
-        range: Identifikator
-        inlined: true
         required: true
-        description: Søknadsnummer frå Digisak.
         in_subset:
           - Obligatorisk
 
@@ -962,32 +1439,23 @@ classes:
     is_a: Saksmappe
     description: Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP).
     class_uri: ark:TilskuddFredaBygningPrivatEie
-    attributes:
+    slots:
+      - bygningsnavn
+      - kulturminneId
+      - matrikkelnummer
+      - soeknadsnummer
+    slot_usage:
       bygningsnavn:
-        slot_uri: ark:bygningsnavn
-        range: string
-        description: Bygningens namn.
         in_subset:
           - Valgfri
       kulturminneId:
-        slot_uri: ark:kulturminneId
-        range: string
         required: true
-        description: Bygningens ID i Askeladden.
         in_subset:
           - Obligatorisk
       matrikkelnummer:
-        slot_uri: ark:matrikkelnummer
-        range: Matrikkelnummer
-        inlined: true
-        description: Bygningens identifikator i Matrikkelen.
         in_subset:
           - Valgfri
       soeknadsnummer:
-        slot_uri: ark:soeknadsnummer
-        range: Identifikator
-        inlined: true
-        description: Søknadsnummer frå Digisak.
         in_subset:
           - Valgfri
 
@@ -997,19 +1465,16 @@ classes:
     is_a: Saksmappe
     description: Sak om søknad om løyve til å køyre drosje.
     class_uri: ark:SoeknadDrosjeloeyve
-    attributes:
+    slots:
+      - organisasjonsnavn
+      - orgnummer
+    slot_usage:
       organisasjonsnavn:
-        slot_uri: ark:organisasjonsnavn
-        range: string
         required: true
-        description: Organisasjonsnamn til føretaket som søkte om drosjeløyve.
         in_subset:
           - Obligatorisk
-      organisasjonsnummer:
-        slot_uri: ark:organisasjonsnummer
-        range: string
+      orgnummer:
         required: true
-        description: Organisasjonsnummer til føretaket som søkte om drosjeløyve.
         in_subset:
           - Obligatorisk
 
@@ -1018,26 +1483,21 @@ classes:
   Avskrivning:
     description: Avskriving av ein journalpost (markering som ferdigbehandla).
     class_uri: ark:Avskrivning
-    attributes:
+    slots:
+      - avskrevetAv
+      - avskrivningsdato
+      - avskrivningsmate
+    slot_usage:
       avskrevetAv:
-        slot_uri: ark:avskrevetAv
-        range: string
         required: true
-        description: Person som avskriva journalposten.
         in_subset:
           - Obligatorisk
       avskrivningsdato:
-        slot_uri: ark:avskrivningsdato
-        range: datetime
         required: true
-        description: Dato og klokkeslett for avskrivinga.
         in_subset:
           - Obligatorisk
       avskrivningsmate:
-        slot_uri: ark:avskrivningsmate
-        range: string
         required: true
-        description: Korleis journalposten er avskriven.
         in_subset:
           - Obligatorisk
 
@@ -1046,368 +1506,260 @@ classes:
     class_uri: ark:Dokumentbeskrivelse
     slots:
       - id
-    attributes:
+      - beskrivelse
+      - dokumentnummer
+      - dokumentobjekt
+      - forfatter
+      - opprettetDato
+      - part
+      - referanseArkivdel
+      - skjerming
+      - tilknyttetDato
+      - tittel
+      - dokumentstatus
+      - dokumentType
+      - tilknyttetRegistreringSom
+      - tilknyttetAv
+      - opprettetAv
+    slot_usage:
       beskrivelse:
-        slot_uri: ark:beskrivelse
-        range: string
-        description: Tekstleg skildring av arkivenheten.
         in_subset:
           - Valgfri
       dokumentnummer:
-        slot_uri: ark:dokumentnummer
-        range: integer
-        description: Identifikasjon av dokumenta innanfor ei registrering.
         in_subset:
           - Valgfri
       dokumentobjekt:
-        slot_uri: ark:dokumentobjekt
-        range: Dokumentobjekt
-        multivalued: true
-        inlined_as_list: true
-        description: Dokumentobjekt tilhøyrande dokumentbeskrivelsa.
         in_subset:
           - Valgfri
       forfatter:
-        slot_uri: ark:forfatter
-        range: string
-        multivalued: true
-        description: Namn på person eller organisasjon som skapte dokumentet.
         in_subset:
           - Valgfri
       opprettetDato:
-        slot_uri: ark:opprettetDato
-        range: datetime
-        description: Dato og klokkeslett arkivenheten vart oppretta/registrert.
         in_subset:
           - Valgfri
       part:
-        slot_uri: ark:part
-        range: Part
-        multivalued: true
-        inlined_as_list: true
-        description: Partar til dokument.
         in_subset:
           - Valgfri
       referanseArkivdel:
-        slot_uri: ark:referanseArkivdel
-        range: string
-        multivalued: true
-        description: Referanse til arkivdelen denne arkivenheten er tilknytt.
         in_subset:
           - Valgfri
       skjerming:
-        slot_uri: ark:skjerming
-        range: Skjerming
-        inlined: true
-        description: Skjerming av dokument.
         in_subset:
           - Valgfri
       tilknyttetDato:
-        slot_uri: ark:tilknyttetDato
-        range: datetime
-        description: Datoen eit dokument vart knytt til ei registrering.
         in_subset:
           - Valgfri
       tittel:
-        slot_uri: ark:tittel
-        range: string
         required: true
-        description: Tittel eller namn på arkivenheten.
         in_subset:
           - Obligatorisk
       dokumentstatus:
-        slot_uri: ark:dokumentstatus
-        range: DokumentStatus
         required: true
-        description: Status til dokumentet.
         in_subset:
           - Obligatorisk
       dokumentType:
-        slot_uri: ark:dokumentType
-        range: DokumentType
         required: true
-        description: Namn på type dokument.
         in_subset:
           - Obligatorisk
       tilknyttetRegistreringSom:
-        slot_uri: ark:tilknyttetRegistreringSom
-        range: TilknyttetRegistreringSom
-        multivalued: true
         required: true
-        description: Rolle dokumentet har i høve registreringa.
         in_subset:
           - Obligatorisk
       tilknyttetAv:
-        slot_uri: ark:tilknyttetAv
-        range: Arkivressurs
         required: true
-        description: Person som knytte dokumentet til registreringa.
         in_subset:
           - Obligatorisk
       opprettetAv:
-        slot_uri: ark:opprettetAv
-        range: Arkivressurs
         required: true
-        description: Person som oppretta/registrerte arkivenheten.
         in_subset:
           - Obligatorisk
 
   Dokumentobjekt:
     description: Referanse til éin og berre éin dokumentfil.
     class_uri: ark:Dokumentobjekt
-    attributes:
+    slots:
+      - filstorrelse
+      - formatDetaljer
+      - sjekksum
+      - sjekksumAlgoritme
+      - versjonsnummer
+      - filformat
+      - variantFormat
+      - opprettetAv
+      - referanseDokumentfil
+    slot_usage:
       filstorrelse:
-        slot_uri: ark:filstorrelse
-        range: string
-        description: Storleiken på fila i antal bytes.
         in_subset:
           - Valgfri
       formatDetaljer:
-        slot_uri: ark:formatDetaljer
-        range: string
-        description: Nærare spesifikasjon av dokumentets format.
         in_subset:
           - Valgfri
       sjekksum:
-        slot_uri: ark:sjekksum
-        range: string
-        description: Verdi som gir integritetssikring til dokumentets innhald.
         in_subset:
           - Valgfri
       sjekksumAlgoritme:
-        slot_uri: ark:sjekksumAlgoritme
-        range: string
-        description: Algoritme nytta for å berekne sjekksummen.
         in_subset:
           - Valgfri
       versjonsnummer:
-        slot_uri: ark:versjonsnummer
-        range: integer
-        description: Identifikasjon av versjonar innanfor same dokument.
         in_subset:
           - Valgfri
       filformat:
-        slot_uri: ark:filformat
-        range: Format
-        description: Dokumentets format.
         in_subset:
           - Valgfri
       variantFormat:
-        slot_uri: ark:variantFormat
-        range: Variantformat
         required: true
-        description: Kva variant dokumentet førekjem i.
         in_subset:
           - Obligatorisk
       opprettetAv:
-        slot_uri: ark:opprettetAv
-        range: Arkivressurs
         required: true
-        description: Person som oppretta/registrerte arkivenheten.
         in_subset:
           - Obligatorisk
       referanseDokumentfil:
-        slot_uri: ark:referanseDokumentfil
-        range: Dokumentfil
-        description: Referanse til fila som inneheld det elektroniske dokumentet.
         in_subset:
           - Valgfri
 
   Klasse:
     description: Ein klasse i eit klassifikasjonssystem.
     class_uri: ark:Klasse
-    attributes:
+    slots:
+      - klasseId
+      - rekkefølge
+      - skjerming
+      - tittel
+      - klassifikasjonssystem
+    slot_usage:
       klasseId:
-        slot_uri: ark:klasseId
-        range: string
         required: true
-        description: Eintydig identifikasjon av klassen innanfor klassifikasjonssystemet.
         in_subset:
           - Obligatorisk
       rekkefølge:
-        slot_uri: ark:rekkefolge
-        range: integer
-        description: Rekkjefølgje for klassifiseringar.
         in_subset:
           - Valgfri
       skjerming:
-        slot_uri: ark:skjerming
-        range: Skjerming
-        inlined: true
-        description: Skjerming av klasse.
         in_subset:
           - Valgfri
       tittel:
-        slot_uri: ark:tittel
-        range: string
         required: true
-        description: Tittel eller namn på arkivenheten.
         in_subset:
           - Obligatorisk
       klassifikasjonssystem:
-        slot_uri: ark:klassifikasjonssystem
-        range: Klassifikasjonssystem
         required: true
-        description: Klassifikasjonssystemet klassen tilhøyrer.
         in_subset:
           - Obligatorisk
 
   Korrespondansepart:
     description: Verksemd eller person som arkivskapar mottek eller sender arkivdokument til.
     class_uri: ark:Korrespondansepart
-    attributes:
+    slots:
+      - adresse
+      - foedselsnummer
+      - kontaktinformasjon
+      - kontaktperson_str
+      - korrespondansepartNavn
+      - orgnummer
+      - skjerming
+      - korrespondanseparttype
+    slot_usage:
       adresse:
-        slot_uri: ark:adresse
-        range: Adresse
-        inlined: true
-        description: Adressen til korrespondanseparten.
         in_subset:
           - Valgfri
       foedselsnummer:
-        slot_uri: ark:foedselsnummer
-        range: string
-        description: Fødselsnummer til korrespondanseparten.
         in_subset:
           - Valgfri
       kontaktinformasjon:
-        slot_uri: ark:kontaktinformasjon
-        range: Kontaktinformasjon
-        inlined: true
-        description: Kontaktinformasjon til korrespondanseparten.
         in_subset:
           - Valgfri
-      kontaktperson:
-        slot_uri: ark:kontaktperson
-        range: string
-        description: Kontaktperson hos ein organisasjon som er avsender eller mottakar.
+      kontaktperson_str:
         in_subset:
           - Valgfri
       korrespondansepartNavn:
-        slot_uri: ark:korrespondansepartNavn
-        range: string
-        description: Namn på person eller organisasjon som er avsender eller mottakar.
         in_subset:
           - Valgfri
-      organisasjonsnummer:
-        slot_uri: ark:organisasjonsnummer
-        range: string
-        description: Organisasjonsnummer til korrespondanseparten.
+      orgnummer:
         in_subset:
           - Valgfri
       skjerming:
-        slot_uri: ark:skjerming
-        range: Skjerming
-        inlined: true
-        description: Skjerming av korrespondansepart.
         in_subset:
           - Valgfri
       korrespondanseparttype:
-        slot_uri: ark:korrespondanseparttype
-        range: KorrespondansepartType
         required: true
-        description: Type korrespondansepart.
         in_subset:
           - Obligatorisk
 
   Merknad:
     description: Merknad knytt til mappe, registrering eller dokumentbeskrivelse.
     class_uri: ark:Merknad
-    attributes:
+    slots:
+      - merknadsdato
+      - merknadstekst
+      - merknadstype
+      - merknadRegistrertAv
+    slot_usage:
       merknadsdato:
-        slot_uri: ark:merknadsdato
-        range: datetime
         required: true
-        description: Dato og klokkeslett merknaden vart registrert.
         in_subset:
           - Obligatorisk
       merknadstekst:
-        slot_uri: ark:merknadstekst
-        range: string
         required: true
-        description: Merknad frå saksbehandlar, leiar eller arkivpersonale.
         in_subset:
           - Obligatorisk
       merknadstype:
-        slot_uri: ark:merknadstype
-        range: Merknadstype
         required: true
-        description: Type merknad.
         in_subset:
           - Obligatorisk
       merknadRegistrertAv:
-        slot_uri: ark:merknadRegistrertAv
-        range: Arkivressurs
         required: true
-        description: Person som registrerte merknaden.
         in_subset:
           - Obligatorisk
 
   Part:
     description: Part til Mappe, Registrering eller Dokumentbeskrivelse.
     class_uri: ark:Part
-    attributes:
+    slots:
+      - adresse
+      - foedselsnummer
+      - kontaktinformasjon
+      - kontaktperson_str
+      - orgnummer
+      - partNavn
+      - partRolle
+    slot_usage:
       adresse:
-        slot_uri: ark:adresse
-        range: Adresse
-        inlined: true
-        description: Adressen til saksparten.
         in_subset:
           - Valgfri
       foedselsnummer:
-        slot_uri: ark:foedselsnummer
-        range: string
-        description: Fødselsnummer til part (berre for privatpersonar).
         in_subset:
           - Valgfri
       kontaktinformasjon:
-        slot_uri: ark:kontaktinformasjon
-        range: Kontaktinformasjon
-        inlined: true
-        description: Kontaktinformasjon til saksparten.
         in_subset:
           - Valgfri
-      kontaktperson:
-        slot_uri: ark:kontaktperson
-        range: string
-        description: Kontaktperson hos ein organisasjon som er sakspart.
+      kontaktperson_str:
         in_subset:
           - Valgfri
-      organisasjonsnummer:
-        slot_uri: ark:organisasjonsnummer
-        range: string
-        description: Organisasjonsnummer til part (berre for organisasjonar).
+      orgnummer:
         in_subset:
           - Valgfri
       partNavn:
-        slot_uri: ark:partNavn
-        range: string
         required: true
-        description: Namn på verksemd eller person som er part.
         in_subset:
           - Obligatorisk
       partRolle:
-        slot_uri: ark:partRolle
-        range: PartRolle
-        description: Rolla til parten.
         in_subset:
           - Valgfri
 
   Skjerming:
     description: Skjerming av mappe, registrering eller dokument etter offentleglova.
     class_uri: ark:Skjerming
-    attributes:
+    slots:
+      - skjermingshjemmel
+      - tilgangsrestriksjon
+    slot_usage:
       skjermingshjemmel:
-        slot_uri: ark:skjermingshjemmel
-        range: Skjermingshjemmel
         required: true
-        description: Skjermingsheimelen.
         in_subset:
           - Obligatorisk
       tilgangsrestriksjon:
-        slot_uri: ark:tilgangsrestriksjon
-        range: Tilgangsrestriksjon
         required: true
-        description: Tilgangsrestriksjon.
         in_subset:
           - Obligatorisk
 
@@ -1418,28 +1770,23 @@ classes:
     class_uri: ark:DokumentStatus
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1448,28 +1795,23 @@ classes:
     class_uri: ark:DokumentType
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1478,28 +1820,23 @@ classes:
     class_uri: ark:Format
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1508,28 +1845,23 @@ classes:
     class_uri: ark:JournalpostType
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1538,28 +1870,23 @@ classes:
     class_uri: ark:JournalStatus
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1568,28 +1895,23 @@ classes:
     class_uri: ark:Klassifikasjonstype
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1598,28 +1920,23 @@ classes:
     class_uri: ark:KorrespondansepartType
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1628,28 +1945,23 @@ classes:
     class_uri: ark:Merknadstype
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1658,28 +1970,23 @@ classes:
     class_uri: ark:PartRolle
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1688,28 +1995,23 @@ classes:
     class_uri: ark:Rolle
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1718,28 +2020,23 @@ classes:
     class_uri: ark:Saksmappetype
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1748,28 +2045,23 @@ classes:
     class_uri: ark:Saksstatus
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1778,28 +2070,23 @@ classes:
     class_uri: ark:Skjermingshjemmel
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1808,28 +2095,23 @@ classes:
     class_uri: ark:Tilgangsgruppe
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1838,28 +2120,23 @@ classes:
     class_uri: ark:Tilgangsrestriksjon
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1868,28 +2145,23 @@ classes:
     class_uri: ark:TilknyttetRegistreringSom
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -1898,32 +2170,22 @@ classes:
     class_uri: ark:Variantformat
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: ark:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: ark:navn
-        range: string
+      naam:
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: ark:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: ark:passiv
-        range: boolean
         in_subset:
           - Valgfri
-
-# ---------------------------------------------------------------------------
-# Slots
-# ---------------------------------------------------------------------------
-

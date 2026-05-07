@@ -21,6 +21,383 @@ prefixes:
   okn:    https://schema.fintlabs.no/okonomi/
 
 # ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # --- OkonomiContainer-lister ----------------------------------------------
+
+  fakturaer:
+    slot_uri: okn:fakturaer
+    range: Faktura
+    multivalued: true
+    inlined_as_list: true
+
+  fakturautstederear:
+    slot_uri: okn:fakturautstederear
+    range: Fakturautsteder
+    multivalued: true
+    inlined_as_list: true
+
+  transaksjonar:
+    slot_uri: okn:transaksjonar
+    range: Transaksjon
+    multivalued: true
+    inlined_as_list: true
+
+  posteringar:
+    slot_uri: okn:posteringar
+    range: Postering
+    multivalued: true
+    inlined_as_list: true
+
+  leverandorar:
+    slot_uri: okn:leverandorar
+    range: Leverandor
+    multivalued: true
+    inlined_as_list: true
+
+  leverandorgrupper:
+    slot_uri: okn:leverandorgrupper
+    range: Leverandorgruppe
+    multivalued: true
+    inlined_as_list: true
+
+  varer:
+    slot_uri: okn:varer
+    range: Vare
+    multivalued: true
+    inlined_as_list: true
+
+  merverdiavgifter:
+    slot_uri: okn:merverdiavgifter
+    range: Merverdiavgift
+    multivalued: true
+    inlined_as_list: true
+
+  valutaer:
+    slot_uri: okn:valutaer
+    range: OkonomiValuta
+    multivalued: true
+    inlined_as_list: true
+
+  # --- Felles okn-slots (delt mellom fleire klasser) ------------------------
+
+  # fakturagrunnlag: brukt i OkonomiContainer (liste), Faktura (req) og Fakturautsteder (liste)
+  fakturagrunnlag:
+    slot_uri: okn:fakturagrunnlag
+    range: Fakturagrunnlag
+    description: Grunnlag for fakturering.
+
+  fakturautsteder:
+    slot_uri: okn:fakturautsteder
+    range: Fakturautsteder
+    description: Utstedar av faktura og mottakar av betaling.
+
+  belop:
+    slot_uri: okn:belop
+    range: integer
+    description: Beløp, i øre.
+
+  forfallsdato:
+    slot_uri: okn:forfallsdato
+    range: date
+    description: Frist for betaling eller forfallsdato for transaksjon.
+
+  pris:
+    slot_uri: okn:pris
+    range: integer
+    description: Pris per eining, i øre.
+
+  kontering:
+    slot_uri: okn:kontering
+    range: Kontostreng
+    inlined: true
+    description: Kontodimensjonar.
+
+  vare:
+    slot_uri: okn:vare
+    range: Vare
+    description: Vare i vareregisteret.
+
+  leverandor:
+    slot_uri: okn:leverandor
+    range: Leverandor
+    description: Leverandør.
+
+  person:
+    slot_uri: okn:person
+    range: uriorcurie
+    description: Referanse til Person (Administrasjon).
+
+  # --- Faktura --------------------------------------------------------------
+
+  fakturanummer:
+    slot_uri: okn:fakturanummer
+    range: Identifikator
+    inlined: true
+    description: Identifikator oppretta i fakturaprogrammet.
+
+  dato:
+    slot_uri: okn:dato
+    range: date
+    description: Dato for utferding av faktura.
+
+  mottaker:
+    slot_uri: okn:mottaker
+    range: string
+    description: Namn på mottakar.
+
+  betalt:
+    slot_uri: okn:betalt
+    range: boolean
+    description: Status på betaling.
+
+  fakturert:
+    slot_uri: okn:fakturert
+    range: boolean
+    description: Status på utsending.
+
+  kreditert:
+    slot_uri: okn:kreditert
+    range: boolean
+    description: Status på kreditering.
+
+  restbelop:
+    slot_uri: okn:restbelop
+    range: integer
+    description: Gjenståande beløp å betale, i øre.
+
+  # --- Fakturagrunnlag ------------------------------------------------------
+
+  ordrenummer:
+    slot_uri: okn:ordrenummer
+    range: Identifikator
+    inlined: true
+    description: Unik identifikator for ordren det skal utferdigast faktura på.
+
+  # fakturamottaker: inlined Fakturamottaker — ulikt frå mottaker (string) på Faktura
+  fakturamottaker:
+    slot_uri: okn:fakturamottaker
+    range: Fakturamottaker
+    inlined: true
+    description: Mottakar som skal betale faktura.
+
+  fakturalinjer:
+    slot_uri: okn:fakturalinjer
+    range: Fakturalinje
+    multivalued: true
+    inlined_as_list: true
+    description: Linjer av varer eller tenester som skal fakturerast.
+
+  leveringsdato:
+    slot_uri: okn:leveringsdato
+    range: date
+    description: Dato varer eller tenester vart leverte.
+
+  nettobelop:
+    slot_uri: okn:nettobelop
+    range: integer
+    description: Del av totalbeløp som utgjer summen av fakturalinjene, i øre.
+
+  avgiftsbelop:
+    slot_uri: okn:avgiftsbelop
+    range: integer
+    description: Del av totalbeløp som er avgifter, i øre.
+
+  totalbelop:
+    slot_uri: okn:totalbelop
+    range: integer
+    description: Totalt beløp på faktura inkl. avgifter, i øre.
+
+  faktura:
+    slot_uri: okn:faktura
+    range: Faktura
+    multivalued: true
+    description: Utferdigde fakturaer for fakturagrunnlaget.
+
+  # --- Fakturautsteder ------------------------------------------------------
+
+  naam:
+    slot_uri: okn:naam
+    range: string
+    description: Namn på eining eller kodeverk-element.
+
+  organisasjonselement:
+    slot_uri: okn:organisasjonselement
+    range: uriorcurie
+    description: Referanse til Organisasjonselement (Administrasjon).
+
+  # --- Fakturalinje ---------------------------------------------------------
+
+  antall:
+    slot_uri: okn:antall
+    range: float
+    description: Mengd av varen levert.
+
+  fritekst:
+    slot_uri: okn:fritekst
+    range: string
+    multivalued: true
+    description: Fritekst som skildrar varen slik han er levert.
+
+  # --- Transaksjon ----------------------------------------------------------
+
+  transaksjonsId:
+    slot_uri: okn:transaksjonsId
+    range: Identifikator
+    inlined: true
+    description: Intern unik identifikator i økonomisystemet.
+
+  bilag:
+    slot_uri: okn:bilag
+    range: Bilag
+    multivalued: true
+    inlined_as_list: true
+    description: Bilag til transaksjonen.
+
+  transaksjonstidspunkt:
+    slot_uri: okn:transaksjonstidspunkt
+    range: datetime
+    description: Tidspunkt for registrering av transaksjonen.
+
+  oppdateringstidspunkt:
+    slot_uri: okn:oppdateringstidspunkt
+    range: datetime
+    description: Tidspunkt for siste endring i transaksjonen.
+
+  postering:
+    slot_uri: okn:postering
+    range: Postering
+    multivalued: true
+    description: Posteringar tilhøyrande transaksjonen.
+
+  ansvarlig:
+    slot_uri: okn:ansvarlig
+    range: uriorcurie
+    description: Referanse til Personalressurs (Administrasjon) som er ansvarleg.
+
+  valuta:
+    slot_uri: okn:valuta
+    range: OkonomiValuta
+    description: Valuta for oppgjeve beløp.
+
+  # --- Postering ------------------------------------------------------------
+
+  posteringsId:
+    slot_uri: okn:posteringsId
+    range: Identifikator
+    inlined: true
+    description: Intern unik identifikator i økonomisystemet.
+
+  debet:
+    slot_uri: okn:debet
+    range: boolean
+    description: Angir om posteringa er debet eller kredit.
+
+  transaksjon:
+    slot_uri: okn:transaksjon
+    range: Transaksjon
+    description: Transaksjonen posteringa tilhøyrer.
+
+  # --- Leverandor -----------------------------------------------------------
+
+  kontonummer:
+    slot_uri: okn:kontonummer
+    range: string
+    description: Kontonummer til leverandøren.
+
+  leverandornummer:
+    slot_uri: okn:leverandornummer
+    range: Identifikator
+    inlined: true
+    description: Nummer som identifiserer ein leverandør.
+
+  leverandorgruppe:
+    slot_uri: okn:leverandorgruppe
+    range: Leverandorgruppe
+    description: Gruppe av leverandørar leverandøren tilhøyrer.
+
+  virksomhet:
+    slot_uri: okn:virksomhet
+    range: uriorcurie
+    description: Referanse til Virksomhet som er leverandør.
+
+  # --- Bilag ----------------------------------------------------------------
+
+  bilagsdato:
+    slot_uri: okn:bilagsdato
+    range: date
+    description: Dato bilaget er registrert.
+
+  bilagsnummer:
+    slot_uri: okn:bilagsnummer
+    range: string
+    description: Nummer på bilaget.
+
+  referanse:
+    slot_uri: okn:referanse
+    range: string
+    description: Ekstern referanse, t.d. fakturanummer.
+
+  url:
+    slot_uri: okn:url
+    range: string
+    description: URL til eksternt dokument.
+
+  filnavn:
+    slot_uri: okn:filnavn
+    range: string
+    description: Namn på bilagets fil.
+
+  data:
+    slot_uri: okn:data
+    range: string
+    description: Bilagets fil, koda som Base64.
+
+  # --- Kontostreng ----------------------------------------------------------
+
+  art:
+    slot_uri: okn:art
+    range: string
+    description: Artskonto (type utgift/inntekt).
+
+  funksjon:
+    slot_uri: okn:funksjon
+    range: string
+    description: Funksjonskode (KOSTRA).
+
+  ansvar:
+    slot_uri: okn:ansvar
+    range: string
+    description: Ansvarsomrade.
+
+  prosjekt:
+    slot_uri: okn:prosjekt
+    range: string
+    description: Prosjektkode.
+
+  # --- Vare -----------------------------------------------------------------
+
+  enhet:
+    slot_uri: okn:enhet
+    range: string
+    description: Namn på mengdeeininga varen leverast i.
+
+  merverdiavgift:
+    slot_uri: okn:merverdiavgift
+    range: Merverdiavgift
+    description: Varens avgiftsklasse og -sats.
+
+  # --- Merverdiavgift -------------------------------------------------------
+
+  sats:
+    slot_uri: okn:sats
+    range: integer
+    description: Sats for merverdiavgift.
+
+# ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
 
@@ -29,48 +406,22 @@ classes:
   OkonomiContainer:
     tree_root: true
     description: Rotcontainer for FINT Økonomi-instansar.
-    attributes:
+    slots:
       # okonomi.faktura
-      fakturaer:
-        range: Faktura
-        multivalued: true
-        inlined_as_list: true
-      fakturagrunnlag:
-        range: Fakturagrunnlag
-        multivalued: true
-        inlined_as_list: true
-      fakturautstederear:
-        range: Fakturautsteder
-        multivalued: true
-        inlined_as_list: true
+      - fakturaer
+      - fakturagrunnlag
+      - fakturautstederear
       # okonomi.regnskap
-      transaksjonar:
-        range: Transaksjon
-        multivalued: true
-        inlined_as_list: true
-      posteringar:
-        range: Postering
-        multivalued: true
-        inlined_as_list: true
-      leverandorar:
-        range: Leverandor
-        multivalued: true
-        inlined_as_list: true
-      leverandorgrupper:
-        range: Leverandorgruppe
-        multivalued: true
-        inlined_as_list: true
+      - transaksjonar
+      - posteringar
+      - leverandorar
+      - leverandorgrupper
       # okonomi.kodeverk
-      varer:
-        range: Vare
-        multivalued: true
-        inlined_as_list: true
-      merverdiavgifter:
-        range: Merverdiavgift
-        multivalued: true
-        inlined_as_list: true
-      valutaer:
-        range: OkonomiValuta
+      - varer
+      - merverdiavgifter
+      - valutaer
+    slot_usage:
+      fakturagrunnlag:
         multivalued: true
         inlined_as_list: true
 
@@ -83,79 +434,55 @@ classes:
     class_uri: okn:Faktura
     slots:
       - id
-    attributes:
+      - fakturanummer
+      - dato
+      - forfallsdato
+      - belop
+      - mottaker
+      - adresse
+      - betalt
+      - fakturert
+      - kreditert
+      - restbelop
+      - fakturagrunnlag
+    slot_usage:
       fakturanummer:
-        slot_uri: okn:fakturanummer
-        range: Identifikator
         required: true
-        inlined: true
-        description: Identifikator oppretta i fakturaprogrammet.
         in_subset:
           - Obligatorisk
       dato:
-        slot_uri: okn:dato
-        range: date
         required: true
-        description: Dato for utferding av faktura.
         in_subset:
           - Obligatorisk
       forfallsdato:
-        slot_uri: okn:forfallsdato
-        range: date
         required: true
-        description: Frist for betaling.
         in_subset:
           - Obligatorisk
       belop:
-        slot_uri: okn:belop
-        range: integer
         required: true
-        description: "Beløp mottakar skal betale, i øre (beløp)."
         in_subset:
           - Obligatorisk
       mottaker:
-        slot_uri: okn:mottaker
-        range: string
         required: true
-        description: Namn på mottakar.
         in_subset:
           - Obligatorisk
       adresse:
-        slot_uri: okn:adresse
-        range: Adresse
-        inlined: true
-        description: Adresse til mottakar.
         in_subset:
           - Valgfri
       betalt:
-        slot_uri: okn:betalt
-        range: boolean
-        description: Status på betaling.
         in_subset:
           - Anbefalt
       fakturert:
-        slot_uri: okn:fakturert
-        range: boolean
-        description: Status på utsending.
         in_subset:
           - Anbefalt
       kreditert:
-        slot_uri: okn:kreditert
-        range: boolean
-        description: Status på kreditering.
         in_subset:
           - Anbefalt
       restbelop:
-        slot_uri: okn:restbelop
-        range: integer
-        description: "Gjenståande beløp å betale, i øre (restbeløp)."
         in_subset:
           - Valgfri
       fakturagrunnlag:
-        slot_uri: okn:fakturagrunnlag
-        range: Fakturagrunnlag
         required: true
-        description: Grunnlag for fakturering.
         in_subset:
           - Obligatorisk
 
@@ -164,68 +491,45 @@ classes:
     class_uri: okn:Fakturagrunnlag
     slots:
       - id
-    attributes:
+      - ordrenummer
+      - fakturamottaker
+      - fakturalinjer
+      - leveringsdato
+      - nettobelop
+      - avgiftsbelop
+      - totalbelop
+      - faktura
+      - fakturautsteder
+    slot_usage:
       ordrenummer:
-        slot_uri: okn:ordrenummer
-        range: Identifikator
         required: true
-        inlined: true
-        description: Unik identifikator for ordren det skal utferdigast faktura på.
         in_subset:
           - Obligatorisk
-      mottaker:
-        slot_uri: okn:fakturamottaker
-        range: Fakturamottaker
+      fakturamottaker:
         required: true
-        inlined: true
-        description: Mottakar som skal betale faktura.
         in_subset:
           - Obligatorisk
       fakturalinjer:
-        slot_uri: okn:fakturalinjer
-        range: Fakturalinje
-        multivalued: true
         required: true
-        inlined_as_list: true
-        description: Linjer av varer eller tenester som skal fakturerast.
         in_subset:
           - Obligatorisk
       leveringsdato:
-        slot_uri: okn:leveringsdato
-        range: date
-        description: Dato varer eller tenester vart leverte.
         in_subset:
           - Valgfri
       nettobelop:
-        slot_uri: okn:nettobelop
-        range: integer
-        description: "Del av totalbeløp som utgjer summen av fakturalinjene, i øre (nettobeløp)."
         in_subset:
           - Valgfri
       avgiftsbelop:
-        slot_uri: okn:avgiftsbelop
-        range: integer
-        description: "Del av totalbeløp som er avgifter, i øre (avgiftsbeløp)."
         in_subset:
           - Valgfri
       totalbelop:
-        slot_uri: okn:totalbelop
-        range: integer
-        description: "Totalt beløp på faktura inkl. avgifter, i øre (totalbeløp)."
         in_subset:
           - Valgfri
       faktura:
-        slot_uri: okn:faktura
-        range: Faktura
-        multivalued: true
-        description: Utferdigde fakturaer for fakturagrunnlaget.
         in_subset:
           - Valgfri
       fakturautsteder:
-        slot_uri: okn:fakturautsteder
-        range: Fakturautsteder
         required: true
-        description: Utstedar av faktura og mottakar av betaling.
         in_subset:
           - Obligatorisk
 
@@ -234,32 +538,24 @@ classes:
     class_uri: okn:Fakturautsteder
     slots:
       - id
-    attributes:
-      navn:
-        slot_uri: okn:navn
-        range: string
+      - naam
+      - fakturagrunnlag
+      - organisasjonselement
+      - vare
+    slot_usage:
+      naam:
         required: true
-        description: Juridisk namn på fakturutstedar.
         in_subset:
           - Obligatorisk
       fakturagrunnlag:
-        slot_uri: okn:fakturagrunnlag
-        range: Fakturagrunnlag
         multivalued: true
-        description: Alle fakturagrunnlag for fakturutstedaren.
         in_subset:
           - Valgfri
       organisasjonselement:
-        slot_uri: okn:organisasjonselement
-        range: uriorcurie
-        description: Referanse til Organisasjonselement (Administrasjon) som kan utstede faktura.
         in_subset:
           - Valgfri
       vare:
-        slot_uri: okn:vare
-        range: Vare
         multivalued: true
-        description: Alle varer i vareregisteret til fakturutstedaren.
         in_subset:
           - Valgfri
 
@@ -268,45 +564,36 @@ classes:
   Fakturamottaker:
     description: Aktør som skal betale faktura (kompleks datatype).
     class_uri: okn:Fakturamottaker
-    attributes:
+    slots:
+      - person
+    slot_usage:
       person:
-        slot_uri: okn:person
-        range: uriorcurie
         required: true
-        description: Referanse til Person (Administrasjon) som skal betale faktura.
         in_subset:
           - Obligatorisk
 
   Fakturalinje:
     description: Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype).
     class_uri: okn:Fakturalinje
-    attributes:
+    slots:
+      - antall
+      - pris
+      - fritekst
+      - vare
+    slot_usage:
       antall:
-        slot_uri: okn:antall
-        range: float
         required: true
-        description: Mengd av varen levert.
         in_subset:
           - Obligatorisk
       pris:
-        slot_uri: okn:pris
-        range: integer
         required: true
-        description: "Pris per eining levert, i øre."
         in_subset:
           - Obligatorisk
       fritekst:
-        slot_uri: okn:fritekst
-        range: string
-        multivalued: true
-        description: Fritekst som skildrar varen slik han er levert.
         in_subset:
           - Valgfri
       vare:
-        slot_uri: okn:vare
-        range: Vare
         required: true
-        description: Vare i vareregisteret.
         in_subset:
           - Obligatorisk
 
@@ -319,80 +606,55 @@ classes:
     class_uri: okn:Transaksjon
     slots:
       - id
-    attributes:
+      - transaksjonsId
+      - belop
+      - forfallsdato
+      - beskrivelse
+      - bilag
+      - transaksjonstidspunkt
+      - oppdateringstidspunkt
+      - leverandor
+      - postering
+      - ansvarlig
+      - valuta
+    slot_usage:
       transaksjonsId:
-        slot_uri: okn:transaksjonsId
-        range: Identifikator
         required: true
-        inlined: true
-        description: Intern unik identifikator i økonomisystemet.
         in_subset:
           - Obligatorisk
       belop:
-        slot_uri: okn:belop
-        range: integer
         required: true
-        description: "Transaksjonsbeløp med to desimalar (beløp)."
         in_subset:
           - Obligatorisk
       forfallsdato:
-        slot_uri: okn:forfallsdato
-        range: date
         required: true
-        description: Dato transaksjonen forfell.
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: okn:beskrivelse
-        range: string
-        description: Skildring av transaksjonen.
         in_subset:
           - Valgfri
       bilag:
-        slot_uri: okn:bilag
-        range: Bilag
-        multivalued: true
-        inlined_as_list: true
-        description: Bilag til transaksjonen.
         in_subset:
           - Valgfri
       transaksjonstidspunkt:
-        slot_uri: okn:transaksjonstidspunkt
-        range: datetime
-        description: Tidspunkt for registrering av transaksjonen.
         in_subset:
           - Valgfri
       oppdateringstidspunkt:
-        slot_uri: okn:oppdateringstidspunkt
-        range: datetime
-        description: Tidspunkt for siste endring i transaksjonen.
         in_subset:
           - Valgfri
       leverandor:
-        slot_uri: okn:leverandor
-        range: Leverandor
-        description: "Leverandør knytt til transaksjonen (leverandor)."
         in_subset:
           - Valgfri
       postering:
-        slot_uri: okn:postering
-        range: Postering
         multivalued: true
         required: true
-        description: Posteringar tilhøyrande transaksjonen.
         in_subset:
           - Obligatorisk
       ansvarlig:
-        slot_uri: okn:ansvarlig
-        range: uriorcurie
-        description: Referanse til Personalressurs (Administrasjon) som er ansvarleg for å godkjenne transaksjonen.
         in_subset:
           - Valgfri
       valuta:
-        slot_uri: okn:valuta
-        range: OkonomiValuta
         required: true
-        description: Valuta for oppgjeve beløp.
         in_subset:
           - Obligatorisk
 
@@ -401,100 +663,73 @@ classes:
     class_uri: okn:Postering
     slots:
       - id
-    attributes:
+      - posteringsId
+      - belop
+      - debet
+      - kontering
+      - transaksjon
+    slot_usage:
       posteringsId:
-        slot_uri: okn:posteringsId
-        range: Identifikator
         required: true
-        inlined: true
-        description: Intern unik identifikator i økonomisystemet.
         in_subset:
           - Obligatorisk
       belop:
-        slot_uri: okn:belop
-        range: integer
         required: true
-        description: "Posteringsbeløp med to desimalar (beløp)."
         in_subset:
           - Obligatorisk
       debet:
-        slot_uri: okn:debet
-        range: boolean
         required: true
-        description: Angir om posteringa er debet eller kredit.
         in_subset:
           - Obligatorisk
       kontering:
-        slot_uri: okn:kontering
-        range: Kontostreng
         required: true
-        inlined: true
-        description: Kontodimensjonar for posteringa.
         in_subset:
           - Obligatorisk
       transaksjon:
-        slot_uri: okn:transaksjon
-        range: Transaksjon
-        description: Transaksjonen posteringa tilhøyrer.
         in_subset:
           - Valgfri
 
   Leverandor:
-    description: "Person eller verksemd som leverer produkt eller tenester (Leverandør)."
+    description: Person eller verksemd som leverer produkt eller tenester.
     class_uri: okn:Leverandor
     slots:
       - id
-    attributes:
+      - kontonummer
+      - leverandornummer
+      - person
+      - leverandorgruppe
+      - virksomhet
+    slot_usage:
       kontonummer:
-        slot_uri: okn:kontonummer
-        range: string
-        description: "Kontonummer til leverandøren."
         in_subset:
           - Valgfri
       leverandornummer:
-        slot_uri: okn:leverandornummer
-        range: Identifikator
-        inlined: true
-        description: "Nummer som identifiserer ein leverandør (leverandørnummer)."
         in_subset:
           - Valgfri
       person:
-        slot_uri: okn:person
-        range: uriorcurie
-        description: Referanse til Person (Administrasjon) som er leverandør.
         in_subset:
           - Valgfri
       leverandorgruppe:
-        slot_uri: okn:leverandorgruppe
-        range: Leverandorgruppe
-        description: "Gruppe av leverandørar leverandøren tilhøyrer (leverandørgruppe)."
         in_subset:
           - Valgfri
       virksomhet:
-        slot_uri: okn:virksomhet
-        range: uriorcurie
-        description: Referanse til Virksomhet som er leverandør.
         in_subset:
           - Valgfri
 
   Leverandorgruppe:
-    description: "Gruppering av leverandørar (Leverandørgruppe)."
+    description: Gruppering av leverandørar.
     class_uri: okn:Leverandorgruppe
     slots:
       - id
-    attributes:
-      navn:
-        slot_uri: okn:navn
-        range: string
+      - naam
+      - leverandor
+    slot_usage:
+      naam:
         required: true
-        description: "Namn på leverandørgruppen."
         in_subset:
           - Obligatorisk
       leverandor:
-        slot_uri: okn:leverandor
-        range: Leverandor
         multivalued: true
-        description: "Leverandørar i leverandørgruppen."
         in_subset:
           - Valgfri
 
@@ -503,71 +738,53 @@ classes:
   Bilag:
     description: Dokumentasjon til ein transaksjon (kompleks datatype).
     class_uri: okn:Bilag
-    attributes:
+    slots:
+      - bilagsdato
+      - bilagsnummer
+      - referanse
+      - url
+      - filnavn
+      - data
+    slot_usage:
       bilagsdato:
-        slot_uri: okn:bilagsdato
-        range: date
         required: true
-        description: Dato bilaget er registrert.
         in_subset:
           - Obligatorisk
       bilagsnummer:
-        slot_uri: okn:bilagsnummer
-        range: string
-        description: Nummer på bilaget.
         in_subset:
           - Valgfri
       referanse:
-        slot_uri: okn:referanse
-        range: string
-        description: Ekstern referanse, t.d. fakturanummer.
         in_subset:
           - Valgfri
       url:
-        slot_uri: okn:url
-        range: string
-        description: URL til eksternt dokument.
         in_subset:
           - Valgfri
       filnavn:
-        slot_uri: okn:filnavn
-        range: string
-        description: Namn på bilagets fil.
         in_subset:
           - Valgfri
       data:
-        slot_uri: okn:data
-        range: string
-        description: Bilagets fil, koda som Base64.
         in_subset:
           - Valgfri
 
   Kontostreng:
     description: Kontodimensjonar for ei postering (kompleks datatype).
     class_uri: okn:Kontostreng
-    attributes:
+    slots:
+      - art
+      - funksjon
+      - ansvar
+      - prosjekt
+    slot_usage:
       art:
-        slot_uri: okn:art
-        range: string
-        description: Artskonto (type utgift/inntekt).
         in_subset:
           - Anbefalt
       funksjon:
-        slot_uri: okn:funksjon
-        range: string
-        description: Funksjonskode (KOSTRA).
         in_subset:
           - Anbefalt
       ansvar:
-        slot_uri: okn:ansvar
-        range: string
-        description: Ansvarsomrade.
         in_subset:
           - Valgfri
       prosjekt:
-        slot_uri: okn:prosjekt
-        range: string
-        description: Prosjektkode.
         in_subset:
           - Valgfri
 
@@ -580,67 +797,47 @@ classes:
     class_uri: okn:Vare
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - enhet
+      - pris
+      - kontering
+      - gyldighetsperiode
+      - passiv
+      - fakturautsteder
+      - merverdiavgift
+    slot_usage:
       kode:
-        slot_uri: okn:kode
-        range: string
         required: true
-        description: Verdi som identifiserer omgrepet.
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: okn:navn
-        range: string
+      naam:
         required: true
-        description: Hovudnamn for omgrepet.
         in_subset:
           - Obligatorisk
       enhet:
-        slot_uri: okn:enhet
-        range: string
         required: true
-        description: Namn på mengdeeininga varen leverast i.
         in_subset:
           - Obligatorisk
       pris:
-        slot_uri: okn:pris
-        range: integer
         required: true
-        description: "Varens pris per eining i vareregisteret, i øre."
         in_subset:
           - Obligatorisk
       kontering:
-        slot_uri: okn:kontering
-        range: Kontostreng
-        inlined: true
-        description: Varens kontering i økonomisystemet.
         in_subset:
           - Valgfri
       gyldighetsperiode:
-        slot_uri: okn:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Angir gyldighetsperioden for omgrepet/koden.
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: okn:passiv
-        range: boolean
-        description: Angir at koden er passiv og ikkje kan veljast.
         in_subset:
           - Valgfri
       fakturautsteder:
-        slot_uri: okn:fakturautsteder
-        range: Fakturautsteder
         required: true
-        description: Fakturautstedar for varen.
         in_subset:
           - Obligatorisk
       merverdiavgift:
-        slot_uri: okn:merverdiavgift
-        range: Merverdiavgift
         required: true
-        description: Varens avgiftsklasse og -sats.
         in_subset:
           - Obligatorisk
 
@@ -649,39 +846,28 @@ classes:
     class_uri: okn:Merverdiavgift
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - sats
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: okn:kode
-        range: string
         required: true
-        description: Verdi som identifiserer omgrepet.
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: okn:navn
-        range: string
+      naam:
         required: true
-        description: Hovudnamn for omgrepet.
         in_subset:
           - Obligatorisk
       sats:
-        slot_uri: okn:sats
-        range: integer
         required: true
-        description: Sats for merverdiavgift.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: okn:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Angir gyldighetsperioden for omgrepet/koden.
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: okn:passiv
-        range: boolean
-        description: Angir at koden er passiv og ikkje kan veljast.
         in_subset:
           - Valgfri
 
@@ -690,32 +876,22 @@ classes:
     class_uri: okn:Valuta
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: okn:kode
-        range: string
         required: true
-        description: Valutakode (t.d. NOK, EUR, USD).
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: okn:namn
-        range: string
+      naam:
         required: true
-        description: Namn på valutaen.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: okn:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: okn:passiv
-        range: boolean
         in_subset:
           - Valgfri
-
-# ---------------------------------------------------------------------------
-# Slots

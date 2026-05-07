@@ -20,6 +20,639 @@ prefixes:
 
 
 # ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # --- Container-eksklusive lister (felles frå fint-common) ------------------
+
+  personar:
+    slot_uri: adm:personar
+    range: Person
+    multivalued: true
+    inlined_as_list: true
+    description: Alle personar i containeren.
+
+  kontaktpersonar:
+    slot_uri: adm:kontaktpersonar
+    range: Kontaktperson
+    multivalued: true
+    inlined_as_list: true
+    description: Alle kontaktpersonar i containeren.
+
+  virksomhetar:
+    slot_uri: adm:virksomhetar
+    range: Virksomhet
+    multivalued: true
+    inlined_as_list: true
+    description: Alle verksemder i containeren.
+
+  landkodar:
+    slot_uri: adm:landkodar
+    range: Landkode
+    multivalued: true
+    inlined_as_list: true
+    description: Alle landkodar i containeren.
+
+  kommunar:
+    slot_uri: adm:kommunar
+    range: Kommune
+    multivalued: true
+    inlined_as_list: true
+    description: Alle kommuneverdiar i containeren.
+
+  spraak:
+    slot_uri: adm:spraak
+    range: Spraak
+    multivalued: true
+    inlined_as_list: true
+    description: Alle språkverdiar i containeren.
+
+  valuta:
+    slot_uri: adm:valuta
+    range: Valuta
+    multivalued: true
+    inlined_as_list: true
+    description: Alle valutaverdiar i containeren.
+
+  personalressursar:
+    slot_uri: adm:personalressursar
+    range: Personalressurs
+    multivalued: true
+    inlined_as_list: true
+    description: Alle personalressursar i containeren.
+
+  arbeidslokasjoner:
+    slot_uri: adm:arbeidslokasjoner
+    range: Arbeidslokasjon
+    multivalued: true
+    inlined_as_list: true
+    description: Alle arbeidslokasjoner i containeren.
+
+  fullmakter:
+    slot_uri: adm:fullmakter
+    range: Fullmakt
+    multivalued: true
+    inlined_as_list: true
+    description: Alle fullmakter i containeren.
+
+  rollar:
+    slot_uri: adm:rollar
+    range: Rolle
+    multivalued: true
+    inlined_as_list: true
+    description: Alle rollar i containeren.
+
+  aktivitetar:
+    slot_uri: adm:aktivitetar
+    range: Aktivitet
+    multivalued: true
+    inlined_as_list: true
+    description: Alle aktivitetar i containeren.
+
+  artar:
+    slot_uri: adm:artar
+    range: Art
+    multivalued: true
+    inlined_as_list: true
+    description: Alle artar i containeren.
+
+  arbeidsforholdstypar:
+    slot_uri: adm:arbeidsforholdstypar
+    range: Arbeidsforholdstype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle arbeidsforholdstypar i containeren.
+
+  fravaersgrunnar:
+    slot_uri: adm:fravaersgrunnar
+    range: Fravaersgrunn
+    multivalued: true
+    inlined_as_list: true
+    description: Alle fråværsgrunnar i containeren.
+
+  fravaerstypar:
+    slot_uri: adm:fravaerstypar
+    range: Fravaerstype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle fråværstypar i containeren.
+
+  funksjonar:
+    slot_uri: adm:funksjonar
+    range: Funksjon
+    multivalued: true
+    inlined_as_list: true
+    description: Alle funksjonar i containeren.
+
+  kontrakter:
+    slot_uri: adm:kontrakter
+    range: Kontrakt
+    multivalued: true
+    inlined_as_list: true
+    description: Alle kontrakter i containeren.
+
+  lonsartar:
+    slot_uri: adm:lonsartar
+    range: Lonsart
+    multivalued: true
+    inlined_as_list: true
+    description: Alle lønnsartar i containeren.
+
+  organisasjonstypar:
+    slot_uri: adm:organisasjonstypar
+    range: Organisasjonstype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle organisasjonstypar i containeren.
+
+  personalressurskategoriar:
+    slot_uri: adm:personalressurskategoriar
+    range: Personalressurskategori
+    multivalued: true
+    inlined_as_list: true
+    description: Alle personalressurskategoriar i containeren.
+
+  prosjektartar:
+    slot_uri: adm:prosjektartar
+    range: Prosjektart
+    multivalued: true
+    inlined_as_list: true
+    description: Alle prosjektartar i containeren.
+
+  rammer:
+    slot_uri: adm:rammer
+    range: Ramme
+    multivalued: true
+    inlined_as_list: true
+    description: Alle rammer i containeren.
+
+  stillingskoder:
+    slot_uri: adm:stillingskoder
+    range: Stillingskode
+    multivalued: true
+    inlined_as_list: true
+    description: Alle stillingskoder i containeren.
+
+  uketimetall:
+    slot_uri: adm:uketimetall
+    range: Uketimetall
+    multivalued: true
+    inlined_as_list: true
+    description: Alle uketimetallverdiar i containeren.
+
+  # --- Lønn (Lonn og subklassar) ---------------------------------------------
+
+  anvist:
+    slot_uri: adm:anvist
+    range: datetime
+    description: Tidspunkt då lønn vart anvist.
+
+  attestert:
+    slot_uri: adm:attestert
+    range: datetime
+    description: Tidspunkt då lønn vart attestert.
+
+  kildesystemId:
+    slot_uri: adm:kildesystemId
+    range: Identifikator
+    inlined: true
+    description: Kjeldesystemets unike identifikator.
+
+  kontert:
+    slot_uri: adm:kontert
+    range: datetime
+    description: Tidspunkt då lønn vart kontert.
+
+  kontostreng:
+    slot_uri: adm:kontostreng
+    range: Kontostreng
+    inlined: true
+    description: Kontering av lønn.
+
+  opptjent:
+    slot_uri: adm:opptjent
+    range: Periode
+    inlined: true
+    description: Periode der lønn vart opptent.
+
+  periode:
+    slot_uri: adm:periode
+    range: Periode
+    inlined: true
+    description: Periode for ressursen.
+
+  anviser:
+    slot_uri: adm:anviser
+    range: Personalressurs
+    description: Personalressurs som har anvist lønsmeldinga etter fullmakt.
+
+  konterer:
+    slot_uri: adm:konterer
+    range: Personalressurs
+    description: Personalressurs som har kontert lønsmeldinga etter fullmakt.
+
+  attestant:
+    slot_uri: adm:attestant
+    range: Personalressurs
+    description: Personalressurs som har attestert lønsmeldinga etter fullmakt.
+
+  prosent:
+    slot_uri: adm:prosent
+    range: integer
+    description: Prosent.
+
+  antall:
+    slot_uri: adm:antall
+    range: integer
+    description: Mengde som vert beskriven av tillegget, i hundredeler.
+
+  belop:
+    slot_uri: adm:belop
+    range: integer
+    description: Beløp i øre.
+
+  lonsart:
+    slot_uri: adm:lonsart
+    range: Lonsart
+    description: Lønnsart.
+
+  # --- Kontostreng-dimensjonar (delte på tvers av klasser) ------------------
+
+  aktivitet:
+    slot_uri: adm:aktivitet
+    range: Aktivitet
+    description: Detaljering av funksjon.
+
+  anlegg:
+    slot_uri: adm:anlegg
+    range: Anlegg
+    description: Objekt som skal aktiverast eller avskrivast.
+
+  ansvar:
+    slot_uri: adm:ansvar
+    range: Ansvar
+    description: Ansvarleg for ei utgift eller inntekt.
+
+  art:
+    slot_uri: adm:art
+    range: Art
+    description: Type inntekt eller utgift.
+
+  diverse:
+    slot_uri: adm:diverse
+    range: Diverse
+    description: Spesifikasjon som ikkje kjem fram i øvrige dimensjonar.
+
+  formaal:
+    slot_uri: adm:formaal
+    range: Formaal
+    description: Formål viser aktivitet og tenesteproduksjon.
+
+  funksjon:
+    slot_uri: adm:funksjon
+    range: Funksjon
+    description: Det som vert produsert eller tenesta som vert levert.
+
+  kontrakt:
+    slot_uri: adm:kontrakt
+    range: Kontrakt
+    description: Kontrakt ressursen er knytt til.
+
+  lopenummer:
+    slot_uri: adm:lopenummer
+    range: Lopenummer
+    description: Løpenummer i ei nummerserie.
+
+  objekt:
+    slot_uri: adm:objekt
+    range: Objekt
+    description: Objekt ressursen er knytt til.
+
+  prosjekt:
+    slot_uri: adm:prosjekt
+    range: Prosjekt
+    description: Prosjekt ressursen er knytt til.
+
+  prosjektart:
+    slot_uri: adm:prosjektart
+    range: Prosjektart
+    description: Deloppgåve eller delprosjekt.
+
+  ramme:
+    slot_uri: adm:ramme
+    range: Ramme
+    description: Budsjettramme som skal bere kostnadane.
+
+  # --- Hierarki-slots (range varierer per klasse) ----------------------------
+
+  overordnet:
+    slot_uri: adm:overordnet
+    description: Overordna element i hierarkiet.
+
+  underordnet:
+    slot_uri: adm:underordnet
+    multivalued: true
+    description: Underordna element i hierarkiet.
+
+  forelder:
+    slot_uri: adm:forelder
+    description: Foreldreelement i hierarki.
+
+  # --- Kodeverk-spesifikke slots ---------------------------------------------
+
+  overfores:
+    slot_uri: adm:overfores
+    range: boolean
+    description: Angir om fråvær av denne typen skal overførast til HR.
+
+  kategori:
+    slot_uri: adm:kategori
+    range: string
+    description: Kategori lønnsart.
+
+  # --- Fråvær ----------------------------------------------------------------
+
+  godkjent:
+    slot_uri: adm:godkjent
+    range: datetime
+    description: Tidspunkt då fråværet vart godkjent.
+
+  fravaersgrunn:
+    slot_uri: adm:fravaersgrunn
+    range: Fravaersgrunn
+    description: Grunn til fråværet.
+
+  fravaerstype:
+    slot_uri: adm:fravaerstype
+    range: Fravaerstype
+    description: Type fråvær.
+
+  fortsettelse:
+    slot_uri: adm:fortsettelse
+    range: Fravaer
+    description: Fortsetjande fråvær.
+
+  fortsetter:
+    slot_uri: adm:fortsetter
+    range: Fravaer
+    description: Fråværet dette fråværet er fortsetjing av.
+
+  godkjenner:
+    slot_uri: adm:godkjenner
+    range: Personalressurs
+    description: Personalressurs som har godkjent fråværsmeldinga.
+
+  # --- Fullmakt / Rolle ------------------------------------------------------
+
+  rolle:
+    slot_uri: adm:rolle
+    range: Rolle
+    description: Kva type fullmakt.
+
+  rolleNavn:
+    slot_uri: adm:rolleNavn
+    range: Identifikator
+    inlined: true
+    description: Namn på rolla; unik identifikator.
+
+  fullmakt:
+    slot_uri: adm:fullmakt
+    range: Fullmakt
+    description: Fullmakt ressursen er knytt til.
+
+  fullmektig:
+    slot_uri: adm:fullmektig
+    range: Personalressurs
+    description: Personalressurs som har fått fullmakt til ei gjeven rolle.
+
+  stedfortreder:
+    slot_uri: adm:stedfortreder
+    description: Stedfortredar i fullmaktssamanheng.
+
+  organisasjonselement:
+    slot_uri: adm:organisasjonselement
+    range: Organisasjonselement
+    description: Organisasjonselement ressursen er knytt til.
+
+  # --- Arbeidslokasjon / Organisasjonselement --------------------------------
+
+  lokasjonskode:
+    slot_uri: adm:lokasjonskode
+    range: Identifikator
+    inlined: true
+    description: Kode som identifiserer ein arbeidslokasjon.
+
+  lokasjonsnavn:
+    slot_uri: adm:lokasjonsnavn
+    range: string
+    description: Namn som beskriv ein arbeidslokasjon.
+
+  kortnavn:
+    slot_uri: adm:kortnavn
+    range: string
+    description: Forkorta namn som beskriv organisasjonselementet.
+
+  navn:
+    slot_uri: adm:namn
+    range: string
+    description: Namn på organisasjonselementet.
+
+  organisasjonsId:
+    slot_uri: adm:organisasjonsId
+    range: Identifikator
+    inlined: true
+    description: Unikt internnummer for organisasjonselementet.
+
+  organisasjonsKode:
+    slot_uri: adm:organisasjonsKode
+    range: Identifikator
+    inlined: true
+    description: Beskriven kode for organisasjonselementet.
+
+  organisasjonstype:
+    slot_uri: adm:organisasjonstype
+    range: Organisasjonstype
+    description: Kva type organisasjonselement dette er.
+
+  leder:
+    slot_uri: adm:leder
+    range: Personalressurs
+    description: Ansvarleg leiar for organisasjonselementet.
+
+  skole:
+    slot_uri: adm:skole
+    range: uriorcurie
+    description: Referanse til Skole (Utdanning).
+
+  # --- Personalressurs -------------------------------------------------------
+
+  ansattnummer:
+    slot_uri: adm:ansattnummer
+    range: Identifikator
+    inlined: true
+    description: Unik identifikator for den tilsette i HR-systemet.
+
+  ansettelsesperiode:
+    slot_uri: adm:ansettelsesperiode
+    range: Periode
+    inlined: true
+    description: Perioden personalressursen er i eit tilhøve til organisasjonen.
+
+  ansiennitet:
+    slot_uri: adm:ansiennitet
+    range: date
+    description: Ansiennitet for personalressurs hos arbeidsgjevar.
+
+  brukernavn:
+    slot_uri: adm:brukernavn
+    range: Identifikator
+    inlined: true
+    description: Brukarnamn til den tilsette.
+
+  jobbtittel:
+    slot_uri: adm:jobbtittel
+    range: string
+    description: Namn som beskriv jobben eller stillinga.
+
+  person:
+    slot_uri: adm:person
+    range: Person
+    description: Person som er ein personalressurs.
+
+  personalressurskategori:
+    slot_uri: adm:personalressurskategori
+    range: Personalressurskategori
+    description: Kategori for personalressursen.
+
+  lederFor:
+    slot_uri: adm:lederFor
+    range: Organisasjonselement
+    multivalued: true
+    description: Organisasjonselement personalressursen er leiar for.
+
+  personalansvar:
+    slot_uri: adm:personalansvar
+    range: Arbeidsforhold
+    multivalued: true
+    description: Arbeidsforhold der personalressursen har personalansvar.
+
+  skoleressurs:
+    slot_uri: adm:skoleressurs
+    range: uriorcurie
+    description: Referanse til Skoleressurs (Utdanning).
+
+  # --- Arbeidsforhold --------------------------------------------------------
+
+  ansettelsesprosent:
+    slot_uri: adm:ansettelsesprosent
+    range: integer
+    description: Prosenten personalressursen eig i høve til arbeidsavtalen.
+
+  arbeidsforholdsperiode:
+    slot_uri: adm:arbeidsforholdsperiode
+    range: Periode
+    inlined: true
+    description: Periode for ei gjeven stilling.
+
+  aarslonn:
+    slot_uri: adm:aarslonn
+    range: integer
+    description: Årslønn/grunnlønn i 100 % stilling.
+
+  hovedstilling:
+    slot_uri: adm:hovedstilling
+    range: boolean
+    description: Angir kva arbeidsforhold som er hovudarbeidsforhold.
+
+  lonnsprosent:
+    slot_uri: adm:lonnsprosent
+    range: integer
+    description: Prosent av årslønn den tilsette skal ha utbetalt.
+
+  stillingsnummer:
+    slot_uri: adm:stillingsnummer
+    range: string
+    description: Løpenummer for stillinga.
+
+  stillingstittel:
+    slot_uri: adm:stillingstittel
+    range: string
+    description: Arbeidstakarens stillingstittel i gjeldande stilling.
+
+  tilstedeprosent:
+    slot_uri: adm:tilstedeprosent
+    range: integer
+    description: Det personalressursen faktisk jobbar.
+
+  arbeidsforholdstype:
+    slot_uri: adm:arbeidsforholdstype
+    range: Arbeidsforholdstype
+    description: Beskriven kode som kategoriserer kva funksjon stillinga er gruppert til.
+
+  stillingskode:
+    slot_uri: adm:stillingskode
+    range: Stillingskode
+    description: Firesifra stillingskode frå KS, eventuelt utvida med to siffer.
+
+  timerPerUke:
+    slot_uri: adm:timerPerUke
+    range: Uketimetall
+    description: Timer per veke i 100 % stilling.
+
+  arbeidslokasjon:
+    slot_uri: adm:arbeidslokasjon
+    range: Arbeidslokasjon
+    description: Fysisk lokasjon der den tilsette har sitt arbeidsstad.
+
+  arbeidssted:
+    slot_uri: adm:arbeidssted
+    range: Organisasjonselement
+    description: Tilhøyrsle til organisasjonsstrukturen.
+
+  arbeidsforhold:
+    slot_uri: adm:arbeidsforhold
+    range: Arbeidsforhold
+    description: Arbeidsforhold ressursen er knytt til.
+
+  fastlonn:
+    slot_uri: adm:fastlonn
+    range: Fastlonn
+    description: Fastlønn for arbeidsforholdet.
+
+  fasttillegg:
+    slot_uri: adm:fasttillegg
+    range: Fasttillegg
+    description: Faste tillegg for arbeidsforholdet.
+
+  fravaer:
+    slot_uri: adm:fravaer
+    range: Fravaer
+    description: Fråvær knytt til ressursen.
+
+  variabellonn:
+    slot_uri: adm:variabellonn
+    range: Variabellonn
+    description: Variabel lønn for arbeidsforholdet.
+
+  personalressurs:
+    slot_uri: adm:personalressurs
+    range: Personalressurs
+    description: Personalressurs til arbeidsforholdet.
+
+  personalleder:
+    slot_uri: adm:personalleder
+    range: Personalressurs
+    description: Personalleiar til arbeidsforholdet.
+
+  undervisningsforhold:
+    slot_uri: adm:undervisningsforhold
+    range: uriorcurie
+    description: Referanse til Undervisningsforhold (Utdanning).
+
+
+# ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
 
@@ -28,169 +661,95 @@ classes:
   AdministrasjonContainer:
     tree_root: true
     description: Rotcontainer for FINT Administrasjon-instansar.
-    attributes:
+    slots:
       # Felles hovudklassar
-      personar:
-        range: Person
-        multivalued: true
-        inlined_as_list: true
-      kontaktpersonar:
-        range: Kontaktperson
-        multivalued: true
-        inlined_as_list: true
-      virksomhetar:
-        range: Virksomhet
-        multivalued: true
-        inlined_as_list: true
+      - personar
+      - kontaktpersonar
+      - virksomhetar
       # Felles kodeverk
-      landkodar:
-        range: Landkode
-        multivalued: true
-        inlined_as_list: true
-      kjonn:
-        range: Kjonn
-        multivalued: true
-        inlined_as_list: true
-      fylke:
-        range: Fylke
-        multivalued: true
-        inlined_as_list: true
-      kommunar:
-        range: Kommune
-        multivalued: true
-        inlined_as_list: true
-      spraak:
-        range: Spraak
-        multivalued: true
-        inlined_as_list: true
-      valuta:
-        range: Valuta
-        multivalued: true
-        inlined_as_list: true
+      - landkodar
+      - kjonn
+      - fylke
+      - kommunar
+      - spraak
+      - valuta
       # Domenehovudklassar
-      personalressursar:
-        range: Personalressurs
-        multivalued: true
-        inlined_as_list: true
+      - personalressursar
+      - arbeidsforhold
+      - arbeidslokasjoner
+      - fastlonn
+      - fasttillegg
+      - fravaer
+      - fullmakter
+      - organisasjonselement
+      - rollar
+      - variabellonn
+      # Domenekodeverk
+      - aktivitetar
+      - anlegg
+      - ansvar
+      - artar
+      - arbeidsforholdstypar
+      - diverse
+      - formaal
+      - fravaersgrunnar
+      - fravaerstypar
+      - funksjonar
+      - kontrakter
+      - lonsartar
+      - lopenummer
+      - objekt
+      - organisasjonstypar
+      - personalressurskategoriar
+      - prosjekt
+      - prosjektartar
+      - rammer
+      - stillingskoder
+      - uketimetall
+    slot_usage:
       arbeidsforhold:
-        range: Arbeidsforhold
-        multivalued: true
-        inlined_as_list: true
-      arbeidslokasjoner:
-        range: Arbeidslokasjon
         multivalued: true
         inlined_as_list: true
       fastlonn:
-        range: Fastlonn
         multivalued: true
         inlined_as_list: true
       fasttillegg:
-        range: Fasttillegg
         multivalued: true
         inlined_as_list: true
       fravaer:
-        range: Fravaer
-        multivalued: true
-        inlined_as_list: true
-      fullmakter:
-        range: Fullmakt
         multivalued: true
         inlined_as_list: true
       organisasjonselement:
-        range: Organisasjonselement
-        multivalued: true
-        inlined_as_list: true
-      rollar:
-        range: Rolle
         multivalued: true
         inlined_as_list: true
       variabellonn:
-        range: Variabellonn
-        multivalued: true
-        inlined_as_list: true
-      # Domenekodeverk
-      aktivitetar:
-        range: Aktivitet
         multivalued: true
         inlined_as_list: true
       anlegg:
-        range: Anlegg
         multivalued: true
         inlined_as_list: true
       ansvar:
-        range: Ansvar
-        multivalued: true
-        inlined_as_list: true
-      artar:
-        range: Art
-        multivalued: true
-        inlined_as_list: true
-      arbeidsforholdstypar:
-        range: Arbeidsforholdstype
         multivalued: true
         inlined_as_list: true
       diverse:
-        range: Diverse
         multivalued: true
         inlined_as_list: true
       formaal:
-        range: Formaal
-        multivalued: true
-        inlined_as_list: true
-      fravaersgrunnar:
-        range: Fravaersgrunn
-        multivalued: true
-        inlined_as_list: true
-      fravaerstypar:
-        range: Fravaerstype
-        multivalued: true
-        inlined_as_list: true
-      funksjonar:
-        range: Funksjon
-        multivalued: true
-        inlined_as_list: true
-      kontrakter:
-        range: Kontrakt
-        multivalued: true
-        inlined_as_list: true
-      lonsartar:
-        range: Lonsart
         multivalued: true
         inlined_as_list: true
       lopenummer:
-        range: Lopenummer
         multivalued: true
         inlined_as_list: true
       objekt:
-        range: Objekt
-        multivalued: true
-        inlined_as_list: true
-      organisasjonstypar:
-        range: Organisasjonstype
-        multivalued: true
-        inlined_as_list: true
-      personalressurskategoriar:
-        range: Personalressurskategori
         multivalued: true
         inlined_as_list: true
       prosjekt:
-        range: Prosjekt
         multivalued: true
         inlined_as_list: true
-      prosjektartar:
-        range: Prosjektart
+      kjonn:
         multivalued: true
         inlined_as_list: true
-      rammer:
-        range: Ramme
-        multivalued: true
-        inlined_as_list: true
-      stillingskoder:
-        range: Stillingskode
-        multivalued: true
-        inlined_as_list: true
-      uketimetall:
-        range: Uketimetall
+      fylke:
         multivalued: true
         inlined_as_list: true
 
@@ -202,78 +761,52 @@ classes:
     abstract: true
     slots:
       - id
-    attributes:
+      - anvist
+      - attestert
+      - beskrivelse
+      - kildesystemId
+      - kontert
+      - kontostreng
+      - opptjent
+      - periode
+      - anviser
+      - konterer
+      - attestant
+    slot_usage:
+      beskrivelse:
+        required: true
+        in_subset:
+          - Obligatorisk
+      kontostreng:
+        required: true
+        in_subset:
+          - Obligatorisk
+      periode:
+        required: true
+        in_subset:
+          - Obligatorisk
       anvist:
-        slot_uri: adm:anvist
-        range: datetime
-        description: Tidspunkt då lønn vart anvist.
         in_subset:
           - Valgfri
       attestert:
-        slot_uri: adm:attestert
-        range: datetime
-        description: Tidspunkt då lønn vart attestert.
         in_subset:
           - Valgfri
-      beskrivelse:
-        slot_uri: adm:beskrivelse
-        range: string
-        required: true
-        description: Beskriving av lønn til føring på lønnslipp.
-        in_subset:
-          - Obligatorisk
       kildesystemId:
-        slot_uri: adm:kildesystemId
-        range: Identifikator
-        inlined: true
-        description: Kjeldesystemets unike identifikator for lønn.
         in_subset:
           - Valgfri
       kontert:
-        slot_uri: adm:kontert
-        range: datetime
-        description: Tidspunkt då lønn vart kontert.
         in_subset:
           - Valgfri
-      kontostreng:
-        slot_uri: adm:kontostreng
-        range: Kontostreng
-        inlined: true
-        required: true
-        description: Kontering av lønn.
-        in_subset:
-          - Obligatorisk
       opptjent:
-        slot_uri: adm:opptjent
-        range: Periode
-        inlined: true
-        description: Periode der lønn vart opptent.
         in_subset:
           - Valgfri
-      periode:
-        slot_uri: adm:periode
-        range: Periode
-        inlined: true
-        required: true
-        description: Periode lønn vert utbetalt.
-        in_subset:
-          - Obligatorisk
       anviser:
-        slot_uri: adm:anviser
-        range: Personalressurs
-        description: Personalressurs som har anvist lønsmeldinga etter fullmakt.
         in_subset:
           - Valgfri
       konterer:
-        slot_uri: adm:konterer
-        range: Personalressurs
-        description: Personalressurs som har kontert lønsmeldinga etter fullmakt.
         in_subset:
           - Valgfri
       attestant:
-        slot_uri: adm:attestant
-        range: Personalressurs
-        description: Personalressurs som har attestert lønsmeldinga etter fullmakt.
         in_subset:
           - Valgfri
 
@@ -282,86 +815,61 @@ classes:
   Kontostreng:
     description: Sammensetning av kontodimensjonar for bokføring.
     class_uri: adm:Kontostreng
-    attributes:
-      aktivitet:
-        slot_uri: adm:aktivitet
-        range: Aktivitet
-        description: Detaljering av funksjon.
-        in_subset:
-          - Valgfri
-      anlegg:
-        slot_uri: adm:anlegg
-        range: Anlegg
-        description: Objekt som skal aktiverast eller avskrivast.
-        in_subset:
-          - Valgfri
+    slots:
+      - aktivitet
+      - anlegg
+      - ansvar
+      - art
+      - diverse
+      - formaal
+      - funksjon
+      - kontrakt
+      - lopenummer
+      - objekt
+      - prosjekt
+      - prosjektart
+      - ramme
+    slot_usage:
       ansvar:
-        slot_uri: adm:ansvar
-        range: Ansvar
         required: true
-        description: Ansvarleg for ei utgift eller inntekt.
         in_subset:
           - Obligatorisk
       art:
-        slot_uri: adm:art
-        range: Art
         required: true
-        description: Type inntekt eller utgift.
         in_subset:
           - Obligatorisk
+      funksjon:
+        required: true
+        in_subset:
+          - Obligatorisk
+      aktivitet:
+        in_subset:
+          - Valgfri
+      anlegg:
+        in_subset:
+          - Valgfri
       diverse:
-        slot_uri: adm:diverse
-        range: Diverse
-        description: Spesifikasjon som ikkje kjem fram i øvrige dimensjonar.
         in_subset:
           - Valgfri
       formaal:
-        slot_uri: adm:formaal
-        range: Formaal
-        description: Formål viser aktivitet og tenesteproduksjon.
         in_subset:
           - Valgfri
-      funksjon:
-        slot_uri: adm:funksjon
-        range: Funksjon
-        required: true
-        description: Det som vert produsert eller tenesta som vert levert.
-        in_subset:
-          - Obligatorisk
       kontrakt:
-        slot_uri: adm:kontrakt
-        range: Kontrakt
-        description: Kontostrengens kontraktsegment.
         in_subset:
           - Valgfri
       lopenummer:
-        slot_uri: adm:lopenummer
-        range: Lopenummer
-        description: Løpenummer i ei nummerserie.
         in_subset:
           - Valgfri
       objekt:
-        slot_uri: adm:objekt
-        range: Objekt
-        description: Objekt som skal aktiverast eller avskrivast.
         in_subset:
           - Valgfri
       prosjekt:
-        slot_uri: adm:prosjekt
-        range: Prosjekt
-        description: Kontostrengens prosjektsegment.
         in_subset:
           - Valgfri
       prosjektart:
-        slot_uri: adm:prosjektart
-        range: Prosjektart
-        description: Deloppgåve eller delprosjekt.
         in_subset:
           - Valgfri
       ramme:
-        slot_uri: adm:ramme
-        range: Ramme
-        description: Budsjettramme som skal bere kostnadane.
         in_subset:
           - Valgfri
 
@@ -381,25 +889,21 @@ classes:
     is_a: Begrep
     description: Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller inntekt.
     class_uri: adm:Ansvar
-    attributes:
+    slots:
+      - overordnet
+      - underordnet
+      - organisasjonselement
+    slot_usage:
       overordnet:
-        slot_uri: adm:overordnet
         range: Ansvar
-        description: Overordna ansvar.
         in_subset:
           - Valgfri
       underordnet:
-        slot_uri: adm:underordnet
         range: Ansvar
-        multivalued: true
-        description: Alle underansvar.
         in_subset:
           - Valgfri
       organisasjonselement:
-        slot_uri: adm:organisasjonselement
-        range: Organisasjonselement
         multivalued: true
-        description: Organisasjonselement ansvaret er knytt til.
         in_subset:
           - Valgfri
 
@@ -412,11 +916,11 @@ classes:
     is_a: Begrep
     description: Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer.
     class_uri: adm:Arbeidsforholdstype
-    attributes:
+    slots:
+      - forelder
+    slot_usage:
       forelder:
-        slot_uri: adm:forelder
         range: Arbeidsforholdstype
-        description: For å byggje hierarki av Arbeidsforholdstype.
         in_subset:
           - Valgfri
 
@@ -439,17 +943,14 @@ classes:
     is_a: Begrep
     description: Type fråvær.
     class_uri: adm:Fravaerstype
-    attributes:
+    slots:
+      - overfores
+      - lonsart
+    slot_usage:
       overfores:
-        slot_uri: adm:overfores
-        range: boolean
-        description: Angir om fråvær av denne typen skal overførast til HR.
         in_subset:
           - Valgfri
       lonsart:
-        slot_uri: adm:lonsart
-        range: Lonsart
-        description: Lønnsart fråværstypen vert ført på.
         in_subset:
           - Valgfri
 
@@ -457,18 +958,16 @@ classes:
     is_a: Begrep
     description: Del av kontostrengen som beskriv kva som vert produsert.
     class_uri: adm:Funksjon
-    attributes:
+    slots:
+      - overordnet
+      - underordnet
+    slot_usage:
       overordnet:
-        slot_uri: adm:overordnet
         range: Funksjon
-        description: Overordna funksjon.
         in_subset:
           - Valgfri
       underordnet:
-        slot_uri: adm:underordnet
         range: Funksjon
-        multivalued: true
-        description: Underordna funksjonar.
         in_subset:
           - Valgfri
 
@@ -481,17 +980,14 @@ classes:
     is_a: Begrep
     description: Type ytelse.
     class_uri: adm:Lonsart
-    attributes:
+    slots:
+      - kategori
+      - art
+    slot_usage:
       kategori:
-        slot_uri: adm:kategori
-        range: string
-        description: Kategori lønnsart.
         in_subset:
           - Valgfri
       art:
-        slot_uri: adm:art
-        range: Art
-        description: Art som lønnsarten er knytt til.
         in_subset:
           - Valgfri
 
@@ -519,12 +1015,11 @@ classes:
     is_a: Begrep
     description: Del av kontostrengen som peikar på løpande prosjekt.
     class_uri: adm:Prosjekt
-    attributes:
+    slots:
+      - prosjektart
+    slot_usage:
       prosjektart:
-        slot_uri: adm:prosjektart
-        range: Prosjektart
         multivalued: true
-        description: Deloppgåver eller delprosjekt som høyrer til prosjektet.
         in_subset:
           - Valgfri
 
@@ -532,24 +1027,20 @@ classes:
     is_a: Begrep
     description: Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur.
     class_uri: adm:Prosjektart
-    attributes:
+    slots:
+      - prosjekt
+      - overordnet
+      - underordnet
+    slot_usage:
       prosjekt:
-        slot_uri: adm:prosjekt
-        range: Prosjekt
-        description: Prosjektet som er øvste nivå i strukturen.
         in_subset:
           - Valgfri
       overordnet:
-        slot_uri: adm:overordnet
         range: Prosjektart
-        description: Prosjektart i nivået over i strukturen.
         in_subset:
           - Valgfri
       underordnet:
-        slot_uri: adm:underordnet
         range: Prosjektart
-        multivalued: true
-        description: Prosjektartar i nivået under i strukturen.
         in_subset:
           - Valgfri
 
@@ -562,11 +1053,11 @@ classes:
     is_a: Begrep
     description: Felles kodeverk for stillingar.
     class_uri: adm:Stillingskode
-    attributes:
+    slots:
+      - forelder
+    slot_usage:
       forelder:
-        slot_uri: adm:forelder
         range: Stillingskode
-        description: For å byggje hierarki av stillingskoder.
         in_subset:
           - Valgfri
 
@@ -581,52 +1072,42 @@ classes:
     is_a: Lonn
     description: Informasjon om fast lønnsbeordring.
     class_uri: adm:Fastlonn
-    attributes:
+    slots:
+      - prosent
+      - lonsart
+      - arbeidsforhold
+    slot_usage:
       prosent:
-        slot_uri: adm:prosent
-        range: integer
         required: true
-        description: Andel av lønnsprosent som vert beslaglagt.
+        in_subset:
+          - Obligatorisk
+      arbeidsforhold:
+        required: true
         in_subset:
           - Obligatorisk
       lonsart:
-        slot_uri: adm:lonsart
-        range: Lonsart
-        description: Lønnsart for fastlønn.
         in_subset:
           - Valgfri
-      arbeidsforhold:
-        slot_uri: adm:arbeidsforhold
-        range: Arbeidsforhold
-        required: true
-        description: Arbeidsforhold fastlønna gjeld for.
-        in_subset:
-          - Obligatorisk
 
   Fasttillegg:
     is_a: Lonn
     description: Faste tillegg til utbetaling.
     class_uri: adm:Fasttillegg
-    attributes:
+    slots:
+      - belop
+      - lonsart
+      - arbeidsforhold
+    slot_usage:
       belop:
-        slot_uri: adm:belop
-        range: integer
         required: true
-        description: Beløp i øre.
         in_subset:
           - Obligatorisk
       lonsart:
-        slot_uri: adm:lonsart
-        range: Lonsart
         required: true
-        description: Lønnsart for tillegget.
         in_subset:
           - Obligatorisk
       arbeidsforhold:
-        slot_uri: adm:arbeidsforhold
-        range: Arbeidsforhold
         required: true
-        description: Arbeidsforhold fasttillegget gjeld for.
         in_subset:
           - Obligatorisk
 
@@ -634,34 +1115,27 @@ classes:
     is_a: Lonn
     description: Informasjon om variabel lønn.
     class_uri: adm:Variabellonn
-    attributes:
+    slots:
+      - antall
+      - belop
+      - lonsart
+      - arbeidsforhold
+    slot_usage:
       antall:
-        slot_uri: adm:antall
-        range: integer
         required: true
-        description: Mengde som vert beskriven av tillegget, i hundredeler.
         in_subset:
           - Obligatorisk
-      belop:
-        slot_uri: adm:belop
-        range: integer
-        description: Beløp i øre som skal betalast ut.
-        in_subset:
-          - Valgfri
       lonsart:
-        slot_uri: adm:lonsart
-        range: Lonsart
         required: true
-        description: Lønnsart for variabel lønn.
         in_subset:
           - Obligatorisk
       arbeidsforhold:
-        slot_uri: adm:arbeidsforhold
-        range: Arbeidsforhold
         required: true
-        description: Arbeidsforhold variabellønna gjeld for.
         in_subset:
           - Obligatorisk
+      belop:
+        in_subset:
+          - Valgfri
 
   # --- Personal: fravær ------------------------------------------------------
 
@@ -670,72 +1144,50 @@ classes:
     class_uri: adm:Fravaer
     slots:
       - id
-    attributes:
-      godkjent:
-        slot_uri: adm:godkjent
-        range: datetime
-        description: Tidspunkt då fråværet vart godkjent.
-        in_subset:
-          - Valgfri
-      kildesystemId:
-        slot_uri: adm:kildesystemId
-        range: Identifikator
-        inlined: true
-        description: Kjeldesystemets unike identifikator for fråværet.
-        in_subset:
-          - Valgfri
+      - godkjent
+      - kildesystemId
+      - periode
+      - prosent
+      - fravaersgrunn
+      - fravaerstype
+      - arbeidsforhold
+      - fortsettelse
+      - fortsetter
+      - godkjenner
+    slot_usage:
       periode:
-        slot_uri: adm:periode
-        range: Periode
-        inlined: true
         required: true
-        description: Periode for fråværet.
         in_subset:
           - Obligatorisk
       prosent:
-        slot_uri: adm:prosent
-        range: integer
         required: true
-        description: Prosent fråværande.
         in_subset:
           - Obligatorisk
-      fravaersgrunn:
-        slot_uri: adm:fravaersgrunn
-        range: Fravaersgrunn
-        description: Grunn til fråværet.
-        in_subset:
-          - Valgfri
       fravaerstype:
-        slot_uri: adm:fravaerstype
-        range: Fravaerstype
         required: true
-        description: Type fråvær.
         in_subset:
           - Obligatorisk
       arbeidsforhold:
-        slot_uri: adm:arbeidsforhold
-        range: Arbeidsforhold
         multivalued: true
         required: true
-        description: Arbeidsforholdet fråværet gjeld for.
         in_subset:
           - Obligatorisk
+      godkjent:
+        in_subset:
+          - Valgfri
+      kildesystemId:
+        in_subset:
+          - Valgfri
+      fravaersgrunn:
+        in_subset:
+          - Valgfri
       fortsettelse:
-        slot_uri: adm:fortsettelse
-        range: Fravaer
-        description: Fortsetjande fråvær.
         in_subset:
           - Valgfri
       fortsetter:
-        slot_uri: adm:fortsetter
-        range: Fravaer
-        description: Fråværet dette fråværet er fortsetjing av.
         in_subset:
           - Valgfri
       godkjenner:
-        slot_uri: adm:godkjenner
-        range: Personalressurs
-        description: Personalressurs som har godkjent fråværsmeldinga.
         in_subset:
           - Valgfri
 
@@ -746,110 +1198,76 @@ classes:
     class_uri: adm:Fullmakt
     slots:
       - id
-    attributes:
+      - gyldighetsperiode
+      - ramme
+      - funksjon
+      - objekt
+      - organisasjonselement
+      - art
+      - anlegg
+      - diverse
+      - aktivitet
+      - ansvar
+      - stedfortreder
+      - kontrakt
+      - fullmektig
+      - prosjekt
+      - formaal
+      - rolle
+      - lopenummer
+    slot_usage:
       gyldighetsperiode:
-        slot_uri: adm:gyldighetsperiode
-        range: Periode
-        inlined: true
         required: true
-        description: Periode fullmakta er gyldig for.
+        in_subset:
+          - Obligatorisk
+      rolle:
+        required: true
         in_subset:
           - Obligatorisk
       ramme:
-        slot_uri: adm:ramme
-        range: Ramme
-        description: Myndigheit på kontodimensjon ramme.
         in_subset:
           - Valgfri
       funksjon:
-        slot_uri: adm:funksjon
-        range: Funksjon
-        description: Myndigheit på kontodimensjon funksjon.
         in_subset:
           - Valgfri
       objekt:
-        slot_uri: adm:objekt
-        range: Objekt
-        description: Myndigheit på kontodimensjon objekt.
         in_subset:
           - Valgfri
       organisasjonselement:
-        slot_uri: adm:organisasjonselement
-        range: Organisasjonselement
-        description: Myndigheit på organisasjonselement.
         in_subset:
           - Valgfri
       art:
-        slot_uri: adm:art
-        range: Art
-        description: Myndigheit på kontodimensjon art.
         in_subset:
           - Valgfri
       anlegg:
-        slot_uri: adm:anlegg
-        range: Anlegg
-        description: Myndigheit på kontodimensjon anlegg.
         in_subset:
           - Valgfri
       diverse:
-        slot_uri: adm:diverse
-        range: Diverse
-        description: Myndigheit på kontodimensjon diverse.
         in_subset:
           - Valgfri
       aktivitet:
-        slot_uri: adm:aktivitet
-        range: Aktivitet
-        description: Myndigheit på kontodimensjon aktivitet.
         in_subset:
           - Valgfri
       ansvar:
-        slot_uri: adm:ansvar
-        range: Ansvar
-        description: Myndigheit på kontodimensjon ansvar.
         in_subset:
           - Valgfri
       stedfortreder:
-        slot_uri: adm:stedfortreder
         range: Personalressurs
-        description: Personalressurs som er stedfortredar for den fullmektige.
         in_subset:
           - Valgfri
       kontrakt:
-        slot_uri: adm:kontrakt
-        range: Kontrakt
-        description: Myndigheit på kontodimensjon kontrakt.
         in_subset:
           - Valgfri
       fullmektig:
-        slot_uri: adm:fullmektig
-        range: Personalressurs
-        description: Personalressurs som har fått fullmakt til ei gjeven rolle.
         in_subset:
           - Valgfri
       prosjekt:
-        slot_uri: adm:prosjekt
-        range: Prosjekt
-        description: Myndigheit på kontodimensjon prosjekt.
         in_subset:
           - Valgfri
       formaal:
-        slot_uri: adm:formaal
-        range: Formaal
-        description: Formål viser aktivitet og tenesteproduksjon.
         in_subset:
           - Valgfri
-      rolle:
-        slot_uri: adm:rolle
-        range: Rolle
-        required: true
-        description: Kva type fullmakt.
-        in_subset:
-          - Obligatorisk
       lopenummer:
-        slot_uri: adm:lopenummer
-        range: Lopenummer
-        description: Myndigheit på kontodimensjon løpenummer.
         in_subset:
           - Valgfri
 
@@ -858,28 +1276,21 @@ classes:
     class_uri: adm:Rolle
     slots:
       - id
-    attributes:
+      - rolleNavn
+      - beskrivelse
+      - fullmakt
+    slot_usage:
       rolleNavn:
-        slot_uri: adm:rolleNavn
-        range: Identifikator
-        inlined: true
         required: true
-        description: Namn på rolla; unik identifikator.
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: adm:beskrivelse
-        range: string
         required: true
-        description: Utfyllande beskriving av kva rolla gjev fullmakt til.
         in_subset:
           - Obligatorisk
       fullmakt:
-        slot_uri: adm:fullmakt
-        range: Fullmakt
         multivalued: true
         required: true
-        description: Alle fullmakter av denne typen.
         in_subset:
           - Obligatorisk
 
@@ -890,60 +1301,39 @@ classes:
     class_uri: adm:Arbeidslokasjon
     slots:
       - id
-    attributes:
+      - lokasjonskode
+      - lokasjonsnavn
+      - forretningsadresse
+      - organisasjonsnavn
+      - organisasjonsnummer
+      - kontaktinformasjon
+      - postadresse
+      - arbeidsforhold
+    slot_usage:
       lokasjonskode:
-        slot_uri: adm:lokasjonskode
-        range: Identifikator
-        inlined: true
         required: true
-        description: Kode som identifiserer ein arbeidslokasjon.
         in_subset:
           - Obligatorisk
       lokasjonsnavn:
-        slot_uri: adm:lokasjonsnavn
-        range: string
-        description: Namn som beskriv ein arbeidslokasjon.
         in_subset:
           - Valgfri
       forretningsadresse:
-        slot_uri: adm:forretningsadresse
-        range: Adresse
-        inlined: true
-        description: Besøksadresse til organisasjonseininga.
         in_subset:
           - Valgfri
       organisasjonsnavn:
-        slot_uri: adm:organisasjonsnavn
-        range: string
-        description: Namn på eining registrert i Einingsregisteret.
         in_subset:
           - Valgfri
       organisasjonsnummer:
-        slot_uri: adm:organisasjonsnummer
-        range: Identifikator
-        inlined: true
-        description: Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret.
         in_subset:
           - Valgfri
       kontaktinformasjon:
-        slot_uri: adm:kontaktinformasjon
-        range: Kontaktinformasjon
-        inlined: true
-        description: Kontaktinformasjon til arbeidslokasjonen.
         in_subset:
           - Valgfri
       postadresse:
-        slot_uri: adm:postadresse
-        range: Adresse
-        inlined: true
-        description: Postadresse til arbeidslokasjonen.
         in_subset:
           - Valgfri
       arbeidsforhold:
-        slot_uri: adm:arbeidsforhold
-        range: Arbeidsforhold
         multivalued: true
-        description: Arbeidsforhold knytt til arbeidslokasjonen.
         in_subset:
           - Valgfri
 
@@ -952,120 +1342,80 @@ classes:
     class_uri: adm:Organisasjonselement
     slots:
       - id
-    attributes:
-      gyldighetsperiode:
-        slot_uri: adm:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Tidsperiode for når organisasjonselementet er gjeldande.
-        in_subset:
-          - Valgfri
-      kortnavn:
-        slot_uri: adm:kortnavn
-        range: string
-        description: Forkorta namn som beskriv organisasjonselementet.
-        in_subset:
-          - Valgfri
-      navn:
-        slot_uri: adm:namn
-        range: string
-        description: Namn på organisasjonselementet.
-        in_subset:
-          - Valgfri
+      - gyldighetsperiode
+      - kortnavn
+      - navn
+      - organisasjonsId
+      - organisasjonsKode
+      - forretningsadresse
+      - organisasjonsnavn
+      - organisasjonsnummer
+      - kontaktinformasjon
+      - postadresse
+      - ansvar
+      - organisasjonstype
+      - leder
+      - overordnet
+      - underordnet
+      - skole
+      - arbeidsforhold
+    slot_usage:
       organisasjonsId:
-        slot_uri: adm:organisasjonsId
-        range: Identifikator
-        inlined: true
         required: true
-        description: Unikt internnummer for organisasjonselementet.
         in_subset:
           - Obligatorisk
       organisasjonsKode:
-        slot_uri: adm:organisasjonsKode
-        range: Identifikator
-        inlined: true
         required: true
-        description: Beskriven kode for organisasjonselementet.
         in_subset:
           - Obligatorisk
+      overordnet:
+        range: Organisasjonselement
+        required: true
+        in_subset:
+          - Obligatorisk
+      gyldighetsperiode:
+        in_subset:
+          - Valgfri
+      kortnavn:
+        in_subset:
+          - Valgfri
+      navn:
+        in_subset:
+          - Valgfri
       forretningsadresse:
-        slot_uri: adm:forretningsadresse
-        range: Adresse
-        inlined: true
-        description: Besøksadresse til organisasjonselementet.
         in_subset:
           - Valgfri
       organisasjonsnavn:
-        slot_uri: adm:organisasjonsnavn
-        range: string
-        description: Namn på eining registrert i Einingsregisteret.
         in_subset:
           - Valgfri
       organisasjonsnummer:
-        slot_uri: adm:organisasjonsnummer
-        range: Identifikator
-        inlined: true
-        description: Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret.
         in_subset:
           - Valgfri
       kontaktinformasjon:
-        slot_uri: adm:kontaktinformasjon
-        range: Kontaktinformasjon
-        inlined: true
-        description: Kontaktinformasjon til organisasjonselementet.
         in_subset:
           - Valgfri
       postadresse:
-        slot_uri: adm:postadresse
-        range: Adresse
-        inlined: true
-        description: Postadresse til organisasjonselementet.
         in_subset:
           - Valgfri
       ansvar:
-        slot_uri: adm:ansvar
-        range: Ansvar
         multivalued: true
-        description: Ansvar i kontoplanen som organisasjonselementet er knytt til.
         in_subset:
           - Valgfri
       organisasjonstype:
-        slot_uri: adm:organisasjonstype
-        range: Organisasjonstype
-        description: Kva type organisasjonselement dette er.
         in_subset:
           - Valgfri
       leder:
-        slot_uri: adm:leder
-        range: Personalressurs
-        description: Ansvarleg leiar for organisasjonselementet.
         in_subset:
           - Valgfri
-      overordnet:
-        slot_uri: adm:overordnet
-        range: Organisasjonselement
-        required: true
-        description: Referanse til organisasjonselement på nivået over.
-        in_subset:
-          - Obligatorisk
       underordnet:
-        slot_uri: adm:underordnet
         range: Organisasjonselement
-        multivalued: true
-        description: Alle underordna organisasjonselement.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: adm:skole
-        range: uriorcurie
-        description: Referanse til Skole (Utdanning).
         in_subset:
           - Valgfri
       arbeidsforhold:
-        slot_uri: adm:arbeidsforhold
-        range: Arbeidsforhold
         multivalued: true
-        description: Alle arbeidsforhold til organisasjonselementet.
         in_subset:
           - Valgfri
 
@@ -1076,102 +1426,69 @@ classes:
     class_uri: adm:Personalressurs
     slots:
       - id
-    attributes:
+      - ansattnummer
+      - ansettelsesperiode
+      - ansiennitet
+      - brukernavn
+      - jobbtittel
+      - kontaktinformasjon
+      - person
+      - stedfortreder
+      - fullmakt
+      - personalressurskategori
+      - lederFor
+      - arbeidsforhold
+      - personalansvar
+      - skoleressurs
+    slot_usage:
       ansattnummer:
-        slot_uri: adm:ansattnummer
-        range: Identifikator
-        inlined: true
         required: true
-        description: Unik identifikator for den tilsette i HR-systemet.
         in_subset:
           - Obligatorisk
       ansettelsesperiode:
-        slot_uri: adm:ansettelsesperiode
-        range: Periode
-        inlined: true
         required: true
-        description: Perioden personalressursen er i eit tilhøve til organisasjonen.
+        in_subset:
+          - Obligatorisk
+      person:
+        required: true
+        in_subset:
+          - Obligatorisk
+      personalressurskategori:
+        required: true
         in_subset:
           - Obligatorisk
       ansiennitet:
-        slot_uri: adm:ansiennitet
-        range: date
-        description: Ansiennitet for personalressurs hos arbeidsgjevar.
         in_subset:
           - Valgfri
       brukernavn:
-        slot_uri: adm:brukernavn
-        range: Identifikator
-        inlined: true
-        description: Brukarnamn til den tilsette.
         in_subset:
           - Valgfri
       jobbtittel:
-        slot_uri: adm:jobbtittel
-        range: string
-        description: Namn som beskriv jobben eller stillinga.
         in_subset:
           - Valgfri
       kontaktinformasjon:
-        slot_uri: adm:kontaktinformasjon
-        range: Kontaktinformasjon
-        inlined: true
-        description: Arbeidsrelatert kontaktinformasjon til personalressursen.
         in_subset:
           - Valgfri
-      person:
-        slot_uri: adm:person
-        range: Person
-        required: true
-        description: Person som er ein personalressurs.
-        in_subset:
-          - Obligatorisk
       stedfortreder:
-        slot_uri: adm:stedfortreder
         range: Fullmakt
         multivalued: true
-        description: Alle fullmakter der personalressursen er stedfortredar.
         in_subset:
           - Valgfri
       fullmakt:
-        slot_uri: adm:fullmakt
-        range: Fullmakt
         multivalued: true
-        description: Fullmakter personalressursen har fått.
         in_subset:
           - Valgfri
-      personalressurskategori:
-        slot_uri: adm:personalressurskategori
-        range: Personalressurskategori
-        required: true
-        description: Kategori for personalressursen.
-        in_subset:
-          - Obligatorisk
       lederFor:
-        slot_uri: adm:lederFor
-        range: Organisasjonselement
-        multivalued: true
-        description: Organisasjonselement personalressursen er leiar for.
         in_subset:
           - Valgfri
       arbeidsforhold:
-        slot_uri: adm:arbeidsforhold
-        range: Arbeidsforhold
         multivalued: true
-        description: Arbeidsforhold til personalressursen.
         in_subset:
           - Valgfri
       personalansvar:
-        slot_uri: adm:personalansvar
-        range: Arbeidsforhold
-        multivalued: true
-        description: Arbeidsforhold der personalressursen har personalansvar.
         in_subset:
           - Valgfri
       skoleressurs:
-        slot_uri: adm:skoleressurs
-        range: uriorcurie
-        description: Referanse til Skoleressurs (Utdanning).
         in_subset:
           - Valgfri
 
@@ -1182,220 +1499,149 @@ classes:
     class_uri: adm:Arbeidsforhold
     slots:
       - id
-    attributes:
+      - ansettelsesprosent
+      - arbeidsforholdsperiode
+      - aarslonn
+      - gyldighetsperiode
+      - hovedstilling
+      - lonnsprosent
+      - stillingsnummer
+      - stillingstittel
+      - tilstedeprosent
+      - aktivitet
+      - anlegg
+      - ansvar
+      - arbeidsforholdstype
+      - art
+      - diverse
+      - formaal
+      - funksjon
+      - kontrakt
+      - lopenummer
+      - objekt
+      - prosjekt
+      - ramme
+      - stillingskode
+      - timerPerUke
+      - arbeidslokasjon
+      - arbeidssted
+      - fastlonn
+      - fasttillegg
+      - fravaer
+      - variabellonn
+      - personalressurs
+      - personalleder
+      - undervisningsforhold
+    slot_usage:
       ansettelsesprosent:
-        slot_uri: adm:ansettelsesprosent
-        range: integer
         required: true
-        description: Prosenten personalressursen eig i høve til arbeidsavtalen.
         in_subset:
           - Obligatorisk
-      arbeidsforholdsperiode:
-        slot_uri: adm:arbeidsforholdsperiode
-        range: Periode
-        inlined: true
-        description: Periode for ei gjeven stilling.
-        in_subset:
-          - Valgfri
       aarslonn:
-        slot_uri: adm:aarslonn
-        range: integer
         required: true
-        description: Årslønn/grunnlønn i 100 % stilling.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: adm:gyldighetsperiode
-        range: Periode
-        inlined: true
         required: true
-        description: Gyldig periode for arbeidsforholdet.
         in_subset:
           - Obligatorisk
       hovedstilling:
-        slot_uri: adm:hovedstilling
-        range: boolean
         required: true
-        description: Angir kva arbeidsforhold som er hovudarbeidsforhold.
         in_subset:
           - Obligatorisk
       lonnsprosent:
-        slot_uri: adm:lonnsprosent
-        range: integer
         required: true
-        description: Prosent av årslønn den tilsette skal ha utbetalt.
         in_subset:
           - Obligatorisk
       stillingsnummer:
-        slot_uri: adm:stillingsnummer
-        range: string
         required: true
-        description: Løpenummer for stillinga.
         in_subset:
           - Obligatorisk
-      stillingstittel:
-        slot_uri: adm:stillingstittel
-        range: string
-        description: Arbeidstakarens stillingstittel i gjeldande stilling.
+      tilstedeprosent:
+        required: true
+        in_subset:
+          - Obligatorisk
+      arbeidssted:
+        required: true
+        in_subset:
+          - Obligatorisk
+      personalressurs:
+        required: true
+        in_subset:
+          - Obligatorisk
+      arbeidsforholdsperiode:
         in_subset:
           - Valgfri
-      tilstedeprosent:
-        slot_uri: adm:tilstedeprosent
-        range: integer
-        required: true
-        description: Det personalressursen faktisk jobbar.
+      stillingstittel:
         in_subset:
-          - Obligatorisk
+          - Valgfri
       aktivitet:
-        slot_uri: adm:aktivitet
-        range: Aktivitet
-        description: Aktivitet arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       anlegg:
-        slot_uri: adm:anlegg
-        range: Anlegg
-        description: Anlegg arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       ansvar:
-        slot_uri: adm:ansvar
-        range: Ansvar
-        description: Relasjon til omgrepet ansvar.
         in_subset:
           - Valgfri
       arbeidsforholdstype:
-        slot_uri: adm:arbeidsforholdstype
-        range: Arbeidsforholdstype
-        description: Beskriven kode som kategoriserer kva funksjon stillinga er gruppert til.
         in_subset:
           - Valgfri
       art:
-        slot_uri: adm:art
-        range: Art
-        description: Art arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       diverse:
-        slot_uri: adm:diverse
-        range: Diverse
-        description: Diverse arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       formaal:
-        slot_uri: adm:formaal
-        range: Formaal
-        description: Formål viser aktivitet og tenesteproduksjon.
         in_subset:
           - Valgfri
       funksjon:
-        slot_uri: adm:funksjon
-        range: Funksjon
-        description: Arbeidsforholdet sin relasjon til funksjon.
         in_subset:
           - Valgfri
       kontrakt:
-        slot_uri: adm:kontrakt
-        range: Kontrakt
-        description: Kontrakt arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       lopenummer:
-        slot_uri: adm:lopenummer
-        range: Lopenummer
-        description: Løpenummer arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       objekt:
-        slot_uri: adm:objekt
-        range: Objekt
-        description: Objekt arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       prosjekt:
-        slot_uri: adm:prosjekt
-        range: Prosjekt
-        description: Prosjekt arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       ramme:
-        slot_uri: adm:ramme
-        range: Ramme
-        description: Ramme arbeidsforholdet er knytt til.
         in_subset:
           - Valgfri
       stillingskode:
-        slot_uri: adm:stillingskode
-        range: Stillingskode
-        description: Firesifra stillingskode frå KS, eventuelt utvida med to siffer.
         in_subset:
           - Valgfri
       timerPerUke:
-        slot_uri: adm:timerPerUke
-        range: Uketimetall
-        description: Timer per veke i 100 % stilling.
         in_subset:
           - Valgfri
       arbeidslokasjon:
-        slot_uri: adm:arbeidslokasjon
-        range: Arbeidslokasjon
-        description: Fysisk lokasjon der den tilsette har sitt arbeidsstad.
         in_subset:
           - Valgfri
-      arbeidssted:
-        slot_uri: adm:arbeidssted
-        range: Organisasjonselement
-        required: true
-        description: Tilhøyrsle til organisasjonsstrukturen.
-        in_subset:
-          - Obligatorisk
       fastlonn:
-        slot_uri: adm:fastlonn
-        range: Fastlonn
         multivalued: true
-        description: All fastlønn for arbeidsforholdet.
         in_subset:
           - Valgfri
       fasttillegg:
-        slot_uri: adm:fasttillegg
-        range: Fasttillegg
         multivalued: true
-        description: Alle faste tillegg for arbeidsforholdet.
         in_subset:
           - Valgfri
       fravaer:
-        slot_uri: adm:fravaer
-        range: Fravaer
         multivalued: true
-        description: Alle fråvær knytt til arbeidsforholdet.
         in_subset:
           - Valgfri
       variabellonn:
-        slot_uri: adm:variabellonn
-        range: Variabellonn
         multivalued: true
-        description: All variabel lønn for arbeidsforholdet.
         in_subset:
           - Valgfri
-      personalressurs:
-        slot_uri: adm:personalressurs
-        range: Personalressurs
-        required: true
-        description: Personalressurs til arbeidsforholdet.
-        in_subset:
-          - Obligatorisk
       personalleder:
-        slot_uri: adm:personalleder
-        range: Personalressurs
-        description: Personalleiar til arbeidsforholdet.
         in_subset:
           - Valgfri
       undervisningsforhold:
-        slot_uri: adm:undervisningsforhold
-        range: uriorcurie
-        description: Referanse til Undervisningsforhold (Utdanning).
         in_subset:
           - Valgfri
-
-# ---------------------------------------------------------------------------
-# Slots

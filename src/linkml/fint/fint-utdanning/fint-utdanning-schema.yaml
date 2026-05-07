@@ -28,277 +28,149 @@ classes:
   UtdanningContainer:
     tree_root: true
     description: Rotcontainer for FINT Utdanning-instansar.
-    attributes:
-      # utdanning.elev
-      elevar:
-        range: Elev
-        multivalued: true
-        inlined_as_list: true
-      skolar:
-        range: Skole
-        multivalued: true
-        inlined_as_list: true
-      skoleressursar:
-        range: Skoleressurs
-        multivalued: true
-        inlined_as_list: true
+    slots:
+      - elevar
+      - skolar
+      - skoleressursar
+      - elevforhold
+      - elevtilrettelegging
+      - klasser
+      - klassemedlemskap
+      - kontaktlaerergrupper
+      - kontaktlaerergruppemedlemskap
+      - persongrupper
+      - persongruppemedlemskap
+      - varsel
+      - arstrinn
+      - programomrader
+      - programomrademedlemskap
+      - utdanningsprogram
+      - eksamen
+      - fag
+      - faggrupper
+      - faggruppemedlemskap
+      - rom
+      - timar
+      - undervisningsforhold
+      - undervisningsgrupper
+      - undervisningsgruppemedlemskap
+      - anmerkningar
+      - eksamensgrupper
+      - eksamensgruppemedlemskap
+      - eksamensvurdering
+      - elevfravar
+      - elevvurdering
+      - fravarsoversikt
+      - fraversregistrering
+      - halvaarsfagvurdering
+      - halvaarsordensvurdering
+      - karakterhistorie
+      - sensor
+      - sluttfagvurdering
+      - sluttordensvurdering
+      - underveisfagvurdering
+      - underveisordensvurdering
+      - vitnemalsmerknad
+      - betalingsstatus
+      - fagstatus
+      - karakterstatus
+      - skoleaar
+      - tilrettelegging
+      - avlagteprover
+      - laerlingar
+      - otUngdom
+      - avbruddsaarsaker
+      - bevistypar
+      - brevtypar
+      - eksamensformer
+      - elevkategoriar
+      - fagmerknader
+      - fravartypar
+      - fullfortkoder
+      - karakterskalaer
+      - karakterverdiar
+      - otEnheter
+      - otStatus
+      - provestatuser
+      - skoleeijartypar
+      - terminar
+      - varseltypar
+    slot_usage:
       elevforhold:
-        range: Elevforhold
         multivalued: true
         inlined_as_list: true
-      elevtilrettelegging:
-        range: Elevtilrettelegging
-        multivalued: true
-        inlined_as_list: true
-      klasser:
-        range: Klasse
-        multivalued: true
-        inlined_as_list: true
-      klassemedlemskap:
-        range: Klassemedlemskap
-        multivalued: true
-        inlined_as_list: true
-      kontaktlaerergrupper:
-        range: Kontaktlaerergruppe
-        multivalued: true
-        inlined_as_list: true
-      kontaktlaerergruppemedlemskap:
-        range: Kontaktlaerergruppemedlemskap
-        multivalued: true
-        inlined_as_list: true
-      persongrupper:
-        range: Persongruppe
-        multivalued: true
-        inlined_as_list: true
-      persongruppemedlemskap:
-        range: Persongruppemedlemskap
-        multivalued: true
-        inlined_as_list: true
-      varsel:
-        range: Varsel
-        multivalued: true
-        inlined_as_list: true
-      # utdanning.utdanningsprogram
-      arstrinn:
-        range: Arstrinn
-        multivalued: true
-        inlined_as_list: true
-      programomrader:
-        range: Programomrade
-        multivalued: true
-        inlined_as_list: true
-      programomrademedlemskap:
-        range: Programomrademedlemskap
-        multivalued: true
-        inlined_as_list: true
-      utdanningsprogram:
-        range: Utdanningsprogram
-        multivalued: true
-        inlined_as_list: true
-      # utdanning.timeplan
       eksamen:
-        range: Eksamen
         multivalued: true
         inlined_as_list: true
       fag:
-        range: Fag
-        multivalued: true
-        inlined_as_list: true
-      faggrupper:
-        range: Faggruppe
-        multivalued: true
-        inlined_as_list: true
-      faggruppemedlemskap:
-        range: Faggruppemedlemskap
         multivalued: true
         inlined_as_list: true
       rom:
-        range: Rom
-        multivalued: true
-        inlined_as_list: true
-      timar:
-        range: Time
-        multivalued: true
-        inlined_as_list: true
-      undervisningsforhold:
-        range: Undervisningsforhold
-        multivalued: true
-        inlined_as_list: true
-      undervisningsgrupper:
-        range: Undervisningsgruppe
-        multivalued: true
-        inlined_as_list: true
-      undervisningsgruppemedlemskap:
-        range: Undervisningsgruppemedlemskap
-        multivalued: true
-        inlined_as_list: true
-      # utdanning.vurdering
-      anmerkningar:
-        range: Anmerkninger
-        multivalued: true
-        inlined_as_list: true
-      eksamensgrupper:
-        range: Eksamensgruppe
-        multivalued: true
-        inlined_as_list: true
-      eksamensgruppemedlemskap:
-        range: Eksamensgruppemedlemskap
-        multivalued: true
-        inlined_as_list: true
-      eksamensvurdering:
-        range: Eksamensvurdering
         multivalued: true
         inlined_as_list: true
       elevfravar:
-        range: Elevfravar
         multivalued: true
         inlined_as_list: true
       elevvurdering:
-        range: Elevvurdering
-        multivalued: true
-        inlined_as_list: true
-      fravarsoversikt:
-        range: Fravarsoversikt
-        multivalued: true
-        inlined_as_list: true
-      fraversregistrering:
-        range: Fraversregistrering
-        multivalued: true
-        inlined_as_list: true
-      halvaarsfagvurdering:
-        range: Halvaarsfagvurdering
-        multivalued: true
-        inlined_as_list: true
-      halvaarsordensvurdering:
-        range: Halvaarsordensvurdering
-        multivalued: true
-        inlined_as_list: true
-      karakterhistorie:
-        range: Karakterhistorie
-        multivalued: true
-        inlined_as_list: true
-      sensor:
-        range: Sensor
-        multivalued: true
-        inlined_as_list: true
-      sluttfagvurdering:
-        range: Sluttfagvurdering
-        multivalued: true
-        inlined_as_list: true
-      sluttordensvurdering:
-        range: Sluttordensvurdering
-        multivalued: true
-        inlined_as_list: true
-      underveisfagvurdering:
-        range: Underveisfagvurdering
-        multivalued: true
-        inlined_as_list: true
-      underveisordensvurdering:
-        range: Underveisordensvurdering
-        multivalued: true
-        inlined_as_list: true
-      # utdanning.larling
-      avlagteprover:
-        range: AvlagtProve
-        multivalued: true
-        inlined_as_list: true
-      laerlingar:
-        range: Laerling
-        multivalued: true
-        inlined_as_list: true
-      # utdanning.ot
-      otUngdom:
-        range: OtUngdom
-        multivalued: true
-        inlined_as_list: true
-      # utdanning.kodeverk
-      avbruddsaarsaker:
-        range: Avbruddsaarsak
-        multivalued: true
-        inlined_as_list: true
-      betalingsstatus:
-        range: Betalingsstatus
-        multivalued: true
-        inlined_as_list: true
-      bevistypar:
-        range: Bevistype
-        multivalued: true
-        inlined_as_list: true
-      brevtypar:
-        range: Brevtype
-        multivalued: true
-        inlined_as_list: true
-      eksamensformer:
-        range: Eksamensform
-        multivalued: true
-        inlined_as_list: true
-      elevkategoriar:
-        range: Elevkategori
-        multivalued: true
-        inlined_as_list: true
-      fagmerknader:
-        range: Fagmerknad
-        multivalued: true
-        inlined_as_list: true
-      fagstatus:
-        range: Fagstatus
-        multivalued: true
-        inlined_as_list: true
-      fravartypar:
-        range: Fravartype
-        multivalued: true
-        inlined_as_list: true
-      fullfortkoder:
-        range: Fullfortkode
-        multivalued: true
-        inlined_as_list: true
-      karakterskalaer:
-        range: Karakterskala
-        multivalued: true
-        inlined_as_list: true
-      karakterstatus:
-        range: Karakterstatus
-        multivalued: true
-        inlined_as_list: true
-      karakterverdiar:
-        range: Karakterverdi
-        multivalued: true
-        inlined_as_list: true
-      otEnheter:
-        range: OtEnhet
-        multivalued: true
-        inlined_as_list: true
-      otStatus:
-        range: OtStatus
-        multivalued: true
-        inlined_as_list: true
-      provestatuser:
-        range: Provestatus
-        multivalued: true
-        inlined_as_list: true
-      skoleaar:
-        range: Skoleaar
-        multivalued: true
-        inlined_as_list: true
-      skoleeijartypar:
-        range: Skoleeiertype
-        multivalued: true
-        inlined_as_list: true
-      terminar:
-        range: Termin
-        multivalued: true
-        inlined_as_list: true
-      tilrettelegging:
-        range: Tilrettelegging
-        multivalued: true
-        inlined_as_list: true
-      varseltypar:
-        range: Varseltype
         multivalued: true
         inlined_as_list: true
       vitnemalsmerknad:
-        range: Vitnemalsmerknad
         multivalued: true
+        inlined_as_list: true
+      betalingsstatus:
+        multivalued: true
+        inlined_as_list: true
+      fagstatus:
+        multivalued: true
+        inlined_as_list: true
+      karakterstatus:
+        multivalued: true
+        inlined_as_list: true
+      skoleaar:
+        multivalued: true
+        inlined_as_list: true
+      tilrettelegging:
+        multivalued: true
+        inlined_as_list: true
+      klassemedlemskap:
+        inlined_as_list: true
+      kontaktlaerergruppemedlemskap:
+        inlined_as_list: true
+      persongruppemedlemskap:
+        inlined_as_list: true
+      programomrademedlemskap:
+        inlined_as_list: true
+      undervisningsgruppemedlemskap:
+        inlined_as_list: true
+      eksamensgruppemedlemskap:
+        inlined_as_list: true
+      faggruppemedlemskap:
+        inlined_as_list: true
+      utdanningsprogram:
+        inlined_as_list: true
+      undervisningsforhold:
+        inlined_as_list: true
+      varsel:
+        inlined_as_list: true
+      karakterhistorie:
+        inlined_as_list: true
+      sensor:
+        inlined_as_list: true
+      fraversregistrering:
+        inlined_as_list: true
+      halvaarsfagvurdering:
+        inlined_as_list: true
+      halvaarsordensvurdering:
+        inlined_as_list: true
+      sluttfagvurdering:
+        inlined_as_list: true
+      sluttordensvurdering:
+        inlined_as_list: true
+      underveisfagvurdering:
+        inlined_as_list: true
+      underveisordensvurdering:
+        inlined_as_list: true
+      eksamensvurdering:
         inlined_as_list: true
 
   # --- utdanning.basisklasser (abstrakte) ------------------------------------
@@ -309,18 +181,14 @@ classes:
     class_uri: utd:Gruppe
     slots:
       - id
-    attributes:
+      - navn
+      - beskrivelse
+    slot_usage:
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
-        description: Namn på gruppa.
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: utd:beskrivelse
-        range: string
-        description: Skildring av gruppa.
         in_subset:
           - Valgfri
 
@@ -330,12 +198,9 @@ classes:
     class_uri: utd:Gruppemedlemskap
     slots:
       - id
-    attributes:
+      - gyldighetsperiode
+    slot_usage:
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Perioden medlemskapet er gyldig.
         in_subset:
           - Valgfri
 
@@ -345,11 +210,9 @@ classes:
     class_uri: utd:Utdanningsforhold
     slots:
       - id
-    attributes:
+      - beskrivelse
+    slot_usage:
       beskrivelse:
-        slot_uri: utd:beskrivelse
-        range: string
-        description: Skildring av utdanningsforholdet.
         in_subset:
           - Valgfri
 
@@ -360,18 +223,13 @@ classes:
     class_uri: utd:Elev
     slots:
       - id
-    attributes:
+      - elevnummer
+      - person
+    slot_usage:
       elevnummer:
-        slot_uri: utd:elevnummer
-        range: Identifikator
-        inlined: true
-        description: Skulens interne elevnummer.
         in_subset:
           - Obligatorisk
       person:
-        slot_uri: utd:person
-        range: uriorcurie
-        description: Referanse til Person i Administrasjon-domenet.
         in_subset:
           - Obligatorisk
 
@@ -380,131 +238,87 @@ classes:
     class_uri: utd:Elevforhold
     slots:
       - id
-    attributes:
+      - beskrivelse
+      - avbruddsdato
+      - tosprakligFagopplaering
+      - elev
+      - skole
+      - kategori
+      - avbruddsarsak
+      - skoleaar
+      - programomrademedlemskap
+      - klassemedlemskap
+      - faggruppemedlemskap
+      - undervisningsgruppemedlemskap
+      - kontaktlaerergruppemedlemskap
+      - persongruppemedlemskap
+      - eksamensgruppemedlemskap
+      - fraversregistreringer
+      - elevfravar
+      - tilrettelegging
+      - elevvurdering
+    slot_usage:
       beskrivelse:
-        slot_uri: utd:beskrivelse
-        range: string
         required: true
-        description: Skildring av elevforholdet.
         in_subset:
           - Obligatorisk
       avbruddsdato:
-        slot_uri: utd:avbruddsdato
-        range: date
-        description: Dato for avbrot frå opplæring.
         in_subset:
           - Valgfri
       tosprakligFagopplaering:
-        slot_uri: utd:tosprakligFagopplaering
-        range: boolean
-        description: Indikerer om eleven har tospråkleg fagopplæring.
         in_subset:
           - Valgfri
       elev:
-        slot_uri: utd:elev
-        range: Elev
         required: true
-        description: Eleven dette forholdet gjeld.
         in_subset:
           - Obligatorisk
       skole:
-        slot_uri: utd:skole
-        range: Skole
         required: true
-        description: Skulen eleven er tilknytt.
         in_subset:
           - Obligatorisk
       kategori:
-        slot_uri: utd:kategori
-        range: Elevkategori
-        description: Kategori for elevforholdet.
         in_subset:
           - Valgfri
       avbruddsarsak:
-        slot_uri: utd:avbruddsarsak
-        range: Avbruddsaarsak
-        description: Årsak til avbrot frå opplæring.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret elevforholdet tilhøyrer.
         in_subset:
           - Valgfri
       programomrademedlemskap:
-        slot_uri: utd:programomrademedlemskap
-        range: Programomrademedlemskap
-        multivalued: true
-        description: Programområdemedlemskap knytt til elevforholdet.
         in_subset:
           - Valgfri
       klassemedlemskap:
-        slot_uri: utd:klassemedlemskap
-        range: Klassemedlemskap
-        multivalued: true
-        description: Klassemedlemskap knytt til elevforholdet.
         in_subset:
           - Valgfri
       faggruppemedlemskap:
-        slot_uri: utd:faggruppemedlemskap
-        range: Faggruppemedlemskap
-        multivalued: true
-        description: Faggruppemedlemskap knytt til elevforholdet.
         in_subset:
           - Valgfri
       undervisningsgruppemedlemskap:
-        slot_uri: utd:undervisningsgruppemedlemskap
-        range: Undervisningsgruppemedlemskap
-        multivalued: true
-        description: Undervisningsgruppemedlemskap knytt til elevforholdet.
         in_subset:
           - Valgfri
       kontaktlaerergruppemedlemskap:
-        slot_uri: utd:kontaktlaerergruppemedlemskap
-        range: Kontaktlaerergruppemedlemskap
-        multivalued: true
-        description: Kontaktlærergruppemedlemskap knytt til elevforholdet.
         in_subset:
           - Valgfri
       persongruppemedlemskap:
-        slot_uri: utd:persongruppemedlemskap
-        range: Persongruppemedlemskap
-        multivalued: true
-        description: Persongruppemedlemskap knytt til elevforholdet.
         in_subset:
           - Valgfri
       eksamensgruppemedlemskap:
-        slot_uri: utd:eksamensgruppemedlemskap
-        range: Eksamensgruppemedlemskap
-        multivalued: true
-        description: Eksamensgruppemedlemskap knytt til elevforholdet.
         in_subset:
           - Valgfri
       fraversregistreringer:
-        slot_uri: utd:fraversregistreringer
-        range: Elevfravar
-        multivalued: true
-        description: Fråværsregistreringar knytt til elevforholdet.
         in_subset:
           - Valgfri
       elevfravar:
-        slot_uri: utd:elevfravar
         range: Fravarsoversikt
-        description: Fråværsoversikt for elevforholdet.
         in_subset:
           - Valgfri
       tilrettelegging:
-        slot_uri: utd:tilrettelegging
         range: Elevtilrettelegging
         multivalued: true
-        description: Tilretteleggingar knytt til elevforholdet.
         in_subset:
           - Valgfri
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
-        description: Vurderingssamling for elevforholdet.
         in_subset:
           - Valgfri
 
@@ -513,23 +327,18 @@ classes:
     class_uri: utd:Elevtilrettelegging
     slots:
       - id
-    attributes:
+      - elev
+      - tilrettelegging
+      - eksamensform
+    slot_usage:
       elev:
-        slot_uri: utd:elev
         range: Elevforhold
-        description: Elevforholdet tilrettelegginga gjeld.
         in_subset:
           - Valgfri
       tilrettelegging:
-        slot_uri: utd:tilrettelegging
-        range: Tilrettelegging
-        description: Type tilrettelegging.
         in_subset:
           - Valgfri
       eksamensform:
-        slot_uri: utd:eksamensform
-        range: Eksamensform
-        description: Eksamensform knytt til tilrettelegginga.
         in_subset:
           - Valgfri
 
@@ -537,52 +346,36 @@ classes:
     is_a: Gruppe
     description: Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe).
     class_uri: utd:Klasse
-    attributes:
+    slots:
+      - skoleaar
+      - termin
+      - trinn
+      - skole
+      - undervisningsforhold
+      - klassemedlemskap
+      - kontaktlaerergruppe
+    slot_usage:
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret klassen tilhøyrer.
         in_subset:
           - Valgfri
       termin:
-        slot_uri: utd:termin
-        range: Termin
         multivalued: true
-        description: Terminar klassen er aktiv i.
         in_subset:
           - Valgfri
       trinn:
-        slot_uri: utd:trinn
-        range: Arstrinn
-        multivalued: true
-        description: Årstrinnet klassen tilhøyrer.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: utd:skole
-        range: Skole
-        description: Skulen klassen tilhøyrer.
         in_subset:
           - Valgfri
       undervisningsforhold:
-        slot_uri: utd:undervisningsforhold
-        range: Undervisningsforhold
-        multivalued: true
-        description: Undervisningsforhold knytt til klassen.
         in_subset:
           - Valgfri
       klassemedlemskap:
-        slot_uri: utd:klassemedlemskap
-        range: Klassemedlemskap
-        multivalued: true
-        description: Klassemedlemskap i denne klassen.
         in_subset:
           - Valgfri
       kontaktlaerergruppe:
-        slot_uri: utd:kontaktlaerergruppe
-        range: Kontaktlaerergruppe
         multivalued: true
-        description: Kontaktlærergrupper knytt til klassen.
         in_subset:
           - Valgfri
 
@@ -590,17 +383,14 @@ classes:
     is_a: Gruppemedlemskap
     description: Eit elevs medlemskap i ei klasse.
     class_uri: utd:Klassemedlemskap
-    attributes:
+    slots:
+      - elevforhold
+      - klasse
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
-        description: Elevforholdet dette medlemskapet gjeld.
         in_subset:
           - Valgfri
       klasse:
-        slot_uri: utd:klasse
-        range: Klasse
-        description: Klassen dette medlemskapet er i.
         in_subset:
           - Valgfri
 
@@ -608,46 +398,34 @@ classes:
     is_a: Gruppe
     description: Gruppe av elevar med felles kontaktlærar.
     class_uri: utd:Kontaktlaerergruppe
-    attributes:
+    slots:
+      - klasse
+      - termin
+      - skole
+      - skoleaar
+      - undervisningsforhold
+      - gruppemedlemskap
+    slot_usage:
       klasse:
-        slot_uri: utd:klasse
-        range: Klasse
         multivalued: true
         required: true
-        description: Klasse(r) denne kontaktlærergruppa er knytt til.
         in_subset:
           - Obligatorisk
       termin:
-        slot_uri: utd:termin
-        range: Termin
         multivalued: true
-        description: Terminar gruppa er aktiv i.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: utd:skole
-        range: Skole
-        description: Skulen gruppa tilhøyrer.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret gruppa tilhøyrer.
         in_subset:
           - Valgfri
       undervisningsforhold:
-        slot_uri: utd:undervisningsforhold
-        range: Undervisningsforhold
-        multivalued: true
-        description: Undervisningsforhold knytt til gruppa.
         in_subset:
           - Valgfri
       gruppemedlemskap:
-        slot_uri: utd:gruppemedlemskap
         range: Kontaktlaerergruppemedlemskap
-        multivalued: true
-        description: Medlemskapar i denne kontaktlærergruppa.
         in_subset:
           - Valgfri
 
@@ -655,17 +433,14 @@ classes:
     is_a: Gruppemedlemskap
     description: Eit elevs medlemskap i ei kontaktlærargruppe.
     class_uri: utd:Kontaktlaerergruppemedlemskap
-    attributes:
+    slots:
+      - elevforhold
+      - kontaktlaerergruppe
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
-        description: Elevforholdet dette medlemskapet gjeld.
         in_subset:
           - Valgfri
       kontaktlaerergruppe:
-        slot_uri: utd:kontaktlaerergruppe
-        range: Kontaktlaerergruppe
-        description: Kontaktlærergruppa dette medlemskapet er i.
         in_subset:
           - Valgfri
 
@@ -673,52 +448,38 @@ classes:
     is_a: Gruppe
     description: Ei gruppe elevar definert for personlege føremål.
     class_uri: utd:Persongruppe
-    attributes:
+    slots:
+      - elev
+      - persongruppemedlemskap
+      - termin
+      - undervisningsforhold
+      - skole
+      - skoleressurs
+      - skoleaar
+    slot_usage:
       elev:
-        slot_uri: utd:elev
         range: Elevforhold
         multivalued: true
-        description: Elevforhold i denne persongruppa.
         in_subset:
           - Valgfri
       persongruppemedlemskap:
-        slot_uri: utd:persongruppemedlemskap
-        range: Persongruppemedlemskap
-        multivalued: true
-        description: Medlemskapar i persongruppa.
         in_subset:
           - Valgfri
       termin:
-        slot_uri: utd:termin
-        range: Termin
         multivalued: true
-        description: Terminar gruppa er aktiv i.
         in_subset:
           - Valgfri
       undervisningsforhold:
-        slot_uri: utd:undervisningsforhold
-        range: Undervisningsforhold
-        multivalued: true
-        description: Undervisningsforhold knytt til gruppa.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: utd:skole
-        range: Skole
-        description: Skulen gruppa tilhøyrer.
         in_subset:
           - Valgfri
       skoleressurs:
-        slot_uri: utd:skoleressurs
-        range: Skoleressurs
         multivalued: true
-        description: Skoleressursar knytt til gruppa.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret gruppa tilhøyrer.
         in_subset:
           - Valgfri
 
@@ -726,17 +487,14 @@ classes:
     is_a: Gruppemedlemskap
     description: Eit elevs medlemskap i ei persongruppe.
     class_uri: utd:Persongruppemedlemskap
-    attributes:
+    slots:
+      - elevforhold
+      - persongruppe
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
-        description: Elevforholdet dette medlemskapet gjeld.
         in_subset:
           - Valgfri
       persongruppe:
-        slot_uri: utd:persongruppe
-        range: Persongruppe
-        description: Persongruppa dette medlemskapet er i.
         in_subset:
           - Valgfri
 
@@ -745,125 +503,84 @@ classes:
     class_uri: utd:Skole
     slots:
       - id
-    attributes:
+      - navn
+      - domenenavn
+      - juridiskNavn
+      - organisasjonsnavn
+      - skolenummer
+      - organisasjonsnummer
+      - forretningsadresse
+      - postadresse
+      - organisasjon
+      - klasse
+      - kontaktlaerergruppe
+      - skoleressurs
+      - fag
+      - faggruppe
+      - skoleeierType
+      - vigoreferanse
+      - eksamensgruppe
+      - utdanningsprogram
+    slot_usage:
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
-        description: Namn på skulen.
         in_subset:
           - Obligatorisk
       domenenavn:
-        slot_uri: utd:domenenavn
-        range: string
-        description: Domenenamn for skulen.
         in_subset:
           - Valgfri
       juridiskNavn:
-        slot_uri: utd:juridiskNavn
-        range: string
-        description: Juridisk namn på skulen.
         in_subset:
           - Valgfri
       organisasjonsnavn:
-        slot_uri: utd:organisasjonsnavn
-        range: string
-        description: Organisasjonsnamn for skulen.
         in_subset:
           - Valgfri
       skolenummer:
-        slot_uri: utd:skolenummer
-        range: Identifikator
-        inlined: true
-        description: Nasjonal skulenummer-identifikator.
         in_subset:
           - Obligatorisk
       organisasjonsnummer:
-        slot_uri: utd:organisasjonsnummer
-        range: Identifikator
-        inlined: true
-        description: Organisasjonsnummer-identifikator.
         in_subset:
           - Valgfri
       forretningsadresse:
-        slot_uri: utd:forretningsadresse
-        range: Adresse
-        inlined: true
-        description: Forretningsadresse til skulen.
         in_subset:
           - Valgfri
       postadresse:
-        slot_uri: utd:postadresse
-        range: Adresse
-        inlined: true
-        description: Postadresse til skulen.
         in_subset:
           - Valgfri
       organisasjon:
-        slot_uri: utd:organisasjon
-        range: uriorcurie
-        description: Referanse til Organisasjonselement i Administrasjon-domenet.
         in_subset:
           - Valgfri
       klasse:
-        slot_uri: utd:klasse
-        range: Klasse
         multivalued: true
-        description: Klassar ved skulen.
         in_subset:
           - Valgfri
       kontaktlaerergruppe:
-        slot_uri: utd:kontaktlaerergruppe
-        range: Kontaktlaerergruppe
         multivalued: true
-        description: Kontaktlærergrupper ved skulen.
         in_subset:
           - Valgfri
       skoleressurs:
-        slot_uri: utd:skoleressurs
-        range: Skoleressurs
         multivalued: true
-        description: Skoleressursar ved skulen.
         in_subset:
           - Valgfri
       fag:
-        slot_uri: utd:fag
-        range: Fag
         multivalued: true
-        description: Fag ved skulen.
         in_subset:
           - Valgfri
       faggruppe:
-        slot_uri: utd:faggruppe
-        range: Faggruppe
         multivalued: true
-        description: Faggrupper ved skulen.
         in_subset:
           - Valgfri
       skoleeierType:
-        slot_uri: utd:skoleeierType
-        range: Skoleeiertype
-        description: Kategori for skuleeigartilknyting.
         in_subset:
           - Valgfri
       vigoreferanse:
-        slot_uri: utd:vigoreferanse
-        range: uriorcurie
-        description: Referanse til Vigo-systemet.
         in_subset:
           - Valgfri
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
         multivalued: true
-        description: Eksamensgrupper ved skulen.
         in_subset:
           - Valgfri
       utdanningsprogram:
-        slot_uri: utd:utdanningsprogram
-        range: Utdanningsprogram
-        multivalued: true
-        description: Utdanningsprogram ved skulen.
         in_subset:
           - Valgfri
 
@@ -872,38 +589,26 @@ classes:
     class_uri: utd:Skoleressurs
     slots:
       - id
-    attributes:
+      - feidenavn
+      - personalressurs
+      - person
+      - skole
+      - sensor
+    slot_usage:
       feidenavn:
-        slot_uri: utd:feidenavn
-        range: Identifikator
-        inlined: true
-        description: Feide-identifikator for skoleressursen.
         in_subset:
           - Valgfri
       personalressurs:
-        slot_uri: utd:personalressurs
-        range: uriorcurie
-        description: Referanse til Personalressurs i Administrasjon-domenet.
         in_subset:
           - Obligatorisk
       person:
-        slot_uri: utd:person
-        range: uriorcurie
-        description: Referanse til Person i Administrasjon-domenet.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: utd:skole
-        range: Skole
         multivalued: true
-        description: Skular skoleressursen er knytt til.
         in_subset:
           - Obligatorisk
       sensor:
-        slot_uri: utd:sensor
-        range: Sensor
-        multivalued: true
-        description: Sensor-roller for skoleressursen.
         in_subset:
           - Valgfri
 
@@ -912,47 +617,34 @@ classes:
     class_uri: utd:Varsel
     slots:
       - id
-    attributes:
+      - fravarsprosent
+      - sendt
+      - tekst
+      - utsteder
+      - karakteransvarlig
+      - type
+      - faggruppemedlemskap
+    slot_usage:
       fravarsprosent:
-        slot_uri: utd:fravarsprosent
-        range: integer
-        description: Fråværsprosent ved utsending av varselet.
         in_subset:
           - Valgfri
       sendt:
-        slot_uri: utd:sendt
-        range: date
-        description: Dato varselet vart sendt.
         in_subset:
           - Valgfri
       tekst:
-        slot_uri: utd:tekst
-        range: string
-        description: Innhald i varselet.
         in_subset:
           - Valgfri
       utsteder:
-        slot_uri: utd:utsteder
-        range: Skoleressurs
-        description: Skoleressurs som sende varselet.
         in_subset:
           - Valgfri
       karakteransvarlig:
-        slot_uri: utd:karakteransvarlig
-        range: Skoleressurs
-        description: Skoleressurs som er ansvarleg for karakteren.
         in_subset:
           - Valgfri
       type:
-        slot_uri: utd:type
         range: Varseltype
-        description: Type varsel.
         in_subset:
           - Valgfri
       faggruppemedlemskap:
-        slot_uri: utd:faggruppemedlemskap
-        range: Faggruppemedlemskap
-        description: Faggruppemedlemskapet dette varselet gjeld.
         in_subset:
           - Valgfri
 
@@ -962,31 +654,24 @@ classes:
     is_a: Gruppe
     description: Eit årstrinn i skulen (t.d. Vg1, Vg2, Vg3).
     class_uri: utd:Arstrinn
-    attributes:
+    slots:
+      - klasse
+      - vigoreferanse
+      - grepreferanse
+      - programomrade
+    slot_usage:
       klasse:
-        slot_uri: utd:klasse
-        range: Klasse
         multivalued: true
-        description: Klassar på dette årstrinnet.
         in_subset:
           - Valgfri
       vigoreferanse:
-        slot_uri: utd:vigoreferanse
-        range: uriorcurie
-        description: Referanse til Vigo-systemet.
         in_subset:
           - Valgfri
       grepreferanse:
-        slot_uri: utd:grepreferanse
-        range: uriorcurie
-        description: Referanse til GREP-registeret.
         in_subset:
           - Valgfri
       programomrade:
-        slot_uri: utd:programomrade
-        range: Programomrade
         multivalued: true
-        description: Programområde knytt til årstrinnet.
         in_subset:
           - Valgfri
 
@@ -994,31 +679,23 @@ classes:
     is_a: Gruppe
     description: Eit programområde innanfor eit utdanningsprogram (t.d. Vg2 Elektrofaget).
     class_uri: utd:Programomrade
-    attributes:
+    slots:
+      - trinn
+      - grepreferanse
+      - vigoreferanse
+      - gruppemedlemskap
+    slot_usage:
       trinn:
-        slot_uri: utd:trinn
-        range: Arstrinn
-        multivalued: true
-        description: Årstrinnet programområdet er knytt til.
         in_subset:
           - Valgfri
       grepreferanse:
-        slot_uri: utd:grepreferanse
-        range: uriorcurie
-        description: Referanse til GREP-registeret.
         in_subset:
           - Valgfri
       vigoreferanse:
-        slot_uri: utd:vigoreferanse
-        range: uriorcurie
-        description: Referanse til Vigo-systemet.
         in_subset:
           - Valgfri
       gruppemedlemskap:
-        slot_uri: utd:gruppemedlemskap
         range: Programomrademedlemskap
-        multivalued: true
-        description: Elevmedlemskap i programområdet.
         in_subset:
           - Valgfri
 
@@ -1026,17 +703,14 @@ classes:
     is_a: Gruppemedlemskap
     description: Eit elevs tilknyting til eit programområde.
     class_uri: utd:Programomrademedlemskap
-    attributes:
+    slots:
+      - elevforhold
+      - programomrade
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
-        description: Elevforholdet dette medlemskapet gjeld.
         in_subset:
           - Valgfri
       programomrade:
-        slot_uri: utd:programomrade
-        range: Programomrade
-        description: Programområdet dette medlemskapet er i.
         in_subset:
           - Valgfri
 
@@ -1044,31 +718,24 @@ classes:
     is_a: Gruppe
     description: Eit utdanningsprogram (t.d. Elektrofag, Studiespesialisering).
     class_uri: utd:Utdanningsprogram
-    attributes:
+    slots:
+      - programomrade
+      - skole
+      - grepreferanse
+      - vigoreferanse
+    slot_usage:
       programomrade:
-        slot_uri: utd:programomrade
-        range: Programomrade
         multivalued: true
-        description: Programområde under utdanningsprogrammet.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: utd:skole
-        range: Skole
         multivalued: true
-        description: Skular som tilbyr utdanningsprogrammet.
         in_subset:
           - Valgfri
       grepreferanse:
-        slot_uri: utd:grepreferanse
-        range: uriorcurie
-        description: Referanse til GREP-registeret.
         in_subset:
           - Valgfri
       vigoreferanse:
-        slot_uri: utd:vigoreferanse
-        range: uriorcurie
-        description: Referanse til Vigo-systemet.
         in_subset:
           - Valgfri
 
@@ -1079,44 +746,31 @@ classes:
     class_uri: utd:Eksamen
     slots:
       - id
-    attributes:
+      - navn
+      - beskrivelse
+      - oppmoetetidspunkt
+      - tidsrom
+      - rom
+      - eksamensgruppe
+    slot_usage:
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
-        description: Namn på eksamenen.
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: utd:beskrivelse
-        range: string
-        description: Skildring av eksamenen.
         in_subset:
           - Valgfri
       oppmoetetidspunkt:
-        slot_uri: utd:oppmoetetidspunkt
-        range: datetime
-        description: Tidspunkt for oppmøte til eksamenen.
         in_subset:
           - Valgfri
       tidsrom:
-        slot_uri: utd:tidsrom
-        range: Periode
-        inlined: true
-        description: Tidsrom for eksamenen.
         in_subset:
           - Valgfri
       rom:
-        slot_uri: utd:rom
-        range: Rom
         multivalued: true
-        description: Rom eksamenen vert halden i.
         in_subset:
           - Valgfri
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
-        description: Eksamensgruppe eksamenen tilhøyrer.
         in_subset:
           - Valgfri
 
@@ -1124,59 +778,44 @@ classes:
     is_a: Gruppe
     description: Eit skulefag.
     class_uri: utd:Fag
-    attributes:
+    slots:
+      - tilrettelegging
+      - grepreferanse
+      - skole
+      - vigoreferanse
+      - programomrade
+      - faggruppe
+      - undervisningsgruppe
+      - eksamensgruppe
+    slot_usage:
       tilrettelegging:
-        slot_uri: utd:tilrettelegging
-        range: Tilrettelegging
         multivalued: true
-        description: Tilretteleggingstypar for faget.
         in_subset:
           - Valgfri
       grepreferanse:
-        slot_uri: utd:grepreferanse
-        range: uriorcurie
-        description: Referanse til GREP-registeret.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: utd:skole
-        range: Skole
         multivalued: true
-        description: Skular som underviser i faget.
         in_subset:
           - Valgfri
       vigoreferanse:
-        slot_uri: utd:vigoreferanse
-        range: uriorcurie
-        description: Referanse til Vigo-systemet.
         in_subset:
           - Valgfri
       programomrade:
-        slot_uri: utd:programomrade
-        range: Programomrade
         multivalued: true
-        description: Programområde faget er knytt til.
         in_subset:
           - Valgfri
       faggruppe:
-        slot_uri: utd:faggruppe
-        range: Faggruppe
         multivalued: true
-        description: Faggrupper knytt til faget.
         in_subset:
           - Valgfri
       undervisningsgruppe:
-        slot_uri: utd:undervisningsgruppe
-        range: Undervisningsgruppe
         multivalued: true
-        description: Undervisningsgrupper som underviser i faget.
         in_subset:
           - Valgfri
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
         multivalued: true
-        description: Eksamensgrupper knytt til faget.
         in_subset:
           - Valgfri
 
@@ -1184,31 +823,23 @@ classes:
     is_a: Gruppe
     description: Ei gruppe elevar knytt til eit fag på ein skule.
     class_uri: utd:Faggruppe
-    attributes:
+    slots:
+      - fag
+      - skole
+      - skoleaar
+      - faggruppemedlemskap
+    slot_usage:
       fag:
-        slot_uri: utd:fag
-        range: Fag
         required: true
-        description: Faget denne faggruppa er knytt til.
         in_subset:
           - Obligatorisk
       skole:
-        slot_uri: utd:skole
-        range: Skole
-        description: Skulen faggruppa tilhøyrer.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret faggruppa tilhøyrer.
         in_subset:
           - Valgfri
       faggruppemedlemskap:
-        slot_uri: utd:faggruppemedlemskap
-        range: Faggruppemedlemskap
-        multivalued: true
-        description: Elevmedlemskap i faggruppa.
         in_subset:
           - Valgfri
 
@@ -1216,36 +847,26 @@ classes:
     is_a: Gruppemedlemskap
     description: Eit elevs medlemskap i ei faggruppe.
     class_uri: utd:Faggruppemedlemskap
-    attributes:
+    slots:
+      - elevforhold
+      - varsel
+      - faggruppe
+      - fagmerknad
+      - fagstatus
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
-        description: Elevforholdet dette medlemskapet gjeld.
         in_subset:
           - Valgfri
       varsel:
-        slot_uri: utd:varsel
-        range: Varsel
-        multivalued: true
-        description: Varsel knytt til dette faggruppemedlemskapet.
         in_subset:
           - Valgfri
       faggruppe:
-        slot_uri: utd:faggruppe
-        range: Faggruppe
-        description: Faggruppa dette medlemskapet er i.
         in_subset:
           - Valgfri
       fagmerknad:
-        slot_uri: utd:fagmerknad
-        range: Fagmerknad
-        description: Merknad til faget for dette medlemskapet.
         in_subset:
           - Valgfri
       fagstatus:
-        slot_uri: utd:fagstatus
-        range: Fagstatus
-        description: Status for faget i dette medlemskapet.
         in_subset:
           - Valgfri
 
@@ -1254,25 +875,19 @@ classes:
     class_uri: utd:Rom
     slots:
       - id
-    attributes:
+      - navn
+      - eksamen
+      - time
+    slot_usage:
       navn:
-        slot_uri: utd:navn
-        range: string
-        description: Namn på rommet.
         in_subset:
           - Valgfri
       eksamen:
-        slot_uri: utd:eksamen
-        range: Eksamen
         multivalued: true
-        description: Eksamenar haldne i dette rommet.
         in_subset:
           - Valgfri
       time:
-        slot_uri: utd:time
-        range: Time
         multivalued: true
-        description: Timar haldne i dette rommet.
         in_subset:
           - Valgfri
 
@@ -1281,47 +896,33 @@ classes:
     class_uri: utd:Time
     slots:
       - id
-    attributes:
+      - navn
+      - beskrivelse
+      - tidsrom
+      - undervisningsforhold
+      - rom
+      - undervisningsgruppe
+    slot_usage:
       navn:
-        slot_uri: utd:navn
-        range: string
-        description: Namn på timen.
         in_subset:
           - Valgfri
       beskrivelse:
-        slot_uri: utd:beskrivelse
-        range: string
-        description: Skildring av timen.
         in_subset:
           - Valgfri
       tidsrom:
-        slot_uri: utd:tidsrom
-        range: Periode
-        inlined: true
-        description: Tidsrommet timen finn stad.
         in_subset:
           - Valgfri
       undervisningsforhold:
-        slot_uri: utd:undervisningsforhold
-        range: Undervisningsforhold
-        multivalued: true
         required: true
-        description: Undervisningsforhold knytt til timen.
         in_subset:
           - Obligatorisk
       rom:
-        slot_uri: utd:rom
-        range: Rom
         multivalued: true
-        description: Rom timen finn stad i.
         in_subset:
           - Valgfri
       undervisningsgruppe:
-        slot_uri: utd:undervisningsgruppe
-        range: Undervisningsgruppe
         multivalued: true
         required: true
-        description: Undervisningsgruppe(r) timen gjeld.
         in_subset:
           - Obligatorisk
 
@@ -1329,46 +930,34 @@ classes:
     is_a: Utdanningsforhold
     description: Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar.
     class_uri: utd:Undervisningsforhold
-    attributes:
+    slots:
+      - arbeidsforhold
+      - skoleressurs
+      - klasse
+      - kontaktlaerergruppe
+      - time
+      - eksamensgruppe
+    slot_usage:
       arbeidsforhold:
-        slot_uri: utd:arbeidsforhold
-        range: uriorcurie
         required: true
-        description: Referanse til Arbeidsforhold i Administrasjon-domenet.
         in_subset:
           - Obligatorisk
       skoleressurs:
-        slot_uri: utd:skoleressurs
-        range: Skoleressurs
-        description: Skoleressursen dette forholdet gjeld.
         in_subset:
           - Valgfri
       klasse:
-        slot_uri: utd:klasse
-        range: Klasse
         multivalued: true
-        description: Klassar knytt til undervisningsforholdet.
         in_subset:
           - Valgfri
       kontaktlaerergruppe:
-        slot_uri: utd:kontaktlaerergruppe
-        range: Kontaktlaerergruppe
         multivalued: true
-        description: Kontaktlærergrupper knytt til undervisningsforholdet.
         in_subset:
           - Valgfri
       time:
-        slot_uri: utd:time
-        range: Time
-        multivalued: true
-        description: Timar knytt til undervisningsforholdet.
         in_subset:
           - Valgfri
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
         multivalued: true
-        description: Eksamensgrupper knytt til undervisningsforholdet.
         in_subset:
           - Valgfri
 
@@ -1376,53 +965,38 @@ classes:
     is_a: Gruppe
     description: Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag.
     class_uri: utd:Undervisningsgruppe
-    attributes:
+    slots:
+      - undervisningsforhold
+      - fag
+      - time
+      - termin
+      - skole
+      - skoleaar
+      - gruppemedlemskap
+    slot_usage:
       undervisningsforhold:
-        slot_uri: utd:undervisningsforhold
-        range: Undervisningsforhold
-        multivalued: true
-        description: Undervisningsforhold knytt til gruppa.
         in_subset:
           - Valgfri
       fag:
-        slot_uri: utd:fag
-        range: Fag
         multivalued: true
         required: true
-        description: Fag denne gruppa underviser i.
         in_subset:
           - Obligatorisk
       time:
-        slot_uri: utd:time
-        range: Time
-        multivalued: true
-        description: Timar knytt til gruppa.
         in_subset:
           - Valgfri
       termin:
-        slot_uri: utd:termin
-        range: Termin
         multivalued: true
-        description: Terminar gruppa er aktiv i.
         in_subset:
           - Valgfri
       skole:
-        slot_uri: utd:skole
-        range: Skole
-        description: Skulen gruppa tilhøyrer.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret gruppa tilhøyrer.
         in_subset:
           - Valgfri
       gruppemedlemskap:
-        slot_uri: utd:gruppemedlemskap
         range: Undervisningsgruppemedlemskap
-        multivalued: true
-        description: Elevmedlemskap i undervisningsgruppa.
         in_subset:
           - Valgfri
 
@@ -1430,17 +1004,14 @@ classes:
     is_a: Gruppemedlemskap
     description: Eit elevs medlemskap i ei undervisningsgruppe.
     class_uri: utd:Undervisningsgruppemedlemskap
-    attributes:
+    slots:
+      - elevforhold
+      - undervisningsgruppe
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
-        description: Elevforholdet dette medlemskapet gjeld.
         in_subset:
           - Valgfri
       undervisningsgruppe:
-        slot_uri: utd:undervisningsgruppe
-        range: Undervisningsgruppe
-        description: Undervisningsgruppa dette medlemskapet er i.
         in_subset:
           - Valgfri
 
@@ -1452,37 +1023,27 @@ classes:
     class_uri: utd:FagvurderingAbstrakt
     slots:
       - id
-    attributes:
+      - kommentar
+      - vurderingsdato
+      - fag
+      - skoleaar
+      - karakter
+    slot_usage:
       kommentar:
-        slot_uri: utd:kommentar
-        range: string
         required: true
-        description: Kommentar til vurderinga.
         in_subset:
           - Obligatorisk
       vurderingsdato:
-        slot_uri: utd:vurderingsdato
-        range: datetime
         required: true
-        description: Dato og tidspunkt for vurderinga.
         in_subset:
           - Obligatorisk
       fag:
-        slot_uri: utd:fag
-        range: Fag
-        description: Faget vurderinga gjeld.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret vurderinga tilhøyrer.
         in_subset:
           - Valgfri
       karakter:
-        slot_uri: utd:karakter
-        range: Karakterverdi
-        description: Karakterverdien gjeve i vurderinga.
         in_subset:
           - Valgfri
 
@@ -1492,37 +1053,27 @@ classes:
     class_uri: utd:OrdensvurderingAbstrakt
     slots:
       - id
-    attributes:
+      - kommentar
+      - vurderingsdato
+      - atferd
+      - orden
+      - skoleaar
+    slot_usage:
       kommentar:
-        slot_uri: utd:kommentar
-        range: string
         required: true
-        description: Kommentar til vurderinga.
         in_subset:
           - Obligatorisk
       vurderingsdato:
-        slot_uri: utd:vurderingsdato
-        range: datetime
         required: true
-        description: Dato og tidspunkt for vurderinga.
         in_subset:
           - Obligatorisk
       atferd:
-        slot_uri: utd:atferd
-        range: Karakterverdi
-        description: Karakterverdi for åtferd.
         in_subset:
           - Valgfri
       orden:
-        slot_uri: utd:orden
-        range: Karakterverdi
-        description: Karakterverdi for orden.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret vurderinga tilhøyrer.
         in_subset:
           - Valgfri
 
@@ -1531,25 +1082,21 @@ classes:
     class_uri: utd:Anmerkninger
     slots:
       - id
-    attributes:
+      - atferd
+      - orden
+      - skoleaar
+    slot_usage:
       atferd:
-        slot_uri: utd:atferd
         range: integer
         required: true
-        description: Antal åtferdsanmerkningar.
         in_subset:
           - Obligatorisk
       orden:
-        slot_uri: utd:orden
         range: integer
         required: true
-        description: Antal ordensanmerkningar.
         in_subset:
           - Obligatorisk
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret anmerkningane gjeld.
         in_subset:
           - Valgfri
 
@@ -1557,71 +1104,50 @@ classes:
     is_a: Gruppe
     description: Ei gruppe elevar som avlegg same eksamen.
     class_uri: utd:Eksamensgruppe
-    attributes:
+    slots:
+      - eksamensdato
+      - fag
+      - skole
+      - termin
+      - undervisningsforhold
+      - eksamen
+      - eksamensform
+      - skoleaar
+      - gruppemedlemskap
+      - sensor
+    slot_usage:
       eksamensdato:
-        slot_uri: utd:eksamensdato
-        range: datetime
-        description: Dato for eksamenen.
         in_subset:
           - Valgfri
       fag:
-        slot_uri: utd:fag
-        range: Fag
         required: true
-        description: Faget eksamensgruppen gjeld.
         in_subset:
           - Obligatorisk
       skole:
-        slot_uri: utd:skole
-        range: Skole
         required: true
-        description: Skulen eksamensgruppen tilhøyrer.
         in_subset:
           - Obligatorisk
       termin:
-        slot_uri: utd:termin
-        range: Termin
         required: true
-        description: Terminen eksamensgruppen er aktiv i.
         in_subset:
           - Obligatorisk
       undervisningsforhold:
-        slot_uri: utd:undervisningsforhold
-        range: Undervisningsforhold
-        multivalued: true
-        description: Undervisningsforhold knytt til eksamensgruppen.
         in_subset:
           - Valgfri
       eksamen:
-        slot_uri: utd:eksamen
-        range: Eksamen
-        description: Eksamenen knytt til denne gruppa.
         in_subset:
           - Valgfri
       eksamensform:
-        slot_uri: utd:eksamensform
-        range: Eksamensform
-        description: Form for eksamenen.
         in_subset:
           - Valgfri
       skoleaar:
-        slot_uri: utd:skoleaar
-        range: Skoleaar
-        description: Skoleåret eksamensgruppen tilhøyrer.
         in_subset:
           - Valgfri
       gruppemedlemskap:
-        slot_uri: utd:gruppemedlemskap
         range: Eksamensgruppemedlemskap
-        multivalued: true
-        description: Elevmedlemskap i eksamensgruppen.
         in_subset:
           - Valgfri
       sensor:
-        slot_uri: utd:sensor
-        range: Sensor
-        multivalued: true
-        description: Sensorar for eksamensgruppen.
         in_subset:
           - Valgfri
 
@@ -1629,61 +1155,44 @@ classes:
     is_a: Gruppemedlemskap
     description: Eit elevs deltaking i ei eksamensgruppe.
     class_uri: utd:Eksamensgruppemedlemskap
-    attributes:
+    slots:
+      - delegert
+      - kandidatnummer
+      - delegertTil
+      - foretrukketSkole
+      - foretrukketSensor
+      - betalingsstatus
+      - elevforhold
+      - eksamensgruppe
+      - nus
+    slot_usage:
       delegert:
-        slot_uri: utd:delegert
-        range: boolean
-        description: Angir om deltakinga er delegert.
         in_subset:
           - Valgfri
       kandidatnummer:
-        slot_uri: utd:kandidatnummer
-        range: string
-        description: Kandidatnummer for eksamenen.
         in_subset:
           - Valgfri
       delegertTil:
-        slot_uri: utd:delegertTil
-        range: uriorcurie
-        description: Referanse til den deltakinga er delegert til.
         in_subset:
           - Valgfri
       foretrukketSkole:
-        slot_uri: utd:foretrukketSkole
-        range: boolean
-        description: Angir om skulen er føretrekt for eksamenen.
         in_subset:
           - Valgfri
       foretrukketSensor:
-        slot_uri: utd:foretrukketSensor
-        range: boolean
-        description: Angir om sensor er føretrekt.
         in_subset:
           - Valgfri
       betalingsstatus:
-        slot_uri: utd:betalingsstatus
-        range: Betalingsstatus
-        description: Betalingsstatus for eksamensavgift.
         in_subset:
           - Valgfri
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
         required: true
-        description: Elevforholdet dette medlemskapet gjeld.
         in_subset:
           - Obligatorisk
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
         required: true
-        description: Eksamensgruppen dette medlemskapet er i.
         in_subset:
           - Obligatorisk
       nus:
-        slot_uri: utd:nus
-        range: Karakterstatus
-        description: NUS-kode knytt til eksamensgruppemedlemskapet.
         in_subset:
           - Valgfri
 
@@ -1691,26 +1200,20 @@ classes:
     is_a: FagvurderingAbstrakt
     description: Vurdering gjeven i samband med ein eksamen.
     class_uri: utd:Eksamensvurdering
-    attributes:
+    slots:
+      - eksamensgruppe
+      - karakterhistorie
+      - elevvurdering
+    slot_usage:
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
         required: true
-        description: Eksamensgruppen vurderinga er knytt til.
         in_subset:
           - Obligatorisk
       karakterhistorie:
-        slot_uri: utd:karakterhistorie
-        range: Karakterhistorie
-        multivalued: true
-        description: Endringshistorikk for karakteren.
         in_subset:
           - Valgfri
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
         required: true
-        description: Elevvurderingsobjektet denne vurderinga tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -1719,19 +1222,14 @@ classes:
     class_uri: utd:Elevfravar
     slots:
       - id
-    attributes:
+      - elevforhold
+      - fraversregistrering
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
         required: true
-        description: Elevforholdet fråværet gjeld.
         in_subset:
           - Obligatorisk
       fraversregistrering:
-        slot_uri: utd:fraversregistrering
-        range: Fraversregistrering
-        multivalued: true
-        description: Registrerte fråversinstansar.
         in_subset:
           - Valgfri
 
@@ -1740,67 +1238,42 @@ classes:
     class_uri: utd:Elevvurdering
     slots:
       - id
-    attributes:
+      - elevforhold
+      - eksamensvurdering
+      - sluttfagvurdering
+      - halvaarsfagvurdering
+      - underveisfagvurdering
+      - halvaarsordensvurdering
+      - underveisordensvurdering
+      - sluttordensvurdering
+      - vitnemalsmerknad
+    slot_usage:
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
         required: true
-        description: Elevforholdet vurderingane gjeld.
         in_subset:
           - Obligatorisk
       eksamensvurdering:
-        slot_uri: utd:eksamensvurdering
-        range: Eksamensvurdering
-        multivalued: true
-        description: Eksamensvurderingar for eleven.
         in_subset:
           - Valgfri
       sluttfagvurdering:
-        slot_uri: utd:sluttfagvurdering
-        range: Sluttfagvurdering
-        multivalued: true
-        description: Sluttkarakterar for fag.
         in_subset:
           - Valgfri
       halvaarsfagvurdering:
-        slot_uri: utd:halvaarsfagvurdering
-        range: Halvaarsfagvurdering
-        multivalued: true
-        description: Halvårsvurderingar for fag.
         in_subset:
           - Valgfri
       underveisfagvurdering:
-        slot_uri: utd:underveisfagvurdering
-        range: Underveisfagvurdering
-        multivalued: true
-        description: Underveisfagvurderingar.
         in_subset:
           - Valgfri
       halvaarsordensvurdering:
-        slot_uri: utd:halvaarsordensvurdering
-        range: Halvaarsordensvurdering
-        multivalued: true
-        description: Halvårsordensvurderingar.
         in_subset:
           - Valgfri
       underveisordensvurdering:
-        slot_uri: utd:underveisordensvurdering
-        range: Underveisordensvurdering
-        multivalued: true
-        description: Underveisordensvurderingar.
         in_subset:
           - Valgfri
       sluttordensvurdering:
-        slot_uri: utd:sluttordensvurdering
-        range: Sluttordensvurdering
-        multivalued: true
-        description: Sluttordensvurderingar.
         in_subset:
           - Valgfri
       vitnemalsmerknad:
-        slot_uri: utd:vitnemalsmerknad
-        range: Vitnemalsmerknad
-        description: Merknad på vitnemålet.
         in_subset:
           - Valgfri
 
@@ -1809,61 +1282,46 @@ classes:
     class_uri: utd:Fravarsoversikt
     slots:
       - id
-    attributes:
+      - halvaar
+      - skoleaarFravar
+      - elevforhold
+      - fag
+    slot_usage:
       halvaar:
-        slot_uri: utd:halvaar
-        range: Fravarsprosent
-        inlined: true
         required: true
-        description: Fråværsprosent for halvåret.
         in_subset:
           - Obligatorisk
       skoleaarFravar:
-        slot_uri: utd:skoleaarFravar
-        range: Fravarsprosent
-        inlined: true
         required: true
-        description: Fråværsprosent for heile skoleåret.
         in_subset:
           - Obligatorisk
       elevforhold:
-        slot_uri: utd:elevforhold
-        range: Elevforhold
         required: true
-        description: Elevforholdet fråværsoversikta gjeld.
         in_subset:
           - Obligatorisk
       fag:
-        slot_uri: utd:fag
-        range: Fag
         required: true
-        description: Faget fråværsoversikta gjeld.
         in_subset:
           - Obligatorisk
 
   Fravarsprosent:
     description: Kompleks type som representerer fråværsprosent for ein periode.
     class_uri: utd:Fravarsprosent
-    attributes:
+    slots:
+      - fravaerstimer
+      - prosent
+      - undervisningstimer
+    slot_usage:
       fravaerstimer:
-        slot_uri: utd:fravaerstimer
-        range: integer
         required: true
-        description: Antal fråværstimar.
         in_subset:
           - Obligatorisk
       prosent:
-        slot_uri: utd:prosent
-        range: integer
         required: true
-        description: Fråværsprosent (heiltal).
         in_subset:
           - Obligatorisk
       undervisningstimer:
-        slot_uri: utd:undervisningstimer
-        range: integer
         required: true
-        description: Totalt antal undervisningstimar.
         in_subset:
           - Obligatorisk
 
@@ -1872,59 +1330,41 @@ classes:
     class_uri: utd:Fraversregistrering
     slots:
       - id
-    attributes:
+      - forersPaaVitnemaal
+      - kommentar
+      - periode
+      - registrertAv
+      - faggruppe
+      - undervisningsgruppe
+      - elevfravar
+      - fravartype
+    slot_usage:
       forersPaaVitnemaal:
-        slot_uri: utd:forersPaaVitnemaal
-        range: boolean
         required: true
-        description: Angir om fråværet vert ført på vitnemålet.
         in_subset:
           - Obligatorisk
       kommentar:
-        slot_uri: utd:kommentar
-        range: string
-        description: Kommentar til fråværsregistreringa.
         in_subset:
           - Valgfri
       periode:
-        slot_uri: utd:periode
-        range: Periode
-        inlined: true
         required: true
-        description: Perioden fråværet varte.
         in_subset:
           - Obligatorisk
       registrertAv:
-        slot_uri: utd:registrertAv
-        range: Skoleressurs
-        description: Skoleressurs som registrerte fråværet.
         in_subset:
           - Valgfri
       faggruppe:
-        slot_uri: utd:faggruppe
-        range: Faggruppe
-        description: Faggruppa fråværet gjeld.
         in_subset:
           - Valgfri
       undervisningsgruppe:
-        slot_uri: utd:undervisningsgruppe
-        range: Undervisningsgruppe
         required: true
-        description: Undervisningsgruppa fråværet er registrert i.
         in_subset:
           - Obligatorisk
       elevfravar:
-        slot_uri: utd:elevfravar
-        range: Elevfravar
-        required: true
-        description: Elevfråvær-objektet dette høyrer til.
         in_subset:
           - Obligatorisk
       fravartype:
-        slot_uri: utd:fravartype
-        range: Fravartype
         required: true
-        description: Type fråvær.
         in_subset:
           - Obligatorisk
 
@@ -1932,12 +1372,11 @@ classes:
     is_a: FagvurderingAbstrakt
     description: Halvårsvurdering i eit fag.
     class_uri: utd:Halvaarsfagvurdering
-    attributes:
+    slots:
+      - elevvurdering
+    slot_usage:
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
         required: true
-        description: Elevvurderingsobjektet denne vurderinga tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -1945,12 +1384,11 @@ classes:
     is_a: OrdensvurderingAbstrakt
     description: Halvårsordensvurdering for ein elev.
     class_uri: utd:Halvaarsordensvurdering
-    attributes:
+    slots:
+      - elevvurdering
+    slot_usage:
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
         required: true
-        description: Elevvurderingsobjektet denne vurderinga tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -1959,42 +1397,30 @@ classes:
     class_uri: utd:Karakterhistorie
     slots:
       - id
-    attributes:
+      - endretDato
+      - oppdatertAv
+      - opprinneligKarakterverdi
+      - opprinneligKarakterstatus
+      - karakterverdi
+      - karakterstatus
+    slot_usage:
       endretDato:
-        slot_uri: utd:endretDato
-        range: datetime
         required: true
-        description: Dato og tidspunkt for endringa.
         in_subset:
           - Obligatorisk
       oppdatertAv:
-        slot_uri: utd:oppdatertAv
-        range: Skoleressurs
-        description: Skoleressurs som oppdaterte karakteren.
         in_subset:
           - Valgfri
       opprinneligKarakterverdi:
-        slot_uri: utd:opprinneligKarakterverdi
-        range: Karakterverdi
-        description: Opphavleg karakterverdi før endringa.
         in_subset:
           - Valgfri
       opprinneligKarakterstatus:
-        slot_uri: utd:opprinneligKarakterstatus
-        range: Karakterstatus
-        description: Opphavleg karakterstatus før endringa.
         in_subset:
           - Valgfri
       karakterverdi:
-        slot_uri: utd:karakterverdi
-        range: Karakterverdi
-        description: Ny karakterverdi etter endringa.
         in_subset:
           - Valgfri
       karakterstatus:
-        slot_uri: utd:karakterstatus
-        range: Karakterstatus
-        description: Ny karakterstatus etter endringa.
         in_subset:
           - Valgfri
 
@@ -2003,32 +1429,24 @@ classes:
     class_uri: utd:Sensor
     slots:
       - id
-    attributes:
+      - aktiv
+      - sensornummer
+      - skoleressurs
+      - eksamensgruppe
+    slot_usage:
       aktiv:
-        slot_uri: utd:aktiv
-        range: boolean
         required: true
-        description: Angir om sensoren er aktiv.
         in_subset:
           - Obligatorisk
       sensornummer:
-        slot_uri: utd:sensornummer
-        range: integer
-        description: Sensornummer.
         in_subset:
           - Valgfri
       skoleressurs:
-        slot_uri: utd:skoleressurs
-        range: Skoleressurs
         required: true
-        description: Skoleressursen som er sensor.
         in_subset:
           - Obligatorisk
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
         required: true
-        description: Eksamensgruppen sensoren er knytt til.
         in_subset:
           - Obligatorisk
 
@@ -2036,25 +1454,19 @@ classes:
     is_a: FagvurderingAbstrakt
     description: Sluttkarakter i eit fag.
     class_uri: utd:Sluttfagvurdering
-    attributes:
+    slots:
+      - eksamensgruppe
+      - elevvurdering
+      - karakterhistorie
+    slot_usage:
       eksamensgruppe:
-        slot_uri: utd:eksamensgruppe
-        range: Eksamensgruppe
-        description: Eksamensgruppe knytt til sluttkarakteren.
         in_subset:
           - Valgfri
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
         required: true
-        description: Elevvurderingsobjektet denne vurderinga tilhøyrer.
         in_subset:
           - Obligatorisk
       karakterhistorie:
-        slot_uri: utd:karakterhistorie
-        range: Karakterhistorie
-        multivalued: true
-        description: Endringshistorikk for sluttkarakteren.
         in_subset:
           - Valgfri
 
@@ -2062,12 +1474,11 @@ classes:
     is_a: OrdensvurderingAbstrakt
     description: Sluttordensvurdering for ein elev.
     class_uri: utd:Sluttordensvurdering
-    attributes:
+    slots:
+      - elevvurdering
+    slot_usage:
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
         required: true
-        description: Elevvurderingsobjektet denne vurderinga tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -2075,12 +1486,11 @@ classes:
     is_a: FagvurderingAbstrakt
     description: Underveisfagvurdering for ein elev.
     class_uri: utd:Underveisfagvurdering
-    attributes:
+    slots:
+      - elevvurdering
+    slot_usage:
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
         required: true
-        description: Elevvurderingsobjektet denne vurderinga tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -2088,12 +1498,11 @@ classes:
     is_a: OrdensvurderingAbstrakt
     description: Underveisordensvurdering for ein elev.
     class_uri: utd:Underveisordensvurdering
-    attributes:
+    slots:
+      - elevvurdering
+    slot_usage:
       elevvurdering:
-        slot_uri: utd:elevvurdering
-        range: Elevvurdering
         required: true
-        description: Elevvurderingsobjektet denne vurderinga tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -2104,42 +1513,30 @@ classes:
     class_uri: utd:AvlagtProve
     slots:
       - id
-    attributes:
+      - provedato
+      - laerling
+      - provestatus
+      - fullfortkode
+      - brevtype
+      - bevistype
+    slot_usage:
       provedato:
-        slot_uri: utd:provedato
-        range: date
-        description: Dato prøva vart avlagt.
         in_subset:
           - Valgfri
       laerling:
-        slot_uri: utd:laerling
-        range: Laerling
         required: true
-        description: Lærlingen som avla prøva.
         in_subset:
           - Obligatorisk
       provestatus:
-        slot_uri: utd:provestatus
-        range: Provestatus
-        description: Status for prøva.
         in_subset:
           - Valgfri
       fullfortkode:
-        slot_uri: utd:fullfortkode
-        range: Fullfortkode
-        description: Kode for fullførtresultatet.
         in_subset:
           - Valgfri
       brevtype:
-        slot_uri: utd:brevtype
-        range: Brevtype
-        description: Type brev knytt til prøva.
         in_subset:
           - Valgfri
       bevistype:
-        slot_uri: utd:bevistype
-        range: Bevistype
-        description: Type kompetansebevis.
         in_subset:
           - Valgfri
 
@@ -2148,44 +1545,30 @@ classes:
     class_uri: utd:Laerling
     slots:
       - id
-    attributes:
+      - kontraktstype
+      - laretid
+      - person
+      - bedrift
+      - avlagtprove
+      - programomrade
+    slot_usage:
       kontraktstype:
-        slot_uri: utd:kontraktstype
-        range: string
-        description: Type kontrakt for lærlingen.
         in_subset:
           - Valgfri
       laretid:
-        slot_uri: utd:laretid
-        range: Periode
-        inlined: true
-        description: Læringstidsperiode for lærlingen.
         in_subset:
           - Valgfri
       person:
-        slot_uri: utd:person
-        range: uriorcurie
         required: true
-        description: Referanse til Person i Administrasjon-domenet.
         in_subset:
           - Obligatorisk
       bedrift:
-        slot_uri: utd:bedrift
-        range: uriorcurie
-        description: Referanse til bedrifta lærlingen er i.
         in_subset:
           - Valgfri
       avlagtprove:
-        slot_uri: utd:avlagtprove
-        range: AvlagtProve
-        multivalued: true
-        description: Avlagde prøver for lærlingen.
         in_subset:
           - Valgfri
       programomrade:
-        slot_uri: utd:programomrade
-        range: Programomrade
-        description: Programområde lærlingen er knytt til.
         in_subset:
           - Valgfri
 
@@ -2196,30 +1579,22 @@ classes:
     class_uri: utd:OtUngdom
     slots:
       - id
-    attributes:
+      - person
+      - status
+      - enhet
+      - programomrade
+    slot_usage:
       person:
-        slot_uri: utd:person
-        range: uriorcurie
         required: true
-        description: Referanse til Person i Administrasjon-domenet.
         in_subset:
           - Obligatorisk
       status:
-        slot_uri: utd:status
-        range: OtStatus
-        description: OT-status for ungdommen.
         in_subset:
           - Valgfri
       enhet:
-        slot_uri: utd:enhet
-        range: OtEnhet
-        description: OT-eining knytt til ungdommen.
         in_subset:
           - Valgfri
       programomrade:
-        slot_uri: utd:programomrade
-        range: Programomrade
-        description: Programområde ungdommen er knytt til.
         in_subset:
           - Valgfri
 
@@ -2230,28 +1605,23 @@ classes:
     class_uri: utd:Avbruddsaarsak
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2260,28 +1630,23 @@ classes:
     class_uri: utd:Betalingsstatus
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2290,28 +1655,23 @@ classes:
     class_uri: utd:Bevistype
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2320,28 +1680,23 @@ classes:
     class_uri: utd:Brevtype
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2350,28 +1705,23 @@ classes:
     class_uri: utd:Eksamensform
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2380,28 +1730,23 @@ classes:
     class_uri: utd:Elevkategori
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2410,28 +1755,23 @@ classes:
     class_uri: utd:Fagmerknad
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2440,28 +1780,23 @@ classes:
     class_uri: utd:Fagstatus
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2470,28 +1805,23 @@ classes:
     class_uri: utd:Fravartype
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2500,28 +1830,23 @@ classes:
     class_uri: utd:Fullfortkode
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2530,41 +1855,31 @@ classes:
     class_uri: utd:Karakterskala
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+      - verdi
+      - vigoreferanse
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
       verdi:
-        slot_uri: utd:verdi
-        range: Karakterverdi
-        multivalued: true
-        description: Karakterverdiar i denne skalaen.
         in_subset:
           - Valgfri
       vigoreferanse:
-        slot_uri: utd:vigoreferanse
-        range: uriorcurie
-        description: Referanse til Vigo-systemet.
         in_subset:
           - Valgfri
 
@@ -2573,28 +1888,23 @@ classes:
     class_uri: utd:Karakterstatus
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2603,35 +1913,28 @@ classes:
     class_uri: utd:Karakterverdi
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+      - skala
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
       skala:
-        slot_uri: utd:skala
-        range: Karakterskala
         required: true
-        description: Karakterskalaen denne verdien tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -2640,35 +1943,28 @@ classes:
     class_uri: utd:OtEnhet
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+      - kommune
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
       kommune:
-        slot_uri: utd:kommune
-        range: uriorcurie
         required: true
-        description: Referanse til kommunen OT-eininga dekker.
         in_subset:
           - Obligatorisk
 
@@ -2677,41 +1973,32 @@ classes:
     class_uri: utd:OtStatus
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - beskrivelse
+      - type
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       beskrivelse:
-        slot_uri: utd:beskrivelse
-        range: string
-        description: Skildring av statusen.
         in_subset:
           - Valgfri
       type:
-        slot_uri: utd:type
-        range: string
         required: true
-        description: Hovudtype for OT-statusen.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2720,28 +2007,23 @@ classes:
     class_uri: utd:Provestatus
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2750,28 +2032,23 @@ classes:
     class_uri: utd:Skoleaar
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2780,28 +2057,23 @@ classes:
     class_uri: utd:Skoleeiertype
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2810,28 +2082,23 @@ classes:
     class_uri: utd:Termin
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2840,28 +2107,23 @@ classes:
     class_uri: utd:Tilrettelegging
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2870,28 +2132,23 @@ classes:
     class_uri: utd:Varseltype
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
@@ -2900,32 +2157,989 @@ classes:
     class_uri: utd:Vitnemalsmerknad
     slots:
       - id
-    attributes:
+      - kode
+      - navn
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: utd:kode
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       navn:
-        slot_uri: utd:navn
-        range: string
         required: true
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: utd:gyldighetsperiode
-        range: Periode
-        inlined: true
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: utd:passiv
-        range: boolean
         in_subset:
           - Valgfri
 
 # ---------------------------------------------------------------------------
 # Slots
 # ---------------------------------------------------------------------------
+
+slots:
+
+  # === Container-eksklusive lister ===========================================
+  # Desse er berre brukte i UtdanningContainer som samlingslister.
+
+  elevar:
+    slot_uri: utd:elevar
+    range: Elev
+    multivalued: true
+    inlined_as_list: true
+    description: Alle elevar i containeren.
+
+  skolar:
+    slot_uri: utd:skolar
+    range: Skole
+    multivalued: true
+    inlined_as_list: true
+    description: Alle skular i containeren.
+
+  skoleressursar:
+    slot_uri: utd:skoleressursar
+    range: Skoleressurs
+    multivalued: true
+    inlined_as_list: true
+    description: Alle skoleressursar i containeren.
+
+  elevtilrettelegging:
+    slot_uri: utd:elevtilrettelegging
+    range: Elevtilrettelegging
+    multivalued: true
+    inlined_as_list: true
+    description: Alle elevtilretteleggingar i containeren.
+
+  klasser:
+    slot_uri: utd:klasser
+    range: Klasse
+    multivalued: true
+    inlined_as_list: true
+    description: Alle klassar i containeren.
+
+  kontaktlaerergrupper:
+    slot_uri: utd:kontaktlaerergrupper
+    range: Kontaktlaerergruppe
+    multivalued: true
+    inlined_as_list: true
+    description: Alle kontaktlærargrupper i containeren.
+
+  persongrupper:
+    slot_uri: utd:persongrupper
+    range: Persongruppe
+    multivalued: true
+    inlined_as_list: true
+    description: Alle persongrupper i containeren.
+
+  arstrinn:
+    slot_uri: utd:arstrinn
+    range: Arstrinn
+    multivalued: true
+    inlined_as_list: true
+    description: Alle årstrinns-objekt i containeren.
+
+  programomrader:
+    slot_uri: utd:programomrader
+    range: Programomrade
+    multivalued: true
+    inlined_as_list: true
+    description: Alle programområde i containeren.
+
+  faggrupper:
+    slot_uri: utd:faggrupper
+    range: Faggruppe
+    multivalued: true
+    inlined_as_list: true
+    description: Alle faggrupper i containeren.
+
+  timar:
+    slot_uri: utd:timar
+    range: Time
+    multivalued: true
+    inlined_as_list: true
+    description: Alle timar i containeren.
+
+  undervisningsgrupper:
+    slot_uri: utd:undervisningsgrupper
+    range: Undervisningsgruppe
+    multivalued: true
+    inlined_as_list: true
+    description: Alle undervisningsgrupper i containeren.
+
+  anmerkningar:
+    slot_uri: utd:anmerkningar
+    range: Anmerkninger
+    multivalued: true
+    inlined_as_list: true
+    description: Alle anmerkningar i containeren.
+
+  eksamensgrupper:
+    slot_uri: utd:eksamensgrupper
+    range: Eksamensgruppe
+    multivalued: true
+    inlined_as_list: true
+    description: Alle eksamensgrupper i containeren.
+
+  fravarsoversikt:
+    slot_uri: utd:fravarsoversikt
+    range: Fravarsoversikt
+    multivalued: true
+    inlined_as_list: true
+    description: Alle fråværsoversikter i containeren.
+
+  avlagteprover:
+    slot_uri: utd:avlagteprover
+    range: AvlagtProve
+    multivalued: true
+    inlined_as_list: true
+    description: Alle avlagde prøver i containeren.
+
+  laerlingar:
+    slot_uri: utd:laerlingar
+    range: Laerling
+    multivalued: true
+    inlined_as_list: true
+    description: Alle lærlingar i containeren.
+
+  otUngdom:
+    slot_uri: utd:otUngdom
+    range: OtUngdom
+    multivalued: true
+    inlined_as_list: true
+    description: Alle OT-ungdom i containeren.
+
+  avbruddsaarsaker:
+    slot_uri: utd:avbruddsaarsaker
+    range: Avbruddsaarsak
+    multivalued: true
+    inlined_as_list: true
+    description: Alle avbruddsårsakar i containeren.
+
+  bevistypar:
+    slot_uri: utd:bevistypar
+    range: Bevistype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle bevistypar i containeren.
+
+  brevtypar:
+    slot_uri: utd:brevtypar
+    range: Brevtype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle brevtypar i containeren.
+
+  eksamensformer:
+    slot_uri: utd:eksamensformer
+    range: Eksamensform
+    multivalued: true
+    inlined_as_list: true
+    description: Alle eksamensformer i containeren.
+
+  elevkategoriar:
+    slot_uri: utd:elevkategoriar
+    range: Elevkategori
+    multivalued: true
+    inlined_as_list: true
+    description: Alle elevkategoriar i containeren.
+
+  fagmerknader:
+    slot_uri: utd:fagmerknader
+    range: Fagmerknad
+    multivalued: true
+    inlined_as_list: true
+    description: Alle fagmerknadar i containeren.
+
+  fravartypar:
+    slot_uri: utd:fravartypar
+    range: Fravartype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle fråværstypar i containeren.
+
+  fullfortkoder:
+    slot_uri: utd:fullfortkoder
+    range: Fullfortkode
+    multivalued: true
+    inlined_as_list: true
+    description: Alle fullfortkoder i containeren.
+
+  karakterskalaer:
+    slot_uri: utd:karakterskalaer
+    range: Karakterskala
+    multivalued: true
+    inlined_as_list: true
+    description: Alle karakterskalaer i containeren.
+
+  otEnheter:
+    slot_uri: utd:otEnheter
+    range: OtEnhet
+    multivalued: true
+    inlined_as_list: true
+    description: Alle OT-einingar i containeren.
+
+  karakterverdiar:
+    slot_uri: utd:karakterverdiar
+    range: Karakterverdi
+    multivalued: true
+    inlined_as_list: true
+    description: Alle karakterverdiar i containeren.
+
+  otStatus:
+    slot_uri: utd:otStatus
+    range: OtStatus
+    multivalued: true
+    inlined_as_list: true
+    description: Alle OT-statuser i containeren.
+
+  provestatuser:
+    slot_uri: utd:provestatuser
+    range: Provestatus
+    multivalued: true
+    inlined_as_list: true
+    description: Alle prøvestatuser i containeren.
+
+  skoleeijartypar:
+    slot_uri: utd:skoleeijartypar
+    range: Skoleeiertype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle skuleeigarstypar i containeren.
+
+  terminar:
+    slot_uri: utd:terminar
+    range: Termin
+    multivalued: true
+    inlined_as_list: true
+    description: Alle terminar i containeren.
+
+  varseltypar:
+    slot_uri: utd:varseltypar
+    range: Varseltype
+    multivalued: true
+    inlined_as_list: true
+    description: Alle varseltypar i containeren.
+
+  # === Felles slots (container + referanse) ==================================
+  # Brukte både som samlingslister i UtdanningContainer og som referansar
+  # i domene-klasser. Container brukar slot_usage for inlined_as_list.
+
+  elevforhold:
+    slot_uri: utd:elevforhold
+    range: Elevforhold
+    description: Elevforholdet dette gjeld.
+
+  klassemedlemskap:
+    slot_uri: utd:klassemedlemskap
+    range: Klassemedlemskap
+    multivalued: true
+    description: Klassemedlemskap.
+
+  kontaktlaerergruppemedlemskap:
+    slot_uri: utd:kontaktlaerergruppemedlemskap
+    range: Kontaktlaerergruppemedlemskap
+    multivalued: true
+    description: Kontaktlærergruppemedlemskap.
+
+  persongruppemedlemskap:
+    slot_uri: utd:persongruppemedlemskap
+    range: Persongruppemedlemskap
+    multivalued: true
+    description: Persongruppemedlemskap.
+
+  programomrademedlemskap:
+    slot_uri: utd:programomrademedlemskap
+    range: Programomrademedlemskap
+    multivalued: true
+    description: Programområdemedlemskap.
+
+  undervisningsgruppemedlemskap:
+    slot_uri: utd:undervisningsgruppemedlemskap
+    range: Undervisningsgruppemedlemskap
+    multivalued: true
+    description: Undervisningsgruppemedlemskap.
+
+  eksamensgruppemedlemskap:
+    slot_uri: utd:eksamensgruppemedlemskap
+    range: Eksamensgruppemedlemskap
+    multivalued: true
+    description: Eksamensgruppemedlemskap.
+
+  faggruppemedlemskap:
+    slot_uri: utd:faggruppemedlemskap
+    range: Faggruppemedlemskap
+    multivalued: true
+    description: Faggruppemedlemskap.
+
+  utdanningsprogram:
+    slot_uri: utd:utdanningsprogram
+    range: Utdanningsprogram
+    multivalued: true
+    description: Utdanningsprogram.
+
+  eksamen:
+    slot_uri: utd:eksamen
+    range: Eksamen
+    description: Eksamen.
+
+  fag:
+    slot_uri: utd:fag
+    range: Fag
+    description: Fag.
+
+  rom:
+    slot_uri: utd:rom
+    range: Rom
+    description: Rom.
+
+  undervisningsforhold:
+    slot_uri: utd:undervisningsforhold
+    range: Undervisningsforhold
+    multivalued: true
+    description: Undervisningsforhold.
+
+  varsel:
+    slot_uri: utd:varsel
+    range: Varsel
+    multivalued: true
+    description: Varsel.
+
+  karakterhistorie:
+    slot_uri: utd:karakterhistorie
+    range: Karakterhistorie
+    multivalued: true
+    description: Karakterhistorikk.
+
+  sensor:
+    slot_uri: utd:sensor
+    range: Sensor
+    multivalued: true
+    description: Sensor.
+
+  elevfravar:
+    slot_uri: utd:elevfravar
+    range: Elevfravar
+    description: Fråværsobjekt for elev.
+
+  elevvurdering:
+    slot_uri: utd:elevvurdering
+    range: Elevvurdering
+    description: Elevvurderingsobjekt.
+
+  fraversregistrering:
+    slot_uri: utd:fraversregistrering
+    range: Fraversregistrering
+    multivalued: true
+    description: Fråversregistreringar.
+
+  halvaarsfagvurdering:
+    slot_uri: utd:halvaarsfagvurdering
+    range: Halvaarsfagvurdering
+    multivalued: true
+    description: Halvårsfagvurderingar.
+
+  halvaarsordensvurdering:
+    slot_uri: utd:halvaarsordensvurdering
+    range: Halvaarsordensvurdering
+    multivalued: true
+    description: Halvårsordensvurderingar.
+
+  sluttfagvurdering:
+    slot_uri: utd:sluttfagvurdering
+    range: Sluttfagvurdering
+    multivalued: true
+    description: Sluttfagvurderingar.
+
+  sluttordensvurdering:
+    slot_uri: utd:sluttordensvurdering
+    range: Sluttordensvurdering
+    multivalued: true
+    description: Sluttordensvurderingar.
+
+  underveisfagvurdering:
+    slot_uri: utd:underveisfagvurdering
+    range: Underveisfagvurdering
+    multivalued: true
+    description: Underveisfagvurderingar.
+
+  underveisordensvurdering:
+    slot_uri: utd:underveisordensvurdering
+    range: Underveisordensvurdering
+    multivalued: true
+    description: Underveisordensvurderingar.
+
+  eksamensvurdering:
+    slot_uri: utd:eksamensvurdering
+    range: Eksamensvurdering
+    multivalued: true
+    description: Eksamensvurderingar.
+
+  vitnemalsmerknad:
+    slot_uri: utd:vitnemalsmerknad
+    range: Vitnemalsmerknad
+    description: Vitnemålsmerknad.
+
+  betalingsstatus:
+    slot_uri: utd:betalingsstatus
+    range: Betalingsstatus
+    description: Betalingsstatus.
+
+  fagstatus:
+    slot_uri: utd:fagstatus
+    range: Fagstatus
+    description: Fagstatus.
+
+  karakterstatus:
+    slot_uri: utd:karakterstatus
+    range: Karakterstatus
+    description: Karakterstatus.
+
+  skoleaar:
+    slot_uri: utd:skoleaar
+    range: Skoleaar
+    description: Skoleåret.
+
+  tilrettelegging:
+    slot_uri: utd:tilrettelegging
+    range: Tilrettelegging
+    description: Tilretteleggingstype.
+
+  # === Domene-spesifikke slots ===============================================
+
+  # Basisegenskaper (brukte i fleire klasser og kodeverk)
+
+  navn:
+    slot_uri: utd:navn
+    range: string
+    description: Namn.
+
+  beskrivelse:
+    slot_uri: utd:beskrivelse
+    range: string
+    description: Skildring.
+
+  kode:
+    slot_uri: utd:kode
+    range: string
+    description: Kode.
+
+  gyldighetsperiode:
+    slot_uri: utd:gyldighetsperiode
+    range: Periode
+    inlined: true
+    description: Gyldigheitsperiode.
+
+  passiv:
+    slot_uri: utd:passiv
+    range: boolean
+    description: Angir om oppføringen er passiv/inaktiv.
+
+  # Elev
+
+  elevnummer:
+    slot_uri: utd:elevnummer
+    range: Identifikator
+    inlined: true
+    description: Skulens interne elevnummer.
+
+  person:
+    slot_uri: utd:person
+    range: uriorcurie
+    description: Referanse til Person i Administrasjon-domenet.
+
+  # Elevforhold
+
+  avbruddsdato:
+    slot_uri: utd:avbruddsdato
+    range: date
+    description: Dato for avbrot frå opplæring.
+
+  tosprakligFagopplaering:
+    slot_uri: utd:tosprakligFagopplaering
+    range: boolean
+    description: Indikerer om eleven har tospråkleg fagopplæring.
+
+  elev:
+    slot_uri: utd:elev
+    range: Elev
+    description: Eleven dette gjeld.
+
+  kategori:
+    slot_uri: utd:kategori
+    range: Elevkategori
+    description: Kategori for elevforholdet.
+
+  avbruddsarsak:
+    slot_uri: utd:avbruddsarsak
+    range: Avbruddsaarsak
+    description: Årsak til avbrot frå opplæring.
+
+  fraversregistreringer:
+    slot_uri: utd:fraversregistreringer
+    range: Elevfravar
+    multivalued: true
+    description: Fråværsregistreringar knytt til elevforholdet.
+
+  # Skole
+
+  domenenavn:
+    slot_uri: utd:domenenavn
+    range: string
+    description: Domenenamn for skulen.
+
+  juridiskNavn:
+    slot_uri: utd:juridiskNavn
+    range: string
+    description: Juridisk namn på skulen.
+
+  organisasjonsnavn:
+    slot_uri: utd:organisasjonsnavn
+    range: string
+    description: Organisasjonsnamn.
+
+  skolenummer:
+    slot_uri: utd:skolenummer
+    range: Identifikator
+    inlined: true
+    description: Nasjonal skulenummer-identifikator.
+
+  organisasjonsnummer:
+    slot_uri: utd:organisasjonsnummer
+    range: Identifikator
+    inlined: true
+    description: Organisasjonsnummer-identifikator.
+
+  forretningsadresse:
+    slot_uri: utd:forretningsadresse
+    range: Adresse
+    inlined: true
+    description: Forretningsadresse.
+
+  postadresse:
+    slot_uri: utd:postadresse
+    range: Adresse
+    inlined: true
+    description: Postadresse.
+
+  organisasjon:
+    slot_uri: utd:organisasjon
+    range: uriorcurie
+    description: Referanse til Organisasjonselement i Administrasjon-domenet.
+
+  skole:
+    slot_uri: utd:skole
+    range: Skole
+    description: Skulen dette gjeld.
+
+  kontaktlaerergruppe:
+    slot_uri: utd:kontaktlaerergruppe
+    range: Kontaktlaerergruppe
+    description: Kontaktlærargruppe.
+
+  faggruppe:
+    slot_uri: utd:faggruppe
+    range: Faggruppe
+    description: Faggruppe.
+
+  skoleeierType:
+    slot_uri: utd:skoleeierType
+    range: Skoleeiertype
+    description: Kategori for skuleeigartilknyting.
+
+  vigoreferanse:
+    slot_uri: utd:vigoreferanse
+    range: uriorcurie
+    description: Referanse til Vigo-systemet.
+
+  eksamensgruppe:
+    slot_uri: utd:eksamensgruppe
+    range: Eksamensgruppe
+    description: Eksamensgruppe.
+
+  # Skoleressurs
+
+  feidenavn:
+    slot_uri: utd:feidenavn
+    range: Identifikator
+    inlined: true
+    description: Feide-identifikator.
+
+  personalressurs:
+    slot_uri: utd:personalressurs
+    range: uriorcurie
+    description: Referanse til Personalressurs i Administrasjon-domenet.
+
+  skoleressurs:
+    slot_uri: utd:skoleressurs
+    range: Skoleressurs
+    description: Skoleressurs.
+
+  # Varsel
+
+  fravarsprosent:
+    slot_uri: utd:fravarsprosent
+    range: integer
+    description: Fråværsprosent.
+
+  sendt:
+    slot_uri: utd:sendt
+    range: date
+    description: Dato varselet vart sendt.
+
+  tekst:
+    slot_uri: utd:tekst
+    range: string
+    description: Innhald i varselet.
+
+  utsteder:
+    slot_uri: utd:utsteder
+    range: Skoleressurs
+    description: Skoleressurs som sende varselet.
+
+  karakteransvarlig:
+    slot_uri: utd:karakteransvarlig
+    range: Skoleressurs
+    description: Skoleressurs som er ansvarleg for karakteren.
+
+  type:
+    slot_uri: utd:type
+    range: string
+    description: Type.
+
+  # Gruppe-basisklassar
+
+  klasse:
+    slot_uri: utd:klasse
+    range: Klasse
+    description: Klasse.
+
+  termin:
+    slot_uri: utd:termin
+    range: Termin
+    description: Termin.
+
+  trinn:
+    slot_uri: utd:trinn
+    range: Arstrinn
+    multivalued: true
+    description: Årstrinnet.
+
+  gruppemedlemskap:
+    slot_uri: utd:gruppemedlemskap
+    range: Gruppemedlemskap
+    multivalued: true
+    description: Gruppemedlemskap.
+
+  persongruppe:
+    slot_uri: utd:persongruppe
+    range: Persongruppe
+    description: Persongruppe.
+
+  programomrade:
+    slot_uri: utd:programomrade
+    range: Programomrade
+    description: Programområde.
+
+  grepreferanse:
+    slot_uri: utd:grepreferanse
+    range: uriorcurie
+    description: Referanse til GREP-registeret.
+
+  # Eksamen
+
+  oppmoetetidspunkt:
+    slot_uri: utd:oppmoetetidspunkt
+    range: datetime
+    description: Tidspunkt for oppmøte.
+
+  tidsrom:
+    slot_uri: utd:tidsrom
+    range: Periode
+    inlined: true
+    description: Tidsrom.
+
+  # Undervisningsforhold
+
+  arbeidsforhold:
+    slot_uri: utd:arbeidsforhold
+    range: uriorcurie
+    description: Referanse til Arbeidsforhold i Administrasjon-domenet.
+
+  time:
+    slot_uri: utd:time
+    range: Time
+    multivalued: true
+    description: Time.
+
+  undervisningsgruppe:
+    slot_uri: utd:undervisningsgruppe
+    range: Undervisningsgruppe
+    description: Undervisningsgruppe.
+
+  # Vurdering (abstrakte basisklassar)
+
+  kommentar:
+    slot_uri: utd:kommentar
+    range: string
+    description: Kommentar.
+
+  vurderingsdato:
+    slot_uri: utd:vurderingsdato
+    range: datetime
+    description: Dato og tidspunkt for vurderinga.
+
+  karakter:
+    slot_uri: utd:karakter
+    range: Karakterverdi
+    description: Karakterverdi.
+
+  # OrdensvurderingAbstrakt — atferd og orden har base-range Karakterverdi;
+  # Anmerkninger overskriv til integer via slot_usage.
+  atferd:
+    slot_uri: utd:atferd
+    range: Karakterverdi
+    description: Åtferdskarakter.
+
+  orden:
+    slot_uri: utd:orden
+    range: Karakterverdi
+    description: Ordenskarakter.
+
+  # Eksamensgruppemedlemskap
+
+  delegert:
+    slot_uri: utd:delegert
+    range: boolean
+    description: Angir om deltakinga er delegert.
+
+  kandidatnummer:
+    slot_uri: utd:kandidatnummer
+    range: string
+    description: Kandidatnummer.
+
+  delegertTil:
+    slot_uri: utd:delegertTil
+    range: uriorcurie
+    description: Referanse til den deltakinga er delegert til.
+
+  foretrukketSkole:
+    slot_uri: utd:foretrukketSkole
+    range: boolean
+    description: Angir om skulen er føretrekt for eksamenen.
+
+  foretrukketSensor:
+    slot_uri: utd:foretrukketSensor
+    range: boolean
+    description: Angir om sensor er føretrekt.
+
+  nus:
+    slot_uri: utd:nus
+    range: Karakterstatus
+    description: NUS-kode.
+
+  # Fravarsoversikt
+
+  halvaar:
+    slot_uri: utd:halvaar
+    range: Fravarsprosent
+    inlined: true
+    description: Fråværsprosent for halvåret.
+
+  skoleaarFravar:
+    slot_uri: utd:skoleaarFravar
+    range: Fravarsprosent
+    inlined: true
+    description: Fråværsprosent for heile skoleåret.
+
+  # Fravarsprosent (verdiklasse)
+
+  fravaerstimer:
+    slot_uri: utd:fravaerstimer
+    range: integer
+    description: Antal fråværstimar.
+
+  prosent:
+    slot_uri: utd:prosent
+    range: integer
+    description: Fråværsprosent (heiltal).
+
+  undervisningstimer:
+    slot_uri: utd:undervisningstimer
+    range: integer
+    description: Totalt antal undervisningstimar.
+
+  # Fraversregistrering
+
+  forersPaaVitnemaal:
+    slot_uri: utd:forersPaaVitnemaal
+    range: boolean
+    description: Angir om fråværet vert ført på vitnemålet.
+
+  periode:
+    slot_uri: utd:periode
+    range: Periode
+    inlined: true
+    description: Periode.
+
+  registrertAv:
+    slot_uri: utd:registrertAv
+    range: Skoleressurs
+    description: Skoleressurs som registrerte fråværet.
+
+  fravartype:
+    slot_uri: utd:fravartype
+    range: Fravartype
+    description: Type fråvær.
+
+  # Karakterhistorie
+
+  endretDato:
+    slot_uri: utd:endretDato
+    range: datetime
+    description: Dato og tidspunkt for endringa.
+
+  oppdatertAv:
+    slot_uri: utd:oppdatertAv
+    range: Skoleressurs
+    description: Skoleressurs som oppdaterte karakteren.
+
+  opprinneligKarakterverdi:
+    slot_uri: utd:opprinneligKarakterverdi
+    range: Karakterverdi
+    description: Opphavleg karakterverdi.
+
+  opprinneligKarakterstatus:
+    slot_uri: utd:opprinneligKarakterstatus
+    range: Karakterstatus
+    description: Opphavleg karakterstatus.
+
+  karakterverdi:
+    slot_uri: utd:karakterverdi
+    range: Karakterverdi
+    description: Karakterverdi.
+
+  # Sensor
+
+  aktiv:
+    slot_uri: utd:aktiv
+    range: boolean
+    description: Angir om sensoren er aktiv.
+
+  sensornummer:
+    slot_uri: utd:sensornummer
+    range: integer
+    description: Sensornummer.
+
+  # Eksamensgruppe
+
+  eksamensdato:
+    slot_uri: utd:eksamensdato
+    range: datetime
+    description: Dato for eksamenen.
+
+  eksamensform:
+    slot_uri: utd:eksamensform
+    range: Eksamensform
+    description: Eksamensform.
+
+  # AvlagtProve
+
+  provedato:
+    slot_uri: utd:provedato
+    range: date
+    description: Dato prøva vart avlagt.
+
+  laerling:
+    slot_uri: utd:laerling
+    range: Laerling
+    description: Lærling.
+
+  provestatus:
+    slot_uri: utd:provestatus
+    range: Provestatus
+    description: Status for prøva.
+
+  fullfortkode:
+    slot_uri: utd:fullfortkode
+    range: Fullfortkode
+    description: Kode for fullførtresultatet.
+
+  brevtype:
+    slot_uri: utd:brevtype
+    range: Brevtype
+    description: Type brev.
+
+  bevistype:
+    slot_uri: utd:bevistype
+    range: Bevistype
+    description: Type kompetansebevis.
+
+  # Laerling
+
+  kontraktstype:
+    slot_uri: utd:kontraktstype
+    range: string
+    description: Type kontrakt for lærlingen.
+
+  laretid:
+    slot_uri: utd:laretid
+    range: Periode
+    inlined: true
+    description: Læringstidsperiode for lærlingen.
+
+  bedrift:
+    slot_uri: utd:bedrift
+    range: uriorcurie
+    description: Referanse til bedrifta lærlingen er i.
+
+  avlagtprove:
+    slot_uri: utd:avlagtprove
+    range: AvlagtProve
+    multivalued: true
+    description: Avlagde prøver.
+
+  # OtUngdom
+
+  status:
+    slot_uri: utd:status
+    range: OtStatus
+    description: OT-status for ungdommen.
+
+  enhet:
+    slot_uri: utd:enhet
+    range: OtEnhet
+    description: OT-eining.
+
+  # Kodeverk: Karakterskala
+
+  verdi:
+    slot_uri: utd:verdi
+    range: Karakterverdi
+    multivalued: true
+    description: Karakterverdiar i skalaen.
+
+  # Kodeverk: Karakterverdi
+
+  skala:
+    slot_uri: utd:skala
+    range: Karakterskala
+    description: Karakterskalaen denne verdien tilhøyrer.
+
+  # Kodeverk: OtEnhet
+
+  kommune:
+    slot_uri: utd:kommune
+    range: uriorcurie
+    description: Referanse til kommunen OT-eininga dekker.
+
+  # Kodeverk: Fagmerknad (brukt i Faggruppemedlemskap)
+
+  fagmerknad:
+    slot_uri: utd:fagmerknad
+    range: Fagmerknad
+    description: Merknad til faget.
 

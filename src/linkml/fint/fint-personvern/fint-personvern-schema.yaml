@@ -19,6 +19,109 @@ prefixes:
   pvn:    https://schema.fintlabs.no/personvern/
 
 # ---------------------------------------------------------------------------
+# Slots
+# ---------------------------------------------------------------------------
+
+slots:
+
+  # --- PersonvernContainer-lister -------------------------------------------
+
+  behandlingar:
+    slot_uri: pvn:behandlingar
+    range: Behandling
+    multivalued: true
+    inlined_as_list: true
+
+  samtykker:
+    slot_uri: pvn:samtykker
+    range: Samtykke
+    multivalued: true
+    inlined_as_list: true
+
+  tenester:
+    slot_uri: pvn:tenester
+    range: Tjeneste
+    multivalued: true
+    inlined_as_list: true
+
+  personopplysningar:
+    slot_uri: pvn:personopplysningar
+    range: Personopplysning
+    multivalued: true
+    inlined_as_list: true
+
+  # --- Felles pvn-slots (delt mellom fleire klasser) ------------------------
+
+  # behandlingsgrunnlag: brukt i PersonvernContainer (liste) og Behandling (singular, req)
+  behandlingsgrunnlag:
+    slot_uri: pvn:behandlingsgrunnlag
+    range: Behandlingsgrunnlag
+    description: Rettsleg grunnlag for behandling av personopplysning.
+
+  # behandling: brukt i Samtykke (req, singular) og Tjeneste (multi, optional)
+  behandling:
+    slot_uri: pvn:behandling
+    range: Behandling
+    description: Behandlingsaktivitet.
+
+  slettet:
+    slot_uri: pvn:slettet
+    range: datetime
+    description: Tidspunkt ressursen er sletta.
+
+  # --- Behandling -----------------------------------------------------------
+
+  aktiv:
+    slot_uri: pvn:aktiv
+    range: boolean
+    description: Status på behandling.
+
+  formal:
+    slot_uri: pvn:formal
+    range: string
+    description: Grunngjeving for behandling av personopplysning.
+
+  personopplysning:
+    slot_uri: pvn:personopplysning
+    range: Personopplysning
+    description: Opplysning eller vurdering som kan knytast til ein enkeltperson.
+
+  samtykke:
+    slot_uri: pvn:samtykke
+    range: Samtykke
+    multivalued: true
+    description: Samtykker tilknytt ei behandling.
+
+  tjeneste:
+    slot_uri: pvn:tjeneste
+    range: Tjeneste
+    description: Tenesta som behandlinga tilhøyrer.
+
+  # --- Samtykke -------------------------------------------------------------
+
+  opprettet:
+    slot_uri: pvn:opprettet
+    range: datetime
+    description: Dato då samtykket vart oppretta.
+
+  person:
+    slot_uri: pvn:person
+    range: uriorcurie
+    description: Referanse til Person (Administrasjon).
+
+  organisasjonselement:
+    slot_uri: pvn:organisasjonselement
+    range: uriorcurie
+    description: Referanse til Organisasjonselement (Administrasjon).
+
+  # --- Tjeneste / kodeverk --------------------------------------------------
+
+  naam:
+    slot_uri: pvn:naam
+    range: string
+    description: Namn på ressursen.
+
+# ---------------------------------------------------------------------------
 # Klasser
 # ---------------------------------------------------------------------------
 
@@ -27,82 +130,56 @@ classes:
   PersonvernContainer:
     tree_root: true
     description: Rotcontainer for FINT Personvern-instansar.
-    attributes:
-      behandlingar:
-        range: Behandling
-        multivalued: true
-        inlined_as_list: true
-      samtykker:
-        range: Samtykke
-        multivalued: true
-        inlined_as_list: true
-      tenester:
-        range: Tjeneste
-        multivalued: true
-        inlined_as_list: true
+    slots:
+      - behandlingar
+      - samtykker
+      - tenester
+      - behandlingsgrunnlag
+      - personopplysningar
+    slot_usage:
       behandlingsgrunnlag:
-        range: Behandlingsgrunnlag
-        multivalued: true
-        inlined_as_list: true
-      personopplysningar:
-        range: Personopplysning
         multivalued: true
         inlined_as_list: true
 
-  # --- personvern.samtykke -------------------------------------------------
+  # --- personvern.samtykke --------------------------------------------------
 
   Behandling:
     description: All bruk av personopplysningar (behandlingsaktivitet).
     class_uri: pvn:Behandling
     slots:
       - id
-    attributes:
+      - aktiv
+      - formal
+      - slettet
+      - behandlingsgrunnlag
+      - personopplysning
+      - samtykke
+      - tjeneste
+    slot_usage:
       aktiv:
-        slot_uri: pvn:aktiv
-        range: boolean
         required: true
-        description: Status på behandling.
         in_subset:
           - Obligatorisk
       formal:
-        slot_uri: pvn:formal
-        range: string
         required: true
-        description: Grunngjeving for behandling av personopplysning.
         in_subset:
           - Obligatorisk
       slettet:
-        slot_uri: pvn:slettet
-        range: datetime
-        description: Tidspunkt behandlinga er sletta.
         in_subset:
           - Valgfri
       behandlingsgrunnlag:
-        slot_uri: pvn:behandlingsgrunnlag
-        range: Behandlingsgrunnlag
         required: true
-        description: Rettsleg grunnlag for behandling av personopplysning.
         in_subset:
           - Obligatorisk
       personopplysning:
-        slot_uri: pvn:personopplysning
-        range: Personopplysning
         required: true
-        description: Opplysning eller vurdering som kan knytast til ein enkeltperson.
         in_subset:
           - Obligatorisk
       samtykke:
-        slot_uri: pvn:samtykke
-        range: Samtykke
-        multivalued: true
-        description: Samtykker tilknytt ei behandling.
         in_subset:
           - Valgfri
       tjeneste:
-        slot_uri: pvn:tjeneste
-        range: Tjeneste
         required: true
-        description: Tenesta som behandlinga tilhøyrer.
         in_subset:
           - Obligatorisk
 
@@ -111,40 +188,29 @@ classes:
     class_uri: pvn:Samtykke
     slots:
       - id
-    attributes:
+      - gyldighetsperiode
+      - opprettet
+      - behandling
+      - person
+      - organisasjonselement
+    slot_usage:
       gyldighetsperiode:
-        slot_uri: pvn:gyldighetsperiode
-        range: Periode
         required: true
-        inlined: true
-        description: Tidsrom samtykket er gyldig.
         in_subset:
           - Obligatorisk
       opprettet:
-        slot_uri: pvn:opprettet
-        range: datetime
         required: true
-        description: Dato då samtykket vart oppretta.
         in_subset:
           - Obligatorisk
       behandling:
-        slot_uri: pvn:behandling
-        range: Behandling
         required: true
-        description: Behandling som vert omfatta av samtykket.
         in_subset:
           - Obligatorisk
       person:
-        slot_uri: pvn:person
-        range: uriorcurie
         required: true
-        description: Referanse til Person (Administrasjon) som har gjeve samtykke.
         in_subset:
           - Obligatorisk
       organisasjonselement:
-        slot_uri: pvn:organisasjonselement
-        range: uriorcurie
-        description: Referanse til Organisasjonselement (Administrasjon) tilknytt samtykket.
         in_subset:
           - Valgfri
 
@@ -153,61 +219,46 @@ classes:
     class_uri: pvn:Tjeneste
     slots:
       - id
-    attributes:
-      navn:
-        slot_uri: pvn:navn
-        range: string
+      - naam
+      - slettet
+      - behandling
+    slot_usage:
+      naam:
         required: true
-        description: Tittel på tenesta.
         in_subset:
           - Obligatorisk
       slettet:
-        slot_uri: pvn:slettet
-        range: datetime
-        description: Tidspunkt tenesta er sletta.
         in_subset:
           - Valgfri
       behandling:
-        slot_uri: pvn:behandling
-        range: Behandling
         multivalued: true
-        description: Alle behandlingar til ei teneste.
         in_subset:
           - Valgfri
 
-  # --- personvern.kodeverk -------------------------------------------------
+  # --- personvern.kodeverk --------------------------------------------------
 
   Behandlingsgrunnlag:
     description: Rettsleg grunnlag for behandling av personopplysningar.
     class_uri: pvn:Behandlingsgrunnlag
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: pvn:kode
-        range: string
         required: true
-        description: Verdi som identifiserer omgrepet.
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: pvn:navn
-        range: string
+      naam:
         required: true
-        description: Hovudnamn for omgrepet.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: pvn:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Angir gyldighetsperioden for eit omgrep/kode.
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: pvn:passiv
-        range: boolean
-        description: Angir at koden er passiv og ikkje kan veljast.
         in_subset:
           - Valgfri
 
@@ -216,36 +267,22 @@ classes:
     class_uri: pvn:Personopplysning
     slots:
       - id
-    attributes:
+      - kode
+      - naam
+      - gyldighetsperiode
+      - passiv
+    slot_usage:
       kode:
-        slot_uri: pvn:kode
-        range: string
         required: true
-        description: Verdi som identifiserer omgrepet.
         in_subset:
           - Obligatorisk
-      navn:
-        slot_uri: pvn:navn
-        range: string
+      naam:
         required: true
-        description: Hovudnamn for omgrepet.
         in_subset:
           - Obligatorisk
       gyldighetsperiode:
-        slot_uri: pvn:gyldighetsperiode
-        range: Periode
-        inlined: true
-        description: Angir gyldighetsperioden for eit omgrep/kode.
         in_subset:
           - Valgfri
       passiv:
-        slot_uri: pvn:passiv
-        range: boolean
-        description: Angir at koden er passiv og ikkje kan veljast.
         in_subset:
           - Valgfri
-
-# ---------------------------------------------------------------------------
-# Slots
-# ---------------------------------------------------------------------------
-
