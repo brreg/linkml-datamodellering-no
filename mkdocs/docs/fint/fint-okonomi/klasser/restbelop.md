@@ -35,7 +35,7 @@ Alias: restbelop
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Faktura](faktura.md) |
 | Slot URI | [okn:restbelop](https://schema.fintlabs.no/okonomi/restbelop) |
 

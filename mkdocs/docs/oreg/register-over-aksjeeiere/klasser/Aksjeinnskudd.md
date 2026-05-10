@@ -21,9 +21,36 @@ URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
     click Aksjeinnskudd href "../Aksjeinnskudd/"
       Aksjeinnskudd : gjelder_innbetalt_aksjekapital
         
+          
+    
+        
+        
+        Aksjeinnskudd --> "0..1" Decimal : gjelder_innbetalt_aksjekapital
+        click Decimal href "../http://www.w3.org/2001/XMLSchema#decimal/"
+    
+
+        
       Aksjeinnskudd : gjelder_innbetalt_overkurs
         
+          
+    
+        
+        
+        Aksjeinnskudd --> "0..1" Decimal : gjelder_innbetalt_overkurs
+        click Decimal href "../http://www.w3.org/2001/XMLSchema#decimal/"
+    
+
+        
       Aksjeinnskudd : identifikator
+        
+          
+    
+        
+        
+        Aksjeinnskudd --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -107,9 +134,9 @@ URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [gjelder_innbetalt_aksjekapital](gjelder_innbetalt_aksjekapital.md) | 0..1 <br/> [Decimal](decimal.md) | Innbetalt aksjekapital |
-| [gjelder_innbetalt_overkurs](gjelder_innbetalt_overkurs.md) | 0..1 <br/> [Decimal](decimal.md) | Innbetalt overkurs |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [gjelder_innbetalt_aksjekapital](gjelder_innbetalt_aksjekapital.md) | 0..1 <br/> [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) | Innbetalt aksjekapital |
+| [gjelder_innbetalt_overkurs](gjelder_innbetalt_overkurs.md) | 0..1 <br/> [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) | Innbetalt overkurs |
 
 
 

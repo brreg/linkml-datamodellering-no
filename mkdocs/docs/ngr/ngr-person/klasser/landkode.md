@@ -35,7 +35,7 @@ Alias: landkode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Statsborgerskap](statsborgerskap.md) |
 | Slot URI | [ngrp:landkode](https://data.norge.no/vocabulary/ngr-person#landkode) |
 

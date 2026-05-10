@@ -35,7 +35,7 @@ Alias: maks_eksklusiv
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [EnkelType](enkeltype.md) |
 | Slot URI | [xsd:maxExclusive](http://www.w3.org/2001/XMLSchema#maxExclusive) |
 

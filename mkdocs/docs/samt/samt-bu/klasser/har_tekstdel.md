@@ -22,8 +22,8 @@ Alias: har_tekstdel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
 | [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
 | [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
@@ -64,7 +64,7 @@ Alias: har_tekstdel
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: har_tekstdel
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:hasBody |
-| native | samtbuskole:har_tekstdel |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_tekstdel |
 
 
 
@@ -85,8 +85,7 @@ Alias: har_tekstdel
 ```yaml
 name: har_tekstdel
 description: Tekstleg innhald i merknaden.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: oa:hasBody
 alias: har_tekstdel
 domain_of:

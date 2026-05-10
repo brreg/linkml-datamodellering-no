@@ -26,7 +26,7 @@ Alias: referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Slot URI | [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso) |
 
 ### Cardinality and Requirements

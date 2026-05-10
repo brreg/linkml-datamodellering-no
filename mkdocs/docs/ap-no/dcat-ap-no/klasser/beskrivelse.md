@@ -22,14 +22,14 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Gebyr](gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |  no  |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
-| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
-| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  no  |
 | [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
-| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Gebyr](gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |  no  |
 
 
 
@@ -70,7 +70,7 @@ Alias: beskrivelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -80,7 +80,7 @@ Alias: beskrivelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:description |
-| native | https://data.norge.no/linkml/dcat-ap-no/beskrivelse |
+| native | https://data.norge.no/linkml/common-ap-no/beskrivelse |
 
 
 
@@ -91,8 +91,7 @@ Alias: beskrivelse
 ```yaml
 name: beskrivelse
 description: Fritekstbeskrivelse av ressursen (dct:description).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:description
 alias: beskrivelse
 domain_of:

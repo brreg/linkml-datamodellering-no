@@ -63,7 +63,7 @@ Alias: eksempeldata
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: eksempeldata
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:sample |
-| native | samtbuskole:eksempeldata |
+| native | https://data.norge.no/linkml/dcat-ap-no/eksempeldata |
 
 
 
@@ -84,8 +84,7 @@ Alias: eksempeldata
 ```yaml
 name: eksempeldata
 description: Eksempeldata som distribusjon.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: adms:sample
 alias: eksempeldata
 domain_of:

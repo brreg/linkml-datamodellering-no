@@ -21,6 +21,15 @@ URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse
     click Selskapshendelse href "../Selskapshendelse/"
       Selskapshendelse : identifikator
         
+          
+    
+        
+        
+        Selskapshendelse --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Selskapshendelse : kan_ha_aksjeinnskudd
         
           
@@ -98,7 +107,7 @@ URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
 | [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | 0..1 <br/> [Aksjeinnskudd](aksjeinnskudd.md) | Aksjeinnskot i selskapshending |
 
 

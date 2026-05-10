@@ -35,7 +35,7 @@ Alias: tilflyttingsland
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [UtflyttingFraNorge](utflyttingfranorge.md) |
 | Slot URI | [ngrp:tilflyttingsland](https://data.norge.no/vocabulary/ngr-person#tilflyttingsland) |
 

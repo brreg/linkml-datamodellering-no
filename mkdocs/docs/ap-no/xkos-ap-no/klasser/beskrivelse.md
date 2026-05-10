@@ -63,7 +63,7 @@ Alias: beskrivelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/xkos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: beskrivelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:description |
-| native | https://data.norge.no/linkml/xkos-ap-no/beskrivelse |
+| native | https://data.norge.no/linkml/common-ap-no/beskrivelse |
 
 
 
@@ -84,8 +84,7 @@ Alias: beskrivelse
 ```yaml
 name: beskrivelse
 description: Fritekstbeskrivelse av ressursen (dct:description).
-from_schema: https://data.norge.no/linkml/xkos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:description
 alias: beskrivelse
 domain_of:

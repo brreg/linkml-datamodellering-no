@@ -23,8 +23,8 @@ Alias: har_anbefalt_term
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
-| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 | [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |  yes  |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 
 
 
@@ -65,7 +65,7 @@ Alias: har_anbefalt_term
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: har_anbefalt_term
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:prefLabel |
-| native | samtbuskole:har_anbefalt_term |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term |
 
 
 
@@ -86,8 +86,7 @@ Alias: har_anbefalt_term
 ```yaml
 name: har_anbefalt_term
 description: Føretrekt term/namn for dimensjonen eller målet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: skos:prefLabel
 alias: har_anbefalt_term
 domain_of:

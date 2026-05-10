@@ -35,7 +35,7 @@ Alias: har_rolle
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Relasjon](relasjon.md) |
 | Slot URI | [dcat:hadRole](http://www.w3.org/ns/dcat#hadRole) |
 
@@ -62,7 +62,7 @@ Alias: har_rolle
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: har_rolle
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:hadRole |
-| native | samtbuskole:har_rolle |
+| native | https://data.norge.no/linkml/dcat-ap-no/har_rolle |
 
 
 
@@ -83,8 +83,7 @@ Alias: har_rolle
 ```yaml
 name: har_rolle
 description: Rolle ein aktør eller ressurs har i ein relasjon.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:hadRole
 alias: har_rolle
 domain_of:

@@ -21,11 +21,47 @@ URI: [foaf:Document](http://xmlns.com/foaf/0.1/Document)
     click Dokument href "../Dokument/"
       Dokument : format
         
+          
+    
+        
+        
+        Dokument --> "0..1" String : format
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Dokument : id
+        
+          
+    
+        
+        
+        Dokument --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Dokument : spraak
         
+          
+    
+        
+        
+        Dokument --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
+        
       Dokument : tittel
+        
+          
+    
+        
+        
+        Dokument --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -132,10 +168,10 @@ URI: [foaf:Document](http://xmlns.com/foaf/0.1/Document)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
-| [format](format.md) | 0..1 <br/> [String](string.md) | Filformat eller medietype (dct:format) |
+| [format](format.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Filformat eller medietype (dct:format) |
 
 
 
@@ -219,12 +255,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Dokument
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -239,16 +277,12 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Dokument
@@ -265,8 +299,7 @@ attributes:
   spraak:
     name: spraak
     description: Språk brukt i ressursen (dct:language).
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Dokument
@@ -279,8 +312,7 @@ attributes:
   format:
     name: format
     description: Filformat eller medietype (dct:format).
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
     alias: format
     owner: Dokument

@@ -35,7 +35,7 @@ Alias: krediteringstekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:attributionText](http://schema.theodi.org/odrs#attributionText) |
 
@@ -62,7 +62,7 @@ Alias: krediteringstekst
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: krediteringstekst
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:attributionText |
-| native | samtbuskole:krediteringstekst |
+| native | https://data.norge.no/linkml/dcat-ap-no/krediteringstekst |
 
 
 
@@ -83,8 +83,7 @@ Alias: krediteringstekst
 ```yaml
 name: krediteringstekst
 description: Tekst som skal brukast ved kreditering.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:attributionText
 alias: krediteringstekst
 domain_of:

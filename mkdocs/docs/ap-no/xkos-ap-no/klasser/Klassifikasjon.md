@@ -21,9 +21,36 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
     click Klassifikasjon href "../Klassifikasjon/"
       Klassifikasjon : antall_nivaa
         
+          
+    
+        
+        
+        Klassifikasjon --> "0..1" NonNegativeInteger : antall_nivaa
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
+        
       Klassifikasjon : beskrivelse
         
+          
+    
+        
+        
+        Klassifikasjon --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Klassifikasjon : endringsdato
+        
+          
+    
+        
+        
+        Klassifikasjon --> "0..1" Date : endringsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Klassifikasjon : er_samanlikna_med
         
@@ -60,15 +87,69 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
         
       Klassifikasjon : har_versjonsnummer
         
+          
+    
+        
+        
+        Klassifikasjon --> "0..1" String : har_versjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Klassifikasjon : heimeside
+        
+          
+    
+        
+        
+        Klassifikasjon --> "*" Uri : heimeside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Klassifikasjon : id
         
+          
+    
+        
+        
+        Klassifikasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Klassifikasjon : identifikator_literal
+        
+          
+    
+        
+        
+        Klassifikasjon --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Klassifikasjon : nokkelord
         
+          
+    
+        
+        
+        Klassifikasjon --> "*" LangString : nokkelord
+        click LangString href "../LangString/"
+    
+
+        
       Klassifikasjon : spraak
+        
+          
+    
+        
+        
+        Klassifikasjon --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
         
       Klassifikasjon : tema
         
@@ -83,7 +164,25 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
         
       Klassifikasjon : tittel
         
+          
+    
+        
+        
+        Klassifikasjon --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
+        
       Klassifikasjon : utgivelsesdato
+        
+          
+    
+        
+        
+        Klassifikasjon --> "0..1" Date : utgivelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Klassifikasjon : utgjevar
         
@@ -178,7 +277,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon som er ansvarleg utgjevar (dct:publisher) |
 
@@ -260,10 +359,10 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 | [tema](tema.md) | * <br/> [Konsept](konsept.md) | Fagleg tema klassifikasjonen dekkjer (dct:subject) |
 | [nokkelord](nokkelord.md) | * <br/> [LangString](langstring.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
-| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato ressursen vart første gong publisert (dct:issued) |
+| [heimeside](heimeside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
 | [gjeld_for_tidsrom](gjeld_for_tidsrom.md) | 0..1 <br/> [Tidsrom](tidsrom.md) | Tidsrom klassifikasjonen er gyldig for (dct:temporal) |
 | [antall_nivaa](antall_nivaa.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Antal nivå i klassifikasjonen (xkos:numberOfLevels) |
 
@@ -537,7 +636,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 
 
@@ -758,12 +857,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Klassifikasjon
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Klassifikasjon
     - Klassifikasjonsnivaa
     - Kategori
@@ -771,17 +872,14 @@ attributes:
     - Kategorisamanlikning
     - Organisasjon
     - Tidsrom
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
+    required: true
   identifikator_literal:
     name: identifikator_literal
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Klassifikasjon
@@ -795,8 +893,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Klassifikasjon
@@ -810,8 +907,7 @@ attributes:
   beskrivelse:
     name: beskrivelse
     description: Fritekstbeskrivelse av ressursen (dct:description).
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Klassifikasjon
@@ -853,8 +949,7 @@ attributes:
     description: Nøkkelord som beskriv ressursen (dcat:keyword).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dcat:keyword
     alias: nokkelord
     owner: Klassifikasjon
@@ -867,8 +962,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Klassifikasjon
@@ -881,8 +975,7 @@ attributes:
     description: Versjonsnummer for ressursen (owl:versionInfo).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
     alias: har_versjonsnummer
     owner: Klassifikasjon
@@ -894,8 +987,7 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
     alias: endringsdato
     owner: Klassifikasjon
@@ -907,8 +999,7 @@ attributes:
     description: Dato ressursen vart første gong publisert (dct:issued).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
     alias: utgivelsesdato
     owner: Klassifikasjon
@@ -920,8 +1011,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
     alias: heimeside
     owner: Klassifikasjon

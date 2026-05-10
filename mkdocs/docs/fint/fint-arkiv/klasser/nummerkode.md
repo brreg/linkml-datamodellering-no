@@ -62,7 +62,7 @@ Alias: nummerkode
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: nummerkode
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:nummerkode |
-| native | https://schema.fintlabs.no/arkiv/:nummerkode |
+| native | https://schema.fintlabs.no/:nummerkode |
 
 
 
@@ -83,8 +83,7 @@ Alias: nummerkode
 ```yaml
 name: nummerkode
 description: Nummerkode for aktuell valuta.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:nummerkode
 alias: nummerkode
 domain_of:

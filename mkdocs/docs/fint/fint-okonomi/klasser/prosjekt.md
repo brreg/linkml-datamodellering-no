@@ -35,7 +35,7 @@ Alias: prosjekt
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontostreng](kontostreng.md) |
 | Slot URI | [okn:prosjekt](https://schema.fintlabs.no/okonomi/prosjekt) |
 

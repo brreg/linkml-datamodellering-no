@@ -21,11 +21,47 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
     click Dokumentfil href "../Dokumentfil/"
       Dokumentfil : data
         
+          
+    
+        
+        
+        Dokumentfil --> "1" String : data
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Dokumentfil : filnavn
+        
+          
+    
+        
+        
+        Dokumentfil --> "0..1" String : filnavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Dokumentfil : format
         
+          
+    
+        
+        
+        Dokumentfil --> "1" String : format
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Dokumentfil : id
+        
+          
+    
+        
+        
+        Dokumentfil --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -71,8 +107,8 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [data](data.md) | 1 <br/> [String](string.md) | Dokumentfilens data, koda som Base64 |
-| [format](format.md) | 1 <br/> [String](string.md) | Format på dokumentfil, som IANA Media Type |
+| [data](data.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Dokumentfilens data, koda som Base64 |
+| [format](format.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Format på dokumentfil, som IANA Media Type |
 
 
 
@@ -113,7 +149,7 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [filnavn](filnavn.md) | 0..1 <br/> [String](string.md) | Dokumentfilens namn |
+| [filnavn](filnavn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Dokumentfilens namn |
 
 
 
@@ -171,7 +207,7 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -286,12 +322,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Dokumentfil
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Mappe
     - Registrering
     - AdministrativEnhet
@@ -319,12 +360,6 @@ attributes:
     - Tilgangsrestriksjon
     - TilknyttetRegistreringSom
     - Variantformat
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   data:

@@ -24,6 +24,15 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
       
       Postboksadresse : id
         
+          
+    
+        
+        
+        Postboksadresse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Postboksadresse : postboks_ref
         
           
@@ -36,6 +45,15 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 
         
       Postboksadresse : postboksanleggsnavn
+        
+          
+    
+        
+        
+        Postboksadresse --> "0..1" String : postboksanleggsnavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Postboksadresse : poststed_ref
         
@@ -129,7 +147,7 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [postboksanleggsnavn](postboksanleggsnavn.md) | 0..1 <br/> [String](string.md) | Namn på postboksanlegget (t |
+| [postboksanleggsnavn](postboksanleggsnavn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på postboksanlegget (t |
 
 
 
@@ -181,7 +199,7 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 

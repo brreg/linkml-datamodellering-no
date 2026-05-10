@@ -62,7 +62,7 @@ Alias: kjonn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: kjonn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kjonn |
-| native | https://schema.fintlabs.no/okonomi/:kjonn |
+| native | https://schema.fintlabs.no/:kjonn |
 
 
 
@@ -83,8 +83,7 @@ Alias: kjonn
 ```yaml
 name: kjonn
 description: Kjønn.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kjonn
 alias: kjonn
 domain_of:

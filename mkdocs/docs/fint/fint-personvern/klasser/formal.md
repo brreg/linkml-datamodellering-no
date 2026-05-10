@@ -35,7 +35,7 @@ Alias: formal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Behandling](behandling.md) |
 | Slot URI | [pvn:formal](https://schema.fintlabs.no/personvern/formal) |
 

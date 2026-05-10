@@ -21,13 +21,58 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
     click Regel href "../Regel/"
       Regel : beskrivelse
         
+          
+    
+        
+        
+        Regel --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Regel : id
+        
+          
+    
+        
+        
+        Regel --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Regel : identifikator_literal
         
+          
+    
+        
+        
+        Regel --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Regel : spraak
         
+          
+    
+        
+        
+        Regel --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
+        
       Regel : tittel
+        
+          
+    
+        
+        
+        Regel --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Regel : type_concept
         
@@ -142,7 +187,7 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 | --- | --- | --- |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
@@ -228,7 +273,7 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -357,12 +402,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Regel
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -378,9 +425,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -388,8 +432,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Regel
@@ -411,8 +454,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Regel
@@ -434,8 +476,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Regel
@@ -457,8 +498,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Regel
@@ -475,8 +515,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: Regel

@@ -35,7 +35,7 @@ Alias: gyldig_fra
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Begrep](begrep.md) |
 | Slot URI | [euvoc:startDate](http://publications.europa.eu/ontology/euvoc#startDate) |
 

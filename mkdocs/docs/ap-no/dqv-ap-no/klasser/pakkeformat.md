@@ -62,7 +62,7 @@ Alias: pakkeformat
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: pakkeformat
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:packageFormat |
-| native | https://data.norge.no/linkml/dqv-ap-no/pakkeformat |
+| native | https://data.norge.no/linkml/dcat-ap-no/pakkeformat |
 
 
 
@@ -83,8 +83,7 @@ Alias: pakkeformat
 ```yaml
 name: pakkeformat
 description: Pakkeformat brukt i distribusjonen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:packageFormat
 alias: pakkeformat
 domain_of:

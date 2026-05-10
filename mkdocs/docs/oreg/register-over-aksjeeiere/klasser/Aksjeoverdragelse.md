@@ -21,6 +21,15 @@ URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragel
     click Aksjeoverdragelse href "../Aksjeoverdragelse/"
       Aksjeoverdragelse : identifikator
         
+          
+    
+        
+        
+        Aksjeoverdragelse --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Aksjeoverdragelse : kan_ha_vederlag
         
           
@@ -98,7 +107,7 @@ URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragel
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
 | [kan_ha_vederlag](kan_ha_vederlag.md) | 0..1 <br/> [Vederlag](vederlag.md) | Vederlag for aksjeoverdraging |
 
 

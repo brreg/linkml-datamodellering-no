@@ -21,7 +21,25 @@ URI: [ngrv:Signaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#Signatu
     click Signaturrett href "../Signaturrett/"
       Signaturrett : id
         
+          
+    
+        
+        
+        Signaturrett --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Signaturrett : signaturrett_bestemmelse
+        
+          
+    
+        
+        
+        Signaturrett --> "1" String : signaturrett_bestemmelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngrv:Signaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#Signatu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [signaturrett_bestemmelse](signaturrett_bestemmelse.md) | 1 <br/> [String](string.md) | Tekstleg bestemmelse om signaturrett (t |
+| [signaturrett_bestemmelse](signaturrett_bestemmelse.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg bestemmelse om signaturrett (t |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngrv:Signaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#Signatu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

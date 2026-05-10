@@ -24,7 +24,25 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
       
       Virksomhetshendelse : beskrivelse
         
+          
+    
+        
+        
+        Virksomhetshendelse --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Virksomhetshendelse : er_beskrive_av
+        
+          
+    
+        
+        
+        Virksomhetshendelse --> "*" Uri : er_beskrive_av
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Virksomhetshendelse : har_kontaktpunkt
         
@@ -39,7 +57,25 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
         
       Virksomhetshendelse : id
         
+          
+    
+        
+        
+        Virksomhetshendelse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Virksomhetshendelse : identifikator_literal
+        
+          
+    
+        
+        
+        Virksomhetshendelse --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Virksomhetshendelse : kan_utlose
         
@@ -54,6 +90,15 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
         
       Virksomhetshendelse : kan_utlose_behov_for
         
+          
+    
+        
+        
+        Virksomhetshendelse --> "*" Uriorcurie : kan_utlose_behov_for
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Virksomhetshendelse : tema
         
           
@@ -66,6 +111,15 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
 
         
       Virksomhetshendelse : tittel
+        
+          
+    
+        
+        
+        Virksomhetshendelse --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Virksomhetshendelse : type_concept
         
@@ -122,7 +176,7 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kan_utlose_behov_for](kan_utlose_behov_for.md) | * <br/> [Uriorcurie](uriorcurie.md) | Tenester det kan oppstå behov for som følgje av hendinga |
+| [kan_utlose_behov_for](kan_utlose_behov_for.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Tenester det kan oppstå behov for som følgje av hendinga |
 
 
 
@@ -155,14 +209,14 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Hendelse](hendelse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Hendelse](hendelse.md) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Hendelse](hendelse.md) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Hendelse](hendelse.md) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Hendelse](hendelse.md) |
 | [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen | [Hendelse](hendelse.md) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Hendelse](hendelse.md) |
 | [kan_utlose](kan_utlose.md) | * <br/> [OffentligTjeneste](offentligtjeneste.md) | Offentlege tenester hendinga kan utløyse | [Hendelse](hendelse.md) |
 | [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om | [Hendelse](hendelse.md) |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen | [Hendelse](hendelse.md) |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Datasett som beskriv ressursen | [Hendelse](hendelse.md) |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) | [Hendelse](hendelse.md) |
 
 
@@ -263,12 +317,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Virksomhetshendelse
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -284,9 +340,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -294,8 +347,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Virksomhetshendelse
@@ -318,8 +370,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Virksomhetshendelse
@@ -360,8 +411,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Virksomhetshendelse
@@ -431,8 +481,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: Virksomhetshendelse

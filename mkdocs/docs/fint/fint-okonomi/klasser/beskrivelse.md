@@ -22,8 +22,8 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
 | [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
 
 
 
@@ -36,8 +36,8 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [Transaksjon](transaksjon.md), [Periode](periode.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Periode](periode.md), [Transaksjon](transaksjon.md) |
 | Slot URI | [fint:beskrivelse](https://schema.fintlabs.no/beskrivelse) |
 
 ### Cardinality and Requirements
@@ -63,7 +63,7 @@ Alias: beskrivelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: beskrivelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:beskrivelse |
-| native | https://schema.fintlabs.no/okonomi/:beskrivelse |
+| native | https://schema.fintlabs.no/:beskrivelse |
 
 
 
@@ -84,13 +84,12 @@ Alias: beskrivelse
 ```yaml
 name: beskrivelse
 description: Beskriven namn eller omtale.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:beskrivelse
 alias: beskrivelse
 domain_of:
-- Transaksjon
 - Periode
+- Transaksjon
 range: string
 
 ```

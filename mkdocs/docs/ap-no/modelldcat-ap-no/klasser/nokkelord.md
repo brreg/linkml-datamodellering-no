@@ -63,7 +63,7 @@ Alias: nokkelord
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: nokkelord
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:keyword |
-| native | https://data.norge.no/linkml/modelldcat-ap-no/nokkelord |
+| native | https://data.norge.no/linkml/common-ap-no/nokkelord |
 
 
 
@@ -84,8 +84,7 @@ Alias: nokkelord
 ```yaml
 name: nokkelord
 description: Nøkkelord som beskriv ressursen (dcat:keyword).
-from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dcat:keyword
 alias: nokkelord
 domain_of:

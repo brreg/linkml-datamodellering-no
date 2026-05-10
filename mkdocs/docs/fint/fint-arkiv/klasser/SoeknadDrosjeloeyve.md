@@ -57,9 +57,36 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
         
       SoeknadDrosjeloeyve : avsluttetDato
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" Datetime : avsluttetDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       SoeknadDrosjeloeyve : beskrivelse
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       SoeknadDrosjeloeyve : id
+        
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       SoeknadDrosjeloeyve : journalenhet
         
@@ -118,7 +145,25 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
         
       SoeknadDrosjeloeyve : noekkelord
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "*" String : noekkelord
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       SoeknadDrosjeloeyve : offentligTittel
+        
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" String : offentligTittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       SoeknadDrosjeloeyve : opprettetAv
         
@@ -133,9 +178,36 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
         
       SoeknadDrosjeloeyve : opprettetDato
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" Datetime : opprettetDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       SoeknadDrosjeloeyve : organisasjonsnavn
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "1" String : organisasjonsnavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       SoeknadDrosjeloeyve : orgnummer
+        
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "1" String : orgnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       SoeknadDrosjeloeyve : part
         
@@ -150,6 +222,15 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
         
       SoeknadDrosjeloeyve : saksaar
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" String : saksaar
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       SoeknadDrosjeloeyve : saksansvarlig
         
           
@@ -163,6 +244,15 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
         
       SoeknadDrosjeloeyve : saksdato
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" Datetime : saksdato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       SoeknadDrosjeloeyve : saksmappetype
         
           
@@ -175,6 +265,15 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
 
         
       SoeknadDrosjeloeyve : sakssekvensnummer
+        
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" String : sakssekvensnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       SoeknadDrosjeloeyve : saksstatus
         
@@ -211,7 +310,25 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
         
       SoeknadDrosjeloeyve : tittel
         
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" String : tittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       SoeknadDrosjeloeyve : utlaantDato
+        
+          
+    
+        
+        
+        SoeknadDrosjeloeyve --> "0..1" Datetime : utlaantDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
         
       
 ```
@@ -256,8 +373,8 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [organisasjonsnavn](organisasjonsnavn.md) | 1 <br/> [String](string.md) | Namn på eining registrert i Einingsregisteret |
-| [orgnummer](orgnummer.md) | 1 <br/> [String](string.md) | Organisasjonsnummer |
+| [organisasjonsnavn](organisasjonsnavn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på eining registrert i Einingsregisteret |
+| [orgnummer](orgnummer.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Organisasjonsnummer |
 
 
 
@@ -317,28 +434,28 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- || [journalpost](journalpost.md) | * <br/> [Journalpost](journalpost.md) | Journalpostar knytt til saksmappa | [Saksmappe](saksmappe.md) |
-| [saksaar](saksaar.md) | 0..1 <br/> [String](string.md) | Inngår i M003 mappeID — viser året saksmappa vart oppretta | [Saksmappe](saksmappe.md) |
-| [saksdato](saksdato.md) | 0..1 <br/> [Datetime](datetime.md) | Datoen saka er oppretta | [Saksmappe](saksmappe.md) |
-| [sakssekvensnummer](sakssekvensnummer.md) | 0..1 <br/> [String](string.md) | Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta | [Saksmappe](saksmappe.md) |
-| [utlaantDato](utlaantdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato ein fysisk saksmappe eller journalpost vart utlånt | [Saksmappe](saksmappe.md) |
+| [saksaar](saksaar.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Inngår i M003 mappeID — viser året saksmappa vart oppretta | [Saksmappe](saksmappe.md) |
+| [saksdato](saksdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Datoen saka er oppretta | [Saksmappe](saksmappe.md) |
+| [sakssekvensnummer](sakssekvensnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta | [Saksmappe](saksmappe.md) |
+| [utlaantDato](utlaantdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato ein fysisk saksmappe eller journalpost vart utlånt | [Saksmappe](saksmappe.md) |
 | [saksmappetype](saksmappetype.md) | 0..1 <br/> [Saksmappetype](saksmappetype.md) | Type saksmappe | [Saksmappe](saksmappe.md) |
 | [saksstatus](saksstatus.md) | 1 <br/> [Saksstatus](saksstatus.md) | Status til saksmappa | [Saksmappe](saksmappe.md) |
 | [tilgangsgruppe](tilgangsgruppe.md) | 0..1 <br/> [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til arkivenheten | [Saksmappe](saksmappe.md) |
 | [journalenhet](journalenhet.md) | 0..1 <br/> [AdministrativEnhet](administrativenhet.md) | Eining med arkivmessig ansvar | [Saksmappe](saksmappe.md) |
 | [administrativEnhet](administrativenhet.md) | 1 <br/> [AdministrativEnhet](administrativenhet.md) | Administrativ eining som har ansvar for saksbehandlinga | [Saksmappe](saksmappe.md) |
 | [saksansvarlig](saksansvarlig.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som er saksansvarleg | [Saksmappe](saksmappe.md) |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Mappe](mappe.md) |
-| [avsluttetDato](avsluttetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett når arkivenheten vart avslutta/lukka | [Mappe](mappe.md) |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn eller omtale | [Mappe](mappe.md) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Mappe](mappe.md) |
+| [avsluttetDato](avsluttetdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett når arkivenheten vart avslutta/lukka | [Mappe](mappe.md) |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Beskriven namn eller omtale | [Mappe](mappe.md) |
 | [klasse](klasse.md) | * <br/> [Klasse](klasse.md) | Klassifisering av arkivenhet | [Mappe](mappe.md) |
 | [mappeId](mappeid.md) | 0..1 <br/> [Identifikator](identifikator.md) | Eintydig identifikasjon av mappa innanfor arkivet | [Mappe](mappe.md) |
 | [merknad](merknad.md) | * <br/> [Merknad](merknad.md) | Merknader knytt til arkivenhet | [Mappe](mappe.md) |
-| [noekkelord](noekkelord.md) | * <br/> [String](string.md) | Nøkkelord som skildrar innhaldet (Mappe) | [Mappe](mappe.md) |
-| [offentligTittel](offentligtittel.md) | 0..1 <br/> [String](string.md) | Offentleg tittel der skjerma ord er fjerna | [Mappe](mappe.md) |
-| [opprettetDato](opprettetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert | [Mappe](mappe.md) |
+| [noekkelord](noekkelord.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Nøkkelord som skildrar innhaldet (Mappe) | [Mappe](mappe.md) |
+| [offentligTittel](offentligtittel.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Offentleg tittel der skjerma ord er fjerna | [Mappe](mappe.md) |
+| [opprettetDato](opprettetdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett arkivenheten vart oppretta/registrert | [Mappe](mappe.md) |
 | [part](part.md) | * <br/> [Part](part.md) | Partar til arkivenhet | [Mappe](mappe.md) |
 | [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](skjerming.md) | Skjerming av arkivenhet | [Mappe](mappe.md) |
-| [tittel](tittel.md) | 0..1 <br/> [String](string.md) | Tittel eller namn på arkivenheten | [Mappe](mappe.md) |
+| [tittel](tittel.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tittel eller namn på arkivenheten | [Mappe](mappe.md) |
 | [arkivdel](arkivdel.md) | 0..1 <br/> [Arkivdel](arkivdel.md) | Arkivdel arkivenheten tilhøyrer | [Mappe](mappe.md) |
 | [avsluttetAv](avsluttetav.md) | 0..1 <br/> [Arkivressurs](arkivressurs.md) | Person som avslutta/lukka arkivenheten | [Mappe](mappe.md) |
 | [opprettetAv](opprettetav.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som oppretta/registrerte arkivenheten | [Mappe](mappe.md) |
@@ -446,14 +563,13 @@ attributes:
     description: Namn på eining registrert i Einingsregisteret.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnavn
     alias: organisasjonsnavn
     owner: SoeknadDrosjeloeyve
     domain_of:
-    - SoeknadDrosjeloeyve
     - Enhet
+    - SoeknadDrosjeloeyve
     range: string
     required: true
   orgnummer:
@@ -626,12 +742,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: SoeknadDrosjeloeyve
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Mappe
     - Registrering
     - AdministrativEnhet
@@ -659,12 +780,6 @@ attributes:
     - Tilgangsrestriksjon
     - TilknyttetRegistreringSom
     - Variantformat
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   avsluttetDato:
@@ -686,17 +801,16 @@ attributes:
     description: Beskriven namn eller omtale.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
     alias: beskrivelse
     owner: SoeknadDrosjeloeyve
     domain_of:
+    - Periode
     - Mappe
     - Registrering
     - Klassifikasjonssystem
     - Dokumentbeskrivelse
-    - Periode
     range: string
   klasse:
     name: klasse

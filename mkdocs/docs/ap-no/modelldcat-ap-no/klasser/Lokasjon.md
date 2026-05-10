@@ -21,6 +21,15 @@ URI: [dct:Location](http://purl.org/dc/terms/Location)
     click Lokasjon href "../Lokasjon/"
       Lokasjon : id
         
+          
+    
+        
+        
+        Lokasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -78,7 +87,7 @@ URI: [dct:Location](http://purl.org/dc/terms/Location)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -152,12 +161,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Lokasjon
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -172,9 +183,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
 class_uri: dct:Location

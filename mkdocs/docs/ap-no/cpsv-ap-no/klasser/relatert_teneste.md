@@ -36,7 +36,7 @@ Alias: relatert_teneste
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [OffentligTjeneste](offentligtjeneste.md), [Tjeneste](tjeneste.md) |
 | Slot URI | [cv:relatedService](http://data.europa.eu/m8g/relatedService) |
 

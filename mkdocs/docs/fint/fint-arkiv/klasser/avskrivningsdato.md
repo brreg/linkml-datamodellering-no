@@ -35,7 +35,7 @@ Alias: avskrivningsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Avskrivning](avskrivning.md) |
 | Slot URI | [ark:avskrivningsdato](https://schema.fintlabs.no/arkiv/avskrivningsdato) |
 

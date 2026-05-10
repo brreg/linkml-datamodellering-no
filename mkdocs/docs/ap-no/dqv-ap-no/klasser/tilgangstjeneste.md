@@ -63,7 +63,7 @@ Alias: tilgangstjeneste
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: tilgangstjeneste
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:accessService |
-| native | https://data.norge.no/linkml/dqv-ap-no/tilgangstjeneste |
+| native | https://data.norge.no/linkml/dcat-ap-no/tilgangstjeneste |
 
 
 
@@ -84,8 +84,7 @@ Alias: tilgangstjeneste
 ```yaml
 name: tilgangstjeneste
 description: Datatjeneste som gjev tilgang til distribusjonen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:accessService
 alias: tilgangstjeneste
 domain_of:

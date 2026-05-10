@@ -23,9 +23,9 @@ Alias: programomrade
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Fag](fag.md) | Eit skulefag |  yes  |
+| [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  yes  |
 | [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
 | [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  yes  |
-| [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  yes  |
 | [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
 | [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  yes  |
 

@@ -35,7 +35,7 @@ Alias: ansettelsesprosent
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:ansettelsesprosent](https://schema.fintlabs.no/administrasjon/ansettelsesprosent) |
 

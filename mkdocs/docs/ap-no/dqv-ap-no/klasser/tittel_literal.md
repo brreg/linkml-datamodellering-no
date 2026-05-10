@@ -26,7 +26,7 @@ Alias: tittel_literal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Slot URI | [dct:title](http://purl.org/dc/terms/title) |
 
 ### Cardinality and Requirements
@@ -53,7 +53,7 @@ Alias: tittel_literal
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -63,7 +63,7 @@ Alias: tittel_literal
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:title |
-| native | https://data.norge.no/linkml/dqv-ap-no/tittel_literal |
+| native | https://data.norge.no/linkml/dcat-ap-no/tittel_literal |
 
 
 
@@ -74,8 +74,7 @@ Alias: tittel_literal
 ```yaml
 name: tittel_literal
 description: Namn/tittel utan språktag.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:title
 alias: tittel_literal
 range: string

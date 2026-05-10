@@ -22,8 +22,8 @@ Alias: organisasjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 | [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 
 
@@ -38,7 +38,7 @@ Alias: organisasjonsnummer
 | Property | Value |
 | --- | --- |
 | Range | [Identifikator](identifikator.md) |
-| Domain Of | [Skole](skole.md), [Enhet](enhet.md) |
+| Domain Of | [Enhet](enhet.md), [Skole](skole.md) |
 | Slot URI | [fint:organisasjonsnummer](https://schema.fintlabs.no/organisasjonsnummer) |
 
 ### Cardinality and Requirements
@@ -64,7 +64,7 @@ Alias: organisasjonsnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -74,7 +74,7 @@ Alias: organisasjonsnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:organisasjonsnummer |
-| native | https://schema.fintlabs.no/utdanning/:organisasjonsnummer |
+| native | https://schema.fintlabs.no/:organisasjonsnummer |
 
 
 
@@ -85,13 +85,12 @@ Alias: organisasjonsnummer
 ```yaml
 name: organisasjonsnummer
 description: Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:organisasjonsnummer
 alias: organisasjonsnummer
 domain_of:
-- Skole
 - Enhet
+- Skole
 range: Identifikator
 inlined: true
 

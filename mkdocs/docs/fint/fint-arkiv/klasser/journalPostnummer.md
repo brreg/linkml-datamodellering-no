@@ -35,7 +35,7 @@ Alias: journalPostnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Journalpost](journalpost.md) |
 | Slot URI | [ark:journalPostnummer](https://schema.fintlabs.no/arkiv/journalPostnummer) |
 

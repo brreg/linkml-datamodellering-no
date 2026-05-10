@@ -35,7 +35,7 @@ Alias: policy
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [odrl:hasPolicy](http://www.w3.org/ns/odrl/2/hasPolicy) |
 
@@ -69,7 +69,7 @@ Alias: policy
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -79,7 +79,7 @@ Alias: policy
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrl:hasPolicy |
-| native | samtbuskole:policy |
+| native | https://data.norge.no/linkml/dcat-ap-no/policy |
 
 
 
@@ -94,8 +94,7 @@ annotations:
     tag: gyldige_verdier
     value: odrl:Policy
 description: ODRL-policy som regulerer bruk av ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrl:hasPolicy
 alias: policy
 domain_of:

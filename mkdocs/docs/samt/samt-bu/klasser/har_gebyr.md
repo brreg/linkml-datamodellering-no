@@ -63,7 +63,7 @@ Alias: har_gebyr
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: har_gebyr
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasCost |
-| native | samtbuskole:har_gebyr |
+| native | https://data.norge.no/linkml/dcat-ap-no/har_gebyr |
 
 
 
@@ -84,8 +84,7 @@ Alias: har_gebyr
 ```yaml
 name: har_gebyr
 description: Gebyr knytt til bruk av datatjenesten.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: cv:hasCost
 alias: har_gebyr
 domain_of:

@@ -21,11 +21,47 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
     click Kontaktopplysninger href "../Kontaktopplysninger/"
       Kontaktopplysninger : epostadresse_verdi
         
+          
+    
+        
+        
+        Kontaktopplysninger --> "0..1" String : epostadresse_verdi
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontaktopplysninger : id
+        
+          
+    
+        
+        
+        Kontaktopplysninger --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Kontaktopplysninger : mobiltelefonnummer
         
+          
+    
+        
+        
+        Kontaktopplysninger --> "0..1" String : mobiltelefonnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontaktopplysninger : sist_oppdatert
+        
+          
+    
+        
+        
+        Kontaktopplysninger --> "0..1" Date : sist_oppdatert
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -87,8 +123,8 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [epostadresse_verdi](epostadresse_verdi.md) | 0..1 <br/> [String](string.md) | E-postadresse |
-| [mobiltelefonnummer](mobiltelefonnummer.md) | 0..1 <br/> [String](string.md) | Mobiltelefonnummer registrert i KRR |
+| [epostadresse_verdi](epostadresse_verdi.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | E-postadresse |
+| [mobiltelefonnummer](mobiltelefonnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Mobiltelefonnummer registrert i KRR |
 
 
 
@@ -113,7 +149,7 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [sist_oppdatert](sist_oppdatert.md) | 0..1 <br/> [Date](date.md) | Dato kontaktopplysningane sist vart oppdatert |
+| [sist_oppdatert](sist_oppdatert.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato kontaktopplysningane sist vart oppdatert |
 
 
 
@@ -171,7 +207,7 @@ URI: [ngrp:Kontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#Kont
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

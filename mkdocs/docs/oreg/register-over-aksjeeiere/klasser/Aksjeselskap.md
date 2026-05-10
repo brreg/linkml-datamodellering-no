@@ -32,7 +32,25 @@ URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
         
       Aksjeselskap : identifikator
         
+          
+    
+        
+        
+        Aksjeselskap --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Aksjeselskap : navn
+        
+          
+    
+        
+        
+        Aksjeselskap --> "0..1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Aksjeselskap : utsteder_aksje
         
@@ -143,8 +161,8 @@ URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [navn](navn.md) | 0..1 <br/> [String](string.md) | Namn på instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [navn](navn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på instansen |
 | [har_aksjekapital](har_aksjekapital.md) | 0..1 <br/> [Aksjekapital](aksjekapital.md) | Aksjekapital som høyrer til selskapet |
 | [utsteder_aksje](utsteder_aksje.md) | 0..1 <br/> [Aksje](aksje.md) | Aksje utstedt av selskapet |
 

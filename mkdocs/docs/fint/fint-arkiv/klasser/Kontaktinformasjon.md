@@ -22,12 +22,12 @@ Alias: kontaktinformasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
 | [Person](person.md) | Fysiske private personar |  no  |
 | [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
-| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
-| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
-| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  yes  |
 | [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  yes  |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
 | [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
 
 
@@ -42,7 +42,7 @@ Alias: kontaktinformasjon
 | Property | Value |
 | --- | --- |
 | Range | [Kontaktinformasjon](kontaktinformasjon.md) |
-| Domain Of | [Korrespondansepart](korrespondansepart.md), [Part](part.md), [Aktoer](aktoer.md), [Kontaktperson](kontaktperson.md) |
+| Domain Of | [Aktoer](aktoer.md), [Kontaktperson](kontaktperson.md), [Korrespondansepart](korrespondansepart.md), [Part](part.md) |
 | Slot URI | [fint:kontaktinformasjon](https://schema.fintlabs.no/kontaktinformasjon) |
 
 ### Cardinality and Requirements
@@ -68,7 +68,7 @@ Alias: kontaktinformasjon
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -78,7 +78,7 @@ Alias: kontaktinformasjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kontaktinformasjon |
-| native | https://schema.fintlabs.no/arkiv/:kontaktinformasjon |
+| native | https://schema.fintlabs.no/:kontaktinformasjon |
 
 
 
@@ -89,15 +89,14 @@ Alias: kontaktinformasjon
 ```yaml
 name: kontaktinformasjon
 description: Den føretrekte måten å kome i kontakt med ein aktør.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kontaktinformasjon
 alias: kontaktinformasjon
 domain_of:
-- Korrespondansepart
-- Part
 - Aktoer
 - Kontaktperson
+- Korrespondansepart
+- Part
 range: Kontaktinformasjon
 inlined: true
 

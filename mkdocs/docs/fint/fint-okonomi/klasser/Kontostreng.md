@@ -21,11 +21,47 @@ URI: [okn:Kontostreng](https://schema.fintlabs.no/okonomi/Kontostreng)
     click Kontostreng href "../Kontostreng/"
       Kontostreng : ansvar
         
+          
+    
+        
+        
+        Kontostreng --> "0..1" String : ansvar
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontostreng : art
+        
+          
+    
+        
+        
+        Kontostreng --> "0..1" String : art
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Kontostreng : funksjon
         
+          
+    
+        
+        
+        Kontostreng --> "0..1" String : funksjon
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontostreng : prosjekt
+        
+          
+    
+        
+        
+        Kontostreng --> "0..1" String : prosjekt
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -87,8 +123,8 @@ URI: [okn:Kontostreng](https://schema.fintlabs.no/okonomi/Kontostreng)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [art](art.md) | 0..1 <br/> [String](string.md) | Artskonto (type utgift/inntekt) |
-| [funksjon](funksjon.md) | 0..1 <br/> [String](string.md) | Funksjonskode (KOSTRA) |
+| [art](art.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Artskonto (type utgift/inntekt) |
+| [funksjon](funksjon.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Funksjonskode (KOSTRA) |
 
 
 
@@ -115,8 +151,8 @@ URI: [okn:Kontostreng](https://schema.fintlabs.no/okonomi/Kontostreng)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [ansvar](ansvar.md) | 0..1 <br/> [String](string.md) | Ansvarsomrade |
-| [prosjekt](prosjekt.md) | 0..1 <br/> [String](string.md) | Prosjektkode |
+| [ansvar](ansvar.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Ansvarsomrade |
+| [prosjekt](prosjekt.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Prosjektkode |
 
 
 

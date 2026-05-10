@@ -37,7 +37,7 @@ Alias: personalressurs
 | Property | Value |
 | --- | --- |
 | Range | [Personalressurs](personalressurs.md) |
-| Domain Of | [Arbeidsforhold](arbeidsforhold.md), [Person](person.md) |
+| Domain Of | [Person](person.md), [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:personalressurs](https://schema.fintlabs.no/administrasjon/personalressurs) |
 
 ### Cardinality and Requirements
@@ -89,8 +89,8 @@ rank: 1000
 slot_uri: adm:personalressurs
 alias: personalressurs
 domain_of:
-- Arbeidsforhold
 - Person
+- Arbeidsforhold
 range: Personalressurs
 
 ```

@@ -43,6 +43,15 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
         
       Deltagelse : id
         
+          
+    
+        
+        
+        Deltagelse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -156,7 +165,7 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -260,12 +269,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Deltagelse
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -281,9 +292,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   har_rolle:

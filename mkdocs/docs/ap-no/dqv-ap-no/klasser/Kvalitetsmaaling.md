@@ -32,9 +32,36 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
       Kvalitetsmaaling : har_merknad
         
+          
+    
+        
+        
+        Kvalitetsmaaling --> "*" LangString : har_merknad
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsmaaling : har_verdi
         
+          
+    
+        
+        
+        Kvalitetsmaaling --> "0..1" String : har_verdi
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kvalitetsmaaling : id
+        
+          
+    
+        
+        
+        Kvalitetsmaaling --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -103,7 +130,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_verdi](har_verdi.md) | 0..1 <br/> [String](string.md) | Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Litera... |
+| [har_verdi](har_verdi.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Litera... |
 
 
 
@@ -186,7 +213,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -298,18 +325,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsmaaling
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -326,6 +346,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
     required: true
   er_kvalitetsmaaling_av:
@@ -361,8 +387,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
     alias: har_merknad
     owner: Kvalitetsmaaling

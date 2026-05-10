@@ -22,9 +22,9 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturamottaker](fakturamottaker.md) | Aktør som skal betale faktura (kompleks datatype) |  yes  |
 | [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester |  yes  |
 | [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
+| [Fakturamottaker](fakturamottaker.md) | Aktør som skal betale faktura (kompleks datatype) |  yes  |
 
 
 
@@ -38,7 +38,7 @@ Alias: person
 | Property | Value |
 | --- | --- |
 | Range | [Person](person.md) |
-| Domain Of | [Fakturamottaker](fakturamottaker.md), [Leverandor](leverandor.md), [Elev](elev.md) |
+| Domain Of | [Elev](elev.md), [Fakturamottaker](fakturamottaker.md), [Leverandor](leverandor.md) |
 | Slot URI | [fint:person](https://schema.fintlabs.no/person) |
 
 ### Cardinality and Requirements
@@ -64,7 +64,7 @@ Alias: person
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -74,7 +74,7 @@ Alias: person
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:person |
-| native | https://schema.fintlabs.no/okonomi/:person |
+| native | https://schema.fintlabs.no/:person |
 
 
 
@@ -85,14 +85,13 @@ Alias: person
 ```yaml
 name: person
 description: Referanse til Person i Administrasjon-domenet.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:person
 alias: person
 domain_of:
+- Elev
 - Fakturamottaker
 - Leverandor
-- Elev
 range: Person
 
 ```

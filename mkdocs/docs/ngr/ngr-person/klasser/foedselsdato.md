@@ -35,7 +35,7 @@ Alias: foedselsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Foedsel](foedsel.md) |
 | Slot URI | [ngrp:foedselsdato](https://data.norge.no/vocabulary/ngr-person#foedselsdato) |
 

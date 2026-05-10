@@ -22,9 +22,9 @@ Alias: har_definisjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 | [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |  yes  |
 | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 
 
 
@@ -65,7 +65,7 @@ Alias: har_definisjon
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: har_definisjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:definition |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_definisjon |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_definisjon |
 
 
 
@@ -86,8 +86,7 @@ Alias: har_definisjon
 ```yaml
 name: har_definisjon
 description: Definisjon av dimensjonen eller målet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: skos:definition
 alias: har_definisjon
 domain_of:

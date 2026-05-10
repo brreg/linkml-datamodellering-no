@@ -24,7 +24,25 @@ URI: [ngrv:Underenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Underenhe
       
       Underenhet : antall_ansatte
         
+          
+    
+        
+        
+        Underenhet --> "0..1" Integer : antall_ansatte
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Underenhet : eierskiftedatoer
+        
+          
+    
+        
+        
+        Underenhet --> "*" Date : eierskiftedatoer
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Underenhet : er_klassifisert_i_naeringskode
         
@@ -94,6 +112,15 @@ URI: [ngrv:Underenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Underenhe
         
       Underenhet : id
         
+          
+    
+        
+        
+        Underenhet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Underenhet : mottar_post_paa
         
           
@@ -107,11 +134,47 @@ URI: [ngrv:Underenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Underenhe
         
       Underenhet : navn
         
+          
+    
+        
+        
+        Underenhet --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Underenhet : nedleggelsesdato
+        
+          
+    
+        
+        
+        Underenhet --> "0..1" Date : nedleggelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Underenhet : oppstartsdato
         
+          
+    
+        
+        
+        Underenhet --> "1" Date : oppstartsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Underenhet : organisasjonsnummer
+        
+          
+    
+        
+        
+        Underenhet --> "1" String : organisasjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -161,7 +224,7 @@ URI: [ngrv:Underenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Underenhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [oppstartsdato](oppstartsdato.md) | 1 <br/> [Date](date.md) | Datoen underleininga vart oppretta/starta |
+| [oppstartsdato](oppstartsdato.md) | 1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Datoen underleininga vart oppretta/starta |
 | [har_beliggenhetsadresse](har_beliggenhetsadresse.md) | 1 <br/> [Beliggenhetsadresse](beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga |
 
 
@@ -205,8 +268,8 @@ URI: [ngrv:Underenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Underenhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [eierskiftedatoer](eierskiftedatoer.md) | * <br/> [Date](date.md) | Dato(ar) for eigarskifte i underleininga |
-| [nedleggelsesdato](nedleggelsesdato.md) | 0..1 <br/> [Date](date.md) | Datoen underleininga vart lagt ned |
+| [eierskiftedatoer](eierskiftedatoer.md) | * <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato(ar) for eigarskifte i underleininga |
+| [nedleggelsesdato](nedleggelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Datoen underleininga vart lagt ned |
 
 
 
@@ -271,16 +334,16 @@ URI: [ngrv:Underenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Underenhe
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Virksomhet](virksomhet.md) |
-| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [String](string.md) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret | [Virksomhet](virksomhet.md) |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Registrert namn på verksemda i Enhetsregisteret | [Virksomhet](virksomhet.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Virksomhet](virksomhet.md) |
+| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret | [Virksomhet](virksomhet.md) |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Registrert namn på verksemda i Enhetsregisteret | [Virksomhet](virksomhet.md) |
 | [har_tilstand](har_tilstand.md) | * <br/> [Tilstand](tilstand.md) | Registrert tilstand (status) for verksemda, inkl | [Virksomhet](virksomhet.md) |
 | [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](postadresse.md) | Postadressa verksemda mottar post på | [Virksomhet](virksomhet.md) |
 | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | 1 <br/> [Organisasjonsform](organisasjonsform.md) | Organisasjonsform (juridisk form) for verksemda | [Virksomhet](virksomhet.md) |
 | [har_kontaktinformasjon](har_kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon registrert på verksemda | [Virksomhet](virksomhet.md) |
 | [har_varslingsadresse](har_varslingsadresse.md) | 1 <br/> [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for offentlege meldingar | [Virksomhet](virksomhet.md) |
 | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | 1..* <br/> [Naeringskode](naeringskode.md) | Næringskode(r) verksemda er klassifisert under (1–3) | [Virksomhet](virksomhet.md) |
-| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [Integer](integer.md) | Antal tilsette i verksemda (rapportert til a-ordninga) | [Virksomhet](virksomhet.md) |
+| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Antal tilsette i verksemda (rapportert til a-ordninga) | [Virksomhet](virksomhet.md) |
 
 
 

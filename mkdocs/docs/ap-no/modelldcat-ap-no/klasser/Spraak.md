@@ -32,7 +32,7 @@ URI: [dct:language](http://purl.org/dc/terms/language)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -42,6 +42,6 @@ URI: [dct:language](http://purl.org/dc/terms/language)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:language |
-| native | https://data.norge.no/linkml/modelldcat-ap-no/Spraak |
+| native | https://data.norge.no/linkml/common-ap-no/Spraak |
 
 

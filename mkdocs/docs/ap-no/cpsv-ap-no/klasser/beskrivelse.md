@@ -23,17 +23,17 @@ Alias: beskrivelse
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
-| [Hendelse](hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |  yes  |
-| [Tjenesteresultattypeliste](tjenesteresultattypeliste.md) | Ei liste over moglege tjenesteresultattypar |  no  |
-| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [Gebyr](gebyr.md) | Eit gebyr knytt til ei teneste |  yes  |
-| [Regel](regel.md) | Eit regelverk eller retningsliner som styrer levering av ei teneste |  yes  |
+| [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
 | [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 | [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  no  |
-| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
-| [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
+| [Regel](regel.md) | Eit regelverk eller retningsliner som styrer levering av ei teneste |  yes  |
+| [Tjenesteresultattypeliste](tjenesteresultattypeliste.md) | Ei liste over moglege tjenesteresultattypar |  no  |
 | [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
+| [Hendelse](hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |  yes  |
 
 
 
@@ -74,7 +74,7 @@ Alias: beskrivelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -84,7 +84,7 @@ Alias: beskrivelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:description |
-| native | https://data.norge.no/linkml/cpsv-ap-no/beskrivelse |
+| native | https://data.norge.no/linkml/common-ap-no/beskrivelse |
 
 
 
@@ -95,8 +95,7 @@ Alias: beskrivelse
 ```yaml
 name: beskrivelse
 description: Fritekstbeskrivelse av ressursen (dct:description).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:description
 alias: beskrivelse
 domain_of:

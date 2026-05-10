@@ -35,7 +35,7 @@ Alias: rekkefølge
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Klasse](klasse.md) |
 | Slot URI | [ark:rekkefolge](https://schema.fintlabs.no/arkiv/rekkefolge) |
 

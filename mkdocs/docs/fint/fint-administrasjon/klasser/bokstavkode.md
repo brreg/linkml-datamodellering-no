@@ -62,7 +62,7 @@ Alias: bokstavkode
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: bokstavkode
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:bokstavkode |
-| native | https://schema.fintlabs.no/administrasjon/:bokstavkode |
+| native | https://schema.fintlabs.no/:bokstavkode |
 
 
 
@@ -83,8 +83,7 @@ Alias: bokstavkode
 ```yaml
 name: bokstavkode
 description: Bokstavkode for aktuell valuta.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:bokstavkode
 alias: bokstavkode
 domain_of:

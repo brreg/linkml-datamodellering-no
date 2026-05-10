@@ -35,7 +35,7 @@ Alias: tilgangs_url
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) |
 

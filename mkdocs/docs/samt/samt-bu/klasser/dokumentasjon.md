@@ -38,7 +38,7 @@ Alias: dokumentasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Gebyr](gebyr.md), [Distribusjon](distribusjon.md), [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [foaf:page](http://xmlns.com/foaf/0.1/page) |
 
@@ -66,7 +66,7 @@ Alias: dokumentasjon
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -76,7 +76,7 @@ Alias: dokumentasjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:page |
-| native | samtbuskole:dokumentasjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/dokumentasjon |
 
 
 
@@ -87,8 +87,7 @@ Alias: dokumentasjon
 ```yaml
 name: dokumentasjon
 description: Lenke til dokumentasjon om ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: foaf:page
 alias: dokumentasjon
 domain_of:

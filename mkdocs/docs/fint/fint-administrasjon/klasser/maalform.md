@@ -62,7 +62,7 @@ Alias: maalform
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: maalform
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:maalform |
-| native | https://schema.fintlabs.no/administrasjon/:maalform |
+| native | https://schema.fintlabs.no/:maalform |
 
 
 
@@ -83,8 +83,7 @@ Alias: maalform
 ```yaml
 name: maalform
 description: Målform personen føretrekkjer.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:maalform
 alias: maalform
 domain_of:

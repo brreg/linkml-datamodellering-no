@@ -109,6 +109,15 @@ URI: [samtbuskole:Containerklasse](https://example.no/ontology/skole#Containerkl
         
       Containerklasse : id
         
+          
+    
+        
+        
+        Containerklasse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Containerklasse : kommuner
         
           
@@ -686,7 +695,7 @@ URI: [samtbuskole:Containerklasse](https://example.no/ontology/skole#Containerkl
 | [kvalitetsdimensjoner](kvalitetsdimensjoner.md) | * <br/> [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Kvalitetsdimensjoner for datasettet |
 | [tidsromer](tidsromer.md) | * <br/> [Tidsrom](tidsrom.md) | Tidsrom for kvalitetsmerknad |
 | [tekstdeler](tekstdeler.md) | * <br/> [Tekstdel](tekstdel.md) | Tekstdel for kvalitetsmerknad |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [skoler](skoler.md) | * <br/> [Skole](skole.md) | Container slot for å legge tilrette for å kunne ha fleire instanser av skole ... |
 | [kommuner](kommuner.md) | * <br/> [Kommune](kommune.md) | Container slot for å legge tilrette for å kunne ha fleire instanser av kommun... |
 | [fylker](fylker.md) | * <br/> [Fylke](fylke.md) | Container slot for å legge tilrette for å kunne ha fleire instanser av fylke ... |
@@ -972,17 +981,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Containerklasse
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -1005,7 +1008,13 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
+    required: true
   skoler:
     name: skoler
     description: Container slot for å legge tilrette for å kunne ha fleire instanser

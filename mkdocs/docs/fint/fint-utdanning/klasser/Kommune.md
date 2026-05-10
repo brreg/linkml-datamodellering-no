@@ -38,7 +38,7 @@ Alias: kommune
 | Property | Value |
 | --- | --- |
 | Range | [Kommune](kommune.md) |
-| Domain Of | [OtEnhet](otenhet.md), [Fylke](fylke.md), [Person](person.md) |
+| Domain Of | [Fylke](fylke.md), [Person](person.md), [OtEnhet](otenhet.md) |
 | Slot URI | [fint:kommune](https://schema.fintlabs.no/kommune) |
 
 ### Cardinality and Requirements
@@ -64,7 +64,7 @@ Alias: kommune
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -74,7 +74,7 @@ Alias: kommune
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kommune |
-| native | https://schema.fintlabs.no/utdanning/:kommune |
+| native | https://schema.fintlabs.no/:kommune |
 
 
 
@@ -85,14 +85,13 @@ Alias: kommune
 ```yaml
 name: kommune
 description: Kommune.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kommune
 alias: kommune
 domain_of:
-- OtEnhet
 - Fylke
 - Person
+- OtEnhet
 range: Kommune
 
 ```

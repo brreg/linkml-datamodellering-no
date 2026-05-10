@@ -35,7 +35,7 @@ Alias: sjekksumverdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Sjekksum](sjekksum.md) |
 | Slot URI | [spdx:checksumValue](http://spdx.org/rdf/terms#checksumValue) |
 

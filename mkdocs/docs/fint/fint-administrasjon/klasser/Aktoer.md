@@ -171,7 +171,7 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -181,7 +181,7 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Aktoer |
-| native | https://schema.fintlabs.no/administrasjon/:Aktoer |
+| native | https://schema.fintlabs.no/:Aktoer |
 
 
 
@@ -198,7 +198,7 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 ```yaml
 name: Aktoer
 description: Abstrakt base for person eller eining vi samhandlar med.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slots:
 - kontaktinformasjon
@@ -223,7 +223,7 @@ class_uri: fint:Aktoer
 ```yaml
 name: Aktoer
 description: Abstrakt base for person eller eining vi samhandlar med.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slot_usage:
   kontaktinformasjon:
@@ -240,17 +240,16 @@ attributes:
     description: Den føretrekte måten å kome i kontakt med ein aktør.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kontaktinformasjon
     alias: kontaktinformasjon
     owner: Aktoer
     domain_of:
+    - Aktoer
+    - Kontaktperson
     - Arbeidslokasjon
     - Organisasjonselement
     - Personalressurs
-    - Aktoer
-    - Kontaktperson
     range: Kontaktinformasjon
     inlined: true
   postadresse:
@@ -258,15 +257,14 @@ attributes:
     description: Informasjon om postadresse til ein aktør.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:postadresse
     alias: postadresse
     owner: Aktoer
     domain_of:
+    - Aktoer
     - Arbeidslokasjon
     - Organisasjonselement
-    - Aktoer
     range: Adresse
     inlined: true
 class_uri: fint:Aktoer

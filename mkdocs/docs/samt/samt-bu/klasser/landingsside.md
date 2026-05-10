@@ -22,8 +22,8 @@ Alias: landingsside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 
 
 
@@ -36,7 +36,7 @@ Alias: landingsside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:landingPage](http://www.w3.org/ns/dcat#landingPage) |
 
@@ -64,7 +64,7 @@ Alias: landingsside
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: landingsside
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:landingPage |
-| native | samtbuskole:landingsside |
+| native | https://data.norge.no/linkml/dcat-ap-no/landingsside |
 
 
 
@@ -85,8 +85,7 @@ Alias: landingsside
 ```yaml
 name: landingsside
 description: Nettside med informasjon om ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:landingPage
 alias: landingsside
 domain_of:

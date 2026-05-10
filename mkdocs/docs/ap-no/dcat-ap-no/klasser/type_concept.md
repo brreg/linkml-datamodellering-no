@@ -23,8 +23,8 @@ Alias: type_concept
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
-| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
 
 
 
@@ -64,7 +64,7 @@ Alias: type_concept
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: type_concept
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:type |
-| native | https://data.norge.no/linkml/dcat-ap-no/type_concept |
+| native | https://data.norge.no/linkml/common-ap-no/type_concept |
 
 
 
@@ -85,8 +85,7 @@ Alias: type_concept
 ```yaml
 name: type_concept
 description: Type ressurs frå eit kontrollert vokabular (dct:type).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:type
 alias: type_concept
 domain_of:

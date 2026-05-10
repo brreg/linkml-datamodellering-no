@@ -63,7 +63,7 @@ Alias: tilgangstjeneste
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: tilgangstjeneste
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:accessService |
-| native | samtbuskole:tilgangstjeneste |
+| native | https://data.norge.no/linkml/dcat-ap-no/tilgangstjeneste |
 
 
 
@@ -84,8 +84,7 @@ Alias: tilgangstjeneste
 ```yaml
 name: tilgangstjeneste
 description: Datatjeneste som gjev tilgang til distribusjonen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:accessService
 alias: tilgangstjeneste
 domain_of:

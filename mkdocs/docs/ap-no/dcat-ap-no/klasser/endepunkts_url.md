@@ -35,7 +35,7 @@ Alias: endepunkts_url
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:endpointURL](http://www.w3.org/ns/dcat#endpointURL) |
 

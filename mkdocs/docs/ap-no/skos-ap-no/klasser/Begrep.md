@@ -21,6 +21,15 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
     click Begrep href "../Begrep/"
       Begrep : anbefalt_term
         
+          
+    
+        
+        
+        Begrep --> "1..*" LangString : anbefalt_term
+        click LangString href "../LangString/"
+    
+
+        
       Begrep : ansvarleg_verksemd
         
           
@@ -45,11 +54,47 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Begrep : datastruktur_term
         
+          
+    
+        
+        
+        Begrep --> "*" String : datastruktur_term
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Begrep : definisjon
+        
+          
+    
+        
+        
+        Begrep --> "*" LangString : definisjon
+        click LangString href "../LangString/"
+    
+
         
       Begrep : eksempel
         
+          
+    
+        
+        
+        Begrep --> "*" LangString : eksempel
+        click LangString href "../LangString/"
+    
+
+        
       Begrep : endringsdato
+        
+          
+    
+        
+        
+        Begrep --> "0..1" Date : endringsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Begrep : er_del_av_omgrep
         
@@ -130,6 +175,15 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Begrep : forkasta_term
         
+          
+    
+        
+        
+        Begrep --> "*" LangString : forkasta_term
+        click LangString href "../LangString/"
+    
+
+        
       Begrep : generaliserer
         
           
@@ -143,7 +197,25 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Begrep : gyldig_fra
         
+          
+    
+        
+        
+        Begrep --> "0..1" Date : gyldig_fra
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Begrep : gyldig_til
+        
+          
+    
+        
+        
+        Begrep --> "0..1" Date : gyldig_til
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Begrep : har_definisjon
         
@@ -191,9 +263,36 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Begrep : har_versjonsnummer
         
+          
+    
+        
+        
+        Begrep --> "0..1" String : har_versjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Begrep : id
         
+          
+    
+        
+        
+        Begrep --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Begrep : identifikator_literal
+        
+          
+    
+        
+        
+        Begrep --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Begrep : kontaktpunkt_vcard
         
@@ -207,6 +306,15 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
         
       Begrep : merknad
+        
+          
+    
+        
+        
+        Begrep --> "*" LangString : merknad
+        click LangString href "../LangString/"
+    
+
         
       Begrep : naert_samsvar
         
@@ -232,6 +340,15 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Begrep : opprettingsdato
         
+          
+    
+        
+        
+        Begrep --> "0..1" Date : opprettingsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Begrep : sja_ogsa_omgrep
         
           
@@ -256,6 +373,15 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Begrep : tillate_term
         
+          
+    
+        
+        
+        Begrep --> "*" LangString : tillate_term
+        click LangString href "../LangString/"
+    
+
+        
       Begrep : utgjevar
         
           
@@ -269,7 +395,25 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Begrep : verdiomrade
         
+          
+    
+        
+        
+        Begrep --> "*" LangString : verdiomrade
+        click LangString href "../LangString/"
+    
+
+        
       Begrep : versjonsmerknad
+        
+          
+    
+        
+        
+        Begrep --> "*" LangString : versjonsmerknad
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -422,7 +566,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 | [anbefalt_term](anbefalt_term.md) | 1..* <br/> [LangString](langstring.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
 | [definisjon](definisjon.md) | * <br/> [LangString](langstring.md) | Direkte definisjon som fritekst (skos:definition) |
 | [har_definisjon](har_definisjon.md) | * <br/> [Definisjon](definisjon.md) | Definisjon via eige objekt (euvoc:xlDefinition) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | 1..* <br/> [VCardKontakt](vcardkontakt.md) | Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint) |
 | [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon ansvarleg for å publisere omgrepet (dct:publisher) |
 
@@ -560,10 +704,10 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [ansvarleg_verksemd](ansvarleg_verksemd.md) | 0..1 <br/> [Organisasjon](organisasjon.md) | Fagleg ansvarleg organisasjon for omgrepet (dct:creator) |
-| [gyldig_fra](gyldig_fra.md) | 0..1 <br/> [Date](date.md) | Dato omgrepet er gyldig frå (euvoc:startDate) |
-| [gyldig_til](gyldig_til.md) | 0..1 <br/> [Date](date.md) | Dato omgrepet er gyldig til (euvoc:endDate) |
-| [opprettingsdato](opprettingsdato.md) | 0..1 <br/> [Date](date.md) | Dato omgrepet vart oppretta (dct:created) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [gyldig_fra](gyldig_fra.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato omgrepet er gyldig frå (euvoc:startDate) |
+| [gyldig_til](gyldig_til.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato omgrepet er gyldig til (euvoc:endDate) |
+| [opprettingsdato](opprettingsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato omgrepet vart oppretta (dct:created) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
 | [fagomrade](fagomrade.md) | * <br/> [Begrep](begrep.md) | Fagområde omgrepet høyrer til (dct:subject) |
 | [merknad](merknad.md) | * <br/> [LangString](langstring.md) | Merknad om bruksomfanget for omgrepet (skos:scopeNote) |
 | [tillate_term](tillate_term.md) | * <br/> [LangString](langstring.md) | Tillaten alternativ term for omgrepet (skos:altLabel) |
@@ -727,7 +871,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [datastruktur_term](datastruktur_term.md) | * <br/> [String](string.md) | Term brukt i datastrukturar (skosno:dataStructureLabel) |
+| [datastruktur_term](datastruktur_term.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Term brukt i datastrukturar (skosno:dataStructureLabel) |
 | [eksempel](eksempel.md) | * <br/> [LangString](langstring.md) | Eksempel på bruk av omgrepet (skos:example) |
 | [er_del_av_omgrep](er_del_av_omgrep.md) | * <br/> [Begrep](begrep.md) | Omgrep dette omgrepet er ein del av (xkos:isPartOf) |
 | [er_erstatta_av](er_erstatta_av.md) | * <br/> [Begrep](begrep.md) | Omgrep som erstattar dette omgrepet (dct:isReplacedBy) |
@@ -746,7 +890,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 | [spesifiserer](spesifiserer.md) | * <br/> [Begrep](begrep.md) | Omgrep dette omgrepet spesifiserer (xkos:specializes) |
 | [euvoc_status](euvoc_status.md) | 0..1 <br/> [Begrep](begrep.md) | Status for omgrepet frå eit kontrollert vokabular (euvoc:status) |
 | [verdiomrade](verdiomrade.md) | * <br/> [LangString](langstring.md) | Verdiområde for omgrepet (skosno:valueRange) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Versjonsnummer for ressursen (owl:versionInfo) |
 | [versjonsmerknad](versjonsmerknad.md) | * <br/> [LangString](langstring.md) | Merknad om endringar i denne versjonen (adms:versionNotes) |
 
 
@@ -1221,7 +1365,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -1646,12 +1790,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Begrep
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Organisasjon
     - VCardKontakt
     - Begrep
@@ -1660,9 +1806,6 @@ attributes:
     - GeneriskRelasjon
     - PartitivRelasjon
     - Samling
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   anbefalt_term:
@@ -1670,8 +1813,7 @@ attributes:
     description: Føretrukke term/namn for ressursen (skos:prefLabel).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: skos:prefLabel
     alias: anbefalt_term
     owner: Begrep
@@ -1713,8 +1855,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Begrep
@@ -1811,8 +1952,7 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
     alias: endringsdato
     owner: Begrep
@@ -2131,8 +2271,7 @@ attributes:
     description: Versjonsnummer for ressursen (owl:versionInfo).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
     alias: har_versjonsnummer
     owner: Begrep
@@ -2144,8 +2283,7 @@ attributes:
     description: Merknad om endringar i denne versjonen (adms:versionNotes).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:versionNotes
     alias: versjonsmerknad
     owner: Begrep

@@ -24,9 +24,36 @@ URI: [ngr:KommunalKrets](https://data.norge.no/vocabulary/ngr-adresse#KommunalKr
       
       KommunalKrets : id
         
+          
+    
+        
+        
+        KommunalKrets --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       KommunalKrets : kretsnummer
         
+          
+    
+        
+        
+        KommunalKrets --> "0..1" String : kretsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       KommunalKrets : namn
+        
+          
+    
+        
+        
+        KommunalKrets --> "0..1" String : namn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -89,7 +116,7 @@ URI: [ngr:KommunalKrets](https://data.norge.no/vocabulary/ngr-adresse#KommunalKr
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kretsnummer](kretsnummer.md) | 0..1 <br/> [String](string.md) | Kommunalt kretsnummer |
+| [kretsnummer](kretsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Kommunalt kretsnummer |
 
 
 
@@ -97,8 +124,8 @@ URI: [ngr:KommunalKrets](https://data.norge.no/vocabulary/ngr-adresse#KommunalKr
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 

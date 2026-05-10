@@ -35,7 +35,7 @@ Alias: gaardsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [fint:gaardsnummer](https://schema.fintlabs.no/gaardsnummer) |
 
@@ -62,7 +62,7 @@ Alias: gaardsnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: gaardsnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:gaardsnummer |
-| native | https://schema.fintlabs.no/administrasjon/:gaardsnummer |
+| native | https://schema.fintlabs.no/:gaardsnummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: gaardsnummer
 ```yaml
 name: gaardsnummer
 description: Nummerering av gårdseiging i matrikkelen, unik innanfor kommune.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:gaardsnummer
 alias: gaardsnummer
 domain_of:

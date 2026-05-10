@@ -32,11 +32,47 @@ URI: [okn:Valuta](https://schema.fintlabs.no/okonomi/Valuta)
         
       OkonomiValuta : id
         
+          
+    
+        
+        
+        OkonomiValuta --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       OkonomiValuta : kode
+        
+          
+    
+        
+        
+        OkonomiValuta --> "1" String : kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       OkonomiValuta : navn
         
+          
+    
+        
+        
+        OkonomiValuta --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       OkonomiValuta : passiv
+        
+          
+    
+        
+        
+        OkonomiValuta --> "0..1" Boolean : passiv
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
         
       
 ```
@@ -85,8 +121,8 @@ URI: [okn:Valuta](https://schema.fintlabs.no/okonomi/Valuta)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for ressursen |
+| [kode](kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Verdi som identifiserer omgrepet |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Hovudnamn for ressursen |
 
 
 
@@ -136,7 +172,7 @@ URI: [okn:Valuta](https://schema.fintlabs.no/okonomi/Valuta)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast |
+| [passiv](passiv.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Angir at koden er passiv og ikkje kan veljast |
 
 
 
@@ -207,7 +243,7 @@ URI: [okn:Valuta](https://schema.fintlabs.no/okonomi/Valuta)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -331,12 +367,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-okonomi
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: OkonomiValuta
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Faktura
     - Fakturagrunnlag
     - Fakturautsteder
@@ -347,12 +388,6 @@ attributes:
     - Vare
     - Merverdiavgift
     - OkonomiValuta
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   kode:
@@ -360,16 +395,15 @@ attributes:
     description: Verdi som identifiserer omgrepet.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-okonomi
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
     alias: kode
     owner: OkonomiValuta
     domain_of:
+    - Begrep
     - Vare
     - Merverdiavgift
     - OkonomiValuta
-    - Begrep
     range: string
     required: true
   navn:
@@ -377,18 +411,17 @@ attributes:
     description: Hovudnamn for ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-okonomi
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
     alias: navn
     owner: OkonomiValuta
     domain_of:
+    - Begrep
     - Fakturautsteder
     - Leverandorgruppe
     - Vare
     - Merverdiavgift
     - OkonomiValuta
-    - Begrep
     range: string
     required: true
   gyldighetsperiode:
@@ -396,17 +429,16 @@ attributes:
     description: Periode ressursen er gyldig for.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-okonomi
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: OkonomiValuta
     domain_of:
+    - Begrep
+    - Identifikator
     - Vare
     - Merverdiavgift
     - OkonomiValuta
-    - Begrep
-    - Identifikator
     range: Periode
     inlined: true
   passiv:
@@ -414,16 +446,15 @@ attributes:
     description: Angir at koden er passiv og ikkje kan veljast.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-okonomi
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
     alias: passiv
     owner: OkonomiValuta
     domain_of:
+    - Begrep
     - Vare
     - Merverdiavgift
     - OkonomiValuta
-    - Begrep
     range: boolean
 class_uri: okn:Valuta
 

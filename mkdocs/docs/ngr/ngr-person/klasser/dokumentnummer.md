@@ -35,7 +35,7 @@ Alias: dokumentnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Identifikasjonsdokument](identifikasjonsdokument.md) |
 | Slot URI | [ngrp:dokumentnummer](https://data.norge.no/vocabulary/ngr-person#dokumentnummer) |
 

@@ -21,7 +21,25 @@ URI: [ngre:Gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnumm
     click Gaardsnummer href "../Gaardsnummer/"
       Gaardsnummer : gaardsnummer_verdi
         
+          
+    
+        
+        
+        Gaardsnummer --> "1" Integer : gaardsnummer_verdi
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Gaardsnummer : id
+        
+          
+    
+        
+        
+        Gaardsnummer --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngre:Gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnumm
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gaardsnummer_verdi](gaardsnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Gårdsnummer innanfor kommunen |
+| [gaardsnummer_verdi](gaardsnummer_verdi.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Gårdsnummer innanfor kommunen |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngre:Gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnumm
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

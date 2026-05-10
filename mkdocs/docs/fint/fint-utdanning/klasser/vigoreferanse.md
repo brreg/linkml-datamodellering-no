@@ -23,11 +23,11 @@ Alias: vigoreferanse
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Fag](fag.md) | Eit skulefag |  yes  |
-| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  yes  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
 | [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 | [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
-| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 
 
 
@@ -40,7 +40,7 @@ Alias: vigoreferanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Skole](skole.md), [Arstrinn](arstrinn.md), [Programomrade](programomrade.md), [Utdanningsprogram](utdanningsprogram.md), [Fag](fag.md), [Karakterskala](karakterskala.md) |
 | Slot URI | [utd:vigoreferanse](https://schema.fintlabs.no/utdanning/vigoreferanse) |
 

@@ -21,6 +21,15 @@ URI: [ngre:Hovedenhet](https://data.norge.no/vocabulary/ngr-eiendom#Hovedenhet)
     click Hovedenhet href "../Hovedenhet/"
       Hovedenhet : id
         
+          
+    
+        
+        
+        Hovedenhet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -78,7 +87,7 @@ URI: [ngre:Hovedenhet](https://data.norge.no/vocabulary/ngr-eiendom#Hovedenhet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

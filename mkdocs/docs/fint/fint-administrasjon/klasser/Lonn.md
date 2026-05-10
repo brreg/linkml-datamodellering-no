@@ -41,6 +41,15 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
         
       Lonn : anvist
         
+          
+    
+        
+        
+        Lonn --> "0..1" Datetime : anvist
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       Lonn : attestant
         
           
@@ -54,9 +63,36 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
         
       Lonn : attestert
         
+          
+    
+        
+        
+        Lonn --> "0..1" Datetime : attestert
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       Lonn : beskrivelse
         
+          
+    
+        
+        
+        Lonn --> "1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Lonn : id
+        
+          
+    
+        
+        
+        Lonn --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Lonn : kildesystemId
         
@@ -81,6 +117,15 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 
         
       Lonn : kontert
+        
+          
+    
+        
+        
+        Lonn --> "0..1" Datetime : kontert
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
         
       Lonn : kontostreng
         
@@ -191,7 +236,7 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | 1 <br/> [String](string.md) | Beskriven namn eller omtale |
+| [beskrivelse](beskrivelse.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Beskriven namn eller omtale |
 | [kontostreng](kontostreng.md) | 1 <br/> [Kontostreng](kontostreng.md) | Kontering av lønn |
 | [periode](periode.md) | 1 <br/> [Periode](periode.md) | Periode for ressursen |
 
@@ -296,10 +341,10 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [anvist](anvist.md) | 0..1 <br/> [Datetime](datetime.md) | Tidspunkt då lønn vart anvist |
-| [attestert](attestert.md) | 0..1 <br/> [Datetime](datetime.md) | Tidspunkt då lønn vart attestert |
+| [anvist](anvist.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Tidspunkt då lønn vart anvist |
+| [attestert](attestert.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Tidspunkt då lønn vart attestert |
 | [kildesystemId](kildesystemid.md) | 0..1 <br/> [Identifikator](identifikator.md) | Kjeldesystemets unike identifikator |
-| [kontert](kontert.md) | 0..1 <br/> [Datetime](datetime.md) | Tidspunkt då lønn vart kontert |
+| [kontert](kontert.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Tidspunkt då lønn vart kontert |
 | [opptjent](opptjent.md) | 0..1 <br/> [Periode](periode.md) | Periode der lønn vart opptent |
 | [anviser](anviser.md) | 0..1 <br/> [Personalressurs](personalressurs.md) | Personalressurs som har anvist lønsmeldinga etter fullmakt |
 | [konterer](konterer.md) | 0..1 <br/> [Personalressurs](personalressurs.md) | Personalressurs som har kontert lønsmeldinga etter fullmakt |
@@ -465,7 +510,7 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -648,12 +693,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Lonn
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Lonn
     - Fravaer
     - Fullmakt
@@ -662,12 +712,6 @@ attributes:
     - Organisasjonselement
     - Personalressurs
     - Arbeidsforhold
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   anvist:
@@ -701,15 +745,14 @@ attributes:
     description: Beskriven namn eller omtale.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
     alias: beskrivelse
     owner: Lonn
     domain_of:
+    - Periode
     - Lonn
     - Rolle
-    - Periode
     range: string
     required: true
   kildesystemId:

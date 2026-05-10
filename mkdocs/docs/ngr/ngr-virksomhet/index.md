@@ -142,7 +142,6 @@ Name: ngr-virksomhet
 | [Virksomhet](klasser/virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hovedenhet](klasser/hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underenhet](klasser/underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |
-| [VirksomhetContainer](klasser/virksomhetcontainer.md) | Rotklasse for NGR-virksomhet-datafiler |
 
 
 
@@ -225,25 +224,6 @@ Name: ngr-virksomhet
 
 | Type | Description |
 | --- | --- |
-| [Boolean](klasser/boolean.md) | A binary (true or false) value |
-| [Curie](klasser/curie.md) | a compact URI |
-| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
-| [Datetime](klasser/datetime.md) | The combination of a date and time |
-| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
-| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](klasser/integer.md) | An integer |
-| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](klasser/string.md) | A character string |
-| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](klasser/uri.md) | a complete URI |
-| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
@@ -255,15 +235,8 @@ Name: ngr-virksomhet
 | [Valgfri](klasser/valgfri.md) | Valfrie eigenskapar i domenemodellen |
 
 
-## Artifacts
+## Generated artifacts
 
 | Artefakt | Fil |
 |----------|-----|
-| SHACL shapes | [ngr-virksomhet-shapes.ttl](ngr-virksomhet-shapes.ttl) |
-| JSON-LD kontekst | [ngr-virksomhet-context.jsonld](ngr-virksomhet-context.jsonld) |
-| JSON Schema | [ngr-virksomhet-schema.json](ngr-virksomhet-schema.json) |
-| OWL ontologi | [ngr-virksomhet-ontology.ttl](ngr-virksomhet-ontology.ttl) |
-| RDF/Turtle skjema | [ngr-virksomhet-schema.ttl](ngr-virksomhet-schema.ttl) |
-| Python-klasser | [ngr-virksomhet-model.py](ngr-virksomhet-model.py) |
 | ER-diagram (Mermaid) | [ngr-virksomhet-erdiagram.md](ngr-virksomhet-erdiagram.md) |
-| Eksempeldata (Turtle) | [ngr-virksomhet-eksempel.ttl](ngr-virksomhet-eksempel.ttl) |

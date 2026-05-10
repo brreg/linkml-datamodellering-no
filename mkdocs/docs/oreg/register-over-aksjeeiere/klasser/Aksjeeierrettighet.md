@@ -21,6 +21,15 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
     click Aksjeeierrettighet href "../Aksjeeierrettighet/"
       Aksjeeierrettighet : beskrivelse
         
+          
+    
+        
+        
+        Aksjeeierrettighet --> "0..1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Aksjeeierrettighet : gjelder_aksjer_i_aksjeklasse
         
           
@@ -33,6 +42,15 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
 
         
       Aksjeeierrettighet : identifikator
+        
+          
+    
+        
+        
+        Aksjeeierrettighet --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -116,8 +134,8 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg forklaring av instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg forklaring av instansen |
 | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
 
 

@@ -62,7 +62,7 @@ Alias: sjekksum
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: sjekksum
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | spdx:checksum |
-| native | https://data.norge.no/linkml/dqv-ap-no/sjekksum |
+| native | https://data.norge.no/linkml/dcat-ap-no/sjekksum |
 
 
 
@@ -83,8 +83,7 @@ Alias: sjekksum
 ```yaml
 name: sjekksum
 description: Sjekksum for distribusjonsfila.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: spdx:checksum
 alias: sjekksum
 domain_of:

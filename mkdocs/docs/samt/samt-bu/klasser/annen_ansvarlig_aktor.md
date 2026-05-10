@@ -35,7 +35,7 @@ Alias: annen_ansvarlig_aktor
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [prov:qualifiedAttribution](http://www.w3.org/ns/prov#qualifiedAttribution) |
 
@@ -70,7 +70,7 @@ Alias: annen_ansvarlig_aktor
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -80,7 +80,7 @@ Alias: annen_ansvarlig_aktor
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | prov:qualifiedAttribution |
-| native | samtbuskole:annen_ansvarlig_aktor |
+| native | https://data.norge.no/linkml/dcat-ap-no/annen_ansvarlig_aktor |
 
 
 
@@ -95,8 +95,7 @@ annotations:
     tag: gyldige_verdier
     value: prov:Attribution
 description: Kvalifisert attributering til ansvarleg aktør.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: prov:qualifiedAttribution
 alias: annen_ansvarlig_aktor
 domain_of:

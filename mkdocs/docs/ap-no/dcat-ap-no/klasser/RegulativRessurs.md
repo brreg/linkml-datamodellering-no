@@ -21,11 +21,47 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
     click RegulativRessurs href "../RegulativRessurs/"
       RegulativRessurs : beskrivelse
         
+          
+    
+        
+        
+        RegulativRessurs --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       RegulativRessurs : har_referanse
+        
+          
+    
+        
+        
+        RegulativRessurs --> "*" Uri : har_referanse
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       RegulativRessurs : id
         
+          
+    
+        
+        
+        RegulativRessurs --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       RegulativRessurs : identifikator_literal
+        
+          
+    
+        
+        
+        RegulativRessurs --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       RegulativRessurs : relatert_regulativ_ressurs
         
@@ -40,7 +76,25 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
         
       RegulativRessurs : spraak
         
+          
+    
+        
+        
+        RegulativRessurs --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
+        
       RegulativRessurs : tittel
+        
+          
+    
+        
+        
+        RegulativRessurs --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       RegulativRessurs : type_concept
         
@@ -222,10 +276,10 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [har_referanse](har_referanse.md) | * <br/> [Uri](uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [har_referanse](har_referanse.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til ekstern ressurs (rdfs:seeAlso) |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
@@ -322,12 +376,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: RegulativRessurs
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -341,22 +403,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
   beskrivelse:
     name: beskrivelse
     description: Fritekstbeskrivelse av ressursen (dct:description).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: RegulativRessurs
@@ -374,8 +426,7 @@ attributes:
   identifikator_literal:
     name: identifikator_literal
     description: Tekstleg identifikator for ressursen (dct:identifier).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: RegulativRessurs
@@ -389,42 +440,40 @@ attributes:
   har_referanse:
     name: har_referanse
     description: Referanse til ekstern ressurs (rdfs:seeAlso).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:seeAlso
     alias: har_referanse
     owner: RegulativRessurs
     domain_of:
-    - RegulativRessurs
     - Standard
+    - RegulativRessurs
     range: uri
     multivalued: true
   spraak:
     name: spraak
     description: Språk brukt i ressursen (dct:language).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: RegulativRessurs
     domain_of:
+    - Tekstdel
     - RegulativRessurs
     - Distribusjon
     - Datasett
     - Katalogpost
     - Katalog
-    - Tekstdel
     range: Spraak
     multivalued: true
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: RegulativRessurs
     domain_of:
+    - Standard
     - RegulativRessurs
     - Distribusjon
     - Datasett
@@ -432,14 +481,12 @@ attributes:
     - Datatjeneste
     - Katalogpost
     - Katalog
-    - Standard
     range: LangString
     multivalued: true
   type_concept:
     name: type_concept
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: RegulativRessurs

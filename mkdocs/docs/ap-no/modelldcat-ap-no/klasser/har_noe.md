@@ -22,9 +22,9 @@ Alias: har_noe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AlleAv](alleav.md) | Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd) |  no  |
 | [NoenAv](noenav.md) | Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd) |  no  |
 | [Valg](valg.md) | Eit val — ein eigenskap som representerer eit val mellom modellelement |  yes  |
+| [AlleAv](alleav.md) | Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd) |  no  |
 
 
 

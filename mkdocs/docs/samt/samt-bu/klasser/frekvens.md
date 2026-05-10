@@ -35,7 +35,7 @@ Alias: frekvens
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasettserie](datasettserie.md) |
 | Slot URI | [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity) |
 
@@ -69,7 +69,7 @@ Alias: frekvens
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -79,7 +79,7 @@ Alias: frekvens
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:accrualPeriodicity |
-| native | samtbuskole:frekvens |
+| native | https://data.norge.no/linkml/dcat-ap-no/frekvens |
 
 
 
@@ -94,8 +94,7 @@ annotations:
     tag: gyldige_verdier
     value: dct:Frequency
 description: Oppdateringsfrekvens for datasettet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:accrualPeriodicity
 alias: frekvens
 domain_of:

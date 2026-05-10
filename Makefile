@@ -34,15 +34,23 @@ endef
 # $$  →  $  after make expansion, so shell sees  /^}$/  etc.
 define run_gen_erdiagram
 $(foreach s,$(1),mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) gen-erdiagram $(s) \
-  | sed -e '/^[A-Za-z]*Container {$$/,/^}$$/d' -e '/Container/d' \
+  | awk -f filter_container.awk \
   > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md;)
 endef
 
+
+
 # gen-doc writes to a directory instead of stdout
 define run_gen_doc
-$(foreach s,$(1),$(PODMAN) gen-doc --template-directory src/templates/docgen \
-  --diagram-type mermaid_class_diagram \
-  -d $(call schema_outdir,$(s))/docs $(s);)
+$(foreach s,$(1), \
+  $(PODMAN) gen-doc \
+    --template-directory src/templates/docgen \
+    --no-mergeimports \
+    --no-render-imports \
+    --diagram-type mermaid_class_diagram \
+    -d $(call schema_outdir,$(s))/docs $(s) && \
+  sed -i '/Container/d' $(call schema_outdir,$(s))/docs/index.md; \
+)
 endef
 
 # ---------------------------------------------------------------------------

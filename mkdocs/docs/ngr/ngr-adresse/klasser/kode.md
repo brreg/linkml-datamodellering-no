@@ -35,7 +35,7 @@ Alias: kode
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Adressekode](adressekode.md) |
 | Slot URI | [ngr:kode](https://data.norge.no/vocabulary/ngr-adresse#kode) |
 

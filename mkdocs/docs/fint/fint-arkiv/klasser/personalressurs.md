@@ -22,8 +22,8 @@ Alias: personalressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  yes  |
 | [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  yes  |
+| [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |  yes  |
 | [Person](person.md) | Fysiske private personar |  no  |
 
 
@@ -37,8 +37,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
-| Domain Of | [Arkivressurs](arkivressurs.md), [Personalmappe](personalmappe.md), [Person](person.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
+| Domain Of | [Person](person.md), [Arkivressurs](arkivressurs.md), [Personalmappe](personalmappe.md) |
 | Slot URI | [ark:personalressurs](https://schema.fintlabs.no/arkiv/personalressurs) |
 
 ### Cardinality and Requirements
@@ -90,9 +90,9 @@ rank: 1000
 slot_uri: ark:personalressurs
 alias: personalressurs
 domain_of:
+- Person
 - Arkivressurs
 - Personalmappe
-- Person
 range: uriorcurie
 
 ```

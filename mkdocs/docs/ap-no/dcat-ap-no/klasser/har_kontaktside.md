@@ -35,7 +35,7 @@ Alias: har_kontaktside
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktopplysning](kontaktopplysning.md) |
 | Slot URI | [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL) |
 

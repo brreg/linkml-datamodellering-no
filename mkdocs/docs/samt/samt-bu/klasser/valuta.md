@@ -62,7 +62,7 @@ Alias: valuta
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: valuta
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:currency |
-| native | samtbuskole:valuta |
+| native | https://data.norge.no/linkml/common-ap-no/valuta |
 
 
 
@@ -83,8 +83,7 @@ Alias: valuta
 ```yaml
 name: valuta
 description: Valuta (cv:currency).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: cv:currency
 alias: valuta
 domain_of:

@@ -62,7 +62,7 @@ Alias: er_i_kvalitetsdeldimensjon
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: er_i_kvalitetsdeldimensjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqvno:inSubDimension |
-| native | samtbuskole:er_i_kvalitetsdeldimensjon |
+| native | https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon |
 
 
 
@@ -83,8 +83,7 @@ Alias: er_i_kvalitetsdeldimensjon
 ```yaml
 name: er_i_kvalitetsdeldimensjon
 description: Kvalitetsdeldimensjonen dette målet operasjonaliserer.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqvno:inSubDimension
 alias: er_i_kvalitetsdeldimensjon
 domain_of:

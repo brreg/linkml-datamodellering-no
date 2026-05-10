@@ -22,7 +22,6 @@ Name: aksje_eierskap
 | [Aksjeoverdragelse](aksjeoverdragelse.md) | Overdraging av aksjar mellom partar |
 | [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |
 | [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |
 | [Eierposisjon](eierposisjon.md) | Eierens samla posisjon i eit selskap |
 | [Eierskapstransaksjon](eierskapstransaksjon.md) | Transaksjon som påverkar eigarskap i selskapet |
 | [InnbetaltAksjekapital](innbetaltaksjekapital.md) | Innbetalt aksjekapital |
@@ -92,25 +91,6 @@ Name: aksje_eierskap
 
 | Type | Description |
 | --- | --- |
-| [Boolean](boolean.md) | A binary (true or false) value |
-| [Curie](curie.md) | a compact URI |
-| [Date](date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
-| [Datetime](datetime.md) | The combination of a date and time |
-| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](double.md) | A real number that conforms to the xsd:double specification |
-| [Float](float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](integer.md) | An integer |
-| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](string.md) | A character string |
-| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](uri.md) | a complete URI |
-| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets

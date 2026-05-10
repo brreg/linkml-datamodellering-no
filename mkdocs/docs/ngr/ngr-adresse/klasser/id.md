@@ -23,27 +23,27 @@ Alias: id
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
-| [Husnummer](husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |  no  |
-| [Postboks](postboks.md) | Ei postboks registrert i Postboksregisteret |  no  |
-| [Bygning](bygning.md) | Referanse til ein bygning i Matrikkelen |  no  |
-| [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  no  |
-| [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |  no  |
-| [Bruksenhet](bruksenhet.md) | Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen |  no  |
-| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  no  |
-| [Representasjonspunkt](representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |  no  |
-| [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
 | [GeografiskAdresse](geografiskadresse.md) | Abstrakt basisklasse for norske adressar |  no  |
-| [Kommune](kommune.md) | Ein norsk kommune |  no  |
-| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |  no  |
-| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |  no  |
-| [Postboksadresse](postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |  no  |
-| [Fylke](fylke.md) | Eit norsk fylke |  no  |
-| [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |  no  |
-| [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |  no  |
 | [KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
+| [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  no  |
 | [Adresseomrade](adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |  no  |
 | [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  no  |
-| [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  no  |
+| [Postboks](postboks.md) | Ei postboks registrert i Postboksregisteret |  no  |
+| [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |  no  |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |  no  |
+| [Husnummer](husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |  no  |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |  no  |
+| [Postboksadresse](postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |  no  |
+| [Fylke](fylke.md) | Eit norsk fylke |  no  |
+| [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |  no  |
+| [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
+| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |  no  |
+| [Kommune](kommune.md) | Ein norsk kommune |  no  |
+| [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |  no  |
+| [Representasjonspunkt](representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |  no  |
+| [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  no  |
+| [Bruksenhet](bruksenhet.md) | Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen |  no  |
+| [Bygning](bygning.md) | Referanse til ein bygning i Matrikkelen |  no  |
 
 
 
@@ -56,7 +56,7 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [GeografiskAdresse](geografiskadresse.md), [Adressenavn](adressenavn.md), [Adresseomrade](adresseomrade.md), [Adressekode](adressekode.md), [Husnummer](husnummer.md), [Bruksenhetsnummer](bruksenhetsnummer.md), [Representasjonspunkt](representasjonspunkt.md), [GeografiskOmrade](geografiskomrade.md), [Postboks](postboks.md), [Bygning](bygning.md), [Bruksenhet](bruksenhet.md) |
 
 ### Cardinality and Requirements

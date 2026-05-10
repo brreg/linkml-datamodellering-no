@@ -35,7 +35,7 @@ Alias: lonnsprosent
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:lonnsprosent](https://schema.fintlabs.no/administrasjon/lonnsprosent) |
 

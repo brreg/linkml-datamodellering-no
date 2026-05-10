@@ -35,7 +35,7 @@ Alias: bruksnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Bruksnummer](bruksnummer.md) |
 | Slot URI | [ngre:bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#bruksnummer) |
 

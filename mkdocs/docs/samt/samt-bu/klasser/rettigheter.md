@@ -22,8 +22,8 @@ Alias: rettigheter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 
 
@@ -64,7 +64,7 @@ Alias: rettigheter
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: rettigheter
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:rights |
-| native | samtbuskole:rettigheter |
+| native | https://data.norge.no/linkml/dcat-ap-no/rettigheter |
 
 
 
@@ -85,8 +85,7 @@ Alias: rettigheter
 ```yaml
 name: rettigheter
 description: Rettar knytte til ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:rights
 alias: rettigheter
 domain_of:

@@ -35,7 +35,7 @@ Alias: sektorkode_beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Sektorkode](sektorkode.md) |
 | Slot URI | [ngrv:sektorkodeBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#sektorkodeBeskrivelse) |
 

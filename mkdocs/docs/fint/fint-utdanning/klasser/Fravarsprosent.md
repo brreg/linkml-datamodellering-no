@@ -35,7 +35,7 @@ Alias: fravarsprosent
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Varsel](varsel.md) |
 | Slot URI | [utd:fravarsprosent](https://schema.fintlabs.no/utdanning/fravarsprosent) |
 

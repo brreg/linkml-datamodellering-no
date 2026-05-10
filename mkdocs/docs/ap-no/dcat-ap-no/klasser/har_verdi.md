@@ -35,7 +35,7 @@ Alias: har_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kvalitetsmaaling](kvalitetsmaaling.md) |
 | Slot URI | [dqv:value](http://www.w3.org/ns/dqv#value) |
 
@@ -62,7 +62,7 @@ Alias: har_verdi
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: har_verdi
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:value |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_verdi |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_verdi |
 
 
 
@@ -84,8 +84,7 @@ Alias: har_verdi
 name: har_verdi
 description: Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Literal
   avhengig av kvalitetsmålet).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqv:value
 alias: har_verdi
 domain_of:

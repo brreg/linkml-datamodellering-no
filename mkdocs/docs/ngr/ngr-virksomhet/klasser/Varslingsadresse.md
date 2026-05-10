@@ -21,6 +21,15 @@ URI: [ngrv:Varslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Var
     click Varslingsadresse href "../Varslingsadresse/"
       Varslingsadresse : id
         
+          
+    
+        
+        
+        Varslingsadresse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Varslingsadresse : varslingstype
         
           
@@ -33,6 +42,15 @@ URI: [ngrv:Varslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Var
 
         
       Varslingsadresse : varslingsverdi
+        
+          
+    
+        
+        
+        Varslingsadresse --> "1" String : varslingsverdi
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -76,7 +94,7 @@ URI: [ngrv:Varslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Var
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [varslingstype](varslingstype.md) | 1 <br/> [VarslingType](varslingtype.md) | Kanaltype for varsling (EPOST eller MOBILTELEFON) |
-| [varslingsverdi](varslingsverdi.md) | 1 <br/> [String](string.md) | Verdien for varslingskanalen (e-postadresse eller mobilnummer) |
+| [varslingsverdi](varslingsverdi.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Verdien for varslingskanalen (e-postadresse eller mobilnummer) |
 
 
 
@@ -147,7 +165,7 @@ URI: [ngrv:Varslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Var
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

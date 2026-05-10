@@ -63,7 +63,7 @@ Alias: datatjeneste
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: datatjeneste
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:service |
-| native | samtbuskole:datatjeneste |
+| native | https://data.norge.no/linkml/dcat-ap-no/datatjeneste |
 
 
 
@@ -84,8 +84,7 @@ Alias: datatjeneste
 ```yaml
 name: datatjeneste
 description: Datatjeneste som er del av katalogen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:service
 alias: datatjeneste
 domain_of:

@@ -63,7 +63,7 @@ Alias: tittel
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/skos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: tittel
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:title |
-| native | https://data.norge.no/linkml/skos-ap-no/tittel |
+| native | https://data.norge.no/linkml/common-ap-no/tittel |
 
 
 
@@ -84,8 +84,7 @@ Alias: tittel
 ```yaml
 name: tittel
 description: Namn/tittel på ressursen (dct:title).
-from_schema: https://data.norge.no/linkml/skos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:title
 alias: tittel
 domain_of:

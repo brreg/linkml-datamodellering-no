@@ -63,7 +63,7 @@ Alias: foreldre
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: foreldre
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:foreldre |
-| native | https://schema.fintlabs.no/personvern/:foreldre |
+| native | https://schema.fintlabs.no/:foreldre |
 
 
 
@@ -84,8 +84,7 @@ Alias: foreldre
 ```yaml
 name: foreldre
 description: Den/dei som har foreldreansvar til personen.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:foreldre
 alias: foreldre
 domain_of:

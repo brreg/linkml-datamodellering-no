@@ -63,7 +63,7 @@ Alias: status
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: status
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:status |
-| native | https://data.norge.no/linkml/cpsv-ap-no/status |
+| native | https://data.norge.no/linkml/common-ap-no/status |
 
 
 
@@ -84,8 +84,7 @@ Alias: status
 ```yaml
 name: status
 description: Status for ressursen frå eit kontrollert vokabular (adms:status).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: adms:status
 alias: status
 domain_of:

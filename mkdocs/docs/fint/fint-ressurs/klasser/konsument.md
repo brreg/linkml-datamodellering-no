@@ -35,7 +35,7 @@ Alias: konsument
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) |
 | Slot URI | [res:konsument](https://schema.fintlabs.no/ressurs/konsument) |
 

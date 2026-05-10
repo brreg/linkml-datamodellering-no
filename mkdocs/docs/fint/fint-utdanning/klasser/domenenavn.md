@@ -35,7 +35,7 @@ Alias: domenenavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Skole](skole.md) |
 | Slot URI | [utd:domenenavn](https://schema.fintlabs.no/utdanning/domenenavn) |
 

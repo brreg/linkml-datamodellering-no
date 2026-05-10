@@ -22,8 +22,8 @@ Alias: tilgjengelighet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -36,7 +36,7 @@ Alias: tilgjengelighet
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcatap:availability](http://data.europa.eu/r5r/availability) |
 

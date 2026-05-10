@@ -35,7 +35,7 @@ Alias: sip
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [fint:sip](https://schema.fintlabs.no/sip) |
 
@@ -62,7 +62,7 @@ Alias: sip
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: sip
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:sip |
-| native | https://schema.fintlabs.no/personvern/:sip |
+| native | https://schema.fintlabs.no/:sip |
 
 
 
@@ -83,8 +83,7 @@ Alias: sip
 ```yaml
 name: sip
 description: SIP-protokoll for VoIP (IP-telefoni).
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:sip
 alias: sip
 domain_of:

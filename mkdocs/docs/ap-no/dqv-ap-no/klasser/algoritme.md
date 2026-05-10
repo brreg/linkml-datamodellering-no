@@ -35,7 +35,7 @@ Alias: algoritme
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Sjekksum](sjekksum.md) |
 | Slot URI | [spdx:algorithm](http://spdx.org/rdf/terms#algorithm) |
 
@@ -62,7 +62,7 @@ Alias: algoritme
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: algoritme
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | spdx:algorithm |
-| native | https://data.norge.no/linkml/dqv-ap-no/algoritme |
+| native | https://data.norge.no/linkml/dcat-ap-no/algoritme |
 
 
 
@@ -83,8 +83,7 @@ Alias: algoritme
 ```yaml
 name: algoritme
 description: Hash-algoritme brukt for sjekksummen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: spdx:algorithm
 alias: algoritme
 domain_of:

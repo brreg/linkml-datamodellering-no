@@ -28,7 +28,25 @@ URI: [ngrp:Folkeregisteridentifikator](https://data.norge.no/vocabulary/ngr-pers
       
       Folkeregisteridentifikator : id
         
+          
+    
+        
+        
+        Folkeregisteridentifikator --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Folkeregisteridentifikator : identifikatornummer
+        
+          
+    
+        
+        
+        Folkeregisteridentifikator --> "0..1" String : identifikatornummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -108,8 +126,8 @@ URI: [ngrp:Folkeregisteridentifikator](https://data.norge.no/vocabulary/ngr-pers
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [identifikatornummer](identifikatornummer.md) | 0..1 <br/> [String](string.md) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [identifikatornummer](identifikatornummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
 
 
 

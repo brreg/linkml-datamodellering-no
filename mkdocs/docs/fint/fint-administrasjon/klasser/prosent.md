@@ -36,7 +36,7 @@ Alias: prosent
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Fastlonn](fastlonn.md), [Fravaer](fravaer.md) |
 | Slot URI | [adm:prosent](https://schema.fintlabs.no/administrasjon/prosent) |
 

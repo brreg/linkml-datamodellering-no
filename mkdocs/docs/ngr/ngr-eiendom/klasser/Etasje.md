@@ -21,7 +21,25 @@ URI: [ngre:Etasje](https://data.norge.no/vocabulary/ngr-eiendom#Etasje)
     click Etasje href "../Etasje/"
       Etasje : etasjenummer
         
+          
+    
+        
+        
+        Etasje --> "1" Integer : etasjenummer
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Etasje : id
+        
+          
+    
+        
+        
+        Etasje --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngre:Etasje](https://data.norge.no/vocabulary/ngr-eiendom#Etasje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [etasjenummer](etasjenummer.md) | 1 <br/> [Integer](integer.md) | Etasjenummer (t |
+| [etasjenummer](etasjenummer.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Etasjenummer (t |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngre:Etasje](https://data.norge.no/vocabulary/ngr-eiendom#Etasje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

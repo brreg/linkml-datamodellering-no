@@ -35,7 +35,7 @@ Alias: stemmekretsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Stemmekrets](stemmekrets.md) |
 | Slot URI | [ngr:stemmekretsnummer](https://data.norge.no/vocabulary/ngr-adresse#stemmekretsnummer) |
 

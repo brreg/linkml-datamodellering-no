@@ -247,42 +247,22 @@ Name: fint-ressurs
 
 | Class | Description |
 | --- | --- |
-| [Adresse](klasser/adresse.md) | Fysisk adresse eller postadresse |
-| [Aktoer](klasser/aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](klasser/enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](klasser/virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](klasser/person.md) | Fysiske private personar |
 | [Applikasjon](klasser/applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |
 | [Applikasjonskategori](klasser/applikasjonskategori.md) | Kategori av applikasjonar |
 | [Applikasjonsressurs](klasser/applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |
 | [Applikasjonsressurstilgjengelighet](klasser/applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |
-| [Begrep](klasser/begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](klasser/fylke.md) | Liste over Norges fylker |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](klasser/kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](klasser/kommune.md) | Liste over Norges kommunar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](klasser/landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](klasser/spraak.md) | Verdiar for språk (2 bokstavar) |
 | [Brukertype](klasser/brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |
 | [DigitalEnhet](klasser/digitalenhet.md) | Ei digital eining som t |
-| [Elev](klasser/elev.md) | Ein elev registrert i skulesystemet |
 | [Enhetsgruppe](klasser/enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |
 | [Enhetsgruppemedlemskap](klasser/enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |
 | [Enhetstype](klasser/enhetstype.md) | Type digital eining |
 | [Handhevingstype](klasser/handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |
-| [Identifikator](klasser/identifikator.md) | Unik identifikasjon til eit objekt |
 | [Identitet](klasser/identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |
-| [Kontaktinformasjon](klasser/kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
-| [Kontaktperson](klasser/kontaktperson.md) | Kontaktperson (pårørande) til ein person |
 | [Lisensmodell](klasser/lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |
-| [Matrikkelnummer](klasser/matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
-| [Periode](klasser/periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
-| [Personnavn](klasser/personnavn.md) | Namn på ein person |
 | [Plattform](klasser/plattform.md) | Plattforma tenesta kan leverast på |
 | [Produsent](klasser/produsent.md) | Produsent av ei digital eining |
-| [RessursContainer](klasser/ressurscontainer.md) | Rotcontainer for FINT Ressurs-instansar |
 | [Rettighet](klasser/rettighet.md) | Ei namngitt rettighet |
 | [Status](klasser/status.md) | Status på ei digital eining i fagsystemet |
-| [Valuta](klasser/valuta.md) | Valutakodar for offisielle valutaer |
 
 
 
@@ -291,8 +271,6 @@ Name: fint-ressurs
 | Slot | Description |
 | --- | --- |
 | [administrator](klasser/administrator.md) | Referanse til Organisasjonselement som administrerer eininga |
-| [adresse](klasser/adresse.md) | Adresse til matrikkeleining |
-| [adresselinje](klasser/adresselinje.md) | Adresseinformasjon |
 | [applikasjon](klasser/applikasjon.md) | Applikasjonen ressursen (lisensen) er knytt til |
 | [applikasjonar](klasser/applikasjonar.md) |  |
 | [applikasjonskategori](klasser/applikasjonskategori.md) | Kategoriar av applikasjonar |
@@ -300,13 +278,8 @@ Name: fint-ressurs
 | [applikasjonsressurs](klasser/applikasjonsressurs.md) | Ulike ressursar (lisensar) knytt til ein applikasjon |
 | [applikasjonsressursar](klasser/applikasjonsressursar.md) |  |
 | [applikasjonsressurstilgjengelegheit](klasser/applikasjonsressurstilgjengelegheit.md) |  |
-| [beskrivelse](klasser/beskrivelse.md) | Beskriven namn eller omtale |
-| [bilde](klasser/bilde.md) | HTTP(S)-lenkje til eit bilete av personen |
-| [bokstavkode](klasser/bokstavkode.md) | Bokstavkode for aktuell valuta |
-| [bostedsadresse](klasser/bostedsadresse.md) | Folkeregistrert adresse til personen |
 | [brukertypar](klasser/brukertypar.md) |  |
 | [brukertype](klasser/brukertype.md) | For kva brukertypar lisensen er gyldig |
-| [bruksnummer](klasser/bruksnummer.md) | Fortløpande nummerering av bruk under gårdsnummer |
 | [dataobjektId](klasser/dataobjektid.md) | Einingsens ID i datakatalogen |
 | [digitaleEiningar](klasser/digitaleeiningar.md) |  |
 | [digitalEnhet](klasser/digitalenhet.md) | Den digitale eininga dette medlemskapet tilhøyrer |
@@ -314,66 +287,24 @@ Name: fint-ressurs
 | [einingsgruppedmedlemskap](klasser/einingsgruppedmedlemskap.md) |  |
 | [einingsgrupper](klasser/einingsgrupper.md) |  |
 | [einingstypar](klasser/einingstypar.md) |  |
-| [elev](klasser/elev.md) | Referanse til Elev (Utdanning) |
-| [elevnummer](klasser/elevnummer.md) | Skulens interne elevnummer |
 | [enhetsgruppe](klasser/enhetsgruppe.md) | Einingsgruppen dette medlemskapet tilhøyrer |
 | [enhetsgruppemedlemskap](klasser/enhetsgruppemedlemskap.md) | Einingsgruppemelemskap |
 | [enhetskostnad](klasser/enhetskostnad.md) | Kostnad per ressurs |
 | [enhetstype](klasser/enhetstype.md) | Type digital eining |
-| [epostadresse](klasser/epostadresse.md) | Namngitt elektronisk adresse for mottak av e-post |
-| [etternavn](klasser/etternavn.md) | Etternamn til personen |
-| [festenummer](klasser/festenummer.md) | Fortløpande nummerering av festar under gårdsnummer/bruksnummer |
 | [flerbrukerenhet](klasser/flerbrukerenhet.md) | Kvifor eininga er ein- eller flerbrukarenheit |
-| [fodselsdato](klasser/fodselsdato.md) | Dato for fødsel |
-| [fodselsnummer](klasser/fodselsnummer.md) | Fødselsnummer eller ein av dei fiktive variantane |
-| [foreldre](klasser/foreldre.md) | Den/dei som har foreldreansvar til personen |
-| [foreldreansvar](klasser/foreldreansvar.md) | Personar denne personen har foreldreansvar for |
-| [fornavn](klasser/fornavn.md) | Fornamn til personen |
-| [forretningsadresse](klasser/forretningsadresse.md) | Besøksadresse til ein organisasjonseining |
-| [fylke](klasser/fylke.md) | Fylke |
-| [gaardsnummer](klasser/gaardsnummer.md) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
-| [gyldighetsperiode](klasser/gyldighetsperiode.md) | Periode ressursen er gyldig for |
 | [handhaevingstypar](klasser/handhaevingstypar.md) |  |
 | [handhevingstype](klasser/handhevingstype.md) | Korleis lisensmodellen skal handhevast |
-| [id](klasser/id.md) | URI-identifikator for ressursen |
-| [identifikatorverdi](klasser/identifikatorverdi.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
 | [identitet](klasser/identitet.md) | Identitetar knytt til rettigheta |
 | [identitetar](klasser/identitetar.md) |  |
-| [kjonn](klasser/kjonn.md) | Kjønn |
-| [kode](klasser/kode.md) | Verdi som identifiserer omgrepet |
-| [kommune](klasser/kommune.md) | Kommune |
-| [kommunenummer](klasser/kommunenummer.md) | Nummerering av kommunen i høve til SSB si offisielle liste |
 | [konsument](klasser/konsument.md) | Referanse til Organisasjonselement som har tilgang til ressursen |
-| [kontaktinformasjon](klasser/kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør |
-| [kontaktperson](klasser/kontaktperson.md) | Personar kontaktpersonen er pårørande for |
-| [kontaktperson_navn](klasser/kontaktperson_navn.md) | Namn på kontaktpersonen |
 | [kreverGodkjenning](klasser/krevergodkjenning.md) | True dersom tildeling av ressursen krev godkjenning |
-| [laerling](klasser/laerling.md) | Referanse til Laerling (Utdanning) |
-| [land](klasser/land.md) | Land der adressa befinn seg |
 | [lisensantall](klasser/lisensantall.md) | Totalt tal på lisensar |
 | [lisensmodell](klasser/lisensmodell.md) | Lisensmodellen applikasjonsressursen har |
 | [lisensmodellar](klasser/lisensmodellar.md) |  |
-| [maalform](klasser/maalform.md) | Målform personen føretrekkjer |
-| [mellomnavn](klasser/mellomnavn.md) | Mellomnamn |
-| [mobiltelefonnummer](klasser/mobiltelefonnummer.md) | Mobiltelefonnummer |
-| [morsmaal](klasser/morsmaal.md) | Morsmål til personen |
-| [navn](klasser/navn.md) | Hovudnamn for ressursen |
-| [nettsted](klasser/nettsted.md) | Adresse til eit nettstad |
-| [nummerkode](klasser/nummerkode.md) | Nummerkode for aktuell valuta |
 | [organisasjonsenhet](klasser/organisasjonsenhet.md) | Referanse til Organisasjonselement grupperinga er tilknytt |
-| [organisasjonsnavn](klasser/organisasjonsnavn.md) | Namn på eining registrert i Einingsregisteret |
-| [organisasjonsnummer](klasser/organisasjonsnummer.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret |
-| [otungdom](klasser/otungdom.md) | Referanse til OtUngdom (Utdanning) |
-| [parorende](klasser/parorende.md) | Pårørande kontaktperson til personen |
-| [passiv](klasser/passiv.md) | Angir at koden er passiv og ikkje kan veljast |
-| [person](klasser/person.md) | Referanse til Person i Administrasjon-domenet |
-| [person_navn](klasser/person_navn.md) | Namn på personen |
 | [personalressurs](klasser/personalressurs.md) | Referanse til Personalressurs (Administrasjon) |
 | [plattform](klasser/plattform.md) | Plattforma ressursen er knytt til |
 | [plattformar](klasser/plattformar.md) |  |
-| [postadresse](klasser/postadresse.md) | Informasjon om postadresse til ein aktør |
-| [postnummer](klasser/postnummer.md) | Postnummer |
-| [poststed](klasser/poststed.md) | Poststad |
 | [privateid](klasser/privateid.md) | Angir om eininga er eigd av organisasjonen eller privatperson |
 | [produsent](klasser/produsent.md) | Namn på produsenten av eininga |
 | [produsentar](klasser/produsentar.md) |  |
@@ -381,18 +312,9 @@ Name: fint-ressurs
 | [ressurstilgjengelighet](klasser/ressurstilgjengelighet.md) | Angir kva organisasjonseining og kor mange ressursar som skal tilordnast |
 | [rettigheiter](klasser/rettigheiter.md) |  |
 | [rettighet](klasser/rettighet.md) | Rettigheiter knytt til identiteten |
-| [seksjonsnummer](klasser/seksjonsnummer.md) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
 | [serienummer](klasser/serienummer.md) | Unikt serienummer frå einingsprodusentens |
-| [sip](klasser/sip.md) | SIP-protokoll for VoIP (IP-telefoni) |
-| [slutt](klasser/slutt.md) | Til tidspunkt |
-| [start](klasser/start.md) | Frå tidspunkt |
-| [statsborgerskap](klasser/statsborgerskap.md) | Alle statsborgarskap personen har |
 | [status](klasser/status.md) | Status på eininga i fagsystemet |
 | [statusar](klasser/statusar.md) |  |
-| [telefonnummer](klasser/telefonnummer.md) | Telefonnummer |
-| [type](klasser/type.md) | Beskriv kva slags type |
-| [valuta_navn](klasser/valuta_navn.md) | Namn på valuta |
-| [virksomhetsId](klasser/virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 
 ## Enumerations
@@ -405,25 +327,6 @@ Name: fint-ressurs
 
 | Type | Description |
 | --- | --- |
-| [Boolean](klasser/boolean.md) | A binary (true or false) value |
-| [Curie](klasser/curie.md) | a compact URI |
-| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
-| [Datetime](klasser/datetime.md) | The combination of a date and time |
-| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
-| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](klasser/integer.md) | An integer |
-| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](klasser/string.md) | A character string |
-| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](klasser/uri.md) | a complete URI |
-| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets

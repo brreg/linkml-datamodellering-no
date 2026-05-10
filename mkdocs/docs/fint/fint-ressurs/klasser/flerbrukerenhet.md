@@ -35,7 +35,7 @@ Alias: flerbrukerenhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [DigitalEnhet](digitalenhet.md) |
 | Slot URI | [res:flerbrukerenhet](https://schema.fintlabs.no/ressurs/flerbrukerenhet) |
 

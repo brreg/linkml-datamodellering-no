@@ -62,7 +62,7 @@ Alias: opphavsrettsaar
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: opphavsrettsaar
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:copyrightYear |
-| native | samtbuskole:opphavsrettsaar |
+| native | https://data.norge.no/linkml/dcat-ap-no/opphavsrettsaar |
 
 
 
@@ -83,8 +83,7 @@ Alias: opphavsrettsaar
 ```yaml
 name: opphavsrettsaar
 description: Årstal for opphavsrett.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:copyrightYear
 alias: opphavsrettsaar
 domain_of:

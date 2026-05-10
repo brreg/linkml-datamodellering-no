@@ -36,7 +36,7 @@ Alias: identifikator_literal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Begrep](begrep.md), [Samling](samling.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 
@@ -63,7 +63,7 @@ Alias: identifikator_literal
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/skos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: identifikator_literal
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:identifier |
-| native | https://data.norge.no/linkml/skos-ap-no/identifikator_literal |
+| native | https://data.norge.no/linkml/common-ap-no/identifikator_literal |
 
 
 
@@ -84,8 +84,7 @@ Alias: identifikator_literal
 ```yaml
 name: identifikator_literal
 description: Tekstleg identifikator for ressursen (dct:identifier).
-from_schema: https://data.norge.no/linkml/skos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:identifier
 alias: identifikator_literal
 domain_of:

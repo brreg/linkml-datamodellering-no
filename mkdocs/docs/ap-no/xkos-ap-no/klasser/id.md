@@ -9,7 +9,7 @@ _URI-identifikator for ressursen._
 
 
 
-URI: [https://data.norge.no/linkml/xkos-ap-no/id](https://data.norge.no/linkml/xkos-ap-no/id)
+URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml/common-ap-no/id)
 Alias: id
 
 <!-- no inheritance hierarchy -->
@@ -22,16 +22,16 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  no  |
-| [Organisasjon](organisasjon.md) | Ein organisasjon eller aktør (foaf:Agent) |  no  |
 | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  no  |
-| [Kategorisamanlikning](kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |  no  |
 | [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |  no  |
-| [Tidsrom](tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |  no  |
-| [Konsept](konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |  no  |
-| [Mediatype](mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |  no  |
-| [Begrepssamling](begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |  no  |
 | [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  no  |
+| [Tidsrom](tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |  no  |
+| [Kategorisamanlikning](kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |  no  |
+| [Mediatype](mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |  no  |
+| [Konsept](konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |  no  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  no  |
+| [Begrepssamling](begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |  no  |
+| [Organisasjon](organisasjon.md) | Ein organisasjon eller aktør (foaf:Agent) |  no  |
 
 
 
@@ -44,8 +44,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
-| Domain Of | [Klassifikasjon](klassifikasjon.md), [Klassifikasjonsnivaa](klassifikasjonsnivaa.md), [Kategori](kategori.md), [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md), [Kategorisamanlikning](kategorisamanlikning.md), [Organisasjon](organisasjon.md), [Tidsrom](tidsrom.md), [Mediatype](mediatype.md), [Konsept](konsept.md), [Begrepssamling](begrepssamling.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
+| Domain Of | [Mediatype](mediatype.md), [Konsept](konsept.md), [Begrepssamling](begrepssamling.md), [Klassifikasjon](klassifikasjon.md), [Klassifikasjonsnivaa](klassifikasjonsnivaa.md), [Kategori](kategori.md), [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md), [Kategorisamanlikning](kategorisamanlikning.md), [Organisasjon](organisasjon.md), [Tidsrom](tidsrom.md) |
 
 ### Cardinality and Requirements
 
@@ -78,7 +78,7 @@ Alias: id
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/xkos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -87,8 +87,8 @@ Alias: id
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/xkos-ap-no/id |
-| native | https://data.norge.no/linkml/xkos-ap-no/id |
+| self | https://data.norge.no/linkml/common-ap-no/id |
+| native | https://data.norge.no/linkml/common-ap-no/id |
 
 
 
@@ -99,11 +99,13 @@ Alias: id
 ```yaml
 name: id
 description: URI-identifikator for ressursen.
-from_schema: https://data.norge.no/linkml/xkos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 identifier: true
 alias: id
 domain_of:
+- Mediatype
+- Konsept
+- Begrepssamling
 - Klassifikasjon
 - Klassifikasjonsnivaa
 - Kategori
@@ -111,9 +113,6 @@ domain_of:
 - Kategorisamanlikning
 - Organisasjon
 - Tidsrom
-- Mediatype
-- Konsept
-- Begrepssamling
 range: uriorcurie
 required: true
 

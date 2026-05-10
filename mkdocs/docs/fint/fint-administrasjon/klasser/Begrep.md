@@ -21,6 +21,16 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
  classDiagram
     class Begrep
     click Begrep href "../Begrep/"
+      Begrep <|-- Landkode
+        click Landkode href "../Landkode/"
+      Begrep <|-- Kjonn
+        click Kjonn href "../Kjonn/"
+      Begrep <|-- Fylke
+        click Fylke href "../Fylke/"
+      Begrep <|-- Kommune
+        click Kommune href "../Kommune/"
+      Begrep <|-- Spraak
+        click Spraak href "../Spraak/"
       Begrep <|-- Aktivitet
         click Aktivitet href "../Aktivitet/"
       Begrep <|-- Anlegg
@@ -63,16 +73,6 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
         click Stillingskode href "../Stillingskode/"
       Begrep <|-- Uketimetall
         click Uketimetall href "../Uketimetall/"
-      Begrep <|-- Landkode
-        click Landkode href "../Landkode/"
-      Begrep <|-- Kjonn
-        click Kjonn href "../Kjonn/"
-      Begrep <|-- Fylke
-        click Fylke href "../Fylke/"
-      Begrep <|-- Kommune
-        click Kommune href "../Kommune/"
-      Begrep <|-- Spraak
-        click Spraak href "../Spraak/"
       
       Begrep : gyldighetsperiode
         
@@ -87,11 +87,47 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
         
       Begrep : id
         
+          
+    
+        
+        
+        Begrep --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Begrep : kode
+        
+          
+    
+        
+        
+        Begrep --> "1" String : kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Begrep : navn
         
+          
+    
+        
+        
+        Begrep --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Begrep : passiv
+        
+          
+    
+        
+        
+        Begrep --> "0..1" Boolean : passiv
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
         
       
 ```
@@ -102,6 +138,11 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 ## Inheritance
 * **Begrep**
+    * [Landkode](landkode.md)
+    * [Kjonn](kjonn.md)
+    * [Fylke](fylke.md)
+    * [Kommune](kommune.md)
+    * [Spraak](spraak.md)
     * [Aktivitet](aktivitet.md)
     * [Anlegg](anlegg.md)
     * [Ansvar](ansvar.md)
@@ -123,11 +164,6 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
     * [Ramme](ramme.md)
     * [Stillingskode](stillingskode.md)
     * [Uketimetall](uketimetall.md)
-    * [Landkode](landkode.md)
-    * [Kjonn](kjonn.md)
-    * [Fylke](fylke.md)
-    * [Kommune](kommune.md)
-    * [Spraak](spraak.md)
 
 
 ## Class Properties
@@ -169,8 +205,8 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for ressursen |
+| [kode](kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Verdi som identifiserer omgrepet |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Hovudnamn for ressursen |
 
 
 
@@ -220,7 +256,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast |
+| [passiv](passiv.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Angir at koden er passiv og ikkje kan veljast |
 
 
 
@@ -291,7 +327,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -319,7 +355,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -329,7 +365,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Begrep |
-| native | https://schema.fintlabs.no/administrasjon/:Begrep |
+| native | https://schema.fintlabs.no/:Begrep |
 
 
 
@@ -346,7 +382,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 ```yaml
 name: Begrep
 description: Abstrakt fellesbase for alle FINT-kodeverk.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slots:
 - id
@@ -384,7 +420,7 @@ class_uri: fint:Begrep
 ```yaml
 name: Begrep
 description: Abstrakt fellesbase for alle FINT-kodeverk.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slot_usage:
   kode:
@@ -409,12 +445,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Begrep
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Lonn
     - Fravaer
     - Fullmakt
@@ -423,12 +464,6 @@ attributes:
     - Organisasjonselement
     - Personalressurs
     - Arbeidsforhold
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   kode:
@@ -436,8 +471,7 @@ attributes:
     description: Verdi som identifiserer omgrepet.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
     alias: kode
     owner: Begrep
@@ -450,14 +484,13 @@ attributes:
     description: Hovudnamn for ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
     alias: navn
     owner: Begrep
     domain_of:
-    - Organisasjonselement
     - Begrep
+    - Organisasjonselement
     range: string
     required: true
   gyldighetsperiode:
@@ -465,17 +498,16 @@ attributes:
     description: Periode ressursen er gyldig for.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: Begrep
     domain_of:
+    - Begrep
+    - Identifikator
     - Fullmakt
     - Organisasjonselement
     - Arbeidsforhold
-    - Begrep
-    - Identifikator
     range: Periode
     inlined: true
   passiv:
@@ -483,8 +515,7 @@ attributes:
     description: Angir at koden er passiv og ikkje kan veljast.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
     alias: passiv
     owner: Begrep

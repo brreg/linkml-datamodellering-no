@@ -35,7 +35,25 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
         
       EnkelType : beskrivelse
         
+          
+    
+        
+        
+        EnkelType --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       EnkelType : fraksjonssifre
+        
+          
+    
+        
+        
+        EnkelType --> "0..1" NonNegativeInteger : fraksjonssifre
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
         
       EnkelType : har_eigenskap
         
@@ -50,23 +68,113 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
         
       EnkelType : id
         
+          
+    
+        
+        
+        EnkelType --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       EnkelType : identifikator_literal
+        
+          
+    
+        
+        
+        EnkelType --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       EnkelType : lengde
         
+          
+    
+        
+        
+        EnkelType --> "0..1" NonNegativeInteger : lengde
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
+        
       EnkelType : maks_eksklusiv
+        
+          
+    
+        
+        
+        EnkelType --> "0..1" String : maks_eksklusiv
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       EnkelType : maks_inklusiv
         
+          
+    
+        
+        
+        EnkelType --> "0..1" String : maks_inklusiv
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       EnkelType : maks_lengde
+        
+          
+    
+        
+        
+        EnkelType --> "0..1" NonNegativeInteger : maks_lengde
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
         
       EnkelType : min_eksklusiv
         
+          
+    
+        
+        
+        EnkelType --> "0..1" String : min_eksklusiv
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       EnkelType : min_inklusiv
+        
+          
+    
+        
+        
+        EnkelType --> "0..1" String : min_inklusiv
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       EnkelType : min_lengde
         
+          
+    
+        
+        
+        EnkelType --> "0..1" NonNegativeInteger : min_lengde
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
+        
       EnkelType : monster
+        
+          
+    
+        
+        
+        EnkelType --> "0..1" String : monster
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       EnkelType : tilhorer_modul
         
@@ -81,9 +189,36 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
         
       EnkelType : tittel
         
+          
+    
+        
+        
+        EnkelType --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
+        
       EnkelType : totalt_sifre
         
+          
+    
+        
+        
+        EnkelType --> "0..1" NonNegativeInteger : totalt_sifre
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
+        
       EnkelType : typedefinisjon_referanse
+        
+          
+    
+        
+        
+        EnkelType --> "0..1" Uri : typedefinisjon_referanse
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -189,7 +324,7 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [typedefinisjon_referanse](typedefinisjon_referanse.md) | 0..1 <br/> [Uri](uri.md) | Referanse til typedefinisjon (modelldcatno:typeDefinitionReference) |
+| [typedefinisjon_referanse](typedefinisjon_referanse.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til typedefinisjon (modelldcatno:typeDefinitionReference) |
 
 
 
@@ -323,13 +458,13 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 | --- | --- | --- |
 | [fraksjonssifre](fraksjonssifre.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Maks tal på desimalsiffer (xsd:fractionDigits) |
 | [lengde](lengde.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Nøyaktig lengd av strengen (xsd:length) |
-| [maks_eksklusiv](maks_eksklusiv.md) | 0..1 <br/> [String](string.md) | Eksklusiv maksimumsverdi (xsd:maxExclusive) |
-| [maks_inklusiv](maks_inklusiv.md) | 0..1 <br/> [String](string.md) | Inklusiv maksimumsverdi (xsd:maxInclusive) |
+| [maks_eksklusiv](maks_eksklusiv.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Eksklusiv maksimumsverdi (xsd:maxExclusive) |
+| [maks_inklusiv](maks_inklusiv.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Inklusiv maksimumsverdi (xsd:maxInclusive) |
 | [maks_lengde](maks_lengde.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Maksimal lengd av strengen (xsd:maxLength) |
-| [min_eksklusiv](min_eksklusiv.md) | 0..1 <br/> [String](string.md) | Eksklusiv minimumsverdi (xsd:minExclusive) |
-| [min_inklusiv](min_inklusiv.md) | 0..1 <br/> [String](string.md) | Inklusiv minimumsverdi (xsd:minInclusive) |
+| [min_eksklusiv](min_eksklusiv.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Eksklusiv minimumsverdi (xsd:minExclusive) |
+| [min_inklusiv](min_inklusiv.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Inklusiv minimumsverdi (xsd:minInclusive) |
 | [min_lengde](min_lengde.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Minimal lengd av strengen (xsd:minLength) |
-| [monster](monster.md) | 0..1 <br/> [String](string.md) | Regulært uttrykk for tillate strengverdiar (xsd:pattern) |
+| [monster](monster.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Regulært uttrykk for tillate strengverdiar (xsd:pattern) |
 | [totalt_sifre](totalt_sifre.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Maks totalt tal på siffer (xsd:totalDigits) |
 
 
@@ -338,10 +473,10 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](modellelement.md) |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](modellelement.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
 | [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](modellelement.md) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](modellelement.md) |
 | [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](modellelement.md) |
@@ -567,12 +702,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: EnkelType
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -587,9 +724,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -597,8 +731,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: EnkelType
@@ -635,8 +768,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: EnkelType
@@ -668,8 +800,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: EnkelType

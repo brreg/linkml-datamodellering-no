@@ -53,7 +53,7 @@ Alias: anbefalt_term
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -63,7 +63,7 @@ Alias: anbefalt_term
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:prefLabel |
-| native | samtbuskole:anbefalt_term |
+| native | https://data.norge.no/linkml/common-ap-no/anbefalt_term |
 
 
 
@@ -74,8 +74,7 @@ Alias: anbefalt_term
 ```yaml
 name: anbefalt_term
 description: Føretrukke term/namn for ressursen (skos:prefLabel).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: skos:prefLabel
 alias: anbefalt_term
 range: LangString

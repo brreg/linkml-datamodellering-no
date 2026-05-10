@@ -21,6 +21,15 @@ URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAk
     click InnbetaltAksjekapital href "../InnbetaltAksjekapital/"
       InnbetaltAksjekapital : belop
         
+          
+    
+        
+        
+        InnbetaltAksjekapital --> "0..1" Decimal : belop
+        click Decimal href "../http://www.w3.org/2001/XMLSchema#decimal/"
+    
+
+        
       
 ```
 
@@ -71,7 +80,7 @@ URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAk
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [belop](belop.md) | 0..1 <br/> [Decimal](decimal.md) | Monetært beløp |
+| [belop](belop.md) | 0..1 <br/> [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) | Monetært beløp |
 
 
 

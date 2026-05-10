@@ -36,7 +36,7 @@ Alias: tilgjengelighet
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcatap:availability](http://data.europa.eu/r5r/availability) |
 
@@ -63,7 +63,7 @@ Alias: tilgjengelighet
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: tilgjengelighet
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcatap:availability |
-| native | samtbuskole:tilgjengelighet |
+| native | https://data.norge.no/linkml/dcat-ap-no/tilgjengelighet |
 
 
 
@@ -84,8 +84,7 @@ Alias: tilgjengelighet
 ```yaml
 name: tilgjengelighet
 description: Planlagt tilgjengelegheit for ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcatap:availability
 alias: tilgjengelighet
 domain_of:

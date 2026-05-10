@@ -66,7 +66,7 @@ Alias: kontaktpunkt
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -76,7 +76,7 @@ Alias: kontaktpunkt
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:contactPoint |
-| native | samtbuskole:kontaktpunkt |
+| native | https://data.norge.no/linkml/dcat-ap-no/kontaktpunkt |
 
 
 
@@ -87,8 +87,7 @@ Alias: kontaktpunkt
 ```yaml
 name: kontaktpunkt
 description: Kontaktinformasjon for hendvendelsar om ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:contactPoint
 alias: kontaktpunkt
 domain_of:

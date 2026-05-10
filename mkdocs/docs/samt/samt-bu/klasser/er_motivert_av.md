@@ -22,8 +22,8 @@ Alias: er_motivert_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
 | [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
+| [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
 | [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
@@ -37,7 +37,7 @@ Alias: er_motivert_av
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 | Slot URI | [oa:motivatedBy](http://www.w3.org/ns/oa#motivatedBy) |
 
@@ -64,7 +64,7 @@ Alias: er_motivert_av
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: er_motivert_av
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:motivatedBy |
-| native | samtbuskole:er_motivert_av |
+| native | https://data.norge.no/linkml/dqv-ap-no/er_motivert_av |
 
 
 
@@ -85,8 +85,7 @@ Alias: er_motivert_av
 ```yaml
 name: er_motivert_av
 description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: oa:motivatedBy
 alias: er_motivert_av
 domain_of:

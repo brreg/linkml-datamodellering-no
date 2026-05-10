@@ -35,7 +35,7 @@ Alias: sluttdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Tidsperiode](tidsperiode.md) |
 | Slot URI | [dcat:endDate](http://www.w3.org/ns/dcat#endDate) |
 

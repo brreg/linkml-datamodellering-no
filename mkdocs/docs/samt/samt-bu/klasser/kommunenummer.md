@@ -35,7 +35,7 @@ Alias: kommunenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kommune](kommune.md) |
 | Slot URI | [dcat:identifier](http://www.w3.org/ns/dcat#identifier) |
 

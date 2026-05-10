@@ -35,7 +35,7 @@ Alias: mobiltelefonnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [ngrv:mobiltelefonnummer](https://data.norge.no/vocabulary/ngr-virksomhet#mobiltelefonnummer) |
 

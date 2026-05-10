@@ -65,7 +65,7 @@ Alias: utgiver
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: utgiver
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:publisher |
-| native | samtbuskole:utgiver |
+| native | https://data.norge.no/linkml/dcat-ap-no/utgiver |
 
 
 
@@ -86,8 +86,7 @@ Alias: utgiver
 ```yaml
 name: utgiver
 description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:publisher
 alias: utgiver
 domain_of:

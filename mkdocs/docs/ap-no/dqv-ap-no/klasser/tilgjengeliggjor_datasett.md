@@ -63,7 +63,7 @@ Alias: tilgjengeliggjor_datasett
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: tilgjengeliggjor_datasett
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:servesDataset |
-| native | https://data.norge.no/linkml/dqv-ap-no/tilgjengeliggjor_datasett |
+| native | https://data.norge.no/linkml/dcat-ap-no/tilgjengeliggjor_datasett |
 
 
 
@@ -84,8 +84,7 @@ Alias: tilgjengeliggjor_datasett
 ```yaml
 name: tilgjengeliggjor_datasett
 description: Datasett som datatjenesten tilgjengeleggjer.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:servesDataset
 alias: tilgjengeliggjor_datasett
 domain_of:

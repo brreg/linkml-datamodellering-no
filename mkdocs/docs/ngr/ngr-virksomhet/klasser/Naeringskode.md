@@ -21,11 +21,47 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
     click Naeringskode href "../Naeringskode/"
       Naeringskode : er_hovednaeringskode
         
+          
+    
+        
+        
+        Naeringskode --> "0..1" Boolean : er_hovednaeringskode
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
+        
       Naeringskode : id
+        
+          
+    
+        
+        
+        Naeringskode --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Naeringskode : naeringskode_beskrivelse
         
+          
+    
+        
+        
+        Naeringskode --> "0..1" String : naeringskode_beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Naeringskode : naeringskode_kode
+        
+          
+    
+        
+        
+        Naeringskode --> "1" String : naeringskode_kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -69,7 +105,7 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [naeringskode_kode](naeringskode_kode.md) | 1 <br/> [String](string.md) | NACE-kode for næringsgruppering (t |
+| [naeringskode_kode](naeringskode_kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | NACE-kode for næringsgruppering (t |
 
 
 
@@ -96,8 +132,8 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [naeringskode_beskrivelse](naeringskode_beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av næringskoden |
-| [er_hovednaeringskode](er_hovednaeringskode.md) | 0..1 <br/> [Boolean](boolean.md) | Om dette er hovudnæringskoden til verksemda |
+| [naeringskode_beskrivelse](naeringskode_beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg skildring av næringskoden |
+| [er_hovednaeringskode](er_hovednaeringskode.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Om dette er hovudnæringskoden til verksemda |
 
 
 
@@ -171,7 +207,7 @@ URI: [ngrv:Naeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#Naering
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

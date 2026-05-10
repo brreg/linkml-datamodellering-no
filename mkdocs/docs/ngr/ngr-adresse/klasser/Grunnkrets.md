@@ -24,9 +24,36 @@ URI: [ngr:Grunnkrets](https://data.norge.no/vocabulary/ngr-adresse#Grunnkrets)
       
       Grunnkrets : grunnkretsnummer
         
+          
+    
+        
+        
+        Grunnkrets --> "0..1" String : grunnkretsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Grunnkrets : id
         
+          
+    
+        
+        
+        Grunnkrets --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Grunnkrets : namn
+        
+          
+    
+        
+        
+        Grunnkrets --> "0..1" String : namn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -89,7 +116,7 @@ URI: [ngr:Grunnkrets](https://data.norge.no/vocabulary/ngr-adresse#Grunnkrets)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [grunnkretsnummer](grunnkretsnummer.md) | 0..1 <br/> [String](string.md) | Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer) |
+| [grunnkretsnummer](grunnkretsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer) |
 
 
 
@@ -97,8 +124,8 @@ URI: [ngr:Grunnkrets](https://data.norge.no/vocabulary/ngr-adresse#Grunnkrets)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 

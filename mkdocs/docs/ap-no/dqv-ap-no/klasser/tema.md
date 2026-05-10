@@ -22,8 +22,8 @@ Alias: tema
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
@@ -37,7 +37,7 @@ Alias: tema
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md), [Datasettserie](datasettserie.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:theme](http://www.w3.org/ns/dcat#theme) |
 
@@ -65,7 +65,7 @@ Alias: tema
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: tema
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:theme |
-| native | https://data.norge.no/linkml/dqv-ap-no/tema |
+| native | https://data.norge.no/linkml/dcat-ap-no/tema |
 
 
 
@@ -86,8 +86,7 @@ Alias: tema
 ```yaml
 name: tema
 description: Tema frå eit kontrollert vokabular.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:theme
 alias: tema
 domain_of:

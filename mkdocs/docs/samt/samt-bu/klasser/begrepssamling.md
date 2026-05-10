@@ -21,6 +21,15 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
     click Begrepssamling href "../Begrepssamling/"
       Begrepssamling : id
         
+          
+    
+        
+        
+        Begrepssamling --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -78,7 +87,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -113,7 +122,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -123,7 +132,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:ConceptScheme |
-| native | samtbuskole:Begrepssamling |
+| native | https://data.norge.no/linkml/common-ap-no/Begrepssamling |
 
 
 
@@ -140,7 +149,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 ```yaml
 name: Begrepssamling
 description: Ei SKOS-omgrepssamling (temavokabular).
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/common-ap-no
 slots:
 - id
 class_uri: skos:ConceptScheme
@@ -154,22 +163,16 @@ class_uri: skos:ConceptScheme
 ```yaml
 name: Begrepssamling
 description: Ei SKOS-omgrepssamling (temavokabular).
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/common-ap-no
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Begrepssamling
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -192,6 +195,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
 class_uri: skos:ConceptScheme

@@ -35,7 +35,7 @@ Alias: aktiv
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [Sensor](sensor.md) |
 | Slot URI | [utd:aktiv](https://schema.fintlabs.no/utdanning/aktiv) |
 

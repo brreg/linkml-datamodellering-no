@@ -35,7 +35,7 @@ Alias: seksjonsnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Seksjonsnummer](seksjonsnummer.md) |
 | Slot URI | [ngre:seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#seksjonsnummer) |
 

@@ -35,7 +35,7 @@ Alias: opphavsrettsinnehaver
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:copyrightHolder](http://schema.theodi.org/odrs#copyrightHolder) |
 
@@ -62,7 +62,7 @@ Alias: opphavsrettsinnehaver
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: opphavsrettsinnehaver
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:copyrightHolder |
-| native | samtbuskole:opphavsrettsinnehaver |
+| native | https://data.norge.no/linkml/dcat-ap-no/opphavsrettsinnehaver |
 
 
 
@@ -83,8 +83,7 @@ Alias: opphavsrettsinnehaver
 ```yaml
 name: opphavsrettsinnehaver
 description: Namn på opphavsrettsinnehavar.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:copyrightHolder
 alias: opphavsrettsinnehaver
 domain_of:

@@ -35,7 +35,7 @@ Alias: har_verdi_tekstdel
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Tekstdel](tekstdel.md) |
 | Slot URI | [rdfs:value](http://www.w3.org/2000/01/rdf-schema#value) |
 
@@ -62,7 +62,7 @@ Alias: har_verdi_tekstdel
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: har_verdi_tekstdel
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:value |
-| native | samtbuskole:har_verdi_tekstdel |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel |
 
 
 
@@ -83,8 +83,7 @@ Alias: har_verdi_tekstdel
 ```yaml
 name: har_verdi_tekstdel
 description: Tekstinnhaldet i tekstdelen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: rdfs:value
 alias: har_verdi_tekstdel
 domain_of:

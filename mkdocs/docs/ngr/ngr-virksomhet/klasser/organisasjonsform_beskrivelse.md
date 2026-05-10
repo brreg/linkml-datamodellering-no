@@ -35,7 +35,7 @@ Alias: organisasjonsform_beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Organisasjonsform](organisasjonsform.md) |
 | Slot URI | [ngrv:organisasjonsformBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#organisasjonsformBeskrivelse) |
 

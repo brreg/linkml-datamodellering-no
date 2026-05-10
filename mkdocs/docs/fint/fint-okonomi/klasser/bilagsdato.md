@@ -35,7 +35,7 @@ Alias: bilagsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Bilag](bilag.md) |
 | Slot URI | [okn:bilagsdato](https://schema.fintlabs.no/okonomi/bilagsdato) |
 

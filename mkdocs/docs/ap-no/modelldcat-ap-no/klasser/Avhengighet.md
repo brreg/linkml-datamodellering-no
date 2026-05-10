@@ -46,6 +46,15 @@ URI: [modelldcatno:Dependency](https://data.norge.no/vocabulary/modelldcatno#Dep
         
       Avhengighet : beskrivelse
         
+          
+    
+        
+        
+        Avhengighet --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Avhengighet : danner_symmetri_med
         
           
@@ -70,17 +79,80 @@ URI: [modelldcatno:Dependency](https://data.norge.no/vocabulary/modelldcatno#Dep
         
       Avhengighet : id
         
+          
+    
+        
+        
+        Avhengighet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Avhengighet : identifikator_literal
+        
+          
+    
+        
+        
+        Avhengighet --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Avhengighet : maks_multiplisitet
         
+          
+    
+        
+        
+        Avhengighet --> "0..1" String : maks_multiplisitet
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Avhengighet : min_multiplisitet
+        
+          
+    
+        
+        
+        Avhengighet --> "0..1" NonNegativeInteger : min_multiplisitet
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
         
       Avhengighet : navigerbar
         
+          
+    
+        
+        
+        Avhengighet --> "0..1" Boolean : navigerbar
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
+        
       Avhengighet : relasjonsegenskapetikett
         
+          
+    
+        
+        
+        Avhengighet --> "*" LangString : relasjonsegenskapetikett
+        click LangString href "../LangString/"
+    
+
+        
       Avhengighet : sekvensnummer
+        
+          
+    
+        
+        
+        Avhengighet --> "0..1" NonNegativeInteger : sekvensnummer
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
         
       Avhengighet : tilhorer_modul
         
@@ -94,6 +166,15 @@ URI: [modelldcatno:Dependency](https://data.norge.no/vocabulary/modelldcatno#Dep
 
         
       Avhengighet : tittel
+        
+          
+    
+        
+        
+        Avhengighet --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -172,13 +253,13 @@ URI: [modelldcatno:Dependency](https://data.norge.no/vocabulary/modelldcatno#Dep
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Eigenskap](eigenskap.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Eigenskap](eigenskap.md) |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Eigenskap](eigenskap.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Eigenskap](eigenskap.md) |
-| [navigerbar](navigerbar.md) | 0..1 <br/> [Boolean](boolean.md) | Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable) | [Eigenskap](eigenskap.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Eigenskap](eigenskap.md) |
+| [navigerbar](navigerbar.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable) | [Eigenskap](eigenskap.md) |
 | [min_multiplisitet](min_multiplisitet.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Minste multiplisitet for eigenskapen (modelldcatno:minOccurs) | [Eigenskap](eigenskap.md) |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Eigenskap](eigenskap.md) |
-| [maks_multiplisitet](maks_multiplisitet.md) | 0..1 <br/> [String](string.md) | Høgste multiplisitet — heltalstal, "n" eller "*" (modelldcatno:maxOccurs) | [Eigenskap](eigenskap.md) |
+| [maks_multiplisitet](maks_multiplisitet.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Høgste multiplisitet — heltalstal, "n" eller "*" (modelldcatno:maxOccurs) | [Eigenskap](eigenskap.md) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Eigenskap](eigenskap.md) |
 | [har_type](har_type.md) | * <br/> [Modellelement](modellelement.md) | Type modellelement for eigenskapen (modelldcatno:hasType) | [Eigenskap](eigenskap.md) |
 | [relasjonsegenskapetikett](relasjonsegenskapetikett.md) | * <br/> [LangString](langstring.md) | Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel) | [Eigenskap](eigenskap.md) |
@@ -282,12 +363,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Avhengighet
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -302,9 +385,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   begrep:
@@ -329,8 +409,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Avhengighet
@@ -374,8 +453,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Avhengighet
@@ -407,8 +485,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Avhengighet

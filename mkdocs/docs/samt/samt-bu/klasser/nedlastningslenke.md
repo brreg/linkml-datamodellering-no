@@ -35,7 +35,7 @@ Alias: nedlastningslenke
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL) |
 
@@ -63,7 +63,7 @@ Alias: nedlastningslenke
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: nedlastningslenke
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:downloadURL |
-| native | samtbuskole:nedlastningslenke |
+| native | https://data.norge.no/linkml/dcat-ap-no/nedlastningslenke |
 
 
 
@@ -84,8 +84,7 @@ Alias: nedlastningslenke
 ```yaml
 name: nedlastningslenke
 description: Direkte nedlastingslenke for distribusjonsfila.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:downloadURL
 alias: nedlastningslenke
 domain_of:

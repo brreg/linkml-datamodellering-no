@@ -21,9 +21,36 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
     click Relasjon href "../Relasjon/"
       Relasjon : har_rolle
         
+          
+    
+        
+        
+        Relasjon --> "1" String : har_rolle
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Relasjon : id
         
+          
+    
+        
+        
+        Relasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Relasjon : relasjon_til
+        
+          
+    
+        
+        
+        Relasjon --> "1" Uri : relasjon_til
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -66,8 +93,8 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_rolle](har_rolle.md) | 1 <br/> [String](string.md) | Rolle ein aktør eller ressurs har i ein relasjon |
-| [relasjon_til](relasjon_til.md) | 1 <br/> [Uri](uri.md) | Den relaterte ressursen i ein kvalifisert relasjon |
+| [har_rolle](har_rolle.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Rolle ein aktør eller ressurs har i ein relasjon |
+| [relasjon_til](relasjon_til.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Den relaterte ressursen i ein kvalifisert relasjon |
 
 
 
@@ -138,7 +165,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -173,7 +200,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -183,7 +210,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:Relationship |
-| native | samtbuskole:Relasjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/Relasjon |
 
 
 
@@ -200,7 +227,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 ```yaml
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slots:
 - id
 - har_rolle
@@ -227,7 +254,7 @@ class_uri: dcat:Relationship
 ```yaml
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_usage:
   har_rolle:
     name: har_rolle
@@ -243,17 +270,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Relasjon
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -276,6 +297,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   har_rolle:
@@ -283,8 +309,7 @@ attributes:
     description: Rolle ein aktør eller ressurs har i ein relasjon.
     in_subset:
     - Obligatorisk
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:hadRole
     alias: har_rolle
     owner: Relasjon
@@ -297,8 +322,7 @@ attributes:
     description: Den relaterte ressursen i ein kvalifisert relasjon.
     in_subset:
     - Obligatorisk
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:relation
     alias: relasjon_til
     owner: Relasjon

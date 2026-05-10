@@ -37,7 +37,7 @@ Alias: tema
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md), [Datasettserie](datasettserie.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:theme](http://www.w3.org/ns/dcat#theme) |
 
@@ -65,7 +65,7 @@ Alias: tema
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: tema
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:theme |
-| native | samtbuskole:tema |
+| native | https://data.norge.no/linkml/dcat-ap-no/tema |
 
 
 
@@ -86,8 +86,7 @@ Alias: tema
 ```yaml
 name: tema
 description: Tema frå eit kontrollert vokabular.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:theme
 alias: tema
 domain_of:

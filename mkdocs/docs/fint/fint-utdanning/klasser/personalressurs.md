@@ -36,8 +36,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
-| Domain Of | [Skoleressurs](skoleressurs.md), [Person](person.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
+| Domain Of | [Person](person.md), [Skoleressurs](skoleressurs.md) |
 | Slot URI | [utd:personalressurs](https://schema.fintlabs.no/utdanning/personalressurs) |
 
 ### Cardinality and Requirements
@@ -89,8 +89,8 @@ rank: 1000
 slot_uri: utd:personalressurs
 alias: personalressurs
 domain_of:
-- Skoleressurs
 - Person
+- Skoleressurs
 range: uriorcurie
 
 ```

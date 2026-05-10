@@ -63,7 +63,7 @@ Alias: relatert_regulativ_ressurs
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: relatert_regulativ_ressurs
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:relation |
-| native | samtbuskole:relatert_regulativ_ressurs |
+| native | https://data.norge.no/linkml/dcat-ap-no/relatert_regulativ_ressurs |
 
 
 
@@ -84,8 +84,7 @@ Alias: relatert_regulativ_ressurs
 ```yaml
 name: relatert_regulativ_ressurs
 description: Relatert regulativ ressurs.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:relation
 alias: relatert_regulativ_ressurs
 domain_of:

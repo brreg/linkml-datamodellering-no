@@ -62,7 +62,7 @@ Alias: elevnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: elevnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:elevnummer |
-| native | https://schema.fintlabs.no/okonomi/:elevnummer |
+| native | https://schema.fintlabs.no/:elevnummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: elevnummer
 ```yaml
 name: elevnummer
 description: Skulens interne elevnummer.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:elevnummer
 alias: elevnummer
 domain_of:

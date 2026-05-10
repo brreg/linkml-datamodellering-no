@@ -35,7 +35,7 @@ Alias: otungdom
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Person](person.md) |
 | Slot URI | [fint:otungdom](https://schema.fintlabs.no/otungdom) |
 
@@ -62,7 +62,7 @@ Alias: otungdom
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: otungdom
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:otungdom |
-| native | https://schema.fintlabs.no/administrasjon/:otungdom |
+| native | https://schema.fintlabs.no/:otungdom |
 
 
 
@@ -83,8 +83,7 @@ Alias: otungdom
 ```yaml
 name: otungdom
 description: Referanse til OtUngdom (Utdanning).
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:otungdom
 alias: otungdom
 domain_of:

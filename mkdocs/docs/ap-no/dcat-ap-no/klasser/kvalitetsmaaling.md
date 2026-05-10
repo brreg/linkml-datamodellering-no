@@ -32,9 +32,36 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
         
       Kvalitetsmaaling : har_merknad
         
+          
+    
+        
+        
+        Kvalitetsmaaling --> "*" LangString : har_merknad
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsmaaling : har_verdi
         
+          
+    
+        
+        
+        Kvalitetsmaaling --> "0..1" String : har_verdi
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kvalitetsmaaling : id
+        
+          
+    
+        
+        
+        Kvalitetsmaaling --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -103,7 +130,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_verdi](har_verdi.md) | 0..1 <br/> [String](string.md) | Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Litera... |
+| [har_verdi](har_verdi.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Litera... |
 
 
 
@@ -186,7 +213,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -221,7 +248,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -231,7 +258,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:QualityMeasurement |
-| native | https://data.norge.no/linkml/dcat-ap-no/Kvalitetsmaaling |
+| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaaling |
 
 
 
@@ -248,7 +275,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 ```yaml
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slots:
 - id
 - er_kvalitetsmaaling_av
@@ -279,7 +306,7 @@ class_uri: dqv:QualityMeasurement
 ```yaml
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_usage:
   er_kvalitetsmaaling_av:
     name: er_kvalitetsmaaling_av
@@ -298,12 +325,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsmaaling
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -317,15 +352,6 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
   er_kvalitetsmaaling_av:
@@ -333,8 +359,7 @@ attributes:
     description: Kvalitetsmålet denne målinga er ei måling av.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:isMeasurementOf
     alias: er_kvalitetsmaaling_av
     owner: Kvalitetsmaaling
@@ -348,8 +373,7 @@ attributes:
       rdfs:Literal avhengig av kvalitetsmålet).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:value
     alias: har_verdi
     owner: Kvalitetsmaaling
@@ -361,8 +385,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
     alias: har_merknad
     owner: Kvalitetsmaaling

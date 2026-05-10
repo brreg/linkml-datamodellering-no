@@ -35,7 +35,7 @@ Alias: kilde_post
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Katalogpost](katalogpost.md) |
 | Slot URI | [dct:source](http://purl.org/dc/terms/source) |
 
@@ -62,7 +62,7 @@ Alias: kilde_post
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: kilde_post
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:source |
-| native | samtbuskole:kilde_post |
+| native | https://data.norge.no/linkml/dcat-ap-no/kilde_post |
 
 
 
@@ -83,8 +83,7 @@ Alias: kilde_post
 ```yaml
 name: kilde_post
 description: Kjelde for katalogposten (ekstern oppføring).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:source
 alias: kilde_post
 domain_of:

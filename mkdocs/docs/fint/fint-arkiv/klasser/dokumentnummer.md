@@ -35,7 +35,7 @@ Alias: dokumentnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:dokumentnummer](https://schema.fintlabs.no/arkiv/dokumentnummer) |
 

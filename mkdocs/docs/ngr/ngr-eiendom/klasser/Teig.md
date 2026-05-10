@@ -21,6 +21,15 @@ URI: [ngre:Teig](https://data.norge.no/vocabulary/ngr-eiendom#Teig)
     click Teig href "../Teig/"
       Teig : id
         
+          
+    
+        
+        
+        Teig --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -78,7 +87,7 @@ URI: [ngre:Teig](https://data.norge.no/vocabulary/ngr-eiendom#Teig)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

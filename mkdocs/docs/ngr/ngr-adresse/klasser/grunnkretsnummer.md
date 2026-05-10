@@ -35,7 +35,7 @@ Alias: grunnkretsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Grunnkrets](grunnkrets.md) |
 | Slot URI | [ngr:grunnkretsnummer](https://data.norge.no/vocabulary/ngr-adresse#grunnkretsnummer) |
 

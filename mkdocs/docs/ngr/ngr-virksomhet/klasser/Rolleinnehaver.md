@@ -21,6 +21,15 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
     click Rolleinnehaver href "../Rolleinnehaver/"
       Rolleinnehaver : id
         
+          
+    
+        
+        
+        Rolleinnehaver --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Rolleinnehaver : kan_vaere_av_type_person
         
           
@@ -33,6 +42,15 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
 
         
       Rolleinnehaver : rolleinnehaver_navn
+        
+          
+    
+        
+        
+        Rolleinnehaver --> "0..1" String : rolleinnehaver_navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -108,7 +126,7 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [rolleinnehaver_navn](rolleinnehaver_navn.md) | 0..1 <br/> [String](string.md) | Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar) |
+| [rolleinnehaver_navn](rolleinnehaver_navn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar) |
 
 
 
@@ -153,7 +171,7 @@ URI: [ngrv:Rolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#Rolle
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

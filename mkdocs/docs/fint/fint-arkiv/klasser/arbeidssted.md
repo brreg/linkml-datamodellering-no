@@ -35,7 +35,7 @@ Alias: arbeidssted
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Personalmappe](personalmappe.md) |
 | Slot URI | [ark:arbeidssted](https://schema.fintlabs.no/arkiv/arbeidssted) |
 

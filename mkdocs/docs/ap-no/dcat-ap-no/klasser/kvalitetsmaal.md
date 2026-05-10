@@ -32,11 +32,47 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
         
       Kvalitetsmaal : har_anbefalt_term
         
+          
+    
+        
+        
+        Kvalitetsmaal --> "*" LangString : har_anbefalt_term
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsmaal : har_definisjon
+        
+          
+    
+        
+        
+        Kvalitetsmaal --> "*" LangString : har_definisjon
+        click LangString href "../LangString/"
+    
+
         
       Kvalitetsmaal : har_forventet_datatype
         
+          
+    
+        
+        
+        Kvalitetsmaal --> "0..1" Uriorcurie : har_forventet_datatype
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kvalitetsmaal : id
+        
+          
+    
+        
+        
+        Kvalitetsmaal --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -115,7 +151,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_forventet_datatype](har_forventet_datatype.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Forventa XSD-datatype for verdien av ei kvalitetsmåling |
+| [har_forventet_datatype](har_forventet_datatype.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Forventa XSD-datatype for verdien av ei kvalitetsmåling |
 | [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrekt term/namn for dimensjonen eller målet |
 | [har_definisjon](har_definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av dimensjonen eller målet |
 
@@ -207,7 +243,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -242,7 +278,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -252,7 +288,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:Metric |
-| native | https://data.norge.no/linkml/dcat-ap-no/Kvalitetsmaal |
+| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaal |
 
 
 
@@ -269,7 +305,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 ```yaml
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slots:
 - id
 - er_i_kvalitetsdeldimensjon
@@ -305,7 +341,7 @@ class_uri: dqv:Metric
 ```yaml
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_usage:
   er_i_kvalitetsdeldimensjon:
     name: er_i_kvalitetsdeldimensjon
@@ -328,12 +364,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsmaal
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -347,15 +391,6 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
   er_i_kvalitetsdeldimensjon:
@@ -363,8 +398,7 @@ attributes:
     description: Kvalitetsdeldimensjonen dette målet operasjonaliserer.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqvno:inSubDimension
     alias: er_i_kvalitetsdeldimensjon
     owner: Kvalitetsmaal
@@ -377,8 +411,7 @@ attributes:
     description: Forventa XSD-datatype for verdien av ei kvalitetsmåling.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:expectedDataType
     alias: har_forventet_datatype
     owner: Kvalitetsmaal
@@ -390,8 +423,7 @@ attributes:
     description: Føretrekt term/namn for dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:prefLabel
     alias: har_anbefalt_term
     owner: Kvalitetsmaal
@@ -405,8 +437,7 @@ attributes:
     description: Definisjon av dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:definition
     alias: har_definisjon
     owner: Kvalitetsmaal

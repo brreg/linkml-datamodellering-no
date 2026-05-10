@@ -35,7 +35,7 @@ Alias: fornavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Personnavn](personnavn.md) |
 | Slot URI | [fint:fornavn](https://schema.fintlabs.no/fornavn) |
 
@@ -62,7 +62,7 @@ Alias: fornavn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: fornavn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:fornavn |
-| native | https://schema.fintlabs.no/arkiv/:fornavn |
+| native | https://schema.fintlabs.no/:fornavn |
 
 
 
@@ -83,8 +83,7 @@ Alias: fornavn
 ```yaml
 name: fornavn
 description: Fornamn til personen.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fornavn
 alias: fornavn
 domain_of:

@@ -23,8 +23,8 @@ Alias: status
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
-| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 
 
 
@@ -64,7 +64,7 @@ Alias: status
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: status
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:status |
-| native | samtbuskole:status |
+| native | https://data.norge.no/linkml/common-ap-no/status |
 
 
 
@@ -85,8 +85,7 @@ Alias: status
 ```yaml
 name: status
 description: Status for ressursen frå eit kontrollert vokabular (adms:status).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: adms:status
 alias: status
 domain_of:

@@ -23,8 +23,8 @@ Alias: har_maal
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
-| [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
 | [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
+| [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
 
 
 
@@ -37,7 +37,7 @@ Alias: har_maal
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 | Slot URI | [oa:hasTarget](http://www.w3.org/ns/oa#hasTarget) |
 
@@ -71,7 +71,7 @@ Alias: har_maal
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -81,7 +81,7 @@ Alias: har_maal
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:hasTarget |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_maal |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_maal |
 
 
 
@@ -96,8 +96,7 @@ annotations:
     tag: gyldige_verdier
     value: dcat:Resource
 description: Ressursen merknaden gjeld.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: oa:hasTarget
 alias: har_maal
 domain_of:

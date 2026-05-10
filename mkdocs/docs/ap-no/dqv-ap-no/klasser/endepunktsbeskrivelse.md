@@ -35,7 +35,7 @@ Alias: endepunktsbeskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:endpointDescription](http://www.w3.org/ns/dcat#endpointDescription) |
 
@@ -63,7 +63,7 @@ Alias: endepunktsbeskrivelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: endepunktsbeskrivelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:endpointDescription |
-| native | https://data.norge.no/linkml/dqv-ap-no/endepunktsbeskrivelse |
+| native | https://data.norge.no/linkml/dcat-ap-no/endepunktsbeskrivelse |
 
 
 
@@ -84,8 +84,7 @@ Alias: endepunktsbeskrivelse
 ```yaml
 name: endepunktsbeskrivelse
 description: URL til beskriving av endepunktet (t.d. OpenAPI-dokument).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:endpointDescription
 alias: endepunktsbeskrivelse
 domain_of:

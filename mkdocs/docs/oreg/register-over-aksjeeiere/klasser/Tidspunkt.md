@@ -36,7 +36,7 @@ Alias: tidspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Utbytte](utbytte.md), [Eierskapstransaksjon](eierskapstransaksjon.md) |
 
 ### Cardinality and Requirements

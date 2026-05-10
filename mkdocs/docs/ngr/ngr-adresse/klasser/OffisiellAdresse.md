@@ -46,6 +46,15 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
         
       OffisiellAdresse : adresserer_annet_objekt
         
+          
+    
+        
+        
+        OffisiellAdresse --> "0..1" Uriorcurie : adresserer_annet_objekt
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       OffisiellAdresse : adresserer_bruksenhet
         
           
@@ -69,6 +78,15 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 
         
       OffisiellAdresse : adressetilleggsnavn
+        
+          
+    
+        
+        
+        OffisiellAdresse --> "0..1" String : adressetilleggsnavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       OffisiellAdresse : bruksenhetsnummer_ref
         
@@ -105,6 +123,15 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
         
       OffisiellAdresse : id
         
+          
+    
+        
+        
+        OffisiellAdresse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       OffisiellAdresse : kommunenummer_ref
         
           
@@ -117,6 +144,15 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 
         
       OffisiellAdresse : matrikkelnummer
+        
+          
+    
+        
+        
+        OffisiellAdresse --> "0..1" String : matrikkelnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       OffisiellAdresse : representasjonspunkt_ref
         
@@ -320,11 +356,11 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [bruksenhetsnummer_ref](bruksenhetsnummer_ref.md) | 0..1 <br/> [Bruksenhetsnummer](bruksenhetsnummer.md) | Bruksenhetsnummer for leilegheit eller lokale |
-| [adressetilleggsnavn](adressetilleggsnavn.md) | 0..1 <br/> [String](string.md) | Offisielt tilleggsnamn til vegadressa (t |
-| [matrikkelnummer](matrikkelnummer.md) | 0..1 <br/> [String](string.md) | Matrikkelnummer for adresser utan vegadresse (t |
+| [adressetilleggsnavn](adressetilleggsnavn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Offisielt tilleggsnamn til vegadressa (t |
+| [matrikkelnummer](matrikkelnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Matrikkelnummer for adresser utan vegadresse (t |
 | [adresserer_bygning](adresserer_bygning.md) | 0..1 <br/> [Bygning](bygning.md) | Bygning denne adressa er tildelt (forvaltar: Matrikkelen) |
 | [adresserer_bruksenhet](adresserer_bruksenhet.md) | 0..1 <br/> [Bruksenhet](bruksenhet.md) | Brukseining denne adressa er tildelt (forvaltar: Matrikkelen) |
-| [adresserer_annet_objekt](adresserer_annet_objekt.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Anna objekt (t |
+| [adresserer_annet_objekt](adresserer_annet_objekt.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Anna objekt (t |
 
 
 
@@ -493,7 +529,7 @@ URI: [ngr:OffisiellAdresse](https://data.norge.no/vocabulary/ngr-adresse#Offisie
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 

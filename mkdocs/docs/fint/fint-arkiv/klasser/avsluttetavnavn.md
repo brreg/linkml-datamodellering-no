@@ -35,7 +35,7 @@ Alias: avsluttetAvNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Klassifikasjonssystem](klassifikasjonssystem.md) |
 | Slot URI | [ark:avsluttetAvNavn](https://schema.fintlabs.no/arkiv/avsluttetAvNavn) |
 

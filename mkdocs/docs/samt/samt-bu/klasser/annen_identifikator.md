@@ -63,7 +63,7 @@ Alias: annen_identifikator
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: annen_identifikator
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:identifier |
-| native | samtbuskole:annen_identifikator |
+| native | https://data.norge.no/linkml/dcat-ap-no/annen_identifikator |
 
 
 
@@ -84,8 +84,7 @@ Alias: annen_identifikator
 ```yaml
 name: annen_identifikator
 description: Alternativ identifikator frå eit anna system.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: adms:identifier
 alias: annen_identifikator
 domain_of:

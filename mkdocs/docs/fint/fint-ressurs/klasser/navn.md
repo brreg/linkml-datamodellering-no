@@ -22,25 +22,25 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
+| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |  yes  |
+| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  yes  |
+| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  yes  |
 | [Status](status.md) | Status på ei digital eining i fagsystemet |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |  yes  |
-| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 | [Produsent](produsent.md) | Produsent av ei digital eining |  yes  |
 | [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Enhetstype](enhetstype.md) | Type digital eining |  yes  |
-| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |  yes  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  yes  |
 | [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
-| [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
-| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
 | [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
+| [Enhetstype](enhetstype.md) | Type digital eining |  yes  |
 | [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |  yes  |
 
 
 
@@ -53,8 +53,8 @@ Alias: navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [Applikasjon](applikasjon.md), [Applikasjonsressurs](applikasjonsressurs.md), [DigitalEnhet](digitalenhet.md), [Enhetsgruppe](enhetsgruppe.md), [Rettighet](rettighet.md), [Applikasjonskategori](applikasjonskategori.md), [Brukertype](brukertype.md), [Enhetstype](enhetstype.md), [Handhevingstype](handhevingstype.md), [Lisensmodell](lisensmodell.md), [Plattform](plattform.md), [Produsent](produsent.md), [Status](status.md), [Begrep](begrep.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Begrep](begrep.md), [Applikasjon](applikasjon.md), [Applikasjonsressurs](applikasjonsressurs.md), [DigitalEnhet](digitalenhet.md), [Enhetsgruppe](enhetsgruppe.md), [Rettighet](rettighet.md), [Applikasjonskategori](applikasjonskategori.md), [Brukertype](brukertype.md), [Enhetstype](enhetstype.md), [Handhevingstype](handhevingstype.md), [Lisensmodell](lisensmodell.md), [Plattform](plattform.md), [Produsent](produsent.md), [Status](status.md) |
 | Slot URI | [fint:navn](https://schema.fintlabs.no/navn) |
 
 ### Cardinality and Requirements
@@ -80,7 +80,7 @@ Alias: navn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -90,7 +90,7 @@ Alias: navn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:navn |
-| native | https://schema.fintlabs.no/ressurs/:navn |
+| native | https://schema.fintlabs.no/:navn |
 
 
 
@@ -101,11 +101,11 @@ Alias: navn
 ```yaml
 name: navn
 description: Hovudnamn for ressursen.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:navn
 alias: navn
 domain_of:
+- Begrep
 - Applikasjon
 - Applikasjonsressurs
 - DigitalEnhet
@@ -119,7 +119,6 @@ domain_of:
 - Plattform
 - Produsent
 - Status
-- Begrep
 range: string
 
 ```

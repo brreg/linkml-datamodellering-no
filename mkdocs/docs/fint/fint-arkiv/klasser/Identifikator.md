@@ -32,6 +32,15 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
         
       Identifikator : identifikatorverdi
         
+          
+    
+        
+        
+        Identifikator --> "1" String : identifikatorverdi
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       
 ```
 
@@ -113,7 +122,7 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [String](string.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
+| [identifikatorverdi](identifikatorverdi.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
 | [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for |
 
 
@@ -127,6 +136,13 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
+| [Elev](elev.md) | [elevnummer](elevnummer.md) | range | [Identifikator](identifikator.md) |
+| [Enhet](enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [bokstavkode](bokstavkode.md) | range | [Identifikator](identifikator.md) |
+| [Valuta](valuta.md) | [nummerkode](nummerkode.md) | range | [Identifikator](identifikator.md) |
+| [Person](person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [virksomhetsId](virksomhetsid.md) | range | [Identifikator](identifikator.md) |
+| [Virksomhet](virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
 | [Mappe](mappe.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
 | [Saksmappe](saksmappe.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
 | [Arkivressurs](arkivressurs.md) | [kildesystemId](kildesystemid.md) | range | [Identifikator](identifikator.md) |
@@ -139,13 +155,6 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 | [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | [soeknadsnummer](soeknadsnummer.md) | range | [Identifikator](identifikator.md) |
 | [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
 | [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | [mappeId](mappeid.md) | range | [Identifikator](identifikator.md) |
-| [Elev](elev.md) | [elevnummer](elevnummer.md) | range | [Identifikator](identifikator.md) |
-| [Enhet](enhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
-| [Valuta](valuta.md) | [bokstavkode](bokstavkode.md) | range | [Identifikator](identifikator.md) |
-| [Valuta](valuta.md) | [nummerkode](nummerkode.md) | range | [Identifikator](identifikator.md) |
-| [Person](person.md) | [fodselsnummer](fodselsnummer.md) | range | [Identifikator](identifikator.md) |
-| [Virksomhet](virksomhet.md) | [virksomhetsId](virksomhetsid.md) | range | [Identifikator](identifikator.md) |
-| [Virksomhet](virksomhet.md) | [organisasjonsnummer](organisasjonsnummer.md) | range | [Identifikator](identifikator.md) |
 
 
 
@@ -167,7 +176,7 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -177,7 +186,7 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Identifikator |
-| native | https://schema.fintlabs.no/arkiv/:Identifikator |
+| native | https://schema.fintlabs.no/:Identifikator |
 
 
 
@@ -194,7 +203,7 @@ URI: [fint:Identifikator](https://schema.fintlabs.no/Identifikator)
 ```yaml
 name: Identifikator
 description: Unik identifikasjon til eit objekt.
-from_schema: https://data.norge.no/linkml/fint-arkiv
+from_schema: https://data.norge.no/linkml/fint-common
 slots:
 - identifikatorverdi
 - gyldighetsperiode
@@ -213,7 +222,7 @@ class_uri: fint:Identifikator
 ```yaml
 name: Identifikator
 description: Unik identifikasjon til eit objekt.
-from_schema: https://data.norge.no/linkml/fint-arkiv
+from_schema: https://data.norge.no/linkml/fint-common
 slot_usage:
   identifikatorverdi:
     name: identifikatorverdi
@@ -223,8 +232,7 @@ attributes:
     name: identifikatorverdi
     description: Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein
       bestemt identifikator.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:identifikatorverdi
     alias: identifikatorverdi
     owner: Identifikator
@@ -235,12 +243,13 @@ attributes:
   gyldighetsperiode:
     name: gyldighetsperiode
     description: Periode ressursen er gyldig for.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: Identifikator
     domain_of:
+    - Begrep
+    - Identifikator
     - AdministrativEnhet
     - DokumentStatus
     - DokumentType
@@ -259,8 +268,6 @@ attributes:
     - Tilgangsrestriksjon
     - TilknyttetRegistreringSom
     - Variantformat
-    - Begrep
-    - Identifikator
     range: Periode
     inlined: true
 class_uri: fint:Identifikator

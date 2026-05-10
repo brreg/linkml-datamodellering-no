@@ -35,7 +35,7 @@ Alias: debet
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [Postering](postering.md) |
 | Slot URI | [okn:debet](https://schema.fintlabs.no/okonomi/debet) |
 

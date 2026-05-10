@@ -21,7 +21,25 @@ URI: [aksje:Aksje](https://example.no/ontology/aksje#Aksje)
     click Aksje href "../Aksje/"
       Aksje : har_palydende_belop
         
+          
+    
+        
+        
+        Aksje --> "0..1" Decimal : har_palydende_belop
+        click Decimal href "../http://www.w3.org/2001/XMLSchema#decimal/"
+    
+
+        
       Aksje : identifikator
+        
+          
+    
+        
+        
+        Aksje --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Aksje : tilhorer_aksjeklasse
         
@@ -116,8 +134,8 @@ URI: [aksje:Aksje](https://example.no/ontology/aksje#Aksje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [har_palydende_belop](har_palydende_belop.md) | 0..1 <br/> [Decimal](decimal.md) | Pålydande verdi for aksja |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [har_palydende_belop](har_palydende_belop.md) | 0..1 <br/> [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) | Pålydande verdi for aksja |
 | [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](aksjeklasse.md) | Klassen aksja høyrer til |
 
 

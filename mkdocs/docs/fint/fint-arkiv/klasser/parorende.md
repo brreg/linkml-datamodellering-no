@@ -63,7 +63,7 @@ Alias: parorende
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: parorende
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:parorende |
-| native | https://schema.fintlabs.no/arkiv/:parorende |
+| native | https://schema.fintlabs.no/:parorende |
 
 
 
@@ -84,8 +84,7 @@ Alias: parorende
 ```yaml
 name: parorende
 description: Pårørande kontaktperson til personen.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:parorende
 alias: parorende
 domain_of:

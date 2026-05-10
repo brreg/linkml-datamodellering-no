@@ -35,7 +35,7 @@ Alias: merknadstekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Merknad](merknad.md) |
 | Slot URI | [ark:merknadstekst](https://schema.fintlabs.no/arkiv/merknadstekst) |
 

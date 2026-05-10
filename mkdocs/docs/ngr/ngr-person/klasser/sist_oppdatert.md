@@ -35,7 +35,7 @@ Alias: sist_oppdatert
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Kontaktopplysninger](kontaktopplysninger.md) |
 | Slot URI | [ngrp:sistOppdatert](https://data.norge.no/vocabulary/ngr-person#sistOppdatert) |
 

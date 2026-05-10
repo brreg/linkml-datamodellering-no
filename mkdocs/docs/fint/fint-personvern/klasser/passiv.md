@@ -22,14 +22,14 @@ Alias: passiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
 | [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  yes  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
 | [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 | [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  yes  |
 
 
 
@@ -42,8 +42,8 @@ Alias: passiv
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
-| Domain Of | [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md), [Begrep](begrep.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
+| Domain Of | [Begrep](begrep.md), [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md) |
 | Slot URI | [fint:passiv](https://schema.fintlabs.no/passiv) |
 
 ### Cardinality and Requirements
@@ -69,7 +69,7 @@ Alias: passiv
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -79,7 +79,7 @@ Alias: passiv
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:passiv |
-| native | https://schema.fintlabs.no/personvern/:passiv |
+| native | https://schema.fintlabs.no/:passiv |
 
 
 
@@ -90,14 +90,13 @@ Alias: passiv
 ```yaml
 name: passiv
 description: Angir at koden er passiv og ikkje kan veljast.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:passiv
 alias: passiv
 domain_of:
+- Begrep
 - Behandlingsgrunnlag
 - Personopplysning
-- Begrep
 range: boolean
 
 ```

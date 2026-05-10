@@ -35,7 +35,7 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Gebyr](gebyr.md) |
 | Slot URI | [cv:hasValue](http://data.europa.eu/m8g/hasValue) |
 
@@ -62,7 +62,7 @@ Alias: belop
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: belop
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasValue |
-| native | samtbuskole:belop |
+| native | https://data.norge.no/linkml/dcat-ap-no/belop |
 
 
 
@@ -83,8 +83,7 @@ Alias: belop
 ```yaml
 name: belop
 description: Beløp for gebyret.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: cv:hasValue
 alias: belop
 domain_of:

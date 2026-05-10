@@ -35,7 +35,7 @@ Alias: gaardsnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Gaardsnummer](gaardsnummer.md) |
 | Slot URI | [ngre:gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#gaardsnummer) |
 

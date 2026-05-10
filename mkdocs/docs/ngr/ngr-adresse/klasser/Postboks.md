@@ -21,7 +21,25 @@ URI: [ngr:Postboks](https://data.norge.no/vocabulary/ngr-adresse#Postboks)
     click Postboks href "../Postboks/"
       Postboks : id
         
+          
+    
+        
+        
+        Postboks --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Postboks : postboksnummer
+        
+          
+    
+        
+        
+        Postboks --> "1" Integer : postboksnummer
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngr:Postboks](https://data.norge.no/vocabulary/ngr-adresse#Postboks)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [postboksnummer](postboksnummer.md) | 1 <br/> [Integer](integer.md) | Postboksnummer (heiltal) |
+| [postboksnummer](postboksnummer.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Postboksnummer (heiltal) |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngr:Postboks](https://data.norge.no/vocabulary/ngr-adresse#Postboks)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

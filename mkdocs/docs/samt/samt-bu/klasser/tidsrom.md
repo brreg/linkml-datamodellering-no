@@ -65,7 +65,7 @@ Alias: tidsrom
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: tidsrom
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:temporal |
-| native | samtbuskole:tidsrom |
+| native | https://data.norge.no/linkml/dcat-ap-no/tidsrom |
 
 
 
@@ -86,8 +86,7 @@ Alias: tidsrom
 ```yaml
 name: tidsrom
 description: Tidsperiode ressursen dekkar.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:temporal
 alias: tidsrom
 domain_of:

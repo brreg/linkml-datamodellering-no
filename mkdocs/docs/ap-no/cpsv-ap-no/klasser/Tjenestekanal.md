@@ -21,15 +21,69 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
     click Tjenestekanal href "../Tjenestekanal/"
       Tjenestekanal : behandlingstid
         
+          
+    
+        
+        
+        Tjenestekanal --> "0..1" Duration : behandlingstid
+        click Duration href "../Duration/"
+    
+
+        
       Tjenestekanal : beskrivelse
+        
+          
+    
+        
+        
+        Tjenestekanal --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
         
       Tjenestekanal : id
         
+          
+    
+        
+        
+        Tjenestekanal --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tjenestekanal : identifikator_literal
+        
+          
+    
+        
+        
+        Tjenestekanal --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Tjenestekanal : nettside
         
+          
+    
+        
+        
+        Tjenestekanal --> "*" Uri : nettside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tjenestekanal : opningstider
+        
+          
+    
+        
+        
+        Tjenestekanal --> "*" String : opningstider
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Tjenestekanal : type_concept
         
@@ -93,7 +147,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 
 
 
@@ -168,9 +222,9 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
-| [opningstider](opningstider.md) | * <br/> [String](string.md) | Opningstider |
+| [opningstider](opningstider.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Opningstider |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [nettside](nettside.md) | * <br/> [Uri](uri.md) | Nettside for tenestekanalane |
+| [nettside](nettside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Nettside for tenestekanalane |
 
 
 
@@ -267,7 +321,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -407,12 +461,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Tjenestekanal
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -428,9 +484,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   identifikator_literal:
@@ -438,8 +491,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Tjenestekanal
@@ -462,8 +514,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: Tjenestekanal
@@ -512,8 +563,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Tjenestekanal

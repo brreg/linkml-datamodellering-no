@@ -63,7 +63,7 @@ Alias: foreldreansvar
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: foreldreansvar
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:foreldreansvar |
-| native | https://schema.fintlabs.no/administrasjon/:foreldreansvar |
+| native | https://schema.fintlabs.no/:foreldreansvar |
 
 
 
@@ -84,8 +84,7 @@ Alias: foreldreansvar
 ```yaml
 name: foreldreansvar
 description: Personar denne personen har foreldreansvar for.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:foreldreansvar
 alias: foreldreansvar
 domain_of:

@@ -26,7 +26,7 @@ Alias: har_referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Slot URI | [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso) |
 
 ### Cardinality and Requirements
@@ -53,7 +53,7 @@ Alias: har_referanse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/skos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -63,7 +63,7 @@ Alias: har_referanse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:seeAlso |
-| native | https://data.norge.no/linkml/skos-ap-no/har_referanse |
+| native | https://data.norge.no/linkml/common-ap-no/har_referanse |
 
 
 
@@ -74,8 +74,7 @@ Alias: har_referanse
 ```yaml
 name: har_referanse
 description: Referanse til ekstern ressurs (rdfs:seeAlso).
-from_schema: https://data.norge.no/linkml/skos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: rdfs:seeAlso
 alias: har_referanse
 range: uri

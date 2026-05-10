@@ -35,6 +35,15 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
         
       Modul : beskrivelse
         
+          
+    
+        
+        
+        Modul --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Modul : har_eigenskap
         
           
@@ -48,7 +57,25 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
         
       Modul : id
         
+          
+    
+        
+        
+        Modul --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Modul : identifikator_literal
+        
+          
+    
+        
+        
+        Modul --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Modul : tilhorer_modul
         
@@ -62,6 +89,15 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
 
         
       Modul : tittel
+        
+          
+    
+        
+        
+        Modul --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -109,10 +145,10 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Modellelement](modellelement.md) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Modellelement](modellelement.md) |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) | [Modellelement](modellelement.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Modellelement](modellelement.md) |
 | [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) | [Modellelement](modellelement.md) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Modellelement](modellelement.md) |
 | [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Modellelement](modellelement.md) |
@@ -218,12 +254,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Modul
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -238,9 +276,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -248,8 +283,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Modul
@@ -286,8 +320,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Modul
@@ -319,8 +352,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Modul

@@ -144,6 +144,15 @@ URI: [schema:Thing](http://schema.org/Thing)
         
       Containerklasse : identifikator
         
+          
+    
+        
+        
+        Containerklasse --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Containerklasse : innbetalt_aksjekapitaler
         
           
@@ -540,7 +549,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
 | [aksjeselskaper](aksjeselskaper.md) | * <br/> [Aksjeselskap](aksjeselskap.md) | Samling av aksjeselskap |
 | [aksjekapitaler](aksjekapitaler.md) | * <br/> [Aksjekapital](aksjekapital.md) | Samling av aksjekapitalar |
 | [aksjer](aksjer.md) | * <br/> [Aksje](aksje.md) | Samling av aksjar |

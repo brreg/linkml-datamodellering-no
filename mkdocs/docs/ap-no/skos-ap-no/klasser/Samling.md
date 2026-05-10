@@ -21,9 +21,36 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
     click Samling href "../Samling/"
       Samling : beskrivelse
         
+          
+    
+        
+        
+        Samling --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Samling : id
         
+          
+    
+        
+        
+        Samling --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Samling : identifikator_literal
+        
+          
+    
+        
+        
+        Samling --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Samling : kontaktpunkt_vcard
         
@@ -48,6 +75,15 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 
         
       Samling : tittel
+        
+          
+    
+        
+        
+        Samling --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Samling : utgjevar
         
@@ -119,7 +155,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [medlem](medlem.md) | 1..* <br/> [Begrep](begrep.md) | Omgrep som er medlem av samlinga (skos:member) |
 | [kontaktpunkt_vcard](kontaktpunkt_vcard.md) | 1..* <br/> [VCardKontakt](vcardkontakt.md) | Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
@@ -279,7 +315,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -426,12 +462,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Samling
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Organisasjon
     - VCardKontakt
     - Begrep
@@ -440,9 +478,6 @@ attributes:
     - GeneriskRelasjon
     - PartitivRelasjon
     - Samling
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   identifikator_literal:
@@ -450,8 +485,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Samling
@@ -496,8 +530,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Samling
@@ -526,8 +559,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Samling

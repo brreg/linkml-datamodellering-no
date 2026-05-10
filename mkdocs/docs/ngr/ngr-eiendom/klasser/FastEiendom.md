@@ -76,6 +76,15 @@ URI: [ngre:FastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
         
       FastEiendom : id
         
+          
+    
+        
+        
+        FastEiendom --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       FastEiendom : identifiseres_av
         
           
@@ -312,7 +321,7 @@ URI: [ngre:FastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#FastEiendom
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

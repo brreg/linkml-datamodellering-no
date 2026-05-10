@@ -22,43 +22,43 @@ Alias: gyldighetsperiode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
-| [Skoleaar](skoleaar.md) | Eit skoleår (t |  yes  |
-| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  yes  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  yes  |
+| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |  yes  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
 | [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |  yes  |
+| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  yes  |
+| [Termin](termin.md) | Ein skuleterm (t |  yes  |
+| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |  yes  |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  yes  |
+| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |  yes  |
+| [Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
+| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  yes  |
 | [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  no  |
-| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
-| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |  yes  |
 | [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
 | [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  yes  |
-| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |  yes  |
-| [Gruppemedlemskap](gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |  yes  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |  yes  |
-| [Fravartype](fravartype.md) | Type fråvær (t |  yes  |
-| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  yes  |
 | [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |  yes  |
-| [Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
-| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |  yes  |
-| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |  yes  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |  yes  |
 | [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |  yes  |
-| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  yes  |
-| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  yes  |
+| [Skoleaar](skoleaar.md) | Eit skoleår (t |  yes  |
+| [Fravartype](fravartype.md) | Type fråvær (t |  yes  |
+| [Gruppemedlemskap](gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |  yes  |
+| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |  yes  |
+| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |  yes  |
+| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
 | [Betalingsstatus](betalingsstatus.md) | Betalingsstatus for eksamensavgift |  yes  |
 | [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  no  |
+| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |  yes  |
+| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  yes  |
 | [Provestatus](provestatus.md) | Status for ei lærlingprøve |  yes  |
-| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |  yes  |
-| [Termin](termin.md) | Ein skuleterm (t |  yes  |
-| [Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  no  |
 | [Avbruddsaarsak](avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  yes  |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  no  |
+| [Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |  no  |
 
 
 
@@ -72,7 +72,7 @@ Alias: gyldighetsperiode
 | Property | Value |
 | --- | --- |
 | Range | [Periode](periode.md) |
-| Domain Of | [Gruppemedlemskap](gruppemedlemskap.md), [Avbruddsaarsak](avbruddsaarsak.md), [Betalingsstatus](betalingsstatus.md), [Bevistype](bevistype.md), [Brevtype](brevtype.md), [Eksamensform](eksamensform.md), [Elevkategori](elevkategori.md), [Fagmerknad](fagmerknad.md), [Fagstatus](fagstatus.md), [Fravartype](fravartype.md), [Fullfortkode](fullfortkode.md), [Karakterskala](karakterskala.md), [Karakterstatus](karakterstatus.md), [Karakterverdi](karakterverdi.md), [OtEnhet](otenhet.md), [OtStatus](otstatus.md), [Provestatus](provestatus.md), [Skoleaar](skoleaar.md), [Skoleeiertype](skoleeiertype.md), [Termin](termin.md), [Tilrettelegging](tilrettelegging.md), [Varseltype](varseltype.md), [Vitnemalsmerknad](vitnemalsmerknad.md), [Begrep](begrep.md), [Identifikator](identifikator.md) |
+| Domain Of | [Begrep](begrep.md), [Identifikator](identifikator.md), [Gruppemedlemskap](gruppemedlemskap.md), [Avbruddsaarsak](avbruddsaarsak.md), [Betalingsstatus](betalingsstatus.md), [Bevistype](bevistype.md), [Brevtype](brevtype.md), [Eksamensform](eksamensform.md), [Elevkategori](elevkategori.md), [Fagmerknad](fagmerknad.md), [Fagstatus](fagstatus.md), [Fravartype](fravartype.md), [Fullfortkode](fullfortkode.md), [Karakterskala](karakterskala.md), [Karakterstatus](karakterstatus.md), [Karakterverdi](karakterverdi.md), [OtEnhet](otenhet.md), [OtStatus](otstatus.md), [Provestatus](provestatus.md), [Skoleaar](skoleaar.md), [Skoleeiertype](skoleeiertype.md), [Termin](termin.md), [Tilrettelegging](tilrettelegging.md), [Varseltype](varseltype.md), [Vitnemalsmerknad](vitnemalsmerknad.md) |
 | Slot URI | [fint:gyldighetsperiode](https://schema.fintlabs.no/gyldighetsperiode) |
 
 ### Cardinality and Requirements
@@ -98,7 +98,7 @@ Alias: gyldighetsperiode
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -108,7 +108,7 @@ Alias: gyldighetsperiode
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:gyldighetsperiode |
-| native | https://schema.fintlabs.no/utdanning/:gyldighetsperiode |
+| native | https://schema.fintlabs.no/:gyldighetsperiode |
 
 
 
@@ -119,11 +119,12 @@ Alias: gyldighetsperiode
 ```yaml
 name: gyldighetsperiode
 description: Periode ressursen er gyldig for.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:gyldighetsperiode
 alias: gyldighetsperiode
 domain_of:
+- Begrep
+- Identifikator
 - Gruppemedlemskap
 - Avbruddsaarsak
 - Betalingsstatus
@@ -147,8 +148,6 @@ domain_of:
 - Tilrettelegging
 - Varseltype
 - Vitnemalsmerknad
-- Begrep
-- Identifikator
 range: Periode
 inlined: true
 

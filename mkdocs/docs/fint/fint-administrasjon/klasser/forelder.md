@@ -36,7 +36,7 @@ Alias: forelder
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Arbeidsforholdstype](arbeidsforholdstype.md), [Stillingskode](stillingskode.md) |
 | Slot URI | [adm:forelder](https://schema.fintlabs.no/administrasjon/forelder) |
 

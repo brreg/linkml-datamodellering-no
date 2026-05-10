@@ -21,7 +21,25 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
     click FalskIdentitet href "../FalskIdentitet/"
       FalskIdentitet : er_falsk
         
+          
+    
+        
+        
+        FalskIdentitet --> "1" Boolean : er_falsk
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
+        
       FalskIdentitet : id
+        
+          
+    
+        
+        
+        FalskIdentitet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       FalskIdentitet : rett_identitet
         
@@ -35,6 +53,15 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
         
       FalskIdentitet : rett_identitet_er_ukjent
+        
+          
+    
+        
+        
+        FalskIdentitet --> "0..1" Boolean : rett_identitet_er_ukjent
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
         
       
 ```
@@ -78,7 +105,7 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_falsk](er_falsk.md) | 1 <br/> [Boolean](boolean.md) | Om denne identiteten er registrert som falsk |
+| [er_falsk](er_falsk.md) | 1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Om denne identiteten er registrert som falsk |
 
 
 
@@ -121,7 +148,7 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [rett_identitet_er_ukjent](rett_identitet_er_ukjent.md) | 0..1 <br/> [Boolean](boolean.md) | Om den rette identiteten er ukjent (når falsk identitet er registrert) |
+| [rett_identitet_er_ukjent](rett_identitet_er_ukjent.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Om den rette identiteten er ukjent (når falsk identitet er registrert) |
 | [rett_identitet](rett_identitet.md) | 0..1 <br/> [Person](person.md) | Den rette identiteten til ein person som har opptrådt med falsk identitet |
 
 
@@ -180,7 +207,7 @@ URI: [ngrp:FalskIdentitet](https://data.norge.no/vocabulary/ngr-person#FalskIden
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

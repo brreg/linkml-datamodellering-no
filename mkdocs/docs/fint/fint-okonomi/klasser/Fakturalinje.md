@@ -21,9 +21,36 @@ URI: [okn:Fakturalinje](https://schema.fintlabs.no/okonomi/Fakturalinje)
     click Fakturalinje href "../Fakturalinje/"
       Fakturalinje : antall
         
+          
+    
+        
+        
+        Fakturalinje --> "1" Float : antall
+        click Float href "../http://www.w3.org/2001/XMLSchema#float/"
+    
+
+        
       Fakturalinje : fritekst
         
+          
+    
+        
+        
+        Fakturalinje --> "*" String : fritekst
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Fakturalinje : pris
+        
+          
+    
+        
+        
+        Fakturalinje --> "1" Integer : pris
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       Fakturalinje : vare
         
@@ -82,8 +109,8 @@ URI: [okn:Fakturalinje](https://schema.fintlabs.no/okonomi/Fakturalinje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [antall](antall.md) | 1 <br/> [Float](float.md) | Mengd av varen levert |
-| [pris](pris.md) | 1 <br/> [Integer](integer.md) | Pris per eining, i øre |
+| [antall](antall.md) | 1 <br/> [xsd:float](http://www.w3.org/2001/XMLSchema#float) | Mengd av varen levert |
+| [pris](pris.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Pris per eining, i øre |
 | [vare](vare.md) | 1 <br/> [Vare](vare.md) | Vare i vareregisteret |
 
 
@@ -125,7 +152,7 @@ URI: [okn:Fakturalinje](https://schema.fintlabs.no/okonomi/Fakturalinje)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fritekst](fritekst.md) | * <br/> [String](string.md) | Fritekst som skildrar varen slik han er levert |
+| [fritekst](fritekst.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Fritekst som skildrar varen slik han er levert |
 
 
 

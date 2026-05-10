@@ -22,9 +22,9 @@ Alias: format
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Tekstdel](tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md), [Tekstdel](tekstdel.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Tekstdel](tekstdel.md), [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dct:format](http://purl.org/dc/terms/format) |
 
 ### Cardinality and Requirements
@@ -64,7 +64,7 @@ Alias: format
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: format
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:format |
-| native | https://data.norge.no/linkml/dcat-ap-no/format |
+| native | https://data.norge.no/linkml/common-ap-no/format |
 
 
 
@@ -85,14 +85,13 @@ Alias: format
 ```yaml
 name: format
 description: Filformat eller medietype (dct:format).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:format
 alias: format
 domain_of:
+- Tekstdel
 - Distribusjon
 - Datatjeneste
-- Tekstdel
 range: string
 
 ```

@@ -35,7 +35,7 @@ Alias: aarslonn
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:aarslonn](https://schema.fintlabs.no/administrasjon/aarslonn) |
 

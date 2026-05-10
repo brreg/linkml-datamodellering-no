@@ -35,7 +35,7 @@ Alias: kjelde
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Definisjon](definisjon.md) |
 | Slot URI | [dct:source](http://purl.org/dc/terms/source) |
 

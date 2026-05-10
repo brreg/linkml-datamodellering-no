@@ -448,6 +448,7 @@ attributes:
     - OkonomiContainer
     range: Faktura
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fakturagrunnlag:
     name: fakturagrunnlag
@@ -475,6 +476,7 @@ attributes:
     - OkonomiContainer
     range: Fakturautsteder
     multivalued: true
+    inlined: true
     inlined_as_list: true
   transaksjonar:
     name: transaksjonar
@@ -487,6 +489,7 @@ attributes:
     - OkonomiContainer
     range: Transaksjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   posteringar:
     name: posteringar
@@ -499,6 +502,7 @@ attributes:
     - OkonomiContainer
     range: Postering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   leverandorar:
     name: leverandorar
@@ -511,6 +515,7 @@ attributes:
     - OkonomiContainer
     range: Leverandor
     multivalued: true
+    inlined: true
     inlined_as_list: true
   leverandorgrupper:
     name: leverandorgrupper
@@ -523,6 +528,7 @@ attributes:
     - OkonomiContainer
     range: Leverandorgruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   varer:
     name: varer
@@ -535,6 +541,7 @@ attributes:
     - OkonomiContainer
     range: Vare
     multivalued: true
+    inlined: true
     inlined_as_list: true
   merverdiavgifter:
     name: merverdiavgifter
@@ -547,6 +554,7 @@ attributes:
     - OkonomiContainer
     range: Merverdiavgift
     multivalued: true
+    inlined: true
     inlined_as_list: true
   valutaer:
     name: valutaer
@@ -559,6 +567,7 @@ attributes:
     - OkonomiContainer
     range: OkonomiValuta
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

@@ -63,7 +63,7 @@ Alias: i_serie
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: i_serie
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:inSeries |
-| native | samtbuskole:i_serie |
+| native | https://data.norge.no/linkml/dcat-ap-no/i_serie |
 
 
 
@@ -84,8 +84,7 @@ Alias: i_serie
 ```yaml
 name: i_serie
 description: Datasettserie dette datasettet er ein del av.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:inSeries
 alias: i_serie
 domain_of:

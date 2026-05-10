@@ -35,7 +35,7 @@ Alias: mellomnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Personnavn](personnavn.md) |
 | Slot URI | [fint:mellomnavn](https://schema.fintlabs.no/mellomnavn) |
 
@@ -62,7 +62,7 @@ Alias: mellomnavn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: mellomnavn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:mellomnavn |
-| native | https://schema.fintlabs.no/administrasjon/:mellomnavn |
+| native | https://schema.fintlabs.no/:mellomnavn |
 
 
 
@@ -83,8 +83,7 @@ Alias: mellomnavn
 ```yaml
 name: mellomnavn
 description: Mellomnamn.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:mellomnavn
 alias: mellomnavn
 domain_of:

@@ -21,9 +21,36 @@ URI: [utd:Anmerkninger](https://schema.fintlabs.no/utdanning/Anmerkninger)
     click Anmerkninger href "../Anmerkninger/"
       Anmerkninger : atferd
         
+          
+    
+        
+        
+        Anmerkninger --> "1" Integer : atferd
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Anmerkninger : id
         
+          
+    
+        
+        
+        Anmerkninger --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Anmerkninger : orden
+        
+          
+    
+        
+        
+        Anmerkninger --> "1" Integer : orden
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       Anmerkninger : skoleaar
         
@@ -80,8 +107,8 @@ URI: [utd:Anmerkninger](https://schema.fintlabs.no/utdanning/Anmerkninger)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [atferd](atferd.md) | 1 <br/> [Integer](integer.md) | Åtferdskarakter |
-| [orden](orden.md) | 1 <br/> [Integer](integer.md) | Ordenskarakter |
+| [atferd](atferd.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Åtferdskarakter |
+| [orden](orden.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Ordenskarakter |
 
 
 
@@ -180,7 +207,7 @@ URI: [utd:Anmerkninger](https://schema.fintlabs.no/utdanning/Anmerkninger)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -298,12 +325,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Anmerkninger
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Gruppe
     - Gruppemedlemskap
     - Utdanningsforhold
@@ -349,12 +381,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   atferd:

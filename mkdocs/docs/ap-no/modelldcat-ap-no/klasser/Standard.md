@@ -21,11 +21,47 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
     click Standard href "../Standard/"
       Standard : har_referanse
         
+          
+    
+        
+        
+        Standard --> "*" Uri : har_referanse
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Standard : har_versjonsnummer
+        
+          
+    
+        
+        
+        Standard --> "0..1" String : har_versjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Standard : id
         
+          
+    
+        
+        
+        Standard --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Standard : tittel
+        
+          
+    
+        
+        
+        Standard --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -147,9 +183,9 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [har_referanse](har_referanse.md) | * <br/> [Uri](uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [har_referanse](har_referanse.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til ekstern ressurs (rdfs:seeAlso) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Versjonsnummer for ressursen (owl:versionInfo) |
 
 
 
@@ -246,12 +282,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Standard
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -266,9 +304,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -276,8 +311,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Standard
@@ -295,8 +329,7 @@ attributes:
   har_referanse:
     name: har_referanse
     description: Referanse til ekstern ressurs (rdfs:seeAlso).
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:seeAlso
     alias: har_referanse
     owner: Standard
@@ -308,8 +341,7 @@ attributes:
   har_versjonsnummer:
     name: har_versjonsnummer
     description: Versjonsnummer for ressursen (owl:versionInfo).
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
     alias: har_versjonsnummer
     owner: Standard

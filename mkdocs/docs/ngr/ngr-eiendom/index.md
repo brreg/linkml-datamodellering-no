@@ -243,7 +243,6 @@ Name: ngr-eiendom
 | [Bruksnummer](klasser/bruksnummer.md) | Bruksnummer innanfor gardsnamnet |
 | [Bygning](klasser/bygning.md) | Ein bygning registrert i Matrikkelen |
 | [Bygningsnummer](klasser/bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |
-| [EiendomContainer](klasser/eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |
 | [Eierforhold](klasser/eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IkkeTinglystEierforhold](klasser/ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TinglystEierforhold](klasser/tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
@@ -374,25 +373,6 @@ Name: ngr-eiendom
 
 | Type | Description |
 | --- | --- |
-| [Boolean](klasser/boolean.md) | A binary (true or false) value |
-| [Curie](klasser/curie.md) | a compact URI |
-| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
-| [Datetime](klasser/datetime.md) | The combination of a date and time |
-| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
-| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](klasser/integer.md) | An integer |
-| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](klasser/string.md) | A character string |
-| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](klasser/uri.md) | a complete URI |
-| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
@@ -404,15 +384,8 @@ Name: ngr-eiendom
 | [Valgfri](klasser/valgfri.md) | Valfrie eigenskapar i domenemodellen |
 
 
-## Artifacts
+## Generated artifacts
 
 | Artefakt | Fil |
 |----------|-----|
-| SHACL shapes | [ngr-eiendom-shapes.ttl](ngr-eiendom-shapes.ttl) |
-| JSON-LD kontekst | [ngr-eiendom-context.jsonld](ngr-eiendom-context.jsonld) |
-| JSON Schema | [ngr-eiendom-schema.json](ngr-eiendom-schema.json) |
-| OWL ontologi | [ngr-eiendom-ontology.ttl](ngr-eiendom-ontology.ttl) |
-| RDF/Turtle skjema | [ngr-eiendom-schema.ttl](ngr-eiendom-schema.ttl) |
-| Python-klasser | [ngr-eiendom-model.py](ngr-eiendom-model.py) |
 | ER-diagram (Mermaid) | [ngr-eiendom-erdiagram.md](ngr-eiendom-erdiagram.md) |
-| Eksempeldata (Turtle) | [ngr-eiendom-eksempel.ttl](ngr-eiendom-eksempel.ttl) |

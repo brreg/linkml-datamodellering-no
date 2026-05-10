@@ -35,7 +35,7 @@ Alias: provedato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [AvlagtProve](avlagtprove.md) |
 | Slot URI | [utd:provedato](https://schema.fintlabs.no/utdanning/provedato) |
 

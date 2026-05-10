@@ -35,7 +35,7 @@ Alias: stiftelsesdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Hovedenhet](hovedenhet.md) |
 | Slot URI | [ngrv:stiftelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#stiftelsesdato) |
 

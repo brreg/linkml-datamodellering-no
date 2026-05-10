@@ -35,7 +35,7 @@ Alias: type
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktperson](kontaktperson.md) |
 | Slot URI | [fint:type](https://schema.fintlabs.no/type) |
 
@@ -62,7 +62,7 @@ Alias: type
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: type
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:type |
-| native | https://schema.fintlabs.no/okonomi/:type |
+| native | https://schema.fintlabs.no/:type |
 
 
 
@@ -83,8 +83,7 @@ Alias: type
 ```yaml
 name: type
 description: Beskriv kva slags type.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:type
 alias: type
 domain_of:

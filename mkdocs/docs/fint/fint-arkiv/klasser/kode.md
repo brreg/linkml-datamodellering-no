@@ -22,29 +22,29 @@ Alias: kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Merknadstype](merknadstype.md) | Namn på type merknad |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  yes  |
-| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  yes  |
-| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  yes  |
-| [DokumentType](dokumenttype.md) | Type dokument |  yes  |
-| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  yes  |
-| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  yes  |
-| [Saksstatus](saksstatus.md) | Status til saksmappa |  yes  |
 | [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |  yes  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Klassifikasjonstype](klassifikasjonstype.md) | Type klassifikasjonssystem |  yes  |
-| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  yes  |
+| [Merknadstype](merknadstype.md) | Namn på type merknad |  yes  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Format](format.md) | Dokumentets filformat |  yes  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
 | [JournalpostType](journalposttype.md) | Namn på type journalpost |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Klassifikasjonstype](klassifikasjonstype.md) | Type klassifikasjonssystem |  yes  |
 | [PartRolle](partrolle.md) | Rolla til ein part |  yes  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  yes  |
 | [JournalStatus](journalstatus.md) | Status til journalposten |  yes  |
 | [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |  yes  |
-| [Format](format.md) | Dokumentets filformat |  yes  |
+| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  yes  |
+| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  yes  |
 | [Rolle](rolle.md) | Rolla til ein arkivressurs |  yes  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  yes  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [DokumentType](dokumenttype.md) | Type dokument |  yes  |
+| [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  yes  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  yes  |
+| [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |  yes  |
+| [Saksstatus](saksstatus.md) | Status til saksmappa |  yes  |
 
 
 
@@ -57,8 +57,8 @@ Alias: kode
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [DokumentStatus](dokumentstatus.md), [DokumentType](dokumenttype.md), [Format](format.md), [JournalpostType](journalposttype.md), [JournalStatus](journalstatus.md), [Klassifikasjonstype](klassifikasjonstype.md), [KorrespondansepartType](korrespondanseparttype.md), [Merknadstype](merknadstype.md), [PartRolle](partrolle.md), [Rolle](rolle.md), [Saksmappetype](saksmappetype.md), [Saksstatus](saksstatus.md), [Skjermingshjemmel](skjermingshjemmel.md), [Tilgangsgruppe](tilgangsgruppe.md), [Tilgangsrestriksjon](tilgangsrestriksjon.md), [TilknyttetRegistreringSom](tilknyttetregistreringsom.md), [Variantformat](variantformat.md), [Begrep](begrep.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Begrep](begrep.md), [DokumentStatus](dokumentstatus.md), [DokumentType](dokumenttype.md), [Format](format.md), [JournalpostType](journalposttype.md), [JournalStatus](journalstatus.md), [Klassifikasjonstype](klassifikasjonstype.md), [KorrespondansepartType](korrespondanseparttype.md), [Merknadstype](merknadstype.md), [PartRolle](partrolle.md), [Rolle](rolle.md), [Saksmappetype](saksmappetype.md), [Saksstatus](saksstatus.md), [Skjermingshjemmel](skjermingshjemmel.md), [Tilgangsgruppe](tilgangsgruppe.md), [Tilgangsrestriksjon](tilgangsrestriksjon.md), [TilknyttetRegistreringSom](tilknyttetregistreringsom.md), [Variantformat](variantformat.md) |
 | Slot URI | [fint:kode](https://schema.fintlabs.no/kode) |
 
 ### Cardinality and Requirements
@@ -84,7 +84,7 @@ Alias: kode
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -94,7 +94,7 @@ Alias: kode
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kode |
-| native | https://schema.fintlabs.no/arkiv/:kode |
+| native | https://schema.fintlabs.no/:kode |
 
 
 
@@ -105,11 +105,11 @@ Alias: kode
 ```yaml
 name: kode
 description: Verdi som identifiserer omgrepet.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kode
 alias: kode
 domain_of:
+- Begrep
 - DokumentStatus
 - DokumentType
 - Format
@@ -127,7 +127,6 @@ domain_of:
 - Tilgangsrestriksjon
 - TilknyttetRegistreringSom
 - Variantformat
-- Begrep
 range: string
 
 ```

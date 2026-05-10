@@ -22,8 +22,8 @@ Alias: tidsrom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
@@ -65,7 +65,7 @@ Alias: tidsrom
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: tidsrom
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:temporal |
-| native | https://data.norge.no/linkml/dqv-ap-no/tidsrom |
+| native | https://data.norge.no/linkml/dcat-ap-no/tidsrom |
 
 
 
@@ -86,8 +86,7 @@ Alias: tidsrom
 ```yaml
 name: tidsrom
 description: Tidsperiode ressursen dekkar.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:temporal
 alias: tidsrom
 domain_of:

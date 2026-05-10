@@ -21,7 +21,25 @@ URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenu
     click Kommunenummer href "../Kommunenummer/"
       Kommunenummer : id
         
+          
+    
+        
+        
+        Kommunenummer --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kommunenummer : kommunenummer_verdi
+        
+          
+    
+        
+        
+        Kommunenummer --> "1" String : kommunenummer_verdi
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kommunenummer_verdi](kommunenummer_verdi.md) | 1 <br/> [String](string.md) | Firesifra kommunenummer (t |
+| [kommunenummer_verdi](kommunenummer_verdi.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Firesifra kommunenummer (t |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

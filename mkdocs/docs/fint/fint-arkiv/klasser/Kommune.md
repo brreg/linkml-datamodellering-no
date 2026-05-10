@@ -63,7 +63,7 @@ Alias: kommune
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: kommune
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kommune |
-| native | https://schema.fintlabs.no/arkiv/:kommune |
+| native | https://schema.fintlabs.no/:kommune |
 
 
 
@@ -84,8 +84,7 @@ Alias: kommune
 ```yaml
 name: kommune
 description: Kommune.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kommune
 alias: kommune
 domain_of:

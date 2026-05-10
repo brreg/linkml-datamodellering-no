@@ -21,7 +21,25 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
     click OffentligTjeneste href "../OffentligTjeneste/"
       OffentligTjeneste : behandlingstid
         
+          
+    
+        
+        
+        OffentligTjeneste --> "0..1" Duration : behandlingstid
+        click Duration href "../Duration/"
+    
+
+        
       OffentligTjeneste : beskrivelse
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "1..*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
         
       OffentligTjeneste : dekningsomraade
         
@@ -36,7 +54,25 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
         
       OffentligTjeneste : er_beskrive_av
         
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Uri : er_beskrive_av
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       OffentligTjeneste : er_del_av
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "0..1" Uriorcurie : er_del_av
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       OffentligTjeneste : er_gruppert_av
         
@@ -83,6 +119,15 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 
         
       OffentligTjeneste : har_del
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Uriorcurie : har_del
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       OffentligTjeneste : har_deltaking
         
@@ -163,11 +208,47 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
         
       OffentligTjeneste : heimeside
         
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Uri : heimeside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       OffentligTjeneste : id
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       OffentligTjeneste : identifikator_literal
         
+          
+    
+        
+        
+        OffentligTjeneste --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       OffentligTjeneste : krev
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Uriorcurie : krev
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       OffentligTjeneste : malgruppe
         
@@ -182,7 +263,25 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
         
       OffentligTjeneste : nokkelord
         
+          
+    
+        
+        
+        OffentligTjeneste --> "*" LangString : nokkelord
+        click LangString href "../LangString/"
+    
+
+        
       OffentligTjeneste : relatert_teneste
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Uriorcurie : relatert_teneste
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       OffentligTjeneste : sektor
         
@@ -196,6 +295,15 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 
         
       OffentligTjeneste : spraak
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
         
       OffentligTjeneste : status
         
@@ -231,6 +339,15 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 
         
       OffentligTjeneste : tittel
+        
+          
+    
+        
+        
+        OffentligTjeneste --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       OffentligTjeneste : type_concept
         
@@ -378,7 +495,7 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 | --- | --- | --- |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
 | [har_tenesteresultattype](har_tenesteresultattype.md) | 1..* <br/> [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat tenesta kan produsere |
 | [har_ansvarleg_styremakt](har_ansvarleg_styremakt.md) | 1..* <br/> [OffentligOrganisasjon](offentligorganisasjon.md) | Offentleg organisasjon ansvarleg for tenesta |
@@ -502,7 +619,7 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 | [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om |
 | [dekningsomraade](dekningsomraade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
 | [har_dokumentasjonstype](har_dokumentasjonstype.md) | * <br/> [Dokumentasjonstype](dokumentasjonstype.md) | Dokumentasjon som krevst for tenesta |
-| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [heimeside](heimeside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 | [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
 | [temaomrade](temaomrade.md) | * <br/> [Konsept](konsept.md) | Tematisk område for tenesta |
@@ -644,19 +761,19 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen |
-| [er_del_av](er_del_av.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Tenesta er del av ei anna teneste |
-| [har_del](har_del.md) | * <br/> [Uriorcurie](uriorcurie.md) | Deltenester som inngår i denne tenesta |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Datasett som beskriv ressursen |
+| [er_del_av](er_del_av.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Tenesta er del av ei anna teneste |
+| [har_del](har_del.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Deltenester som inngår i denne tenesta |
 | [har_tenestekanal](har_tenestekanal.md) | * <br/> [Tjenestekanal](tjenestekanal.md) | Kanal for tilgang til tenesta |
 | [har_deltaking](har_deltaking.md) | * <br/> [Deltagelse](deltagelse.md) | Deltakarar med spesifikke roller i levering av tenesta |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
-| [relatert_teneste](relatert_teneste.md) | * <br/> [Uriorcurie](uriorcurie.md) | Relatert teneste |
+| [relatert_teneste](relatert_teneste.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Relatert teneste |
 | [er_gruppert_av](er_gruppert_av.md) | * <br/> [Hendelse](hendelse.md) | Hending(ar) som grupperer tenesta |
 | [er_klassifisert_av](er_klassifisert_av.md) | * <br/> [Konsept](konsept.md) | Omgrep tenesta er klassifisert med |
 | [folger](folger.md) | * <br/> [Regel](regel.md) | Regelverk tenesta følgjer |
 | [har_gebyr](har_gebyr.md) | * <br/> [Gebyr](gebyr.md) | Gebyr knytt til tenesta |
 | [har_regulativ_ressurs](har_regulativ_ressurs.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Regulativ ressurs (lov, forskrift) knytt til tenesta |
-| [krev](krev.md) | * <br/> [Uriorcurie](uriorcurie.md) | Teneste eller ressurs denne tenesta krev |
+| [krev](krev.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Teneste eller ressurs denne tenesta krev |
 | [malgruppe](malgruppe.md) | * <br/> [Konsept](konsept.md) | Målgruppe for tenesta |
 | [nokkelord](nokkelord.md) | * <br/> [LangString](langstring.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
 | [sektor](sektor.md) | * <br/> [Konsept](konsept.md) | Industri/sektor tenesta tilhøyrer |
@@ -1068,7 +1185,7 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -1436,12 +1553,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: OffentligTjeneste
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -1457,17 +1576,14 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
+    required: true
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: OffentligTjeneste
@@ -1490,8 +1606,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: OffentligTjeneste
@@ -1514,8 +1629,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: OffentligTjeneste
@@ -1603,8 +1717,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
     alias: dekningsomraade
     owner: OffentligTjeneste
@@ -1635,8 +1748,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
     alias: heimeside
     owner: OffentligTjeneste
@@ -1652,8 +1764,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: OffentligTjeneste
@@ -1672,8 +1783,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
     alias: status
     owner: OffentligTjeneste
@@ -1793,8 +1903,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: OffentligTjeneste
@@ -1931,8 +2040,7 @@ attributes:
     description: Nøkkelord som beskriv ressursen (dcat:keyword).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dcat:keyword
     alias: nokkelord
     owner: OffentligTjeneste

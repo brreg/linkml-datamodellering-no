@@ -32,7 +32,25 @@ URI: [ngr:Adressekode](https://data.norge.no/vocabulary/ngr-adresse#Adressekode)
         
       Adressekode : id
         
+          
+    
+        
+        
+        Adressekode --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Adressekode : kode
+        
+          
+    
+        
+        
+        Adressekode --> "1" Integer : kode
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       
 ```
@@ -73,7 +91,7 @@ URI: [ngr:Adressekode](https://data.norge.no/vocabulary/ngr-adresse#Adressekode)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kode](kode.md) | 1 <br/> [Integer](integer.md) | Numerisk kode for adressekoden (kommunal firesifra kode) |
+| [kode](kode.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Numerisk kode for adressekoden (kommunal firesifra kode) |
 
 
 
@@ -138,7 +156,7 @@ URI: [ngr:Adressekode](https://data.norge.no/vocabulary/ngr-adresse#Adressekode)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [adresseomrade_ref](adresseomrade_ref.md) | 0..1 <br/> [Adresseomrade](adresseomrade.md) | Adresseområdet dette adressenamnet eller adressekoden høyrer til |
 
 

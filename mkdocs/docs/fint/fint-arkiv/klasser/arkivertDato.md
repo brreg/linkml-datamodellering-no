@@ -36,7 +36,7 @@ Alias: arkivertDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Registrering](registrering.md) |
 | Slot URI | [ark:arkivertDato](https://schema.fintlabs.no/arkiv/arkivertDato) |
 

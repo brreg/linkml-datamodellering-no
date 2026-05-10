@@ -21,11 +21,47 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
     click Foedsel href "../Foedsel/"
       Foedsel : foedested
         
+          
+    
+        
+        
+        Foedsel --> "0..1" String : foedested
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Foedsel : foedselsaar
+        
+          
+    
+        
+        
+        Foedsel --> "1" Integer : foedselsaar
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       Foedsel : foedselsdato
         
+          
+    
+        
+        
+        Foedsel --> "0..1" Date : foedselsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Foedsel : id
+        
+          
+    
+        
+        
+        Foedsel --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -69,7 +105,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [foedselsaar](foedselsaar.md) | 1 <br/> [Integer](integer.md) | Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar) |
+| [foedselsaar](foedselsaar.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar) |
 
 
 
@@ -94,7 +130,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [foedselsdato](foedselsdato.md) | 0..1 <br/> [Date](date.md) | Fødselsdato (kan vere ukjent for eldre registreringar) |
+| [foedselsdato](foedselsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Fødselsdato (kan vere ukjent for eldre registreringar) |
 
 
 
@@ -119,7 +155,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [foedested](foedested.md) | 0..1 <br/> [String](string.md) | Fødested (kommune eller land) |
+| [foedested](foedested.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Fødested (kommune eller land) |
 
 
 
@@ -177,7 +213,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

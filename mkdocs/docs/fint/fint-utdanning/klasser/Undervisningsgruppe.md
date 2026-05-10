@@ -22,10 +22,10 @@ Alias: undervisningsgruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](fag.md) | Eit skulefag |  yes  |
-| [Time](time.md) | Ein time i timeplanen |  yes  |
-| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  yes  |
 | [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
+| [Time](time.md) | Ein time i timeplanen |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
+| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  yes  |
 
 
 

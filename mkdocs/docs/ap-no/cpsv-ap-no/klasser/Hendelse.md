@@ -26,7 +26,25 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
       
       Hendelse : beskrivelse
         
+          
+    
+        
+        
+        Hendelse --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Hendelse : er_beskrive_av
+        
+          
+    
+        
+        
+        Hendelse --> "*" Uri : er_beskrive_av
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Hendelse : har_kontaktpunkt
         
@@ -41,7 +59,25 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
         
       Hendelse : id
         
+          
+    
+        
+        
+        Hendelse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Hendelse : identifikator_literal
+        
+          
+    
+        
+        
+        Hendelse --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Hendelse : kan_utlose
         
@@ -66,6 +102,15 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
         
       Hendelse : tittel
+        
+          
+    
+        
+        
+        Hendelse --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Hendelse : type_concept
         
@@ -145,7 +190,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
 
 
@@ -234,7 +279,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Datasett som beskriv ressursen |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
@@ -358,7 +403,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -522,12 +567,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Hendelse
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -543,9 +590,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -553,8 +597,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Hendelse
@@ -577,8 +620,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Hendelse
@@ -619,8 +661,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Hendelse
@@ -690,8 +731,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: Hendelse

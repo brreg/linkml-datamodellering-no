@@ -36,7 +36,7 @@ Alias: pris
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Fakturalinje](fakturalinje.md), [Vare](vare.md) |
 | Slot URI | [okn:pris](https://schema.fintlabs.no/okonomi/pris) |
 

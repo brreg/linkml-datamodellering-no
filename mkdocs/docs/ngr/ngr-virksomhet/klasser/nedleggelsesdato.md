@@ -35,7 +35,7 @@ Alias: nedleggelsesdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Underenhet](underenhet.md) |
 | Slot URI | [ngrv:nedleggelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#nedleggelsesdato) |
 

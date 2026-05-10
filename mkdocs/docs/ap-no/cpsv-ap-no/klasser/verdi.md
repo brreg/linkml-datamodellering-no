@@ -35,7 +35,7 @@ Alias: verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](float.md) |
+| Range | [xsd:float](http://www.w3.org/2001/XMLSchema#float) |
 | Domain Of | [Gebyr](gebyr.md) |
 | Slot URI | [cv:value](http://data.europa.eu/m8g/value) |
 

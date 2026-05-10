@@ -35,7 +35,7 @@ Alias: endepunktsbeskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:endpointDescription](http://www.w3.org/ns/dcat#endpointDescription) |
 

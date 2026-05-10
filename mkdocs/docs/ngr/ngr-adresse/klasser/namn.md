@@ -22,17 +22,17 @@ Alias: namn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
 | [Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
-| [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |  no  |
 | [KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
+| [Adresseomrade](adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |  no  |
+| [Fylke](fylke.md) | Eit norsk fylke |  no  |
+| [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |  no  |
+| [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  no  |
+| [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
+| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |  no  |
 | [Kommune](kommune.md) | Ein norsk kommune |  no  |
 | [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |  no  |
-| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |  no  |
-| [Adresseomrade](adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |  no  |
-| [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  no  |
 | [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |  no  |
-| [Fylke](fylke.md) | Eit norsk fylke |  no  |
 
 
 
@@ -45,7 +45,7 @@ Alias: namn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Adresseomrade](adresseomrade.md), [GeografiskOmrade](geografiskomrade.md) |
 | Slot URI | [ngr:namn](https://data.norge.no/vocabulary/ngr-adresse#namn) |
 

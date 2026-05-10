@@ -35,7 +35,7 @@ Alias: identitetsgrunnlag_status
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Identitetsgrunnlag](identitetsgrunnlag.md) |
 | Slot URI | [ngrp:identitetsgrunnlagStatus](https://data.norge.no/vocabulary/ngr-person#identitetsgrunnlagStatus) |
 

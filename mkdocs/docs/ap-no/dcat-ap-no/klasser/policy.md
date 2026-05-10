@@ -35,7 +35,7 @@ Alias: policy
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [odrl:hasPolicy](http://www.w3.org/ns/odrl/2/hasPolicy) |
 

@@ -35,7 +35,7 @@ Alias: opphavsrettsnotis
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:copyrightNotice](http://schema.theodi.org/odrs#copyrightNotice) |
 
@@ -62,7 +62,7 @@ Alias: opphavsrettsnotis
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: opphavsrettsnotis
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:copyrightNotice |
-| native | samtbuskole:opphavsrettsnotis |
+| native | https://data.norge.no/linkml/dcat-ap-no/opphavsrettsnotis |
 
 
 
@@ -83,8 +83,7 @@ Alias: opphavsrettsnotis
 ```yaml
 name: opphavsrettsnotis
 description: Opphavsrettsnotis.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:copyrightNotice
 alias: opphavsrettsnotis
 domain_of:

@@ -21,11 +21,47 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
     click Tekstdel href "../Tekstdel/"
       Tekstdel : format
         
+          
+    
+        
+        
+        Tekstdel --> "0..1" String : format
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Tekstdel : har_verdi_tekstdel
+        
+          
+    
+        
+        
+        Tekstdel --> "1" String : har_verdi_tekstdel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Tekstdel : id
         
+          
+    
+        
+        
+        Tekstdel --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tekstdel : spraak
+        
+          
+    
+        
+        
+        Tekstdel --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
         
       
 ```
@@ -69,7 +105,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_verdi_tekstdel](har_verdi_tekstdel.md) | 1 <br/> [String](string.md) | Tekstinnhaldet i tekstdelen |
+| [har_verdi_tekstdel](har_verdi_tekstdel.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstinnhaldet i tekstdelen |
 
 
 
@@ -96,7 +132,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [format](format.md) | 0..1 <br/> [String](string.md) | Filformat eller medietype (dct:format) |
+| [format](format.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Filformat eller medietype (dct:format) |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 
 
@@ -171,7 +207,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -285,18 +321,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Tekstdel
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -313,6 +342,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
     required: true
   har_verdi_tekstdel:
@@ -334,33 +369,31 @@ attributes:
     description: Filformat eller medietype (dct:format).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
     alias: format
     owner: Tekstdel
     domain_of:
-    - Tekstdel
     - Distribusjon
     - Datatjeneste
+    - Tekstdel
     range: string
   spraak:
     name: spraak
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Tekstdel
     domain_of:
-    - Tekstdel
     - RegulativRessurs
     - Distribusjon
     - Datasett
     - Katalogpost
     - Katalog
+    - Tekstdel
     range: Spraak
     multivalued: true
 class_uri: oa:TextualBody

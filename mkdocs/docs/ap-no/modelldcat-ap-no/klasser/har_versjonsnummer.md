@@ -22,8 +22,8 @@ Alias: har_versjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
 | [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
 
 
 
@@ -36,7 +36,7 @@ Alias: har_versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Standard](standard.md), [Informasjonsmodell](informasjonsmodell.md) |
 | Slot URI | [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo) |
 
@@ -63,7 +63,7 @@ Alias: har_versjonsnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: har_versjonsnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | owl:versionInfo |
-| native | https://data.norge.no/linkml/modelldcat-ap-no/har_versjonsnummer |
+| native | https://data.norge.no/linkml/common-ap-no/har_versjonsnummer |
 
 
 
@@ -84,8 +84,7 @@ Alias: har_versjonsnummer
 ```yaml
 name: har_versjonsnummer
 description: Versjonsnummer for ressursen (owl:versionInfo).
-from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: owl:versionInfo
 alias: har_versjonsnummer
 domain_of:

@@ -22,8 +22,8 @@ Alias: kommune
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fylke](fylke.md) | Liste over Norges fylker |  yes  |
 | [Person](person.md) | Fysiske private personar |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  yes  |
 
 
 
@@ -63,7 +63,7 @@ Alias: kommune
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: kommune
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kommune |
-| native | https://schema.fintlabs.no/okonomi/:kommune |
+| native | https://schema.fintlabs.no/:kommune |
 
 
 
@@ -84,8 +84,7 @@ Alias: kommune
 ```yaml
 name: kommune
 description: Kommune.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kommune
 alias: kommune
 domain_of:

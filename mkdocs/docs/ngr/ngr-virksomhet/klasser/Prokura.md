@@ -21,7 +21,25 @@ URI: [ngrv:Prokura](https://data.norge.no/vocabulary/ngr-virksomhet#Prokura)
     click Prokura href "../Prokura/"
       Prokura : id
         
+          
+    
+        
+        
+        Prokura --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Prokura : prokura_bestemmelse
+        
+          
+    
+        
+        
+        Prokura --> "1" String : prokura_bestemmelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngrv:Prokura](https://data.norge.no/vocabulary/ngr-virksomhet#Prokura)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [prokura_bestemmelse](prokura_bestemmelse.md) | 1 <br/> [String](string.md) | Tekstleg bestemmelse om prokura og kven som er tildelt den |
+| [prokura_bestemmelse](prokura_bestemmelse.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg bestemmelse om prokura og kven som er tildelt den |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngrv:Prokura](https://data.norge.no/vocabulary/ngr-virksomhet#Prokura)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

@@ -22,8 +22,8 @@ Alias: tilrettelegging
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](fag.md) | Eit skulefag |  yes  |
 | [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
 

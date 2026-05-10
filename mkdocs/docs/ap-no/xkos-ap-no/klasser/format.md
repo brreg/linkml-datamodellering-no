@@ -26,7 +26,7 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Slot URI | [dct:format](http://purl.org/dc/terms/format) |
 
 ### Cardinality and Requirements
@@ -52,7 +52,7 @@ Alias: format
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/xkos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -62,7 +62,7 @@ Alias: format
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:format |
-| native | https://data.norge.no/linkml/xkos-ap-no/format |
+| native | https://data.norge.no/linkml/common-ap-no/format |
 
 
 
@@ -73,8 +73,7 @@ Alias: format
 ```yaml
 name: format
 description: Filformat eller medietype (dct:format).
-from_schema: https://data.norge.no/linkml/xkos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:format
 alias: format
 range: string

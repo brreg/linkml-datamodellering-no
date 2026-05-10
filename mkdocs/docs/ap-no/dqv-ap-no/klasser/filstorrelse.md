@@ -62,7 +62,7 @@ Alias: filstorrelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: filstorrelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:byteSize |
-| native | https://data.norge.no/linkml/dqv-ap-no/filstorrelse |
+| native | https://data.norge.no/linkml/dcat-ap-no/filstorrelse |
 
 
 
@@ -83,8 +83,7 @@ Alias: filstorrelse
 ```yaml
 name: filstorrelse
 description: Filstørrelse i bytes.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:byteSize
 alias: filstorrelse
 domain_of:

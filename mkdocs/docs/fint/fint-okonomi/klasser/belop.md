@@ -22,9 +22,9 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
 | [Postering](postering.md) | Føring på ein konto i rekneskapet |  yes  |
 | [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
-| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
 
 
 
@@ -37,7 +37,7 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Faktura](faktura.md), [Transaksjon](transaksjon.md), [Postering](postering.md) |
 | Slot URI | [okn:belop](https://schema.fintlabs.no/okonomi/belop) |
 

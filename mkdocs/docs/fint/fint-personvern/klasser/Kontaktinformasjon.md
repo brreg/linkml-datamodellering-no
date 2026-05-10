@@ -22,11 +22,11 @@ Alias: kontaktinformasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
 | [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
-| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
 | [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
 | [Person](person.md) | Fysiske private personar |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
 
 
 
@@ -66,7 +66,7 @@ Alias: kontaktinformasjon
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -76,7 +76,7 @@ Alias: kontaktinformasjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kontaktinformasjon |
-| native | https://schema.fintlabs.no/personvern/:kontaktinformasjon |
+| native | https://schema.fintlabs.no/:kontaktinformasjon |
 
 
 
@@ -87,8 +87,7 @@ Alias: kontaktinformasjon
 ```yaml
 name: kontaktinformasjon
 description: Den føretrekte måten å kome i kontakt med ein aktør.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kontaktinformasjon
 alias: kontaktinformasjon
 domain_of:

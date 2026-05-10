@@ -26,7 +26,25 @@ URI: [utd:Utdanningsforhold](https://schema.fintlabs.no/utdanning/Utdanningsforh
       
       Utdanningsforhold : beskrivelse
         
+          
+    
+        
+        
+        Utdanningsforhold --> "0..1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Utdanningsforhold : id
+        
+          
+    
+        
+        
+        Utdanningsforhold --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -88,7 +106,7 @@ URI: [utd:Utdanningsforhold](https://schema.fintlabs.no/utdanning/Utdanningsforh
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn eller omtale |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Beskriven namn eller omtale |
 
 
 
@@ -120,7 +138,7 @@ URI: [utd:Utdanningsforhold](https://schema.fintlabs.no/utdanning/Utdanningsforh
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -207,12 +225,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Utdanningsforhold
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Gruppe
     - Gruppemedlemskap
     - Utdanningsforhold
@@ -258,12 +281,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   beskrivelse:
@@ -271,19 +288,18 @@ attributes:
     description: Beskriven namn eller omtale.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
     alias: beskrivelse
     owner: Utdanningsforhold
     domain_of:
+    - Periode
     - Gruppe
     - Utdanningsforhold
     - Elevforhold
     - Eksamen
     - Time
     - OtStatus
-    - Periode
     range: string
 class_uri: utd:Utdanningsforhold
 

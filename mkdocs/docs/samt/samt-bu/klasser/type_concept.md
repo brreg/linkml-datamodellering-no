@@ -64,7 +64,7 @@ Alias: type_concept
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: type_concept
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:type |
-| native | samtbuskole:type_concept |
+| native | https://data.norge.no/linkml/common-ap-no/type_concept |
 
 
 
@@ -85,8 +85,7 @@ Alias: type_concept
 ```yaml
 name: type_concept
 description: Type ressurs frå eit kontrollert vokabular (dct:type).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:type
 alias: type_concept
 domain_of:

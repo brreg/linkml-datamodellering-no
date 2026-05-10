@@ -37,7 +37,7 @@ Alias: elev
 | Property | Value |
 | --- | --- |
 | Range | [Elev](elev.md) |
-| Domain Of | [DigitalEnhet](digitalenhet.md), [Person](person.md) |
+| Domain Of | [Person](person.md), [DigitalEnhet](digitalenhet.md) |
 | Slot URI | [fint:elev](https://schema.fintlabs.no/elev) |
 
 ### Cardinality and Requirements
@@ -63,7 +63,7 @@ Alias: elev
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: elev
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:elev |
-| native | https://schema.fintlabs.no/ressurs/:elev |
+| native | https://schema.fintlabs.no/:elev |
 
 
 
@@ -84,13 +84,12 @@ Alias: elev
 ```yaml
 name: elev
 description: Referanse til Elev (Utdanning).
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:elev
 alias: elev
 domain_of:
-- DigitalEnhet
 - Person
+- DigitalEnhet
 range: Elev
 
 ```

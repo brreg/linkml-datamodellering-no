@@ -62,7 +62,7 @@ Alias: adresse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: adresse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:adresse |
-| native | https://schema.fintlabs.no/administrasjon/:adresse |
+| native | https://schema.fintlabs.no/:adresse |
 
 
 
@@ -83,8 +83,7 @@ Alias: adresse
 ```yaml
 name: adresse
 description: Adresse til matrikkeleining.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:adresse
 alias: adresse
 domain_of:

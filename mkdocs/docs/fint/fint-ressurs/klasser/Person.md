@@ -62,7 +62,7 @@ Alias: person
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: person
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:person |
-| native | https://schema.fintlabs.no/ressurs/:person |
+| native | https://schema.fintlabs.no/:person |
 
 
 
@@ -83,8 +83,7 @@ Alias: person
 ```yaml
 name: person
 description: Referanse til Person i Administrasjon-domenet.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:person
 alias: person
 domain_of:

@@ -35,7 +35,7 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Person](person.md) |
 | Slot URI | [fint:personalressurs](https://schema.fintlabs.no/personalressurs) |
 
@@ -75,7 +75,7 @@ Alias: personalressurs
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -85,7 +85,7 @@ Alias: personalressurs
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:personalressurs |
-| native | https://schema.fintlabs.no/personvern/:personalressurs |
+| native | https://schema.fintlabs.no/:personalressurs |
 
 
 
@@ -98,7 +98,7 @@ name: personalressurs
 description: Referanse til Personalressurs (Administrasjon).
 in_subset:
 - Valgfri
-from_schema: https://data.norge.no/linkml/fint-personvern
+from_schema: https://data.norge.no/linkml/fint-common
 rank: 1000
 slot_uri: fint:personalressurs
 alias: personalressurs

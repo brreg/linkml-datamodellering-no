@@ -35,7 +35,7 @@ Alias: festenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [fint:festenummer](https://schema.fintlabs.no/festenummer) |
 
@@ -62,7 +62,7 @@ Alias: festenummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: festenummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:festenummer |
-| native | https://schema.fintlabs.no/arkiv/:festenummer |
+| native | https://schema.fintlabs.no/:festenummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: festenummer
 ```yaml
 name: festenummer
 description: Fortløpande nummerering av festar under gårdsnummer/bruksnummer.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:festenummer
 alias: festenummer
 domain_of:

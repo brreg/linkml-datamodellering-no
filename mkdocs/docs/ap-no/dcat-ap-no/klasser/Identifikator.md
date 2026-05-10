@@ -21,7 +21,25 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
     click Identifikator href "../Identifikator/"
       Identifikator : id
         
+          
+    
+        
+        
+        Identifikator --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Identifikator : notasjon
+        
+          
+    
+        
+        
+        Identifikator --> "1" String : notasjon
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [notasjon](notasjon.md) | 1 <br/> [String](string.md) | Notasjon/kode for identifikatoren |
+| [notasjon](notasjon.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Notasjon/kode for identifikatoren |
 
 
 
@@ -111,7 +129,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -205,12 +223,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Identifikator
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -224,15 +250,6 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
   notasjon:

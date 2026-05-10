@@ -35,7 +35,7 @@ Alias: postnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Poststed](poststed.md) |
 | Slot URI | [locn:postCode](http://www.w3.org/ns/locn#postCode) |
 

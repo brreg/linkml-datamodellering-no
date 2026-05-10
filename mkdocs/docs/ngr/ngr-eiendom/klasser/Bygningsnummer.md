@@ -21,7 +21,25 @@ URI: [ngre:Bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bygnings
     click Bygningsnummer href "../Bygningsnummer/"
       Bygningsnummer : bygningsnummer_verdi
         
+          
+    
+        
+        
+        Bygningsnummer --> "1" Integer : bygningsnummer_verdi
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Bygningsnummer : id
+        
+          
+    
+        
+        
+        Bygningsnummer --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngre:Bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bygnings
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bygningsnummer_verdi](bygningsnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Unikt bygningsnummer i Matrikkelen |
+| [bygningsnummer_verdi](bygningsnummer_verdi.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Unikt bygningsnummer i Matrikkelen |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngre:Bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bygnings
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

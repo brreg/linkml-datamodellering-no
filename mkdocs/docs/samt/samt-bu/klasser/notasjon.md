@@ -35,7 +35,7 @@ Alias: notasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Identifikator](identifikator.md) |
 | Slot URI | [skos:notation](http://www.w3.org/2004/02/skos/core#notation) |
 
@@ -62,7 +62,7 @@ Alias: notasjon
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: notasjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:notation |
-| native | samtbuskole:notasjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/notasjon |
 
 
 
@@ -83,8 +83,7 @@ Alias: notasjon
 ```yaml
 name: notasjon
 description: Notasjon/kode for identifikatoren.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: skos:notation
 alias: notasjon
 domain_of:

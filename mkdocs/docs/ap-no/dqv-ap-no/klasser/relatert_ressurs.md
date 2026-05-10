@@ -35,7 +35,7 @@ Alias: relatert_ressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:relation](http://purl.org/dc/terms/relation) |
 
@@ -63,7 +63,7 @@ Alias: relatert_ressurs
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: relatert_ressurs
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:relation |
-| native | https://data.norge.no/linkml/dqv-ap-no/relatert_ressurs |
+| native | https://data.norge.no/linkml/dcat-ap-no/relatert_ressurs |
 
 
 
@@ -84,8 +84,7 @@ Alias: relatert_ressurs
 ```yaml
 name: relatert_ressurs
 description: Generisk relasjon til ein annan ressurs.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:relation
 alias: relatert_ressurs
 domain_of:

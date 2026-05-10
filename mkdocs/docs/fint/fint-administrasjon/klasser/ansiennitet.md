@@ -35,7 +35,7 @@ Alias: ansiennitet
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:ansiennitet](https://schema.fintlabs.no/administrasjon/ansiennitet) |
 

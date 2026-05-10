@@ -35,7 +35,7 @@ Alias: transaksjonstidspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:transaksjonstidspunkt](https://schema.fintlabs.no/okonomi/transaksjonstidspunkt) |
 

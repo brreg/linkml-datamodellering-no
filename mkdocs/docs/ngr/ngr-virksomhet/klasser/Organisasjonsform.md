@@ -21,9 +21,36 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
     click Organisasjonsform href "../Organisasjonsform/"
       Organisasjonsform : id
         
+          
+    
+        
+        
+        Organisasjonsform --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Organisasjonsform : organisasjonsform_beskrivelse
         
+          
+    
+        
+        
+        Organisasjonsform --> "0..1" String : organisasjonsform_beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Organisasjonsform : organisasjonsform_kode
+        
+          
+    
+        
+        
+        Organisasjonsform --> "1" String : organisasjonsform_kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -64,7 +91,7 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [organisasjonsform_kode](organisasjonsform_kode.md) | 1 <br/> [String](string.md) | Kode for organisasjonsform (t |
+| [organisasjonsform_kode](organisasjonsform_kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Kode for organisasjonsform (t |
 
 
 
@@ -86,7 +113,7 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [organisasjonsform_beskrivelse](organisasjonsform_beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av organisasjonsforma |
+| [organisasjonsform_beskrivelse](organisasjonsform_beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg skildring av organisasjonsforma |
 
 
 
@@ -144,7 +171,7 @@ URI: [ngrv:Organisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#Or
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

@@ -63,7 +63,7 @@ Alias: har_kvalitetsmaaling
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: har_kvalitetsmaaling
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:hasQualityMeasurement |
-| native | samtbuskole:har_kvalitetsmaaling |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling |
 
 
 
@@ -84,8 +84,7 @@ Alias: har_kvalitetsmaaling
 ```yaml
 name: har_kvalitetsmaaling
 description: Kvalitetsmåling knytt til datasettet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqv:hasQualityMeasurement
 alias: har_kvalitetsmaaling
 domain_of:

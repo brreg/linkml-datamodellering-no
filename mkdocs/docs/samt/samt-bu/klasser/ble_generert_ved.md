@@ -35,7 +35,7 @@ Alias: ble_generert_ved
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain | [Datasett](datasett.md) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) |
@@ -71,7 +71,7 @@ Alias: ble_generert_ved
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -81,7 +81,7 @@ Alias: ble_generert_ved
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | prov:wasGeneratedBy |
-| native | samtbuskole:ble_generert_ved |
+| native | https://data.norge.no/linkml/dcat-ap-no/ble_generert_ved |
 
 
 
@@ -97,8 +97,7 @@ annotations:
     value: URI til prov:Activity
 description: Brukes til å referere til en aktivitet som genererte datasettet, eller
   som gir forretningskontekst for oppretting av det.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 domain: Datasett
 slot_uri: prov:wasGeneratedBy
 alias: ble_generert_ved

@@ -47,6 +47,15 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
         
       Modellelement : beskrivelse
         
+          
+    
+        
+        
+        Modellelement --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Modellelement : har_eigenskap
         
           
@@ -60,7 +69,25 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
         
       Modellelement : id
         
+          
+    
+        
+        
+        Modellelement --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Modellelement : identifikator_literal
+        
+          
+    
+        
+        
+        Modellelement --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Modellelement : tilhorer_modul
         
@@ -74,6 +101,15 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
         
       Modellelement : tittel
+        
+          
+    
+        
+        
+        Modellelement --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -174,7 +210,7 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [har_eigenskap](har_eigenskap.md) | * <br/> [Eigenskap](eigenskap.md) | Eigenskapar modellelementet har (modelldcatno:hasProperty) |
 
 
@@ -309,7 +345,7 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -483,12 +519,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Modellelement
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -503,9 +541,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -513,8 +548,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Modellelement
@@ -551,8 +585,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Modellelement
@@ -584,8 +617,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Modellelement

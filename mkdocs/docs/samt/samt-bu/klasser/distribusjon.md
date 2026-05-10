@@ -21,13 +21,58 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
     click Distribusjon href "../Distribusjon/"
       Distribusjon : beskrivelse
         
+          
+    
+        
+        
+        Distribusjon --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Distribusjon : dokumentasjon
+        
+          
+    
+        
+        
+        Distribusjon --> "*" Uri : dokumentasjon
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Distribusjon : endringsdato
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" Date : endringsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Distribusjon : filstorrelse
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" NonNegativeInteger : filstorrelse
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
+        
       Distribusjon : format
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : format
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Distribusjon : gjeldende_lovgivning
         
@@ -53,6 +98,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : id
         
+          
+    
+        
+        
+        Distribusjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Distribusjon : komprimeringsformat
         
           
@@ -65,6 +119,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
         
       Distribusjon : lisens
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : lisens
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Distribusjon : medietype
         
@@ -79,6 +142,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : nedlastningslenke
         
+          
+    
+        
+        
+        Distribusjon --> "*" Uri : nedlastningslenke
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Distribusjon : pakkeformat
         
           
@@ -91,6 +163,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
         
       Distribusjon : policy
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : policy
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Distribusjon : rettigheter
         
@@ -116,6 +197,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : spraak
         
+          
+    
+        
+        
+        Distribusjon --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
+        
       Distribusjon : status
         
           
@@ -129,7 +219,25 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : tidsopplosning
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" Duration : tidsopplosning
+        click Duration href "../Duration/"
+    
+
+        
       Distribusjon : tilgangs_url
+        
+          
+    
+        
+        
+        Distribusjon --> "1..*" Uri : tilgangs_url
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Distribusjon : tilgangstjeneste
         
@@ -144,9 +252,36 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : tilgjengelighet
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : tilgjengelighet
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Distribusjon : tittel
         
+          
+    
+        
+        
+        Distribusjon --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
+        
       Distribusjon : utgivelsesdato
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" Date : utgivelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -250,7 +385,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilgangs_url](tilgangs_url.md) | 1..* <br/> [Uri](uri.md) | URL for tilgang til distribusjonen |
+| [tilgangs_url](tilgangs_url.md) | 1..* <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URL for tilgang til distribusjonen |
 
 
 
@@ -344,10 +479,10 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [format](format.md) | 0..1 <br/> [String](string.md) | Filformat eller medietype (dct:format) |
-| [lisens](lisens.md) | 0..1 <br/> [String](string.md) | Lisens for bruk av ressursen |
+| [format](format.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Filformat eller medietype (dct:format) |
+| [lisens](lisens.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Lisens for bruk av ressursen |
 | [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
-| [tilgjengelighet](tilgjengelighet.md) | 0..1 <br/> [String](string.md) | Planlagt tilgjengelegheit for ressursen |
+| [tilgjengelighet](tilgjengelighet.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Planlagt tilgjengelegheit for ressursen |
 
 
 
@@ -639,24 +774,24 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [dokumentasjon](dokumentasjon.md) | * <br/> [Uri](uri.md) | Lenke til dokumentasjon om ressursen |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [dokumentasjon](dokumentasjon.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Lenke til dokumentasjon om ressursen |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
 | [filstorrelse](filstorrelse.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Filstørrelse i bytes |
 | [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Lovgjeving som gjeld for ressursen |
 | [i_samsvar_med](i_samsvar_med.md) | * <br/> [Standard](standard.md) | Standard ressursen er i samsvar med |
 | [komprimeringsformat](komprimeringsformat.md) | 0..1 <br/> [Mediatype](mediatype.md) | Komprimeringsformat brukt i distribusjonen |
 | [medietype](medietype.md) | 0..1 <br/> [Mediatype](mediatype.md) | Medietype i samsvar med IANA-registeret |
-| [nedlastningslenke](nedlastningslenke.md) | * <br/> [Uri](uri.md) | Direkte nedlastingslenke for distribusjonsfila |
+| [nedlastningslenke](nedlastningslenke.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Direkte nedlastingslenke for distribusjonsfila |
 | [pakkeformat](pakkeformat.md) | 0..1 <br/> [Mediatype](mediatype.md) | Pakkeformat brukt i distribusjonen |
-| [policy](policy.md) | 0..1 <br/> [String](string.md) | ODRL-policy som regulerer bruk av ressursen |
+| [policy](policy.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | ODRL-policy som regulerer bruk av ressursen |
 | [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](rettighetserklaring.md) | Rettar knytte til ressursen |
 | [sjekksum](sjekksum.md) | 0..1 <br/> [Sjekksum](sjekksum.md) | Sjekksum for distribusjonsfila |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 | [tidsopplosning](tidsopplosning.md) | 0..1 <br/> [Duration](duration.md) | Minste tidsoppløysing i datasettet |
 | [tilgangstjeneste](tilgangstjeneste.md) | * <br/> [Datatjeneste](datatjeneste.md) | Datatjeneste som gjev tilgang til distribusjonen |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -669,9 +804,9 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [datasettdistribusjoner](datasettdistribusjoner.md) | range | [Distribusjon](distribusjon.md) |
 | [Datasett](datasett.md) | [datasettdistribusjon](datasettdistribusjon.md) | range | [Distribusjon](distribusjon.md) |
 | [Datasett](datasett.md) | [eksempeldata](eksempeldata.md) | range | [Distribusjon](distribusjon.md) |
+| [Containerklasse](containerklasse.md) | [datasettdistribusjoner](datasettdistribusjoner.md) | range | [Distribusjon](distribusjon.md) |
 
 
 
@@ -693,7 +828,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -703,7 +838,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:Distribution |
-| native | samtbuskole:Distribusjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/Distribusjon |
 
 
 
@@ -720,7 +855,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 ```yaml
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slots:
 - id
 - tilgangs_url
@@ -783,7 +918,7 @@ class_uri: dcat:Distribution
 ```yaml
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_usage:
   tilgangs_url:
     name: tilgangs_url
@@ -814,17 +949,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Distribusjon
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -847,6 +976,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   tilgangs_url:
@@ -854,8 +988,7 @@ attributes:
     description: URL for tilgang til distribusjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:accessURL
     alias: tilgangs_url
     owner: Distribusjon
@@ -869,8 +1002,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Distribusjon
@@ -890,8 +1022,7 @@ attributes:
     description: Filformat eller medietype (dct:format).
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
     alias: format
     owner: Distribusjon
@@ -905,8 +1036,7 @@ attributes:
     description: Lisens for bruk av ressursen.
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:license
     alias: lisens
     owner: Distribusjon
@@ -920,8 +1050,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
     alias: status
     owner: Distribusjon
@@ -935,8 +1064,7 @@ attributes:
     description: Planlagt tilgjengelegheit for ressursen.
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcatap:availability
     alias: tilgjengelighet
     owner: Distribusjon
@@ -947,8 +1075,7 @@ attributes:
   dokumentasjon:
     name: dokumentasjon
     description: Lenke til dokumentasjon om ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: foaf:page
     alias: dokumentasjon
     owner: Distribusjon
@@ -962,8 +1089,7 @@ attributes:
   endringsdato:
     name: endringsdato
     description: Dato for siste endring av ressursen (dct:modified).
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
     alias: endringsdato
     owner: Distribusjon
@@ -977,8 +1103,7 @@ attributes:
   filstorrelse:
     name: filstorrelse
     description: Filstørrelse i bytes.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:byteSize
     alias: filstorrelse
     owner: Distribusjon
@@ -988,8 +1113,7 @@ attributes:
   gjeldende_lovgivning:
     name: gjeldende_lovgivning
     description: Lovgjeving som gjeld for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcatap:applicableLegislation
     alias: gjeldende_lovgivning
     owner: Distribusjon
@@ -1004,8 +1128,7 @@ attributes:
   i_samsvar_med:
     name: i_samsvar_med
     description: Standard ressursen er i samsvar med.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:conformsTo
     alias: i_samsvar_med
     owner: Distribusjon
@@ -1019,8 +1142,7 @@ attributes:
   komprimeringsformat:
     name: komprimeringsformat
     description: Komprimeringsformat brukt i distribusjonen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:compressFormat
     alias: komprimeringsformat
     owner: Distribusjon
@@ -1030,8 +1152,7 @@ attributes:
   medietype:
     name: medietype
     description: Medietype i samsvar med IANA-registeret.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:mediaType
     alias: medietype
     owner: Distribusjon
@@ -1041,8 +1162,7 @@ attributes:
   nedlastningslenke:
     name: nedlastningslenke
     description: Direkte nedlastingslenke for distribusjonsfila.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:downloadURL
     alias: nedlastningslenke
     owner: Distribusjon
@@ -1053,8 +1173,7 @@ attributes:
   pakkeformat:
     name: pakkeformat
     description: Pakkeformat brukt i distribusjonen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:packageFormat
     alias: pakkeformat
     owner: Distribusjon
@@ -1068,8 +1187,7 @@ attributes:
         tag: gyldige_verdier
         value: odrl:Policy
     description: ODRL-policy som regulerer bruk av ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrl:hasPolicy
     alias: policy
     owner: Distribusjon
@@ -1079,8 +1197,7 @@ attributes:
   rettigheter:
     name: rettigheter
     description: Rettar knytte til ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:rights
     alias: rettigheter
     owner: Distribusjon
@@ -1092,8 +1209,7 @@ attributes:
   sjekksum:
     name: sjekksum
     description: Sjekksum for distribusjonsfila.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: spdx:checksum
     alias: sjekksum
     owner: Distribusjon
@@ -1103,8 +1219,7 @@ attributes:
   spraak:
     name: spraak
     description: Språk brukt i ressursen (dct:language).
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Distribusjon
@@ -1120,8 +1235,7 @@ attributes:
   tidsopplosning:
     name: tidsopplosning
     description: Minste tidsoppløysing i datasettet.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:temporalResolution
     alias: tidsopplosning
     owner: Distribusjon
@@ -1131,8 +1245,7 @@ attributes:
   tilgangstjeneste:
     name: tilgangstjeneste
     description: Datatjeneste som gjev tilgang til distribusjonen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:accessService
     alias: tilgangstjeneste
     owner: Distribusjon
@@ -1143,8 +1256,7 @@ attributes:
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Distribusjon
@@ -1162,8 +1274,7 @@ attributes:
   utgivelsesdato:
     name: utgivelsesdato
     description: Dato ressursen vart første gong publisert (dct:issued).
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
     alias: utgivelsesdato
     owner: Distribusjon

@@ -63,7 +63,7 @@ Alias: kilde_datasett
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: kilde_datasett
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:source |
-| native | samtbuskole:kilde_datasett |
+| native | https://data.norge.no/linkml/dcat-ap-no/kilde_datasett |
 
 
 
@@ -84,8 +84,7 @@ Alias: kilde_datasett
 ```yaml
 name: kilde_datasett
 description: Datasett dette datasettet er avleidd frå.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:source
 alias: kilde_datasett
 domain_of:

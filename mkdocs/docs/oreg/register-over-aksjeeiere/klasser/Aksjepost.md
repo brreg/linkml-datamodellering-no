@@ -32,7 +32,25 @@ URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
         
       Aksjepost : har_antall_aksjer
         
+          
+    
+        
+        
+        Aksjepost --> "0..1" Integer : har_antall_aksjer
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Aksjepost : identifikator
+        
+          
+    
+        
+        
+        Aksjepost --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -116,8 +134,8 @@ URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [Integer](integer.md) | Tal aksjar |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Tal aksjar |
 | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | 0..1 <br/> [Aksjeklasse](aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
 
 

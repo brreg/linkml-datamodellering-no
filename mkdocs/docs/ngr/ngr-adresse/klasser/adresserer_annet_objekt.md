@@ -35,7 +35,7 @@ Alias: adresserer_annet_objekt
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [OffisiellAdresse](offisielladresse.md) |
 | Slot URI | [ngr:adressererAnnetObjekt](https://data.norge.no/vocabulary/ngr-adresse#adressererAnnetObjekt) |
 

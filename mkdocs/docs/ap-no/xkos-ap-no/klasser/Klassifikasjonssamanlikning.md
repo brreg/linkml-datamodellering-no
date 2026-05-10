@@ -32,7 +32,25 @@ URI: [xkos:Correspondence](http://rdf-vocabulary.ddialliance.org/xkos#Correspond
         
       Klassifikasjonssamanlikning : id
         
+          
+    
+        
+        
+        Klassifikasjonssamanlikning --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Klassifikasjonssamanlikning : identifikator_literal
+        
+          
+    
+        
+        
+        Klassifikasjonssamanlikning --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Klassifikasjonssamanlikning : samanliknar
         
@@ -46,6 +64,15 @@ URI: [xkos:Correspondence](http://rdf-vocabulary.ddialliance.org/xkos#Correspond
 
         
       Klassifikasjonssamanlikning : tittel
+        
+          
+    
+        
+        
+        Klassifikasjonssamanlikning --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Klassifikasjonssamanlikning : utgjevar
         
@@ -114,7 +141,7 @@ URI: [xkos:Correspondence](http://rdf-vocabulary.ddialliance.org/xkos#Correspond
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [utgjevar](utgjevar.md) | 1 <br/> [Organisasjon](organisasjon.md) | Organisasjon som er ansvarleg utgjevar (dct:publisher) |
 | [samanliknar](samanliknar.md) | 1..* <br/> [Klassifikasjon](klassifikasjon.md) | Klassifikasjonar som er samanlikna i korrespondansen (xkos:compares) |
@@ -246,7 +273,7 @@ URI: [xkos:Correspondence](http://rdf-vocabulary.ddialliance.org/xkos#Correspond
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -377,12 +404,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Klassifikasjonssamanlikning
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Klassifikasjon
     - Klassifikasjonsnivaa
     - Kategori
@@ -390,9 +419,6 @@ attributes:
     - Kategorisamanlikning
     - Organisasjon
     - Tidsrom
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   identifikator_literal:
@@ -400,8 +426,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Klassifikasjonssamanlikning
@@ -415,8 +440,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Klassifikasjonssamanlikning

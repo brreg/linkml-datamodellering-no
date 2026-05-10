@@ -35,7 +35,7 @@ Alias: relasjon_til
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Relasjon](relasjon.md) |
 | Slot URI | [dct:relation](http://purl.org/dc/terms/relation) |
 

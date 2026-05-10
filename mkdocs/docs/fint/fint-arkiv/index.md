@@ -580,37 +580,21 @@ Name: fint-arkiv
 | Class | Description |
 | --- | --- |
 | [AdministrativEnhet](klasser/administrativenhet.md) | Administrativ eining med ansvar for saksbehandling |
-| [Adresse](klasser/adresse.md) | Fysisk adresse eller postadresse |
-| [Aktoer](klasser/aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Enhet](klasser/enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhet](klasser/virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Person](klasser/person.md) | Fysiske private personar |
-| [ArkivContainer](klasser/arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |
 | [Arkivdel](klasser/arkivdel.md) | Ein vilkårleg definert del av eit arkiv |
 | [Arkivressurs](klasser/arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |
 | [Autorisasjon](klasser/autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |
 | [Avskrivning](klasser/avskrivning.md) | Avskriving av ein journalpost (markering som ferdigbehandla) |
-| [Begrep](klasser/begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](klasser/fylke.md) | Liste over Norges fylker |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kjonn](klasser/kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](klasser/kommune.md) | Liste over Norges kommunar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Landkode](klasser/landkode.md) | Landskode i ISO 3166-1 alpha-2 format |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Spraak](klasser/spraak.md) | Verdiar for språk (2 bokstavar) |
 | [Dokumentbeskrivelse](klasser/dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |
 | [Dokumentfil](klasser/dokumentfil.md) | Sjølve dokumentfila med data og metadata |
 | [Dokumentobjekt](klasser/dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |
 | [DokumentStatus](klasser/dokumentstatus.md) | Status til eit dokument |
 | [DokumentType](klasser/dokumenttype.md) | Type dokument |
-| [Elev](klasser/elev.md) | Ein elev registrert i skulesystemet |
 | [Format](klasser/format.md) | Dokumentets filformat |
-| [Identifikator](klasser/identifikator.md) | Unik identifikasjon til eit objekt |
 | [JournalpostType](klasser/journalposttype.md) | Namn på type journalpost |
 | [JournalStatus](klasser/journalstatus.md) | Status til journalposten |
 | [Klasse](klasser/klasse.md) | Ein klasse i eit klassifikasjonssystem |
 | [Klassifikasjonssystem](klasser/klassifikasjonssystem.md) | Overordna struktur for mappene i ein eller fleire arkivdelar |
 | [Klassifikasjonstype](klasser/klassifikasjonstype.md) | Type klassifikasjonssystem |
-| [Kontaktinformasjon](klasser/kontaktinformasjon.md) | Informasjon som kan brukast for å oppnå kontakt |
-| [Kontaktperson](klasser/kontaktperson.md) | Kontaktperson (pårørande) til ein person |
 | [Korrespondansepart](klasser/korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |
 | [KorrespondansepartType](klasser/korrespondanseparttype.md) | Type korrespondansepart |
 | [Mappe](klasser/mappe.md) | Abstrakt basisklasse for alle mappetypar |
@@ -621,13 +605,10 @@ Name: fint-arkiv
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SoeknadDrosjeloeyve](klasser/soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TilskuddFartoy](klasser/tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TilskuddFredaBygningPrivatEie](klasser/tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |
-| [Matrikkelnummer](klasser/matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |
 | [Merknad](klasser/merknad.md) | Merknad knytt til mappe, registrering eller dokumentbeskrivelse |
 | [Merknadstype](klasser/merknadstype.md) | Namn på type merknad |
 | [Part](klasser/part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |
 | [PartRolle](klasser/partrolle.md) | Rolla til ein part |
-| [Periode](klasser/periode.md) | Tidsperiode med obligatorisk start og valfri slutt |
-| [Personnavn](klasser/personnavn.md) | Namn på ein person |
 | [Registrering](klasser/registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Journalpost](klasser/journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |
 | [Rolle](klasser/rolle.md) | Rolla til ein arkivressurs |
@@ -639,7 +620,6 @@ Name: fint-arkiv
 | [Tilgangsgruppe](klasser/tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |
 | [Tilgangsrestriksjon](klasser/tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |
 | [TilknyttetRegistreringSom](klasser/tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |
-| [Valuta](klasser/valuta.md) | Valutakodar for offisielle valutaer |
 | [Variantformat](klasser/variantformat.md) | Angiving av kva variant eit dokument førekjem i |
 
 
@@ -651,8 +631,6 @@ Name: fint-arkiv
 | [administrativeEiningar](klasser/administrativeeiningar.md) |  |
 | [administrativEnhet](klasser/administrativenhet.md) | Administrativ eining som har ansvar for saksbehandlinga |
 | [administrativenhet](klasser/administrativenhet.md) | Administrative einingar autorisasjonen er gyldig for |
-| [adresse](klasser/adresse.md) | Adresse til matrikkeleining |
-| [adresselinje](klasser/adresselinje.md) | Adresseinformasjon |
 | [antallVedlegg](klasser/antallvedlegg.md) | Antal fysiske vedlegg til eit fysisk hoveddokument |
 | [arbeidssted](klasser/arbeidssted.md) | Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad |
 | [arkivdel](klasser/arkivdel.md) | Arkivdel arkivenheten tilhøyrer |
@@ -670,11 +648,6 @@ Name: fint-arkiv
 | [avsluttetAv](klasser/avsluttetav.md) | Person som avslutta/lukka arkivenheten |
 | [avsluttetAvNavn](klasser/avsluttetavnavn.md) | Namn på person som avslutta/lukka arkivenheten |
 | [avsluttetDato](klasser/avsluttetdato.md) | Dato og klokkeslett når arkivenheten vart avslutta/lukka |
-| [beskrivelse](klasser/beskrivelse.md) | Beskriven namn eller omtale |
-| [bilde](klasser/bilde.md) | HTTP(S)-lenkje til eit bilete av personen |
-| [bokstavkode](klasser/bokstavkode.md) | Bokstavkode for aktuell valuta |
-| [bostedsadresse](klasser/bostedsadresse.md) | Folkeregistrert adresse til personen |
-| [bruksnummer](klasser/bruksnummer.md) | Fortløpande nummerering av bruk under gårdsnummer |
 | [bygningsnavn](klasser/bygningsnavn.md) | Bygningens namn |
 | [data](klasser/data.md) | Dokumentfilens data, koda som Base64 |
 | [dispensasjonAutomatiskFredaKulturminne_liste](klasser/dispensasjonautomatiskfredakulturminne_liste.md) |  |
@@ -688,32 +661,16 @@ Name: fint-arkiv
 | [dokumentstatuskodar](klasser/dokumentstatuskodar.md) |  |
 | [dokumenttypar](klasser/dokumenttypar.md) |  |
 | [dokumentType](klasser/dokumenttype.md) | Namn på type dokument |
-| [elev](klasser/elev.md) | Referanse til Elev (Utdanning) |
-| [elevnummer](klasser/elevnummer.md) | Skulens interne elevnummer |
-| [epostadresse](klasser/epostadresse.md) | Namngitt elektronisk adresse for mottak av e-post |
-| [etternavn](klasser/etternavn.md) | Etternamn til personen |
 | [fartoyNavn](klasser/fartoynavn.md) | Fartøyets namn |
-| [festenummer](klasser/festenummer.md) | Fortløpande nummerering av festar under gårdsnummer/bruksnummer |
 | [filformat](klasser/filformat.md) | Dokumentets format |
 | [filnavn](klasser/filnavn.md) | Dokumentfilens namn |
 | [filstorrelse](klasser/filstorrelse.md) | Storleiken på fila i antal bytes |
-| [fodselsdato](klasser/fodselsdato.md) | Dato for fødsel |
-| [fodselsnummer](klasser/fodselsnummer.md) | Fødselsnummer eller ein av dei fiktive variantane |
 | [foedselsnummer](klasser/foedselsnummer.md) | Fødselsnummer |
-| [foreldre](klasser/foreldre.md) | Den/dei som har foreldreansvar til personen |
-| [foreldreansvar](klasser/foreldreansvar.md) | Personar denne personen har foreldreansvar for |
 | [forfallsDato](klasser/forfallsdato.md) | Frist for å svare på eit inngåande dokument |
 | [forfatter](klasser/forfatter.md) | Namn på person eller organisasjon som skapte dokumentet |
 | [format](klasser/format.md) | Format på dokumentfil, som IANA Media Type |
 | [formatar](klasser/formatar.md) |  |
 | [formatDetaljer](klasser/formatdetaljer.md) | Nærare spesifikasjon av dokumentets format |
-| [fornavn](klasser/fornavn.md) | Fornamn til personen |
-| [forretningsadresse](klasser/forretningsadresse.md) | Besøksadresse til ein organisasjonseining |
-| [fylke](klasser/fylke.md) | Fylke |
-| [gaardsnummer](klasser/gaardsnummer.md) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
-| [gyldighetsperiode](klasser/gyldighetsperiode.md) | Periode ressursen er gyldig for |
-| [id](klasser/id.md) | URI-identifikator for ressursen |
-| [identifikatorverdi](klasser/identifikatorverdi.md) | Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt id... |
 | [journalAr](klasser/journalar.md) | Året journalposten vart oppretta |
 | [journalDato](klasser/journaldato.md) | Datoen journalposten er oppretta/arkivert |
 | [journalenhet](klasser/journalenhet.md) | Eining med arkivmessig ansvar |
@@ -727,69 +684,43 @@ Name: fint-arkiv
 | [journalstatuskodar](klasser/journalstatuskodar.md) |  |
 | [kallesignal](klasser/kallesignal.md) | Fartøyets kallesignal |
 | [kildesystemId](klasser/kildesystemid.md) | Kildesystemets identifikator for arkivressursen |
-| [kjonn](klasser/kjonn.md) | Kjønn |
 | [klasse](klasser/klasse.md) | Klassifisering av arkivenhet |
 | [klasseId](klasser/klasseid.md) | Eintydig identifikasjon av klassen innanfor klassifikasjonssystemet |
 | [klassifikasjonssystem](klasser/klassifikasjonssystem.md) | Klassifikasjonssystem |
 | [klassifikasjonstypar](klasser/klassifikasjonstypar.md) |  |
 | [klassifikasjonstype](klasser/klassifikasjonstype.md) | Type klassifikasjonssystem |
-| [kode](klasser/kode.md) | Verdi som identifiserer omgrepet |
-| [kommune](klasser/kommune.md) | Kommune |
-| [kommunenummer](klasser/kommunenummer.md) | Nummerering av kommunen i høve til SSB si offisielle liste |
-| [kontaktinformasjon](klasser/kontaktinformasjon.md) | Den føretrekte måten å kome i kontakt med ein aktør |
-| [kontaktperson](klasser/kontaktperson.md) | Personar kontaktpersonen er pårørande for |
-| [kontaktperson_navn](klasser/kontaktperson_navn.md) | Namn på kontaktpersonen |
 | [kontaktperson_str](klasser/kontaktperson_str.md) | Kontaktperson hos ein organisasjon som er avsender, mottakar eller sakspart |
 | [korrespondansepart](klasser/korrespondansepart.md) | Mottakar eller sendar av arkivdokument |
 | [korrespondansepartNavn](klasser/korrespondansepartnavn.md) | Namn på person eller organisasjon som er avsender eller mottakar |
 | [korrespondanseparttypar](klasser/korrespondanseparttypar.md) |  |
 | [korrespondanseparttype](klasser/korrespondanseparttype.md) | Type korrespondansepart |
 | [kulturminneId](klasser/kulturminneid.md) | Kulturminnets ID i Askeladden |
-| [laerling](klasser/laerling.md) | Referanse til Laerling (Utdanning) |
-| [land](klasser/land.md) | Land der adressa befinn seg |
 | [leder](klasser/leder.md) | Referanse til Personalressurs som er arbeidstakarens leiar |
-| [maalform](klasser/maalform.md) | Målform personen føretrekkjer |
 | [mappeId](klasser/mappeid.md) | Eintydig identifikasjon av mappa innanfor arkivet |
 | [matrikkelnummer](klasser/matrikkelnummer.md) | Kulturminnets/bygningens identifikator i Matrikkelen |
-| [mellomnavn](klasser/mellomnavn.md) | Mellomnamn |
 | [merknad](klasser/merknad.md) | Merknader knytt til arkivenhet |
 | [merknadRegistrertAv](klasser/merknadregistrertav.md) | Person som registrerte merknaden |
 | [merknadsdato](klasser/merknadsdato.md) | Dato og klokkeslett merknaden vart registrert |
 | [merknadstekst](klasser/merknadstekst.md) | Merknad frå saksbehandlar, leiar eller arkivpersonale |
 | [merknadstypar](klasser/merknadstypar.md) |  |
 | [merknadstype](klasser/merknadstype.md) | Type merknad |
-| [mobiltelefonnummer](klasser/mobiltelefonnummer.md) | Mobiltelefonnummer |
-| [morsmaal](klasser/morsmaal.md) | Morsmål til personen |
 | [mottattDato](klasser/mottattdato.md) | Dato eit eksternt dokument vart motteke |
-| [navn](klasser/navn.md) | Hovudnamn for ressursen |
-| [nettsted](klasser/nettsted.md) | Adresse til eit nettstad |
 | [noekkelord](klasser/noekkelord.md) | Nøkkelord som skildrar innhaldet (Mappe) |
 | [nokkelord](klasser/nokkelord.md) | Nøkkelord som skildrar innhaldet (Registrering) |
-| [nummerkode](klasser/nummerkode.md) | Nummerkode for aktuell valuta |
 | [offentlighetsvurdertDato](klasser/offentlighetsvurdertdato.md) | Datoen offentlegheitsvurdering vart gjennomført |
 | [offentligTittel](klasser/offentligtittel.md) | Offentleg tittel der skjerma ord er fjerna |
 | [opprettetAv](klasser/opprettetav.md) | Person som oppretta/registrerte arkivenheten |
 | [opprettetAvNavn](klasser/opprettetavnavn.md) | Namn på person som oppretta/registrerte arkivenheten |
 | [opprettetDato](klasser/opprettetdato.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert |
 | [organisasjonselement](klasser/organisasjonselement.md) | Referanse til Organisasjonselement i Administrasjon-domenet |
-| [organisasjonsnavn](klasser/organisasjonsnavn.md) | Namn på eining registrert i Einingsregisteret |
-| [organisasjonsnummer](klasser/organisasjonsnummer.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret |
 | [orgnummer](klasser/orgnummer.md) | Organisasjonsnummer |
-| [otungdom](klasser/otungdom.md) | Referanse til OtUngdom (Utdanning) |
-| [parorende](klasser/parorende.md) | Pårørande kontaktperson til personen |
 | [part](klasser/part.md) | Partar til arkivenhet |
 | [partNavn](klasser/partnavn.md) | Namn på verksemd eller person som er part |
 | [partRollar](klasser/partrollar.md) |  |
 | [partRolle](klasser/partrolle.md) | Rolla til parten |
-| [passiv](klasser/passiv.md) | Angir at koden er passiv og ikkje kan veljast |
-| [person](klasser/person.md) | Referanse til Person i Administrasjon-domenet |
-| [person_navn](klasser/person_navn.md) | Namn på personen |
 | [personalmappe_liste](klasser/personalmappe_liste.md) |  |
 | [personalressurs](klasser/personalressurs.md) | Referanse til Personalressurs i Administrasjon-domenet |
 | [personnavn](klasser/personnavn.md) | Namn på person (Personnavn-objekt) |
-| [postadresse](klasser/postadresse.md) | Informasjon om postadresse til ein aktør |
-| [postnummer](klasser/postnummer.md) | Postnummer |
-| [poststed](klasser/poststed.md) | Poststad |
 | [referanseArkivDel](klasser/referansearkivdel.md) | Referanse til arkivdelen denne arkivenheten er tilknytt |
 | [referanseArkivdel](klasser/referansearkivdel.md) | Referanse til arkivdelen denne arkivenheten er tilknytt |
 | [referanseDokumentfil](klasser/referansedokumentfil.md) | Referanse til fila som inneheld det elektroniske dokumentet |
@@ -807,20 +738,14 @@ Name: fint-arkiv
 | [sakssekvensnummer](klasser/sakssekvensnummer.md) | Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta |
 | [saksstatus](klasser/saksstatus.md) | Status til saksmappa |
 | [sakstatuskodar](klasser/sakstatuskodar.md) |  |
-| [seksjonsnummer](klasser/seksjonsnummer.md) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
 | [sendtDato](klasser/sendtdato.md) | Dato eit internt produsert dokument vart sendt/ekspedert |
-| [sip](klasser/sip.md) | SIP-protokoll for VoIP (IP-telefoni) |
 | [sjekksum](klasser/sjekksum.md) | Verdi som gir integritetssikring til dokumentets innhald |
 | [sjekksumAlgoritme](klasser/sjekksumalgoritme.md) | Algoritme nytta for å berekne sjekksummen |
 | [skjerming](klasser/skjerming.md) | Skjerming av arkivenhet |
 | [skjermingsheimlar](klasser/skjermingsheimlar.md) |  |
 | [skjermingshjemmel](klasser/skjermingshjemmel.md) | Skjermingsheimelen |
-| [slutt](klasser/slutt.md) | Til tidspunkt |
 | [soeknadDrosjeloeyve_liste](klasser/soeknaddrosjeloeyve_liste.md) |  |
 | [soeknadsnummer](klasser/soeknadsnummer.md) | Søknadsnummer frå Digisak |
-| [start](klasser/start.md) | Frå tidspunkt |
-| [statsborgerskap](klasser/statsborgerskap.md) | Alle statsborgarskap personen har |
-| [telefonnummer](klasser/telefonnummer.md) | Telefonnummer |
 | [tilgang](klasser/tilgang.md) | Tilgangar gjevne til arkivressursen |
 | [tilgangar](klasser/tilgangar.md) |  |
 | [tilgangsgruppe](klasser/tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til arkivenheten |
@@ -835,13 +760,10 @@ Name: fint-arkiv
 | [tilskuddFredaBygningPrivatEie_liste](klasser/tilskuddfredabygningprivateie_liste.md) |  |
 | [tiltak](klasser/tiltak.md) | Skildrar kva tiltak som skal utførast på eigedommen |
 | [tittel](klasser/tittel.md) | Tittel eller namn på arkivenheten |
-| [type](klasser/type.md) | Beskriv kva slags type |
 | [utlaantDato](klasser/utlaantdato.md) | Dato ein fysisk saksmappe eller journalpost vart utlånt |
-| [valuta_navn](klasser/valuta_navn.md) | Namn på valuta |
 | [variantFormat](klasser/variantformat.md) | Kva variant dokumentet førekjem i |
 | [variantformatar](klasser/variantformatar.md) |  |
 | [versjonsnummer](klasser/versjonsnummer.md) | Identifikasjon av versjonar innanfor same dokument |
-| [virksomhetsId](klasser/virksomhetsid.md) | Intern unik identifikator i økonomisystemet |
 
 
 ## Enumerations
@@ -854,25 +776,6 @@ Name: fint-arkiv
 
 | Type | Description |
 | --- | --- |
-| [Boolean](klasser/boolean.md) | A binary (true or false) value |
-| [Curie](klasser/curie.md) | a compact URI |
-| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
-| [Datetime](klasser/datetime.md) | The combination of a date and time |
-| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
-| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](klasser/integer.md) | An integer |
-| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](klasser/string.md) | A character string |
-| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](klasser/uri.md) | a complete URI |
-| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets

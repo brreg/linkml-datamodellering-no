@@ -21,7 +21,25 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
     click Identifikator href "../Identifikator/"
       Identifikator : id
         
+          
+    
+        
+        
+        Identifikator --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Identifikator : notasjon
+        
+          
+    
+        
+        
+        Identifikator --> "1" String : notasjon
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [notasjon](notasjon.md) | 1 <br/> [String](string.md) | Notasjon/kode for identifikatoren |
+| [notasjon](notasjon.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Notasjon/kode for identifikatoren |
 
 
 
@@ -111,7 +129,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -146,7 +164,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -156,7 +174,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:Identifier |
-| native | https://data.norge.no/linkml/dqv-ap-no/Identifikator |
+| native | https://data.norge.no/linkml/dcat-ap-no/Identifikator |
 
 
 
@@ -173,7 +191,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 ```yaml
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slots:
 - id
 - notasjon
@@ -194,7 +212,7 @@ class_uri: adms:Identifier
 ```yaml
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_usage:
   notasjon:
     name: notasjon
@@ -205,18 +223,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Identifikator
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -233,6 +244,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
     required: true
   notasjon:
@@ -240,8 +257,7 @@ attributes:
     description: Notasjon/kode for identifikatoren.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: skos:notation
     alias: notasjon
     owner: Identifikator

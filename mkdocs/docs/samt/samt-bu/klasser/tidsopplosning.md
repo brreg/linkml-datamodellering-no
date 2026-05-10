@@ -62,7 +62,7 @@ Alias: tidsopplosning
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: tidsopplosning
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:temporalResolution |
-| native | samtbuskole:tidsopplosning |
+| native | https://data.norge.no/linkml/dcat-ap-no/tidsopplosning |
 
 
 
@@ -83,8 +83,7 @@ Alias: tidsopplosning
 ```yaml
 name: tidsopplosning
 description: Minste tidsoppløysing i datasettet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:temporalResolution
 alias: tidsopplosning
 domain_of:

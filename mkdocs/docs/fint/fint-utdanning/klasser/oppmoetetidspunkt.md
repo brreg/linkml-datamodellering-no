@@ -35,7 +35,7 @@ Alias: oppmoetetidspunkt
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Eksamen](eksamen.md) |
 | Slot URI | [utd:oppmoetetidspunkt](https://schema.fintlabs.no/utdanning/oppmoetetidspunkt) |
 

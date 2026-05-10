@@ -22,10 +22,10 @@ Alias: heimeside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 | [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -38,7 +38,7 @@ Alias: heimeside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [OffentligTjeneste](offentligtjeneste.md), [Tjeneste](tjeneste.md), [OffentligOrganisasjon](offentligorganisasjon.md), [Katalog](katalog.md) |
 | Slot URI | [foaf:homepage](http://xmlns.com/foaf/0.1/homepage) |
 
@@ -66,7 +66,7 @@ Alias: heimeside
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -76,7 +76,7 @@ Alias: heimeside
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:homepage |
-| native | https://data.norge.no/linkml/cpsv-ap-no/heimeside |
+| native | https://data.norge.no/linkml/common-ap-no/heimeside |
 
 
 
@@ -87,8 +87,7 @@ Alias: heimeside
 ```yaml
 name: heimeside
 description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: foaf:homepage
 alias: heimeside
 domain_of:

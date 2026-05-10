@@ -64,7 +64,7 @@ Alias: versjonsmerknad
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: versjonsmerknad
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:versionNotes |
-| native | https://data.norge.no/linkml/dqv-ap-no/versjonsmerknad |
+| native | https://data.norge.no/linkml/common-ap-no/versjonsmerknad |
 
 
 
@@ -85,8 +85,7 @@ Alias: versjonsmerknad
 ```yaml
 name: versjonsmerknad
 description: Merknad om endringar i denne versjonen (adms:versionNotes).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: adms:versionNotes
 alias: versjonsmerknad
 domain_of:

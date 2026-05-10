@@ -21,17 +21,80 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
     click Kontaktpunkt href "../Kontaktpunkt/"
       Kontaktpunkt : epost
         
+          
+    
+        
+        
+        Kontaktpunkt --> "*" Uri : epost
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kontaktpunkt : id
+        
+          
+    
+        
+        
+        Kontaktpunkt --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Kontaktpunkt : kategori
         
+          
+    
+        
+        
+        Kontaktpunkt --> "*" String : kategori
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontaktpunkt : kontaktside
+        
+          
+    
+        
+        
+        Kontaktpunkt --> "*" Uri : kontaktside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Kontaktpunkt : opningstider
         
+          
+    
+        
+        
+        Kontaktpunkt --> "*" String : opningstider
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontaktpunkt : spraak
         
+          
+    
+        
+        
+        Kontaktpunkt --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
+        
       Kontaktpunkt : telefon
+        
+          
+    
+        
+        
+        Kontaktpunkt --> "*" String : telefon
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -144,12 +207,12 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [epost](epost.md) | * <br/> [Uri](uri.md) | E-postadresse (mailto:-URI) |
-| [telefon](telefon.md) | * <br/> [String](string.md) | Telefonnummer |
-| [kontaktside](kontaktside.md) | * <br/> [Uri](uri.md) | Kontaktside (nettadresse) |
-| [opningstider](opningstider.md) | * <br/> [String](string.md) | Opningstider |
+| [epost](epost.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | E-postadresse (mailto:-URI) |
+| [telefon](telefon.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Telefonnummer |
+| [kontaktside](kontaktside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Kontaktside (nettadresse) |
+| [opningstider](opningstider.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Opningstider |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
-| [kategori](kategori.md) | * <br/> [String](string.md) | Kategori for kontaktpunktet |
+| [kategori](kategori.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Kategori for kontaktpunktet |
 
 
 
@@ -246,7 +309,7 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -388,12 +451,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kontaktpunkt
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -409,9 +474,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   epost:
@@ -476,8 +538,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Kontaktpunkt

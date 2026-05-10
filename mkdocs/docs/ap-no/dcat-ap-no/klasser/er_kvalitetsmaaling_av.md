@@ -62,7 +62,7 @@ Alias: er_kvalitetsmaaling_av
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: er_kvalitetsmaaling_av
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:isMeasurementOf |
-| native | https://data.norge.no/linkml/dcat-ap-no/er_kvalitetsmaaling_av |
+| native | https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av |
 
 
 
@@ -83,8 +83,7 @@ Alias: er_kvalitetsmaaling_av
 ```yaml
 name: er_kvalitetsmaaling_av
 description: Kvalitetsmålet denne målinga er ei måling av.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqv:isMeasurementOf
 alias: er_kvalitetsmaaling_av
 domain_of:

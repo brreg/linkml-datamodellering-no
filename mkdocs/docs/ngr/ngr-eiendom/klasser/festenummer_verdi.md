@@ -35,7 +35,7 @@ Alias: festenummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Festenummer](festenummer.md) |
 | Slot URI | [ngre:festenummer](https://data.norge.no/vocabulary/ngr-eiendom#festenummer) |
 

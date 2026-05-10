@@ -36,7 +36,6 @@ Aksjeselskap {
     uriorcurie identifikator  
     string navn  
 }
-
 Eierposisjon {
     uriorcurie identifikator  
 }

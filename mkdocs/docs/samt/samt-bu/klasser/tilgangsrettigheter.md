@@ -22,8 +22,8 @@ Alias: tilgangsrettigheter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 
 
 
@@ -36,7 +36,7 @@ Alias: tilgangsrettigheter
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dct:accessRights](http://purl.org/dc/terms/accessRights) |
 
@@ -64,7 +64,7 @@ Alias: tilgangsrettigheter
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: tilgangsrettigheter
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:accessRights |
-| native | samtbuskole:tilgangsrettigheter |
+| native | https://data.norge.no/linkml/dcat-ap-no/tilgangsrettigheter |
 
 
 
@@ -86,8 +86,7 @@ Alias: tilgangsrettigheter
 name: tilgangsrettigheter
 description: Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang
   eller ikke-allmenn tilgang til datasettet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:accessRights
 alias: tilgangsrettigheter
 domain_of:

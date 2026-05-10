@@ -23,29 +23,7 @@ URI: [Anbefalt](anbefalt.md)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/modelldcat-ap-no
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 

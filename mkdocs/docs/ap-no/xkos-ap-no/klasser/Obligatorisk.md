@@ -23,29 +23,7 @@ URI: [Obligatorisk](obligatorisk.md)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/xkos-ap-no
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 

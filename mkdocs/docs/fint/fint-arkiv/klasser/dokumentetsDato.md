@@ -35,7 +35,7 @@ Alias: dokumentetsDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Journalpost](journalpost.md) |
 | Slot URI | [ark:dokumentetsDato](https://schema.fintlabs.no/arkiv/dokumentetsDato) |
 

@@ -21,7 +21,25 @@ URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
     click Aksjeklasse href "../Aksjeklasse/"
       Aksjeklasse : identifikator
         
+          
+    
+        
+        
+        Aksjeklasse --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Aksjeklasse : navn
+        
+          
+    
+        
+        
+        Aksjeklasse --> "0..1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -89,8 +107,8 @@ URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [navn](navn.md) | 0..1 <br/> [String](string.md) | Namn på instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [navn](navn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på instansen |
 
 
 

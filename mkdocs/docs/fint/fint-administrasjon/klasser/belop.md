@@ -22,8 +22,8 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  yes  |
 | [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  yes  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  yes  |
 
 
 
@@ -36,7 +36,7 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Fasttillegg](fasttillegg.md), [Variabellonn](variabellonn.md) |
 | Slot URI | [adm:belop](https://schema.fintlabs.no/administrasjon/belop) |
 

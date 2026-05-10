@@ -35,7 +35,7 @@ Alias: delegert
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) |
 | Slot URI | [utd:delegert](https://schema.fintlabs.no/utdanning/delegert) |
 

@@ -22,8 +22,8 @@ Alias: kontaktperson_str
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
 | [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  yes  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
 
 
 
@@ -36,7 +36,7 @@ Alias: kontaktperson_str
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Korrespondansepart](korrespondansepart.md), [Part](part.md) |
 | Slot URI | [ark:kontaktperson](https://schema.fintlabs.no/arkiv/kontaktperson) |
 

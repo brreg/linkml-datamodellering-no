@@ -21,7 +21,25 @@ URI: [skosno:AssociativeConceptRelation](https://data.norge.no/vocabulary/skosno
     click AssosiativRelasjon href "../AssosiativRelasjon/"
       AssosiativRelasjon : id
         
+          
+    
+        
+        
+        AssosiativRelasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       AssosiativRelasjon : relasjontype
+        
+          
+    
+        
+        
+        AssosiativRelasjon --> "1" LangString : relasjontype
+        click LangString href "../LangString/"
+    
+
         
       AssosiativRelasjon : til_omgrep
         
@@ -147,7 +165,7 @@ URI: [skosno:AssociativeConceptRelation](https://data.norge.no/vocabulary/skosno
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -252,12 +270,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/skos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: AssosiativRelasjon
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Organisasjon
     - VCardKontakt
     - Begrep
@@ -266,9 +286,6 @@ attributes:
     - GeneriskRelasjon
     - PartitivRelasjon
     - Samling
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   til_omgrep:

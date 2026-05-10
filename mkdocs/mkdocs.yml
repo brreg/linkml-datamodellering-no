@@ -53,6 +53,9 @@ nav:
       - 'modelldcat-ap-no': ap-no/modelldcat-ap-no/index.md
       - 'skos-ap-no': ap-no/skos-ap-no/index.md
       - 'xkos-ap-no': ap-no/xkos-ap-no/index.md
+  - 'FAIR – Metadataoverbygning':
+      - fair/index.md
+      - 'fair-metadata': fair/fair-metadata/index.md
   - 'FINT – Fylkeskommunale integrasjonar':
       - fint/index.md
       - 'fint-administrasjon': fint/fint-administrasjon/index.md
@@ -61,6 +64,15 @@ nav:
       - 'fint-personvern': fint/fint-personvern/index.md
       - 'fint-ressurs': fint/fint-ressurs/index.md
       - 'fint-utdanning': fint/fint-utdanning/index.md
+  - 'NGR – Nasjonale Grunndata':
+      - ngr/index.md
+      - 'ngr-adresse': ngr/ngr-adresse/index.md
+      - 'ngr-eiendom': ngr/ngr-eiendom/index.md
+      - 'ngr-person': ngr/ngr-person/index.md
+      - 'ngr-virksomhet': ngr/ngr-virksomhet/index.md
+  - 'OREG – Offentlege registre':
+      - oreg/index.md
+      - 'register-over-aksjeeiere': oreg/register-over-aksjeeiere/index.md
   - 'SAMT – Kommunale integrasjonar':
       - samt/index.md
       - 'samt-bu': samt/samt-bu/index.md

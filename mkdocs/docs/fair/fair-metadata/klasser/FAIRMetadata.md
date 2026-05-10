@@ -23,6 +23,15 @@ URI: [fair:FAIRMetadata](https://data.norge.no/fair#FAIRMetadata)
     click FAIRMetadata href "../FAIRMetadata/"
       FAIRMetadata : beskrivelse
         
+          
+    
+        
+        
+        FAIRMetadata --> "0..1" Uriorcurie : beskrivelse
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       FAIRMetadata : gjenbruksmetadata
         
           
@@ -35,6 +44,15 @@ URI: [fair:FAIRMetadata](https://data.norge.no/fair#FAIRMetadata)
 
         
       FAIRMetadata : id
+        
+          
+    
+        
+        
+        FAIRMetadata --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       FAIRMetadata : katalogregistrering
         
@@ -60,7 +78,25 @@ URI: [fair:FAIRMetadata](https://data.norge.no/fair#FAIRMetadata)
         
       FAIRMetadata : ressursIdentifikator
         
+          
+    
+        
+        
+        FAIRMetadata --> "1" Uriorcurie : ressursIdentifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       FAIRMetadata : ressurstype
+        
+          
+    
+        
+        
+        FAIRMetadata --> "1" Uriorcurie : ressurstype
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       FAIRMetadata : tilgangsmetadata
         
@@ -298,10 +334,10 @@ URI: [fair:FAIRMetadata](https://data.norge.no/fair#FAIRMetadata)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Persistent URI-identifikator for metadata-posten (FAIR F1) |
-| [ressursIdentifikator](ressursidentifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global og persistent identifikator for ressursen (FAIR F1) |
-| [ressurstype](ressurstype.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Type digital ressurs, t |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | URI til ressursen som denne metadata-posten beskriver (FAIR F3) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Persistent URI-identifikator for metadata-posten (FAIR F1) |
+| [ressursIdentifikator](ressursidentifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global og persistent identifikator for ressursen (FAIR F1) |
+| [ressurstype](ressurstype.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Type digital ressurs, t |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI til ressursen som denne metadata-posten beskriver (FAIR F3) |
 | [tilgangsmetadata](tilgangsmetadata.md) | 0..1 <br/> [Tilgangsmetadata](tilgangsmetadata.md) | Metadata for tilgang og tilgjengelegheit (FAIR A1/A2) |
 | [gjenbruksmetadata](gjenbruksmetadata.md) | 0..1 <br/> [Gjenbruksmetadata](gjenbruksmetadata.md) | Metadata som støttar gjenbruk av ressursen (FAIR R1 |
 | [proveniensmetadata](proveniensmetadata.md) | 0..1 <br/> [Proveniensmetadata](proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |

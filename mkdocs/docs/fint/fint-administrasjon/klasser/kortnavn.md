@@ -35,7 +35,7 @@ Alias: kortnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [adm:kortnavn](https://schema.fintlabs.no/administrasjon/kortnavn) |
 

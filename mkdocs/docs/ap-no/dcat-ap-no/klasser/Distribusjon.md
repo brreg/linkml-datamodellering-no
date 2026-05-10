@@ -21,13 +21,58 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
     click Distribusjon href "../Distribusjon/"
       Distribusjon : beskrivelse
         
+          
+    
+        
+        
+        Distribusjon --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Distribusjon : dokumentasjon
+        
+          
+    
+        
+        
+        Distribusjon --> "*" Uri : dokumentasjon
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Distribusjon : endringsdato
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" Date : endringsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Distribusjon : filstorrelse
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" NonNegativeInteger : filstorrelse
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
+        
       Distribusjon : format
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : format
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Distribusjon : gjeldende_lovgivning
         
@@ -53,6 +98,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : id
         
+          
+    
+        
+        
+        Distribusjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Distribusjon : komprimeringsformat
         
           
@@ -65,6 +119,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
         
       Distribusjon : lisens
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : lisens
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Distribusjon : medietype
         
@@ -79,6 +142,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : nedlastningslenke
         
+          
+    
+        
+        
+        Distribusjon --> "*" Uri : nedlastningslenke
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Distribusjon : pakkeformat
         
           
@@ -91,6 +163,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
         
       Distribusjon : policy
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : policy
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Distribusjon : rettigheter
         
@@ -116,6 +197,15 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : spraak
         
+          
+    
+        
+        
+        Distribusjon --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
+        
       Distribusjon : status
         
           
@@ -129,7 +219,25 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : tidsopplosning
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" Duration : tidsopplosning
+        click Duration href "../Duration/"
+    
+
+        
       Distribusjon : tilgangs_url
+        
+          
+    
+        
+        
+        Distribusjon --> "1..*" Uri : tilgangs_url
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Distribusjon : tilgangstjeneste
         
@@ -144,9 +252,36 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
         
       Distribusjon : tilgjengelighet
         
+          
+    
+        
+        
+        Distribusjon --> "0..1" String : tilgjengelighet
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Distribusjon : tittel
         
+          
+    
+        
+        
+        Distribusjon --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
+        
       Distribusjon : utgivelsesdato
+        
+          
+    
+        
+        
+        Distribusjon --> "0..1" Date : utgivelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -250,7 +385,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilgangs_url](tilgangs_url.md) | 1..* <br/> [Uri](uri.md) | URL for tilgang til distribusjonen |
+| [tilgangs_url](tilgangs_url.md) | 1..* <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URL for tilgang til distribusjonen |
 
 
 
@@ -344,10 +479,10 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [format](format.md) | 0..1 <br/> [String](string.md) | Filformat eller medietype (dct:format) |
-| [lisens](lisens.md) | 0..1 <br/> [String](string.md) | Lisens for bruk av ressursen |
+| [format](format.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Filformat eller medietype (dct:format) |
+| [lisens](lisens.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Lisens for bruk av ressursen |
 | [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
-| [tilgjengelighet](tilgjengelighet.md) | 0..1 <br/> [String](string.md) | Planlagt tilgjengelegheit for ressursen |
+| [tilgjengelighet](tilgjengelighet.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Planlagt tilgjengelegheit for ressursen |
 
 
 
@@ -639,24 +774,24 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [dokumentasjon](dokumentasjon.md) | * <br/> [Uri](uri.md) | Lenke til dokumentasjon om ressursen |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [dokumentasjon](dokumentasjon.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Lenke til dokumentasjon om ressursen |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
 | [filstorrelse](filstorrelse.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Filstørrelse i bytes |
 | [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Lovgjeving som gjeld for ressursen |
 | [i_samsvar_med](i_samsvar_med.md) | * <br/> [Standard](standard.md) | Standard ressursen er i samsvar med |
 | [komprimeringsformat](komprimeringsformat.md) | 0..1 <br/> [Mediatype](mediatype.md) | Komprimeringsformat brukt i distribusjonen |
 | [medietype](medietype.md) | 0..1 <br/> [Mediatype](mediatype.md) | Medietype i samsvar med IANA-registeret |
-| [nedlastningslenke](nedlastningslenke.md) | * <br/> [Uri](uri.md) | Direkte nedlastingslenke for distribusjonsfila |
+| [nedlastningslenke](nedlastningslenke.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Direkte nedlastingslenke for distribusjonsfila |
 | [pakkeformat](pakkeformat.md) | 0..1 <br/> [Mediatype](mediatype.md) | Pakkeformat brukt i distribusjonen |
-| [policy](policy.md) | 0..1 <br/> [String](string.md) | ODRL-policy som regulerer bruk av ressursen |
+| [policy](policy.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | ODRL-policy som regulerer bruk av ressursen |
 | [rettigheter](rettigheter.md) | 0..1 <br/> [Rettighetserklaring](rettighetserklaring.md) | Rettar knytte til ressursen |
 | [sjekksum](sjekksum.md) | 0..1 <br/> [Sjekksum](sjekksum.md) | Sjekksum for distribusjonsfila |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 | [tidsopplosning](tidsopplosning.md) | 0..1 <br/> [Duration](duration.md) | Minste tidsoppløysing i datasettet |
 | [tilgangstjeneste](tilgangstjeneste.md) | * <br/> [Datatjeneste](datatjeneste.md) | Datatjeneste som gjev tilgang til distribusjonen |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -813,12 +948,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Distribusjon
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -832,15 +975,6 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
   tilgangs_url:
@@ -863,8 +997,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Distribusjon
@@ -884,15 +1017,14 @@ attributes:
     description: Filformat eller medietype (dct:format).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
     alias: format
     owner: Distribusjon
     domain_of:
+    - Tekstdel
     - Distribusjon
     - Datatjeneste
-    - Tekstdel
     range: string
   lisens:
     name: lisens
@@ -914,8 +1046,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
     alias: status
     owner: Distribusjon
@@ -956,8 +1087,7 @@ attributes:
   endringsdato:
     name: endringsdato
     description: Dato for siste endring av ressursen (dct:modified).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
     alias: endringsdato
     owner: Distribusjon
@@ -1097,18 +1227,17 @@ attributes:
   spraak:
     name: spraak
     description: Språk brukt i ressursen (dct:language).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Distribusjon
     domain_of:
+    - Tekstdel
     - RegulativRessurs
     - Distribusjon
     - Datasett
     - Katalogpost
     - Katalog
-    - Tekstdel
     range: Spraak
     multivalued: true
   tidsopplosning:
@@ -1137,12 +1266,12 @@ attributes:
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Distribusjon
     domain_of:
+    - Standard
     - RegulativRessurs
     - Distribusjon
     - Datasett
@@ -1150,14 +1279,12 @@ attributes:
     - Datatjeneste
     - Katalogpost
     - Katalog
-    - Standard
     range: LangString
     multivalued: true
   utgivelsesdato:
     name: utgivelsesdato
     description: Dato ressursen vart første gong publisert (dct:issued).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
     alias: utgivelsesdato
     owner: Distribusjon

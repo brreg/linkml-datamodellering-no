@@ -35,7 +35,7 @@ Alias: start
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Periode](periode.md) |
 | Slot URI | [fint:start](https://schema.fintlabs.no/start) |
 
@@ -62,7 +62,7 @@ Alias: start
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: start
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:start |
-| native | https://schema.fintlabs.no/administrasjon/:start |
+| native | https://schema.fintlabs.no/:start |
 
 
 
@@ -83,8 +83,7 @@ Alias: start
 ```yaml
 name: start
 description: Frå tidspunkt.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:start
 alias: start
 domain_of:

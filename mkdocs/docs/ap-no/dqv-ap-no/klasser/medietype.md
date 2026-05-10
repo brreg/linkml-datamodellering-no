@@ -62,7 +62,7 @@ Alias: medietype
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: medietype
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:mediaType |
-| native | https://data.norge.no/linkml/dqv-ap-no/medietype |
+| native | https://data.norge.no/linkml/dcat-ap-no/medietype |
 
 
 
@@ -83,8 +83,7 @@ Alias: medietype
 ```yaml
 name: medietype
 description: Medietype i samsvar med IANA-registeret.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:mediaType
 alias: medietype
 domain_of:

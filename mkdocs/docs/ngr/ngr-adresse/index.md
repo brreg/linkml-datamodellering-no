@@ -131,7 +131,6 @@ Name: ngr-adresse
 
 | Class | Description |
 | --- | --- |
-| [AdresseContainer](klasser/adressecontainer.md) | Rotklasse for NGR-adresse-datafiler |
 | [Adressekode](klasser/adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |
 | [Adressenavn](klasser/adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |
 | [Adresseomrade](klasser/adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |
@@ -232,25 +231,6 @@ Name: ngr-adresse
 
 | Type | Description |
 | --- | --- |
-| [Boolean](klasser/boolean.md) | A binary (true or false) value |
-| [Curie](klasser/curie.md) | a compact URI |
-| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
-| [Datetime](klasser/datetime.md) | The combination of a date and time |
-| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
-| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](klasser/integer.md) | An integer |
-| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](klasser/string.md) | A character string |
-| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](klasser/uri.md) | a complete URI |
-| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
@@ -262,15 +242,8 @@ Name: ngr-adresse
 | [Valgfri](klasser/valgfri.md) | Valfrie eigenskapar i domenemodellen |
 
 
-## Artifacts
+## Generated artifacts
 
 | Artefakt | Fil |
 |----------|-----|
-| SHACL shapes | [ngr-adresse-shapes.ttl](ngr-adresse-shapes.ttl) |
-| JSON-LD kontekst | [ngr-adresse-context.jsonld](ngr-adresse-context.jsonld) |
-| JSON Schema | [ngr-adresse-schema.json](ngr-adresse-schema.json) |
-| OWL ontologi | [ngr-adresse-ontology.ttl](ngr-adresse-ontology.ttl) |
-| RDF/Turtle skjema | [ngr-adresse-schema.ttl](ngr-adresse-schema.ttl) |
-| Python-klasser | [ngr-adresse-model.py](ngr-adresse-model.py) |
 | ER-diagram (Mermaid) | [ngr-adresse-erdiagram.md](ngr-adresse-erdiagram.md) |
-| Eksempeldata (Turtle) | [ngr-adresse-eksempel.ttl](ngr-adresse-eksempel.ttl) |

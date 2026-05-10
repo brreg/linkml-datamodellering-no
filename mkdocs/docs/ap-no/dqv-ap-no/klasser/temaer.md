@@ -63,7 +63,7 @@ Alias: temaer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: temaer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:themeTaxonomy |
-| native | https://data.norge.no/linkml/dqv-ap-no/temaer |
+| native | https://data.norge.no/linkml/dcat-ap-no/temaer |
 
 
 
@@ -84,8 +84,7 @@ Alias: temaer
 ```yaml
 name: temaer
 description: Temavokabular som vert brukt i katalogen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:themeTaxonomy
 alias: temaer
 domain_of:

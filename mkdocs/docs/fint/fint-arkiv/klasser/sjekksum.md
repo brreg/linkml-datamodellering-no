@@ -35,7 +35,7 @@ Alias: sjekksum
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:sjekksum](https://schema.fintlabs.no/arkiv/sjekksum) |
 

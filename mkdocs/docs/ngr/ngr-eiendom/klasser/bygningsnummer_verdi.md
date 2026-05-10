@@ -35,7 +35,7 @@ Alias: bygningsnummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Bygningsnummer](bygningsnummer.md) |
 | Slot URI | [ngre:bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#bygningsnummer) |
 

@@ -62,7 +62,7 @@ Alias: virksomhetsId
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: virksomhetsId
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:virksomhetsId |
-| native | https://schema.fintlabs.no/administrasjon/:virksomhetsId |
+| native | https://schema.fintlabs.no/:virksomhetsId |
 
 
 
@@ -83,8 +83,7 @@ Alias: virksomhetsId
 ```yaml
 name: virksomhetsId
 description: Intern unik identifikator i økonomisystemet.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:virksomhetsId
 alias: virksomhetsId
 domain_of:

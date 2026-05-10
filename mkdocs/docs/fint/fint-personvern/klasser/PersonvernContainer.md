@@ -303,6 +303,7 @@ attributes:
     - PersonvernContainer
     range: Behandling
     multivalued: true
+    inlined: true
     inlined_as_list: true
   samtykker:
     name: samtykker
@@ -315,6 +316,7 @@ attributes:
     - PersonvernContainer
     range: Samtykke
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tenester:
     name: tenester
@@ -327,6 +329,7 @@ attributes:
     - PersonvernContainer
     range: Tjeneste
     multivalued: true
+    inlined: true
     inlined_as_list: true
   behandlingsgrunnlag:
     name: behandlingsgrunnlag
@@ -353,6 +356,7 @@ attributes:
     - PersonvernContainer
     range: Personopplysning
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

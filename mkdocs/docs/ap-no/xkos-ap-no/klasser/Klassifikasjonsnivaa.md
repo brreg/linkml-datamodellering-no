@@ -32,9 +32,36 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
         
       Klassifikasjonsnivaa : id
         
+          
+    
+        
+        
+        Klassifikasjonsnivaa --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Klassifikasjonsnivaa : nivaa_djupn
         
+          
+    
+        
+        
+        Klassifikasjonsnivaa --> "1" NonNegativeInteger : nivaa_djupn
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
+        
       Klassifikasjonsnivaa : tittel
+        
+          
+    
+        
+        
+        Klassifikasjonsnivaa --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Klassifikasjonsnivaa : underordna_klassifikasjonsnivaa
         
@@ -222,7 +249,7 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -347,12 +374,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Klassifikasjonsnivaa
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Klassifikasjon
     - Klassifikasjonsnivaa
     - Kategori
@@ -360,9 +389,6 @@ attributes:
     - Kategorisamanlikning
     - Organisasjon
     - Tidsrom
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -370,8 +396,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Klassifikasjonsnivaa

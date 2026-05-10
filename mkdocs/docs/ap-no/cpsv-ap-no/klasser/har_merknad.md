@@ -53,7 +53,7 @@ Alias: har_merknad
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -63,7 +63,7 @@ Alias: har_merknad
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:comment |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_merknad |
+| native | https://data.norge.no/linkml/common-ap-no/har_merknad |
 
 
 
@@ -74,8 +74,7 @@ Alias: har_merknad
 ```yaml
 name: har_merknad
 description: Fritekstmerknad (rdfs:comment).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: rdfs:comment
 alias: har_merknad
 range: LangString

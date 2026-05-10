@@ -65,7 +65,7 @@ Alias: dekningsomraade
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: dekningsomraade
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:spatial |
-| native | samtbuskole:dekningsomraade |
+| native | https://data.norge.no/linkml/common-ap-no/dekningsomraade |
 
 
 
@@ -86,8 +86,7 @@ Alias: dekningsomraade
 ```yaml
 name: dekningsomraade
 description: Geografisk dekningsområde (dct:spatial).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:spatial
 alias: dekningsomraade
 domain_of:

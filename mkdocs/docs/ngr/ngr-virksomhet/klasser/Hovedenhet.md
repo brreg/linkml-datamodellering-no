@@ -24,6 +24,15 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
       
       Hovedenhet : antall_ansatte
         
+          
+    
+        
+        
+        Hovedenhet --> "0..1" Integer : antall_ansatte
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Hovedenhet : er_klassifisert_i_naeringskode
         
           
@@ -136,6 +145,15 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
         
       Hovedenhet : id
         
+          
+    
+        
+        
+        Hovedenhet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Hovedenhet : mottar_post_paa
         
           
@@ -149,9 +167,36 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
         
       Hovedenhet : navn
         
+          
+    
+        
+        
+        Hovedenhet --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Hovedenhet : organisasjonsnummer
         
+          
+    
+        
+        
+        Hovedenhet --> "1" String : organisasjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Hovedenhet : stiftelsesdato
+        
+          
+    
+        
+        
+        Hovedenhet --> "0..1" Date : stiftelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Hovedenhet : utoevar_aktivitet
         
@@ -259,7 +304,7 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [er_klassifisert_i_sektorkode](er_klassifisert_i_sektorkode.md) | 0..1 <br/> [Sektorkode](sektorkode.md) | Institusjonell sektorkode for hovudeininga |
-| [stiftelsesdato](stiftelsesdato.md) | 0..1 <br/> [Date](date.md) | Datoen hovudeininga vart stifta |
+| [stiftelsesdato](stiftelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Datoen hovudeininga vart stifta |
 
 
 
@@ -403,16 +448,16 @@ URI: [ngrv:Hovedenhet](https://data.norge.no/vocabulary/ngr-virksomhet#Hovedenhe
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Virksomhet](virksomhet.md) |
-| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [String](string.md) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret | [Virksomhet](virksomhet.md) |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Registrert namn på verksemda i Enhetsregisteret | [Virksomhet](virksomhet.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Virksomhet](virksomhet.md) |
+| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret | [Virksomhet](virksomhet.md) |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Registrert namn på verksemda i Enhetsregisteret | [Virksomhet](virksomhet.md) |
 | [har_tilstand](har_tilstand.md) | * <br/> [Tilstand](tilstand.md) | Registrert tilstand (status) for verksemda, inkl | [Virksomhet](virksomhet.md) |
 | [mottar_post_paa](mottar_post_paa.md) | 0..1 <br/> [Postadresse](postadresse.md) | Postadressa verksemda mottar post på | [Virksomhet](virksomhet.md) |
 | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | 1 <br/> [Organisasjonsform](organisasjonsform.md) | Organisasjonsform (juridisk form) for verksemda | [Virksomhet](virksomhet.md) |
 | [har_kontaktinformasjon](har_kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon registrert på verksemda | [Virksomhet](virksomhet.md) |
 | [har_varslingsadresse](har_varslingsadresse.md) | 1 <br/> [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for offentlege meldingar | [Virksomhet](virksomhet.md) |
 | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | 1..* <br/> [Naeringskode](naeringskode.md) | Næringskode(r) verksemda er klassifisert under (1–3) | [Virksomhet](virksomhet.md) |
-| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [Integer](integer.md) | Antal tilsette i verksemda (rapportert til a-ordninga) | [Virksomhet](virksomhet.md) |
+| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Antal tilsette i verksemda (rapportert til a-ordninga) | [Virksomhet](virksomhet.md) |
 
 
 

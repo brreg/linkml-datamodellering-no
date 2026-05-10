@@ -63,7 +63,7 @@ Alias: kontaktperson
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: kontaktperson
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kontaktpersonFor |
-| native | https://schema.fintlabs.no/utdanning/:kontaktperson |
+| native | https://schema.fintlabs.no/:kontaktperson |
 
 
 
@@ -84,8 +84,7 @@ Alias: kontaktperson
 ```yaml
 name: kontaktperson
 description: Personar kontaktpersonen er pårørande for.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kontaktpersonFor
 alias: kontaktperson
 domain_of:

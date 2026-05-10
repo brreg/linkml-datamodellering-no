@@ -32,11 +32,47 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
         
       Karakterskala : id
         
+          
+    
+        
+        
+        Karakterskala --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Karakterskala : kode
+        
+          
+    
+        
+        
+        Karakterskala --> "1" String : kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Karakterskala : navn
         
+          
+    
+        
+        
+        Karakterskala --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Karakterskala : passiv
+        
+          
+    
+        
+        
+        Karakterskala --> "0..1" Boolean : passiv
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
         
       Karakterskala : verdi
         
@@ -50,6 +86,15 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 
         
       Karakterskala : vigoreferanse
+        
+          
+    
+        
+        
+        Karakterskala --> "0..1" Uriorcurie : vigoreferanse
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -104,8 +149,8 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for ressursen |
+| [kode](kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Verdi som identifiserer omgrepet |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Hovudnamn for ressursen |
 
 
 
@@ -171,9 +216,9 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast |
+| [passiv](passiv.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Angir at koden er passiv og ikkje kan veljast |
 | [verdi](verdi.md) | * <br/> [Karakterverdi](karakterverdi.md) | Karakterverdiar i skalaen |
-| [vigoreferanse](vigoreferanse.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Vigo-systemet |
+| [vigoreferanse](vigoreferanse.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til Vigo-systemet |
 
 
 
@@ -270,7 +315,7 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -412,12 +457,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Karakterskala
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Gruppe
     - Gruppemedlemskap
     - Utdanningsforhold
@@ -463,12 +513,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   kode:
@@ -476,12 +520,12 @@ attributes:
     description: Verdi som identifiserer omgrepet.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
     alias: kode
     owner: Karakterskala
     domain_of:
+    - Begrep
     - Avbruddsaarsak
     - Betalingsstatus
     - Bevistype
@@ -504,7 +548,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
     range: string
     required: true
   navn:
@@ -512,12 +555,12 @@ attributes:
     description: Hovudnamn for ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
     alias: navn
     owner: Karakterskala
     domain_of:
+    - Begrep
     - Gruppe
     - Skole
     - Eksamen
@@ -545,7 +588,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
     range: string
     required: true
   gyldighetsperiode:
@@ -553,12 +595,13 @@ attributes:
     description: Periode ressursen er gyldig for.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: Karakterskala
     domain_of:
+    - Begrep
+    - Identifikator
     - Gruppemedlemskap
     - Avbruddsaarsak
     - Betalingsstatus
@@ -582,8 +625,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Identifikator
     range: Periode
     inlined: true
   passiv:
@@ -591,12 +632,12 @@ attributes:
     description: Angir at koden er passiv og ikkje kan veljast.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
     alias: passiv
     owner: Karakterskala
     domain_of:
+    - Begrep
     - Avbruddsaarsak
     - Betalingsstatus
     - Bevistype
@@ -619,7 +660,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
     range: boolean
   verdi:
     name: verdi

@@ -35,7 +35,7 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Variabellonn](variabellonn.md) |
 | Slot URI | [adm:antall](https://schema.fintlabs.no/administrasjon/antall) |
 

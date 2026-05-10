@@ -35,9 +35,36 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
         
       Kvalitetsdeldimensjon : har_anbefalt_term
         
+          
+    
+        
+        
+        Kvalitetsdeldimensjon --> "*" LangString : har_anbefalt_term
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdeldimensjon : har_definisjon
         
+          
+    
+        
+        
+        Kvalitetsdeldimensjon --> "*" LangString : har_definisjon
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdeldimensjon : id
+        
+          
+    
+        
+        
+        Kvalitetsdeldimensjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -116,7 +143,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 | [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrekt term/namn for dimensjonen eller målet | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 | [har_definisjon](har_definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av dimensjonen eller målet | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 
@@ -150,7 +177,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -160,7 +187,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqvno:SubDimension |
-| native | samtbuskole:Kvalitetsdeldimensjon |
+| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdeldimensjon |
 
 
 
@@ -177,7 +204,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ```yaml
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 is_a: Kvalitetsdimensjon
 slots:
 - er_deldimensjon_av
@@ -206,7 +233,7 @@ class_uri: dqvno:SubDimension
 ```yaml
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 is_a: Kvalitetsdimensjon
 slot_usage:
   er_deldimensjon_av:
@@ -228,8 +255,7 @@ attributes:
     description: Overordna kvalitetsdimensjon denne deldimensjonen høyrer til.
     in_subset:
     - Obligatorisk
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:broader
     alias: er_deldimensjon_av
     owner: Kvalitetsdeldimensjon
@@ -240,17 +266,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsdeldimensjon
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -273,6 +293,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   har_anbefalt_term:
@@ -280,8 +305,7 @@ attributes:
     description: Føretrekt term/namn for dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:prefLabel
     alias: har_anbefalt_term
     owner: Kvalitetsdeldimensjon
@@ -295,8 +319,7 @@ attributes:
     description: Definisjon av dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:definition
     alias: har_definisjon
     owner: Kvalitetsdeldimensjon

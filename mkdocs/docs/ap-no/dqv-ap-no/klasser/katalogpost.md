@@ -63,7 +63,7 @@ Alias: katalogpost
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: katalogpost
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:record |
-| native | https://data.norge.no/linkml/dqv-ap-no/katalogpost |
+| native | https://data.norge.no/linkml/dcat-ap-no/katalogpost |
 
 
 
@@ -84,8 +84,7 @@ Alias: katalogpost
 ```yaml
 name: katalogpost
 description: Katalogpostar i katalogen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:record
 alias: katalogpost
 domain_of:

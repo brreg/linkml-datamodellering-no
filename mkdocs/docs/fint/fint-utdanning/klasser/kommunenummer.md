@@ -62,7 +62,7 @@ Alias: kommunenummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: kommunenummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kommunenummer |
-| native | https://schema.fintlabs.no/utdanning/:kommunenummer |
+| native | https://schema.fintlabs.no/:kommunenummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: kommunenummer
 ```yaml
 name: kommunenummer
 description: Nummerering av kommunen i høve til SSB si offisielle liste.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kommunenummer
 alias: kommunenummer
 domain_of:

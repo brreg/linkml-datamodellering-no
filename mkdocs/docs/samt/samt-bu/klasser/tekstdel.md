@@ -21,11 +21,47 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
     click Tekstdel href "../Tekstdel/"
       Tekstdel : format
         
+          
+    
+        
+        
+        Tekstdel --> "0..1" String : format
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Tekstdel : har_verdi_tekstdel
+        
+          
+    
+        
+        
+        Tekstdel --> "1" String : har_verdi_tekstdel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Tekstdel : id
         
+          
+    
+        
+        
+        Tekstdel --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tekstdel : spraak
+        
+          
+    
+        
+        
+        Tekstdel --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
         
       
 ```
@@ -69,7 +105,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [har_verdi_tekstdel](har_verdi_tekstdel.md) | 1 <br/> [String](string.md) | Tekstinnhaldet i tekstdelen |
+| [har_verdi_tekstdel](har_verdi_tekstdel.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstinnhaldet i tekstdelen |
 
 
 
@@ -96,7 +132,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [format](format.md) | 0..1 <br/> [String](string.md) | Filformat eller medietype (dct:format) |
+| [format](format.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Filformat eller medietype (dct:format) |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 
 
@@ -171,7 +207,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -184,10 +220,10 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [tekstdeler](tekstdeler.md) | range | [Tekstdel](tekstdel.md) |
 | [Kvalitetsmerknad](kvalitetsmerknad.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
 | [Brukartilbakemelding](brukartilbakemelding.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
 | [Kvalitetssertifikat](kvalitetssertifikat.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
+| [Containerklasse](containerklasse.md) | [tekstdeler](tekstdeler.md) | range | [Tekstdel](tekstdel.md) |
 
 
 
@@ -209,7 +245,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -219,7 +255,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:TextualBody |
-| native | samtbuskole:Tekstdel |
+| native | https://data.norge.no/linkml/dqv-ap-no/Tekstdel |
 
 
 
@@ -236,7 +272,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 ```yaml
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slots:
 - id
 - har_verdi_tekstdel
@@ -267,7 +303,7 @@ class_uri: oa:TextualBody
 ```yaml
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_usage:
   har_verdi_tekstdel:
     name: har_verdi_tekstdel
@@ -286,17 +322,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Tekstdel
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -319,6 +349,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   har_verdi_tekstdel:
@@ -326,8 +361,7 @@ attributes:
     description: Tekstinnhaldet i tekstdelen.
     in_subset:
     - Obligatorisk
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: rdfs:value
     alias: har_verdi_tekstdel
     owner: Tekstdel
@@ -340,8 +374,7 @@ attributes:
     description: Filformat eller medietype (dct:format).
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
     alias: format
     owner: Tekstdel
@@ -355,8 +388,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Tekstdel

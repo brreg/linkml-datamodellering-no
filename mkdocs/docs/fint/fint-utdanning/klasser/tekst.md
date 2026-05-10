@@ -35,7 +35,7 @@ Alias: tekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Varsel](varsel.md) |
 | Slot URI | [utd:tekst](https://schema.fintlabs.no/utdanning/tekst) |
 

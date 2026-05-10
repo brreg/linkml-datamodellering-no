@@ -21,6 +21,15 @@ URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverku
     click InnbetaltOverkurs href "../InnbetaltOverkurs/"
       InnbetaltOverkurs : belop
         
+          
+    
+        
+        
+        InnbetaltOverkurs --> "0..1" Decimal : belop
+        click Decimal href "../http://www.w3.org/2001/XMLSchema#decimal/"
+    
+
+        
       
 ```
 
@@ -71,7 +80,7 @@ URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverku
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [belop](belop.md) | 0..1 <br/> [Decimal](decimal.md) | Monetært beløp |
+| [belop](belop.md) | 0..1 <br/> [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) | Monetært beløp |
 
 
 

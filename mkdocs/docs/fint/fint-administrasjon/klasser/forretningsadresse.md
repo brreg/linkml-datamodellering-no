@@ -22,10 +22,10 @@ Alias: forretningsadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
 | [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
 | [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  yes  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
 
 
 
@@ -39,7 +39,7 @@ Alias: forretningsadresse
 | Property | Value |
 | --- | --- |
 | Range | [Adresse](adresse.md) |
-| Domain Of | [Arbeidslokasjon](arbeidslokasjon.md), [Organisasjonselement](organisasjonselement.md), [Enhet](enhet.md) |
+| Domain Of | [Enhet](enhet.md), [Arbeidslokasjon](arbeidslokasjon.md), [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [fint:forretningsadresse](https://schema.fintlabs.no/forretningsadresse) |
 
 ### Cardinality and Requirements
@@ -65,7 +65,7 @@ Alias: forretningsadresse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -75,7 +75,7 @@ Alias: forretningsadresse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:forretningsadresse |
-| native | https://schema.fintlabs.no/administrasjon/:forretningsadresse |
+| native | https://schema.fintlabs.no/:forretningsadresse |
 
 
 
@@ -86,14 +86,13 @@ Alias: forretningsadresse
 ```yaml
 name: forretningsadresse
 description: Besøksadresse til ein organisasjonseining.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:forretningsadresse
 alias: forretningsadresse
 domain_of:
+- Enhet
 - Arbeidslokasjon
 - Organisasjonselement
-- Enhet
 range: Adresse
 inlined: true
 

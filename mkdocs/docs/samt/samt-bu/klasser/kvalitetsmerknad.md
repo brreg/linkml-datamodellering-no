@@ -37,9 +37,36 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
       Kvalitetsmerknad : er_motivert_av
         
+          
+    
+        
+        
+        Kvalitetsmerknad --> "1" Uriorcurie : er_motivert_av
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kvalitetsmerknad : har_maal
         
+          
+    
+        
+        
+        Kvalitetsmerknad --> "0..1" Uri : har_maal
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kvalitetsmerknad : har_merknad
+        
+          
+    
+        
+        
+        Kvalitetsmerknad --> "*" LangString : har_merknad
+        click LangString href "../LangString/"
+    
+
         
       Kvalitetsmerknad : har_tekstdel
         
@@ -53,6 +80,15 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
         
       Kvalitetsmerknad : id
+        
+          
+    
+        
+        
+        Kvalitetsmerknad --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -107,7 +143,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_motivert_av](er_motivert_av.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Motivasjonen bak kvalitetsmerknaden (t |
+| [er_motivert_av](er_motivert_av.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Motivasjonen bak kvalitetsmerknaden (t |
 
 
 
@@ -175,7 +211,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [har_merknad](har_merknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad (rdfs:comment) |
-| [har_maal](har_maal.md) | 0..1 <br/> [Uri](uri.md) | Ressursen merknaden gjeld |
+| [har_maal](har_maal.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Ressursen merknaden gjeld |
 
 
 
@@ -259,7 +295,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -272,8 +308,8 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [kvalitetsmerknader](kvalitetsmerknader.md) | range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 | [Datasett](datasett.md) | [har_kvalitetsmerknad](har_kvalitetsmerknad.md) | range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| [Containerklasse](containerklasse.md) | [kvalitetsmerknader](kvalitetsmerknader.md) | range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 
 
 
@@ -295,7 +331,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -305,7 +341,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:QualityAnnotation |
-| native | samtbuskole:Kvalitetsmerknad |
+| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad |
 
 
 
@@ -322,7 +358,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 ```yaml
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slots:
 - id
 - er_motivert_av
@@ -363,7 +399,7 @@ class_uri: dqv:QualityAnnotation
 ```yaml
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_usage:
   er_motivert_av:
     name: er_motivert_av
@@ -390,17 +426,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsmerknad
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -423,6 +453,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   er_motivert_av:
@@ -430,8 +465,7 @@ attributes:
     description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
     in_subset:
     - Obligatorisk
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: oa:motivatedBy
     alias: er_motivert_av
     owner: Kvalitetsmerknad
@@ -446,8 +480,7 @@ attributes:
       '
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:inDimension
     alias: er_i_kvalitetsdimensjon
     owner: Kvalitetsmerknad
@@ -462,8 +495,7 @@ attributes:
     description: Tekstleg innhald i merknaden.
     in_subset:
     - Anbefalt
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: oa:hasBody
     alias: har_tekstdel
     owner: Kvalitetsmerknad
@@ -475,8 +507,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
     alias: har_merknad
     owner: Kvalitetsmerknad
@@ -495,8 +526,7 @@ attributes:
     description: Ressursen merknaden gjeld.
     in_subset:
     - Valgfri
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: oa:hasTarget
     alias: har_maal
     owner: Kvalitetsmerknad

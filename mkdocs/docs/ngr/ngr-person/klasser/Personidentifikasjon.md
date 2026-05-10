@@ -21,9 +21,36 @@ URI: [ngrp:Personidentifikasjon](https://data.norge.no/vocabulary/ngr-person#Per
     click Personidentifikasjon href "../Personidentifikasjon/"
       Personidentifikasjon : id
         
+          
+    
+        
+        
+        Personidentifikasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Personidentifikasjon : identifikasjonstype
         
+          
+    
+        
+        
+        Personidentifikasjon --> "1" String : identifikasjonstype
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Personidentifikasjon : identifikatornummer
+        
+          
+    
+        
+        
+        Personidentifikasjon --> "1" String : identifikatornummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -66,8 +93,8 @@ URI: [ngrp:Personidentifikasjon](https://data.norge.no/vocabulary/ngr-person#Per
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikasjonstype](identifikasjonstype.md) | 1 <br/> [String](string.md) | Type utanlandsk identifikasjon (t |
-| [identifikatornummer](identifikatornummer.md) | 1 <br/> [String](string.md) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
+| [identifikasjonstype](identifikasjonstype.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Type utanlandsk identifikasjon (t |
+| [identifikatornummer](identifikatornummer.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer) |
 
 
 
@@ -138,7 +165,7 @@ URI: [ngrp:Personidentifikasjon](https://data.norge.no/vocabulary/ngr-person#Per
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

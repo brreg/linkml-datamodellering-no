@@ -35,7 +35,7 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Periode](periode.md) |
 | Slot URI | [fint:beskrivelse](https://schema.fintlabs.no/beskrivelse) |
 
@@ -62,7 +62,7 @@ Alias: beskrivelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: beskrivelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:beskrivelse |
-| native | https://schema.fintlabs.no/personvern/:beskrivelse |
+| native | https://schema.fintlabs.no/:beskrivelse |
 
 
 
@@ -83,8 +83,7 @@ Alias: beskrivelse
 ```yaml
 name: beskrivelse
 description: Beskriven namn eller omtale.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:beskrivelse
 alias: beskrivelse
 domain_of:

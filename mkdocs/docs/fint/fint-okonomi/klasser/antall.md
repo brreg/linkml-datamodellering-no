@@ -35,7 +35,7 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](float.md) |
+| Range | [xsd:float](http://www.w3.org/2001/XMLSchema#float) |
 | Domain Of | [Fakturalinje](fakturalinje.md) |
 | Slot URI | [okn:antall](https://schema.fintlabs.no/okonomi/antall) |
 

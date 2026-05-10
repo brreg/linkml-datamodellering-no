@@ -21,6 +21,15 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
     click Organisasjon href "../Organisasjon/"
       Organisasjon : id
         
+          
+    
+        
+        
+        Organisasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -78,7 +87,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -160,12 +169,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Organisasjon
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Klassifikasjon
     - Klassifikasjonsnivaa
     - Kategori
@@ -173,9 +184,6 @@ attributes:
     - Kategorisamanlikning
     - Organisasjon
     - Tidsrom
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
 class_uri: foaf:Agent

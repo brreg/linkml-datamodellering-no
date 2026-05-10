@@ -35,7 +35,7 @@ Alias: sats
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Merverdiavgift](merverdiavgift.md) |
 | Slot URI | [okn:sats](https://schema.fintlabs.no/okonomi/sats) |
 

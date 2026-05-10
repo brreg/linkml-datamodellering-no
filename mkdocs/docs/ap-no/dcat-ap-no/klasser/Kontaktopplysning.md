@@ -21,11 +21,47 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
     click Kontaktopplysning href "../Kontaktopplysning/"
       Kontaktopplysning : har_epost
         
+          
+    
+        
+        
+        Kontaktopplysning --> "0..1" String : har_epost
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontaktopplysning : har_kontaktside
+        
+          
+    
+        
+        
+        Kontaktopplysning --> "0..1" String : har_kontaktside
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Kontaktopplysning : id
         
+          
+    
+        
+        
+        Kontaktopplysning --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kontaktopplysning : navn_vcard
+        
+          
+    
+        
+        
+        Kontaktopplysning --> "1..*" LangString : navn_vcard
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -147,9 +183,9 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [har_epost](har_epost.md) | 0..1 <br/> [String](string.md) | E-postadresse til kontaktpunktet |
-| [har_kontaktside](har_kontaktside.md) | 0..1 <br/> [String](string.md) | Nettside for kontakt |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [har_epost](har_epost.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | E-postadresse til kontaktpunktet |
+| [har_kontaktside](har_kontaktside.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Nettside for kontakt |
 
 
 
@@ -248,12 +284,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kontaktopplysning
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -267,15 +311,6 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
   navn_vcard:

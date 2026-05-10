@@ -35,7 +35,7 @@ Alias: sendt
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Varsel](varsel.md) |
 | Slot URI | [utd:sendt](https://schema.fintlabs.no/utdanning/sendt) |
 

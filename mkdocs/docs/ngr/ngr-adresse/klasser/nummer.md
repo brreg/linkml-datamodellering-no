@@ -35,7 +35,7 @@ Alias: nummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Husnummer](husnummer.md) |
 | Slot URI | [ngr:nummer](https://data.norge.no/vocabulary/ngr-adresse#nummer) |
 

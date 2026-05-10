@@ -21,7 +21,25 @@ URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
     click Vederlag href "../Vederlag/"
       Vederlag : belop
         
+          
+    
+        
+        
+        Vederlag --> "0..1" Decimal : belop
+        click Decimal href "../http://www.w3.org/2001/XMLSchema#decimal/"
+    
+
+        
       Vederlag : identifikator
+        
+          
+    
+        
+        
+        Vederlag --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -89,8 +107,8 @@ URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [belop](belop.md) | 0..1 <br/> [Decimal](decimal.md) | Monetært beløp |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [belop](belop.md) | 0..1 <br/> [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) | Monetært beløp |
 
 
 

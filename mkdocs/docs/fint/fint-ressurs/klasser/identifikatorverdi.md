@@ -35,7 +35,7 @@ Alias: identifikatorverdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Identifikator](identifikator.md) |
 | Slot URI | [fint:identifikatorverdi](https://schema.fintlabs.no/identifikatorverdi) |
 
@@ -62,7 +62,7 @@ Alias: identifikatorverdi
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: identifikatorverdi
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:identifikatorverdi |
-| native | https://schema.fintlabs.no/ressurs/:identifikatorverdi |
+| native | https://schema.fintlabs.no/:identifikatorverdi |
 
 
 
@@ -84,8 +84,7 @@ Alias: identifikatorverdi
 name: identifikatorverdi
 description: Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt
   identifikator.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:identifikatorverdi
 alias: identifikatorverdi
 domain_of:

@@ -9,7 +9,7 @@ _URI-identifikator for ressursen._
 
 
 
-URI: [https://schema.fintlabs.no/personvern/:id](https://schema.fintlabs.no/personvern/:id)
+URI: [https://schema.fintlabs.no/:id](https://schema.fintlabs.no/:id)
 Alias: id
 
 <!-- no inheritance hierarchy -->
@@ -22,22 +22,22 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 | [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
-| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Person](person.md) | Fysiske private personar |  no  |
-| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
 | [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
 | [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
 | [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  no  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
 | [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
 
 
 
@@ -50,8 +50,8 @@ Alias: id
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
-| Domain Of | [Behandling](behandling.md), [Samtykke](samtykke.md), [Tjeneste](tjeneste.md), [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md), [Begrep](begrep.md), [Elev](elev.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md), [Virksomhet](virksomhet.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
+| Domain Of | [Begrep](begrep.md), [Elev](elev.md), [Valuta](valuta.md), [Person](person.md), [Kontaktperson](kontaktperson.md), [Virksomhet](virksomhet.md), [Behandling](behandling.md), [Samtykke](samtykke.md), [Tjeneste](tjeneste.md), [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md) |
 
 ### Cardinality and Requirements
 
@@ -84,7 +84,7 @@ Alias: id
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -93,8 +93,8 @@ Alias: id
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://schema.fintlabs.no/personvern/:id |
-| native | https://schema.fintlabs.no/personvern/:id |
+| self | https://schema.fintlabs.no/:id |
+| native | https://schema.fintlabs.no/:id |
 
 
 
@@ -105,22 +105,21 @@ Alias: id
 ```yaml
 name: id
 description: URI-identifikator for ressursen.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 identifier: true
 alias: id
 domain_of:
-- Behandling
-- Samtykke
-- Tjeneste
-- Behandlingsgrunnlag
-- Personopplysning
 - Begrep
 - Elev
 - Valuta
 - Person
 - Kontaktperson
 - Virksomhet
+- Behandling
+- Samtykke
+- Tjeneste
+- Behandlingsgrunnlag
+- Personopplysning
 range: uriorcurie
 required: true
 

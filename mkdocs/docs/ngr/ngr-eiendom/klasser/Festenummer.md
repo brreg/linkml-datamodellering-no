@@ -21,7 +21,25 @@ URI: [ngre:Festenummer](https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
     click Festenummer href "../Festenummer/"
       Festenummer : festenummer_verdi
         
+          
+    
+        
+        
+        Festenummer --> "1" Integer : festenummer_verdi
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Festenummer : id
+        
+          
+    
+        
+        
+        Festenummer --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngre:Festenummer](https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [festenummer_verdi](festenummer_verdi.md) | 1 <br/> [Integer](integer.md) | Festenummer (0 |
+| [festenummer_verdi](festenummer_verdi.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Festenummer (0 |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngre:Festenummer](https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

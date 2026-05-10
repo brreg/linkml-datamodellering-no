@@ -24,6 +24,15 @@ URI: [ngrv:Forretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#F
       
       Forretningsadresse : id
         
+          
+    
+        
+        
+        Forretningsadresse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -70,7 +79,7 @@ URI: [ngrv:Forretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#F
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 

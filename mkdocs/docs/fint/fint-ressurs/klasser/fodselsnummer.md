@@ -62,7 +62,7 @@ Alias: fodselsnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: fodselsnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:fodselsnummer |
-| native | https://schema.fintlabs.no/ressurs/:fodselsnummer |
+| native | https://schema.fintlabs.no/:fodselsnummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: fodselsnummer
 ```yaml
 name: fodselsnummer
 description: Fødselsnummer eller ein av dei fiktive variantane.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fodselsnummer
 alias: fodselsnummer
 domain_of:

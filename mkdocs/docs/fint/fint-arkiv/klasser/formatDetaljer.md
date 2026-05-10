@@ -35,7 +35,7 @@ Alias: formatDetaljer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:formatDetaljer](https://schema.fintlabs.no/arkiv/formatDetaljer) |
 

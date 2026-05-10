@@ -22,8 +22,8 @@ Alias: har_referanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
 | [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
+| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
 
 
 
@@ -36,7 +36,7 @@ Alias: har_referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [RegulativRessurs](regulativressurs.md), [Standard](standard.md) |
 | Slot URI | [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso) |
 
@@ -64,7 +64,7 @@ Alias: har_referanse
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: har_referanse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:seeAlso |
-| native | samtbuskole:har_referanse |
+| native | https://data.norge.no/linkml/common-ap-no/har_referanse |
 
 
 
@@ -85,8 +85,7 @@ Alias: har_referanse
 ```yaml
 name: har_referanse
 description: Referanse til ekstern ressurs (rdfs:seeAlso).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: rdfs:seeAlso
 alias: har_referanse
 domain_of:

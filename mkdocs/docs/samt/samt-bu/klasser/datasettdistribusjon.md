@@ -63,7 +63,7 @@ Alias: datasettdistribusjon
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: datasettdistribusjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:distribution |
-| native | samtbuskole:datasettdistribusjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/datasettdistribusjon |
 
 
 
@@ -84,8 +84,7 @@ Alias: datasettdistribusjon
 ```yaml
 name: datasettdistribusjon
 description: Tilgjengelege distribusjonar av datasettet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:distribution
 alias: datasettdistribusjon
 domain_of:

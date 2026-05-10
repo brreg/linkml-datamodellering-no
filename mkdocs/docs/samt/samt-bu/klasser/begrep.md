@@ -35,7 +35,7 @@ Alias: begrep
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:subject](http://purl.org/dc/terms/subject) |
 
@@ -63,7 +63,7 @@ Alias: begrep
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: begrep
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:subject |
-| native | samtbuskole:begrep |
+| native | https://data.norge.no/linkml/dcat-ap-no/begrep |
 
 
 
@@ -84,8 +84,7 @@ Alias: begrep
 ```yaml
 name: begrep
 description: Fagomgrep som datasettet handlar om.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:subject
 alias: begrep
 domain_of:

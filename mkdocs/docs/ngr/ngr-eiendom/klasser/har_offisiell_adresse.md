@@ -22,8 +22,8 @@ Alias: har_offisiell_adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [YtreInngang](ytreinngang.md) | Ytre inngang til ein bygning |  yes  |
 | [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |  yes  |
+| [YtreInngang](ytreinngang.md) | Ytre inngang til ein bygning |  yes  |
 
 
 

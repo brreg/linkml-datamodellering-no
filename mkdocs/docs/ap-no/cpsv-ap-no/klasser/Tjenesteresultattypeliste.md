@@ -21,9 +21,36 @@ URI: [cpsvno:OutputTypeList](https://data.norge.no/vocabulary/cpsvno#OutputTypeL
     click Tjenesteresultattypeliste href "../Tjenesteresultattypeliste/"
       Tjenesteresultattypeliste : beskrivelse
         
+          
+    
+        
+        
+        Tjenesteresultattypeliste --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Tjenesteresultattypeliste : id
         
+          
+    
+        
+        
+        Tjenesteresultattypeliste --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tjenesteresultattypeliste : tittel
+        
+          
+    
+        
+        
+        Tjenesteresultattypeliste --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -114,7 +141,7 @@ URI: [cpsvno:OutputTypeList](https://data.norge.no/vocabulary/cpsvno#OutputTypeL
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 
@@ -192,12 +219,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Tjenesteresultattypeliste
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -213,16 +242,12 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Tjenesteresultattypeliste
@@ -242,8 +267,7 @@ attributes:
   beskrivelse:
     name: beskrivelse
     description: Fritekstbeskrivelse av ressursen (dct:description).
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Tjenesteresultattypeliste

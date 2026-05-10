@@ -63,7 +63,7 @@ Alias: underkatalog
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: underkatalog
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:catalog |
-| native | samtbuskole:underkatalog |
+| native | https://data.norge.no/linkml/dcat-ap-no/underkatalog |
 
 
 
@@ -84,8 +84,7 @@ Alias: underkatalog
 ```yaml
 name: underkatalog
 description: Katalog som er ein del av denne katalogen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:catalog
 alias: underkatalog
 domain_of:

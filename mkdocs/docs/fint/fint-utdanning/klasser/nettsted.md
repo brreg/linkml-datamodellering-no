@@ -35,7 +35,7 @@ Alias: nettsted
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [fint:nettsted](https://schema.fintlabs.no/nettsted) |
 
@@ -62,7 +62,7 @@ Alias: nettsted
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: nettsted
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:nettsted |
-| native | https://schema.fintlabs.no/utdanning/:nettsted |
+| native | https://schema.fintlabs.no/:nettsted |
 
 
 
@@ -83,8 +83,7 @@ Alias: nettsted
 ```yaml
 name: nettsted
 description: Adresse til eit nettstad.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:nettsted
 alias: nettsted
 domain_of:

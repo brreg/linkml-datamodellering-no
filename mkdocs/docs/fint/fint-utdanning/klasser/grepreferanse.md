@@ -22,9 +22,9 @@ Alias: grepreferanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](fag.md) | Eit skulefag |  yes  |
-| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 | [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
 | [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
 
 
@@ -38,7 +38,7 @@ Alias: grepreferanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Arstrinn](arstrinn.md), [Programomrade](programomrade.md), [Utdanningsprogram](utdanningsprogram.md), [Fag](fag.md) |
 | Slot URI | [utd:grepreferanse](https://schema.fintlabs.no/utdanning/grepreferanse) |
 

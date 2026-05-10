@@ -35,7 +35,7 @@ Alias: telefon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktpunkt](kontaktpunkt.md) |
 | Slot URI | [cv:telephone](http://data.europa.eu/m8g/telephone) |
 

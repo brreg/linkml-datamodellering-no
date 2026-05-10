@@ -2529,6 +2529,7 @@ attributes:
     - UtdanningContainer
     range: Elev
     multivalued: true
+    inlined: true
     inlined_as_list: true
   skolar:
     name: skolar
@@ -2542,6 +2543,7 @@ attributes:
     - UtdanningContainer
     range: Skole
     multivalued: true
+    inlined: true
     inlined_as_list: true
   skoleressursar:
     name: skoleressursar
@@ -2555,6 +2557,7 @@ attributes:
     - UtdanningContainer
     range: Skoleressurs
     multivalued: true
+    inlined: true
     inlined_as_list: true
   elevforhold:
     name: elevforhold
@@ -2591,6 +2594,7 @@ attributes:
     - UtdanningContainer
     range: Elevtilrettelegging
     multivalued: true
+    inlined: true
     inlined_as_list: true
   klasser:
     name: klasser
@@ -2604,6 +2608,7 @@ attributes:
     - UtdanningContainer
     range: Klasse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   klassemedlemskap:
     name: klassemedlemskap
@@ -2632,6 +2637,7 @@ attributes:
     - UtdanningContainer
     range: Kontaktlaerergruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kontaktlaerergruppemedlemskap:
     name: kontaktlaerergruppemedlemskap
@@ -2659,6 +2665,7 @@ attributes:
     - UtdanningContainer
     range: Persongruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   persongruppemedlemskap:
     name: persongruppemedlemskap
@@ -2701,6 +2708,7 @@ attributes:
     - UtdanningContainer
     range: Arstrinn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   programomrader:
     name: programomrader
@@ -2714,6 +2722,7 @@ attributes:
     - UtdanningContainer
     range: Programomrade
     multivalued: true
+    inlined: true
     inlined_as_list: true
   programomrademedlemskap:
     name: programomrademedlemskap
@@ -2789,6 +2798,7 @@ attributes:
     - UtdanningContainer
     range: Faggruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   faggruppemedlemskap:
     name: faggruppemedlemskap
@@ -2833,6 +2843,7 @@ attributes:
     - UtdanningContainer
     range: Time
     multivalued: true
+    inlined: true
     inlined_as_list: true
   undervisningsforhold:
     name: undervisningsforhold
@@ -2865,6 +2876,7 @@ attributes:
     - UtdanningContainer
     range: Undervisningsgruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   undervisningsgruppemedlemskap:
     name: undervisningsgruppemedlemskap
@@ -2892,6 +2904,7 @@ attributes:
     - UtdanningContainer
     range: Anmerkninger
     multivalued: true
+    inlined: true
     inlined_as_list: true
   eksamensgrupper:
     name: eksamensgrupper
@@ -2905,6 +2918,7 @@ attributes:
     - UtdanningContainer
     range: Eksamensgruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   eksamensgruppemedlemskap:
     name: eksamensgruppemedlemskap
@@ -2982,6 +2996,7 @@ attributes:
     - UtdanningContainer
     range: Fravarsoversikt
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fraversregistrering:
     name: fraversregistrering
@@ -3218,6 +3233,7 @@ attributes:
     - UtdanningContainer
     range: AvlagtProve
     multivalued: true
+    inlined: true
     inlined_as_list: true
   laerlingar:
     name: laerlingar
@@ -3231,6 +3247,7 @@ attributes:
     - UtdanningContainer
     range: Laerling
     multivalued: true
+    inlined: true
     inlined_as_list: true
   otUngdom:
     name: otUngdom
@@ -3244,6 +3261,7 @@ attributes:
     - UtdanningContainer
     range: OtUngdom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   avbruddsaarsaker:
     name: avbruddsaarsaker
@@ -3257,6 +3275,7 @@ attributes:
     - UtdanningContainer
     range: Avbruddsaarsak
     multivalued: true
+    inlined: true
     inlined_as_list: true
   bevistypar:
     name: bevistypar
@@ -3270,6 +3289,7 @@ attributes:
     - UtdanningContainer
     range: Bevistype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   brevtypar:
     name: brevtypar
@@ -3283,6 +3303,7 @@ attributes:
     - UtdanningContainer
     range: Brevtype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   eksamensformer:
     name: eksamensformer
@@ -3296,6 +3317,7 @@ attributes:
     - UtdanningContainer
     range: Eksamensform
     multivalued: true
+    inlined: true
     inlined_as_list: true
   elevkategoriar:
     name: elevkategoriar
@@ -3309,6 +3331,7 @@ attributes:
     - UtdanningContainer
     range: Elevkategori
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fagmerknader:
     name: fagmerknader
@@ -3322,6 +3345,7 @@ attributes:
     - UtdanningContainer
     range: Fagmerknad
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fravartypar:
     name: fravartypar
@@ -3335,6 +3359,7 @@ attributes:
     - UtdanningContainer
     range: Fravartype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fullfortkoder:
     name: fullfortkoder
@@ -3348,6 +3373,7 @@ attributes:
     - UtdanningContainer
     range: Fullfortkode
     multivalued: true
+    inlined: true
     inlined_as_list: true
   karakterskalaer:
     name: karakterskalaer
@@ -3361,6 +3387,7 @@ attributes:
     - UtdanningContainer
     range: Karakterskala
     multivalued: true
+    inlined: true
     inlined_as_list: true
   karakterverdiar:
     name: karakterverdiar
@@ -3374,6 +3401,7 @@ attributes:
     - UtdanningContainer
     range: Karakterverdi
     multivalued: true
+    inlined: true
     inlined_as_list: true
   otEnheter:
     name: otEnheter
@@ -3387,6 +3415,7 @@ attributes:
     - UtdanningContainer
     range: OtEnhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   otStatus:
     name: otStatus
@@ -3400,6 +3429,7 @@ attributes:
     - UtdanningContainer
     range: OtStatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   provestatuser:
     name: provestatuser
@@ -3413,6 +3443,7 @@ attributes:
     - UtdanningContainer
     range: Provestatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   skoleeijartypar:
     name: skoleeijartypar
@@ -3426,6 +3457,7 @@ attributes:
     - UtdanningContainer
     range: Skoleeiertype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   terminar:
     name: terminar
@@ -3439,6 +3471,7 @@ attributes:
     - UtdanningContainer
     range: Termin
     multivalued: true
+    inlined: true
     inlined_as_list: true
   varseltypar:
     name: varseltypar
@@ -3452,6 +3485,7 @@ attributes:
     - UtdanningContainer
     range: Varseltype
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

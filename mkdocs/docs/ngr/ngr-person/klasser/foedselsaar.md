@@ -35,7 +35,7 @@ Alias: foedselsaar
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Foedsel](foedsel.md) |
 | Slot URI | [ngrp:foedselsaar](https://data.norge.no/vocabulary/ngr-person#foedselsaar) |
 

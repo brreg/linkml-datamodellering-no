@@ -43,7 +43,25 @@ URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
         
       Utbytte : identifikator
         
+          
+    
+        
+        
+        Utbytte --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Utbytte : tidspunkt
+        
+          
+    
+        
+        
+        Utbytte --> "0..1" Date : tidspunkt
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -143,8 +161,8 @@ URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [tidspunkt](tidspunkt.md) | 0..1 <br/> [Date](date.md) | Tidspunkt for utbytte/eierskapstransaksjon |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [tidspunkt](tidspunkt.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Tidspunkt for utbytte/eierskapstransaksjon |
 | [har_utdeling](har_utdeling.md) | 0..1 <br/> [Utdeling](utdeling.md) | Utdeling knytt til utbyttet |
 | [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | 0..1 <br/> [Eierposisjon](eierposisjon.md) | Utbytte knytt til eigarposisjonen |
 

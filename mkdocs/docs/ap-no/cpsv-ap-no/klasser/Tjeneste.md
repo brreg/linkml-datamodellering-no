@@ -21,7 +21,25 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
     click Tjeneste href "../Tjeneste/"
       Tjeneste : behandlingstid
         
+          
+    
+        
+        
+        Tjeneste --> "0..1" Duration : behandlingstid
+        click Duration href "../Duration/"
+    
+
+        
       Tjeneste : beskrivelse
+        
+          
+    
+        
+        
+        Tjeneste --> "1..*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
         
       Tjeneste : dekningsomraade
         
@@ -47,7 +65,25 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
         
       Tjeneste : er_beskrive_av
         
+          
+    
+        
+        
+        Tjeneste --> "*" Uri : er_beskrive_av
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tjeneste : er_del_av
+        
+          
+    
+        
+        
+        Tjeneste --> "0..1" Uriorcurie : er_del_av
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Tjeneste : er_gruppert_av
         
@@ -83,6 +119,15 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
         
       Tjeneste : har_del
+        
+          
+    
+        
+        
+        Tjeneste --> "*" Uriorcurie : har_del
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Tjeneste : har_deltaking
         
@@ -163,11 +208,47 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
         
       Tjeneste : heimeside
         
+          
+    
+        
+        
+        Tjeneste --> "*" Uri : heimeside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tjeneste : id
+        
+          
+    
+        
+        
+        Tjeneste --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Tjeneste : identifikator_literal
         
+          
+    
+        
+        
+        Tjeneste --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Tjeneste : krev
+        
+          
+    
+        
+        
+        Tjeneste --> "*" Uriorcurie : krev
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Tjeneste : malgruppe
         
@@ -182,7 +263,25 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
         
       Tjeneste : nokkelord
         
+          
+    
+        
+        
+        Tjeneste --> "*" LangString : nokkelord
+        click LangString href "../LangString/"
+    
+
+        
       Tjeneste : relatert_teneste
+        
+          
+    
+        
+        
+        Tjeneste --> "*" Uriorcurie : relatert_teneste
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Tjeneste : sektor
         
@@ -196,6 +295,15 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
         
       Tjeneste : spraak
+        
+          
+    
+        
+        
+        Tjeneste --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
         
       Tjeneste : status
         
@@ -231,6 +339,15 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
         
       Tjeneste : tittel
+        
+          
+    
+        
+        
+        Tjeneste --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Tjeneste : type_concept
         
@@ -378,7 +495,7 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 | --- | --- | --- |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
 | [har_tenesteresultattype](har_tenesteresultattype.md) | 1..* <br/> [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat tenesta kan produsere |
 | [eigd_av](eigd_av.md) | 1..* <br/> [Aktor](aktor.md) | Aktør som eig eller er ansvarleg for tenesta |
@@ -500,7 +617,7 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 | [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om |
 | [dekningsomraade](dekningsomraade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
 | [har_dokumentasjonstype](har_dokumentasjonstype.md) | * <br/> [Dokumentasjonstype](dokumentasjonstype.md) | Dokumentasjon som krevst for tenesta |
-| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [heimeside](heimeside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
 | [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
 | [temaomrade](temaomrade.md) | * <br/> [Konsept](konsept.md) | Tematisk område for tenesta |
 
@@ -641,19 +758,19 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [behandlingstid](behandlingstid.md) | 0..1 <br/> [Duration](duration.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen |
-| [er_del_av](er_del_av.md) | 0..1 <br/> [Uriorcurie](uriorcurie.md) | Tenesta er del av ei anna teneste |
-| [har_del](har_del.md) | * <br/> [Uriorcurie](uriorcurie.md) | Deltenester som inngår i denne tenesta |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Datasett som beskriv ressursen |
+| [er_del_av](er_del_av.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Tenesta er del av ei anna teneste |
+| [har_del](har_del.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Deltenester som inngår i denne tenesta |
 | [har_tenestekanal](har_tenestekanal.md) | * <br/> [Tjenestekanal](tjenestekanal.md) | Kanal for tilgang til tenesta |
 | [har_deltaking](har_deltaking.md) | * <br/> [Deltagelse](deltagelse.md) | Deltakarar med spesifikke roller i levering av tenesta |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
-| [relatert_teneste](relatert_teneste.md) | * <br/> [Uriorcurie](uriorcurie.md) | Relatert teneste |
+| [relatert_teneste](relatert_teneste.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Relatert teneste |
 | [er_gruppert_av](er_gruppert_av.md) | * <br/> [Hendelse](hendelse.md) | Hending(ar) som grupperer tenesta |
 | [er_klassifisert_av](er_klassifisert_av.md) | * <br/> [Konsept](konsept.md) | Omgrep tenesta er klassifisert med |
 | [folger](folger.md) | * <br/> [Regel](regel.md) | Regelverk tenesta følgjer |
 | [har_gebyr](har_gebyr.md) | * <br/> [Gebyr](gebyr.md) | Gebyr knytt til tenesta |
 | [har_regulativ_ressurs](har_regulativ_ressurs.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Regulativ ressurs (lov, forskrift) knytt til tenesta |
-| [krev](krev.md) | * <br/> [Uriorcurie](uriorcurie.md) | Teneste eller ressurs denne tenesta krev |
+| [krev](krev.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Teneste eller ressurs denne tenesta krev |
 | [malgruppe](malgruppe.md) | * <br/> [Konsept](konsept.md) | Målgruppe for tenesta |
 | [nokkelord](nokkelord.md) | * <br/> [LangString](langstring.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
 | [sektor](sektor.md) | * <br/> [Konsept](konsept.md) | Industri/sektor tenesta tilhøyrer |
@@ -1059,7 +1176,7 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
 
 
@@ -1410,12 +1527,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Tjeneste
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -1431,9 +1550,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -1441,8 +1557,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Tjeneste
@@ -1465,8 +1580,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Tjeneste
@@ -1489,8 +1603,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Tjeneste
@@ -1578,8 +1691,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
     alias: dekningsomraade
     owner: Tjeneste
@@ -1610,8 +1722,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
     alias: heimeside
     owner: Tjeneste
@@ -1625,8 +1736,7 @@ attributes:
   type_concept:
     name: type_concept
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: Tjeneste
@@ -1645,8 +1755,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
     alias: status
     owner: Tjeneste
@@ -1766,8 +1875,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Tjeneste
@@ -1904,8 +2012,7 @@ attributes:
     description: Nøkkelord som beskriv ressursen (dcat:keyword).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dcat:keyword
     alias: nokkelord
     owner: Tjeneste

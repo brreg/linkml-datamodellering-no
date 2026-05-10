@@ -53,7 +53,7 @@ Alias: dekningsomraade
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/skos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -63,7 +63,7 @@ Alias: dekningsomraade
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:spatial |
-| native | https://data.norge.no/linkml/skos-ap-no/dekningsomraade |
+| native | https://data.norge.no/linkml/common-ap-no/dekningsomraade |
 
 
 
@@ -74,8 +74,7 @@ Alias: dekningsomraade
 ```yaml
 name: dekningsomraade
 description: Geografisk dekningsområde (dct:spatial).
-from_schema: https://data.norge.no/linkml/skos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:spatial
 alias: dekningsomraade
 range: Konsept

@@ -35,7 +35,7 @@ Alias: belop
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Gebyr](gebyr.md) |
 | Slot URI | [cv:hasValue](http://data.europa.eu/m8g/hasValue) |
 

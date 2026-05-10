@@ -22,8 +22,8 @@ Alias: gjelder_aksjer_i_aksjeklasse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeeierrettighet](aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
 | [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
+| [Aksjeeierrettighet](aksjeeierrettighet.md) | Rettigheiter knytt til aksjar, til dømes stemmerett |  no  |
 
 
 

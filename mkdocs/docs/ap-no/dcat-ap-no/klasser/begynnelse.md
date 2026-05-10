@@ -35,7 +35,7 @@ Alias: begynnelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [time:hasBeginning](http://www.w3.org/6006/time#hasBeginning) |
 

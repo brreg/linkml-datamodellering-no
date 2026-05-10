@@ -22,10 +22,10 @@ Alias: organisasjonsnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
 | [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
 | [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  yes  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
 
 
 
@@ -38,8 +38,8 @@ Alias: organisasjonsnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [Arbeidslokasjon](arbeidslokasjon.md), [Organisasjonselement](organisasjonselement.md), [Enhet](enhet.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Enhet](enhet.md), [Arbeidslokasjon](arbeidslokasjon.md), [Organisasjonselement](organisasjonselement.md) |
 | Slot URI | [fint:organisasjonsnavn](https://schema.fintlabs.no/organisasjonsnavn) |
 
 ### Cardinality and Requirements
@@ -65,7 +65,7 @@ Alias: organisasjonsnavn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -75,7 +75,7 @@ Alias: organisasjonsnavn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:organisasjonsnavn |
-| native | https://schema.fintlabs.no/administrasjon/:organisasjonsnavn |
+| native | https://schema.fintlabs.no/:organisasjonsnavn |
 
 
 
@@ -86,14 +86,13 @@ Alias: organisasjonsnavn
 ```yaml
 name: organisasjonsnavn
 description: Namn på eining registrert i Einingsregisteret.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:organisasjonsnavn
 alias: organisasjonsnavn
 domain_of:
+- Enhet
 - Arbeidslokasjon
 - Organisasjonselement
-- Enhet
 range: string
 
 ```

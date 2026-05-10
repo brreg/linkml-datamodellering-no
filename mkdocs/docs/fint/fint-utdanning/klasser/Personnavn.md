@@ -21,9 +21,36 @@ URI: [fint:Personnavn](https://schema.fintlabs.no/Personnavn)
     click Personnavn href "../Personnavn/"
       Personnavn : etternavn
         
+          
+    
+        
+        
+        Personnavn --> "1" String : etternavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Personnavn : fornavn
         
+          
+    
+        
+        
+        Personnavn --> "1" String : fornavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Personnavn : mellomnavn
+        
+          
+    
+        
+        
+        Personnavn --> "0..1" String : mellomnavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -130,9 +157,9 @@ URI: [fint:Personnavn](https://schema.fintlabs.no/Personnavn)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fornavn](fornavn.md) | 1 <br/> [String](string.md) | Fornamn til personen |
-| [mellomnavn](mellomnavn.md) | 0..1 <br/> [String](string.md) | Mellomnamn |
-| [etternavn](etternavn.md) | 1 <br/> [String](string.md) | Etternamn til personen |
+| [fornavn](fornavn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Fornamn til personen |
+| [mellomnavn](mellomnavn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Mellomnamn |
+| [etternavn](etternavn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Etternamn til personen |
 
 
 
@@ -168,7 +195,7 @@ URI: [fint:Personnavn](https://schema.fintlabs.no/Personnavn)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -178,7 +205,7 @@ URI: [fint:Personnavn](https://schema.fintlabs.no/Personnavn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Personnavn |
-| native | https://schema.fintlabs.no/utdanning/:Personnavn |
+| native | https://schema.fintlabs.no/:Personnavn |
 
 
 
@@ -195,7 +222,7 @@ URI: [fint:Personnavn](https://schema.fintlabs.no/Personnavn)
 ```yaml
 name: Personnavn
 description: Namn på ein person.
-from_schema: https://data.norge.no/linkml/fint-utdanning
+from_schema: https://data.norge.no/linkml/fint-common
 slots:
 - fornavn
 - mellomnavn
@@ -218,7 +245,7 @@ class_uri: fint:Personnavn
 ```yaml
 name: Personnavn
 description: Namn på ein person.
-from_schema: https://data.norge.no/linkml/fint-utdanning
+from_schema: https://data.norge.no/linkml/fint-common
 slot_usage:
   fornavn:
     name: fornavn
@@ -230,8 +257,7 @@ attributes:
   fornavn:
     name: fornavn
     description: Fornamn til personen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:fornavn
     alias: fornavn
     owner: Personnavn
@@ -242,8 +268,7 @@ attributes:
   mellomnavn:
     name: mellomnavn
     description: Mellomnamn.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:mellomnavn
     alias: mellomnavn
     owner: Personnavn
@@ -253,8 +278,7 @@ attributes:
   etternavn:
     name: etternavn
     description: Etternamn til personen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:etternavn
     alias: etternavn
     owner: Personnavn

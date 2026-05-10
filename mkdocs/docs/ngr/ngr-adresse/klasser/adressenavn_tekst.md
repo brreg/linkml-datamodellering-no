@@ -35,7 +35,7 @@ Alias: adressenavn_tekst
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Adressenavn](adressenavn.md) |
 | Slot URI | [locn:thoroughfare](http://www.w3.org/ns/locn#thoroughfare) |
 

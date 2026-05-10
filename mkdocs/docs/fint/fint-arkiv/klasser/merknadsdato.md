@@ -35,7 +35,7 @@ Alias: merknadsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Merknad](merknad.md) |
 | Slot URI | [ark:merknadsdato](https://schema.fintlabs.no/arkiv/merknadsdato) |
 

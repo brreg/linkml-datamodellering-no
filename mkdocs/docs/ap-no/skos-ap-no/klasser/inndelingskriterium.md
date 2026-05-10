@@ -22,8 +22,8 @@ Alias: inndelingskriterium
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
 | [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
+| [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
 
 
 

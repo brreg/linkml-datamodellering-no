@@ -35,7 +35,7 @@ Alias: registreringsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Katalogregistrering](katalogregistrering.md) |
 | Slot URI | [fair:registreringsdato](https://data.norge.no/fair#registreringsdato) |
 

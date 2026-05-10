@@ -35,7 +35,7 @@ Alias: oppstartsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Underenhet](underenhet.md) |
 | Slot URI | [ngrv:oppstartsdato](https://data.norge.no/vocabulary/ngr-virksomhet#oppstartsdato) |
 

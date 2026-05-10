@@ -63,7 +63,7 @@ Alias: annen_spesifikk_relasjon
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: annen_spesifikk_relasjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:qualifiedRelation |
-| native | https://data.norge.no/linkml/dqv-ap-no/annen_spesifikk_relasjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/annen_spesifikk_relasjon |
 
 
 
@@ -84,8 +84,7 @@ Alias: annen_spesifikk_relasjon
 ```yaml
 name: annen_spesifikk_relasjon
 description: Kvalifisert relasjon til ein annan ressurs.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:qualifiedRelation
 alias: annen_spesifikk_relasjon
 domain_of:

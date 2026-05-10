@@ -28,6 +28,15 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
       
       Virksomhet : antall_ansatte
         
+          
+    
+        
+        
+        Virksomhet --> "0..1" Integer : antall_ansatte
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Virksomhet : er_klassifisert_i_naeringskode
         
           
@@ -85,6 +94,15 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
         
       Virksomhet : id
         
+          
+    
+        
+        
+        Virksomhet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Virksomhet : mottar_post_paa
         
           
@@ -98,7 +116,25 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
         
       Virksomhet : navn
         
+          
+    
+        
+        
+        Virksomhet --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Virksomhet : organisasjonsnummer
+        
+          
+    
+        
+        
+        Virksomhet --> "1" String : organisasjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -173,8 +209,8 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [String](string.md) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Registrert namn på verksemda i Enhetsregisteret |
+| [organisasjonsnummer](organisasjonsnummer.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Niesifra organisasjonsnummer tildelt av Enhetsregisteret |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Registrert namn på verksemda i Enhetsregisteret |
 | [er_klassifisert_som_organisasjonsform](er_klassifisert_som_organisasjonsform.md) | 1 <br/> [Organisasjonsform](organisasjonsform.md) | Organisasjonsform (juridisk form) for verksemda |
 | [har_varslingsadresse](har_varslingsadresse.md) | 1 <br/> [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for offentlege meldingar |
 | [er_klassifisert_i_naeringskode](er_klassifisert_i_naeringskode.md) | 1..* <br/> [Naeringskode](naeringskode.md) | Næringskode(r) verksemda er klassifisert under (1–3) |
@@ -269,7 +305,7 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [har_kontaktinformasjon](har_kontaktinformasjon.md) | 0..1 <br/> [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon registrert på verksemda |
-| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [Integer](integer.md) | Antal tilsette i verksemda (rapportert til a-ordninga) |
+| [antall_ansatte](antall_ansatte.md) | 0..1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Antal tilsette i verksemda (rapportert til a-ordninga) |
 
 
 
@@ -405,7 +441,7 @@ URI: [ngrv:Virksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#Virksomhe
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

@@ -35,7 +35,7 @@ Alias: koordinat_nord
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](float.md) |
+| Range | [xsd:float](http://www.w3.org/2001/XMLSchema#float) |
 | Domain Of | [Representasjonspunkt](representasjonspunkt.md) |
 | Slot URI | [ngre:koordinatNord](https://data.norge.no/vocabulary/ngr-eiendom#koordinatNord) |
 

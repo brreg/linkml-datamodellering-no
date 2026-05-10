@@ -35,7 +35,7 @@ Alias: gyldig_til
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Begrep](begrep.md) |
 | Slot URI | [euvoc:endDate](http://publications.europa.eu/ontology/euvoc#endDate) |
 

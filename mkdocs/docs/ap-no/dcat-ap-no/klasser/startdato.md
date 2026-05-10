@@ -35,7 +35,7 @@ Alias: startdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [dcat:startDate](http://www.w3.org/ns/dcat#startDate) |
 

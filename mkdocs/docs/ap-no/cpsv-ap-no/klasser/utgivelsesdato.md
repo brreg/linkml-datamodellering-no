@@ -26,7 +26,7 @@ Alias: utgivelsesdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Slot URI | [dct:issued](http://purl.org/dc/terms/issued) |
 
 ### Cardinality and Requirements
@@ -52,7 +52,7 @@ Alias: utgivelsesdato
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -62,7 +62,7 @@ Alias: utgivelsesdato
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:issued |
-| native | https://data.norge.no/linkml/cpsv-ap-no/utgivelsesdato |
+| native | https://data.norge.no/linkml/common-ap-no/utgivelsesdato |
 
 
 
@@ -73,8 +73,7 @@ Alias: utgivelsesdato
 ```yaml
 name: utgivelsesdato
 description: Dato ressursen vart første gong publisert (dct:issued).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:issued
 alias: utgivelsesdato
 range: date

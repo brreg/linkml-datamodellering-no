@@ -21,6 +21,15 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
     click Mediatype href "../Mediatype/"
       Mediatype : id
         
+          
+    
+        
+        
+        Mediatype --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -78,7 +87,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -115,7 +124,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -125,7 +134,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:MediaTypeOrExtent |
-| native | https://data.norge.no/linkml/dqv-ap-no/Mediatype |
+| native | https://data.norge.no/linkml/common-ap-no/Mediatype |
 
 
 
@@ -142,7 +151,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 ```yaml
 name: Mediatype
 description: Ein medietype eller filformat (dct:MediaTypeOrExtent).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/linkml/common-ap-no
 slots:
 - id
 class_uri: dct:MediaTypeOrExtent
@@ -156,23 +165,16 @@ class_uri: dct:MediaTypeOrExtent
 ```yaml
 name: Mediatype
 description: Ein medietype eller filformat (dct:MediaTypeOrExtent).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/linkml/common-ap-no
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Mediatype
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -189,8 +191,13 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
-    required: true
 class_uri: dct:MediaTypeOrExtent
 
 ```

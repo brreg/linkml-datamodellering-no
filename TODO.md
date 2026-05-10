@@ -1,9 +1,3 @@
-ikkje inkludere importerte klasser og attributter når vi genererer dokumentasjon og diagram
-
-når vi genererer dokumentasjon gen-doc og diagram gen-erdiagram og gen-plantuml skal vi kun inkludere innhold i det aktuelle schemaet og ikkje ta med includerte schema 
-
-fjærne container klasse fra gen-docs generert dokumentajson
-fjærne container klasse fra ER-oversiktsdiagram
 
 erstatte æøå med ae oe aa i alle klasse og slotnavn.
 forfine ap-no validatoren

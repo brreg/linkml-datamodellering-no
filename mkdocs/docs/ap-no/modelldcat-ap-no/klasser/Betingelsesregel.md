@@ -46,6 +46,15 @@ URI: [modelldcatno:ConstraintRule](https://data.norge.no/vocabulary/modelldcatno
         
       Betingelsesregel : betingelsesuttrykk
         
+          
+    
+        
+        
+        Betingelsesregel --> "*" LangString : betingelsesuttrykk
+        click LangString href "../LangString/"
+    
+
+        
       Betingelsesregel : betinger
         
           
@@ -59,9 +68,36 @@ URI: [modelldcatno:ConstraintRule](https://data.norge.no/vocabulary/modelldcatno
         
       Betingelsesregel : eigenskapsmerknad
         
+          
+    
+        
+        
+        Betingelsesregel --> "*" LangString : eigenskapsmerknad
+        click LangString href "../LangString/"
+    
+
+        
       Betingelsesregel : id
         
+          
+    
+        
+        
+        Betingelsesregel --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Betingelsesregel : identifikator_literal
+        
+          
+    
+        
+        
+        Betingelsesregel --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Betingelsesregel : tilhorer_modul
         
@@ -75,6 +111,15 @@ URI: [modelldcatno:ConstraintRule](https://data.norge.no/vocabulary/modelldcatno
 
         
       Betingelsesregel : tittel
+        
+          
+    
+        
+        
+        Betingelsesregel --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -188,10 +233,10 @@ URI: [modelldcatno:ConstraintRule](https://data.norge.no/vocabulary/modelldcatno
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Merknad](merknad.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Merknad](merknad.md) |
 | [annoterer](annoterer.md) | * <br/> [Modellelement](modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) | [Merknad](merknad.md) |
 | [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) | [Merknad](merknad.md) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Merknad](merknad.md) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Merknad](merknad.md) |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Merknad](merknad.md) |
 | [tilhorer_modul](tilhorer_modul.md) | * <br/> [Modul](modul.md) | Modul dette elementet tilhøyrer (modelldcatno:belongsToModule) | [Merknad](merknad.md) |
 
@@ -316,12 +361,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Betingelsesregel
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -336,9 +383,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   annoterer:
@@ -374,8 +418,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Betingelsesregel
@@ -393,8 +436,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Betingelsesregel

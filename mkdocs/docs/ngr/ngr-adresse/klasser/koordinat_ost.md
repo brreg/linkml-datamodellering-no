@@ -35,7 +35,7 @@ Alias: koordinat_ost
 
 | Property | Value |
 | --- | --- |
-| Range | [Float](float.md) |
+| Range | [xsd:float](http://www.w3.org/2001/XMLSchema#float) |
 | Domain Of | [Representasjonspunkt](representasjonspunkt.md) |
 | Slot URI | [ngr:koordinatOst](https://data.norge.no/vocabulary/ngr-adresse#koordinatOst) |
 

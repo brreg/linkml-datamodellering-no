@@ -35,7 +35,7 @@ Alias: nettside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Tjenestekanal](tjenestekanal.md) |
 | Slot URI | [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL) |
 

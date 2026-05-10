@@ -21,7 +21,25 @@ URI: [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet)
     click Aktivitet href "../Aktivitet/"
       Aktivitet : aktivitet_beskrivelse
         
+          
+    
+        
+        
+        Aktivitet --> "1" String : aktivitet_beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Aktivitet : id
+        
+          
+    
+        
+        
+        Aktivitet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [aktivitet_beskrivelse](aktivitet_beskrivelse.md) | 1 <br/> [String](string.md) | Skildring av kva aktivitet verksemda utøver (formålsparagraf o |
+| [aktivitet_beskrivelse](aktivitet_beskrivelse.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Skildring av kva aktivitet verksemda utøver (formålsparagraf o |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngrv:Aktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#Aktivitet)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

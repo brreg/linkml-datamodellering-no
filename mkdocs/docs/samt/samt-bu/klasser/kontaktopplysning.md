@@ -21,11 +21,47 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
     click Kontaktopplysning href "../Kontaktopplysning/"
       Kontaktopplysning : har_epost
         
+          
+    
+        
+        
+        Kontaktopplysning --> "0..1" String : har_epost
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kontaktopplysning : har_kontaktside
+        
+          
+    
+        
+        
+        Kontaktopplysning --> "0..1" String : har_kontaktside
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Kontaktopplysning : id
         
+          
+    
+        
+        
+        Kontaktopplysning --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kontaktopplysning : navn_vcard
+        
+          
+    
+        
+        
+        Kontaktopplysning --> "1..*" LangString : navn_vcard
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -147,9 +183,9 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [har_epost](har_epost.md) | 0..1 <br/> [String](string.md) | E-postadresse til kontaktpunktet |
-| [har_kontaktside](har_kontaktside.md) | 0..1 <br/> [String](string.md) | Nettside for kontakt |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [har_epost](har_epost.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | E-postadresse til kontaktpunktet |
+| [har_kontaktside](har_kontaktside.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Nettside for kontakt |
 
 
 
@@ -162,11 +198,11 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [kontaktpunkter](kontaktpunkter.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 | [Datasett](datasett.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 | [Datasettserie](datasettserie.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 | [Datatjeneste](datatjeneste.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 | [Katalog](katalog.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
+| [Containerklasse](containerklasse.md) | [kontaktpunkter](kontaktpunkter.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 
 
 
@@ -188,7 +224,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -198,7 +234,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:Kind |
-| native | samtbuskole:Kontaktopplysning |
+| native | https://data.norge.no/linkml/dcat-ap-no/Kontaktopplysning |
 
 
 
@@ -215,7 +251,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slots:
 - id
 - navn_vcard
@@ -238,7 +274,7 @@ class_uri: vcard:Kind
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_usage:
   navn_vcard:
     name: navn_vcard
@@ -249,17 +285,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kontaktopplysning
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -282,6 +312,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   navn_vcard:
@@ -289,8 +324,7 @@ attributes:
     description: Formatert namn (vCard).
     in_subset:
     - Obligatorisk
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: vcard:fn
     alias: navn_vcard
     owner: Kontaktopplysning
@@ -302,8 +336,7 @@ attributes:
   har_epost:
     name: har_epost
     description: E-postadresse til kontaktpunktet.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: vcard:hasEmail
     alias: har_epost
     owner: Kontaktopplysning
@@ -313,8 +346,7 @@ attributes:
   har_kontaktside:
     name: har_kontaktside
     description: Nettside for kontakt.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: vcard:hasURL
     alias: har_kontaktside
     owner: Kontaktopplysning

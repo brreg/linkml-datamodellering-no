@@ -35,7 +35,7 @@ Alias: adresselinje
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Adresse](adresse.md) |
 | Slot URI | [fint:adresselinje](https://schema.fintlabs.no/adresselinje) |
 
@@ -63,7 +63,7 @@ Alias: adresselinje
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: adresselinje
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:adresselinje |
-| native | https://schema.fintlabs.no/okonomi/:adresselinje |
+| native | https://schema.fintlabs.no/:adresselinje |
 
 
 
@@ -84,8 +84,7 @@ Alias: adresselinje
 ```yaml
 name: adresselinje
 description: Adresseinformasjon.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:adresselinje
 alias: adresselinje
 domain_of:

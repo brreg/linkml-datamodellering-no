@@ -9,10 +9,10 @@
 aksje:Tidspunkt a owl:Class ;
     rdfs:label "Tidspunkt" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty aksje:dato ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:dato ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
@@ -35,11 +35,23 @@ aksje:antall a owl:DatatypeProperty ;
 aksje:Aksjeeierrettighet a owl:Class ;
     rdfs:label "Aksjeeierrettighet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty aksje:gjelder_aksjer_i_aksjeklasse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty aksje:beskrivelse ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:beskrivelse ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:beskrivelse ],
         [ a owl:Restriction ;
             owl:allValuesFrom aksje:Aksjeklasse ;
             owl:onProperty aksje:gjelder_aksjer_i_aksjeklasse ],
@@ -47,33 +59,21 @@ aksje:Aksjeeierrettighet a owl:Class ;
             owl:maxCardinality 1 ;
             owl:onProperty aksje:gjelder_aksjer_i_aksjeklasse ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:beskrivelse ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty aksje:beskrivelse ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:beskrivelse ] ;
+            owl:onProperty aksje:identifikator ] ;
     skos:definition "Rettigheiter knytt til aksjar, til dømes stemmerett." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
 aksje:InnbetaltAksjekapital a owl:Class ;
     rdfs:label "InnbetaltAksjekapital" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:belop ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
             owl:onProperty aksje:belop ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty aksje:belop ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:belop ] ;
     skos:definition "Innbetalt aksjekapital." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
@@ -215,31 +215,31 @@ aksje:Aksjeeier a owl:Class ;
     rdfs:label "Aksjeeier" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty aksje:navn ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
+            owl:allValuesFrom aksje:Eierposisjon ;
+            owl:onProperty aksje:har_eierposisjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:har_eierposisjon ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:har_eierposisjon ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:navn ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:har_eierposisjon ],
+            owl:minCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty aksje:navn ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:har_eierposisjon ],
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:navn ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Eierposisjon ;
-            owl:onProperty aksje:har_eierposisjon ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:identifikator ] ;
     skos:definition "Person eller organisasjon som eig aksjar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
@@ -363,22 +363,22 @@ aksje:utsteder_aksje a owl:ObjectProperty ;
 aksje:Aksjekapital a owl:Class ;
     rdfs:label "Aksjekapital" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:har_antall_aksjer ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:har_antall_aksjer ],
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
             owl:onProperty aksje:har_antall_aksjer ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty aksje:identifikator ],
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:har_antall_aksjer ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ] ;
     skos:definition "Den registrerte aksjekapitalen i eit aksjeselskap." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
@@ -386,28 +386,28 @@ aksje:Aksjekapital a owl:Class ;
 aksje:Aksjepost a owl:Class ;
     rdfs:label "Aksjepost" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty aksje:har_antall_aksjer ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
+            owl:allValuesFrom aksje:Aksjeklasse ;
+            owl:onProperty aksje:gjelder_aksjer_i_aksjeklasse ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty aksje:gjelder_aksjer_i_aksjeklasse ],
+            owl:onProperty aksje:har_antall_aksjer ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:har_antall_aksjer ],
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjeklasse ;
-            owl:onProperty aksje:gjelder_aksjer_i_aksjeklasse ],
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:har_antall_aksjer ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty aksje:gjelder_aksjer_i_aksjeklasse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
             owl:onProperty aksje:har_antall_aksjer ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
@@ -418,104 +418,104 @@ aksje:Aksjepost a owl:Class ;
 aksje:Aksjeselskap a owl:Class ;
     rdfs:label "Aksjeselskap" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksje ;
-            owl:onProperty aksje:utsteder_aksje ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:utsteder_aksje ],
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:har_aksjekapital ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty aksje:navn ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:utsteder_aksje ],
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:navn ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjekapital ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:har_aksjekapital ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksje ;
+            owl:onProperty aksje:utsteder_aksje ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty aksje:navn ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:utsteder_aksje ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksjekapital ;
             owl:onProperty aksje:har_aksjekapital ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:navn ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty aksje:navn ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:har_aksjekapital ] ;
+            owl:onProperty aksje:utsteder_aksje ] ;
     skos:definition "Selskap som utsteder aksjar og har aksjekapital." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
 aksje:Utbytte a owl:Class ;
     rdfs:label "Utbytte" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:har_utdeling ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:er_basert_paa_eierposisjon ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:er_basert_paa_eierposisjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty aksje:tidspunkt ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Utdeling ;
-            owl:onProperty aksje:har_utdeling ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty aksje:tidspunkt ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:har_utdeling ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
             owl:onProperty aksje:tidspunkt ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:er_basert_paa_eierposisjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Eierposisjon ;
+            owl:onProperty aksje:er_basert_paa_eierposisjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:har_utdeling ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:har_utdeling ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:er_basert_paa_eierposisjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Utdeling ;
+            owl:onProperty aksje:har_utdeling ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Eierposisjon ;
-            owl:onProperty aksje:er_basert_paa_eierposisjon ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:identifikator ] ;
     skos:definition "Utbytte knytt til ein eigarposisjon." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
 aksje:Utdeling a owl:Class ;
     rdfs:label "Utdeling" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:decimal ;
-            owl:onProperty aksje:belop ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty aksje:belop ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:decimal ;
             owl:onProperty aksje:belop ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty aksje:belop ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ] ;
     skos:definition "Konkret utdeling av verdiar til aksjeeigarar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
@@ -523,113 +523,113 @@ aksje:Utdeling a owl:Class ;
 aksje:Vederlag a owl:Class ;
     rdfs:label "Vederlag" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:belop ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
             owl:onProperty aksje:belop ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:belop ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:belop ] ;
+            owl:onProperty aksje:identifikator ] ;
     skos:definition "Vederlag knytt til ei aksjeoverdraging." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
 aksje:Aksjeoverdragelse a owl:Class ;
     rdfs:label "Aksjeoverdragelse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom aksje:Vederlag ;
             owl:onProperty aksje:kan_ha_vederlag ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:kan_ha_vederlag ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:kan_ha_vederlag ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Vederlag ;
-            owl:onProperty aksje:kan_ha_vederlag ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty aksje:identifikator ] ;
+            owl:onProperty aksje:kan_ha_vederlag ] ;
     skos:definition "Overdraging av aksjar mellom partar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
 aksje:Eierskapstransaksjon a owl:Class ;
     rdfs:label "Eierskapstransaksjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjeoverdragelse ;
-            owl:onProperty aksje:kan_vaere_aksjeoverdragelse ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:kan_vaere_selskapshendelse ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:kan_vaere_aksjeoverdragelse ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:paavirker_eierposisjon ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:tidspunkt ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:kan_vaere_aksjeoverdragelse ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Selskapshendelse ;
-            owl:onProperty aksje:kan_vaere_selskapshendelse ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:tidspunkt ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:kan_vaere_selskapshendelse ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:paavirker_eierposisjon ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty aksje:tidspunkt ],
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty aksje:paavirker_eierposisjon ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty aksje:tidspunkt ],
         [ a owl:Restriction ;
             owl:allValuesFrom aksje:Eierposisjon ;
             owl:onProperty aksje:paavirker_eierposisjon ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty aksje:identifikator ] ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:kan_vaere_selskapshendelse ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:kan_vaere_selskapshendelse ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:paavirker_eierposisjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksjeoverdragelse ;
+            owl:onProperty aksje:kan_vaere_aksjeoverdragelse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Selskapshendelse ;
+            owl:onProperty aksje:kan_vaere_selskapshendelse ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:kan_vaere_aksjeoverdragelse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty aksje:tidspunkt ] ;
     skos:definition "Transaksjon som påverkar eigarskap i selskapet." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
 aksje:Selskapshendelse a owl:Class ;
     rdfs:label "Selskapshendelse" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty aksje:kan_ha_aksjeinnskudd ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty aksje:kan_ha_aksjeinnskudd ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ],
@@ -642,11 +642,17 @@ aksje:Selskapshendelse a owl:Class ;
 aksje:Aksje a owl:Class ;
     rdfs:label "Aksje" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:har_palydende_belop ],
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty aksje:tilhorer_aksjeklasse ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:tilhorer_aksjeklasse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
@@ -657,17 +663,11 @@ aksje:Aksje a owl:Class ;
             owl:allValuesFrom aksje:Aksjeklasse ;
             owl:onProperty aksje:tilhorer_aksjeklasse ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty aksje:har_palydende_belop ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:tilhorer_aksjeklasse ] ;
+            owl:onProperty aksje:har_palydende_belop ] ;
     skos:definition "Ei enkelt aksje utstedt av eit aksjeselskap." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
@@ -675,30 +675,30 @@ aksje:Aksjeinnskudd a owl:Class ;
     rdfs:label "Aksjeinnskudd" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
-            owl:onProperty aksje:gjelder_innbetalt_overkurs ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty aksje:gjelder_innbetalt_aksjekapital ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty aksje:gjelder_innbetalt_overkurs ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:decimal ;
+            owl:onProperty aksje:gjelder_innbetalt_overkurs ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty aksje:gjelder_innbetalt_overkurs ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:gjelder_innbetalt_aksjekapital ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:gjelder_innbetalt_aksjekapital ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:decimal ;
             owl:onProperty aksje:gjelder_innbetalt_aksjekapital ] ;
     skos:definition "Innskot knytt til aksjar i samband med selskapshending." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
@@ -731,38 +731,38 @@ aksje:Aksjeklasse a owl:Class ;
             owl:onProperty aksje:navn ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty aksje:navn ],
+            owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty aksje:navn ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ] ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:navn ] ;
     skos:definition "Klasse aksjar høyrer til, med eigne rettigheiter." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
 aksje:Eierposisjon a owl:Class ;
     rdfs:label "Eierposisjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty aksje:gjelder_aksjepost ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjepost ;
+            owl:maxCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty aksje:gjelder_aksjepost ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom aksje:Aksjepost ;
             owl:onProperty aksje:gjelder_aksjepost ] ;
     skos:definition "Eierens samla posisjon i eit selskap." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
@@ -782,19 +782,76 @@ aksje:belop a owl:DatatypeProperty ;
 aksje:Containerklasse a owl:Class ;
     rdfs:label "Containerklasse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksje ;
-            owl:onProperty aksje:aksjer ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom aksje:Aksjeeier ;
             owl:onProperty aksje:aksjeeiere ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjeselskap ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:utdelinger ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty aksje:aksjeselskaper ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:eierposisjoner ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksjeinnskudd ;
+            owl:onProperty aksje:aksjeinnskudder ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Eierskapstransaksjon ;
+            owl:onProperty aksje:eierskapstransaksjoner ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:aksjeinnskudder ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:aksjeeierrettigheter ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty aksje:utbytter ],
         [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Eierposisjon ;
+            owl:onProperty aksje:eierposisjoner ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty aksje:identifikator ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty aksje:vederlager ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:InnbetaltAksjekapital ;
+            owl:onProperty aksje:innbetalt_aksjekapitaler ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Utbytte ;
+            owl:onProperty aksje:utbytter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:aksjeoverdragelser ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:aksjeposter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Utdeling ;
+            owl:onProperty aksje:utdelinger ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:innbetalt_overkurser ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksjeselskap ;
+            owl:onProperty aksje:aksjeselskaper ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksjeklasse ;
+            owl:onProperty aksje:aksjeklasser ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:aksjekapitaler ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksjeeierrettighet ;
+            owl:onProperty aksje:aksjeeierrettigheter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Vederlag ;
+            owl:onProperty aksje:vederlager ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom aksje:Aksjepost ;
             owl:onProperty aksje:aksjeposter ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
@@ -803,95 +860,38 @@ aksje:Containerklasse a owl:Class ;
             owl:allValuesFrom aksje:InnbetaltOverkurs ;
             owl:onProperty aksje:innbetalt_overkurser ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:innbetalt_overkurser ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Eierposisjon ;
-            owl:onProperty aksje:eierposisjoner ],
-        [ a owl:Restriction ;
             owl:allValuesFrom aksje:Aksjeoverdragelse ;
             owl:onProperty aksje:aksjeoverdragelser ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty aksje:eierskapstransaksjoner ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty aksje:aksjeeiere ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty aksje:selskapshendelser ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:utdelinger ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom aksje:Aksje ;
             owl:onProperty aksje:aksjer ],
         [ a owl:Restriction ;
             owl:allValuesFrom aksje:Selskapshendelse ;
             owl:onProperty aksje:selskapshendelser ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Vederlag ;
-            owl:onProperty aksje:vederlager ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty aksje:aksjeoverdragelser ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:InnbetaltAksjekapital ;
             owl:onProperty aksje:innbetalt_aksjekapitaler ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:aksjeselskaper ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjeeier ;
-            owl:onProperty aksje:aksjeeiere ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:aksjeinnskudder ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:vederlager ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:aksjeeierrettigheter ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty aksje:identifikator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjeklasse ;
-            owl:onProperty aksje:aksjeklasser ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Utbytte ;
-            owl:onProperty aksje:utbytter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:eierposisjoner ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjeinnskudd ;
-            owl:onProperty aksje:aksjeinnskudder ],
         [ a owl:Restriction ;
             owl:allValuesFrom aksje:Aksjekapital ;
             owl:onProperty aksje:aksjekapitaler ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Utdeling ;
-            owl:onProperty aksje:utdelinger ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty aksje:innbetalt_aksjekapitaler ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:eierskapstransaksjoner ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty aksje:aksjekapitaler ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjepost ;
-            owl:onProperty aksje:aksjeposter ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Eierskapstransaksjon ;
-            owl:onProperty aksje:eierskapstransaksjoner ],
+            owl:onProperty aksje:aksjer ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty aksje:identifikator ],
         [ a owl:Restriction ;
-            owl:allValuesFrom aksje:Aksjeeierrettighet ;
-            owl:onProperty aksje:aksjeeierrettigheter ] ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty aksje:identifikator ] ;
     skos:definition """Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
 """ ;
     skos:exactMatch schema1:Thing ;

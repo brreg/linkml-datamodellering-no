@@ -21,9 +21,36 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
     click Sektorkode href "../Sektorkode/"
       Sektorkode : id
         
+          
+    
+        
+        
+        Sektorkode --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Sektorkode : sektorkode_beskrivelse
         
+          
+    
+        
+        
+        Sektorkode --> "0..1" String : sektorkode_beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Sektorkode : sektorkode_kode
+        
+          
+    
+        
+        
+        Sektorkode --> "1" String : sektorkode_kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -64,7 +91,7 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [sektorkode_kode](sektorkode_kode.md) | 1 <br/> [String](string.md) | Institusjonell sektorkode (t |
+| [sektorkode_kode](sektorkode_kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Institusjonell sektorkode (t |
 
 
 
@@ -86,7 +113,7 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [sektorkode_beskrivelse](sektorkode_beskrivelse.md) | 0..1 <br/> [String](string.md) | Tekstleg skildring av sektorkoden |
+| [sektorkode_beskrivelse](sektorkode_beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg skildring av sektorkoden |
 
 
 
@@ -144,7 +171,7 @@ URI: [ngrv:Sektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#Sektorkod
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

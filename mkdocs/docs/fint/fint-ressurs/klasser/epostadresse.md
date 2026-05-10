@@ -35,7 +35,7 @@ Alias: epostadresse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [fint:epostadresse](https://schema.fintlabs.no/epostadresse) |
 
@@ -62,7 +62,7 @@ Alias: epostadresse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: epostadresse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:epostadresse |
-| native | https://schema.fintlabs.no/ressurs/:epostadresse |
+| native | https://schema.fintlabs.no/:epostadresse |
 
 
 
@@ -83,8 +83,7 @@ Alias: epostadresse
 ```yaml
 name: epostadresse
 description: Namngitt elektronisk adresse for mottak av e-post.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:epostadresse
 alias: epostadresse
 domain_of:

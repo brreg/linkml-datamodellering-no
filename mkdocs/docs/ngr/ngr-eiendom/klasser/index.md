@@ -21,7 +21,6 @@ Name: ngr-eiendom
 | [Bruksnummer](bruksnummer.md) | Bruksnummer innanfor gardsnamnet |
 | [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |
 | [Bygningsnummer](bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |
-| [EiendomContainer](eiendomcontainer.md) | Rotklasse for NGR-eiendom-datafiler |
 | [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
@@ -152,25 +151,6 @@ Name: ngr-eiendom
 
 | Type | Description |
 | --- | --- |
-| [Boolean](boolean.md) | A binary (true or false) value |
-| [Curie](curie.md) | a compact URI |
-| [Date](date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](dateordatetime.md) | Either a date or a datetime |
-| [Datetime](datetime.md) | The combination of a date and time |
-| [Decimal](decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](double.md) | A real number that conforms to the xsd:double specification |
-| [Float](float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](integer.md) | An integer |
-| [Jsonpath](jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](string.md) | A character string |
-| [Time](time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](uri.md) | a complete URI |
-| [Uriorcurie](uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets

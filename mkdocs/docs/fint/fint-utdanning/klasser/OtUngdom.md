@@ -1,16 +1,16 @@
 
 
-# Slot: otungdom 
+# Slot: otUngdom 
 
 
-_Referanse til OtUngdom (Utdanning)._
+_Alle OT-ungdom i containeren._
 
 
 
 
 
-URI: [fint:otungdom](https://schema.fintlabs.no/otungdom)
-Alias: otungdom
+URI: [utd:otUngdom](https://schema.fintlabs.no/utdanning/otUngdom)
+Alias: otUngdom
 
 <!-- no inheritance hierarchy -->
 
@@ -22,7 +22,7 @@ Alias: otungdom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](person.md) | Fysiske private personar |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  no  |
 
 
 
@@ -35,14 +35,15 @@ Alias: otungdom
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
-| Domain Of | [Person](person.md) |
-| Slot URI | [fint:otungdom](https://schema.fintlabs.no/otungdom) |
+| Range | [OtUngdom](otungdom.md) |
+| Domain Of | [UtdanningContainer](utdanningcontainer.md) |
+| Slot URI | [utd:otUngdom](https://schema.fintlabs.no/utdanning/otUngdom) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
+| Multivalued | Yes |
 
 
 
@@ -71,8 +72,8 @@ Alias: otungdom
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | fint:otungdom |
-| native | https://schema.fintlabs.no/utdanning/:otungdom |
+| self | utd:otUngdom |
+| native | https://schema.fintlabs.no/utdanning/:otUngdom |
 
 
 
@@ -81,15 +82,18 @@ Alias: otungdom
 
 <details>
 ```yaml
-name: otungdom
-description: Referanse til OtUngdom (Utdanning).
+name: otUngdom
+description: Alle OT-ungdom i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
-slot_uri: fint:otungdom
-alias: otungdom
+slot_uri: utd:otUngdom
+alias: otUngdom
 domain_of:
-- Person
-range: uriorcurie
+- UtdanningContainer
+range: OtUngdom
+multivalued: true
+inlined: true
+inlined_as_list: true
 
 ```
 </details>

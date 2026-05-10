@@ -35,7 +35,7 @@ Alias: tilgangs_url
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL) |
 
@@ -63,7 +63,7 @@ Alias: tilgangs_url
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: tilgangs_url
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:accessURL |
-| native | https://data.norge.no/linkml/dqv-ap-no/tilgangs_url |
+| native | https://data.norge.no/linkml/dcat-ap-no/tilgangs_url |
 
 
 
@@ -84,8 +84,7 @@ Alias: tilgangs_url
 ```yaml
 name: tilgangs_url
 description: URL for tilgang til distribusjonen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:accessURL
 alias: tilgangs_url
 domain_of:

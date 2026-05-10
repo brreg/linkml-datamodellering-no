@@ -35,7 +35,7 @@ Alias: skoleressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:skoleressurs](https://schema.fintlabs.no/administrasjon/skoleressurs) |
 

@@ -62,7 +62,7 @@ Alias: person_navn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: person_navn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:personNavn |
-| native | https://schema.fintlabs.no/utdanning/:person_navn |
+| native | https://schema.fintlabs.no/:person_navn |
 
 
 
@@ -83,8 +83,7 @@ Alias: person_navn
 ```yaml
 name: person_navn
 description: Namn på personen.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:personNavn
 alias: person_navn
 domain_of:

@@ -35,9 +35,36 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
         
       Merknad : eigenskapsmerknad
         
+          
+    
+        
+        
+        Merknad --> "*" LangString : eigenskapsmerknad
+        click LangString href "../LangString/"
+    
+
+        
       Merknad : id
         
+          
+    
+        
+        
+        Merknad --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Merknad : identifikator_literal
+        
+          
+    
+        
+        
+        Merknad --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Merknad : tilhorer_modul
         
@@ -51,6 +78,15 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 
         
       Merknad : tittel
+        
+          
+    
+        
+        
+        Merknad --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -134,7 +170,7 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 | --- | --- | --- |
 | [annoterer](annoterer.md) | * <br/> [Modellelement](modellelement.md) | Modellelement denne merknaden gjeld (modelldcatno:annotates) |
 | [eigenskapsmerknad](eigenskapsmerknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 
 
@@ -250,7 +286,7 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -371,12 +407,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Merknad
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -391,9 +429,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   annoterer:
@@ -429,8 +464,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Merknad
@@ -448,8 +482,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Merknad

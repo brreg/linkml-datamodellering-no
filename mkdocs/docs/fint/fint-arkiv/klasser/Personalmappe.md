@@ -35,6 +35,15 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
         
       Personalmappe : arbeidssted
         
+          
+    
+        
+        
+        Personalmappe --> "1" Uriorcurie : arbeidssted
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Personalmappe : arkivdel
         
           
@@ -59,9 +68,36 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
         
       Personalmappe : avsluttetDato
         
+          
+    
+        
+        
+        Personalmappe --> "0..1" Datetime : avsluttetDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       Personalmappe : beskrivelse
         
+          
+    
+        
+        
+        Personalmappe --> "0..1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Personalmappe : id
+        
+          
+    
+        
+        
+        Personalmappe --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Personalmappe : journalenhet
         
@@ -98,6 +134,15 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
         
       Personalmappe : leder
         
+          
+    
+        
+        
+        Personalmappe --> "1" Uriorcurie : leder
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Personalmappe : mappeId
         
           
@@ -122,7 +167,25 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
         
       Personalmappe : noekkelord
         
+          
+    
+        
+        
+        Personalmappe --> "*" String : noekkelord
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Personalmappe : offentligTittel
+        
+          
+    
+        
+        
+        Personalmappe --> "0..1" String : offentligTittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Personalmappe : opprettetAv
         
@@ -136,6 +199,15 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
 
         
       Personalmappe : opprettetDato
+        
+          
+    
+        
+        
+        Personalmappe --> "0..1" Datetime : opprettetDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
         
       Personalmappe : part
         
@@ -161,6 +233,15 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
         
       Personalmappe : personalressurs
         
+          
+    
+        
+        
+        Personalmappe --> "1" Uriorcurie : personalressurs
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Personalmappe : personnavn
         
           
@@ -173,6 +254,15 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
 
         
       Personalmappe : saksaar
+        
+          
+    
+        
+        
+        Personalmappe --> "0..1" String : saksaar
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Personalmappe : saksansvarlig
         
@@ -187,6 +277,15 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
         
       Personalmappe : saksdato
         
+          
+    
+        
+        
+        Personalmappe --> "0..1" Datetime : saksdato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       Personalmappe : saksmappetype
         
           
@@ -199,6 +298,15 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
 
         
       Personalmappe : sakssekvensnummer
+        
+          
+    
+        
+        
+        Personalmappe --> "0..1" String : sakssekvensnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Personalmappe : saksstatus
         
@@ -235,7 +343,25 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
         
       Personalmappe : tittel
         
+          
+    
+        
+        
+        Personalmappe --> "0..1" String : tittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Personalmappe : utlaantDato
+        
+          
+    
+        
+        
+        Personalmappe --> "0..1" Datetime : utlaantDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
         
       
 ```
@@ -297,9 +423,9 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
 | --- | --- | --- |
 | [personnavn](personnavn.md) | 1 <br/> [Personnavn](personnavn.md) | Namn på person (Personnavn-objekt) |
 | [person](person.md) | 1 <br/> [Person](person.md) | Referanse til Person i Administrasjon-domenet |
-| [leder](leder.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Personalressurs som er arbeidstakarens leiar |
-| [arbeidssted](arbeidssted.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad |
-| [personalressurs](personalressurs.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Personalressurs i Administrasjon-domenet |
+| [leder](leder.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til Personalressurs som er arbeidstakarens leiar |
+| [arbeidssted](arbeidssted.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad |
+| [personalressurs](personalressurs.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til Personalressurs i Administrasjon-domenet |
 
 
 
@@ -416,28 +542,28 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
 | --- | --- | --- | --- || [journalpost](journalpost.md) | * <br/> [Journalpost](journalpost.md) | Journalpostar knytt til saksmappa | [Saksmappe](saksmappe.md) |
-| [saksaar](saksaar.md) | 0..1 <br/> [String](string.md) | Inngår i M003 mappeID — viser året saksmappa vart oppretta | [Saksmappe](saksmappe.md) |
-| [saksdato](saksdato.md) | 0..1 <br/> [Datetime](datetime.md) | Datoen saka er oppretta | [Saksmappe](saksmappe.md) |
-| [sakssekvensnummer](sakssekvensnummer.md) | 0..1 <br/> [String](string.md) | Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta | [Saksmappe](saksmappe.md) |
-| [utlaantDato](utlaantdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato ein fysisk saksmappe eller journalpost vart utlånt | [Saksmappe](saksmappe.md) |
+| [saksaar](saksaar.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Inngår i M003 mappeID — viser året saksmappa vart oppretta | [Saksmappe](saksmappe.md) |
+| [saksdato](saksdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Datoen saka er oppretta | [Saksmappe](saksmappe.md) |
+| [sakssekvensnummer](sakssekvensnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta | [Saksmappe](saksmappe.md) |
+| [utlaantDato](utlaantdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato ein fysisk saksmappe eller journalpost vart utlånt | [Saksmappe](saksmappe.md) |
 | [saksmappetype](saksmappetype.md) | 0..1 <br/> [Saksmappetype](saksmappetype.md) | Type saksmappe | [Saksmappe](saksmappe.md) |
 | [saksstatus](saksstatus.md) | 1 <br/> [Saksstatus](saksstatus.md) | Status til saksmappa | [Saksmappe](saksmappe.md) |
 | [tilgangsgruppe](tilgangsgruppe.md) | 0..1 <br/> [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til arkivenheten | [Saksmappe](saksmappe.md) |
 | [journalenhet](journalenhet.md) | 0..1 <br/> [AdministrativEnhet](administrativenhet.md) | Eining med arkivmessig ansvar | [Saksmappe](saksmappe.md) |
 | [administrativEnhet](administrativenhet.md) | 1 <br/> [AdministrativEnhet](administrativenhet.md) | Administrativ eining som har ansvar for saksbehandlinga | [Saksmappe](saksmappe.md) |
 | [saksansvarlig](saksansvarlig.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som er saksansvarleg | [Saksmappe](saksmappe.md) |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Mappe](mappe.md) |
-| [avsluttetDato](avsluttetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett når arkivenheten vart avslutta/lukka | [Mappe](mappe.md) |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn eller omtale | [Mappe](mappe.md) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Mappe](mappe.md) |
+| [avsluttetDato](avsluttetdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett når arkivenheten vart avslutta/lukka | [Mappe](mappe.md) |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Beskriven namn eller omtale | [Mappe](mappe.md) |
 | [klasse](klasse.md) | * <br/> [Klasse](klasse.md) | Klassifisering av arkivenhet | [Mappe](mappe.md) |
 | [mappeId](mappeid.md) | 0..1 <br/> [Identifikator](identifikator.md) | Eintydig identifikasjon av mappa innanfor arkivet | [Mappe](mappe.md) |
 | [merknad](merknad.md) | * <br/> [Merknad](merknad.md) | Merknader knytt til arkivenhet | [Mappe](mappe.md) |
-| [noekkelord](noekkelord.md) | * <br/> [String](string.md) | Nøkkelord som skildrar innhaldet (Mappe) | [Mappe](mappe.md) |
-| [offentligTittel](offentligtittel.md) | 0..1 <br/> [String](string.md) | Offentleg tittel der skjerma ord er fjerna | [Mappe](mappe.md) |
-| [opprettetDato](opprettetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert | [Mappe](mappe.md) |
+| [noekkelord](noekkelord.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Nøkkelord som skildrar innhaldet (Mappe) | [Mappe](mappe.md) |
+| [offentligTittel](offentligtittel.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Offentleg tittel der skjerma ord er fjerna | [Mappe](mappe.md) |
+| [opprettetDato](opprettetdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett arkivenheten vart oppretta/registrert | [Mappe](mappe.md) |
 | [part](part.md) | * <br/> [Part](part.md) | Partar til arkivenhet | [Mappe](mappe.md) |
 | [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](skjerming.md) | Skjerming av arkivenhet | [Mappe](mappe.md) |
-| [tittel](tittel.md) | 0..1 <br/> [String](string.md) | Tittel eller namn på arkivenheten | [Mappe](mappe.md) |
+| [tittel](tittel.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tittel eller namn på arkivenheten | [Mappe](mappe.md) |
 | [arkivdel](arkivdel.md) | 0..1 <br/> [Arkivdel](arkivdel.md) | Arkivdel arkivenheten tilhøyrer | [Mappe](mappe.md) |
 | [avsluttetAv](avsluttetav.md) | 0..1 <br/> [Arkivressurs](arkivressurs.md) | Person som avslutta/lukka arkivenheten | [Mappe](mappe.md) |
 | [opprettetAv](opprettetav.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som oppretta/registrerte arkivenheten | [Mappe](mappe.md) |
@@ -593,14 +719,13 @@ attributes:
     description: Referanse til Person i Administrasjon-domenet.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:person
     alias: person
     owner: Personalmappe
     domain_of:
-    - Personalmappe
     - Elev
+    - Personalmappe
     range: Person
     required: true
   leder:
@@ -642,9 +767,9 @@ attributes:
     alias: personalressurs
     owner: Personalmappe
     domain_of:
+    - Person
     - Arkivressurs
     - Personalmappe
-    - Person
     range: uriorcurie
     required: true
   journalpost:
@@ -801,12 +926,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Personalmappe
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Mappe
     - Registrering
     - AdministrativEnhet
@@ -834,12 +964,6 @@ attributes:
     - Tilgangsrestriksjon
     - TilknyttetRegistreringSom
     - Variantformat
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   avsluttetDato:
@@ -861,17 +985,16 @@ attributes:
     description: Beskriven namn eller omtale.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
     alias: beskrivelse
     owner: Personalmappe
     domain_of:
+    - Periode
     - Mappe
     - Registrering
     - Klassifikasjonssystem
     - Dokumentbeskrivelse
-    - Periode
     range: string
   klasse:
     name: klasse

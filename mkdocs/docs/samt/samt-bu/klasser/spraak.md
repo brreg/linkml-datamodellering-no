@@ -32,7 +32,7 @@ URI: [dct:language](http://purl.org/dc/terms/language)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -42,6 +42,6 @@ URI: [dct:language](http://purl.org/dc/terms/language)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:language |
-| native | samtbuskole:Spraak |
+| native | https://data.norge.no/linkml/common-ap-no/Spraak |
 
 

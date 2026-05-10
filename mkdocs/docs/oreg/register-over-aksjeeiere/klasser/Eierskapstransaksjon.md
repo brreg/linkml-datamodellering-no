@@ -21,6 +21,15 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
     click Eierskapstransaksjon href "../Eierskapstransaksjon/"
       Eierskapstransaksjon : identifikator
         
+          
+    
+        
+        
+        Eierskapstransaksjon --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Eierskapstransaksjon : kan_vaere_aksjeoverdragelse
         
           
@@ -55,6 +64,15 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
 
         
       Eierskapstransaksjon : tidspunkt
+        
+          
+    
+        
+        
+        Eierskapstransaksjon --> "0..1" Date : tidspunkt
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -170,8 +188,8 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [tidspunkt](tidspunkt.md) | 0..1 <br/> [Date](date.md) | Tidspunkt for utbytte/eierskapstransaksjon |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [tidspunkt](tidspunkt.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Tidspunkt for utbytte/eierskapstransaksjon |
 | [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | 0..1 <br/> [Aksjeoverdragelse](aksjeoverdragelse.md) | Aksjeoverdraging i transaksjonen |
 | [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | 0..1 <br/> [Selskapshendelse](selskapshendelse.md) | Selskapshendelse i transaksjonen |
 | [paavirker_eierposisjon](paavirker_eierposisjon.md) | 0..1 <br/> [Eierposisjon](eierposisjon.md) | Eierskapstransaksjon knytt til eigarposisjonen |

@@ -35,7 +35,7 @@ Alias: kreverGodkjenning
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:kreverGodkjenning](https://schema.fintlabs.no/ressurs/kreverGodkjenning) |
 

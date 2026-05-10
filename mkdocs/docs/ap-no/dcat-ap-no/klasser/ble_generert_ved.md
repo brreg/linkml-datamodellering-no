@@ -35,7 +35,7 @@ Alias: ble_generert_ved
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain | [Datasett](datasett.md) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy) |

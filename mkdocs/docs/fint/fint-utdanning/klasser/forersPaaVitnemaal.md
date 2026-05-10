@@ -35,7 +35,7 @@ Alias: forersPaaVitnemaal
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [Fraversregistrering](fraversregistrering.md) |
 | Slot URI | [utd:forersPaaVitnemaal](https://schema.fintlabs.no/utdanning/forersPaaVitnemaal) |
 

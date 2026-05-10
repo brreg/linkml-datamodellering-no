@@ -35,7 +35,7 @@ Alias: har_palydende_belop
 
 | Property | Value |
 | --- | --- |
-| Range | [Decimal](decimal.md) |
+| Range | [xsd:decimal](http://www.w3.org/2001/XMLSchema#decimal) |
 | Domain | [Aksje](aksje.md) |
 | Domain Of | [Aksje](aksje.md) |
 

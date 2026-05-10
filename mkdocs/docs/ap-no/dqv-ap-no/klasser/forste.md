@@ -62,7 +62,7 @@ Alias: forste
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: forste
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:first |
-| native | https://data.norge.no/linkml/dqv-ap-no/forste |
+| native | https://data.norge.no/linkml/dcat-ap-no/forste |
 
 
 
@@ -83,8 +83,7 @@ Alias: forste
 ```yaml
 name: forste
 description: Første datasett i ei datasettserie.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:first
 alias: forste
 domain_of:

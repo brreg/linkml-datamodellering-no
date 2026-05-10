@@ -35,7 +35,7 @@ Alias: omfang
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [RettsligHandleevne](rettslighandleevne.md) |
 | Slot URI | [ngrp:omfang](https://data.norge.no/vocabulary/ngr-person#omfang) |
 

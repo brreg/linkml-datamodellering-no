@@ -24,7 +24,25 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
       
       Livshendelse : beskrivelse
         
+          
+    
+        
+        
+        Livshendelse --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Livshendelse : er_beskrive_av
+        
+          
+    
+        
+        
+        Livshendelse --> "*" Uri : er_beskrive_av
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Livshendelse : har_kontaktpunkt
         
@@ -39,7 +57,25 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
         
       Livshendelse : id
         
+          
+    
+        
+        
+        Livshendelse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Livshendelse : identifikator_literal
+        
+          
+    
+        
+        
+        Livshendelse --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Livshendelse : kan_utlose
         
@@ -54,6 +90,15 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
         
       Livshendelse : kan_utlose_behov_for
         
+          
+    
+        
+        
+        Livshendelse --> "*" Uriorcurie : kan_utlose_behov_for
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Livshendelse : tema
         
           
@@ -66,6 +111,15 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 
         
       Livshendelse : tittel
+        
+          
+    
+        
+        
+        Livshendelse --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       Livshendelse : type_concept
         
@@ -122,7 +176,7 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kan_utlose_behov_for](kan_utlose_behov_for.md) | * <br/> [Uriorcurie](uriorcurie.md) | Tenester det kan oppstå behov for som følgje av hendinga |
+| [kan_utlose_behov_for](kan_utlose_behov_for.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Tenester det kan oppstå behov for som følgje av hendinga |
 
 
 
@@ -155,14 +209,14 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Hendelse](hendelse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Hendelse](hendelse.md) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Hendelse](hendelse.md) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Hendelse](hendelse.md) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Hendelse](hendelse.md) |
 | [har_kontaktpunkt](har_kontaktpunkt.md) | 1..* <br/> [Kontaktpunkt](kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen | [Hendelse](hendelse.md) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) | [Hendelse](hendelse.md) |
 | [kan_utlose](kan_utlose.md) | * <br/> [OffentligTjeneste](offentligtjeneste.md) | Offentlege tenester hendinga kan utløyse | [Hendelse](hendelse.md) |
 | [tema](tema.md) | * <br/> [Konsept](konsept.md) | Emne/tema tenesta handlar om | [Hendelse](hendelse.md) |
-| [er_beskrive_av](er_beskrive_av.md) | * <br/> [Uri](uri.md) | Datasett som beskriv ressursen | [Hendelse](hendelse.md) |
+| [er_beskrive_av](er_beskrive_av.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Datasett som beskriv ressursen | [Hendelse](hendelse.md) |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) | [Hendelse](hendelse.md) |
 
 
@@ -261,12 +315,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Livshendelse
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -282,9 +338,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -292,8 +345,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Livshendelse
@@ -316,8 +368,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Livshendelse
@@ -358,8 +409,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Livshendelse
@@ -429,8 +479,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: Livshendelse

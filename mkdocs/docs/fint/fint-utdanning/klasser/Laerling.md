@@ -23,8 +23,8 @@ Alias: laerling
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Person](person.md) | Fysiske private personar |  yes  |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  yes  |
 | [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: laerling
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
-| Domain Of | [AvlagtProve](avlagtprove.md), [Person](person.md), [Virksomhet](virksomhet.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
+| Domain Of | [Person](person.md), [Virksomhet](virksomhet.md), [AvlagtProve](avlagtprove.md) |
 | Slot URI | [fint:laerling](https://schema.fintlabs.no/laerling) |
 
 ### Cardinality and Requirements
@@ -65,7 +65,7 @@ Alias: laerling
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -75,7 +75,7 @@ Alias: laerling
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:laerling |
-| native | https://schema.fintlabs.no/utdanning/:laerling |
+| native | https://schema.fintlabs.no/:laerling |
 
 
 
@@ -86,14 +86,13 @@ Alias: laerling
 ```yaml
 name: laerling
 description: Referanse til Laerling (Utdanning).
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:laerling
 alias: laerling
 domain_of:
-- AvlagtProve
 - Person
 - Virksomhet
+- AvlagtProve
 range: uriorcurie
 multivalued: true
 

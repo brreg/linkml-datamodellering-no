@@ -32,13 +32,58 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
         
       Standard : har_merknad
         
+          
+    
+        
+        
+        Standard --> "*" LangString : har_merknad
+        click LangString href "../LangString/"
+    
+
+        
       Standard : har_referanse
+        
+          
+    
+        
+        
+        Standard --> "*" Uri : har_referanse
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Standard : har_versjonsnummer
         
+          
+    
+        
+        
+        Standard --> "0..1" String : har_versjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Standard : id
         
+          
+    
+        
+        
+        Standard --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Standard : tittel
+        
+          
+    
+        
+        
+        Standard --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -122,7 +167,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | * <br/> [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Refererer til kvalitetsdimensjon(ar) som kvalitetsmerknaden gjeld |
-| [har_referanse](har_referanse.md) | * <br/> [Uri](uri.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
+| [har_referanse](har_referanse.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til ekstern ressurs (rdfs:seeAlso) |
 
 
 
@@ -156,7 +201,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [har_merknad](har_merknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad (rdfs:comment) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Versjonsnummer for ressursen (owl:versionInfo) |
 
 
 
@@ -240,7 +285,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -373,18 +418,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Standard
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -401,6 +439,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
     required: true
   tittel:
@@ -408,13 +452,11 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Standard
     domain_of:
-    - Standard
     - RegulativRessurs
     - Distribusjon
     - Datasett
@@ -422,6 +464,7 @@ attributes:
     - Datatjeneste
     - Katalogpost
     - Katalog
+    - Standard
     range: LangString
     required: true
     multivalued: true
@@ -448,14 +491,13 @@ attributes:
     description: Referanse til ekstern ressurs (rdfs:seeAlso).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:seeAlso
     alias: har_referanse
     owner: Standard
     domain_of:
-    - Standard
     - RegulativRessurs
+    - Standard
     range: uri
     multivalued: true
   har_merknad:
@@ -463,8 +505,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
     alias: har_merknad
     owner: Standard
@@ -479,8 +520,7 @@ attributes:
     description: Versjonsnummer for ressursen (owl:versionInfo).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
     alias: har_versjonsnummer
     owner: Standard

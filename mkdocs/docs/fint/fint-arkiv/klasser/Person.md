@@ -37,7 +37,7 @@ Alias: person
 | Property | Value |
 | --- | --- |
 | Range | [Person](person.md) |
-| Domain Of | [Personalmappe](personalmappe.md), [Elev](elev.md) |
+| Domain Of | [Elev](elev.md), [Personalmappe](personalmappe.md) |
 | Slot URI | [fint:person](https://schema.fintlabs.no/person) |
 
 ### Cardinality and Requirements
@@ -63,7 +63,7 @@ Alias: person
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: person
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:person |
-| native | https://schema.fintlabs.no/arkiv/:person |
+| native | https://schema.fintlabs.no/:person |
 
 
 
@@ -84,13 +84,12 @@ Alias: person
 ```yaml
 name: person
 description: Referanse til Person i Administrasjon-domenet.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:person
 alias: person
 domain_of:
-- Personalmappe
 - Elev
+- Personalmappe
 range: Person
 
 ```

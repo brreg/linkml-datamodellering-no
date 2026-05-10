@@ -21,9 +21,36 @@ URI: [dct:PeriodOfTime](http://purl.org/dc/terms/PeriodOfTime)
     click Tidsrom href "../Tidsrom/"
       Tidsrom : id
         
+          
+    
+        
+        
+        Tidsrom --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tidsrom : tidsrom_slutt
         
+          
+    
+        
+        
+        Tidsrom --> "0..1" Date : tidsrom_slutt
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Tidsrom : tidsrom_start
+        
+          
+    
+        
+        
+        Tidsrom --> "0..1" Date : tidsrom_start
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -114,9 +141,9 @@ URI: [dct:PeriodOfTime](http://purl.org/dc/terms/PeriodOfTime)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [tidsrom_start](tidsrom_start.md) | 0..1 <br/> [Date](date.md) | Startdato for tidsromet (dct:startDate) |
-| [tidsrom_slutt](tidsrom_slutt.md) | 0..1 <br/> [Date](date.md) | Sluttdato for tidsromet (dct:endDate) |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [tidsrom_start](tidsrom_start.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Startdato for tidsromet (dct:startDate) |
+| [tidsrom_slutt](tidsrom_slutt.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Sluttdato for tidsromet (dct:endDate) |
 
 
 
@@ -199,12 +226,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Tidsrom
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Klassifikasjon
     - Klassifikasjonsnivaa
     - Kategori
@@ -212,9 +241,6 @@ attributes:
     - Kategorisamanlikning
     - Organisasjon
     - Tidsrom
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tidsrom_start:

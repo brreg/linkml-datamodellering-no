@@ -22,8 +22,8 @@ Alias: forfallsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
 | [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
 
 
 
@@ -36,7 +36,7 @@ Alias: forfallsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Faktura](faktura.md), [Transaksjon](transaksjon.md) |
 | Slot URI | [okn:forfallsdato](https://schema.fintlabs.no/okonomi/forfallsdato) |
 

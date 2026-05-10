@@ -22,8 +22,8 @@ Alias: nokkelord
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -64,7 +64,7 @@ Alias: nokkelord
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: nokkelord
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:keyword |
-| native | samtbuskole:nokkelord |
+| native | https://data.norge.no/linkml/common-ap-no/nokkelord |
 
 
 
@@ -85,8 +85,7 @@ Alias: nokkelord
 ```yaml
 name: nokkelord
 description: Nøkkelord som beskriv ressursen (dcat:keyword).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dcat:keyword
 alias: nokkelord
 domain_of:

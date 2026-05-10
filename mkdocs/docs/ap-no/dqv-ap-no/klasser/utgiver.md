@@ -22,10 +22,10 @@ Alias: utgiver
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -65,7 +65,7 @@ Alias: utgiver
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: utgiver
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:publisher |
-| native | https://data.norge.no/linkml/dqv-ap-no/utgiver |
+| native | https://data.norge.no/linkml/dcat-ap-no/utgiver |
 
 
 
@@ -86,8 +86,7 @@ Alias: utgiver
 ```yaml
 name: utgiver
 description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:publisher
 alias: utgiver
 domain_of:

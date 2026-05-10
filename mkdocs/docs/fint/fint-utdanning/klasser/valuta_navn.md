@@ -35,7 +35,7 @@ Alias: valuta_navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Valuta](valuta.md) |
 | Slot URI | [fint:valutaNavn](https://schema.fintlabs.no/valutaNavn) |
 
@@ -62,7 +62,7 @@ Alias: valuta_navn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: valuta_navn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:valutaNavn |
-| native | https://schema.fintlabs.no/utdanning/:valuta_navn |
+| native | https://schema.fintlabs.no/:valuta_navn |
 
 
 
@@ -83,8 +83,7 @@ Alias: valuta_navn
 ```yaml
 name: valuta_navn
 description: Namn på valuta.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:valutaNavn
 alias: valuta_navn
 domain_of:

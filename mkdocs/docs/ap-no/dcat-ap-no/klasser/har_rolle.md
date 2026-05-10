@@ -35,7 +35,7 @@ Alias: har_rolle
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Relasjon](relasjon.md) |
 | Slot URI | [dcat:hadRole](http://www.w3.org/ns/dcat#hadRole) |
 

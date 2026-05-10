@@ -32,6 +32,15 @@ URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
         
       Eierposisjon : identifikator
         
+          
+    
+        
+        
+        Eierposisjon --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -98,7 +107,7 @@ URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
 | [gjelder_aksjepost](gjelder_aksjepost.md) | 0..1 <br/> [Aksjepost](aksjepost.md) | Aksjepost som inngår i eigarposisjonen |
 
 

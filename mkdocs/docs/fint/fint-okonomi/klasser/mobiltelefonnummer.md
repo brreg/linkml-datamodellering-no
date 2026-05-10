@@ -35,7 +35,7 @@ Alias: mobiltelefonnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [fint:mobiltelefonnummer](https://schema.fintlabs.no/mobiltelefonnummer) |
 
@@ -62,7 +62,7 @@ Alias: mobiltelefonnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: mobiltelefonnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:mobiltelefonnummer |
-| native | https://schema.fintlabs.no/okonomi/:mobiltelefonnummer |
+| native | https://schema.fintlabs.no/:mobiltelefonnummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: mobiltelefonnummer
 ```yaml
 name: mobiltelefonnummer
 description: Mobiltelefonnummer.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:mobiltelefonnummer
 alias: mobiltelefonnummer
 domain_of:

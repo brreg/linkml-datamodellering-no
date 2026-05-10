@@ -16,8 +16,6 @@ Brukartilbakemelding {
     uri har_maal  
     LangStringList har_merknad  
 }
-    uriorcurie id  
-}
 Datasett {
     stringList annen_ansvarlig_aktor  
     stringList begrep  

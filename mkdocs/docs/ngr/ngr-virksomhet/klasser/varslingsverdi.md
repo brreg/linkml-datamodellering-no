@@ -35,7 +35,7 @@ Alias: varslingsverdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Varslingsadresse](varslingsadresse.md) |
 | Slot URI | [ngrv:varslingsverdi](https://data.norge.no/vocabulary/ngr-virksomhet#varslingsverdi) |
 

@@ -35,7 +35,7 @@ Alias: fylkesnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Fylke](fylke.md) |
 | Slot URI | [ngr:fylkesnummer](https://data.norge.no/vocabulary/ngr-adresse#fylkesnummer) |
 

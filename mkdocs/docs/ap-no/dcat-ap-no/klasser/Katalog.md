@@ -24,6 +24,15 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
       
       Katalog : beskrivelse
         
+          
+    
+        
+        
+        Katalog --> "1..*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Katalog : datasett
         
           
@@ -59,6 +68,15 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
       Katalog : endringsdato
         
+          
+    
+        
+        
+        Katalog --> "0..1" Date : endringsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Katalog : gjeldende_lovgivning
         
           
@@ -83,9 +101,36 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
       Katalog : heimeside
         
+          
+    
+        
+        
+        Katalog --> "*" Uri : heimeside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Katalog : id
         
+          
+    
+        
+        
+        Katalog --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Katalog : identifikator_literal
+        
+          
+    
+        
+        
+        Katalog --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Katalog : katalogpost
         
@@ -111,6 +156,15 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
       Katalog : lisens
         
+          
+    
+        
+        
+        Katalog --> "0..1" String : lisens
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Katalog : produsent
         
           
@@ -134,6 +188,15 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
         
       Katalog : spraak
+        
+          
+    
+        
+        
+        Katalog --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
         
       Katalog : temaer
         
@@ -159,6 +222,15 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
         
       Katalog : tittel
         
+          
+    
+        
+        
+        Katalog --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
+        
       Katalog : underkatalog
         
           
@@ -171,6 +243,15 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 
         
       Katalog : utgivelsesdato
+        
+          
+    
+        
+        
+        Katalog --> "0..1" Date : utgivelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Katalog : utgiver
         
@@ -384,12 +465,12 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 | [datasett](datasett.md) | * <br/> [Datasett](datasett.md) | Datasett som er del av katalogen |
 | [datatjeneste](datatjeneste.md) | * <br/> [Datatjeneste](datatjeneste.md) | Datatjeneste som er del av katalogen |
 | [dekningsomraade](dekningsomraade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [lisens](lisens.md) | 0..1 <br/> [String](string.md) | Lisens for bruk av ressursen |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
+| [heimeside](heimeside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [lisens](lisens.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Lisens for bruk av ressursen |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 | [temaer](temaer.md) | * <br/> [Begrepssamling](begrepssamling.md) | Temavokabular som vert brukt i katalogen |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -695,7 +776,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 | --- | --- | --- |
 | [gjeldende_lovgivning](gjeldende_lovgivning.md) | * <br/> [RegulativRessurs](regulativressurs.md) | Lovgjeving som gjeld for ressursen |
 | [har_del](har_del.md) | * <br/> [Katalog](katalog.md) | Delkatalog inkludert i denne katalogen |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [underkatalog](underkatalog.md) | * <br/> [Katalog](katalog.md) | Katalog som er ein del av denne katalogen |
 | [katalogpost](katalogpost.md) | * <br/> [Katalogpost](katalogpost.md) | Katalogpostar i katalogen |
 | [produsent](produsent.md) | 0..1 <br/> [Aktor](aktor.md) | Aktøren som primært har skapt ressursen |
@@ -708,7 +789,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [KatalogisertRessurs](katalogisertressurs.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [KatalogisertRessurs](katalogisertressurs.md) |
 
 
 
@@ -927,8 +1008,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Katalog
@@ -967,12 +1047,12 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Katalog
     domain_of:
+    - Standard
     - RegulativRessurs
     - Distribusjon
     - Datasett
@@ -980,7 +1060,6 @@ attributes:
     - Datatjeneste
     - Katalogpost
     - Katalog
-    - Standard
     range: LangString
     required: true
     multivalued: true
@@ -1034,8 +1113,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
     alias: dekningsomraade
     owner: Katalog
@@ -1050,8 +1128,7 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
     alias: endringsdato
     owner: Katalog
@@ -1067,8 +1144,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
     alias: heimeside
     owner: Katalog
@@ -1096,18 +1172,17 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Katalog
     domain_of:
+    - Tekstdel
     - RegulativRessurs
     - Distribusjon
     - Datasett
     - Katalogpost
     - Katalog
-    - Tekstdel
     range: Spraak
     multivalued: true
   temaer:
@@ -1129,8 +1204,7 @@ attributes:
     description: Dato ressursen vart første gong publisert (dct:issued).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
     alias: utgivelsesdato
     owner: Katalog
@@ -1172,8 +1246,7 @@ attributes:
   identifikator_literal:
     name: identifikator_literal
     description: Tekstleg identifikator for ressursen (dct:identifier).
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Katalog
@@ -1250,12 +1323,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Katalog
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -1269,15 +1350,6 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
 class_uri: dcat:Catalog

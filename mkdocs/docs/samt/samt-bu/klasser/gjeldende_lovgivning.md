@@ -22,11 +22,11 @@ Alias: gjeldende_lovgivning
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
-| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 
 
 
@@ -67,7 +67,7 @@ Alias: gjeldende_lovgivning
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -77,7 +77,7 @@ Alias: gjeldende_lovgivning
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcatap:applicableLegislation |
-| native | samtbuskole:gjeldende_lovgivning |
+| native | https://data.norge.no/linkml/dcat-ap-no/gjeldende_lovgivning |
 
 
 
@@ -88,8 +88,7 @@ Alias: gjeldende_lovgivning
 ```yaml
 name: gjeldende_lovgivning
 description: Lovgjeving som gjeld for ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcatap:applicableLegislation
 alias: gjeldende_lovgivning
 domain_of:

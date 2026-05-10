@@ -22,11 +22,11 @@ Alias: postadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [Person](person.md) | Fysiske private personar |  no  |
 | [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
 
 
 
@@ -40,7 +40,7 @@ Alias: postadresse
 | Property | Value |
 | --- | --- |
 | Range | [Adresse](adresse.md) |
-| Domain Of | [Skole](skole.md), [Aktoer](aktoer.md) |
+| Domain Of | [Aktoer](aktoer.md), [Skole](skole.md) |
 | Slot URI | [fint:postadresse](https://schema.fintlabs.no/postadresse) |
 
 ### Cardinality and Requirements
@@ -66,7 +66,7 @@ Alias: postadresse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -76,7 +76,7 @@ Alias: postadresse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:postadresse |
-| native | https://schema.fintlabs.no/utdanning/:postadresse |
+| native | https://schema.fintlabs.no/:postadresse |
 
 
 
@@ -87,13 +87,12 @@ Alias: postadresse
 ```yaml
 name: postadresse
 description: Informasjon om postadresse til ein aktør.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:postadresse
 alias: postadresse
 domain_of:
-- Skole
 - Aktoer
+- Skole
 range: Adresse
 inlined: true
 

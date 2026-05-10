@@ -35,7 +35,7 @@ Alias: endretDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Karakterhistorie](karakterhistorie.md) |
 | Slot URI | [utd:endretDato](https://schema.fintlabs.no/utdanning/endretDato) |
 

@@ -1086,6 +1086,7 @@ attributes:
     - ArkivContainer
     range: Arkivdel
     multivalued: true
+    inlined: true
     inlined_as_list: true
   arkivressursar:
     name: arkivressursar
@@ -1098,6 +1099,7 @@ attributes:
     - ArkivContainer
     range: Arkivressurs
     multivalued: true
+    inlined: true
     inlined_as_list: true
   autorisasjonar:
     name: autorisasjonar
@@ -1110,6 +1112,7 @@ attributes:
     - ArkivContainer
     range: Autorisasjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   administrativeEiningar:
     name: administrativeEiningar
@@ -1122,6 +1125,7 @@ attributes:
     - ArkivContainer
     range: AdministrativEnhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   dokumentfiler:
     name: dokumentfiler
@@ -1134,6 +1138,7 @@ attributes:
     - ArkivContainer
     range: Dokumentfil
     multivalued: true
+    inlined: true
     inlined_as_list: true
   dokumentbeskrivelsar:
     name: dokumentbeskrivelsar
@@ -1146,6 +1151,7 @@ attributes:
     - ArkivContainer
     range: Dokumentbeskrivelse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   journalpostar:
     name: journalpostar
@@ -1158,6 +1164,7 @@ attributes:
     - ArkivContainer
     range: Journalpost
     multivalued: true
+    inlined: true
     inlined_as_list: true
   klassifikasjonssystem:
     name: klassifikasjonssystem
@@ -1185,6 +1192,7 @@ attributes:
     - ArkivContainer
     range: Tilgang
     multivalued: true
+    inlined: true
     inlined_as_list: true
   sakar:
     name: sakar
@@ -1197,6 +1205,7 @@ attributes:
     - ArkivContainer
     range: Sak
     multivalued: true
+    inlined: true
     inlined_as_list: true
   personalmappe_liste:
     name: personalmappe_liste
@@ -1209,6 +1218,7 @@ attributes:
     - ArkivContainer
     range: Personalmappe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   dispensasjonAutomatiskFredaKulturminne_liste:
     name: dispensasjonAutomatiskFredaKulturminne_liste
@@ -1221,6 +1231,7 @@ attributes:
     - ArkivContainer
     range: DispensasjonAutomatiskFredaKulturminne
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilskuddFartoy_liste:
     name: tilskuddFartoy_liste
@@ -1233,6 +1244,7 @@ attributes:
     - ArkivContainer
     range: TilskuddFartoy
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilskuddFredaBygningPrivatEie_liste:
     name: tilskuddFredaBygningPrivatEie_liste
@@ -1245,6 +1257,7 @@ attributes:
     - ArkivContainer
     range: TilskuddFredaBygningPrivatEie
     multivalued: true
+    inlined: true
     inlined_as_list: true
   soeknadDrosjeloeyve_liste:
     name: soeknadDrosjeloeyve_liste
@@ -1257,6 +1270,7 @@ attributes:
     - ArkivContainer
     range: SoeknadDrosjeloeyve
     multivalued: true
+    inlined: true
     inlined_as_list: true
   dokumentstatuskodar:
     name: dokumentstatuskodar
@@ -1269,6 +1283,7 @@ attributes:
     - ArkivContainer
     range: DokumentStatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   dokumenttypar:
     name: dokumenttypar
@@ -1281,6 +1296,7 @@ attributes:
     - ArkivContainer
     range: DokumentType
     multivalued: true
+    inlined: true
     inlined_as_list: true
   formatar:
     name: formatar
@@ -1293,6 +1309,7 @@ attributes:
     - ArkivContainer
     range: Format
     multivalued: true
+    inlined: true
     inlined_as_list: true
   journalposttypar:
     name: journalposttypar
@@ -1305,6 +1322,7 @@ attributes:
     - ArkivContainer
     range: JournalpostType
     multivalued: true
+    inlined: true
     inlined_as_list: true
   journalstatuskodar:
     name: journalstatuskodar
@@ -1317,6 +1335,7 @@ attributes:
     - ArkivContainer
     range: JournalStatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   klassifikasjonstypar:
     name: klassifikasjonstypar
@@ -1329,6 +1348,7 @@ attributes:
     - ArkivContainer
     range: Klassifikasjonstype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   korrespondanseparttypar:
     name: korrespondanseparttypar
@@ -1341,6 +1361,7 @@ attributes:
     - ArkivContainer
     range: KorrespondansepartType
     multivalued: true
+    inlined: true
     inlined_as_list: true
   merknadstypar:
     name: merknadstypar
@@ -1353,6 +1374,7 @@ attributes:
     - ArkivContainer
     range: Merknadstype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   partRollar:
     name: partRollar
@@ -1365,6 +1387,7 @@ attributes:
     - ArkivContainer
     range: PartRolle
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rollar:
     name: rollar
@@ -1377,6 +1400,7 @@ attributes:
     - ArkivContainer
     range: Rolle
     multivalued: true
+    inlined: true
     inlined_as_list: true
   saksmappetypar:
     name: saksmappetypar
@@ -1389,6 +1413,7 @@ attributes:
     - ArkivContainer
     range: Saksmappetype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   sakstatuskodar:
     name: sakstatuskodar
@@ -1401,6 +1426,7 @@ attributes:
     - ArkivContainer
     range: Saksstatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   skjermingsheimlar:
     name: skjermingsheimlar
@@ -1413,6 +1439,7 @@ attributes:
     - ArkivContainer
     range: Skjermingshjemmel
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilgangsgrupper:
     name: tilgangsgrupper
@@ -1425,6 +1452,7 @@ attributes:
     - ArkivContainer
     range: Tilgangsgruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilgangsrestriksjonar:
     name: tilgangsrestriksjonar
@@ -1437,6 +1465,7 @@ attributes:
     - ArkivContainer
     range: Tilgangsrestriksjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilknyttetRegistreringSomKodar:
     name: tilknyttetRegistreringSomKodar
@@ -1449,6 +1478,7 @@ attributes:
     - ArkivContainer
     range: TilknyttetRegistreringSom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   variantformatar:
     name: variantformatar
@@ -1461,6 +1491,7 @@ attributes:
     - ArkivContainer
     range: Variantformat
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

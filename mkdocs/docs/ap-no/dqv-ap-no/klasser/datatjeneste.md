@@ -63,7 +63,7 @@ Alias: datatjeneste
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: datatjeneste
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:service |
-| native | https://data.norge.no/linkml/dqv-ap-no/datatjeneste |
+| native | https://data.norge.no/linkml/dcat-ap-no/datatjeneste |
 
 
 
@@ -84,8 +84,7 @@ Alias: datatjeneste
 ```yaml
 name: datatjeneste
 description: Datatjeneste som er del av katalogen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:service
 alias: datatjeneste
 domain_of:

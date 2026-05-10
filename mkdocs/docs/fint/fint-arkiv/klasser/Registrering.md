@@ -59,7 +59,25 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
         
       Registrering : arkivertDato
         
+          
+    
+        
+        
+        Registrering --> "0..1" Datetime : arkivertDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       Registrering : beskrivelse
+        
+          
+    
+        
+        
+        Registrering --> "0..1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Registrering : dokumentbeskrivelse
         
@@ -74,7 +92,25 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
         
       Registrering : forfatter
         
+          
+    
+        
+        
+        Registrering --> "*" String : forfatter
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Registrering : id
+        
+          
+    
+        
+        
+        Registrering --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Registrering : klasse
         
@@ -111,7 +147,25 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
         
       Registrering : nokkelord
         
+          
+    
+        
+        
+        Registrering --> "*" String : nokkelord
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Registrering : offentligTittel
+        
+          
+    
+        
+        
+        Registrering --> "0..1" String : offentligTittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Registrering : opprettetAv
         
@@ -126,6 +180,15 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
         
       Registrering : opprettetDato
         
+          
+    
+        
+        
+        Registrering --> "0..1" Datetime : opprettetDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       Registrering : part
         
           
@@ -139,7 +202,25 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
         
       Registrering : referanseArkivDel
         
+          
+    
+        
+        
+        Registrering --> "*" String : referanseArkivDel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Registrering : registreringsId
+        
+          
+    
+        
+        
+        Registrering --> "0..1" String : registreringsId
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Registrering : saksbehandler
         
@@ -175,6 +256,15 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 
         
       Registrering : tittel
+        
+          
+    
+        
+        
+        Registrering --> "1" String : tittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -280,7 +370,7 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tittel](tittel.md) | 1 <br/> [String](string.md) | Tittel eller namn på arkivenheten |
+| [tittel](tittel.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tittel eller namn på arkivenheten |
 | [arkivertAv](arkivertav.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som arkiverte arkivenheten |
 | [opprettetAv](opprettetav.md) | 1 <br/> [Arkivressurs](arkivressurs.md) | Person som oppretta/registrerte arkivenheten |
 
@@ -465,19 +555,19 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [arkivertDato](arkivertdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett alle dokument knytt til registreringa vart arkivert |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn eller omtale |
+| [arkivertDato](arkivertdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett alle dokument knytt til registreringa vart arkivert |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Beskriven namn eller omtale |
 | [dokumentbeskrivelse](dokumentbeskrivelse.md) | * <br/> [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Dokumentbeskrivelsar til ei registrering |
-| [forfatter](forfatter.md) | * <br/> [String](string.md) | Namn på person eller organisasjon som skapte dokumentet |
+| [forfatter](forfatter.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på person eller organisasjon som skapte dokumentet |
 | [klasse](klasse.md) | 0..1 <br/> [Klasse](klasse.md) | Klassifisering av arkivenhet |
 | [korrespondansepart](korrespondansepart.md) | * <br/> [Korrespondansepart](korrespondansepart.md) | Mottakar eller sendar av arkivdokument |
 | [merknad](merknad.md) | * <br/> [Merknad](merknad.md) | Merknader knytt til arkivenhet |
-| [nokkelord](nokkelord.md) | * <br/> [String](string.md) | Nøkkelord som skildrar innhaldet (Registrering) |
-| [offentligTittel](offentligtittel.md) | 0..1 <br/> [String](string.md) | Offentleg tittel der skjerma ord er fjerna |
-| [opprettetDato](opprettetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert |
+| [nokkelord](nokkelord.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Nøkkelord som skildrar innhaldet (Registrering) |
+| [offentligTittel](offentligtittel.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Offentleg tittel der skjerma ord er fjerna |
+| [opprettetDato](opprettetdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett arkivenheten vart oppretta/registrert |
 | [part](part.md) | * <br/> [Part](part.md) | Partar til arkivenhet |
-| [referanseArkivDel](referansearkivdel.md) | * <br/> [String](string.md) | Referanse til arkivdelen denne arkivenheten er tilknytt |
-| [registreringsId](registreringsid.md) | 0..1 <br/> [String](string.md) | Inngår i M004 journalpostID |
+| [referanseArkivDel](referansearkivdel.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Referanse til arkivdelen denne arkivenheten er tilknytt |
+| [registreringsId](registreringsid.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Inngår i M004 journalpostID |
 | [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](skjerming.md) | Skjerming av arkivenhet |
 | [tilgangsgruppe](tilgangsgruppe.md) | 0..1 <br/> [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe som har tilgang til arkivenheten |
 | [administrativEnhet](administrativenhet.md) | 0..1 <br/> [AdministrativEnhet](administrativenhet.md) | Administrativ eining som har ansvar for saksbehandlinga |
@@ -774,7 +864,7 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -1049,12 +1139,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Registrering
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Mappe
     - Registrering
     - AdministrativEnhet
@@ -1082,12 +1177,6 @@ attributes:
     - Tilgangsrestriksjon
     - TilknyttetRegistreringSom
     - Variantformat
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   arkivertDato:
@@ -1108,17 +1197,16 @@ attributes:
     description: Beskriven namn eller omtale.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
     alias: beskrivelse
     owner: Registrering
     domain_of:
+    - Periode
     - Mappe
     - Registrering
     - Klassifikasjonssystem
     - Dokumentbeskrivelse
-    - Periode
     range: string
   dokumentbeskrivelse:
     name: dokumentbeskrivelse

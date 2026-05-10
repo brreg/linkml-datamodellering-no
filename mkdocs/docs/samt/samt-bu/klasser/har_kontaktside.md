@@ -35,7 +35,7 @@ Alias: har_kontaktside
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktopplysning](kontaktopplysning.md) |
 | Slot URI | [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL) |
 
@@ -62,7 +62,7 @@ Alias: har_kontaktside
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: har_kontaktside
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:hasURL |
-| native | samtbuskole:har_kontaktside |
+| native | https://data.norge.no/linkml/dcat-ap-no/har_kontaktside |
 
 
 
@@ -83,8 +83,7 @@ Alias: har_kontaktside
 ```yaml
 name: har_kontaktside
 description: Nettside for kontakt.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: vcard:hasURL
 alias: har_kontaktside
 domain_of:

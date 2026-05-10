@@ -35,7 +35,7 @@ Alias: katalogOppfoeringURL
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Katalogregistrering](katalogregistrering.md) |
 | Slot URI | [fair:katalogOppfoeringURL](https://data.norge.no/fair#katalogOppfoeringURL) |
 

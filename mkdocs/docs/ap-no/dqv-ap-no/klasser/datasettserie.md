@@ -24,6 +24,15 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
       
       Datasettserie : beskrivelse
         
+          
+    
+        
+        
+        Datasettserie --> "1..*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Datasettserie : dekningsomraade
         
           
@@ -36,6 +45,15 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
         
       Datasettserie : endringsdato
+        
+          
+    
+        
+        
+        Datasettserie --> "0..1" Date : endringsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Datasettserie : forste
         
@@ -50,6 +68,15 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
       Datasettserie : frekvens
         
+          
+    
+        
+        
+        Datasettserie --> "0..1" String : frekvens
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Datasettserie : gjeldende_lovgivning
         
           
@@ -62,6 +89,15 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
         
       Datasettserie : id
+        
+          
+    
+        
+        
+        Datasettserie --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Datasettserie : kontaktpunkt
         
@@ -87,6 +123,15 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
       Datasettserie : tema
         
+          
+    
+        
+        
+        Datasettserie --> "1..*" String : tema
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Datasettserie : tidsrom
         
           
@@ -100,7 +145,25 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
         
       Datasettserie : tittel
         
+          
+    
+        
+        
+        Datasettserie --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
+        
       Datasettserie : utgivelsesdato
+        
+          
+    
+        
+        
+        Datasettserie --> "0..1" Date : utgivelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Datasettserie : utgiver
         
@@ -196,7 +259,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 | --- | --- | --- |
 | [beskrivelse](beskrivelse.md) | 1..* <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
 | [kontaktpunkt](kontaktpunkt.md) | 1..* <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for hendvendelsar om ressursen |
-| [tema](tema.md) | 1..* <br/> [String](string.md) | Tema frå eit kontrollert vokabular |
+| [tema](tema.md) | 1..* <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tema frå eit kontrollert vokabular |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
 | [utgiver](utgiver.md) | 1 <br/> [Aktor](aktor.md) | Aktøren som er ansvarleg for å tilgjengeleggjere ressursen |
 
@@ -459,10 +522,10 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
-| [frekvens](frekvens.md) | 0..1 <br/> [String](string.md) | Oppdateringsfrekvens for datasettet |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
+| [frekvens](frekvens.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Oppdateringsfrekvens for datasettet |
 | [forste](forste.md) | 0..1 <br/> [Datasett](datasett.md) | Første datasett i ei datasettserie |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato ressursen vart første gong publisert (dct:issued) |
 
 
 
@@ -470,7 +533,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [KatalogisertRessurs](katalogisertressurs.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [KatalogisertRessurs](katalogisertressurs.md) |
 
 
 
@@ -502,7 +565,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -512,7 +575,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:DatasetSeries |
-| native | https://data.norge.no/linkml/dqv-ap-no/Datasettserie |
+| native | https://data.norge.no/linkml/dcat-ap-no/Datasettserie |
 
 
 
@@ -529,7 +592,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ```yaml
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 is_a: KatalogisertRessurs
 slots:
 - beskrivelse
@@ -598,7 +661,7 @@ class_uri: dcat:DatasetSeries
 ```yaml
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 is_a: KatalogisertRessurs
 slot_usage:
   beskrivelse:
@@ -648,8 +711,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Datasettserie
@@ -670,8 +732,7 @@ attributes:
     description: Kontaktinformasjon for hendvendelsar om ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:contactPoint
     alias: kontaktpunkt
     owner: Datasettserie
@@ -688,8 +749,7 @@ attributes:
     description: Tema frå eit kontrollert vokabular.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:theme
     alias: tema
     owner: Datasettserie
@@ -705,13 +765,11 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Datasettserie
     domain_of:
-    - Standard
     - RegulativRessurs
     - Distribusjon
     - Datasett
@@ -719,6 +777,7 @@ attributes:
     - Datatjeneste
     - Katalogpost
     - Katalog
+    - Standard
     range: LangString
     required: true
     multivalued: true
@@ -727,8 +786,7 @@ attributes:
     description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:publisher
     alias: utgiver
     owner: Datasettserie
@@ -744,8 +802,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
     alias: dekningsomraade
     owner: Datasettserie
@@ -760,8 +817,7 @@ attributes:
     description: Lovgjeving som gjeld for ressursen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcatap:applicableLegislation
     alias: gjeldende_lovgivning
     owner: Datasettserie
@@ -778,8 +834,7 @@ attributes:
     description: Siste datasett i ei datasettserie.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:last
     alias: siste
     owner: Datasettserie
@@ -791,8 +846,7 @@ attributes:
     description: Tidsperiode ressursen dekkar.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:temporal
     alias: tidsrom
     owner: Datasettserie
@@ -805,8 +859,7 @@ attributes:
   endringsdato:
     name: endringsdato
     description: Dato for siste endring av ressursen (dct:modified).
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
     alias: endringsdato
     owner: Datasettserie
@@ -824,8 +877,7 @@ attributes:
         tag: gyldige_verdier
         value: dct:Frequency
     description: Oppdateringsfrekvens for datasettet.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:accrualPeriodicity
     alias: frekvens
     owner: Datasettserie
@@ -835,8 +887,7 @@ attributes:
   forste:
     name: forste
     description: Første datasett i ei datasettserie.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:first
     alias: forste
     owner: Datasettserie
@@ -846,8 +897,7 @@ attributes:
   utgivelsesdato:
     name: utgivelsesdato
     description: Dato ressursen vart første gong publisert (dct:issued).
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
     alias: utgivelsesdato
     owner: Datasettserie
@@ -861,18 +911,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Datasettserie
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -889,6 +932,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
     required: true
 class_uri: dcat:DatasetSeries

@@ -35,7 +35,7 @@ Alias: gyldig_fra
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Tilstand](tilstand.md) |
 | Slot URI | [ngrv:gyldigFra](https://data.norge.no/vocabulary/ngr-virksomhet#gyldigFra) |
 

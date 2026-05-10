@@ -22,8 +22,8 @@ Alias: kjonn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 | [Person](person.md) | Fysiske private personar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 
 
 
@@ -37,7 +37,7 @@ Alias: kjonn
 | Property | Value |
 | --- | --- |
 | Range | [Kjonn](kjonn.md) |
-| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md), [Person](person.md) |
+| Domain Of | [Person](person.md), [AdministrasjonContainer](administrasjoncontainer.md) |
 | Slot URI | [fint:kjonn](https://schema.fintlabs.no/kjonn) |
 
 ### Cardinality and Requirements
@@ -63,7 +63,7 @@ Alias: kjonn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: kjonn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kjonn |
-| native | https://schema.fintlabs.no/administrasjon/:kjonn |
+| native | https://schema.fintlabs.no/:kjonn |
 
 
 
@@ -84,13 +84,12 @@ Alias: kjonn
 ```yaml
 name: kjonn
 description: Kjønn.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kjonn
 alias: kjonn
 domain_of:
-- AdministrasjonContainer
 - Person
+- AdministrasjonContainer
 range: Kjonn
 
 ```

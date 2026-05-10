@@ -35,7 +35,7 @@ Alias: kilde_post
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Katalogpost](katalogpost.md) |
 | Slot URI | [dct:source](http://purl.org/dc/terms/source) |
 

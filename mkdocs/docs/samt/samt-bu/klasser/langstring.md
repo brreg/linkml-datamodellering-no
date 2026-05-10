@@ -32,7 +32,7 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -42,6 +42,6 @@ URI: [rdf:langString](http://www.w3.org/1999/02/22-rdf-syntax-ns#langString)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdf:langString |
-| native | samtbuskole:LangString |
+| native | https://data.norge.no/linkml/common-ap-no/LangString |
 
 

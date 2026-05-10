@@ -62,7 +62,7 @@ Alias: fylke
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: fylke
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:fylke |
-| native | https://schema.fintlabs.no/ressurs/:fylke |
+| native | https://schema.fintlabs.no/:fylke |
 
 
 
@@ -83,8 +83,7 @@ Alias: fylke
 ```yaml
 name: fylke
 description: Fylke.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fylke
 alias: fylke
 domain_of:

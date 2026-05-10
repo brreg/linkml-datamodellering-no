@@ -21,7 +21,25 @@ URI: [ngre:Bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
     click Bruksnummer href "../Bruksnummer/"
       Bruksnummer : bruksnummer_verdi
         
+          
+    
+        
+        
+        Bruksnummer --> "1" Integer : bruksnummer_verdi
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Bruksnummer : id
+        
+          
+    
+        
+        
+        Bruksnummer --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngre:Bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [bruksnummer_verdi](bruksnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Bruksnummer innanfor gardsnamnet |
+| [bruksnummer_verdi](bruksnummer_verdi.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Bruksnummer innanfor gardsnamnet |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngre:Bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

@@ -35,7 +35,7 @@ Alias: format
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Dokument](dokument.md) |
 | Slot URI | [dct:format](http://purl.org/dc/terms/format) |
 
@@ -62,7 +62,7 @@ Alias: format
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/modelldcat-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: format
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:format |
-| native | https://data.norge.no/linkml/modelldcat-ap-no/format |
+| native | https://data.norge.no/linkml/common-ap-no/format |
 
 
 
@@ -83,8 +83,7 @@ Alias: format
 ```yaml
 name: format
 description: Filformat eller medietype (dct:format).
-from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:format
 alias: format
 domain_of:

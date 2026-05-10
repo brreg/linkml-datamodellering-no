@@ -22,8 +22,8 @@ Alias: laerling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  yes  |
 | [Person](person.md) | Fysiske private personar |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  yes  |
 
 
 
@@ -36,7 +36,7 @@ Alias: laerling
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Person](person.md), [Virksomhet](virksomhet.md) |
 | Slot URI | [fint:laerling](https://schema.fintlabs.no/laerling) |
 
@@ -64,7 +64,7 @@ Alias: laerling
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -74,7 +74,7 @@ Alias: laerling
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:laerling |
-| native | https://schema.fintlabs.no/okonomi/:laerling |
+| native | https://schema.fintlabs.no/:laerling |
 
 
 
@@ -85,8 +85,7 @@ Alias: laerling
 ```yaml
 name: laerling
 description: Referanse til Laerling (Utdanning).
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:laerling
 alias: laerling
 domain_of:

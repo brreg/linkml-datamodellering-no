@@ -35,11 +35,47 @@ URI: [fint:Landkode](https://schema.fintlabs.no/Landkode)
         
       Landkode : id
         
+          
+    
+        
+        
+        Landkode --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Landkode : kode
+        
+          
+    
+        
+        
+        Landkode --> "1" String : kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Landkode : navn
         
+          
+    
+        
+        
+        Landkode --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Landkode : passiv
+        
+          
+    
+        
+        
+        Landkode --> "0..1" Boolean : passiv
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
         
       
 ```
@@ -87,11 +123,11 @@ URI: [fint:Landkode](https://schema.fintlabs.no/Landkode)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Begrep](begrep.md) |
-| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet | [Begrep](begrep.md) |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for ressursen | [Begrep](begrep.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Begrep](begrep.md) |
+| [kode](kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Verdi som identifiserer omgrepet | [Begrep](begrep.md) |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Hovudnamn for ressursen | [Begrep](begrep.md) |
 | [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for | [Begrep](begrep.md) |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast | [Begrep](begrep.md) |
+| [passiv](passiv.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Angir at koden er passiv og ikkje kan veljast | [Begrep](begrep.md) |
 
 
 
@@ -124,7 +160,7 @@ URI: [fint:Landkode](https://schema.fintlabs.no/Landkode)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -134,7 +170,7 @@ URI: [fint:Landkode](https://schema.fintlabs.no/Landkode)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Landkode |
-| native | https://schema.fintlabs.no/personvern/:Landkode |
+| native | https://schema.fintlabs.no/:Landkode |
 
 
 
@@ -151,7 +187,7 @@ URI: [fint:Landkode](https://schema.fintlabs.no/Landkode)
 ```yaml
 name: Landkode
 description: Landskode i ISO 3166-1 alpha-2 format.
-from_schema: https://data.norge.no/linkml/fint-personvern
+from_schema: https://data.norge.no/linkml/fint-common
 is_a: Begrep
 class_uri: fint:Landkode
 
@@ -164,29 +200,28 @@ class_uri: fint:Landkode
 ```yaml
 name: Landkode
 description: Landskode i ISO 3166-1 alpha-2 format.
-from_schema: https://data.norge.no/linkml/fint-personvern
+from_schema: https://data.norge.no/linkml/fint-common
 is_a: Begrep
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Landkode
     domain_of:
-    - Behandling
-    - Samtykke
-    - Tjeneste
-    - Behandlingsgrunnlag
-    - Personopplysning
     - Begrep
     - Elev
     - Valuta
     - Person
     - Kontaktperson
     - Virksomhet
+    - Behandling
+    - Samtykke
+    - Tjeneste
+    - Behandlingsgrunnlag
+    - Personopplysning
     range: uriorcurie
     required: true
   kode:
@@ -194,15 +229,14 @@ attributes:
     description: Verdi som identifiserer omgrepet.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
     alias: kode
     owner: Landkode
     domain_of:
+    - Begrep
     - Behandlingsgrunnlag
     - Personopplysning
-    - Begrep
     range: string
     required: true
   navn:
@@ -210,16 +244,15 @@ attributes:
     description: Hovudnamn for ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
     alias: navn
     owner: Landkode
     domain_of:
+    - Begrep
     - Tjeneste
     - Behandlingsgrunnlag
     - Personopplysning
-    - Begrep
     range: string
     required: true
   gyldighetsperiode:
@@ -227,17 +260,16 @@ attributes:
     description: Periode ressursen er gyldig for.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: Landkode
     domain_of:
+    - Begrep
+    - Identifikator
     - Samtykke
     - Behandlingsgrunnlag
     - Personopplysning
-    - Begrep
-    - Identifikator
     range: Periode
     inlined: true
   passiv:
@@ -245,15 +277,14 @@ attributes:
     description: Angir at koden er passiv og ikkje kan veljast.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
     alias: passiv
     owner: Landkode
     domain_of:
+    - Begrep
     - Behandlingsgrunnlag
     - Personopplysning
-    - Begrep
     range: boolean
 class_uri: fint:Landkode
 

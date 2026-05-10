@@ -36,7 +36,7 @@ Alias: har_antall_aksjer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Aksjekapital](aksjekapital.md), [Aksjepost](aksjepost.md) |
 
 ### Cardinality and Requirements

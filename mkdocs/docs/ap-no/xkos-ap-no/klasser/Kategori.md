@@ -21,6 +21,15 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
     click Kategori href "../Kategori/"
       Kategori : anbefalt_term
         
+          
+    
+        
+        
+        Kategori --> "1..*" LangString : anbefalt_term
+        click LangString href "../LangString/"
+    
+
+        
       Kategori : er_eksklusivt_ekvivalent_med
         
           
@@ -67,7 +76,25 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
         
       Kategori : har_notat
         
+          
+    
+        
+        
+        Kategori --> "*" LangString : har_notat
+        click LangString href "../LangString/"
+    
+
+        
       Kategori : id
+        
+          
+    
+        
+        
+        Kategori --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Kategori : overordna_kategori
         
@@ -402,7 +429,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -577,12 +604,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kategori
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - Klassifikasjon
     - Klassifikasjonsnivaa
     - Kategori
@@ -590,9 +619,6 @@ attributes:
     - Kategorisamanlikning
     - Organisasjon
     - Tidsrom
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   anbefalt_term:
@@ -600,8 +626,7 @@ attributes:
     description: Føretrukke term/namn for ressursen (skos:prefLabel).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/xkos-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: skos:prefLabel
     alias: anbefalt_term
     owner: Kategori

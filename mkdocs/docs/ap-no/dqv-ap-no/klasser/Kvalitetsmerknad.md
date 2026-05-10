@@ -37,9 +37,36 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
         
       Kvalitetsmerknad : er_motivert_av
         
+          
+    
+        
+        
+        Kvalitetsmerknad --> "1" Uriorcurie : er_motivert_av
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kvalitetsmerknad : har_maal
         
+          
+    
+        
+        
+        Kvalitetsmerknad --> "0..1" Uri : har_maal
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kvalitetsmerknad : har_merknad
+        
+          
+    
+        
+        
+        Kvalitetsmerknad --> "*" LangString : har_merknad
+        click LangString href "../LangString/"
+    
+
         
       Kvalitetsmerknad : har_tekstdel
         
@@ -53,6 +80,15 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
         
       Kvalitetsmerknad : id
+        
+          
+    
+        
+        
+        Kvalitetsmerknad --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -107,7 +143,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [er_motivert_av](er_motivert_av.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Motivasjonen bak kvalitetsmerknaden (t |
+| [er_motivert_av](er_motivert_av.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Motivasjonen bak kvalitetsmerknaden (t |
 
 
 
@@ -175,7 +211,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [har_merknad](har_merknad.md) | * <br/> [LangString](langstring.md) | Fritekstmerknad (rdfs:comment) |
-| [har_maal](har_maal.md) | 0..1 <br/> [Uri](uri.md) | Ressursen merknaden gjeld |
+| [har_maal](har_maal.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Ressursen merknaden gjeld |
 
 
 
@@ -259,7 +295,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -389,18 +425,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsmerknad
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -417,6 +446,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
     required: true
   er_motivert_av:
@@ -469,8 +504,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
     alias: har_merknad
     owner: Kvalitetsmerknad

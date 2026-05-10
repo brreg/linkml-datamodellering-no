@@ -63,7 +63,7 @@ Alias: statsborgerskap
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: statsborgerskap
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:statsborgerskap |
-| native | https://schema.fintlabs.no/okonomi/:statsborgerskap |
+| native | https://schema.fintlabs.no/:statsborgerskap |
 
 
 
@@ -84,8 +84,7 @@ Alias: statsborgerskap
 ```yaml
 name: statsborgerskap
 description: Alle statsborgarskap personen har.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:statsborgerskap
 alias: statsborgerskap
 domain_of:

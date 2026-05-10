@@ -35,7 +35,7 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Aksjeeierrettighet](aksjeeierrettighet.md) |
 
 ### Cardinality and Requirements

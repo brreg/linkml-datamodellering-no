@@ -41,7 +41,25 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
         
       OrdensvurderingAbstrakt : id
         
+          
+    
+        
+        
+        OrdensvurderingAbstrakt --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       OrdensvurderingAbstrakt : kommentar
+        
+          
+    
+        
+        
+        OrdensvurderingAbstrakt --> "1" String : kommentar
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       OrdensvurderingAbstrakt : orden
         
@@ -66,6 +84,15 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
 
         
       OrdensvurderingAbstrakt : vurderingsdato
+        
+          
+    
+        
+        
+        OrdensvurderingAbstrakt --> "1" Datetime : vurderingsdato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
         
       
 ```
@@ -123,8 +150,8 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kommentar](kommentar.md) | 1 <br/> [String](string.md) | Kommentar |
-| [vurderingsdato](vurderingsdato.md) | 1 <br/> [Datetime](datetime.md) | Dato og tidspunkt for vurderinga |
+| [kommentar](kommentar.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Kommentar |
+| [vurderingsdato](vurderingsdato.md) | 1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og tidspunkt for vurderinga |
 
 
 
@@ -267,7 +294,7 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -394,12 +421,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: OrdensvurderingAbstrakt
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Gruppe
     - Gruppemedlemskap
     - Utdanningsforhold
@@ -445,12 +477,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   kommentar:

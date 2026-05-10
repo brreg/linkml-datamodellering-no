@@ -171,7 +171,7 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -181,7 +181,7 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Aktoer |
-| native | https://schema.fintlabs.no/okonomi/:Aktoer |
+| native | https://schema.fintlabs.no/:Aktoer |
 
 
 
@@ -198,7 +198,7 @@ URI: [fint:Aktoer](https://schema.fintlabs.no/Aktoer)
 ```yaml
 name: Aktoer
 description: Abstrakt base for person eller eining vi samhandlar med.
-from_schema: https://data.norge.no/linkml/fint-okonomi
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slots:
 - kontaktinformasjon
@@ -223,7 +223,7 @@ class_uri: fint:Aktoer
 ```yaml
 name: Aktoer
 description: Abstrakt base for person eller eining vi samhandlar med.
-from_schema: https://data.norge.no/linkml/fint-okonomi
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slot_usage:
   kontaktinformasjon:
@@ -240,8 +240,7 @@ attributes:
     description: Den føretrekte måten å kome i kontakt med ein aktør.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-okonomi
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kontaktinformasjon
     alias: kontaktinformasjon
     owner: Aktoer
@@ -255,8 +254,7 @@ attributes:
     description: Informasjon om postadresse til ein aktør.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-okonomi
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:postadresse
     alias: postadresse
     owner: Aktoer

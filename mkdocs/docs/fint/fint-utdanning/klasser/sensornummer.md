@@ -35,7 +35,7 @@ Alias: sensornummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Sensor](sensor.md) |
 | Slot URI | [utd:sensornummer](https://schema.fintlabs.no/utdanning/sensornummer) |
 

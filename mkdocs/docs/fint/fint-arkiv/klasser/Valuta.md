@@ -32,6 +32,15 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
         
       Valuta : id
         
+          
+    
+        
+        
+        Valuta --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Valuta : nummerkode
         
           
@@ -44,6 +53,15 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
 
         
       Valuta : valuta_navn
+        
+          
+    
+        
+        
+        Valuta --> "1" String : valuta_navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -92,7 +110,7 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [bokstavkode](bokstavkode.md) | 1 <br/> [Identifikator](identifikator.md) | Bokstavkode for aktuell valuta |
-| [valuta_navn](valuta_navn.md) | 1 <br/> [String](string.md) | Namn på valuta |
+| [valuta_navn](valuta_navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på valuta |
 | [nummerkode](nummerkode.md) | 1 <br/> [Identifikator](identifikator.md) | Nummerkode for aktuell valuta |
 
 
@@ -183,7 +201,7 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -211,7 +229,7 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -221,7 +239,7 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Valuta |
-| native | https://schema.fintlabs.no/arkiv/:Valuta |
+| native | https://schema.fintlabs.no/:Valuta |
 
 
 
@@ -238,7 +256,7 @@ URI: [fint:Valuta](https://schema.fintlabs.no/Valuta)
 ```yaml
 name: Valuta
 description: Valutakodar for offisielle valutaer.
-from_schema: https://data.norge.no/linkml/fint-arkiv
+from_schema: https://data.norge.no/linkml/fint-common
 slots:
 - id
 - bokstavkode
@@ -271,7 +289,7 @@ class_uri: fint:Valuta
 ```yaml
 name: Valuta
 description: Valutakodar for offisielle valutaer.
-from_schema: https://data.norge.no/linkml/fint-arkiv
+from_schema: https://data.norge.no/linkml/fint-common
 slot_usage:
   bokstavkode:
     name: bokstavkode
@@ -292,12 +310,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Valuta
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Mappe
     - Registrering
     - AdministrativEnhet
@@ -325,12 +348,6 @@ attributes:
     - Tilgangsrestriksjon
     - TilknyttetRegistreringSom
     - Variantformat
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   bokstavkode:
@@ -338,8 +355,7 @@ attributes:
     description: Bokstavkode for aktuell valuta.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:bokstavkode
     alias: bokstavkode
     owner: Valuta
@@ -353,8 +369,7 @@ attributes:
     description: Namn på valuta.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:valutaNavn
     alias: valuta_navn
     owner: Valuta
@@ -367,8 +382,7 @@ attributes:
     description: Nummerkode for aktuell valuta.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:nummerkode
     alias: nummerkode
     owner: Valuta

@@ -48,9 +48,36 @@ URI: [ark:Mappe](https://schema.fintlabs.no/arkiv/Mappe)
         
       Mappe : avsluttetDato
         
+          
+    
+        
+        
+        Mappe --> "0..1" Datetime : avsluttetDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
+        
       Mappe : beskrivelse
         
+          
+    
+        
+        
+        Mappe --> "0..1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Mappe : id
+        
+          
+    
+        
+        
+        Mappe --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Mappe : klasse
         
@@ -87,7 +114,25 @@ URI: [ark:Mappe](https://schema.fintlabs.no/arkiv/Mappe)
         
       Mappe : noekkelord
         
+          
+    
+        
+        
+        Mappe --> "*" String : noekkelord
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Mappe : offentligTittel
+        
+          
+    
+        
+        
+        Mappe --> "0..1" String : offentligTittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Mappe : opprettetAv
         
@@ -101,6 +146,15 @@ URI: [ark:Mappe](https://schema.fintlabs.no/arkiv/Mappe)
 
         
       Mappe : opprettetDato
+        
+          
+    
+        
+        
+        Mappe --> "0..1" Datetime : opprettetDato
+        click Datetime href "../http://www.w3.org/2001/XMLSchema#dateTime/"
+    
+
         
       Mappe : part
         
@@ -125,6 +179,15 @@ URI: [ark:Mappe](https://schema.fintlabs.no/arkiv/Mappe)
 
         
       Mappe : tittel
+        
+          
+    
+        
+        
+        Mappe --> "0..1" String : tittel
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -336,17 +399,17 @@ URI: [ark:Mappe](https://schema.fintlabs.no/arkiv/Mappe)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [avsluttetDato](avsluttetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett når arkivenheten vart avslutta/lukka |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn eller omtale |
+| [avsluttetDato](avsluttetdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett når arkivenheten vart avslutta/lukka |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Beskriven namn eller omtale |
 | [klasse](klasse.md) | * <br/> [Klasse](klasse.md) | Klassifisering av arkivenhet |
 | [mappeId](mappeid.md) | 0..1 <br/> [Identifikator](identifikator.md) | Eintydig identifikasjon av mappa innanfor arkivet |
 | [merknad](merknad.md) | * <br/> [Merknad](merknad.md) | Merknader knytt til arkivenhet |
-| [noekkelord](noekkelord.md) | * <br/> [String](string.md) | Nøkkelord som skildrar innhaldet (Mappe) |
-| [offentligTittel](offentligtittel.md) | 0..1 <br/> [String](string.md) | Offentleg tittel der skjerma ord er fjerna |
-| [opprettetDato](opprettetdato.md) | 0..1 <br/> [Datetime](datetime.md) | Dato og klokkeslett arkivenheten vart oppretta/registrert |
+| [noekkelord](noekkelord.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Nøkkelord som skildrar innhaldet (Mappe) |
+| [offentligTittel](offentligtittel.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Offentleg tittel der skjerma ord er fjerna |
+| [opprettetDato](opprettetdato.md) | 0..1 <br/> [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) | Dato og klokkeslett arkivenheten vart oppretta/registrert |
 | [part](part.md) | * <br/> [Part](part.md) | Partar til arkivenhet |
 | [skjerming](skjerming.md) | 0..1 <br/> [Skjerming](skjerming.md) | Skjerming av arkivenhet |
-| [tittel](tittel.md) | 0..1 <br/> [String](string.md) | Tittel eller namn på arkivenheten |
+| [tittel](tittel.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tittel eller namn på arkivenheten |
 | [arkivdel](arkivdel.md) | 0..1 <br/> [Arkivdel](arkivdel.md) | Arkivdel arkivenheten tilhøyrer |
 | [avsluttetAv](avsluttetav.md) | 0..1 <br/> [Arkivressurs](arkivressurs.md) | Person som avslutta/lukka arkivenheten |
 
@@ -549,7 +612,7 @@ URI: [ark:Mappe](https://schema.fintlabs.no/arkiv/Mappe)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -761,12 +824,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Mappe
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Mappe
     - Registrering
     - AdministrativEnhet
@@ -794,12 +862,6 @@ attributes:
     - Tilgangsrestriksjon
     - TilknyttetRegistreringSom
     - Variantformat
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   avsluttetDato:
@@ -821,17 +883,16 @@ attributes:
     description: Beskriven namn eller omtale.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-arkiv
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
     alias: beskrivelse
     owner: Mappe
     domain_of:
+    - Periode
     - Mappe
     - Registrering
     - Klassifikasjonssystem
     - Dokumentbeskrivelse
-    - Periode
     range: string
   klasse:
     name: klasse

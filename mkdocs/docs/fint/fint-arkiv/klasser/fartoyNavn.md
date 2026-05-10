@@ -35,7 +35,7 @@ Alias: fartoyNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [TilskuddFartoy](tilskuddfartoy.md) |
 | Slot URI | [ark:fartoyNavn](https://schema.fintlabs.no/arkiv/fartoyNavn) |
 

@@ -35,7 +35,7 @@ Alias: frekvens
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasettserie](datasettserie.md) |
 | Slot URI | [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity) |
 

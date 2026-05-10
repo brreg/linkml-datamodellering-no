@@ -36,7 +36,7 @@ Alias: slettet
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Behandling](behandling.md), [Tjeneste](tjeneste.md) |
 | Slot URI | [pvn:slettet](https://schema.fintlabs.no/personvern/slettet) |
 

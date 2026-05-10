@@ -45,11 +45,47 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
         
       Begrep : id
         
+          
+    
+        
+        
+        Begrep --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Begrep : kode
+        
+          
+    
+        
+        
+        Begrep --> "1" String : kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Begrep : navn
         
+          
+    
+        
+        
+        Begrep --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Begrep : passiv
+        
+          
+    
+        
+        
+        Begrep --> "0..1" Boolean : passiv
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
         
       
 ```
@@ -106,8 +142,8 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for ressursen |
+| [kode](kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Verdi som identifiserer omgrepet |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Hovudnamn for ressursen |
 
 
 
@@ -157,7 +193,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast |
+| [passiv](passiv.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Angir at koden er passiv og ikkje kan veljast |
 
 
 
@@ -228,7 +264,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -256,7 +292,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -266,7 +302,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Begrep |
-| native | https://schema.fintlabs.no/ressurs/:Begrep |
+| native | https://schema.fintlabs.no/:Begrep |
 
 
 
@@ -283,7 +319,7 @@ URI: [fint:Begrep](https://schema.fintlabs.no/Begrep)
 ```yaml
 name: Begrep
 description: Abstrakt fellesbase for alle FINT-kodeverk.
-from_schema: https://data.norge.no/linkml/fint-ressurs
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slots:
 - id
@@ -321,7 +357,7 @@ class_uri: fint:Begrep
 ```yaml
 name: Begrep
 description: Abstrakt fellesbase for alle FINT-kodeverk.
-from_schema: https://data.norge.no/linkml/fint-ressurs
+from_schema: https://data.norge.no/linkml/fint-common
 abstract: true
 slot_usage:
   kode:
@@ -346,12 +382,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-ressurs
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Begrep
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Applikasjon
     - Applikasjonsressurs
     - Applikasjonsressurstilgjengelighet
@@ -368,12 +409,6 @@ attributes:
     - Plattform
     - Produsent
     - Status
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   kode:
@@ -381,12 +416,12 @@ attributes:
     description: Verdi som identifiserer omgrepet.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-ressurs
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
     alias: kode
     owner: Begrep
     domain_of:
+    - Begrep
     - Rettighet
     - Applikasjonskategori
     - Brukertype
@@ -396,7 +431,6 @@ attributes:
     - Plattform
     - Produsent
     - Status
-    - Begrep
     range: string
     required: true
   navn:
@@ -404,12 +438,12 @@ attributes:
     description: Hovudnamn for ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-ressurs
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
     alias: navn
     owner: Begrep
     domain_of:
+    - Begrep
     - Applikasjon
     - Applikasjonsressurs
     - DigitalEnhet
@@ -423,7 +457,6 @@ attributes:
     - Plattform
     - Produsent
     - Status
-    - Begrep
     range: string
     required: true
   gyldighetsperiode:
@@ -431,12 +464,13 @@ attributes:
     description: Periode ressursen er gyldig for.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-ressurs
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: Begrep
     domain_of:
+    - Begrep
+    - Identifikator
     - Applikasjon
     - Applikasjonsressurs
     - Applikasjonsressurstilgjengelighet
@@ -449,8 +483,6 @@ attributes:
     - Plattform
     - Produsent
     - Status
-    - Begrep
-    - Identifikator
     range: Periode
     inlined: true
   passiv:
@@ -458,12 +490,12 @@ attributes:
     description: Angir at koden er passiv og ikkje kan veljast.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-ressurs
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
     alias: passiv
     owner: Begrep
     domain_of:
+    - Begrep
     - Rettighet
     - Applikasjonskategori
     - Brukertype
@@ -473,7 +505,6 @@ attributes:
     - Plattform
     - Produsent
     - Status
-    - Begrep
     range: boolean
 class_uri: fint:Begrep
 

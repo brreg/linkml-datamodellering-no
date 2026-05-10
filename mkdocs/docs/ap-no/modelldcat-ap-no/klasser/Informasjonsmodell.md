@@ -32,6 +32,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
         
       Informasjonsmodell : beskrivelse
         
+          
+    
+        
+        
+        Informasjonsmodell --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Informasjonsmodell : dekningsomraade
         
           
@@ -44,6 +53,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
         
       Informasjonsmodell : endringsdato
+        
+          
+    
+        
+        
+        Informasjonsmodell --> "0..1" Date : endringsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       Informasjonsmodell : er_del_av_modell
         
@@ -124,13 +142,58 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
         
       Informasjonsmodell : har_versjonsnummer
         
+          
+    
+        
+        
+        Informasjonsmodell --> "0..1" String : har_versjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Informasjonsmodell : heimeside
+        
+          
+    
+        
+        
+        Informasjonsmodell --> "*" Uri : heimeside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Informasjonsmodell : id
         
+          
+    
+        
+        
+        Informasjonsmodell --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Informasjonsmodell : identifikator_literal
         
+          
+    
+        
+        
+        Informasjonsmodell --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Informasjonsmodell : informasjonsmodellidentifikator
+        
+          
+    
+        
+        
+        Informasjonsmodell --> "0..1" String : informasjonsmodellidentifikator
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Informasjonsmodell : inneholder_modellelement
         
@@ -167,6 +230,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
         
       Informasjonsmodell : nokkelord
         
+          
+    
+        
+        
+        Informasjonsmodell --> "*" LangString : nokkelord
+        click LangString href "../LangString/"
+    
+
+        
       Informasjonsmodell : skapar
         
           
@@ -179,6 +251,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
         
       Informasjonsmodell : spraak
+        
+          
+    
+        
+        
+        Informasjonsmodell --> "*" Spraak : spraak
+        click Spraak href "../Spraak/"
+    
+
         
       Informasjonsmodell : status
         
@@ -215,6 +296,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
         
       Informasjonsmodell : tittel
         
+          
+    
+        
+        
+        Informasjonsmodell --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
+        
       Informasjonsmodell : type_concept
         
           
@@ -228,6 +318,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
         
       Informasjonsmodell : utgivelsesdato
         
+          
+    
+        
+        
+        Informasjonsmodell --> "0..1" Date : utgivelsesdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Informasjonsmodell : utgiver
         
           
@@ -240,6 +339,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
         
       Informasjonsmodell : versjonsmerknad
+        
+          
+    
+        
+        
+        Informasjonsmodell --> "*" LangString : versjonsmerknad
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -483,8 +591,8 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 | --- | --- | --- |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
 | [beskrivelse](beskrivelse.md) | * <br/> [LangString](langstring.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [informasjonsmodellidentifikator](informasjonsmodellidentifikator.md) | 0..1 <br/> [String](string.md) | Identifikator for informasjonsmodellen i domenet (modelldcatno:informationMod... |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [informasjonsmodellidentifikator](informasjonsmodellidentifikator.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Identifikator for informasjonsmodellen i domenet (modelldcatno:informationMod... |
 | [inneholder_modellelement](inneholder_modellelement.md) | * <br/> [Modellelement](modellelement.md) | Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelE... |
 | [kontaktpunkt](kontaktpunkt.md) | * <br/> [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ressursen (dcat:contactPoint) |
 | [lisens](lisens.md) | 0..1 <br/> [Lisensdokument](lisensdokument.md) | Lisens for bruk av ressursen (dct:license) |
@@ -628,7 +736,7 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [dekningsomraade](dekningsomraade.md) | * <br/> [Konsept](konsept.md) | Geografisk dekningsområde (dct:spatial) |
-| [endringsdato](endringsdato.md) | 0..1 <br/> [Date](date.md) | Dato for siste endring av ressursen (dct:modified) |
+| [endringsdato](endringsdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato for siste endring av ressursen (dct:modified) |
 | [er_del_av_modell](er_del_av_modell.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Overordna informasjonsmodell (dct:isPartOf) |
 | [er_profil_av](er_profil_av.md) | * <br/> [Standard](standard.md) | Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf) |
 | [er_erstatta_av](er_erstatta_av.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Informasjonsmodell som erstattar denne (dct:isReplacedBy) |
@@ -636,15 +744,15 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 | [har_del_modell](har_del_modell.md) | * <br/> [Informasjonsmodell](informasjonsmodell.md) | Del-informasjonsmodell av denne modellen (dct:hasPart) |
 | [har_format](har_format.md) | * <br/> [Dokument](dokument.md) | Dokument som representerer ein annan form av modellen (dct:hasFormat) |
 | [tidsperiode](tidsperiode.md) | * <br/> [Tidsperiode](tidsperiode.md) | Tidsperiode ressursen dekkar (dct:temporal) |
-| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [heimeside](heimeside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
 | [er_i_samsvar_med](er_i_samsvar_med.md) | * <br/> [Standard](standard.md) | Standard ressursen er i samsvar med (dct:conformsTo) |
 | [status](status.md) | 0..1 <br/> [Konsept](konsept.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
 | [nokkelord](nokkelord.md) | * <br/> [LangString](langstring.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
 | [skapar](skapar.md) | 0..1 <br/> [Aktor](aktor.md) | Aktøren som primært har skapt ressursen (dct:creator) |
 | [spraak](spraak.md) | * <br/> [Spraak](spraak.md) | Språk brukt i ressursen (dct:language) |
 | [type_concept](type_concept.md) | 0..1 <br/> [Konsept](konsept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
-| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [Date](date.md) | Dato ressursen vart første gong publisert (dct:issued) |
-| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [String](string.md) | Versjonsnummer for ressursen (owl:versionInfo) |
+| [utgivelsesdato](utgivelsesdato.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato ressursen vart første gong publisert (dct:issued) |
+| [har_versjonsnummer](har_versjonsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Versjonsnummer for ressursen (owl:versionInfo) |
 | [versjonsmerknad](versjonsmerknad.md) | * <br/> [LangString](langstring.md) | Merknad om endringar i denne versjonen (adms:versionNotes) |
 
 
@@ -1041,7 +1149,7 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -1393,12 +1501,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Informasjonsmodell
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -1413,9 +1523,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -1423,8 +1530,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Informasjonsmodell
@@ -1476,8 +1582,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Informasjonsmodell
@@ -1493,8 +1598,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Informasjonsmodell
@@ -1583,8 +1687,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
     alias: dekningsomraade
     owner: Informasjonsmodell
@@ -1597,8 +1700,7 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
     alias: endringsdato
     owner: Informasjonsmodell
@@ -1709,8 +1811,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
     alias: heimeside
     owner: Informasjonsmodell
@@ -1738,8 +1839,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
     alias: status
     owner: Informasjonsmodell
@@ -1751,8 +1851,7 @@ attributes:
     description: Nøkkelord som beskriv ressursen (dcat:keyword).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dcat:keyword
     alias: nokkelord
     owner: Informasjonsmodell
@@ -1778,8 +1877,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
     alias: spraak
     owner: Informasjonsmodell
@@ -1794,8 +1892,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: Informasjonsmodell
@@ -1809,8 +1906,7 @@ attributes:
     description: Dato ressursen vart første gong publisert (dct:issued).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
     alias: utgivelsesdato
     owner: Informasjonsmodell
@@ -1823,8 +1919,7 @@ attributes:
     description: Versjonsnummer for ressursen (owl:versionInfo).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
     alias: har_versjonsnummer
     owner: Informasjonsmodell
@@ -1837,8 +1932,7 @@ attributes:
     description: Merknad om endringar i denne versjonen (adms:versionNotes).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:versionNotes
     alias: versjonsmerknad
     owner: Informasjonsmodell

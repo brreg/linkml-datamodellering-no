@@ -35,7 +35,7 @@ Alias: avgiftsbelop
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Fakturagrunnlag](fakturagrunnlag.md) |
 | Slot URI | [okn:avgiftsbelop](https://schema.fintlabs.no/okonomi/avgiftsbelop) |
 

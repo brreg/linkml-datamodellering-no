@@ -24,9 +24,36 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
       
       Tettsted : id
         
+          
+    
+        
+        
+        Tettsted --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Tettsted : namn
         
+          
+    
+        
+        
+        Tettsted --> "0..1" String : namn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Tettsted : tettstedsnummer
+        
+          
+    
+        
+        
+        Tettsted --> "0..1" String : tettstedsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -89,7 +116,7 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tettstedsnummer](tettstedsnummer.md) | 0..1 <br/> [String](string.md) | SSB-tettstedsnummer |
+| [tettstedsnummer](tettstedsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | SSB-tettstedsnummer |
 
 
 
@@ -97,8 +124,8 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 

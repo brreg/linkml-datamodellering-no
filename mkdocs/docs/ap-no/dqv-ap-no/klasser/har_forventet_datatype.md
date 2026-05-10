@@ -35,7 +35,7 @@ Alias: har_forventet_datatype
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Kvalitetsmaal](kvalitetsmaal.md) |
 | Slot URI | [dqv:expectedDataType](http://www.w3.org/ns/dqv#expectedDataType) |
 

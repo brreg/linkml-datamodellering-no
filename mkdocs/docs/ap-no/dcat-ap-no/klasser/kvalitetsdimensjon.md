@@ -24,9 +24,36 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
       
       Kvalitetsdimensjon : har_anbefalt_term
         
+          
+    
+        
+        
+        Kvalitetsdimensjon --> "*" LangString : har_anbefalt_term
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdimensjon : har_definisjon
         
+          
+    
+        
+        
+        Kvalitetsdimensjon --> "*" LangString : har_definisjon
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdimensjon : id
+        
+          
+    
+        
+        
+        Kvalitetsdimensjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -145,7 +172,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -184,7 +211,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -194,7 +221,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:Dimension |
-| native | https://data.norge.no/linkml/dcat-ap-no/Kvalitetsdimensjon |
+| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon |
 
 
 
@@ -211,7 +238,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 ```yaml
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slots:
 - id
 - har_anbefalt_term
@@ -236,7 +263,7 @@ class_uri: dqv:Dimension
 ```yaml
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_usage:
   har_anbefalt_term:
     name: har_anbefalt_term
@@ -250,12 +277,20 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsdimensjon
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -269,15 +304,6 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
-    - Mediatype
-    - Konsept
-    - Begrepssamling
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     range: uriorcurie
     required: true
   har_anbefalt_term:
@@ -285,8 +311,7 @@ attributes:
     description: Føretrekt term/namn for dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:prefLabel
     alias: har_anbefalt_term
     owner: Kvalitetsdimensjon
@@ -300,8 +325,7 @@ attributes:
     description: Definisjon av dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:definition
     alias: har_definisjon
     owner: Kvalitetsdimensjon

@@ -53,6 +53,15 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
         
       Enhet : organisasjonsnavn
         
+          
+    
+        
+        
+        Enhet --> "0..1" String : organisasjonsnavn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Enhet : organisasjonsnummer
         
           
@@ -150,7 +159,7 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [forretningsadresse](forretningsadresse.md) | 0..1 <br/> [Adresse](adresse.md) | Besøksadresse til ein organisasjonseining |
-| [organisasjonsnavn](organisasjonsnavn.md) | 0..1 <br/> [String](string.md) | Namn på eining registrert i Einingsregisteret |
+| [organisasjonsnavn](organisasjonsnavn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på eining registrert i Einingsregisteret |
 | [organisasjonsnummer](organisasjonsnummer.md) | 0..1 <br/> [Identifikator](identifikator.md) | Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret |
 
 
@@ -229,7 +238,7 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -239,7 +248,7 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Enhet |
-| native | https://schema.fintlabs.no/administrasjon/:Enhet |
+| native | https://schema.fintlabs.no/:Enhet |
 
 
 
@@ -257,7 +266,7 @@ URI: [fint:Enhet](https://schema.fintlabs.no/Enhet)
 name: Enhet
 description: Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd
   identifisert med organisasjonsnummer.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
+from_schema: https://data.norge.no/linkml/fint-common
 is_a: Aktoer
 abstract: true
 slots:
@@ -289,7 +298,7 @@ class_uri: fint:Enhet
 name: Enhet
 description: Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd
   identifisert med organisasjonsnummer.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
+from_schema: https://data.norge.no/linkml/fint-common
 is_a: Aktoer
 abstract: true
 slot_usage:
@@ -311,15 +320,14 @@ attributes:
     description: Besøksadresse til ein organisasjonseining.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:forretningsadresse
     alias: forretningsadresse
     owner: Enhet
     domain_of:
+    - Enhet
     - Arbeidslokasjon
     - Organisasjonselement
-    - Enhet
     range: Adresse
     inlined: true
   organisasjonsnavn:
@@ -327,30 +335,28 @@ attributes:
     description: Namn på eining registrert i Einingsregisteret.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnavn
     alias: organisasjonsnavn
     owner: Enhet
     domain_of:
+    - Enhet
     - Arbeidslokasjon
     - Organisasjonselement
-    - Enhet
     range: string
   organisasjonsnummer:
     name: organisasjonsnummer
     description: Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnummer
     alias: organisasjonsnummer
     owner: Enhet
     domain_of:
+    - Enhet
     - Arbeidslokasjon
     - Organisasjonselement
-    - Enhet
     range: Identifikator
     inlined: true
   kontaktinformasjon:
@@ -358,17 +364,16 @@ attributes:
     description: Den føretrekte måten å kome i kontakt med ein aktør.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kontaktinformasjon
     alias: kontaktinformasjon
     owner: Enhet
     domain_of:
+    - Aktoer
+    - Kontaktperson
     - Arbeidslokasjon
     - Organisasjonselement
     - Personalressurs
-    - Aktoer
-    - Kontaktperson
     range: Kontaktinformasjon
     inlined: true
   postadresse:
@@ -376,15 +381,14 @@ attributes:
     description: Informasjon om postadresse til ein aktør.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:postadresse
     alias: postadresse
     owner: Enhet
     domain_of:
+    - Aktoer
     - Arbeidslokasjon
     - Organisasjonselement
-    - Aktoer
     range: Adresse
     inlined: true
 class_uri: fint:Enhet

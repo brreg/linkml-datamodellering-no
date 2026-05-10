@@ -35,7 +35,7 @@ Alias: er_falsk
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [FalskIdentitet](falskidentitet.md) |
 | Slot URI | [ngrp:erFalsk](https://data.norge.no/vocabulary/ngr-person#erFalsk) |
 

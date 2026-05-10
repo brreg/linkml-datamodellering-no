@@ -21,11 +21,47 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
     click InnflyttingTilNorge href "../InnflyttingTilNorge/"
       InnflyttingTilNorge : fraflyttingsland
         
+          
+    
+        
+        
+        InnflyttingTilNorge --> "0..1" String : fraflyttingsland
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       InnflyttingTilNorge : fraflyttingssted_i_utlandet
+        
+          
+    
+        
+        
+        InnflyttingTilNorge --> "0..1" String : fraflyttingssted_i_utlandet
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       InnflyttingTilNorge : id
         
+          
+    
+        
+        
+        InnflyttingTilNorge --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       InnflyttingTilNorge : innflyttingsdato
+        
+          
+    
+        
+        
+        InnflyttingTilNorge --> "1" Date : innflyttingsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -69,7 +105,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [innflyttingsdato](innflyttingsdato.md) | 1 <br/> [Date](date.md) | Dato personen vart registrert innflytta til Noreg |
+| [innflyttingsdato](innflyttingsdato.md) | 1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato personen vart registrert innflytta til Noreg |
 
 
 
@@ -94,7 +130,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fraflyttingsland](fraflyttingsland.md) | 0..1 <br/> [String](string.md) | ISO 3166-1 landkode for landet personen flytta frå |
+| [fraflyttingsland](fraflyttingsland.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | ISO 3166-1 landkode for landet personen flytta frå |
 
 
 
@@ -119,7 +155,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fraflyttingssted_i_utlandet](fraflyttingssted_i_utlandet.md) | 0..1 <br/> [String](string.md) | Stad i utlandet personen flytta frå |
+| [fraflyttingssted_i_utlandet](fraflyttingssted_i_utlandet.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Stad i utlandet personen flytta frå |
 
 
 
@@ -177,7 +213,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

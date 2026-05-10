@@ -21,7 +21,25 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
     click Kodeelement href "../Kodeelement/"
       Kodeelement : alternativ_term
         
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : alternativ_term
+        click LangString href "../LangString/"
+    
+
+        
       Kodeelement : anbefalt_term
+        
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : anbefalt_term
+        click LangString href "../LangString/"
+    
+
         
       Kodeelement : begrep
         
@@ -36,9 +54,36 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
         
       Kodeelement : definisjon
         
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : definisjon
+        click LangString href "../LangString/"
+    
+
+        
       Kodeelement : eksempel_kode
         
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : eksempel_kode
+        click LangString href "../LangString/"
+    
+
+        
       Kodeelement : eksklusjonsnotat
+        
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : eksklusjonsnotat
+        click LangString href "../LangString/"
+    
+
         
       Kodeelement : forrige
         
@@ -64,9 +109,36 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
         
       Kodeelement : id
         
+          
+    
+        
+        
+        Kodeelement --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kodeelement : identifikator_literal
         
+          
+    
+        
+        
+        Kodeelement --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kodeelement : inklusjonsnotat
+        
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : inklusjonsnotat
+        click LangString href "../LangString/"
+    
+
         
       Kodeelement : neste
         
@@ -81,11 +153,47 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
         
       Kodeelement : notasjon
         
+          
+    
+        
+        
+        Kodeelement --> "1" String : notasjon
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kodeelement : notat
+        
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : notat
+        click LangString href "../LangString/"
+    
+
         
       Kodeelement : omfangsnotat
         
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : omfangsnotat
+        click LangString href "../LangString/"
+    
+
+        
       Kodeelement : skjult_term
+        
+          
+    
+        
+        
+        Kodeelement --> "*" LangString : skjult_term
+        click LangString href "../LangString/"
+    
+
         
       Kodeelement : topp_begrep_av
         
@@ -182,7 +290,7 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [i_skjema](i_skjema.md) | 1..* <br/> [Kodeliste](kodeliste.md) | Kodeliste dette kodeelementet tilhøyrer (skos:inScheme) |
-| [notasjon](notasjon.md) | 1 <br/> [String](string.md) | Kode/notasjon for kodeelementet (skos:notation) |
+| [notasjon](notasjon.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Kode/notasjon for kodeelementet (skos:notation) |
 
 
 
@@ -254,7 +362,7 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 | --- | --- | --- |
 | [anbefalt_term](anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [topp_begrep_av](topp_begrep_av.md) | * <br/> [Kodeliste](kodeliste.md) | Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConceptOf) |
 
 
@@ -477,7 +585,7 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 | [definisjon](definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av kodeelementet (skos:definition) |
 | [eksempel_kode](eksempel_kode.md) | * <br/> [LangString](langstring.md) | Eksempel på bruk av kodeelementet (skos:example) |
 | [eksklusjonsnotat](eksklusjonsnotat.md) | * <br/> [LangString](langstring.md) | Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNote) |
@@ -639,12 +747,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kodeelement
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -659,9 +769,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   i_skjema:
@@ -698,8 +805,7 @@ attributes:
     description: Føretrukke term/namn for ressursen (skos:prefLabel).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: skos:prefLabel
     alias: anbefalt_term
     owner: Kodeelement
@@ -729,8 +835,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Kodeelement

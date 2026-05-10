@@ -35,7 +35,7 @@ Alias: krediteringsurl
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:attributionURL](http://schema.theodi.org/odrs#attributionURL) |
 

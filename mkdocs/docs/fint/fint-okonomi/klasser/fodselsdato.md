@@ -35,7 +35,7 @@ Alias: fodselsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Person](person.md) |
 | Slot URI | [fint:fodselsdato](https://schema.fintlabs.no/fodselsdato) |
 
@@ -62,7 +62,7 @@ Alias: fodselsdato
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: fodselsdato
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:fodselsdato |
-| native | https://schema.fintlabs.no/okonomi/:fodselsdato |
+| native | https://schema.fintlabs.no/:fodselsdato |
 
 
 
@@ -83,8 +83,7 @@ Alias: fodselsdato
 ```yaml
 name: fodselsdato
 description: Dato for fødsel.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fodselsdato
 alias: fodselsdato
 domain_of:

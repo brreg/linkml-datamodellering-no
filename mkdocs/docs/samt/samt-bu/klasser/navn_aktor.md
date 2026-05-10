@@ -63,7 +63,7 @@ Alias: navn_aktor
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: navn_aktor
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:name |
-| native | samtbuskole:navn_aktor |
+| native | https://data.norge.no/linkml/dcat-ap-no/navn_aktor |
 
 
 
@@ -84,8 +84,7 @@ Alias: navn_aktor
 ```yaml
 name: navn_aktor
 description: Namn på aktøren.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: foaf:name
 alias: navn_aktor
 domain_of:

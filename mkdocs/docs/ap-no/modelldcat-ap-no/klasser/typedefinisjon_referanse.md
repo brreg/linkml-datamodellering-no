@@ -35,7 +35,7 @@ Alias: typedefinisjon_referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [EnkelType](enkeltype.md) |
 | Slot URI | [modelldcatno:typeDefinitionReference](https://data.norge.no/vocabulary/modelldcatno#typeDefinitionReference) |
 

@@ -62,7 +62,7 @@ Alias: kontaktperson_navn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: kontaktperson_navn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:kontaktpersonNavn |
-| native | https://schema.fintlabs.no/personvern/:kontaktperson_navn |
+| native | https://schema.fintlabs.no/:kontaktperson_navn |
 
 
 
@@ -83,8 +83,7 @@ Alias: kontaktperson_navn
 ```yaml
 name: kontaktperson_navn
 description: Namn på kontaktpersonen.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kontaktpersonNavn
 alias: kontaktperson_navn
 domain_of:

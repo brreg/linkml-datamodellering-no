@@ -35,7 +35,7 @@ Alias: avbruddsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Elevforhold](elevforhold.md) |
 | Slot URI | [utd:avbruddsdato](https://schema.fintlabs.no/utdanning/avbruddsdato) |
 

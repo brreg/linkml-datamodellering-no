@@ -21,6 +21,15 @@ URI: [ngre:Bruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruks
     click Bruksenhetsnummer href "../Bruksenhetsnummer/"
       Bruksenhetsnummer : etasjenummer
         
+          
+    
+        
+        
+        Bruksenhetsnummer --> "1" Integer : etasjenummer
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Bruksenhetsnummer : etasjeplan
         
           
@@ -34,7 +43,25 @@ URI: [ngre:Bruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruks
         
       Bruksenhetsnummer : id
         
+          
+    
+        
+        
+        Bruksenhetsnummer --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Bruksenhetsnummer : nummerering_i_etasjen
+        
+          
+    
+        
+        
+        Bruksenhetsnummer --> "1" Integer : nummerering_i_etasjen
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       
 ```
@@ -83,8 +110,8 @@ URI: [ngre:Bruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruks
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [etasjeplan](etasjeplan.md) | 1 <br/> [Etasjeplan](etasjeplan.md) | Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M) |
-| [etasjenummer](etasjenummer.md) | 1 <br/> [Integer](integer.md) | Etasjenummer (t |
-| [nummerering_i_etasjen](nummerering_i_etasjen.md) | 1 <br/> [Integer](integer.md) | Løpenummer for brukseininga innanfor etasjen |
+| [etasjenummer](etasjenummer.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Etasjenummer (t |
+| [nummerering_i_etasjen](nummerering_i_etasjen.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Løpenummer for brukseininga innanfor etasjen |
 
 
 
@@ -174,7 +201,7 @@ URI: [ngre:Bruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruks
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

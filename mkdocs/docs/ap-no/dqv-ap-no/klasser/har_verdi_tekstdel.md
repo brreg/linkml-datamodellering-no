@@ -35,7 +35,7 @@ Alias: har_verdi_tekstdel
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Tekstdel](tekstdel.md) |
 | Slot URI | [rdfs:value](http://www.w3.org/2000/01/rdf-schema#value) |
 

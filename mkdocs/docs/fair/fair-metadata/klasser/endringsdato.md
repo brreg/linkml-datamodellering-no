@@ -35,7 +35,7 @@ Alias: endringsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Proveniensmetadata](proveniensmetadata.md) |
 | Slot URI | [dct:modified](http://purl.org/dc/terms/modified) |
 

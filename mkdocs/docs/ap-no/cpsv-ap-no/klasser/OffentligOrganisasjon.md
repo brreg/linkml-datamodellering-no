@@ -57,13 +57,58 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
         
       OffentligOrganisasjon : foretrekt_namn
         
+          
+    
+        
+        
+        OffentligOrganisasjon --> "1..*" LangString : foretrekt_namn
+        click LangString href "../LangString/"
+    
+
+        
       OffentligOrganisasjon : heimeside
+        
+          
+    
+        
+        
+        OffentligOrganisasjon --> "*" Uri : heimeside
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       OffentligOrganisasjon : id
         
+          
+    
+        
+        
+        OffentligOrganisasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       OffentligOrganisasjon : identifikator_literal
         
+          
+    
+        
+        
+        OffentligOrganisasjon --> "1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       OffentligOrganisasjon : tittel
+        
+          
+    
+        
+        
+        OffentligOrganisasjon --> "1..*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       OffentligOrganisasjon : type_concept
         
@@ -175,7 +220,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [heimeside](heimeside.md) | * <br/> [Uri](uri.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
+| [heimeside](heimeside.md) | * <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
 
 
 
@@ -240,9 +285,9 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Aktor](aktor.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Aktor](aktor.md) |
 | [tittel](tittel.md) | 1..* <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) | [Aktor](aktor.md) |
-| [identifikator_literal](identifikator_literal.md) | 1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) | [Aktor](aktor.md) |
+| [identifikator_literal](identifikator_literal.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) | [Aktor](aktor.md) |
 | [adresse_ref](adresse_ref.md) | 0..1 <br/> [Adresse](adresse.md) | Postadresse knytt til aktøren | [Aktor](aktor.md) |
 | [deltek_i](deltek_i.md) | * <br/> [Deltagelse](deltagelse.md) | Deltakingar aktøren er del av | [Aktor](aktor.md) |
 
@@ -390,8 +435,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
     alias: dekningsomraade
     owner: OffentligOrganisasjon
@@ -408,8 +452,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
     alias: heimeside
     owner: OffentligOrganisasjon
@@ -425,8 +468,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
     alias: type_concept
     owner: OffentligOrganisasjon
@@ -443,12 +485,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: OffentligOrganisasjon
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -464,9 +508,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   tittel:
@@ -474,8 +515,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: OffentligOrganisasjon
@@ -498,8 +538,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: OffentligOrganisasjon

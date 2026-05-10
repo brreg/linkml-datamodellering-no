@@ -22,8 +22,8 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 | [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  yes  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 
 
 
@@ -37,7 +37,7 @@ Alias: person
 | Property | Value |
 | --- | --- |
 | Range | [Person](person.md) |
-| Domain Of | [Samtykke](samtykke.md), [Elev](elev.md) |
+| Domain Of | [Elev](elev.md), [Samtykke](samtykke.md) |
 | Slot URI | [fint:person](https://schema.fintlabs.no/person) |
 
 ### Cardinality and Requirements
@@ -63,7 +63,7 @@ Alias: person
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: person
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:person |
-| native | https://schema.fintlabs.no/personvern/:person |
+| native | https://schema.fintlabs.no/:person |
 
 
 
@@ -84,13 +84,12 @@ Alias: person
 ```yaml
 name: person
 description: Referanse til Person i Administrasjon-domenet.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:person
 alias: person
 domain_of:
-- Samtykke
 - Elev
+- Samtykke
 range: Person
 
 ```

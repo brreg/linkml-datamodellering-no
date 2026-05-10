@@ -23,8 +23,8 @@ Alias: identifikatornummer
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [DNummer](dnummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |  yes  |
-| [Personidentifikasjon](personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |  yes  |
 | [Foedselsnummer](foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |  yes  |
+| [Personidentifikasjon](personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |  yes  |
 | [Folkeregisteridentifikator](folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |  no  |
 
 
@@ -38,7 +38,7 @@ Alias: identifikatornummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Folkeregisteridentifikator](folkeregisteridentifikator.md), [Personidentifikasjon](personidentifikasjon.md) |
 | Slot URI | [ngrp:identifikatornummer](https://data.norge.no/vocabulary/ngr-person#identifikatornummer) |
 

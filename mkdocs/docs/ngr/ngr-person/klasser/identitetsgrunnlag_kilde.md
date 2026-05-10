@@ -35,7 +35,7 @@ Alias: identitetsgrunnlag_kilde
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Identitetsgrunnlag](identitetsgrunnlag.md) |
 | Slot URI | [ngrp:identitetsgrunnlagKilde](https://data.norge.no/vocabulary/ngr-person#identitetsgrunnlagKilde) |
 

@@ -36,7 +36,7 @@ Alias: kommunenummer_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kommunenummer](kommunenummer.md), [Kommune](kommune.md) |
 | Slot URI | [ngre:kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#kommunenummer) |
 

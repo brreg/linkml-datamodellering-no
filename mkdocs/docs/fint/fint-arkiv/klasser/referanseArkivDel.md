@@ -35,7 +35,7 @@ Alias: referanseArkivdel
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:referanseArkivdel](https://schema.fintlabs.no/arkiv/referanseArkivdel) |
 

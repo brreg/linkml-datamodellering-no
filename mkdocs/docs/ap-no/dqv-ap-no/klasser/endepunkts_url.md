@@ -35,7 +35,7 @@ Alias: endepunkts_url
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:endpointURL](http://www.w3.org/ns/dcat#endpointURL) |
 
@@ -63,7 +63,7 @@ Alias: endepunkts_url
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: endepunkts_url
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:endpointURL |
-| native | https://data.norge.no/linkml/dqv-ap-no/endepunkts_url |
+| native | https://data.norge.no/linkml/dcat-ap-no/endepunkts_url |
 
 
 
@@ -84,8 +84,7 @@ Alias: endepunkts_url
 ```yaml
 name: endepunkts_url
 description: URL til datatjenestens endepunkt.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:endpointURL
 alias: endepunkts_url
 domain_of:

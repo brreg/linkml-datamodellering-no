@@ -37,8 +37,8 @@ Alias: personalressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
-| Domain Of | [DigitalEnhet](digitalenhet.md), [Identitet](identitet.md), [Person](person.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
+| Domain Of | [Person](person.md), [DigitalEnhet](digitalenhet.md), [Identitet](identitet.md) |
 | Slot URI | [res:personalressurs](https://schema.fintlabs.no/ressurs/personalressurs) |
 
 ### Cardinality and Requirements
@@ -90,9 +90,9 @@ rank: 1000
 slot_uri: res:personalressurs
 alias: personalressurs
 domain_of:
+- Person
 - DigitalEnhet
 - Identitet
-- Person
 range: uriorcurie
 
 ```

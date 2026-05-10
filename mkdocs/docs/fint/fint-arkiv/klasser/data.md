@@ -35,7 +35,7 @@ Alias: data
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Dokumentfil](dokumentfil.md) |
 | Slot URI | [ark:data](https://schema.fintlabs.no/arkiv/data) |
 

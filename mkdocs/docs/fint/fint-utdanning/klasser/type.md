@@ -23,8 +23,8 @@ Alias: type
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
-| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  yes  |
 | [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  yes  |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  yes  |
 
 
 
@@ -37,8 +37,8 @@ Alias: type
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [Varsel](varsel.md), [OtStatus](otstatus.md), [Kontaktperson](kontaktperson.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Kontaktperson](kontaktperson.md), [Varsel](varsel.md), [OtStatus](otstatus.md) |
 | Slot URI | [fint:type](https://schema.fintlabs.no/type) |
 
 ### Cardinality and Requirements
@@ -64,7 +64,7 @@ Alias: type
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -74,7 +74,7 @@ Alias: type
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:type |
-| native | https://schema.fintlabs.no/utdanning/:type |
+| native | https://schema.fintlabs.no/:type |
 
 
 
@@ -85,14 +85,13 @@ Alias: type
 ```yaml
 name: type
 description: Beskriv kva slags type.
-from_schema: https://data.norge.no/linkml/fint-utdanning
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:type
 alias: type
 domain_of:
+- Kontaktperson
 - Varsel
 - OtStatus
-- Kontaktperson
 range: string
 
 ```

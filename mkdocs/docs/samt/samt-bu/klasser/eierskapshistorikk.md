@@ -35,7 +35,7 @@ Alias: eierskapshistorikk
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:provenance](http://purl.org/dc/terms/provenance) |
 
@@ -70,7 +70,7 @@ Alias: eierskapshistorikk
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -80,7 +80,7 @@ Alias: eierskapshistorikk
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:provenance |
-| native | samtbuskole:eierskapshistorikk |
+| native | https://data.norge.no/linkml/dcat-ap-no/eierskapshistorikk |
 
 
 
@@ -95,8 +95,7 @@ annotations:
     tag: gyldige_verdier
     value: dct:ProvenanceStatement
 description: Opphav og eigarskapshistorikk for ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:provenance
 alias: eierskapshistorikk
 domain_of:

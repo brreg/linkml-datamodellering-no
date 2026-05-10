@@ -35,7 +35,7 @@ Alias: bokstav
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Husnummer](husnummer.md) |
 | Slot URI | [ngr:bokstav](https://data.norge.no/vocabulary/ngr-adresse#bokstav) |
 

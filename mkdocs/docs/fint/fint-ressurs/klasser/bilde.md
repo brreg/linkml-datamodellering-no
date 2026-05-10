@@ -35,7 +35,7 @@ Alias: bilde
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Person](person.md) |
 | Slot URI | [fint:bilde](https://schema.fintlabs.no/bilde) |
 
@@ -62,7 +62,7 @@ Alias: bilde
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: bilde
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:bilde |
-| native | https://schema.fintlabs.no/ressurs/:bilde |
+| native | https://schema.fintlabs.no/:bilde |
 
 
 
@@ -83,8 +83,7 @@ Alias: bilde
 ```yaml
 name: bilde
 description: HTTP(S)-lenkje til eit bilete av personen.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:bilde
 alias: bilde
 domain_of:

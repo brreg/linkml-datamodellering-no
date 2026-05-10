@@ -36,7 +36,7 @@ Alias: tilgangsrettigheter
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dct:accessRights](http://purl.org/dc/terms/accessRights) |
 
@@ -64,7 +64,7 @@ Alias: tilgangsrettigheter
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: tilgangsrettigheter
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:accessRights |
-| native | https://data.norge.no/linkml/dqv-ap-no/tilgangsrettigheter |
+| native | https://data.norge.no/linkml/dcat-ap-no/tilgangsrettigheter |
 
 
 
@@ -86,8 +86,7 @@ Alias: tilgangsrettigheter
 name: tilgangsrettigheter
 description: Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang
   eller ikke-allmenn tilgang til datasettet.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:accessRights
 alias: tilgangsrettigheter
 domain_of:

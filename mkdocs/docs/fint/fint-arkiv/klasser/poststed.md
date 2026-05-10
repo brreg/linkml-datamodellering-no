@@ -35,7 +35,7 @@ Alias: poststed
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Adresse](adresse.md) |
 | Slot URI | [fint:poststed](https://schema.fintlabs.no/poststed) |
 
@@ -62,7 +62,7 @@ Alias: poststed
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: poststed
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:poststed |
-| native | https://schema.fintlabs.no/arkiv/:poststed |
+| native | https://schema.fintlabs.no/:poststed |
 
 
 
@@ -83,8 +83,7 @@ Alias: poststed
 ```yaml
 name: poststed
 description: Poststad.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:poststed
 alias: poststed
 domain_of:

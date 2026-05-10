@@ -62,7 +62,7 @@ Alias: tidsopplosning
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: tidsopplosning
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:temporalResolution |
-| native | https://data.norge.no/linkml/dqv-ap-no/tidsopplosning |
+| native | https://data.norge.no/linkml/dcat-ap-no/tidsopplosning |
 
 
 
@@ -83,8 +83,7 @@ Alias: tidsopplosning
 ```yaml
 name: tidsopplosning
 description: Minste tidsoppløysing i datasettet.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:temporalResolution
 alias: tidsopplosning
 domain_of:

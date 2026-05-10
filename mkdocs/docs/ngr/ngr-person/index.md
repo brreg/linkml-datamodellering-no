@@ -244,7 +244,6 @@ Name: ngr-person
 | [Kontaktopplysninger](klasser/kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |
 | [Opphold](klasser/opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |
 | [Person](klasser/person.md) | Ein fysisk person registrert i Folkeregisteret |
-| [PersonContainer](klasser/personcontainer.md) | Rotklasse for NGR-person-datafiler |
 | [Personidentifikasjon](klasser/personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |
 | [Personnavn](klasser/personnavn.md) | Offisielt registrert namn på ein person i Folkeregisteret |
 | [Personstatus](klasser/personstatus.md) | Status for ein person i Folkeregisteret (t |
@@ -395,25 +394,6 @@ Name: ngr-person
 
 | Type | Description |
 | --- | --- |
-| [Boolean](klasser/boolean.md) | A binary (true or false) value |
-| [Curie](klasser/curie.md) | a compact URI |
-| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
-| [Datetime](klasser/datetime.md) | The combination of a date and time |
-| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
-| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
-| [Integer](klasser/integer.md) | An integer |
-| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
-| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [String](klasser/string.md) | A character string |
-| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](klasser/uri.md) | a complete URI |
-| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets
@@ -425,15 +405,8 @@ Name: ngr-person
 | [Valgfri](klasser/valgfri.md) | Valfrie eigenskapar i domenemodellen |
 
 
-## Artifacts
+## Generated artifacts
 
 | Artefakt | Fil |
 |----------|-----|
-| SHACL shapes | [ngr-person-shapes.ttl](ngr-person-shapes.ttl) |
-| JSON-LD kontekst | [ngr-person-context.jsonld](ngr-person-context.jsonld) |
-| JSON Schema | [ngr-person-schema.json](ngr-person-schema.json) |
-| OWL ontologi | [ngr-person-ontology.ttl](ngr-person-ontology.ttl) |
-| RDF/Turtle skjema | [ngr-person-schema.ttl](ngr-person-schema.ttl) |
-| Python-klasser | [ngr-person-model.py](ngr-person-model.py) |
 | ER-diagram (Mermaid) | [ngr-person-erdiagram.md](ngr-person-erdiagram.md) |
-| Eksempeldata (Turtle) | [ngr-person-eksempel.ttl](ngr-person-eksempel.ttl) |

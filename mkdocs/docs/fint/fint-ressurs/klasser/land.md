@@ -62,7 +62,7 @@ Alias: land
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: land
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:land |
-| native | https://schema.fintlabs.no/ressurs/:land |
+| native | https://schema.fintlabs.no/:land |
 
 
 
@@ -83,8 +83,7 @@ Alias: land
 ```yaml
 name: land
 description: Land der adressa befinn seg.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:land
 alias: land
 domain_of:

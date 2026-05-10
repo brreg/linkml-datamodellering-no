@@ -35,7 +35,7 @@ Alias: begynnelse
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [time:hasBeginning](http://www.w3.org/6006/time#hasBeginning) |
 
@@ -62,7 +62,7 @@ Alias: begynnelse
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: begynnelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | time:hasBeginning |
-| native | samtbuskole:begynnelse |
+| native | https://data.norge.no/linkml/dcat-ap-no/begynnelse |
 
 
 
@@ -83,8 +83,7 @@ Alias: begynnelse
 ```yaml
 name: begynnelse
 description: Starttidspunkt for eit tidsrom.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: time:hasBeginning
 alias: begynnelse
 domain_of:

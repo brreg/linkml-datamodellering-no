@@ -24,9 +24,36 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
       
       Bostedsadresse : gyldig_fra_og_med
         
+          
+    
+        
+        
+        Bostedsadresse --> "0..1" Date : gyldig_fra_og_med
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Bostedsadresse : gyldig_til_og_med
         
+          
+    
+        
+        
+        Bostedsadresse --> "0..1" Date : gyldig_til_og_med
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Bostedsadresse : id
+        
+          
+    
+        
+        
+        Bostedsadresse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -78,7 +105,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig frå og med |
+| [gyldig_fra_og_med](gyldig_fra_og_med.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato opplysinga er gyldig frå og med |
 
 
 
@@ -97,7 +124,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [Date](date.md) | Dato opplysinga er gyldig til og med |
+| [gyldig_til_og_med](gyldig_til_og_med.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato opplysinga er gyldig til og med |
 
 
 
@@ -136,7 +163,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskAdresse](geografiskadresse.md) |
 
 
 

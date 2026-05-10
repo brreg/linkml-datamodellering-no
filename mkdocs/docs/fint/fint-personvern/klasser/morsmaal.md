@@ -62,7 +62,7 @@ Alias: morsmaal
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: morsmaal
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:morsmaal |
-| native | https://schema.fintlabs.no/personvern/:morsmaal |
+| native | https://schema.fintlabs.no/:morsmaal |
 
 
 
@@ -83,8 +83,7 @@ Alias: morsmaal
 ```yaml
 name: morsmaal
 description: Morsmål til personen.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:morsmaal
 alias: morsmaal
 domain_of:

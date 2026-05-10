@@ -35,7 +35,7 @@ Alias: er_hovednaeringskode
 
 | Property | Value |
 | --- | --- |
-| Range | [Boolean](boolean.md) |
+| Range | [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) |
 | Domain Of | [Naeringskode](naeringskode.md) |
 | Slot URI | [ngrv:erHovednaeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#erHovednaeringskode) |
 

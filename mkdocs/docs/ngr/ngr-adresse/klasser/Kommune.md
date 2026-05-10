@@ -24,9 +24,36 @@ URI: [ngr:Kommune](https://data.norge.no/vocabulary/ngr-adresse#Kommune)
       
       Kommune : id
         
+          
+    
+        
+        
+        Kommune --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Kommune : kommunenummer_kode
         
+          
+    
+        
+        
+        Kommune --> "1" String : kommunenummer_kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Kommune : namn
+        
+          
+    
+        
+        
+        Kommune --> "0..1" String : namn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -65,7 +92,7 @@ URI: [ngr:Kommune](https://data.norge.no/vocabulary/ngr-adresse#Kommune)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [kommunenummer_kode](kommunenummer_kode.md) | 1 <br/> [String](string.md) | Firesifra kommunenummer (t |
+| [kommunenummer_kode](kommunenummer_kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Firesifra kommunenummer (t |
 
 
 
@@ -105,8 +132,8 @@ URI: [ngr:Kommune](https://data.norge.no/vocabulary/ngr-adresse#Kommune)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
-| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [GeografiskOmrade](geografiskomrade.md) |
+| [namn](namn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på det geografiske området eller adressekomponenten | [GeografiskOmrade](geografiskomrade.md) |
 
 
 

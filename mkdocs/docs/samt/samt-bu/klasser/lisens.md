@@ -22,8 +22,8 @@ Alias: lisens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
 
 
@@ -37,7 +37,7 @@ Alias: lisens
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Distribusjon](distribusjon.md), [Datatjeneste](datatjeneste.md), [Katalog](katalog.md) |
 | Slot URI | [dct:license](http://purl.org/dc/terms/license) |
 
@@ -64,7 +64,7 @@ Alias: lisens
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: lisens
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:license |
-| native | samtbuskole:lisens |
+| native | https://data.norge.no/linkml/dcat-ap-no/lisens |
 
 
 
@@ -85,8 +85,7 @@ Alias: lisens
 ```yaml
 name: lisens
 description: Lisens for bruk av ressursen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:license
 alias: lisens
 domain_of:

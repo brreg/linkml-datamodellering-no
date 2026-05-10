@@ -24,9 +24,36 @@ URI: [samtbuskole:Fylke](https://example.no/ontology/skole#Fylke)
       
       Fylke : fylkesnummer
         
+          
+    
+        
+        
+        Fylke --> "0..1" String : fylkesnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Fylke : id
         
+          
+    
+        
+        
+        Fylke --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Fylke : navn
+        
+          
+    
+        
+        
+        Fylke --> "0..1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -82,7 +109,7 @@ URI: [samtbuskole:Fylke](https://example.no/ontology/skole#Fylke)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [fylkesnummer](fylkesnummer.md) | 0..1 <br/> [String](string.md) | Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territ... |
+| [fylkesnummer](fylkesnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territ... |
 
 
 
@@ -90,8 +117,8 @@ URI: [samtbuskole:Fylke](https://example.no/ontology/skole#Fylke)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Skoleeier](skoleeier.md) |
-| [navn](navn.md) | 0..1 <br/> [String](string.md) | Namn på ressursen | [Skoleeier](skoleeier.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Skoleeier](skoleeier.md) |
+| [navn](navn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på ressursen | [Skoleeier](skoleeier.md) |
 
 
 
@@ -191,17 +218,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Fylke
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -224,6 +245,11 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   navn:

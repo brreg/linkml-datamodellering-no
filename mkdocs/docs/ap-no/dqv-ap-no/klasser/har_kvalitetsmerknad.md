@@ -63,7 +63,7 @@ Alias: har_kvalitetsmerknad
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: har_kvalitetsmerknad
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:hasQualityAnnotation |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmerknad |
+| native | https://data.norge.no/linkml/dcat-ap-no/har_kvalitetsmerknad |
 
 
 
@@ -84,8 +84,7 @@ Alias: har_kvalitetsmerknad
 ```yaml
 name: har_kvalitetsmerknad
 description: Kvalitetsmerknad knytt til datasettet.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dqv:hasQualityAnnotation
 alias: har_kvalitetsmerknad
 domain_of:

@@ -35,6 +35,15 @@ URI: [ngre:HjemmelTilFesterett](https://data.norge.no/vocabulary/ngr-eiendom#Hje
         
       HjemmelTilFesterett : id
         
+          
+    
+        
+        
+        HjemmelTilFesterett --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -81,7 +90,7 @@ URI: [ngre:HjemmelTilFesterett](https://data.norge.no/vocabulary/ngr-eiendom#Hje
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Hjemmel](hjemmel.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Hjemmel](hjemmel.md) |
 | [har_andel](har_andel.md) | 1..* <br/> [Andel](andel.md) | Andel(ar) i heimelsdokumentet | [Hjemmel](hjemmel.md) |
 
 

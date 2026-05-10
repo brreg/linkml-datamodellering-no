@@ -22,9 +22,9 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
 | [Aksjeklasse](aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |  no  |
 | [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
-| [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
 
 
 
@@ -37,7 +37,7 @@ Alias: navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Aksjeselskap](aksjeselskap.md), [Aksjeklasse](aksjeklasse.md), [Aksjeeier](aksjeeier.md) |
 
 ### Cardinality and Requirements

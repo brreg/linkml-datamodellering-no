@@ -35,7 +35,7 @@ Alias: har_forventet_datatype
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Kvalitetsmaal](kvalitetsmaal.md) |
 | Slot URI | [dqv:expectedDataType](http://www.w3.org/ns/dqv#expectedDataType) |
 
@@ -62,7 +62,7 @@ Alias: har_forventet_datatype
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: har_forventet_datatype
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:expectedDataType |
-| native | samtbuskole:har_forventet_datatype |
+| native | https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype |
 
 
 
@@ -83,8 +83,7 @@ Alias: har_forventet_datatype
 ```yaml
 name: har_forventet_datatype
 description: Forventa XSD-datatype for verdien av ei kvalitetsmåling.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqv:expectedDataType
 alias: har_forventet_datatype
 domain_of:

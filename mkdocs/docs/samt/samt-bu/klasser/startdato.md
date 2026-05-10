@@ -35,7 +35,7 @@ Alias: startdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [dcat:startDate](http://www.w3.org/ns/dcat#startDate) |
 
@@ -62,7 +62,7 @@ Alias: startdato
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: startdato
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:startDate |
-| native | samtbuskole:startdato |
+| native | https://data.norge.no/linkml/dcat-ap-no/startdato |
 
 
 
@@ -83,8 +83,7 @@ Alias: startdato
 ```yaml
 name: startdato
 description: Startdato for tidsrommet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:startDate
 alias: startdato
 domain_of:

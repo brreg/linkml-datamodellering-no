@@ -35,7 +35,7 @@ Alias: godkjent
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Fravaer](fravaer.md) |
 | Slot URI | [adm:godkjent](https://schema.fintlabs.no/administrasjon/godkjent) |
 

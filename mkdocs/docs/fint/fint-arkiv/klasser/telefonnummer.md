@@ -35,7 +35,7 @@ Alias: telefonnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktinformasjon](kontaktinformasjon.md) |
 | Slot URI | [fint:telefonnummer](https://schema.fintlabs.no/telefonnummer) |
 
@@ -62,7 +62,7 @@ Alias: telefonnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: telefonnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:telefonnummer |
-| native | https://schema.fintlabs.no/arkiv/:telefonnummer |
+| native | https://schema.fintlabs.no/:telefonnummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: telefonnummer
 ```yaml
 name: telefonnummer
 description: Telefonnummer.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:telefonnummer
 alias: telefonnummer
 domain_of:

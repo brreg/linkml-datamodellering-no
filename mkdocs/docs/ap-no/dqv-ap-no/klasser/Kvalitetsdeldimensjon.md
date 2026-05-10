@@ -35,9 +35,36 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
         
       Kvalitetsdeldimensjon : har_anbefalt_term
         
+          
+    
+        
+        
+        Kvalitetsdeldimensjon --> "*" LangString : har_anbefalt_term
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdeldimensjon : har_definisjon
         
+          
+    
+        
+        
+        Kvalitetsdeldimensjon --> "*" LangString : har_definisjon
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdeldimensjon : id
+        
+          
+    
+        
+        
+        Kvalitetsdeldimensjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -116,7 +143,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 | [har_anbefalt_term](har_anbefalt_term.md) | * <br/> [LangString](langstring.md) | Føretrekt term/namn for dimensjonen eller målet | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 | [har_definisjon](har_definisjon.md) | * <br/> [LangString](langstring.md) | Definisjon av dimensjonen eller målet | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 
@@ -240,18 +267,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsdeldimensjon
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -268,6 +288,12 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
     required: true
   har_anbefalt_term:

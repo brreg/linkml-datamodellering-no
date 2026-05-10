@@ -21,7 +21,25 @@ URI: [ngrp:SpraakForElektroniskKommunikasjon](https://data.norge.no/vocabulary/n
     click SpraakForElektroniskKommunikasjon href "../SpraakForElektroniskKommunikasjon/"
       SpraakForElektroniskKommunikasjon : id
         
+          
+    
+        
+        
+        SpraakForElektroniskKommunikasjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       SpraakForElektroniskKommunikasjon : spraakkode
+        
+          
+    
+        
+        
+        SpraakForElektroniskKommunikasjon --> "1" String : spraakkode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngrp:SpraakForElektroniskKommunikasjon](https://data.norge.no/vocabulary/n
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [spraakkode](spraakkode.md) | 1 <br/> [String](string.md) | BCP 47 språkkode for føretrekt kommunikasjonsspråk (t |
+| [spraakkode](spraakkode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | BCP 47 språkkode for føretrekt kommunikasjonsspråk (t |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngrp:SpraakForElektroniskKommunikasjon](https://data.norge.no/vocabulary/n
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

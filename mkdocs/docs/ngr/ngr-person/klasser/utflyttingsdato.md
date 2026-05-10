@@ -35,7 +35,7 @@ Alias: utflyttingsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [UtflyttingFraNorge](utflyttingfranorge.md) |
 | Slot URI | [ngrp:utflyttingsdato](https://data.norge.no/vocabulary/ngr-person#utflyttingsdato) |
 

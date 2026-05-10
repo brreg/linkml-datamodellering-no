@@ -22,10 +22,10 @@ Alias: i_samsvar_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
-| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
 | [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -66,7 +66,7 @@ Alias: i_samsvar_med
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -76,7 +76,7 @@ Alias: i_samsvar_med
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:conformsTo |
-| native | https://data.norge.no/linkml/dqv-ap-no/i_samsvar_med |
+| native | https://data.norge.no/linkml/dcat-ap-no/i_samsvar_med |
 
 
 
@@ -87,8 +87,7 @@ Alias: i_samsvar_med
 ```yaml
 name: i_samsvar_med
 description: Standard ressursen er i samsvar med.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:conformsTo
 alias: i_samsvar_med
 domain_of:

@@ -35,7 +35,7 @@ Alias: notasjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kodeelement](kodeelement.md) |
 | Slot URI | [skos:notation](http://www.w3.org/2004/02/skos/core#notation) |
 

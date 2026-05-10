@@ -35,7 +35,7 @@ Alias: seksjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Matrikkelnummer](matrikkelnummer.md) |
 | Slot URI | [fint:seksjonsnummer](https://schema.fintlabs.no/seksjonsnummer) |
 
@@ -62,7 +62,7 @@ Alias: seksjonsnummer
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: seksjonsnummer
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:seksjonsnummer |
-| native | https://schema.fintlabs.no/ressurs/:seksjonsnummer |
+| native | https://schema.fintlabs.no/:seksjonsnummer |
 
 
 
@@ -83,8 +83,7 @@ Alias: seksjonsnummer
 ```yaml
 name: seksjonsnummer
 description: Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:seksjonsnummer
 alias: seksjonsnummer
 domain_of:

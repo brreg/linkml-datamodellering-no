@@ -22,9 +22,9 @@ Alias: eksamen
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
 | [Rom](rom.md) | Eit rom eller lokale ved ein skule |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
-| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
 
 
 

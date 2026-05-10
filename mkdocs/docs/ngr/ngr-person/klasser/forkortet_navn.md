@@ -35,7 +35,7 @@ Alias: forkortet_navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Personnavn](personnavn.md) |
 | Slot URI | [ngrp:forkortetNavn](https://data.norge.no/vocabulary/ngr-person#forkortetNavn) |
 

@@ -36,7 +36,7 @@ Alias: landingsside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:landingPage](http://www.w3.org/ns/dcat#landingPage) |
 
@@ -64,7 +64,7 @@ Alias: landingsside
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ Alias: landingsside
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:landingPage |
-| native | https://data.norge.no/linkml/dqv-ap-no/landingsside |
+| native | https://data.norge.no/linkml/dcat-ap-no/landingsside |
 
 
 
@@ -85,8 +85,7 @@ Alias: landingsside
 ```yaml
 name: landingsside
 description: Nettside med informasjon om ressursen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:landingPage
 alias: landingsside
 domain_of:

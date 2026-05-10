@@ -62,7 +62,7 @@ Alias: primaertema
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: primaertema
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:primaryTopic |
-| native | samtbuskole:primaertema |
+| native | https://data.norge.no/linkml/dcat-ap-no/primaertema |
 
 
 
@@ -83,8 +83,7 @@ Alias: primaertema
 ```yaml
 name: primaertema
 description: Ressursen katalogposten primært beskriv.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: foaf:primaryTopic
 alias: primaertema
 domain_of:

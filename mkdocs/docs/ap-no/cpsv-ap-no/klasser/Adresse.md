@@ -21,13 +21,58 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
     click Adresse href "../Adresse/"
       Adresse : full_adresse
         
+          
+    
+        
+        
+        Adresse --> "*" String : full_adresse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Adresse : id
+        
+          
+    
+        
+        
+        Adresse --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Adresse : land
         
+          
+    
+        
+        
+        Adresse --> "0..1" String : land
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Adresse : postnummer
         
+          
+    
+        
+        
+        Adresse --> "0..1" String : postnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Adresse : poststad
+        
+          
+    
+        
+        
+        Adresse --> "*" LangString : poststad
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -118,10 +163,10 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [full_adresse](full_adresse.md) | * <br/> [String](string.md) | Full adresse som fritekst |
-| [postnummer](postnummer.md) | 0..1 <br/> [String](string.md) | Postnummer |
+| [full_adresse](full_adresse.md) | * <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Full adresse som fritekst |
+| [postnummer](postnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Postnummer |
 | [poststad](poststad.md) | * <br/> [LangString](langstring.md) | Poststad/by |
-| [land](land.md) | 0..1 <br/> [String](string.md) | Land (ISO 3166-1 alpha-2 kode) |
+| [land](land.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Land (ISO 3166-1 alpha-2 kode) |
 
 
 
@@ -192,7 +237,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -312,12 +357,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Adresse
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -333,9 +380,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   full_adresse:

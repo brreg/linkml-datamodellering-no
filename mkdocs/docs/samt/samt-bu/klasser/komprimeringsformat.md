@@ -62,7 +62,7 @@ Alias: komprimeringsformat
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: komprimeringsformat
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:compressFormat |
-| native | samtbuskole:komprimeringsformat |
+| native | https://data.norge.no/linkml/dcat-ap-no/komprimeringsformat |
 
 
 
@@ -83,8 +83,7 @@ Alias: komprimeringsformat
 ```yaml
 name: komprimeringsformat
 description: Komprimeringsformat brukt i distribusjonen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:compressFormat
 alias: komprimeringsformat
 domain_of:

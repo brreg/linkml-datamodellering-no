@@ -35,7 +35,7 @@ Alias: arbeidsforhold
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Undervisningsforhold](undervisningsforhold.md) |
 | Slot URI | [utd:arbeidsforhold](https://schema.fintlabs.no/utdanning/arbeidsforhold) |
 

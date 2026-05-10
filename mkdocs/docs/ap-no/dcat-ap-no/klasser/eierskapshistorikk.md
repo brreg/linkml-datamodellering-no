@@ -35,7 +35,7 @@ Alias: eierskapshistorikk
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:provenance](http://purl.org/dc/terms/provenance) |
 

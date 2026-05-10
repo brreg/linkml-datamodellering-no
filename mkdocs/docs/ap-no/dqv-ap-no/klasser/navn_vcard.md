@@ -63,7 +63,7 @@ Alias: navn_vcard
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: navn_vcard
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:fn |
-| native | https://data.norge.no/linkml/dqv-ap-no/navn_vcard |
+| native | https://data.norge.no/linkml/dcat-ap-no/navn_vcard |
 
 
 
@@ -84,8 +84,7 @@ Alias: navn_vcard
 ```yaml
 name: navn_vcard
 description: Formatert namn (vCard).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: vcard:fn
 alias: navn_vcard
 domain_of:

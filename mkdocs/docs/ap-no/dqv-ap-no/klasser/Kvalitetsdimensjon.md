@@ -24,9 +24,36 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
       
       Kvalitetsdimensjon : har_anbefalt_term
         
+          
+    
+        
+        
+        Kvalitetsdimensjon --> "*" LangString : har_anbefalt_term
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdimensjon : har_definisjon
         
+          
+    
+        
+        
+        Kvalitetsdimensjon --> "*" LangString : har_definisjon
+        click LangString href "../LangString/"
+    
+
+        
       Kvalitetsdimensjon : id
+        
+          
+    
+        
+        
+        Kvalitetsdimensjon --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -145,7 +172,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -250,18 +277,11 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Kvalitetsdimensjon
     domain_of:
-    - Kvalitetsdimensjon
-    - Kvalitetsmaal
-    - Kvalitetsmerknad
-    - Kvalitetsmaaling
-    - Standard
-    - Tekstdel
     - Mediatype
     - Konsept
     - Begrepssamling
@@ -278,7 +298,14 @@ attributes:
     - Distribusjon
     - Datasett
     - Katalogpost
+    - Kvalitetsdimensjon
+    - Kvalitetsmaal
+    - Kvalitetsmerknad
+    - Kvalitetsmaaling
+    - Standard
+    - Tekstdel
     range: uriorcurie
+    required: true
   har_anbefalt_term:
     name: har_anbefalt_term
     description: Føretrekt term/namn for dimensjonen eller målet.

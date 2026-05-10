@@ -21,9 +21,36 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
     click Tilstand href "../Tilstand/"
       Tilstand : gyldig_fra
         
+          
+    
+        
+        
+        Tilstand --> "1" Date : gyldig_fra
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Tilstand : gyldig_til
         
+          
+    
+        
+        
+        Tilstand --> "0..1" Date : gyldig_til
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
+        
       Tilstand : id
+        
+          
+    
+        
+        
+        Tilstand --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Tilstand : tilstandstype
         
@@ -81,7 +108,7 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [tilstandstype](tilstandstype.md) | 1 <br/> [TilstandType](tilstandtype.md) | Type tilstand (AKTIV, UNDER_KONKURS o |
-| [gyldig_fra](gyldig_fra.md) | 1 <br/> [Date](date.md) | Datoen tilstanden vart gyldig frå |
+| [gyldig_fra](gyldig_fra.md) | 1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Datoen tilstanden vart gyldig frå |
 
 
 
@@ -122,7 +149,7 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [gyldig_til](gyldig_til.md) | 0..1 <br/> [Date](date.md) | Datoen tilstanden vart gyldig til |
+| [gyldig_til](gyldig_til.md) | 0..1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Datoen tilstanden vart gyldig til |
 
 
 
@@ -180,7 +207,7 @@ URI: [ngrv:Tilstand](https://data.norge.no/vocabulary/ngr-virksomhet#Tilstand)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

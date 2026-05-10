@@ -22,9 +22,9 @@ Alias: tittel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
-| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
 | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |  yes  |
+| [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |  yes  |
+| [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |  yes  |
 
 
 
@@ -65,7 +65,7 @@ Alias: tittel
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/xkos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -75,7 +75,7 @@ Alias: tittel
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:title |
-| native | https://data.norge.no/linkml/xkos-ap-no/tittel |
+| native | https://data.norge.no/linkml/common-ap-no/tittel |
 
 
 
@@ -86,8 +86,7 @@ Alias: tittel
 ```yaml
 name: tittel
 description: Namn/tittel på ressursen (dct:title).
-from_schema: https://data.norge.no/linkml/xkos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:title
 alias: tittel
 domain_of:

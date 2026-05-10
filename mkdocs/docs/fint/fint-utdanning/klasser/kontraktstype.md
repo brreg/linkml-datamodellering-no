@@ -35,7 +35,7 @@ Alias: kontraktstype
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Laerling](laerling.md) |
 | Slot URI | [utd:kontraktstype](https://schema.fintlabs.no/utdanning/kontraktstype) |
 

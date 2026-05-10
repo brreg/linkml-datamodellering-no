@@ -32,9 +32,36 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
         
       Applikasjonsressurstilgjengelighet : id
         
+          
+    
+        
+        
+        Applikasjonsressurstilgjengelighet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Applikasjonsressurstilgjengelighet : konsument
         
+          
+    
+        
+        
+        Applikasjonsressurstilgjengelighet --> "1" Uriorcurie : konsument
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Applikasjonsressurstilgjengelighet : lisensantall
+        
+          
+    
+        
+        
+        Applikasjonsressurstilgjengelighet --> "0..1" Integer : lisensantall
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       Applikasjonsressurstilgjengelighet : ressursRef
         
@@ -97,7 +124,7 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [gyldighetsperiode](gyldighetsperiode.md) | 1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for |
-| [konsument](konsument.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Referanse til Organisasjonselement som har tilgang til ressursen |
+| [konsument](konsument.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Referanse til Organisasjonselement som har tilgang til ressursen |
 | [ressursRef](ressursref.md) | 1 <br/> [Applikasjonsressurs](applikasjonsressurs.md) | Ressursen organisasjonselementet har tilgang til |
 
 
@@ -145,7 +172,7 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [lisensantall](lisensantall.md) | 0..1 <br/> [Integer](integer.md) | Totalt tal på lisensar |
+| [lisensantall](lisensantall.md) | 0..1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Totalt tal på lisensar |
 
 
 
@@ -216,7 +243,7 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -342,12 +369,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-ressurs
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Applikasjonsressurstilgjengelighet
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Applikasjon
     - Applikasjonsressurs
     - Applikasjonsressurstilgjengelighet
@@ -364,12 +396,6 @@ attributes:
     - Plattform
     - Produsent
     - Status
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   gyldighetsperiode:
@@ -377,12 +403,13 @@ attributes:
     description: Periode ressursen er gyldig for.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-ressurs
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: Applikasjonsressurstilgjengelighet
     domain_of:
+    - Begrep
+    - Identifikator
     - Applikasjon
     - Applikasjonsressurs
     - Applikasjonsressurstilgjengelighet
@@ -395,8 +422,6 @@ attributes:
     - Plattform
     - Produsent
     - Status
-    - Begrep
-    - Identifikator
     range: Periode
     required: true
     inlined: true

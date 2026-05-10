@@ -35,7 +35,7 @@ Alias: organisasjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [PrivatVirksomhet](privatvirksomhet.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 

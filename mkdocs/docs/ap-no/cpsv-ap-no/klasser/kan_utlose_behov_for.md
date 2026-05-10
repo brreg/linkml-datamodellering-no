@@ -36,7 +36,7 @@ Alias: kan_utlose_behov_for
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Livshendelse](livshendelse.md), [Virksomhetshendelse](virksomhetshendelse.md) |
 | Slot URI | [cpsvno:mayTriggerNeedFor](https://data.norge.no/vocabulary/cpsvno#mayTriggerNeedFor) |
 

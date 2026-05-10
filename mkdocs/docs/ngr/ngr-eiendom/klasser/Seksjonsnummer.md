@@ -21,7 +21,25 @@ URI: [ngre:Seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Seksjons
     click Seksjonsnummer href "../Seksjonsnummer/"
       Seksjonsnummer : id
         
+          
+    
+        
+        
+        Seksjonsnummer --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Seksjonsnummer : seksjonsnummer_verdi
+        
+          
+    
+        
+        
+        Seksjonsnummer --> "1" Integer : seksjonsnummer_verdi
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
         
       
 ```
@@ -59,7 +77,7 @@ URI: [ngre:Seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Seksjons
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [seksjonsnummer_verdi](seksjonsnummer_verdi.md) | 1 <br/> [Integer](integer.md) | Seksjonsnummer (0 |
+| [seksjonsnummer_verdi](seksjonsnummer_verdi.md) | 1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Seksjonsnummer (0 |
 
 
 
@@ -111,7 +129,7 @@ URI: [ngre:Seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Seksjons
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

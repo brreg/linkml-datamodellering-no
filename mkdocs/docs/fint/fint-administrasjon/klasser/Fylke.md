@@ -37,7 +37,7 @@ Alias: fylke
 | Property | Value |
 | --- | --- |
 | Range | [Fylke](fylke.md) |
-| Domain Of | [AdministrasjonContainer](administrasjoncontainer.md), [Kommune](kommune.md) |
+| Domain Of | [Kommune](kommune.md), [AdministrasjonContainer](administrasjoncontainer.md) |
 | Slot URI | [fint:fylke](https://schema.fintlabs.no/fylke) |
 
 ### Cardinality and Requirements
@@ -63,7 +63,7 @@ Alias: fylke
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: fylke
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:fylke |
-| native | https://schema.fintlabs.no/administrasjon/:fylke |
+| native | https://schema.fintlabs.no/:fylke |
 
 
 
@@ -84,13 +84,12 @@ Alias: fylke
 ```yaml
 name: fylke
 description: Fylke.
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fylke
 alias: fylke
 domain_of:
-- AdministrasjonContainer
 - Kommune
+- AdministrasjonContainer
 range: Fylke
 
 ```

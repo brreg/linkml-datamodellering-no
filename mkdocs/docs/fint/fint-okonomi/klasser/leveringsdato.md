@@ -35,7 +35,7 @@ Alias: leveringsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Fakturagrunnlag](fakturagrunnlag.md) |
 | Slot URI | [okn:leveringsdato](https://schema.fintlabs.no/okonomi/leveringsdato) |
 

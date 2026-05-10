@@ -21,6 +21,15 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
     click Verge href "../Verge/"
       Verge : embete
         
+          
+    
+        
+        
+        Verge --> "0..1" String : embete
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Verge : er_av_type_person
         
           
@@ -33,6 +42,15 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
         
       Verge : id
+        
+          
+    
+        
+        
+        Verge --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Verge : vergetype
         
@@ -137,7 +155,7 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [embete](embete.md) | 0..1 <br/> [String](string.md) | Statsforvaltarembetet som oppnemnde vergjet |
+| [embete](embete.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Statsforvaltarembetet som oppnemnde vergjet |
 
 
 
@@ -195,7 +213,7 @@ URI: [ngrp:Verge](https://data.norge.no/vocabulary/ngr-person#Verge)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

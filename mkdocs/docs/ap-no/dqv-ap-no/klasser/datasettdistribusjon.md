@@ -63,7 +63,7 @@ Alias: datasettdistribusjon
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: datasettdistribusjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:distribution |
-| native | https://data.norge.no/linkml/dqv-ap-no/datasettdistribusjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/datasettdistribusjon |
 
 
 
@@ -84,8 +84,7 @@ Alias: datasettdistribusjon
 ```yaml
 name: datasettdistribusjon
 description: Tilgjengelege distribusjonar av datasettet.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:distribution
 alias: datasettdistribusjon
 domain_of:

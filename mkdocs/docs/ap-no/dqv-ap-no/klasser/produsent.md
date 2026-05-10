@@ -63,7 +63,7 @@ Alias: produsent
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: produsent
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:creator |
-| native | https://data.norge.no/linkml/dqv-ap-no/produsent |
+| native | https://data.norge.no/linkml/dcat-ap-no/produsent |
 
 
 
@@ -84,8 +84,7 @@ Alias: produsent
 ```yaml
 name: produsent
 description: Aktøren som primært har skapt ressursen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:creator
 alias: produsent
 domain_of:

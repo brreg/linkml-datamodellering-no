@@ -36,7 +36,7 @@ Alias: versjon
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md), [Datatjeneste](datatjeneste.md) |
 | Slot URI | [dcat:version](http://www.w3.org/ns/dcat#version) |
 
@@ -63,7 +63,7 @@ Alias: versjon
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: versjon
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:version |
-| native | https://data.norge.no/linkml/dqv-ap-no/versjon |
+| native | https://data.norge.no/linkml/dcat-ap-no/versjon |
 
 
 
@@ -84,8 +84,7 @@ Alias: versjon
 ```yaml
 name: versjon
 description: Versjonsnummer.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:version
 alias: versjon
 domain_of:

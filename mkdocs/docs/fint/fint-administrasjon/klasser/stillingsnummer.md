@@ -35,7 +35,7 @@ Alias: stillingsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:stillingsnummer](https://schema.fintlabs.no/administrasjon/stillingsnummer) |
 

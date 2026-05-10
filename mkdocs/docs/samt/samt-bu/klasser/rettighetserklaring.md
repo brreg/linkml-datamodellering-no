@@ -21,21 +21,102 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
     click Rettighetserklaring href "../Rettighetserklaring/"
       Rettighetserklaring : anvendelsesretningslinjer
         
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" String : anvendelsesretningslinjer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Rettighetserklaring : id
+        
+          
+    
+        
+        
+        Rettighetserklaring --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       Rettighetserklaring : jurisdiksjon
         
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" String : jurisdiksjon
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Rettighetserklaring : krediteringstekst
+        
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" String : krediteringstekst
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Rettighetserklaring : krediteringsurl
         
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" Uri : krediteringsurl
+        click Uri href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Rettighetserklaring : opphavsrettsaar
+        
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" GYear : opphavsrettsaar
+        click GYear href "../GYear/"
+    
+
         
       Rettighetserklaring : opphavsrettserklaring
         
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" String : opphavsrettserklaring
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Rettighetserklaring : opphavsrettsinnehaver
         
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" String : opphavsrettsinnehaver
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Rettighetserklaring : opphavsrettsnotis
+        
+          
+    
+        
+        
+        Rettighetserklaring --> "0..1" String : opphavsrettsnotis
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -222,14 +303,14 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [anvendelsesretningslinjer](anvendelsesretningslinjer.md) | 0..1 <br/> [String](string.md) | Retningslinjer for gjenbruk av data |
-| [jurisdiksjon](jurisdiksjon.md) | 0..1 <br/> [String](string.md) | Jurisdiksjon for rettigheitserklæringa |
-| [krediteringstekst](krediteringstekst.md) | 0..1 <br/> [String](string.md) | Tekst som skal brukast ved kreditering |
-| [krediteringsurl](krediteringsurl.md) | 0..1 <br/> [Uri](uri.md) | URL for kreditering av rettshavar |
-| [opphavsrettserklaring](opphavsrettserklaring.md) | 0..1 <br/> [String](string.md) | Opphavsrettserklæring |
-| [opphavsrettsinnehaver](opphavsrettsinnehaver.md) | 0..1 <br/> [String](string.md) | Namn på opphavsrettsinnehavar |
-| [opphavsrettsnotis](opphavsrettsnotis.md) | 0..1 <br/> [String](string.md) | Opphavsrettsnotis |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [anvendelsesretningslinjer](anvendelsesretningslinjer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Retningslinjer for gjenbruk av data |
+| [jurisdiksjon](jurisdiksjon.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Jurisdiksjon for rettigheitserklæringa |
+| [krediteringstekst](krediteringstekst.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekst som skal brukast ved kreditering |
+| [krediteringsurl](krediteringsurl.md) | 0..1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URL for kreditering av rettshavar |
+| [opphavsrettserklaring](opphavsrettserklaring.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Opphavsrettserklæring |
+| [opphavsrettsinnehaver](opphavsrettsinnehaver.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på opphavsrettsinnehavar |
+| [opphavsrettsnotis](opphavsrettsnotis.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Opphavsrettsnotis |
 | [opphavsrettsaar](opphavsrettsaar.md) | 0..1 <br/> [GYear](gyear.md) | Årstal for opphavsrett |
 
 
@@ -267,7 +348,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -277,7 +358,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:RightsStatement |
-| native | samtbuskole:Rettighetserklaring |
+| native | https://data.norge.no/linkml/dcat-ap-no/Rettighetserklaring |
 
 
 
@@ -294,7 +375,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 ```yaml
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slots:
 - id
 - anvendelsesretningslinjer
@@ -316,22 +397,16 @@ class_uri: dct:RightsStatement
 ```yaml
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
-from_schema: https://example.no/ontology/samt-bu-skole
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Rettighetserklaring
     domain_of:
-    - Containerklasse
-    - Skole
-    - Skoleeier
-    - Basisgruppe
-    - Person
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -354,13 +429,17 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
+    - Containerklasse
+    - Skole
+    - Skoleeier
+    - Basisgruppe
+    - Person
     range: uriorcurie
     required: true
   anvendelsesretningslinjer:
     name: anvendelsesretningslinjer
     description: Retningslinjer for gjenbruk av data.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:reuserGuidelines
     alias: anvendelsesretningslinjer
     owner: Rettighetserklaring
@@ -370,8 +449,7 @@ attributes:
   jurisdiksjon:
     name: jurisdiksjon
     description: Jurisdiksjon for rettigheitserklæringa.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:jurisdiction
     alias: jurisdiksjon
     owner: Rettighetserklaring
@@ -381,8 +459,7 @@ attributes:
   krediteringstekst:
     name: krediteringstekst
     description: Tekst som skal brukast ved kreditering.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:attributionText
     alias: krediteringstekst
     owner: Rettighetserklaring
@@ -392,8 +469,7 @@ attributes:
   krediteringsurl:
     name: krediteringsurl
     description: URL for kreditering av rettshavar.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:attributionURL
     alias: krediteringsurl
     owner: Rettighetserklaring
@@ -403,8 +479,7 @@ attributes:
   opphavsrettserklaring:
     name: opphavsrettserklaring
     description: Opphavsrettserklæring.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightStatement
     alias: opphavsrettserklaring
     owner: Rettighetserklaring
@@ -414,8 +489,7 @@ attributes:
   opphavsrettsinnehaver:
     name: opphavsrettsinnehaver
     description: Namn på opphavsrettsinnehavar.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightHolder
     alias: opphavsrettsinnehaver
     owner: Rettighetserklaring
@@ -425,8 +499,7 @@ attributes:
   opphavsrettsnotis:
     name: opphavsrettsnotis
     description: Opphavsrettsnotis.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightNotice
     alias: opphavsrettsnotis
     owner: Rettighetserklaring
@@ -436,8 +509,7 @@ attributes:
   opphavsrettsaar:
     name: opphavsrettsaar
     description: Årstal for opphavsrett.
-    from_schema: https://example.no/ontology/samt-bu-skole
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightYear
     alias: opphavsrettsaar
     owner: Rettighetserklaring

@@ -22,10 +22,10 @@ Alias: dekningsomraade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 | [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -66,7 +66,7 @@ Alias: dekningsomraade
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -76,7 +76,7 @@ Alias: dekningsomraade
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:spatial |
-| native | https://data.norge.no/linkml/cpsv-ap-no/dekningsomraade |
+| native | https://data.norge.no/linkml/common-ap-no/dekningsomraade |
 
 
 
@@ -87,8 +87,7 @@ Alias: dekningsomraade
 ```yaml
 name: dekningsomraade
 description: Geografisk dekningsområde (dct:spatial).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:spatial
 alias: dekningsomraade
 domain_of:

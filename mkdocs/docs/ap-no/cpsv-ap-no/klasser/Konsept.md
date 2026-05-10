@@ -21,6 +21,15 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
     click Konsept href "../Konsept/"
       Konsept : id
         
+          
+    
+        
+        
+        Konsept --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       
 ```
 
@@ -78,7 +87,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -146,7 +155,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -156,7 +165,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:Concept |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Konsept |
+| native | https://data.norge.no/linkml/common-ap-no/Konsept |
 
 
 
@@ -173,7 +182,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 ```yaml
 name: Konsept
 description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/linkml/common-ap-no
 slots:
 - id
 class_uri: skos:Concept
@@ -187,17 +196,19 @@ class_uri: skos:Concept
 ```yaml
 name: Konsept
 description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/linkml/common-ap-no
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Konsept
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - OffentligTjeneste
     - Tjeneste
     - Hendelse
@@ -213,9 +224,6 @@ attributes:
     - Deltagelse
     - Adresse
     - Katalog
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
 class_uri: skos:Concept

@@ -63,7 +63,7 @@ Alias: datasett
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: datasett
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:dataset |
-| native | samtbuskole:datasett |
+| native | https://data.norge.no/linkml/dcat-ap-no/datasett |
 
 
 
@@ -84,8 +84,7 @@ Alias: datasett
 ```yaml
 name: datasett
 description: Datasett som er del av katalogen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:dataset
 alias: datasett
 domain_of:

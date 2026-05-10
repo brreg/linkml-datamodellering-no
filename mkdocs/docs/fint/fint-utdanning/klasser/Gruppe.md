@@ -44,9 +44,36 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
       
       Gruppe : beskrivelse
         
+          
+    
+        
+        
+        Gruppe --> "0..1" String : beskrivelse
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Gruppe : id
         
+          
+    
+        
+        
+        Gruppe --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Gruppe : navn
+        
+          
+    
+        
+        
+        Gruppe --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -100,7 +127,7 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for ressursen |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Hovudnamn for ressursen |
 
 
 
@@ -135,7 +162,7 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [beskrivelse](beskrivelse.md) | 0..1 <br/> [String](string.md) | Beskriven namn eller omtale |
+| [beskrivelse](beskrivelse.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Beskriven namn eller omtale |
 
 
 
@@ -180,7 +207,7 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -278,12 +305,17 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Gruppe
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Gruppe
     - Gruppemedlemskap
     - Utdanningsforhold
@@ -329,12 +361,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   navn:
@@ -342,12 +368,12 @@ attributes:
     description: Hovudnamn for ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
     alias: navn
     owner: Gruppe
     domain_of:
+    - Begrep
     - Gruppe
     - Skole
     - Eksamen
@@ -375,7 +401,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
     range: string
     required: true
   beskrivelse:
@@ -383,19 +408,18 @@ attributes:
     description: Beskriven namn eller omtale.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
     alias: beskrivelse
     owner: Gruppe
     domain_of:
+    - Periode
     - Gruppe
     - Utdanningsforhold
     - Elevforhold
     - Eksamen
     - Time
     - OtStatus
-    - Periode
     range: string
 class_uri: utd:Gruppe
 

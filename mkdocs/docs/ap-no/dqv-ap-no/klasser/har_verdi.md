@@ -35,7 +35,7 @@ Alias: har_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kvalitetsmaaling](kvalitetsmaaling.md) |
 | Slot URI | [dqv:value](http://www.w3.org/ns/dqv#value) |
 

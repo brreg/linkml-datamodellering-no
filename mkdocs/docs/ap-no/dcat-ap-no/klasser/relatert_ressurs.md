@@ -35,7 +35,7 @@ Alias: relatert_ressurs
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [dct:relation](http://purl.org/dc/terms/relation) |
 

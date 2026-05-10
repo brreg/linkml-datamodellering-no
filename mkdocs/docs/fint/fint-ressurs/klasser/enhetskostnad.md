@@ -35,7 +35,7 @@ Alias: enhetskostnad
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Applikasjonsressurs](applikasjonsressurs.md) |
 | Slot URI | [res:enhetskostnad](https://schema.fintlabs.no/ressurs/enhetskostnad) |
 

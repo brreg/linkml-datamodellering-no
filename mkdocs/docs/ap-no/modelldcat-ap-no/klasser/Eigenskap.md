@@ -55,6 +55,15 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
         
       Eigenskap : beskrivelse
         
+          
+    
+        
+        
+        Eigenskap --> "*" LangString : beskrivelse
+        click LangString href "../LangString/"
+    
+
+        
       Eigenskap : danner_symmetri_med
         
           
@@ -79,17 +88,80 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
         
       Eigenskap : id
         
+          
+    
+        
+        
+        Eigenskap --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Eigenskap : identifikator_literal
+        
+          
+    
+        
+        
+        Eigenskap --> "0..1" String : identifikator_literal
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Eigenskap : maks_multiplisitet
         
+          
+    
+        
+        
+        Eigenskap --> "0..1" String : maks_multiplisitet
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Eigenskap : min_multiplisitet
+        
+          
+    
+        
+        
+        Eigenskap --> "0..1" NonNegativeInteger : min_multiplisitet
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
         
       Eigenskap : navigerbar
         
+          
+    
+        
+        
+        Eigenskap --> "0..1" Boolean : navigerbar
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
+        
       Eigenskap : relasjonsegenskapetikett
         
+          
+    
+        
+        
+        Eigenskap --> "*" LangString : relasjonsegenskapetikett
+        click LangString href "../LangString/"
+    
+
+        
       Eigenskap : sekvensnummer
+        
+          
+    
+        
+        
+        Eigenskap --> "0..1" NonNegativeInteger : sekvensnummer
+        click NonNegativeInteger href "../NonNegativeInteger/"
+    
+
         
       Eigenskap : tilhorer_modul
         
@@ -103,6 +175,15 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
         
       Eigenskap : tittel
+        
+          
+    
+        
+        
+        Eigenskap --> "*" LangString : tittel
+        click LangString href "../LangString/"
+    
+
         
       
 ```
@@ -240,11 +321,11 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [begrep](begrep.md) | * <br/> [Konsept](konsept.md) | Fagomgrep ressursen handlar om (dct:subject) |
-| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [String](string.md) | Tekstleg identifikator for ressursen (dct:identifier) |
-| [navigerbar](navigerbar.md) | 0..1 <br/> [Boolean](boolean.md) | Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable) |
+| [identifikator_literal](identifikator_literal.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Tekstleg identifikator for ressursen (dct:identifier) |
+| [navigerbar](navigerbar.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable) |
 | [min_multiplisitet](min_multiplisitet.md) | 0..1 <br/> [NonNegativeInteger](nonnegativeinteger.md) | Minste multiplisitet for eigenskapen (modelldcatno:minOccurs) |
 | [tittel](tittel.md) | * <br/> [LangString](langstring.md) | Namn/tittel på ressursen (dct:title) |
-| [maks_multiplisitet](maks_multiplisitet.md) | 0..1 <br/> [String](string.md) | Høgste multiplisitet — heltalstal, "n" eller "*" (modelldcatno:maxOccurs) |
+| [maks_multiplisitet](maks_multiplisitet.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Høgste multiplisitet — heltalstal, "n" eller "*" (modelldcatno:maxOccurs) |
 
 
 
@@ -486,7 +567,7 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 
@@ -698,12 +779,14 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
     alias: id
     owner: Eigenskap
     domain_of:
+    - Mediatype
+    - Konsept
+    - Begrepssamling
     - KatalogisertRessurs
     - Aktor
     - Kontaktopplysning
@@ -718,9 +801,6 @@ attributes:
     - Eigenskap
     - Merknad
     - Kodeelement
-    - Mediatype
-    - Konsept
-    - Begrepssamling
     range: uriorcurie
     required: true
   begrep:
@@ -745,8 +825,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
     alias: identifikator_literal
     owner: Eigenskap
@@ -790,8 +869,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
     alias: tittel
     owner: Eigenskap
@@ -823,8 +901,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/modelldcat-ap-no
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
     alias: beskrivelse
     owner: Eigenskap

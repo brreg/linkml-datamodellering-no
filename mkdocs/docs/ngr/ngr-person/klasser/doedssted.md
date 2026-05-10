@@ -35,7 +35,7 @@ Alias: doedssted
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Dodsfall](dodsfall.md) |
 | Slot URI | [ngrp:doedssted](https://data.norge.no/vocabulary/ngr-person#doedssted) |
 

@@ -604,6 +604,7 @@ attributes:
     - RessursContainer
     range: Applikasjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   applikasjonsressursar:
     name: applikasjonsressursar
@@ -616,6 +617,7 @@ attributes:
     - RessursContainer
     range: Applikasjonsressurs
     multivalued: true
+    inlined: true
     inlined_as_list: true
   applikasjonsressurstilgjengelegheit:
     name: applikasjonsressurstilgjengelegheit
@@ -628,6 +630,7 @@ attributes:
     - RessursContainer
     range: Applikasjonsressurstilgjengelighet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   digitaleEiningar:
     name: digitaleEiningar
@@ -640,6 +643,7 @@ attributes:
     - RessursContainer
     range: DigitalEnhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   einingsgrupper:
     name: einingsgrupper
@@ -652,6 +656,7 @@ attributes:
     - RessursContainer
     range: Enhetsgruppe
     multivalued: true
+    inlined: true
     inlined_as_list: true
   einingsgruppedmedlemskap:
     name: einingsgruppedmedlemskap
@@ -664,6 +669,7 @@ attributes:
     - RessursContainer
     range: Enhetsgruppemedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   identitetar:
     name: identitetar
@@ -676,6 +682,7 @@ attributes:
     - RessursContainer
     range: Identitet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rettigheiter:
     name: rettigheiter
@@ -688,6 +695,7 @@ attributes:
     - RessursContainer
     range: Rettighet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   applikasjonskategoriar:
     name: applikasjonskategoriar
@@ -700,6 +708,7 @@ attributes:
     - RessursContainer
     range: Applikasjonskategori
     multivalued: true
+    inlined: true
     inlined_as_list: true
   brukertypar:
     name: brukertypar
@@ -712,6 +721,7 @@ attributes:
     - RessursContainer
     range: Brukertype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   einingstypar:
     name: einingstypar
@@ -724,6 +734,7 @@ attributes:
     - RessursContainer
     range: Enhetstype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   handhaevingstypar:
     name: handhaevingstypar
@@ -736,6 +747,7 @@ attributes:
     - RessursContainer
     range: Handhevingstype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   lisensmodellar:
     name: lisensmodellar
@@ -748,6 +760,7 @@ attributes:
     - RessursContainer
     range: Lisensmodell
     multivalued: true
+    inlined: true
     inlined_as_list: true
   plattformar:
     name: plattformar
@@ -760,6 +773,7 @@ attributes:
     - RessursContainer
     range: Plattform
     multivalued: true
+    inlined: true
     inlined_as_list: true
   produsentar:
     name: produsentar
@@ -772,6 +786,7 @@ attributes:
     - RessursContainer
     range: Produsent
     multivalued: true
+    inlined: true
     inlined_as_list: true
   statusar:
     name: statusar
@@ -784,6 +799,7 @@ attributes:
     - RessursContainer
     range: Status
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

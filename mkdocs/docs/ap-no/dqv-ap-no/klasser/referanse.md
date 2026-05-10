@@ -26,7 +26,7 @@ Alias: referanse
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Slot URI | [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso) |
 
 ### Cardinality and Requirements
@@ -53,7 +53,7 @@ Alias: referanse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -63,7 +63,7 @@ Alias: referanse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:seeAlso |
-| native | https://data.norge.no/linkml/dqv-ap-no/referanse |
+| native | https://data.norge.no/linkml/dcat-ap-no/referanse |
 
 
 
@@ -74,8 +74,7 @@ Alias: referanse
 ```yaml
 name: referanse
 description: Referanse til ekstern ressurs.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: rdfs:seeAlso
 alias: referanse
 range: uri

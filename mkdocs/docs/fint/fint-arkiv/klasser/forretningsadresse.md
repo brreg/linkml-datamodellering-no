@@ -63,7 +63,7 @@ Alias: forretningsadresse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-arkiv
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: forretningsadresse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:forretningsadresse |
-| native | https://schema.fintlabs.no/arkiv/:forretningsadresse |
+| native | https://schema.fintlabs.no/:forretningsadresse |
 
 
 
@@ -84,8 +84,7 @@ Alias: forretningsadresse
 ```yaml
 name: forretningsadresse
 description: Besøksadresse til ein organisasjonseining.
-from_schema: https://data.norge.no/linkml/fint-arkiv
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:forretningsadresse
 alias: forretningsadresse
 domain_of:

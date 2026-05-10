@@ -35,7 +35,7 @@ Alias: kontaktside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Kontaktpunkt](kontaktpunkt.md) |
 | Slot URI | [cv:contactPage](http://data.europa.eu/m8g/contactPage) |
 

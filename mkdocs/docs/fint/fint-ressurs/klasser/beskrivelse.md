@@ -22,10 +22,10 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
-| [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
-| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
 | [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
 
 
 
@@ -38,8 +38,8 @@ Alias: beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [Applikasjon](applikasjon.md), [Applikasjonsressurs](applikasjonsressurs.md), [Rettighet](rettighet.md), [Periode](periode.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Periode](periode.md), [Applikasjon](applikasjon.md), [Applikasjonsressurs](applikasjonsressurs.md), [Rettighet](rettighet.md) |
 | Slot URI | [fint:beskrivelse](https://schema.fintlabs.no/beskrivelse) |
 
 ### Cardinality and Requirements
@@ -65,7 +65,7 @@ Alias: beskrivelse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -75,7 +75,7 @@ Alias: beskrivelse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:beskrivelse |
-| native | https://schema.fintlabs.no/ressurs/:beskrivelse |
+| native | https://schema.fintlabs.no/:beskrivelse |
 
 
 
@@ -86,15 +86,14 @@ Alias: beskrivelse
 ```yaml
 name: beskrivelse
 description: Beskriven namn eller omtale.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:beskrivelse
 alias: beskrivelse
 domain_of:
+- Periode
 - Applikasjon
 - Applikasjonsressurs
 - Rettighet
-- Periode
 range: string
 
 ```

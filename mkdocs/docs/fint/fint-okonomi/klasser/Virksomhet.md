@@ -35,7 +35,7 @@ Alias: virksomhet
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Leverandor](leverandor.md) |
 | Slot URI | [okn:virksomhet](https://schema.fintlabs.no/okonomi/virksomhet) |
 

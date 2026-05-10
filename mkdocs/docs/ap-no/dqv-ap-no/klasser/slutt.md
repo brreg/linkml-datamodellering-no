@@ -35,7 +35,7 @@ Alias: slutt
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Tidsrom](tidsrom.md) |
 | Slot URI | [time:hasEnd](http://www.w3.org/6006/time#hasEnd) |
 
@@ -62,7 +62,7 @@ Alias: slutt
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: slutt
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | time:hasEnd |
-| native | https://data.norge.no/linkml/dqv-ap-no/slutt |
+| native | https://data.norge.no/linkml/dcat-ap-no/slutt |
 
 
 
@@ -83,8 +83,7 @@ Alias: slutt
 ```yaml
 name: slutt
 description: Sluttidspunkt for eit tidsrom.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: time:hasEnd
 alias: slutt
 domain_of:

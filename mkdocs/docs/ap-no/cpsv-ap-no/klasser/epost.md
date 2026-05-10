@@ -35,7 +35,7 @@ Alias: epost
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Kontaktpunkt](kontaktpunkt.md) |
 | Slot URI | [cv:email](http://data.europa.eu/m8g/email) |
 

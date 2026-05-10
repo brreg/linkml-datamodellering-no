@@ -35,7 +35,7 @@ Alias: signaturrett_bestemmelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Signaturrett](signaturrett.md) |
 | Slot URI | [ngrv:signaturrettBestemmelse](https://data.norge.no/vocabulary/ngr-virksomhet#signaturrettBestemmelse) |
 

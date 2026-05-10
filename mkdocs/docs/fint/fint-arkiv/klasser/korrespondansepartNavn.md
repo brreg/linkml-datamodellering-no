@@ -35,7 +35,7 @@ Alias: korrespondansepartNavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Korrespondansepart](korrespondansepart.md) |
 | Slot URI | [ark:korrespondansepartNavn](https://schema.fintlabs.no/arkiv/korrespondansepartNavn) |
 

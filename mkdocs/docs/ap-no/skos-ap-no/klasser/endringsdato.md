@@ -35,7 +35,7 @@ Alias: endringsdato
 
 | Property | Value |
 | --- | --- |
-| Range | [Date](date.md) |
+| Range | [xsd:date](http://www.w3.org/2001/XMLSchema#date) |
 | Domain Of | [Begrep](begrep.md) |
 | Slot URI | [dct:modified](http://purl.org/dc/terms/modified) |
 
@@ -62,7 +62,7 @@ Alias: endringsdato
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/skos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: endringsdato
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:modified |
-| native | https://data.norge.no/linkml/skos-ap-no/endringsdato |
+| native | https://data.norge.no/linkml/common-ap-no/endringsdato |
 
 
 
@@ -83,8 +83,7 @@ Alias: endringsdato
 ```yaml
 name: endringsdato
 description: Dato for siste endring av ressursen (dct:modified).
-from_schema: https://data.norge.no/linkml/skos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:modified
 alias: endringsdato
 domain_of:

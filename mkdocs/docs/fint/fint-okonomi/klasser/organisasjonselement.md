@@ -35,7 +35,7 @@ Alias: organisasjonselement
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Fakturautsteder](fakturautsteder.md) |
 | Slot URI | [okn:organisasjonselement](https://schema.fintlabs.no/okonomi/organisasjonselement) |
 

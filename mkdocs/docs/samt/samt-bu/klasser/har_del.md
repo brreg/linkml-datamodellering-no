@@ -63,7 +63,7 @@ Alias: har_del
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: har_del
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:hasPart |
-| native | samtbuskole:har_del |
+| native | https://data.norge.no/linkml/dcat-ap-no/har_del |
 
 
 
@@ -84,8 +84,7 @@ Alias: har_del
 ```yaml
 name: har_del
 description: Delkatalog inkludert i denne katalogen.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:hasPart
 alias: har_del
 domain_of:

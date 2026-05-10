@@ -36,7 +36,7 @@ Alias: nokkelord
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Registrering](registrering.md) |
 | Slot URI | [ark:nokkelord](https://schema.fintlabs.no/arkiv/nokkelord) |
 

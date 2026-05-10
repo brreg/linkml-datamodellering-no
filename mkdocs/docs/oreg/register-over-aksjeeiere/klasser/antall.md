@@ -26,7 +26,7 @@ Alias: antall
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 
 ### Cardinality and Requirements
 

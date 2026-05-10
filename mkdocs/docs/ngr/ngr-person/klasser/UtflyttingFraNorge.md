@@ -21,11 +21,47 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
     click UtflyttingFraNorge href "../UtflyttingFraNorge/"
       UtflyttingFraNorge : id
         
+          
+    
+        
+        
+        UtflyttingFraNorge --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       UtflyttingFraNorge : tilflyttingsland
+        
+          
+    
+        
+        
+        UtflyttingFraNorge --> "0..1" String : tilflyttingsland
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       UtflyttingFraNorge : tilflyttingssted_i_utlandet
         
+          
+    
+        
+        
+        UtflyttingFraNorge --> "0..1" String : tilflyttingssted_i_utlandet
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       UtflyttingFraNorge : utflyttingsdato
+        
+          
+    
+        
+        
+        UtflyttingFraNorge --> "1" Date : utflyttingsdato
+        click Date href "../http://www.w3.org/2001/XMLSchema#date/"
+    
+
         
       
 ```
@@ -69,7 +105,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [utflyttingsdato](utflyttingsdato.md) | 1 <br/> [Date](date.md) | Dato personen vart registrert utflytta frå Noreg |
+| [utflyttingsdato](utflyttingsdato.md) | 1 <br/> [xsd:date](http://www.w3.org/2001/XMLSchema#date) | Dato personen vart registrert utflytta frå Noreg |
 
 
 
@@ -94,7 +130,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilflyttingsland](tilflyttingsland.md) | 0..1 <br/> [String](string.md) | ISO 3166-1 landkode for landet personen flytta til |
+| [tilflyttingsland](tilflyttingsland.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | ISO 3166-1 landkode for landet personen flytta til |
 
 
 
@@ -119,7 +155,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [tilflyttingssted_i_utlandet](tilflyttingssted_i_utlandet.md) | 0..1 <br/> [String](string.md) | Stad i utlandet personen flytta til |
+| [tilflyttingssted_i_utlandet](tilflyttingssted_i_utlandet.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Stad i utlandet personen flytta til |
 
 
 
@@ -177,7 +213,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

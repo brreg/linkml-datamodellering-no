@@ -35,7 +35,7 @@ Alias: kontonummer
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Leverandor](leverandor.md) |
 | Slot URI | [okn:kontonummer](https://schema.fintlabs.no/okonomi/kontonummer) |
 

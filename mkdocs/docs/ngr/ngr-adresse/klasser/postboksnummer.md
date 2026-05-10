@@ -35,7 +35,7 @@ Alias: postboksnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Postboks](postboks.md) |
 | Slot URI | [ngr:postboksnummer](https://data.norge.no/vocabulary/ngr-adresse#postboksnummer) |
 

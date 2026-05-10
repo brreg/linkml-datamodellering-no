@@ -23,14 +23,14 @@ Alias: navn
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
 | [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  yes  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
 | [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 | [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  yes  |
 
 
 
@@ -43,8 +43,8 @@ Alias: navn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
-| Domain Of | [Tjeneste](tjeneste.md), [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md), [Begrep](begrep.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
+| Domain Of | [Begrep](begrep.md), [Tjeneste](tjeneste.md), [Behandlingsgrunnlag](behandlingsgrunnlag.md), [Personopplysning](personopplysning.md) |
 | Slot URI | [fint:navn](https://schema.fintlabs.no/navn) |
 
 ### Cardinality and Requirements
@@ -70,7 +70,7 @@ Alias: navn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -80,7 +80,7 @@ Alias: navn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:navn |
-| native | https://schema.fintlabs.no/personvern/:navn |
+| native | https://schema.fintlabs.no/:navn |
 
 
 
@@ -91,15 +91,14 @@ Alias: navn
 ```yaml
 name: navn
 description: Hovudnamn for ressursen.
-from_schema: https://data.norge.no/linkml/fint-personvern
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:navn
 alias: navn
 domain_of:
+- Begrep
 - Tjeneste
 - Behandlingsgrunnlag
 - Personopplysning
-- Begrep
 range: string
 
 ```

@@ -35,7 +35,7 @@ Alias: tilstedeprosent
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Arbeidsforhold](arbeidsforhold.md) |
 | Slot URI | [adm:tilstedeprosent](https://schema.fintlabs.no/administrasjon/tilstedeprosent) |
 

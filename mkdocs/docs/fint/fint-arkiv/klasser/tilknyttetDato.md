@@ -35,7 +35,7 @@ Alias: tilknyttetDato
 
 | Property | Value |
 | --- | --- |
-| Range | [Datetime](datetime.md) |
+| Range | [xsd:dateTime](http://www.w3.org/2001/XMLSchema#dateTime) |
 | Domain Of | [Dokumentbeskrivelse](dokumentbeskrivelse.md) |
 | Slot URI | [ark:tilknyttetDato](https://schema.fintlabs.no/arkiv/tilknyttetDato) |
 

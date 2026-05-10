@@ -233,7 +233,6 @@ Name: cpsv-ap-no
 | [Adresse](klasser/adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |
 | [Aktor](klasser/aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OffentligOrganisasjon](klasser/offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |
-| [Begrepssamling](klasser/begrepssamling.md) | Ei SKOS-omgrepssamling (temavokabular) |
 | [Deltagelse](klasser/deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |
 | [Dokumentasjonstype](klasser/dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |
 | [Gebyr](klasser/gebyr.md) | Eit gebyr knytt til ei teneste |
@@ -241,9 +240,7 @@ Name: cpsv-ap-no
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Livshendelse](klasser/livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |
 | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhetshendelse](klasser/virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |
 | [Katalog](klasser/katalog.md) | Ein katalog over offentlege tenester og hendingar |
-| [Konsept](klasser/konsept.md) | Referanse til eit SKOS-omgrep frå eit kontrollert vokabular |
 | [Kontaktpunkt](klasser/kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |
-| [Mediatype](klasser/mediatype.md) | Ein medietype eller filformat (dct:MediaTypeOrExtent) |
 | [OffentligTjeneste](klasser/offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |
 | [Regel](klasser/regel.md) | Eit regelverk eller retningsliner som styrer levering av ei teneste |
 | [RegulativRessurs](klasser/regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
@@ -259,14 +256,10 @@ Name: cpsv-ap-no
 | Slot | Description |
 | --- | --- |
 | [adresse_ref](klasser/adresse_ref.md) | Postadresse knytt til aktøren |
-| [anbefalt_term](klasser/anbefalt_term.md) | Føretrukke term/namn for ressursen (skos:prefLabel) |
 | [behandlingstid](klasser/behandlingstid.md) | Forventa behandlingstid for tenesta eller kanalen (ISO 8601) |
-| [beskrivelse](klasser/beskrivelse.md) | Fritekstbeskrivelse av ressursen (dct:description) |
-| [dekningsomraade](klasser/dekningsomraade.md) | Geografisk dekningsområde (dct:spatial) |
 | [deltakar](klasser/deltakar.md) | Aktøren som deltek |
 | [deltek_i](klasser/deltek_i.md) | Deltakingar aktøren er del av |
 | [eigd_av](klasser/eigd_av.md) | Aktør som eig eller er ansvarleg for tenesta |
-| [endringsdato](klasser/endringsdato.md) | Dato for siste endring av ressursen (dct:modified) |
 | [epost](klasser/epost.md) | E-postadresse (mailto:-URI) |
 | [er_beskrive_av](klasser/er_beskrive_av.md) | Datasett som beskriv ressursen |
 | [er_del_av](klasser/er_del_av.md) | Tenesta er del av ei anna teneste |
@@ -275,7 +268,6 @@ Name: cpsv-ap-no
 | [er_spesifisert_i](klasser/er_spesifisert_i.md) | Liste eller spesifikasjon ressursen er del av |
 | [folger](klasser/folger.md) | Regelverk tenesta følgjer |
 | [foretrekt_namn](klasser/foretrekt_namn.md) | Føretrekt namn/term for organisasjonen |
-| [format](klasser/format.md) | Filformat eller medietype (dct:format) |
 | [full_adresse](klasser/full_adresse.md) | Full adresse som fritekst |
 | [godtek_spraak](klasser/godtek_spraak.md) | Språk dokumentasjonstypen er akseptert i |
 | [gyldig_i](klasser/gyldig_i.md) | Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit) |
@@ -285,16 +277,10 @@ Name: cpsv-ap-no
 | [har_dokumentasjonstype](klasser/har_dokumentasjonstype.md) | Dokumentasjon som krevst for tenesta |
 | [har_gebyr](klasser/har_gebyr.md) | Gebyr knytt til tenesta |
 | [har_kontaktpunkt](klasser/har_kontaktpunkt.md) | Kontaktpunkt for tenesta eller organisasjonen |
-| [har_merknad](klasser/har_merknad.md) | Fritekstmerknad (rdfs:comment) |
-| [har_referanse](klasser/har_referanse.md) | Referanse til ekstern ressurs (rdfs:seeAlso) |
 | [har_regulativ_ressurs](klasser/har_regulativ_ressurs.md) | Regulativ ressurs (lov, forskrift) knytt til tenesta |
 | [har_rolle](klasser/har_rolle.md) | Rolla aktøren har i ei deltaking |
 | [har_tenestekanal](klasser/har_tenestekanal.md) | Kanal for tilgang til tenesta |
 | [har_tenesteresultattype](klasser/har_tenesteresultattype.md) | Typen resultat tenesta kan produsere |
-| [har_versjonsnummer](klasser/har_versjonsnummer.md) | Versjonsnummer for ressursen (owl:versionInfo) |
-| [heimeside](klasser/heimeside.md) | Heimeside for ressursen eller organisasjonen (foaf:homepage) |
-| [id](klasser/id.md) | URI-identifikator for ressursen |
-| [identifikator_literal](klasser/identifikator_literal.md) | Tekstleg identifikator for ressursen (dct:identifier) |
 | [inneheld_hending](klasser/inneheld_hending.md) | Hendingar i katalogen |
 | [inneheld_teneste](klasser/inneheld_teneste.md) | Offentlege tenester i katalogen |
 | [kan_skape_hending](klasser/kan_skape_hending.md) | Hending tenesteresultatet kan skape |
@@ -309,26 +295,18 @@ Name: cpsv-ap-no
 | [malgruppe](klasser/malgruppe.md) | Målgruppe for tenesta |
 | [mogleg_spraak](klasser/mogleg_spraak.md) | Mogleg språk for tenesteresultatet |
 | [nettside](klasser/nettside.md) | Nettside for tenestekanalane |
-| [nokkelord](klasser/nokkelord.md) | Nøkkelord som beskriv ressursen (dcat:keyword) |
 | [opningstider](klasser/opningstider.md) | Opningstider |
 | [oppdateringsfrekvens](klasser/oppdateringsfrekvens.md) | Kor ofte katalogen vert oppdatert |
 | [postnummer](klasser/postnummer.md) | Postnummer |
 | [poststad](klasser/poststad.md) | Poststad/by |
 | [relatert_teneste](klasser/relatert_teneste.md) | Relatert teneste |
 | [sektor](klasser/sektor.md) | Industri/sektor tenesta tilhøyrer |
-| [spraak](klasser/spraak.md) | Språk brukt i ressursen (dct:language) |
-| [status](klasser/status.md) | Status for ressursen frå eit kontrollert vokabular (adms:status) |
 | [telefon](klasser/telefon.md) | Telefonnummer |
 | [tema](klasser/tema.md) | Emne/tema tenesta handlar om |
 | [temaomrade](klasser/temaomrade.md) | Tematisk område for tenesta |
-| [tittel](klasser/tittel.md) | Namn/tittel på ressursen (dct:title) |
-| [type_concept](klasser/type_concept.md) | Type ressurs frå eit kontrollert vokabular (dct:type) |
-| [utgivelsesdato](klasser/utgivelsesdato.md) | Dato ressursen vart første gong publisert (dct:issued) |
 | [utgjevar](klasser/utgjevar.md) | Utgjevar av katalogen |
 | [utstedingsstad](klasser/utstedingsstad.md) | Stad dokumentasjonen er akseptert frå |
-| [valuta](klasser/valuta.md) | Valuta (cv:currency) |
 | [verdi](klasser/verdi.md) | Verdien av gebyret |
-| [versjonsmerknad](klasser/versjonsmerknad.md) | Merknad om endringar i denne versjonen (adms:versionNotes) |
 
 
 ## Enumerations
@@ -341,30 +319,6 @@ Name: cpsv-ap-no
 
 | Type | Description |
 | --- | --- |
-| [Boolean](klasser/boolean.md) | A binary (true or false) value |
-| [Curie](klasser/curie.md) | a compact URI |
-| [Date](klasser/date.md) | a date (year, month and day) in an idealized calendar |
-| [DateOrDatetime](klasser/dateordatetime.md) | Either a date or a datetime |
-| [Datetime](klasser/datetime.md) | The combination of a date and time |
-| [Decimal](klasser/decimal.md) | A real number with arbitrary precision that conforms to the xsd:decimal speci... |
-| [Double](klasser/double.md) | A real number that conforms to the xsd:double specification |
-| [Duration](klasser/duration.md) | ISO 8601-varigheit (xsd:duration), t |
-| [Float](klasser/float.md) | A real number that conforms to the xsd:float specification |
-| [GYear](klasser/gyear.md) | Gregorisk årstal (xsd:gYear), t |
-| [Integer](klasser/integer.md) | An integer |
-| [Jsonpath](klasser/jsonpath.md) | A string encoding a JSON Path |
-| [Jsonpointer](klasser/jsonpointer.md) | A string encoding a JSON Pointer |
-| [LangString](klasser/langstring.md) | Språktagget streng (rdf:langString) |
-| [Ncname](klasser/ncname.md) | Prefix part of CURIE |
-| [Nodeidentifier](klasser/nodeidentifier.md) | A URI, CURIE or BNODE that represents a node in a model |
-| [NonNegativeInteger](klasser/nonnegativeinteger.md) | Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger) |
-| [Objectidentifier](klasser/objectidentifier.md) | A URI or CURIE that represents an object in the model |
-| [Sparqlpath](klasser/sparqlpath.md) | A string encoding a SPARQL Property Path |
-| [Spraak](klasser/spraak.md) | Språk |
-| [String](klasser/string.md) | A character string |
-| [Time](klasser/time.md) | A time object represents a (local) time of day, independent of any particular... |
-| [Uri](klasser/uri.md) | a complete URI |
-| [Uriorcurie](klasser/uriorcurie.md) | a URI or a CURIE |
 
 
 ## Subsets

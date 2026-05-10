@@ -35,7 +35,7 @@ Alias: lisens
 
 | Property | Value |
 | --- | --- |
-| Range | [Uriorcurie](uriorcurie.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Gjenbruksmetadata](gjenbruksmetadata.md) |
 | Slot URI | [dct:license](http://purl.org/dc/terms/license) |
 

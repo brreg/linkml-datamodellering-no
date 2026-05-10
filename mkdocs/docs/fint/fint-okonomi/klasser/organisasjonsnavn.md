@@ -22,8 +22,8 @@ Alias: organisasjonsnavn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 | [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -36,7 +36,7 @@ Alias: organisasjonsnavn
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Enhet](enhet.md) |
 | Slot URI | [fint:organisasjonsnavn](https://schema.fintlabs.no/organisasjonsnavn) |
 
@@ -63,7 +63,7 @@ Alias: organisasjonsnavn
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-okonomi
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -73,7 +73,7 @@ Alias: organisasjonsnavn
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:organisasjonsnavn |
-| native | https://schema.fintlabs.no/okonomi/:organisasjonsnavn |
+| native | https://schema.fintlabs.no/:organisasjonsnavn |
 
 
 
@@ -84,8 +84,7 @@ Alias: organisasjonsnavn
 ```yaml
 name: organisasjonsnavn
 description: Namn på eining registrert i Einingsregisteret.
-from_schema: https://data.norge.no/linkml/fint-okonomi
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:organisasjonsnavn
 alias: organisasjonsnavn
 domain_of:

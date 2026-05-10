@@ -1543,6 +1543,7 @@ attributes:
     - AdministrasjonContainer
     range: Person
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kontaktpersonar:
     name: kontaktpersonar
@@ -1556,6 +1557,7 @@ attributes:
     - AdministrasjonContainer
     range: Kontaktperson
     multivalued: true
+    inlined: true
     inlined_as_list: true
   virksomhetar:
     name: virksomhetar
@@ -1569,6 +1571,7 @@ attributes:
     - AdministrasjonContainer
     range: Virksomhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   landkodar:
     name: landkodar
@@ -1582,32 +1585,31 @@ attributes:
     - AdministrasjonContainer
     range: Landkode
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kjonn:
     name: kjonn
     description: Kjønn.
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kjonn
     alias: kjonn
     owner: AdministrasjonContainer
     domain_of:
-    - AdministrasjonContainer
     - Person
+    - AdministrasjonContainer
     range: Kjonn
     multivalued: true
     inlined_as_list: true
   fylke:
     name: fylke
     description: Fylke.
-    from_schema: https://data.norge.no/linkml/fint-administrasjon
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:fylke
     alias: fylke
     owner: AdministrasjonContainer
     domain_of:
-    - AdministrasjonContainer
     - Kommune
+    - AdministrasjonContainer
     range: Fylke
     multivalued: true
     inlined_as_list: true
@@ -1623,6 +1625,7 @@ attributes:
     - AdministrasjonContainer
     range: Kommune
     multivalued: true
+    inlined: true
     inlined_as_list: true
   spraak:
     name: spraak
@@ -1636,6 +1639,7 @@ attributes:
     - AdministrasjonContainer
     range: Spraak
     multivalued: true
+    inlined: true
     inlined_as_list: true
   valuta:
     name: valuta
@@ -1649,6 +1653,7 @@ attributes:
     - AdministrasjonContainer
     range: Valuta
     multivalued: true
+    inlined: true
     inlined_as_list: true
   personalressursar:
     name: personalressursar
@@ -1662,6 +1667,7 @@ attributes:
     - AdministrasjonContainer
     range: Personalressurs
     multivalued: true
+    inlined: true
     inlined_as_list: true
   arbeidsforhold:
     name: arbeidsforhold
@@ -1695,6 +1701,7 @@ attributes:
     - AdministrasjonContainer
     range: Arbeidslokasjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fastlonn:
     name: fastlonn
@@ -1750,6 +1757,7 @@ attributes:
     - AdministrasjonContainer
     range: Fullmakt
     multivalued: true
+    inlined: true
     inlined_as_list: true
   organisasjonselement:
     name: organisasjonselement
@@ -1778,6 +1786,7 @@ attributes:
     - AdministrasjonContainer
     range: Rolle
     multivalued: true
+    inlined: true
     inlined_as_list: true
   variabellonn:
     name: variabellonn
@@ -1805,6 +1814,7 @@ attributes:
     - AdministrasjonContainer
     range: Aktivitet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   anlegg:
     name: anlegg
@@ -1851,6 +1861,7 @@ attributes:
     - AdministrasjonContainer
     range: Art
     multivalued: true
+    inlined: true
     inlined_as_list: true
   arbeidsforholdstypar:
     name: arbeidsforholdstypar
@@ -1864,6 +1875,7 @@ attributes:
     - AdministrasjonContainer
     range: Arbeidsforholdstype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   diverse:
     name: diverse
@@ -1909,6 +1921,7 @@ attributes:
     - AdministrasjonContainer
     range: Fravaersgrunn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fravaerstypar:
     name: fravaerstypar
@@ -1922,6 +1935,7 @@ attributes:
     - AdministrasjonContainer
     range: Fravaerstype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   funksjonar:
     name: funksjonar
@@ -1935,6 +1949,7 @@ attributes:
     - AdministrasjonContainer
     range: Funksjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kontrakter:
     name: kontrakter
@@ -1948,6 +1963,7 @@ attributes:
     - AdministrasjonContainer
     range: Kontrakt
     multivalued: true
+    inlined: true
     inlined_as_list: true
   lonsartar:
     name: lonsartar
@@ -1961,6 +1977,7 @@ attributes:
     - AdministrasjonContainer
     range: Lonsart
     multivalued: true
+    inlined: true
     inlined_as_list: true
   lopenummer:
     name: lopenummer
@@ -2006,6 +2023,7 @@ attributes:
     - AdministrasjonContainer
     range: Organisasjonstype
     multivalued: true
+    inlined: true
     inlined_as_list: true
   personalressurskategoriar:
     name: personalressurskategoriar
@@ -2019,6 +2037,7 @@ attributes:
     - AdministrasjonContainer
     range: Personalressurskategori
     multivalued: true
+    inlined: true
     inlined_as_list: true
   prosjekt:
     name: prosjekt
@@ -2049,6 +2068,7 @@ attributes:
     - AdministrasjonContainer
     range: Prosjektart
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rammer:
     name: rammer
@@ -2062,6 +2082,7 @@ attributes:
     - AdministrasjonContainer
     range: Ramme
     multivalued: true
+    inlined: true
     inlined_as_list: true
   stillingskoder:
     name: stillingskoder
@@ -2075,6 +2096,7 @@ attributes:
     - AdministrasjonContainer
     range: Stillingskode
     multivalued: true
+    inlined: true
     inlined_as_list: true
   uketimetall:
     name: uketimetall
@@ -2088,6 +2110,7 @@ attributes:
     - AdministrasjonContainer
     range: Uketimetall
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

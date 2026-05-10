@@ -35,7 +35,7 @@ Alias: heimeside
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Klassifikasjon](klassifikasjon.md) |
 | Slot URI | [foaf:homepage](http://xmlns.com/foaf/0.1/homepage) |
 
@@ -63,7 +63,7 @@ Alias: heimeside
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/xkos-ap-no
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ Alias: heimeside
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:homepage |
-| native | https://data.norge.no/linkml/xkos-ap-no/heimeside |
+| native | https://data.norge.no/linkml/common-ap-no/heimeside |
 
 
 
@@ -84,8 +84,7 @@ Alias: heimeside
 ```yaml
 name: heimeside
 description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
-from_schema: https://data.norge.no/linkml/xkos-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: foaf:homepage
 alias: heimeside
 domain_of:

@@ -35,7 +35,7 @@ Alias: har_epost
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Kontaktopplysning](kontaktopplysning.md) |
 | Slot URI | [vcard:hasEmail](http://www.w3.org/2006/vcard/ns#hasEmail) |
 
@@ -62,7 +62,7 @@ Alias: har_epost
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: har_epost
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:hasEmail |
-| native | samtbuskole:har_epost |
+| native | https://data.norge.no/linkml/dcat-ap-no/har_epost |
 
 
 
@@ -83,8 +83,7 @@ Alias: har_epost
 ```yaml
 name: har_epost
 description: E-postadresse til kontaktpunktet.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: vcard:hasEmail
 alias: har_epost
 domain_of:

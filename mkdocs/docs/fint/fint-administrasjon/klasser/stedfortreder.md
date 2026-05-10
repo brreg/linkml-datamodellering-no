@@ -36,7 +36,7 @@ Alias: stedfortreder
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Fullmakt](fullmakt.md), [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:stedfortreder](https://schema.fintlabs.no/administrasjon/stedfortreder) |
 

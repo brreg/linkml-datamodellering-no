@@ -35,7 +35,7 @@ Alias: nedlastningslenke
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Distribusjon](distribusjon.md) |
 | Slot URI | [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL) |
 

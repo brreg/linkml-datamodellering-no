@@ -62,7 +62,7 @@ Alias: elev
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-administrasjon
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: elev
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:elev |
-| native | https://schema.fintlabs.no/administrasjon/:elev |
+| native | https://schema.fintlabs.no/:elev |
 
 
 
@@ -83,8 +83,7 @@ Alias: elev
 ```yaml
 name: elev
 description: Referanse til Elev (Utdanning).
-from_schema: https://data.norge.no/linkml/fint-administrasjon
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:elev
 alias: elev
 domain_of:

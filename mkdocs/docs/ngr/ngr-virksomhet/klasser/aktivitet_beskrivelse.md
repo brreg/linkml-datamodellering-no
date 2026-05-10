@@ -35,7 +35,7 @@ Alias: aktivitet_beskrivelse
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Aktivitet](aktivitet.md) |
 | Slot URI | [ngrv:aktivitetBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#aktivitetBeskrivelse) |
 

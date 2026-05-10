@@ -35,11 +35,47 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
         
       Spraak : id
         
+          
+    
+        
+        
+        Spraak --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Spraak : kode
+        
+          
+    
+        
+        
+        Spraak --> "1" String : kode
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Spraak : navn
         
+          
+    
+        
+        
+        Spraak --> "1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Spraak : passiv
+        
+          
+    
+        
+        
+        Spraak --> "0..1" Boolean : passiv
+        click Boolean href "../http://www.w3.org/2001/XMLSchema#boolean/"
+    
+
         
       
 ```
@@ -87,11 +123,11 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
 ### Arva
 
 | Namn | Kardinalitet og domene | Beskriving | Frå |
-| --- | --- | --- | --- || [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen | [Begrep](begrep.md) |
-| [kode](kode.md) | 1 <br/> [String](string.md) | Verdi som identifiserer omgrepet | [Begrep](begrep.md) |
-| [navn](navn.md) | 1 <br/> [String](string.md) | Hovudnamn for ressursen | [Begrep](begrep.md) |
+| --- | --- | --- | --- || [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen | [Begrep](begrep.md) |
+| [kode](kode.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Verdi som identifiserer omgrepet | [Begrep](begrep.md) |
+| [navn](navn.md) | 1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Hovudnamn for ressursen | [Begrep](begrep.md) |
 | [gyldighetsperiode](gyldighetsperiode.md) | 0..1 <br/> [Periode](periode.md) | Periode ressursen er gyldig for | [Begrep](begrep.md) |
-| [passiv](passiv.md) | 0..1 <br/> [Boolean](boolean.md) | Angir at koden er passiv og ikkje kan veljast | [Begrep](begrep.md) |
+| [passiv](passiv.md) | 0..1 <br/> [xsd:boolean](http://www.w3.org/2001/XMLSchema#boolean) | Angir at koden er passiv og ikkje kan veljast | [Begrep](begrep.md) |
 
 
 
@@ -124,7 +160,7 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-utdanning
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -134,7 +170,7 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Spraak |
-| native | https://schema.fintlabs.no/utdanning/:Spraak |
+| native | https://schema.fintlabs.no/:Spraak |
 
 
 
@@ -151,7 +187,7 @@ URI: [fint:Spraak](https://schema.fintlabs.no/Spraak)
 ```yaml
 name: Spraak
 description: Verdiar for språk (2 bokstavar).
-from_schema: https://data.norge.no/linkml/fint-utdanning
+from_schema: https://data.norge.no/linkml/fint-common
 is_a: Begrep
 class_uri: fint:Spraak
 
@@ -164,18 +200,23 @@ class_uri: fint:Spraak
 ```yaml
 name: Spraak
 description: Verdiar for språk (2 bokstavar).
-from_schema: https://data.norge.no/linkml/fint-utdanning
+from_schema: https://data.norge.no/linkml/fint-common
 is_a: Begrep
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
     alias: id
     owner: Spraak
     domain_of:
+    - Begrep
+    - Elev
+    - Valuta
+    - Person
+    - Kontaktperson
+    - Virksomhet
     - Gruppe
     - Gruppemedlemskap
     - Utdanningsforhold
@@ -221,12 +262,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Elev
-    - Valuta
-    - Person
-    - Kontaktperson
-    - Virksomhet
     range: uriorcurie
     required: true
   kode:
@@ -234,12 +269,12 @@ attributes:
     description: Verdi som identifiserer omgrepet.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
     alias: kode
     owner: Spraak
     domain_of:
+    - Begrep
     - Avbruddsaarsak
     - Betalingsstatus
     - Bevistype
@@ -262,7 +297,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
     range: string
     required: true
   navn:
@@ -270,12 +304,12 @@ attributes:
     description: Hovudnamn for ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
     alias: navn
     owner: Spraak
     domain_of:
+    - Begrep
     - Gruppe
     - Skole
     - Eksamen
@@ -303,7 +337,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
     range: string
     required: true
   gyldighetsperiode:
@@ -311,12 +344,13 @@ attributes:
     description: Periode ressursen er gyldig for.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
     alias: gyldighetsperiode
     owner: Spraak
     domain_of:
+    - Begrep
+    - Identifikator
     - Gruppemedlemskap
     - Avbruddsaarsak
     - Betalingsstatus
@@ -340,8 +374,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
-    - Identifikator
     range: Periode
     inlined: true
   passiv:
@@ -349,12 +381,12 @@ attributes:
     description: Angir at koden er passiv og ikkje kan veljast.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/fint-utdanning
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
     alias: passiv
     owner: Spraak
     domain_of:
+    - Begrep
     - Avbruddsaarsak
     - Betalingsstatus
     - Bevistype
@@ -377,7 +409,6 @@ attributes:
     - Tilrettelegging
     - Varseltype
     - Vitnemalsmerknad
-    - Begrep
     range: boolean
 class_uri: fint:Spraak
 

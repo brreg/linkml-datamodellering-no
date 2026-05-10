@@ -42,7 +42,25 @@ URI: [ngr:GeografiskOmrade](https://data.norge.no/vocabulary/ngr-adresse#Geograf
       
       GeografiskOmrade : id
         
+          
+    
+        
+        
+        GeografiskOmrade --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       GeografiskOmrade : namn
+        
+          
+    
+        
+        
+        GeografiskOmrade --> "0..1" String : namn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -129,8 +147,8 @@ URI: [ngr:GeografiskOmrade](https://data.norge.no/vocabulary/ngr-adresse#Geograf
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
-| [namn](namn.md) | 0..1 <br/> [String](string.md) | Namn på det geografiske området eller adressekomponenten |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
+| [namn](namn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på det geografiske området eller adressekomponenten |
 
 
 

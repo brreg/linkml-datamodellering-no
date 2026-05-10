@@ -62,7 +62,7 @@ Alias: er_deldimensjon_av
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: er_deldimensjon_av
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:broader |
-| native | samtbuskole:er_deldimensjon_av |
+| native | https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av |
 
 
 
@@ -83,8 +83,7 @@ Alias: er_deldimensjon_av
 ```yaml
 name: er_deldimensjon_av
 description: Overordna kvalitetsdimensjon denne deldimensjonen høyrer til.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: skos:broader
 alias: er_deldimensjon_av
 domain_of:

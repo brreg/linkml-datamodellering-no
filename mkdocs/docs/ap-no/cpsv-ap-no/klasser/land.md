@@ -35,7 +35,7 @@ Alias: land
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Adresse](adresse.md) |
 | Slot URI | [locn:adminUnitL1](http://www.w3.org/ns/locn#adminUnitL1) |
 

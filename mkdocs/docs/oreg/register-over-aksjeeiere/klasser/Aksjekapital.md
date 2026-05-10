@@ -21,7 +21,25 @@ URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
     click Aksjekapital href "../Aksjekapital/"
       Aksjekapital : har_antall_aksjer
         
+          
+    
+        
+        
+        Aksjekapital --> "0..1" Integer : har_antall_aksjer
+        click Integer href "../http://www.w3.org/2001/XMLSchema#integer/"
+    
+
+        
       Aksjekapital : identifikator
+        
+          
+    
+        
+        
+        Aksjekapital --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
         
       
 ```
@@ -89,8 +107,8 @@ URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [Integer](integer.md) | Tal aksjar |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [har_antall_aksjer](har_antall_aksjer.md) | 0..1 <br/> [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) | Tal aksjar |
 
 
 

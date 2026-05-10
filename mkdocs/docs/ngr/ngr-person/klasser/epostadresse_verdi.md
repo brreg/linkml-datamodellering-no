@@ -36,7 +36,7 @@ Alias: epostadresse_verdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md), [Kontaktopplysninger](kontaktopplysninger.md) |
 | Slot URI | [ngrp:epostadresse](https://data.norge.no/vocabulary/ngr-person#epostadresse) |
 

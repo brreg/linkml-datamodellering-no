@@ -35,7 +35,7 @@ Alias: opphavsrettsinnehaver
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Rettighetserklaring](rettighetserklaring.md) |
 | Slot URI | [odrs:copyrightHolder](http://schema.theodi.org/odrs#copyrightHolder) |
 

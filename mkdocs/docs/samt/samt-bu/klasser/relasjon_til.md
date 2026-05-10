@@ -35,7 +35,7 @@ Alias: relasjon_til
 
 | Property | Value |
 | --- | --- |
-| Range | [Uri](uri.md) |
+| Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
 | Domain Of | [Relasjon](relasjon.md) |
 | Slot URI | [dct:relation](http://purl.org/dc/terms/relation) |
 
@@ -62,7 +62,7 @@ Alias: relasjon_til
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: relasjon_til
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:relation |
-| native | samtbuskole:relasjon_til |
+| native | https://data.norge.no/linkml/dcat-ap-no/relasjon_til |
 
 
 
@@ -83,8 +83,7 @@ Alias: relasjon_til
 ```yaml
 name: relasjon_til
 description: Den relaterte ressursen i ein kvalifisert relasjon.
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:relation
 alias: relasjon_til
 domain_of:

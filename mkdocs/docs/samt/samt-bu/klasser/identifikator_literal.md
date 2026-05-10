@@ -22,10 +22,10 @@ Alias: identifikator_literal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 | [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
-| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
@@ -39,7 +39,7 @@ Alias: identifikator_literal
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Aktor](aktor.md), [RegulativRessurs](regulativressurs.md), [Datasett](datasett.md), [Datatjeneste](datatjeneste.md), [Katalog](katalog.md) |
 | Slot URI | [dct:identifier](http://purl.org/dc/terms/identifier) |
 
@@ -66,7 +66,7 @@ Alias: identifikator_literal
 ### Schema Source
 
 
-* from schema: https://example.no/ontology/samt-bu-skole
+* from schema: https://data.norge.no/linkml/common-ap-no
 
 
 
@@ -76,7 +76,7 @@ Alias: identifikator_literal
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:identifier |
-| native | samtbuskole:identifikator_literal |
+| native | https://data.norge.no/linkml/common-ap-no/identifikator_literal |
 
 
 
@@ -87,8 +87,7 @@ Alias: identifikator_literal
 ```yaml
 name: identifikator_literal
 description: Tekstleg identifikator for ressursen (dct:identifier).
-from_schema: https://example.no/ontology/samt-bu-skole
-rank: 1000
+from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:identifier
 alias: identifikator_literal
 domain_of:

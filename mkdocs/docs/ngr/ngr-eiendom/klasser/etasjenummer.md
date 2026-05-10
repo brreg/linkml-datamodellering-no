@@ -36,7 +36,7 @@ Alias: etasjenummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Bruksenhetsnummer](bruksenhetsnummer.md), [Etasje](etasje.md) |
 | Slot URI | [ngre:etasjenummer](https://data.norge.no/vocabulary/ngr-eiendom#etasjenummer) |
 

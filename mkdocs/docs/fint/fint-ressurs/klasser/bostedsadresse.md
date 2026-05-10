@@ -62,7 +62,7 @@ Alias: bostedsadresse
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-ressurs
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -72,7 +72,7 @@ Alias: bostedsadresse
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:bostedsadresse |
-| native | https://schema.fintlabs.no/ressurs/:bostedsadresse |
+| native | https://schema.fintlabs.no/:bostedsadresse |
 
 
 
@@ -83,8 +83,7 @@ Alias: bostedsadresse
 ```yaml
 name: bostedsadresse
 description: Folkeregistrert adresse til personen.
-from_schema: https://data.norge.no/linkml/fint-ressurs
-rank: 1000
+from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:bostedsadresse
 alias: bostedsadresse
 domain_of:

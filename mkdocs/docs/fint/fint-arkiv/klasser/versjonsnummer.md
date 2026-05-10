@@ -35,7 +35,7 @@ Alias: versjonsnummer
 
 | Property | Value |
 | --- | --- |
-| Range | [Integer](integer.md) |
+| Range | [xsd:integer](http://www.w3.org/2001/XMLSchema#integer) |
 | Domain Of | [Dokumentobjekt](dokumentobjekt.md) |
 | Slot URI | [ark:versjonsnummer](https://schema.fintlabs.no/arkiv/versjonsnummer) |
 

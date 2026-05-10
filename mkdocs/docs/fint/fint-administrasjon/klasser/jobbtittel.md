@@ -35,7 +35,7 @@ Alias: jobbtittel
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Personalressurs](personalressurs.md) |
 | Slot URI | [adm:jobbtittel](https://schema.fintlabs.no/administrasjon/jobbtittel) |
 

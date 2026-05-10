@@ -32,9 +32,36 @@ URI: [fint:Matrikkelnummer](https://schema.fintlabs.no/Matrikkelnummer)
         
       Matrikkelnummer : bruksnummer
         
+          
+    
+        
+        
+        Matrikkelnummer --> "0..1" String : bruksnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Matrikkelnummer : festenummer
         
+          
+    
+        
+        
+        Matrikkelnummer --> "0..1" String : festenummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
+        
       Matrikkelnummer : gaardsnummer
+        
+          
+    
+        
+        
+        Matrikkelnummer --> "0..1" String : gaardsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       Matrikkelnummer : kommunenummer
         
@@ -48,6 +75,15 @@ URI: [fint:Matrikkelnummer](https://schema.fintlabs.no/Matrikkelnummer)
 
         
       Matrikkelnummer : seksjonsnummer
+        
+          
+    
+        
+        
+        Matrikkelnummer --> "0..1" String : seksjonsnummer
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -187,10 +223,10 @@ URI: [fint:Matrikkelnummer](https://schema.fintlabs.no/Matrikkelnummer)
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
 | [adresse](adresse.md) | 0..1 <br/> [Adresse](adresse.md) | Adresse til matrikkeleining |
-| [bruksnummer](bruksnummer.md) | 0..1 <br/> [String](string.md) | Fortløpande nummerering av bruk under gårdsnummer |
-| [festenummer](festenummer.md) | 0..1 <br/> [String](string.md) | Fortløpande nummerering av festar under gårdsnummer/bruksnummer |
-| [gaardsnummer](gaardsnummer.md) | 0..1 <br/> [String](string.md) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
-| [seksjonsnummer](seksjonsnummer.md) | 0..1 <br/> [String](string.md) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
+| [bruksnummer](bruksnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Fortløpande nummerering av bruk under gårdsnummer |
+| [festenummer](festenummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Fortløpande nummerering av festar under gårdsnummer/bruksnummer |
+| [gaardsnummer](gaardsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Nummerering av gårdseiging i matrikkelen, unik innanfor kommune |
+| [seksjonsnummer](seksjonsnummer.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer |
 | [kommunenummer](kommunenummer.md) | 0..1 <br/> [Kommune](kommune.md) | Nummerering av kommunen i høve til SSB si offisielle liste |
 
 
@@ -219,7 +255,7 @@ URI: [fint:Matrikkelnummer](https://schema.fintlabs.no/Matrikkelnummer)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fint-personvern
+* from schema: https://data.norge.no/linkml/fint-common
 
 
 
@@ -229,7 +265,7 @@ URI: [fint:Matrikkelnummer](https://schema.fintlabs.no/Matrikkelnummer)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | fint:Matrikkelnummer |
-| native | https://schema.fintlabs.no/personvern/:Matrikkelnummer |
+| native | https://schema.fintlabs.no/:Matrikkelnummer |
 
 
 
@@ -246,7 +282,7 @@ URI: [fint:Matrikkelnummer](https://schema.fintlabs.no/Matrikkelnummer)
 ```yaml
 name: Matrikkelnummer
 description: Eintydleg identifisering av matrikkeleining innanfor kommune.
-from_schema: https://data.norge.no/linkml/fint-personvern
+from_schema: https://data.norge.no/linkml/fint-common
 slots:
 - adresse
 - bruksnummer
@@ -265,13 +301,12 @@ class_uri: fint:Matrikkelnummer
 ```yaml
 name: Matrikkelnummer
 description: Eintydleg identifisering av matrikkeleining innanfor kommune.
-from_schema: https://data.norge.no/linkml/fint-personvern
+from_schema: https://data.norge.no/linkml/fint-common
 attributes:
   adresse:
     name: adresse
     description: Adresse til matrikkeleining.
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:adresse
     alias: adresse
     owner: Matrikkelnummer
@@ -282,8 +317,7 @@ attributes:
   bruksnummer:
     name: bruksnummer
     description: Fortløpande nummerering av bruk under gårdsnummer.
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:bruksnummer
     alias: bruksnummer
     owner: Matrikkelnummer
@@ -293,8 +327,7 @@ attributes:
   festenummer:
     name: festenummer
     description: Fortløpande nummerering av festar under gårdsnummer/bruksnummer.
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:festenummer
     alias: festenummer
     owner: Matrikkelnummer
@@ -304,8 +337,7 @@ attributes:
   gaardsnummer:
     name: gaardsnummer
     description: Nummerering av gårdseiging i matrikkelen, unik innanfor kommune.
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gaardsnummer
     alias: gaardsnummer
     owner: Matrikkelnummer
@@ -315,8 +347,7 @@ attributes:
   seksjonsnummer:
     name: seksjonsnummer
     description: Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer.
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:seksjonsnummer
     alias: seksjonsnummer
     owner: Matrikkelnummer
@@ -326,8 +357,7 @@ attributes:
   kommunenummer:
     name: kommunenummer
     description: Nummerering av kommunen i høve til SSB si offisielle liste.
-    from_schema: https://data.norge.no/linkml/fint-personvern
-    rank: 1000
+    from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kommunenummer
     alias: kommunenummer
     owner: Matrikkelnummer

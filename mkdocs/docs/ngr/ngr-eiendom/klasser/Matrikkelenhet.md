@@ -69,6 +69,15 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
         
       Matrikkelenhet : id
         
+          
+    
+        
+        
+        Matrikkelenhet --> "1" Uriorcurie : id
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Matrikkelenhet : identifiseres_med
         
           
@@ -300,7 +309,7 @@ URI: [ngre:Matrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Matrikke
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [id](id.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | URI-identifikator for ressursen |
+| [id](id.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | URI-identifikator for ressursen |
 
 
 

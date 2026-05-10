@@ -32,7 +32,25 @@ URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
         
       Aksjeeier : identifikator
         
+          
+    
+        
+        
+        Aksjeeier --> "1" Uriorcurie : identifikator
+        click Uriorcurie href "../http://www.w3.org/2001/XMLSchema#anyURI/"
+    
+
+        
       Aksjeeier : navn
+        
+          
+    
+        
+        
+        Aksjeeier --> "0..1" String : navn
+        click String href "../http://www.w3.org/2001/XMLSchema#string/"
+    
+
         
       
 ```
@@ -116,8 +134,8 @@ URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
 
 | Namn | Kardinalitet og domene | Beskriving |
 | --- | --- | --- |
-| [identifikator](identifikator.md) | 1 <br/> [Uriorcurie](uriorcurie.md) | Global identifikator for instansen |
-| [navn](navn.md) | 0..1 <br/> [String](string.md) | Namn på instansen |
+| [identifikator](identifikator.md) | 1 <br/> [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) | Global identifikator for instansen |
+| [navn](navn.md) | 0..1 <br/> [xsd:string](http://www.w3.org/2001/XMLSchema#string) | Namn på instansen |
 | [har_eierposisjon](har_eierposisjon.md) | 0..1 <br/> [Eierposisjon](eierposisjon.md) | Eierposisjon aksjeeigaren har |
 
 

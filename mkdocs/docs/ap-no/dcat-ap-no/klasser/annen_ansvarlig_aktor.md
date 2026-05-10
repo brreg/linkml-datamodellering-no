@@ -35,7 +35,7 @@ Alias: annen_ansvarlig_aktor
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Datasett](datasett.md) |
 | Slot URI | [prov:qualifiedAttribution](http://www.w3.org/ns/prov#qualifiedAttribution) |
 

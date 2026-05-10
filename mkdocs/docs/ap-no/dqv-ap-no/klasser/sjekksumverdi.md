@@ -35,7 +35,7 @@ Alias: sjekksumverdi
 
 | Property | Value |
 | --- | --- |
-| Range | [String](string.md) |
+| Range | [xsd:string](http://www.w3.org/2001/XMLSchema#string) |
 | Domain Of | [Sjekksum](sjekksum.md) |
 | Slot URI | [spdx:checksumValue](http://spdx.org/rdf/terms#checksumValue) |
 
@@ -62,7 +62,7 @@ Alias: sjekksumverdi
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/linkml/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ Alias: sjekksumverdi
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | spdx:checksumValue |
-| native | https://data.norge.no/linkml/dqv-ap-no/sjekksumverdi |
+| native | https://data.norge.no/linkml/dcat-ap-no/sjekksumverdi |
 
 
 
@@ -83,8 +83,7 @@ Alias: sjekksumverdi
 ```yaml
 name: sjekksumverdi
 description: Sjekksumverdi som heksadesimal streng.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
-rank: 1000
+from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: spdx:checksumValue
 alias: sjekksumverdi
 domain_of:
