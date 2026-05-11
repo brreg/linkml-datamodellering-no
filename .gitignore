@@ -1,5 +1,6 @@
 generated/
 mkdocs/site/
+tests/testlogs/
 __pycache__/
 *.pyc
 .pytest_cache/
