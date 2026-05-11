@@ -1,3 +1,5 @@
+SHELL           	:= /bin/bash
+.SHELLFLAGS     	:= -o pipefail -c
 LINKML_IMAGE    	:= localhost/linkml-local:latest
 LINKML_DOCKERFILE 	:= src/assets/containers/Dockerfile.linkml
 LINKML_RUN     		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(LINKML_IMAGE)
