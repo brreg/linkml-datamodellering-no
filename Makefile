@@ -1,16 +1,19 @@
-IMAGE      := docker.io/linkml/linkml:latest
-PODMAN     := podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(IMAGE)
-GEN_DIR    := generated
-SCHEMA_DIR := src/linkml
-MCP_DIR    := src/mcp-linkml-validator
-MCP_IMAGE  := mcp-linkml-validator
-DOCS_IMAGE := docker.io/squidfunk/mkdocs-material:9.5
-DOCS_RUN   := podman run --rm -v "$(CURDIR)/mkdocs:/docs"
-SEP        := ************************************************************
-CLR_SEP    := $(shell printf '\033[1;33m')
-CLR_HDR    := $(shell printf '\033[1;37m')
-CLR_STEP   := $(shell printf '\033[0;36m')
-CLR_RST    := $(shell printf '\033[0m')
+LINKML_IMAGE    := docker.io/linkml/linkml:latest
+LINKML_RUN     	:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(LINKML_IMAGE)
+GEN_DIR    		:= generated
+SCHEMA_DIR 		:= src/linkml
+MCP_DIR    		:= src/mcp-linkml-validator
+MCP_IMAGE  		:= mcp-linkml-validator
+DOCS_IMAGE 		:= docker.io/squidfunk/mkdocs-material:9.5
+DOCS_RUN   		:= podman run --rm -v "$(CURDIR)/mkdocs:/docs"
+PYTHON_IMAGE	:= localhost/python-pytest:latest
+PYTHON_DOCKERFILE := src/assets/Dockerfile.python
+PYTHON_RUN		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(PYTHON_IMAGE)
+SEP        		:= ************************************************************
+CLR_SEP    		:= $(shell printf '\033[1;33m')
+CLR_HDR    		:= $(shell printf '\033[1;37m')
+CLR_STEP   		:= $(shell printf '\033[0;36m')
+CLR_RST    		:= $(shell printf '\033[0m')
 
 # ---------------------------------------------------------------------------
 # Schema discovery – no manual lists needed.
@@ -34,23 +37,26 @@ DOMAINS := $(sort $(foreach s,$(SCHEMAS),$(call schema_domain,$(s))))
 # @ suppresses make's own echo of the foreach line; each iteration instead
 # prints the coloured summary line, then the full podman command, then runs it.
 define run_gen
-@$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(PODMAN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
+@$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
 endef
 
 # gen-erdiagram: pipe through awk to strip Container classes (entity block + relationships)
 # $$  →  $  after make expansion, so shell sees  /^}$/  etc.
 define run_gen_erdiagram
-@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-erdiagram  $(s)$(CLR_RST)" && echo "$(PODMAN) gen-erdiagram $(s) | awk -f filter_container.awk > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md" && mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) gen-erdiagram $(s) \
+@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-erdiagram  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) | awk -f filter_container.awk > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-erdiagram --no-mergeimports $(s) \
   | awk -f filter_container.awk \
-  > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md;)
+  > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md && \
+  echo "$(PYTHON_RUN) python -u filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md" && \
+  $(PYTHON_RUN) python -u filter_erdiagram.py $(s) $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram-unfiltered.md > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md; \
+  )
 endef
 
 # gen-doc writes to a directory instead of stdout
 define run_gen_doc
 @$(foreach s,$(1), \
   echo "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)" && \
-  echo "$(PODMAN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --diagram-type mermaid_class_diagram -d $(call schema_outdir,$(s))/docs $(s)" && \
-  $(PODMAN) gen-doc \
+  echo "$(LINKML_RUN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --diagram-type mermaid_class_diagram -d $(call schema_outdir,$(s))/docs $(s)" && \
+  $(LINKML_RUN) gen-doc \
     --template-directory src/templates/docgen \
     --no-mergeimports \
     --no-render-imports \
@@ -66,7 +72,7 @@ endef
 .PHONY: all test validate gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf docs clean \
         publish domains \
         mcp-build mcp-run mcp-test mcp-smoke mcp-validate \
-        docs-docker docs-serve docs-build docs-build-fast \
+        build-python-docker build-docs-docker docs-serve docs-build docs-build-fast \
         $(DOMAINS)
 
 all: test
@@ -83,7 +89,7 @@ validate:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make validate$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ gen-linkml  $(s)$(CLR_RST)" && echo "$(PODMAN) gen-linkml $(s) > /dev/null" && $(PODMAN) gen-linkml $(s) > /dev/null;)
+	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ gen-linkml  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
 
 gen-jsonld:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -123,6 +129,19 @@ gen-rdf:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-rdf,schema.ttl)
 
+
+build-python-docker:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make build-python-docker$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@if ! podman image exists $(PYTHON_IMAGE); then \
+    	echo "Building $(PYTHON_IMAGE)..."; \
+    	podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE) .; \
+	else \
+    	echo "$(PYTHON_IMAGE) already exists, skipping build"; \
+	fi
+
+
 gen-erdiagram:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gen-erdiagram$(CLR_RST)"
@@ -154,8 +173,8 @@ convert-rdf:
 				schema=$(SCHEMA_DIR)/$$domain/$$profil/$$profil-schema.yaml; \
 			fi; \
 			echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
-			echo "$(PODMAN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$profil/$$name.ttl $$example"; \
-			$(PODMAN) linkml-convert \
+			echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$profil/$$name.ttl $$example"; \
+			$(LINKML_RUN) linkml-convert \
 				--schema $$schema \
 				--output-format ttl \
 				--no-validate \
@@ -216,7 +235,7 @@ $(1):
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make $(1)$(CLR_RST)"
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
-	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ gen-linkml  $$(s)$(CLR_RST)" && echo "$$(PODMAN) gen-linkml $$(s) > /dev/null" && $$(PODMAN) gen-linkml $$(s) > /dev/null;)
+	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ gen-linkml  $$(s)$(CLR_RST)" && echo "$$(LINKML_RUN) gen-linkml $$(s) > /dev/null" && $$(LINKML_RUN) gen-linkml $$(s) > /dev/null;)
 	$$(call run_gen,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
 	$$(call run_gen,$$(_schemas_$(1)),gen-shacl $$(SHACL_FLAGS_$(1)),shapes.ttl)
 	$$(call run_gen,$$(_schemas_$(1)),gen-python,model.py)
@@ -234,8 +253,8 @@ $(1):
 			schema=$(SCHEMA_DIR)/$(1)/$$$$profil/$$$$profil-schema.yaml; \
 		fi; \
 		echo "$(CLR_STEP)→ linkml-convert  $$$$example$(CLR_RST)"; \
-		echo "$$(PODMAN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl $$$$example"; \
-		$$(PODMAN) linkml-convert \
+		echo "$$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl $$$$example"; \
+		$$(LINKML_RUN) linkml-convert \
 			--schema $$$$schema \
 			--output-format ttl \
 			--no-validate \
@@ -253,7 +272,7 @@ $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 # ---------------------------------------------------------------------------
 # Bygg lokal docs-image med mkdocs-kroki (trengst for PlantUML-rendering via Kroki.io).
 # Køyr éin gong, eller etter endringar i mkdocs/Dockerfile.
-docs-docker:
+build-docs-docker:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make docs-docker$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -302,7 +321,8 @@ mcp-test:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make mcp-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(PODMAN) bash -c "pip install pytest --quiet 2>/dev/null && python -m pytest tests/test_mcp_server.py -v"
+#	$(PODMAN) bash -c "pip install pytest --quiet 2>/dev/null && python -m pytest tests/test_mcp_server.py -v"
+	$(PYTHON_RUN) python -m pytest tests/test_mcp_server.py"
 
 mcp-smoke: mcp-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"

@@ -3,9 +3,6 @@ lage tester for alt
 
 lage agent som kan modellere linkml og bruke mcp-linkml-validator for å 
 
-forbere nav menyen med markering av alle nivå som inngår i gjeldande sidehierarki og ikkje kollapse menyen når du trykker på ei klasse for å vise detaljsida om den
-
-
 
 remodellere ngr modellar til å benytte slots istadenfor atributter
 Modellere opp BR modell fra MagicDraw

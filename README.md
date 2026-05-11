@@ -14,11 +14,10 @@ Modellerer norske W3C-applikasjonsprofiler og norske offentlige domenemodeller i
 # 1. Generer alle artefaktar for eit domene (t.d. oreg)
 make oreg
 
-# 2. Publiser til dokumentasjonsportalen
+# 2. Kopier artefaktar til portalen og oppdater navigasjonen
 make publish
 
-# 3. Bygg og førehandsvis portalen lokalt
-make docs-build
+# 3. Start lokal dev-server
 make docs-serve       # → http://localhost:8000
 ```
 
@@ -67,12 +66,14 @@ Nye domene vert oppdaga automatisk frå `src/linkml/` — ingen endringar i Make
 
 ### Dokumentasjonsportal
 
-| Kommando | Beskriving |
-|---|---|
-| `make publish` | Kopier genererte artefaktar til portalen og oppdater nav |
-| `make docs-serve` | Start lokal dev-server på http://localhost:8000 |
-| `make docs-build` | Bygg statisk HTML til `mkdocs/site/` (reint bygg) |
-| `make docs-build-fast` | Bygg berre endra sider (`--dirty`) — for iterativ utvikling |
+Tre ulike steg — berre `publish` og `docs-serve` trengst for lokal utvikling:
+
+| Kommando | Kva | Når |
+|---|---|---|
+| `make publish` | Kopier `generated/` → `mkdocs/docs/` og regenerer `mkdocs.yml` | Etter `make <domene>` eller `make docs` |
+| `make docs-serve` | Start lokal dev-server på http://localhost:8000 (live reload) | Lokal utvikling |
+| `make docs-build` | Bygg statisk HTML-site til `mkdocs/site/` (reint, fullstendig bygg) | Produksjon / deploy |
+| `make docs-build-fast` | Same som `docs-build` men med `--dirty` — hoppar over uendra sider | Iterativ utvikling av portal-malar/CSS |
 
 **Korleis publiseringa fungerer:**
 

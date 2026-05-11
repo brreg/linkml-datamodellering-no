@@ -1,0 +1,15 @@
+FROM python:3.11-slim
+
+# unngå cache / litt betre runtime
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+
+WORKDIR /work
+
+# installer pytest
+COPY src/assets/requirements-python-test.txt .
+RUN pip install --no-cache-dir -r requirements-python-test.txt
+
+
+# default command (kan overrides)
+CMD ["python", "-m", "pytest"]
