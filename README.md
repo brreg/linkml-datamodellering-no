@@ -4,6 +4,30 @@ Modellerer norske W3C-applikasjonsprofiler og norske offentlige domenemodeller i
 
 **Ny domenemodell?** Sjå [docs/ny-domenemodell.md](docs/ny-domenemodell.md) for steg-for-steg-rettleiing.
 
+## Profiler og domenemodeller
+
+Applikasjonsprofiler frå [data.norge.no/showroom](https://data.norge.no/showroom/overview):
+
+| Profil | Beskriving |
+|---|---|
+| **DCAT-AP-NO** | Datakatalogar og datasett |
+| **DQV-AP-NO** | Datakvalitet |
+| **SKOS-AP-NO** | Begrepssamlingar |
+| **CPSV-AP-NO** | Offentlege tenester |
+| **XKOS-AP-NO** | Utvidet klassifikasjon |
+| **ModelldCAT-AP-NO** | Informasjonsmodellar |
+
+Felles eigenskapar på tvers av profiler ligg i `common-ap-no-schema.yaml`.
+
+Domenemodeller:
+
+| Domene | Beskriving |
+|---|---|
+| **OREG** | Offentlege registre (`src/linkml/oreg/`) |
+| **FINT** | Integrasjonsmodellar for fylkeskommunesektoren (`src/linkml/fint/`) |
+| **SAMT** | Integrasjonsmodellar for kommunesektoren (`src/linkml/samt/`) |
+| **NGR** | Nasjonale grunndata (`src/linkml/ngr/`) |
+
 ## Krav
 
 - [Podman](https://podman.io/) — alle kommandoar køyrer via container-image, ingen lokal installasjon nødvendig
@@ -222,6 +246,26 @@ generated/                              # Genererte artefakter (ikkje innsjekka 
 ```
 
 ## Arkitekturprinsipp
+
+### Importhierarki
+
+```
+linkml:types
+    ↓
+common-ap-no          ← bare AP-NO-profilene importerer denne direkte
+    ↓
+dcat-ap-no / dqv-ap-no / skos-ap-no / …
+    ↓
+domenemodeller        ← importerer AP-NO-profilene, ikke common-ap-no direkte
+
+fint-common           ← bare FINT-domenemodellene importerer denne
+    ↓
+fint-administrasjon / fint-arkiv / …
+
+oreg-modeller         ← offentlige registre (importerer AP-NO-profil(er) etter behov)
+
+fair-metadata         ← kan importeres av alle domenemodeller
+```
 
 ### AP-NO Profiler for RDF baserte ressurser
 

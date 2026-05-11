@@ -1,27 +1,5 @@
 # CLAUDE.md
 
-Dette filen gir veiledning til Claude Code (claude.ai/code) ved arbeid i dette repoet.
-
-## Formål
-
-Dette repoet modellerer norske W3C-applikasjonsprofiler fra [data.norge.no/showroom](https://data.norge.no/showroom/overview) og norske offentlige domenemodeller i [LinkML-format](https://linkml.io/linkml-model/latest/docs/specification/).
-
-Profiler som skal modelleres:
-- **DCAT-AP-NO** – Datakataloger (`src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml`) ✅
-- **SKOS-AP-NO** – Begrepssamlinger ✅
-- **CPSV-AP-NO** – Offentlige tjenester ✅
-- **DQV-AP-NO** – Datakvalitet ✅
-- **ModelldCAT-AP-NO** – Informasjonsmodeller
-- **XKOS-AP-NO** – Utvidet klassifikasjon ✅
-
-Egenskaper som går igjen i flere profiler samles i `common-ap-no-schema.yaml`.
-
-Domenemodeller som skal modelleres:
-- **OREG** – Offentlige registre (`src/linkml/oreg/`) – f.eks. register-over-aksjeeiere
-- **FINT** – Integrasjonsmodeller for fylkeskommunesektoren (`src/linkml/fint/`) – f.eks. fint-personvern
-- **SAMT** – Integrasjonsmodeller for kommunesektoren (`src/linkml/samt/`) – f.eks. samt-bu
-- **NGR** – Nasjonale grunndata (`src/linkml/ngr/`) – f.eks. ngr-adresse
-
 ## Importhierarki
 
 ```
@@ -42,45 +20,15 @@ oreg-modeller         ← offentlige registre (importerer AP-NO-profil(er) etter
 fair-metadata         ← kan importeres av alle domenemodeller
 ```
 
-## Kommandoer
-
-LinkML kjøres via Podman med imaget `docker.io/linkml/linkml:latest`. Ingen lokal installasjon nødvendig.
+## Valider arbeidet ditt
 
 ```bash
-make validate               # Valider alle skjemaer mot LinkML-metaskjemaet
-make gen-jsonld             # Generer JSON-LD kontekst
-make gen-shacl              # Generer SHACL shapes
-make gen-jsonschema         # Generer JSON Schema
-make gen-owl                # Generer OWL/Turtle-ontologi
-make docs                   # Generer HTML-dokumentasjon
-
-# Lint enkelt skjema direkte:
-./tests/lint_schema.bash ./src/linkml/samt/samt-bu/samt-bu-schema.yaml 
-
-# Valider eksempelfil mot skjema direkte: NB bruk denne til å validere alle endringar du utfører på eit skjema.
+# Lint og valider eksempel etter kvar endring i eit skjema:
 ./tests/validate_schema.bash ./src/linkml/samt/samt-bu/samt-bu-schema.yaml ./examples/samt/samt-bu-eksempel.yaml
 
-# MCP-validator (raskere tilbakemelding under utvikling):
+# MCP-validator dersom dette er angitt av bruker:
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=fair
-```
-
-## Katalogstruktur
-
-```
-src/linkml/
-  ap-no/<profil>/           – AP-NO-profiler (importerer common-ap-no)
-  fair/fair-metadata/       – FAIR-metadataoverbygning
-  fint/<domene>/            – FINT-domenemodeller (importerer fint-common)
-  ngr/<domene>/             – NGR-domenemodeller
-  oreg/<register>/          – Offentlige registre (OREG-domenemodeller)
-
-examples/<domene>/          – Eksempeldata (YAML)
-tests/                      – Testskript og fixtures
-generated/                  – Genererte artefakter (ikke innsjekket)
-mkdocs/                     – Dokumentasjonsportal (MkDocs Material)
-  mkdocs.yml                – Konfigurasjon
-  docs/                     – Markdown-sider
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=ap-no
 ```
 
 ## Modelleringsprinsipper
@@ -134,18 +82,15 @@ Alle klasser og slots har eksplisitt `class_uri` / `slot_uri` som mapper til de 
 ### Containerklasse
 Alle toppnivå domenemodeller skal ha Containerklasse som har eit attributt for hver klasse som kan serialiseres i tilhørende datasettfil.
 Containerklassens attributter skrives alltid i flertallsform.
-Alle verdiområde/range for attributter må mappes til linkml klasser definert i skjema eller inkluderte skjema, eller linkml innebygde typer.
+Alle verdiområde/range for attributter må mappes til linkml klasser definert i skjema eller inkluderte skjema, eller linkml innebygde typar.
 Alle containerslots skal ha:
     multivalued: true
     inlined: true
     inlined_as_list: true
-Alle ap-no modeller og fair modeller skal alltid inkluderes i en annen domenemodell, og skal derfor ikkje ha egen Containerklasse.
+Alle ap-no modeller og fair modeller skal alltid inkluderes i en annen domenemodell, og skal derfor ikkje ha eigen Containerklasse.
 
 ### Endringer i koderepoet
 Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
 
 ### Ny profil eller domenemodell
-Se `docs/ny-domenemodell.md` for steg-for-steg-veiledning. Kortversjon:
-1. Opprett `src/linkml/<domene>/<modellnavn>/<modellnavn>-schema.yaml`
-2. Legg til modellnavnet i riktig liste i `Makefile` (`AP_NO_SCHEMAS`, `NGR_SCHEMAS`, `FINT_SCHEMAS`, `OREG_SCHEMAS` o.l.)
-3. Opprett `examples/<domene>/` med minst ett eksempel-datasett
+Sjå `docs/ny-domenemodell.md` for steg-for-steg-rettleiing.
