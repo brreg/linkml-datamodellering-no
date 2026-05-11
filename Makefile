@@ -1,19 +1,21 @@
-LINKML_IMAGE    := docker.io/linkml/linkml:latest
-LINKML_RUN     	:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(LINKML_IMAGE)
-GEN_DIR    		:= generated
-SCHEMA_DIR 		:= src/linkml
-MCP_DIR    		:= src/mcp-linkml-validator
-MCP_IMAGE  		:= mcp-linkml-validator
-DOCS_IMAGE 		:= docker.io/squidfunk/mkdocs-material:9.5
-DOCS_RUN   		:= podman run --rm -v "$(CURDIR)/mkdocs:/docs"
-PYTHON_IMAGE	:= localhost/python-pytest:latest
-PYTHON_DOCKERFILE := src/assets/Dockerfile.python
-PYTHON_RUN		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(PYTHON_IMAGE)
-SEP        		:= ************************************************************
-CLR_SEP    		:= $(shell printf '\033[1;33m')
-CLR_HDR    		:= $(shell printf '\033[1;37m')
-CLR_STEP   		:= $(shell printf '\033[0;36m')
-CLR_RST    		:= $(shell printf '\033[0m')
+LINKML_IMAGE    	:= localhost/linkml-local:latest
+LINKML_DOCKERFILE 	:= src/assets/containers/Dockerfile.linkml
+LINKML_RUN     		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(LINKML_IMAGE)
+GEN_DIR    			:= generated
+SCHEMA_DIR 			:= src/linkml
+MCP_DIR    			:= src/mcp-linkml-validator
+MCP_IMAGE  			:= mcp-linkml-validator
+DOCS_IMAGE 			:= localhost/mkdocs-local:latest
+DOCS_DOCKERFILE 	:= mkdocs/Dockerfile.mkdocs
+DOCS_RUN   			:= podman run --rm -v "$(CURDIR)/mkdocs:/docs"
+PYTHON_IMAGE		:= localhost/python-pytest:latest
+PYTHON_DOCKERFILE 	:= src/assets/containers/Dockerfile.python
+PYTHON_RUN			:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(PYTHON_IMAGE)
+SEP        			:= ************************************************************
+CLR_SEP    			:= $(shell printf '\033[1;33m')
+CLR_HDR    			:= $(shell printf '\033[1;37m')
+CLR_STEP   			:= $(shell printf '\033[0;36m')
+CLR_RST    			:= $(shell printf '\033[0m')
 
 # ---------------------------------------------------------------------------
 # Schema discovery – no manual lists needed.
@@ -69,10 +71,11 @@ endef
 # ---------------------------------------------------------------------------
 # Top-level targets
 # ---------------------------------------------------------------------------
-.PHONY: all test validate gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf docs clean \
-        publish domains \
+.PHONY: all test validate clean domains \
+		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
+        linkml-build-docker python-build-docker \
         mcp-build mcp-run mcp-test mcp-smoke mcp-validate \
-        build-python-docker build-docs-docker docs-serve docs-build docs-build-fast \
+		docs-build-docker docs-serve docs-build docs-build-fast publish \
         $(DOMAINS)
 
 all: test
@@ -130,16 +133,18 @@ gen-rdf:
 	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-rdf,schema.ttl)
 
 
-build-python-docker:
+linkml-build-docker:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make build-python-docker$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make linkml-build-docker$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@if ! podman image exists $(PYTHON_IMAGE); then \
-    	echo "Building $(PYTHON_IMAGE)..."; \
-    	podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE) .; \
-	else \
-    	echo "$(PYTHON_IMAGE) already exists, skipping build"; \
-	fi
+	podman build -f $(LINKML_DOCKERFILE) -t $(LINKML_IMAGE)
+
+python-build-docker:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make python-build-docker$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+    podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
+
 
 
 gen-erdiagram:
@@ -148,9 +153,9 @@ gen-erdiagram:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_erdiagram,$(SCHEMAS))
 
-docs:
+gen-docs:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make docs$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-docs$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_doc,$(SCHEMAS))
 	$(call run_gen_erdiagram,$(SCHEMAS))
@@ -272,11 +277,11 @@ $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 # ---------------------------------------------------------------------------
 # Bygg lokal docs-image med mkdocs-kroki (trengst for PlantUML-rendering via Kroki.io).
 # Køyr éin gong, eller etter endringar i mkdocs/Dockerfile.
-build-docs-docker:
+docs-build-docker:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make docs-docker$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -t $(DOCS_IMAGE) mkdocs/
+	podman build -f $(DOCS_DOCKERFILE) -t $(DOCS_IMAGE)
 
 docs-serve:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"

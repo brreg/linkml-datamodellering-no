@@ -1,0 +1,2 @@
+FROM docker.io/linkml/linkml:latest
+RUN pip install --no-cache-dir rdflib
