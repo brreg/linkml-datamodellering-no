@@ -7,6 +7,10 @@ MCP_IMAGE  := mcp-linkml-validator
 DOCS_IMAGE := docker.io/squidfunk/mkdocs-material:9.5
 DOCS_RUN   := podman run --rm -v "$(CURDIR)/mkdocs:/docs"
 SEP        := ************************************************************
+CLR_SEP    := $(shell printf '\033[1;33m')
+CLR_HDR    := $(shell printf '\033[1;37m')
+CLR_STEP   := $(shell printf '\033[0;36m')
+CLR_RST    := $(shell printf '\033[0m')
 
 # ---------------------------------------------------------------------------
 # Schema discovery – no manual lists needed.
@@ -27,22 +31,25 @@ DOMAINS := $(sort $(foreach s,$(SCHEMAS),$(call schema_domain,$(s))))
 # Generator macros
 # ---------------------------------------------------------------------------
 # $1=schemas  $2=generator  $3=output-file suffix (stdout is redirected)
+# @ suppresses make's own echo of the foreach line; each iteration instead
+# prints the coloured summary line, then the full podman command, then runs it.
 define run_gen
-$(foreach s,$(1),echo "  → $(2)  $(s)" && mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
+@$(foreach s,$(1),echo "$(CLR_STEP)→ $(2)  $(s)$(CLR_RST)" && echo "$(PODMAN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3)" && mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) $(2) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-$(3);)
 endef
 
 # gen-erdiagram: pipe through awk to strip Container classes (entity block + relationships)
 # $$  →  $  after make expansion, so shell sees  /^}$/  etc.
 define run_gen_erdiagram
-$(foreach s,$(1),echo "  → gen-erdiagram  $(s)" && mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) gen-erdiagram $(s) \
+@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-erdiagram  $(s)$(CLR_RST)" && echo "$(PODMAN) gen-erdiagram $(s) | awk -f filter_container.awk > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md" && mkdir -p $(call schema_outdir,$(s)) && $(PODMAN) gen-erdiagram $(s) \
   | awk -f filter_container.awk \
   > $(call schema_outdir,$(s))/$(call schema_name,$(s))-erdiagram.md;)
 endef
 
 # gen-doc writes to a directory instead of stdout
 define run_gen_doc
-$(foreach s,$(1), \
-  echo "  → gen-doc  $(s)" && \
+@$(foreach s,$(1), \
+  echo "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)" && \
+  echo "$(PODMAN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --diagram-type mermaid_class_diagram -d $(call schema_outdir,$(s))/docs $(s)" && \
   $(PODMAN) gen-doc \
     --template-directory src/templates/docgen \
     --no-mergeimports \
@@ -67,75 +74,75 @@ all: test
 domains: $(DOMAINS)
 
 test:
-	@echo "$(SEP)"
-	@echo "*** make test"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make test$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	bash tests/test_schemas.sh
 
 validate:
-	@echo "$(SEP)"
-	@echo "*** make validate"
-	@echo "$(SEP)"
-	$(foreach s,$(SCHEMAS),echo "  → gen-linkml  $(s)" && $(PODMAN) gen-linkml $(s) > /dev/null;)
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make validate$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ gen-linkml  $(s)$(CLR_RST)" && echo "$(PODMAN) gen-linkml $(s) > /dev/null" && $(PODMAN) gen-linkml $(s) > /dev/null;)
 
 gen-jsonld:
-	@echo "$(SEP)"
-	@echo "*** make gen-jsonld"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-jsonld$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(SCHEMAS),gen-jsonld-context,context.jsonld)
 
 gen-shacl:
-	@echo "$(SEP)"
-	@echo "*** make gen-shacl"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-shacl$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-shacl,shapes.ttl)
 	$(call run_gen,$(filter $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-shacl --exclude-imports,shapes.ttl)
 
 gen-python:
-	@echo "$(SEP)"
-	@echo "*** make gen-python"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-python$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(SCHEMAS),gen-python,model.py)
 
 gen-jsonschema:
-	@echo "$(SEP)"
-	@echo "*** make gen-jsonschema"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-jsonschema$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(SCHEMAS),gen-json-schema,schema.json)
 
 gen-owl:
-	@echo "$(SEP)"
-	@echo "*** make gen-owl"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-owl$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-owl,ontology.ttl)
 	$(call run_gen,$(filter $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-owl --log_level ERROR,ontology.ttl)
 
 gen-rdf:
-	@echo "$(SEP)"
-	@echo "*** make gen-rdf"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-rdf$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-rdf,schema.ttl)
 
 gen-erdiagram:
-	@echo "$(SEP)"
-	@echo "*** make gen-erdiagram"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make gen-erdiagram$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_erdiagram,$(SCHEMAS))
 
 docs:
-	@echo "$(SEP)"
-	@echo "*** make docs"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make docs$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(call run_gen_doc,$(SCHEMAS))
 	$(call run_gen_erdiagram,$(SCHEMAS))
 
 # Convert example YAML to RDF/Turtle for all domains.
 # AP-NO profiles have no tree_root and use fixture schemas; others use the schema directly.
 convert-rdf:
-	@echo "$(SEP)"
-	@echo "*** make convert-rdf"
-	@echo "$(SEP)"
-	for domain in $$(ls examples/); do \
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make convert-rdf$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@for domain in $$(ls examples/); do \
 		for example in examples/$$domain/*-eksempel.yaml; do \
 			[ -f "$$example" ] || continue; \
 			name=$$(basename "$$example" .yaml); \
@@ -146,7 +153,8 @@ convert-rdf:
 			else \
 				schema=$(SCHEMA_DIR)/$$domain/$$profil/$$profil-schema.yaml; \
 			fi; \
-			echo "  → linkml-convert  $$example"; \
+			echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
+			echo "$(PODMAN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$profil/$$name.ttl $$example"; \
 			$(PODMAN) linkml-convert \
 				--schema $$schema \
 				--output-format ttl \
@@ -157,17 +165,17 @@ convert-rdf:
 	done
 
 clean:
-	@echo "$(SEP)"
-	@echo "*** make clean"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make clean$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	rm -rf $(GEN_DIR)
 
 # Kopier genererte artefaktar til mkdocs/docs/ og oppdater mkdocs.yml.
 # Føresetnad: relevante make <domain>-targets er køyrde fyrst.
 publish:
-	@echo "$(SEP)"
-	@echo "*** make publish"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make publish$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	bash mkdocs/publish.sh
 
 # ---------------------------------------------------------------------------
@@ -205,17 +213,17 @@ _schemas_$(1) := $(filter $(SCHEMA_DIR)/$(1)/%,$(SCHEMAS))
 
 .PHONY: $(1)
 $(1):
-	@echo "$$(SEP)"
-	@echo "*** make $(1)"
-	@echo "$$(SEP)"
-	$$(foreach s,$$(_schemas_$(1)),echo "  → gen-linkml  $$(s)" && $$(PODMAN) gen-linkml $$(s) > /dev/null;)
+	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make $(1)$(CLR_RST)"
+	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
+	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ gen-linkml  $$(s)$(CLR_RST)" && echo "$$(PODMAN) gen-linkml $$(s) > /dev/null" && $$(PODMAN) gen-linkml $$(s) > /dev/null;)
 	$$(call run_gen,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
 	$$(call run_gen,$$(_schemas_$(1)),gen-shacl $$(SHACL_FLAGS_$(1)),shapes.ttl)
 	$$(call run_gen,$$(_schemas_$(1)),gen-python,model.py)
 	$$(call run_gen,$$(_schemas_$(1)),gen-json-schema,schema.json)
 	$$(call run_gen,$$(_schemas_$(1)),gen-owl $$(OWL_FLAGS_$(1)),ontology.ttl)
 	$(if $(GEN_RDF_SKIP_$(1)),,$$(call run_gen,$$(_schemas_$(1)),gen-rdf,schema.ttl))
-	for example in examples/$(1)/*-eksempel.yaml; do \
+	@for example in examples/$(1)/*-eksempel.yaml; do \
 		[ -f "$$$$example" ] || continue; \
 		name=$$$$(basename "$$$$example" .yaml); \
 		profil=$$$$(echo "$$$$name" | sed 's/-eksempel$$$$//'); \
@@ -225,7 +233,8 @@ $(1):
 		else \
 			schema=$(SCHEMA_DIR)/$(1)/$$$$profil/$$$$profil-schema.yaml; \
 		fi; \
-		echo "  → linkml-convert  $$$$example"; \
+		echo "$(CLR_STEP)→ linkml-convert  $$$$example$(CLR_RST)"; \
+		echo "$$(PODMAN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl $$$$example"; \
 		$$(PODMAN) linkml-convert \
 			--schema $$$$schema \
 			--output-format ttl \
@@ -245,29 +254,29 @@ $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
 # Bygg lokal docs-image med mkdocs-kroki (trengst for PlantUML-rendering via Kroki.io).
 # Køyr éin gong, eller etter endringar i mkdocs/Dockerfile.
 docs-docker:
-	@echo "$(SEP)"
-	@echo "*** make docs-docker"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make docs-docker$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(DOCS_IMAGE) mkdocs/
 
 docs-serve:
-	@echo "$(SEP)"
-	@echo "*** make docs-serve"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make docs-serve$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000
 
 docs-build:
-	@echo "$(SEP)"
-	@echo "*** make docs-build"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make docs-build$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(DOCS_RUN) $(DOCS_IMAGE) build
 
 # Raskare bygg for iterativ utvikling: hoppar over sider utan endringar sidan sist bygg.
 # Bruk docs-build for reine produksjonsbyggjer.
 docs-build-fast:
-	@echo "$(SEP)"
-	@echo "*** make docs-build-fast"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make docs-build-fast$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(DOCS_RUN) $(DOCS_IMAGE) build --dirty
 
 # ---------------------------------------------------------------------------
@@ -278,34 +287,34 @@ MCP_RUN := podman run -i --rm \
   -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro"
 
 mcp-build:
-	@echo "$(SEP)"
-	@echo "*** make mcp-build"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-build$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(MCP_IMAGE) $(MCP_DIR)
 
 mcp-run:
-	@echo "$(SEP)"
-	@echo "*** make mcp-run"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-run$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(MCP_RUN) $(MCP_IMAGE)
 
 mcp-test:
-	@echo "$(SEP)"
-	@echo "*** make mcp-test"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-test$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(PODMAN) bash -c "pip install pytest --quiet 2>/dev/null && python -m pytest tests/test_mcp_server.py -v"
 
 mcp-smoke: mcp-build
-	@echo "$(SEP)"
-	@echo "*** make mcp-smoke"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-smoke$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
 # Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=fair]
 mcp-validate:
 	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=fair]"; exit 1)
-	@echo "$(SEP)"
-	@echo "*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$(POLICY)"
-	@echo "$(SEP)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$(POLICY)$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-build
 	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY)

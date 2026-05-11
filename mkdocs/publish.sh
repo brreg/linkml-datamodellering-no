@@ -8,6 +8,19 @@ GEN="$REPO_ROOT/generated"
 DOCS="$REPO_ROOT/mkdocs/docs"
 MKDOCS_YML="$REPO_ROOT/mkdocs/mkdocs.yml"
 
+SEP="************************************************************"
+CLR_SEP=$(printf '\033[1;33m')
+CLR_HDR=$(printf '\033[1;37m')
+CLR_STEP=$(printf '\033[0;36m')
+CLR_OK=$(printf '\033[0;32m')
+CLR_RST=$(printf '\033[0m')
+
+log_step() {
+    echo "${CLR_SEP}${SEP}${CLR_RST}"
+    echo "${CLR_HDR}$*${CLR_RST}"
+    echo "${CLR_SEP}${SEP}${CLR_RST}"
+}
+
 # ---------------------------------------------------------------------------
 # Hjelpefunksjonar
 # ---------------------------------------------------------------------------
@@ -44,6 +57,7 @@ ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json ontology.ttl schema.ttl mo
 # ---------------------------------------------------------------------------
 # Steg 1: Rens tidlegare genererte domene-katalogar frå docs/
 # ---------------------------------------------------------------------------
+log_step "Steg 1: Rens tidlegare genererte domene-katalogar frå docs/"
 if [ ! -d "$GEN" ] || [ -z "$(ls -A "$GEN" 2>/dev/null)" ]; then
     echo "Ingen genererte artefaktar funne i $GEN. Køyr make <domain> fyrst." >&2
     exit 1
@@ -60,6 +74,7 @@ done
 # ---------------------------------------------------------------------------
 # Steg 2: Generer innhald per domene og skjema
 # ---------------------------------------------------------------------------
+log_step "Steg 2: Generer innhald per domene og skjema"
 
 # Saml domene-info for seinare nav-generering
 declare -a ALL_DOMAINS=()
@@ -150,7 +165,7 @@ for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
 
         } > "$out/index.md"
 
-        echo "  $domain/$schema"
+        echo "${CLR_STEP}  → $domain/$schema${CLR_RST}"
     done
 
     DOMAIN_SCHEMA_LIST[$domain]="${schemas[*]:-}"
@@ -180,6 +195,7 @@ done
 # ---------------------------------------------------------------------------
 # Steg 3: Generer mkdocs.yml
 # ---------------------------------------------------------------------------
+log_step "Steg 3: Generer mkdocs.yml"
 {
 cat << 'STATIC'
 site_name:  Norske W3C-profiler og offentlige domenemodeller i LinkML-format
@@ -251,5 +267,5 @@ STATIC
 } > "$MKDOCS_YML"
 
 echo ""
-echo "Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/"
-echo "Oppdatert mkdocs/mkdocs.yml"
+echo "${CLR_OK}Publisert ${#ALL_DOMAINS[@]} domene(r) til mkdocs/docs/${CLR_RST}"
+echo "${CLR_OK}Oppdatert mkdocs/mkdocs.yml${CLR_RST}"

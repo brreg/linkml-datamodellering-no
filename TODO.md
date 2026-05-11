@@ -1,8 +1,5 @@
 lage tester for alt
 
-Oppdatere makefile med kommentarer som viser hvilke make argument forskjellige deler er knytta til
-
-oppdater makefile med logging for kvar make kommando som blir utført, i tillegg til logging av kvart artefakt som blir produsert
 
 lage agent som kan modellere linkml og bruke mcp-linkml-validator for å 
 

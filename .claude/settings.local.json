@@ -15,7 +15,10 @@
       "Bash(podman ps *)",
       "Bash(podman exec *)",
       "Bash(python3 *)",
-      "Bash(xxd)"
+      "Bash(xxd)",
+      "Bash(make -n gen-owl)",
+      "Bash(make -n oreg)",
+      "Bash(make -n validate)"
     ]
   },
   "enabledMcpjsonServers": [
