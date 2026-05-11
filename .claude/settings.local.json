@@ -18,7 +18,8 @@
       "Bash(xxd)",
       "Bash(make -n gen-owl)",
       "Bash(make -n oreg)",
-      "Bash(make -n validate)"
+      "Bash(make -n validate)",
+      "Bash(chmod +x *)"
     ]
   },
   "enabledMcpjsonServers": [

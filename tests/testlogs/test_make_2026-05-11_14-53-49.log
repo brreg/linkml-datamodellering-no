@@ -1,0 +1,97 @@
+test_make.sh — Mon May 11 14:53:49 CEST 2026
+LINKML_IMAGE: localhost/linkml-local:latest
+
+========================================
+TEST: validate (ngr-adresse)  (14:53:49)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make validate[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-linkml  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-linkml src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml > /dev/null
+RESULT: OK
+
+========================================
+TEST: gen-jsonld (ngr-adresse)  (14:53:52)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-jsonld[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-jsonld-context  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-jsonld-context src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml > generated/ngr/ngr-adresse/ngr-adresse-context.jsonld
+RESULT: OK
+
+========================================
+TEST: gen-python (ngr-adresse)  (14:53:55)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-python[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-python  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-python src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml > generated/ngr/ngr-adresse/ngr-adresse-model.py
+RESULT: OK
+
+========================================
+TEST: gen-jsonschema (ngr-adresse)  (14:53:58)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-jsonschema[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-json-schema  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-json-schema src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml > generated/ngr/ngr-adresse/ngr-adresse-schema.json
+RESULT: OK
+
+========================================
+TEST: gen-rdf (ngr-adresse)  (14:54:02)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-rdf[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-rdf  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-rdf src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml > generated/ngr/ngr-adresse/ngr-adresse-schema.ttl
+tripler: 1787
+RESULT: OK
+
+========================================
+TEST: gen-shacl (ngr-adresse)  (14:54:10)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-shacl[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-shacl  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-shacl src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml > generated/ngr/ngr-adresse/ngr-adresse-shapes.ttl
+tripler: 846
+RESULT: OK
+
+========================================
+TEST: gen-shacl (fint-personvern)  (14:54:15)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-shacl[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-shacl --exclude-imports  src/linkml/fint/fint-personvern/fint-personvern-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-shacl --exclude-imports src/linkml/fint/fint-personvern/fint-personvern-schema.yaml > generated/fint/fint-personvern/fint-personvern-shapes.ttl
+tripler: 280
+RESULT: OK
+
+========================================
+TEST: gen-owl (ngr-adresse)  (14:54:20)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-owl[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-owl  src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-owl src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml > generated/ngr/ngr-adresse/ngr-adresse-ontology.ttl
+tripler: 1175
+RESULT: OK
+
+========================================
+TEST: gen-owl (fint-personvern)  (14:54:26)
+========================================
+[1;33m************************************************************[0m
+[1;37m*** make gen-owl[0m
+[1;33m************************************************************[0m
+[0;36m→ gen-owl --log_level ERROR  src/linkml/fint/fint-personvern/fint-personvern-schema.yaml[0m
+podman run --rm -v /mnt/c/dev/github/linkml-w3c-no-profiles:/work -w /work -e PYTHONWARNINGS=ignore localhost/linkml-local:latest gen-owl --log_level ERROR src/linkml/fint/fint-personvern/fint-personvern-schema.yaml > generated/fint/fint-personvern/fint-personvern-ontology.ttl
+tripler: 1645
+RESULT: OK
