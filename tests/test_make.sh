@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Integrasjonstester for make-targets. Køyr mot reelle skjema, parallelt.
+# Integrasjonstester for make-targets. Køyr mot alle reelle skjema, parallelt.
 # Krev at localhost/linkml-local:latest er bygd (make linkml-build-docker).
 set -euo pipefail
 
@@ -8,28 +8,40 @@ cd "$REPO_ROOT"
 
 LINKML_IMAGE="localhost/linkml-local:latest"
 GEN_DIR="generated"
+SCHEMA_DIR="src/linkml"
 LOGDIR="tests/testlogs"
 LOG="$LOGDIR/test_make_$(date '+%Y%m%d_%H%M%S').log"
 mkdir -p "$LOGDIR"
-
-NGR_ADRESSE="src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml"
-FINT_PERSONVERN="src/linkml/fint/fint-personvern/fint-personvern-schema.yaml"
 
 CLR_OK=$(printf '\033[0;32m')
 CLR_ERR=$(printf '\033[0;31m')
 CLR_RST=$(printf '\033[0m')
 
+# ---------------------------------------------------------------------------
+# Skjemaoppdaging — same logikk som Makefile SCHEMAS-variabelen
+# ---------------------------------------------------------------------------
+mapfile -t SCHEMAS < <(
+    find "$SCHEMA_DIR" -mindepth 3 -maxdepth 3 -name '*-schema.yaml' \
+        | grep -v common | sort
+)
+
+schema_domain() { echo "$1" | cut -d/ -f3; }
+schema_name()   { echo "$1" | cut -d/ -f4; }
+schema_outdir() { echo "$GEN_DIR/$(schema_domain "$1")/$(schema_name "$1")"; }
+
 echo "test_make.sh — $(date)" > "$LOG"
 echo "LINKML_IMAGE: $LINKML_IMAGE" >> "$LOG"
+printf "Skjema (%d):\n" "${#SCHEMAS[@]}" >> "$LOG"
+printf "  %s\n" "${SCHEMAS[@]}" >> "$LOG"
 
 # ---------------------------------------------------------------------------
 # Cleanup: slett berre katalogar som testane sjølve oppretta.
-# Pre-registrer FØR testane startar slik at parallelle subshells slepp å
-# koordinere — parent-prosessen eig TEST_DIRS.
+# Pre-registrer FØR testane startar.
 # ---------------------------------------------------------------------------
 declare -a TEST_DIRS=()
-for dir in "$GEN_DIR/ngr/ngr-adresse" "$GEN_DIR/fint/fint-personvern"; do
-    [ -d "$dir" ] || TEST_DIRS+=("$dir")
+for schema in "${SCHEMAS[@]}"; do
+    outdir=$(schema_outdir "$schema")
+    [ -d "$outdir" ] || TEST_DIRS+=("$outdir")
 done
 
 cleanup() {
@@ -41,46 +53,72 @@ trap cleanup EXIT
 
 # ---------------------------------------------------------------------------
 # Parallell test-infrastruktur
-# run_test  — startar testen som bakgrunnsjobb, registrerer PID og templog
-# wait_for_tests — ventar på alle jobbar i rekkjefølgje og rapporterer
+# Skjema køyrer i parallell; testar per skjema køyrer sekvensielt.
+# Dette avgrenser samtidige Podman-kontainerr til ~N-skjema og unngår
+# Podman-database-lock ved for høg grad av parallelisme.
 # ---------------------------------------------------------------------------
-declare -a JOB_NAMES=()
-declare -a JOB_PIDS=()
-declare -a JOB_LOGS=()
+declare -a SCHEMA_PIDS=()
+declare -a SCHEMA_LOGS=()
 
-run_test() {
-    local name="$1"; shift
+# Køyr ein enkelt test og skriv parseable RESULT-markørar til stdout
+_run_one() {
+    local tname="$1"; shift
+    echo "========================================"
+    echo "TEST: $tname  ($(date '+%H:%M:%S'))"
+    echo "========================================"
+    if "$@" 2>&1; then
+        echo "##RESULT:OK:$tname"
+    else
+        echo "##RESULT:FAIL:$tname"
+    fi
+}
+
+# Køyr alle testar for eit skjema sekvensielt (i ein bakgrunnsprosess)
+run_schema_tests() {
+    local schema="$1"
+    local domain name outdir
+    domain=$(schema_domain "$schema")
+    name=$(schema_name "$schema")
+    outdir=$(schema_outdir "$schema")
     local tmplog
-    tmplog=$(mktemp /tmp/test_make_XXXXXX.log)
+    tmplog=$(mktemp /tmp/test_make_schema_XXXXXX.log)
+
     {
-        echo "========================================"
-        echo "TEST: $name  ($(date '+%H:%M:%S'))"
-        echo "========================================"
-        "$@"
+        _run_one "validate ($name)"        test_validate       "$schema"
+        _run_one "gen-jsonld ($name)"      test_gen_jsonld     "$schema" "$outdir/$name-context.jsonld"
+        _run_one "gen-python ($name)"      test_gen_python     "$schema" "$outdir/$name-model.py"
+        _run_one "gen-jsonschema ($name)"  test_gen_jsonschema "$schema" "$outdir/$name-schema.json"
+        _run_one "gen-rdf ($name)"         test_gen_rdf        "$schema" "$outdir/$name-schema.ttl" "$domain"
+        _run_one "gen-erdiagram ($name)"   test_gen_erdiagram  "$schema" "$outdir/$name-erdiagram.md"
+        _run_one "gen-docs ($name)"        test_gen_docs       "$schema" "$outdir/docs"
+        _run_one "gen-shacl ($name)"       test_gen_shacl      "$schema" "$outdir/$name-shapes.ttl"
+        _run_one "gen-owl ($name)"         test_gen_owl        "$schema" "$outdir/$name-ontology.ttl"
+        _run_one "convert-rdf ($name)"     test_convert_rdf    "$schema" "$outdir/$name-eksempel.ttl" \
+                                                               "examples/$domain/$name-eksempel.yaml" "$domain"
     } >> "$tmplog" 2>&1 &
-    JOB_NAMES+=("$name")
-    JOB_PIDS+=($!)
-    JOB_LOGS+=("$tmplog")
+
+    SCHEMA_PIDS+=($!)
+    SCHEMA_LOGS+=("$tmplog")
 }
 
 wait_for_tests() {
     local pass=0 fail=0
-    for i in "${!JOB_PIDS[@]}"; do
-        local name="${JOB_NAMES[$i]}"
-        local pid="${JOB_PIDS[$i]}"
-        local tmplog="${JOB_LOGS[$i]}"
-        printf "Test %-38s ... " "$name"
-        if wait "$pid"; then
-            echo "${CLR_OK}OK${CLR_RST}"
-            echo "RESULT: OK" >> "$tmplog"
-            pass=$((pass + 1))
-        else
-            echo "${CLR_ERR}FEIL${CLR_RST}"
-            echo "RESULT: FEIL" >> "$tmplog"
-            echo "--- output frå $name ---" >&2
-            tail -20 "$tmplog" >&2
-            fail=$((fail + 1))
-        fi
+    for i in "${!SCHEMA_PIDS[@]}"; do
+        local pid="${SCHEMA_PIDS[$i]}"
+        local tmplog="${SCHEMA_LOGS[$i]}"
+        wait "$pid" || true  # always process log, uavhengig av exit-kode
+        while IFS= read -r line; do
+            if [[ "$line" == "##RESULT:OK:"* ]]; then
+                printf "Test %-50s ... ${CLR_OK}OK${CLR_RST}\n" "${line#"##RESULT:OK:"}"
+                pass=$((pass + 1))
+            elif [[ "$line" == "##RESULT:FAIL:"* ]]; then
+                local tname="${line#"##RESULT:FAIL:"}"
+                printf "Test %-50s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$tname"
+                fail=$((fail + 1))
+                echo "--- output frå $tname ---" >&2
+                grep -A 25 "TEST: $tname " "$tmplog" | tail -25 >&2 || true
+            fi
+        done < "$tmplog"
         sed 's/\x1b\[[0-9;]*m//g' "$tmplog" >> "$LOG"
         rm -f "$tmplog"
     done
@@ -124,39 +162,30 @@ print('tripler:', len(g))
 }
 
 # ---------------------------------------------------------------------------
-# validate
+# Testfunksjonar — generiske, tar schema og outfile som argument
 # ---------------------------------------------------------------------------
 test_validate() {
-    make validate SCHEMAS="$NGR_ADRESSE" || return 1
+    make validate SCHEMAS="$1" || return 1
 }
 
-# ---------------------------------------------------------------------------
-# gen-jsonld
-# ---------------------------------------------------------------------------
 test_gen_jsonld() {
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-context.jsonld"
-    make gen-jsonld SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" outfile="$2"
+    make gen-jsonld SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_json_valid "$outfile" || return 1
     assert_json_has_key "$outfile" "@context" || return 1
 }
 
-# ---------------------------------------------------------------------------
-# gen-python
-# ---------------------------------------------------------------------------
 test_gen_python() {
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-model.py"
-    make gen-python SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" outfile="$2"
+    make gen-python SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     python3 -m py_compile "$outfile" || { echo "Syntaksfeil i $outfile"; return 1; }
 }
 
-# ---------------------------------------------------------------------------
-# gen-jsonschema
-# ---------------------------------------------------------------------------
 test_gen_jsonschema() {
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-schema.json"
-    make gen-jsonschema SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" outfile="$2"
+    make gen-jsonschema SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_json_valid "$outfile" || return 1
     python3 -c "
@@ -166,33 +195,29 @@ assert '\$defs' in d or 'properties' in d, '\$defs og properties manglar i $outf
 " || return 1
 }
 
-# ---------------------------------------------------------------------------
-# gen-rdf
-# ---------------------------------------------------------------------------
 test_gen_rdf() {
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-schema.ttl"
-    make gen-rdf SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" outfile="$2" domain="$3"
+    # Hoppar over for fint og samt — same som GEN_RDF_SKIP_* i Makefile
+    if [[ "$domain" == "fint" || "$domain" == "samt" ]]; then
+        echo "Hoppar over gen-rdf for $domain (GEN_RDF_SKIP)"
+        return 0
+    fi
+    make gen-rdf SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
 }
 
-# ---------------------------------------------------------------------------
-# gen-erdiagram
-# ---------------------------------------------------------------------------
 test_gen_erdiagram() {
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-erdiagram.md"
-    make gen-erdiagram SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" outfile="$2"
+    make gen-erdiagram SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     grep -q '```mermaid' "$outfile" || { echo "Manglar mermaid-blokk i $outfile"; return 1; }
     grep -q 'erDiagram'  "$outfile" || { echo "Manglar erDiagram i $outfile"; return 1; }
 }
 
-# ---------------------------------------------------------------------------
-# gen-docs
-# ---------------------------------------------------------------------------
 test_gen_docs() {
-    local docsdir="$GEN_DIR/ngr/ngr-adresse/docs"
-    make gen-docs SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" docsdir="$2"
+    make gen-docs SCHEMAS="$schema" || return 1
     [ -d "$docsdir" ] || { echo "Katalog manglar: $docsdir"; return 1; }
     local mdcount
     mdcount=$(find "$docsdir" -name "*.md" | wc -l)
@@ -203,54 +228,39 @@ test_gen_docs() {
     done < <(find "$docsdir" -name "*.md")
 }
 
-# ---------------------------------------------------------------------------
-# gen-shacl
-# ---------------------------------------------------------------------------
 test_gen_shacl() {
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-shapes.ttl"
-    make gen-shacl SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" outfile="$2"
+    make gen-shacl SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
 }
 
-test_gen_shacl_fint() {
-    local outfile="$GEN_DIR/fint/fint-personvern/fint-personvern-shapes.ttl"
-    make gen-shacl SCHEMAS="$FINT_PERSONVERN" || return 1
-    assert_file_nonempty "$outfile" || return 1
-    assert_rdf_valid "$outfile" || return 1
-}
-
-# ---------------------------------------------------------------------------
-# gen-owl
-# ---------------------------------------------------------------------------
 test_gen_owl() {
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-ontology.ttl"
-    make gen-owl SCHEMAS="$NGR_ADRESSE" || return 1
+    local schema="$1" outfile="$2"
+    make gen-owl SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
 }
 
-test_gen_owl_fint() {
-    local outfile="$GEN_DIR/fint/fint-personvern/fint-personvern-ontology.ttl"
-    make gen-owl SCHEMAS="$FINT_PERSONVERN" || return 1
-    assert_file_nonempty "$outfile" || return 1
-    assert_rdf_valid "$outfile" || return 1
-}
-
-# ---------------------------------------------------------------------------
-# convert-rdf
-# ---------------------------------------------------------------------------
 test_convert_rdf() {
-    local example="examples/ngr/ngr-adresse-eksempel.yaml"
-    local outfile="$GEN_DIR/ngr/ngr-adresse/ngr-adresse-eksempel.ttl"
-    mkdir -p "$GEN_DIR/ngr/ngr-adresse"
+    local schema="$1" outfile="$2" example="$3" domain="$4"
+    # ap-no og fair har ikkje tree_root — linkml-convert kan ikkje bestemme målklasse
+    if [[ "$domain" == "ap-no" || "$domain" == "fair" ]]; then
+        echo "Hoppar over convert-rdf for $domain (ingen tree_root)"
+        return 0
+    fi
+    if [ ! -f "$example" ]; then
+        echo "Ingen eksempelfil: $example (hoppar over)"
+        return 0
+    fi
+    mkdir -p "$(dirname "$outfile")"
     podman run --rm \
         -v "$REPO_ROOT:/work" \
         -w /work \
         -e PYTHONWARNINGS=ignore \
         "$LINKML_IMAGE" \
         linkml-convert \
-            --schema "$NGR_ADRESSE" \
+            --schema "$schema" \
             --output-format ttl \
             --no-validate \
             --output "$outfile" \
@@ -260,19 +270,10 @@ test_convert_rdf() {
 }
 
 # ---------------------------------------------------------------------------
-# Start alle testar parallelt
+# Start ein bakgrunnsprosess per skjema; testar per skjema køyrer sekvensielt
 # ---------------------------------------------------------------------------
-run_test "validate (ngr-adresse)"       test_validate
-run_test "gen-jsonld (ngr-adresse)"     test_gen_jsonld
-run_test "gen-python (ngr-adresse)"     test_gen_python
-run_test "gen-jsonschema (ngr-adresse)" test_gen_jsonschema
-run_test "gen-rdf (ngr-adresse)"        test_gen_rdf
-run_test "gen-erdiagram (ngr-adresse)"  test_gen_erdiagram
-run_test "gen-docs (ngr-adresse)"       test_gen_docs
-run_test "gen-shacl (ngr-adresse)"      test_gen_shacl
-run_test "gen-shacl (fint-personvern)"  test_gen_shacl_fint
-run_test "gen-owl (ngr-adresse)"        test_gen_owl
-run_test "gen-owl (fint-personvern)"    test_gen_owl_fint
-run_test "convert-rdf (ngr-adresse)"    test_convert_rdf
+for schema in "${SCHEMAS[@]}"; do
+    run_schema_tests "$schema"
+done
 
 wait_for_tests
