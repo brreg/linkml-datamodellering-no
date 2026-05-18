@@ -189,105 +189,82 @@ _CHECK_HANDLERS = {
     "schema_has_slot_with_uri":        _check_schema_has_slot_with_uri,
     "all_classes_have_identifier":     _check_all_classes_have_identifier,
     "all_classes_have_concept_ref":    _check_all_classes_have_concept_ref,
+    "class_has_slot_with_uri":         _check_class_has_slot_with_uri,
+    "container_has_class":             _check_container_has_class,
 }
 
 
-def _check_class_slots(sv, schema, policy: dict, issues: list) -> None:
-    """Sjekkar at spesifiserte klasser har slots med kravde slot_uri-ar."""
-    must_include = policy.get("class_slots", {}).get("must_include", [])
-    if not must_include:
-        return
-
-    own_class_names = set(schema.classes.keys()) if schema.classes else set()
-
-    for entry in must_include:
-        cname = entry.get("class")
-        required_uri = entry.get("slot_uri")
-        label = entry.get("label", required_uri)
-
-        if cname not in own_class_names:
+def _collect_class_slot_uris(sv, class_name: str) -> set:
+    """Samlar alle slot_uri-verdiar for ein klasse, inkludert arva slots."""
+    uris: set = set()
+    visited: set = set()
+    queue = [class_name]
+    while queue:
+        cname = queue.pop()
+        if cname in visited:
             continue
-
-        slot_uris = set()
-        visited: set = set()
-        queue = [cname]
-        while queue:
-            name = queue.pop()
-            if name in visited:
-                continue
-            visited.add(name)
-            cls = sv.get_class(name)
-            if cls is None:
-                continue
-            for sname in (cls.slots or []):
-                slot = sv.get_slot(sname)
-                if slot and slot.slot_uri:
-                    slot_uris.add(str(slot.slot_uri))
-            for attr in (cls.attributes or {}).values():
-                if attr.slot_uri:
-                    slot_uris.add(str(attr.slot_uri))
-            if cls.is_a:
-                queue.append(cls.is_a)
-            for mixin in (cls.mixins or []):
-                queue.append(mixin)
-
-        if required_uri not in slot_uris:
-            issues.append(issue(
-                "error", "class_missing_required_slot", f"class:{cname}",
-                f"Klasse '{cname}' manglar obligatorisk slot '{label}' ({required_uri})",
-            ))
+        visited.add(cname)
+        cls = sv.get_class(cname)
+        if cls is None:
+            continue
+        for sname in (cls.slots or []):
+            slot = sv.get_slot(sname)
+            if slot and slot.slot_uri:
+                uris.add(str(slot.slot_uri))
+        for attr in (cls.attributes or {}).values():
+            if attr.slot_uri:
+                uris.add(str(attr.slot_uri))
+        if cls.is_a:
+            queue.append(cls.is_a)
+        for mixin in (cls.mixins or []):
+            queue.append(mixin)
+    return uris
 
 
-def _check_container_classes(schema, policy: dict, issues: list) -> None:
-    """Sjekkar at tree_root-klassen har attributtar med range for spesifiserte klasser.
-
-    Policy-nøklar:
-      container_classes.must_include   – manglar → error
-      container_classes.should_include – manglar → warning
-    """
-    must_include   = policy.get("container_classes", {}).get("must_include", [])
-    should_include = policy.get("container_classes", {}).get("should_include", [])
-    if not must_include and not should_include:
+def _check_class_has_slot_with_uri(sv, schema, config, issues):
+    cname = config["class"]
+    required_uri = config["slot_uri"]
+    own_class_names = set(schema.classes.keys()) if schema.classes else set()
+    if cname not in own_class_names:
         return
+    if required_uri not in _collect_class_slot_uris(sv, cname):
+        severity = config["severity"]
+        code = "class_missing_required_slot" if severity == "error" else "class_missing_recommended_slot"
+        issues.append(issue(
+            severity, code, f"class:{cname}",
+            f"Klasse '{cname}' manglar slot med {required_uri}",
+        ))
 
-    # Finn tree_root-klassen i dette skjemaet (ikkje importerte klasser)
-    container_cls  = None
-    container_name = None
+
+def _check_container_has_class(sv, schema, config, issues):
+    container_cls = container_name = None
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
-            container_cls  = cls
+            container_cls = cls
             container_name = cname
             break
 
     if container_cls is None:
-        issues.append(issue(
-            "error", "no_container_class", "schema",
-            "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav",
-        ))
+        if not any(i["code"] == "no_container_class" for i in issues):
+            issues.append(issue(
+                "error", "no_container_class", "schema",
+                "Ingen tree_root-klasse funnen — kan ikkje sjekke container-klasse-krav",
+            ))
         return
 
-    # Samle range-verdiar frå attributtane til container-klassen
+    target_class = config["class"]
     container_ranges = {
         str(attr.range)
         for attr in (container_cls.attributes or {}).values()
         if attr.range
     }
-
-    for cls_name in must_include:
-        if cls_name not in container_ranges:
-            issues.append(issue(
-                "error", "container_missing_required_class",
-                f"class:{container_name}",
-                f"Container '{container_name}' manglar obligatorisk attributt med range '{cls_name}'",
-            ))
-
-    for cls_name in should_include:
-        if cls_name not in container_ranges:
-            issues.append(issue(
-                "warning", "container_missing_recommended_class",
-                f"class:{container_name}",
-                f"Container '{container_name}' manglar anbefalt attributt med range '{cls_name}'",
-            ))
+    if target_class not in container_ranges:
+        severity = config["severity"]
+        code = "container_missing_required_class" if severity == "error" else "container_missing_recommended_class"
+        issues.append(issue(
+            severity, code, f"class:{container_name}",
+            f"Container '{container_name}' manglar attributt med range '{target_class}'",
+        ))
 
 
 def _run_checks(sv, schema, policy: dict, issues: list) -> None:
@@ -379,12 +356,6 @@ def validate_schema(schema_text: str, policy_name: str = "default") -> dict:
                     "error", "missing_common_class", f"class:{cc}",
                     f"Påkravd fellesklasse manglar: {cc}",
                 ))
-
-        # Container-klasse-sjekkar
-        _check_container_classes(schema, policy, issues)
-
-        # AP-NO obligatoriske slot-sjekkar
-        _check_class_slots(sv, schema, policy, issues)
 
         # 4) Policy-spesifikke struktursjekkar (checks + fair_checks)
         _run_checks(sv, schema, policy, issues)
