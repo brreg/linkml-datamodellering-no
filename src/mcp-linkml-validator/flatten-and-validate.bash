@@ -4,12 +4,12 @@
 #
 # Bruk: bash src/mcp-linkml-validator/flatten-and-validate.bash <sti-til-skjema> [policy]
 # Eks:  bash src/mcp-linkml-validator/flatten-and-validate.bash \
-#           src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml fair
+#           src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml gold
 
 set -euo pipefail
 
 SCHEMA="${1:?Bruk: $0 <sti-til-skjema> [policy]}"
-POLICY="${2:-default}"
+POLICY="${2:-bronze}"
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 LINKML_IMAGE="docker.io/linkml/linkml:latest"
 MCP_IMAGE="mcp-linkml-validator"

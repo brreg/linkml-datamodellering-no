@@ -1,8 +1,10 @@
 version: 1
+extends: silver
 
 description: >
   FAIR-policy for LinkML-skjema. Sjekkar at skjemaet følgjer FAIR-prinsippa
   (Findable, Accessible, Interoperable, Reusable) for opne offentlege data.
+  Arvar sølvlaget (ap-no) og bronselaget (default).
 
 # Standard felt-sjekkar (lik default)
 required:

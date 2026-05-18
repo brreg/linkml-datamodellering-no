@@ -337,9 +337,9 @@ mcp-smoke: mcp-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
-# Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=fair]
+# Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
 mcp-validate:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=fair]"; exit 1)
+	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]"; exit 1)
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$(POLICY)$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
