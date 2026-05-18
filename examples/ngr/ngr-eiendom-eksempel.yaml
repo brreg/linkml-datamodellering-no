@@ -57,7 +57,7 @@ etasjer:
     etasjenummer: 2
 
 teiger:
-  - ngre:eksempel/teig-1
+  - id: ngre:eksempel/teig-1
 
 tinglystEierforhold:
   - id: ngre:eksempel/eierforhold-1
