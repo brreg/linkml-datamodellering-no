@@ -19,12 +19,46 @@ def issue(severity: str, code: str, target: str, message: str) -> dict:
 _POLICY_DIR = Path(__file__).parent / "policies"
 
 
-def load_policy(name: str = "default") -> dict:
+def _merge_policies(parent: dict, child: dict) -> dict:
+    merged = {}
+
+    for key in ("version", "description"):
+        val = child.get(key) or parent.get(key)
+        if val is not None:
+            merged[key] = val
+
+    for key in ("required", "recommended"):
+        merged[key] = {}
+        for scope in ("schema", "class", "slot"):
+            p = (parent.get(key) or {}).get(scope, [])
+            c = (child.get(key) or {}).get(scope, [])
+            merged[key][scope] = list(dict.fromkeys(p + c))
+
+    p_must = (parent.get("common_classes") or {}).get("must_use", [])
+    c_must = (child.get("common_classes") or {}).get("must_use", [])
+    merged["common_classes"] = {"must_use": list(dict.fromkeys(p_must + c_must))}
+
+    for key in ("checks", "fair_checks"):
+        p_checks = parent.get(key) or {}
+        c_checks = child.get(key) or {}
+        if p_checks or c_checks:
+            merged[key] = {**p_checks, **c_checks}
+
+    return merged
+
+
+def load_policy(name: str = "bronze") -> dict:
     try:
         with open(_POLICY_DIR / f"{name}.yaml", encoding="utf-8") as f:
-            return yaml.safe_load(f) or {}
+            policy = yaml.safe_load(f) or {}
     except FileNotFoundError:
         return {}
+
+    parent_name = policy.get("extends")
+    if parent_name:
+        policy = _merge_policies(load_policy(parent_name), policy)
+
+    return policy
 
 
 def send(obj: dict) -> None:
@@ -180,20 +214,6 @@ def _check_all_classes_have_concept_ref(sv, schema, config, issues):
         ))
 
 
-_CHECK_HANDLERS = {
-    "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
-    "schema_field_present":            _check_schema_field_present,
-    "all_classes_have_class_uri":      _check_all_classes_have_class_uri,
-    "all_slots_have_slot_uri":         _check_all_slots_have_slot_uri,
-    "schema_declares_standard_prefix": _check_schema_declares_standard_prefix,
-    "schema_has_slot_with_uri":        _check_schema_has_slot_with_uri,
-    "all_classes_have_identifier":     _check_all_classes_have_identifier,
-    "all_classes_have_concept_ref":    _check_all_classes_have_concept_ref,
-    "class_has_slot_with_uri":         _check_class_has_slot_with_uri,
-    "container_has_class":             _check_container_has_class,
-}
-
-
 def _collect_class_slot_uris(sv, class_name: str) -> set:
     """Samlar alle slot_uri-verdiar for ein klasse, inkludert arva slots."""
     uris: set = set()
@@ -267,6 +287,20 @@ def _check_container_has_class(sv, schema, config, issues):
         ))
 
 
+_CHECK_HANDLERS = {
+    "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
+    "schema_field_present":            _check_schema_field_present,
+    "all_classes_have_class_uri":      _check_all_classes_have_class_uri,
+    "all_slots_have_slot_uri":         _check_all_slots_have_slot_uri,
+    "schema_declares_standard_prefix": _check_schema_declares_standard_prefix,
+    "schema_has_slot_with_uri":        _check_schema_has_slot_with_uri,
+    "all_classes_have_identifier":     _check_all_classes_have_identifier,
+    "all_classes_have_concept_ref":    _check_all_classes_have_concept_ref,
+    "class_has_slot_with_uri":         _check_class_has_slot_with_uri,
+    "container_has_class":             _check_container_has_class,
+}
+
+
 def _run_checks(sv, schema, policy: dict, issues: list) -> None:
     for key in ("checks", "fair_checks"):
         for config in policy.get(key, {}).values():
@@ -279,7 +313,7 @@ def _run_checks(sv, schema, policy: dict, issues: list) -> None:
 # Validering
 # ---------------------------------------------------------------------------
 
-def validate_schema(schema_text: str, policy_name: str = "default") -> dict:
+def validate_schema(schema_text: str, policy_name: str = "bronze") -> dict:
     policy = load_policy(policy_name)
     issues = []
 
@@ -378,8 +412,8 @@ TOOL_DEF = {
     "name": "validate_linkml_schema",
     "description": (
         "Validerer eit LinkML-skjema med standard LinkML-linting og "
-        "konfigurerbare policy-reglar. Støttar fleire policyer: "
-        "'default' (basis) og 'fair' (FAIR-prinsippa F1–R1.3)."
+        "konfigurerbare policy-reglar. Medaljongnivå: "
+        "'bronze' (basis), 'silver' (AP-NO), 'gold' (FAIR)."
     ),
     "inputSchema": {
         "type": "object",
@@ -391,8 +425,8 @@ TOOL_DEF = {
             },
             "policy": {
                 "type": "string",
-                "description": "Policy-namn (default: 'default'). Tilgjengelege: 'default', 'fair'.",
-                "default": "default",
+                "description": "Policy-namn (default: 'bronze'). Tilgjengelege: 'bronze', 'silver', 'gold'.",
+                "default": "bronze",
             },
         },
     },
@@ -429,7 +463,7 @@ def handle(msg: dict) -> dict | None:
         arguments = msg.get("params", {}).get("arguments", {})
 
         if tool_name == "validate_linkml_schema":
-            policy_name = arguments.get("policy", "default")
+            policy_name = arguments.get("policy", "bronze")
             result = validate_schema(arguments.get("schemaText", ""), policy_name)
             return {
                 "jsonrpc": "2.0",

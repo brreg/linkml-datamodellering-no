@@ -1,8 +1,10 @@
 version: 1
+extends: bronze
 
 description: >
   AP-NO-policy for LinkML-skjema. Sjekkar at skjemaet følgjer krava i
   DCAT-AP-NO og DQV-AP-NO for norsk offentleg sektor.
+  Arvar bronselaget (default): grunnleggande metadata- og modelleringskrav.
 
 required:
   schema: [id, name]
