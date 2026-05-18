@@ -1,63 +1,228 @@
 version: 1
 
-# Grunnleggande felt-krav (same som default)
+description: >
+  AP-NO-policy for LinkML-skjema. Sjekkar at skjemaet følgjer krava i
+  DCAT-AP-NO og DQV-AP-NO for norsk offentleg sektor.
+
 required:
-  schema:
-    - id
-    - name
+  schema: [id, name]
   class: []
   slot: []
 
 recommended:
-  schema:
-    - description
-  class:
-    - description
-  slot:
-    - description
+  schema: [description]
+  class: [description]
+  slot: [description]
 
 common_classes:
   must_use: []
 
-# Sjekkar at spesifiserte klasser inneheld obligatoriske slots (etter slot_uri).
-# Gjeld berre klasser som finst i det aktuelle skjemaet.
-class_slots:
-  must_include:
-    # Katalog (dcat:Catalog)
-    - {class: Katalog,      slot_uri: dct:description,      label: beskrivelse}
-    - {class: Katalog,      slot_uri: dcat:contactPoint,    label: kontaktpunkt}
-    - {class: Katalog,      slot_uri: dct:title,            label: tittel}
-    - {class: Katalog,      slot_uri: dct:publisher,        label: utgiver}
-    # Katalogpost (dcat:CatalogRecord)
-    - {class: Katalogpost,  slot_uri: dct:modified,         label: endringsdato}
-    - {class: Katalogpost,  slot_uri: foaf:primaryTopic,    label: primærtema}
-    # Datasett (dcat:Dataset)
-    - {class: Datasett,     slot_uri: dct:description,      label: beskrivelse}
-    - {class: Datasett,     slot_uri: dcat:contactPoint,    label: kontaktpunkt}
-    - {class: Datasett,     slot_uri: dcat:theme,           label: tema}
-    - {class: Datasett,     slot_uri: dct:title,            label: tittel}
-    - {class: Datasett,     slot_uri: dct:publisher,        label: utgiver}
-    # Distribusjon (dcat:Distribution)
-    - {class: Distribusjon, slot_uri: dcat:accessURL,       label: tilgangsURL}
-    # Datatjeneste (dcat:DataService)
-    - {class: Datatjeneste, slot_uri: dcat:endpointURL,     label: endepunktsURL}
-    - {class: Datatjeneste, slot_uri: dcat:contactPoint,    label: kontaktpunkt}
-    - {class: Datatjeneste, slot_uri: dct:title,            label: tittel}
-    - {class: Datatjeneste, slot_uri: dct:publisher,        label: utgiver}
-    # Aktør (foaf:Agent)
-    - {class: Aktør,        slot_uri: foaf:name,            label: navn}
+checks:
 
-# Sjekkar at containerklassen (tree_root) i ein domenemodell
-# inkluderer dei obligatoriske og anbefalte klassane frå
-# DCAT-AP-NO og DQV-AP-NO som range på container-attributtar.
-container_classes:
-  must_include:
-    - Katalog           # dcat:Catalog        — obligatorisk i DCAT-AP-NO
-    - Datasett          # dcat:Dataset        — obligatorisk i DQV-AP-NO
-    - Kvalitetsmaal     # dqv:Metric          — obligatorisk i DQV-AP-NO
-    - Kvalitetsmaaling  # dqv:QualityMeasurement — obligatorisk i DQV-AP-NO
-  should_include:
-    - Distribusjon      # dcat:Distribution   — anbefalt i DCAT-AP-NO
-    - Datatjeneste      # dcat:DataService    — anbefalt i DCAT-AP-NO
-    - Kvalitetsdimensjon  # dqv:Dimension     — anbefalt i DQV-AP-NO
-    - Kvalitetsmerknad    # dqv:QualityAnnotation — anbefalt i DQV-AP-NO
+  # ── Katalog (dcat:Catalog) ──────────────────────────────────────────────────
+
+  katalog_beskrivelse:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Catalog skal ha dct:description (beskrivelse). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Katalog
+    slot_uri: dct:description
+
+  katalog_kontaktpunkt:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Catalog skal ha dcat:contactPoint (kontaktpunkt). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Katalog
+    slot_uri: dcat:contactPoint
+
+  katalog_tittel:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Catalog skal ha dct:title (tittel). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Katalog
+    slot_uri: dct:title
+
+  katalog_utgiver:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Catalog skal ha dct:publisher (utgiver). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Katalog
+    slot_uri: dct:publisher
+
+  # ── Katalogpost (dcat:CatalogRecord) ───────────────────────────────────────
+
+  katalogpost_endringsdato:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:CatalogRecord skal ha dct:modified (endringsdato). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Katalogpost
+    slot_uri: dct:modified
+
+  katalogpost_primaertema:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:CatalogRecord skal ha foaf:primaryTopic (primærtema). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Katalogpost
+    slot_uri: foaf:primaryTopic
+
+  # ── Datasett (dcat:Dataset) ─────────────────────────────────────────────────
+
+  datasett_beskrivelse:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Dataset skal ha dct:description (beskrivelse). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datasett
+    slot_uri: dct:description
+
+  datasett_kontaktpunkt:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Dataset skal ha dcat:contactPoint (kontaktpunkt). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datasett
+    slot_uri: dcat:contactPoint
+
+  datasett_tema:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Dataset skal ha dcat:theme (tema). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datasett
+    slot_uri: dcat:theme
+
+  datasett_tittel:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Dataset skal ha dct:title (tittel). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datasett
+    slot_uri: dct:title
+
+  datasett_utgiver:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Dataset skal ha dct:publisher (utgiver). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datasett
+    slot_uri: dct:publisher
+
+  # ── Distribusjon (dcat:Distribution) ───────────────────────────────────────
+
+  distribusjon_tilgangsurl:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:Distribution skal ha dcat:accessURL (tilgangsURL). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Distribusjon
+    slot_uri: dcat:accessURL
+
+  # ── Datatjeneste (dcat:DataService) ────────────────────────────────────────
+
+  datatjeneste_endepunktsurl:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:DataService skal ha dcat:endpointURL (endepunktsURL). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datatjeneste
+    slot_uri: dcat:endpointURL
+
+  datatjeneste_kontaktpunkt:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:DataService skal ha dcat:contactPoint (kontaktpunkt). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datatjeneste
+    slot_uri: dcat:contactPoint
+
+  datatjeneste_tittel:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:DataService skal ha dct:title (tittel). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datatjeneste
+    slot_uri: dct:title
+
+  datatjeneste_utgiver:
+    principle: DCAT-AP-NO
+    severity: error
+    description: dcat:DataService skal ha dct:publisher (utgiver). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Datatjeneste
+    slot_uri: dct:publisher
+
+  # ── Aktør (foaf:Agent) ──────────────────────────────────────────────────────
+
+  aktor_namn:
+    principle: DCAT-AP-NO
+    severity: error
+    description: foaf:Agent skal ha foaf:name (namn). Obligatorisk i DCAT-AP-NO 2.
+    check: class_has_slot_with_uri
+    class: Aktør
+    slot_uri: foaf:name
+
+  # ── Containerklasse-krav ────────────────────────────────────────────────────
+  # Sjekkar at ein domenemodell som bruker AP-NO-profilene
+  # eksponerer dei påkravde og anbefalte klassane via containerklassen (tree_root).
+
+  container_katalog:
+    principle: DCAT-AP-NO
+    severity: error
+    description: Containerklassen skal ha eit attributt med range Katalog (dcat:Catalog). Obligatorisk i DCAT-AP-NO 2.
+    check: container_has_class
+    class: Katalog
+
+  container_datasett:
+    principle: DCAT-AP-NO / DQV-AP-NO
+    severity: error
+    description: Containerklassen skal ha eit attributt med range Datasett (dcat:Dataset). Obligatorisk i DCAT-AP-NO 2 og DQV-AP-NO.
+    check: container_has_class
+    class: Datasett
+
+  container_kvalitetsmaal:
+    principle: DQV-AP-NO
+    severity: error
+    description: Containerklassen skal ha eit attributt med range Kvalitetsmaal (dqv:Metric). Obligatorisk i DQV-AP-NO.
+    check: container_has_class
+    class: Kvalitetsmaal
+
+  container_kvalitetsmaaling:
+    principle: DQV-AP-NO
+    severity: error
+    description: Containerklassen skal ha eit attributt med range Kvalitetsmaaling (dqv:QualityMeasurement). Obligatorisk i DQV-AP-NO.
+    check: container_has_class
+    class: Kvalitetsmaaling
+
+  container_distribusjon:
+    principle: DCAT-AP-NO
+    severity: warning
+    description: Containerklassen bør ha eit attributt med range Distribusjon (dcat:Distribution). Anbefalt i DCAT-AP-NO 2.
+    check: container_has_class
+    class: Distribusjon
+
+  container_datatjeneste:
+    principle: DCAT-AP-NO
+    severity: warning
+    description: Containerklassen bør ha eit attributt med range Datatjeneste (dcat:DataService). Anbefalt i DCAT-AP-NO 2.
+    check: container_has_class
+    class: Datatjeneste
+
+  container_kvalitetsdimensjon:
+    principle: DQV-AP-NO
+    severity: warning
+    description: Containerklassen bør ha eit attributt med range Kvalitetsdimensjon (dqv:Dimension). Anbefalt i DQV-AP-NO.
+    check: container_has_class
+    class: Kvalitetsdimensjon
+
+  container_kvalitetsmerknad:
+    principle: DQV-AP-NO
+    severity: warning
+    description: Containerklassen bør ha eit attributt med range Kvalitetsmerknad (dqv:QualityAnnotation). Anbefalt i DQV-AP-NO.
+    check: container_has_class
+    class: Kvalitetsmerknad
