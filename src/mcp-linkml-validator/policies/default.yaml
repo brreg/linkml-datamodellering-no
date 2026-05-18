@@ -20,3 +20,24 @@ recommended:
 # Fellesklasser som skjemaet må bruke eller importere (tom = inga krav)
 common_classes:
   must_use: []
+
+# Generelle modelleringskvalitets-sjekkar
+checks:
+
+  all_classes_have_identifier:
+    severity: warning
+    description: >
+      Alle klasser (unntatt tree_root) bør ha ein global identifikator — ein slot
+      med identifier: true (eigen eller arva). Sikrar at instansar kan adresserast
+      med URI i koblede data.
+    check: all_classes_have_identifier
+
+  all_classes_have_concept_ref:
+    severity: warning
+    description: >
+      Alle klasser (unntatt tree_root) bør ha ei referanse til eit begrep i
+      Felles begrepskatalog (https://data.norge.no/concepts) via exact_mappings,
+      close_mappings, narrow_mappings, broad_mappings, related_mappings eller
+      see_also. Sikrar omgrepsforankring og semantisk interoperabilitet.
+    check: all_classes_have_concept_ref
+    concept_catalog_uri: https://data.norge.no/concepts

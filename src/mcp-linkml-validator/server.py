@@ -113,13 +113,82 @@ def _check_schema_has_slot_with_uri(sv, schema, config, issues):
         ))
 
 
-_FAIR_CHECK_HANDLERS = {
+def _has_identifier_slot(sv, class_name: str) -> bool:
+    """Returnerer True om klassen (eigen eller arva) har ein slot med identifier: true."""
+    visited: set = set()
+    queue = [class_name]
+    while queue:
+        cname = queue.pop()
+        if cname in visited:
+            continue
+        visited.add(cname)
+        cls = sv.get_class(cname)
+        if cls is None:
+            continue
+        for slot_name in (cls.slots or []):
+            slot = sv.get_slot(slot_name)
+            if slot and slot.identifier:
+                return True
+            usage = (cls.slot_usage or {}).get(slot_name)
+            if usage and usage.identifier:
+                return True
+        for attr in (cls.attributes or {}).values():
+            if attr.identifier:
+                return True
+        if cls.is_a:
+            queue.append(cls.is_a)
+        for mixin in (cls.mixins or []):
+            queue.append(mixin)
+    return False
+
+
+def _check_all_classes_have_identifier(sv, schema, config, issues):
+    code = "all_classes_have_identifier"
+    for cname, cls in (schema.classes or {}).items():
+        if cls.tree_root:
+            continue
+        if not _has_identifier_slot(sv, cname):
+            issues.append(issue(
+                config["severity"], code, f"class:{cname}",
+                f"Klasse '{cname}' manglar global identifikator (slot med identifier: true)",
+            ))
+
+
+def _check_all_classes_have_concept_ref(sv, schema, config, issues):
+    catalog_uri = config.get("concept_catalog_uri", "https://data.norge.no/concepts")
+    code = "all_classes_have_concept_ref"
+    for cname, cls in (schema.classes or {}).items():
+        if cls.tree_root:
+            continue
+        mapping_lists = [
+            cls.exact_mappings,
+            cls.close_mappings,
+            cls.narrow_mappings,
+            cls.broad_mappings,
+            cls.related_mappings,
+            cls.see_also,
+        ]
+        if any(
+            str(uri).startswith(catalog_uri)
+            for mapping_list in mapping_lists
+            for uri in (mapping_list or [])
+        ):
+            continue
+        issues.append(issue(
+            config["severity"], code, f"class:{cname}",
+            f"Klasse '{cname}' manglar referanse til begrep i {catalog_uri}",
+        ))
+
+
+_CHECK_HANDLERS = {
     "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
     "schema_field_present":            _check_schema_field_present,
     "all_classes_have_class_uri":      _check_all_classes_have_class_uri,
     "all_slots_have_slot_uri":         _check_all_slots_have_slot_uri,
     "schema_declares_standard_prefix": _check_schema_declares_standard_prefix,
     "schema_has_slot_with_uri":        _check_schema_has_slot_with_uri,
+    "all_classes_have_identifier":     _check_all_classes_have_identifier,
+    "all_classes_have_concept_ref":    _check_all_classes_have_concept_ref,
 }
 
 
@@ -221,11 +290,12 @@ def _check_container_classes(schema, policy: dict, issues: list) -> None:
             ))
 
 
-def _run_fair_checks(sv, schema, policy: dict, issues: list) -> None:
-    for config in policy.get("fair_checks", {}).values():
-        handler = _FAIR_CHECK_HANDLERS.get(config.get("check"))
-        if handler:
-            handler(sv, schema, config, issues)
+def _run_checks(sv, schema, policy: dict, issues: list) -> None:
+    for key in ("checks", "fair_checks"):
+        for config in policy.get(key, {}).values():
+            handler = _CHECK_HANDLERS.get(config.get("check"))
+            if handler:
+                handler(sv, schema, config, issues)
 
 
 # ---------------------------------------------------------------------------
@@ -316,8 +386,8 @@ def validate_schema(schema_text: str, policy_name: str = "default") -> dict:
         # AP-NO obligatoriske slot-sjekkar
         _check_class_slots(sv, schema, policy, issues)
 
-        # 4) FAIR-strukturelle sjekkar (berre for policyer som definerer fair_checks)
-        _run_fair_checks(sv, schema, policy, issues)
+        # 4) Policy-spesifikke struktursjekkar (checks + fair_checks)
+        _run_checks(sv, schema, policy, issues)
 
     errors = [i for i in issues if i["severity"] == "error"]
     warnings = [i for i in issues if i["severity"] == "warning"]
