@@ -192,6 +192,7 @@ URI: [ngre:Gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Gaardsnumm
 name: Gaardsnummer
 description: Gårdsnummer innanfor kommunen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - gaardsnummer_verdi
@@ -213,6 +214,7 @@ class_uri: ngre:Gaardsnummer
 name: Gaardsnummer
 description: Gårdsnummer innanfor kommunen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   gaardsnummer_verdi:
     name: gaardsnummer_verdi

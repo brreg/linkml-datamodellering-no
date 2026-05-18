@@ -202,5 +202,5 @@ Person ||--}| Statsborgerskap : "har_statsborgerskap"
 Sivilstand ||--|o Person : "relatert_ved_sivilstand"
 Verge ||--|| Person : "er_av_type_person"
 
-```
 
+```

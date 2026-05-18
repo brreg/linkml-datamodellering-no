@@ -212,6 +212,10 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc](https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc)
+
 
 
 ## Identifier and Mapping Information
@@ -251,6 +255,8 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+see_also:
+- https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
 slots:
 - id
 - navn_vcard
@@ -274,6 +280,8 @@ class_uri: vcard:Kind
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+see_also:
+- https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
 slot_usage:
   navn_vcard:
     name: navn_vcard

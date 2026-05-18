@@ -11,20 +11,67 @@ Name: fint-administrasjon
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |
 | [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |
 | [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |
 | [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |
 | [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Variabellonn](variabellonn.md) | Informasjon om variabel lønn |
 | [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |
 | [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |
 | [Rolle](rolle.md) | Rettighet eller type fullmakt |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |
+
+
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Ansvar](ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |
+| [Arbeidsforholdstype](arbeidsforholdstype.md) | Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer |
+| [Fravaerstype](fravaerstype.md) | Type fråvær |
+| [Funksjon](funksjon.md) | Del av kontostrengen som beskriv kva som vert produsert |
+| [Lonsart](lonsart.md) | Type ytelse |
+| [Prosjekt](prosjekt.md) | Del av kontostrengen som peikar på løpande prosjekt |
+| [Prosjektart](prosjektart.md) | Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur |
+| [Stillingskode](stillingskode.md) | Felles kodeverk for stillingar |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Aktivitet](aktivitet.md) | Del av kontostrengen og detaljering av funksjon |
+| [Anlegg](anlegg.md) | Del av kontostrengen; objekt som skal aktiverast eller avskrivast |
+| [Art](art.md) | Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld |
+| [Diverse](diverse.md) | Del av kontostrengen; supplement til øvrige dimensjonar |
+| [Formaal](formaal.md) | Del av kontostrengen som detaljerer inntekter og utgifter ved drift |
+| [Fravaersgrunn](fravaersgrunn.md) | Grunn til fråvær |
+| [Kontrakt](kontrakt.md) | Kontrakt transaksjonen er knytt til |
+| [Lopenummer](lopenummer.md) | Løpenummer i ei nummerserie |
+| [Objekt](objekt.md) | Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott |
+| [Organisasjonstype](organisasjonstype.md) | Typen til eit organisasjonselement |
+| [Personalressurskategori](personalressurskategori.md) | Ansettelsesform til eit arbeidsforhold |
+| [Ramme](ramme.md) | Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane |
+| [Uketimetall](uketimetall.md) | Timer per veke i 100 % stilling |
+
+
 
 
 

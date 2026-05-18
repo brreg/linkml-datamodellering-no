@@ -22,15 +22,15 @@ Alias: elevvurdering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  yes  |
 | [Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  yes  |
-| [Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  yes  |
+| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  yes  |
 | [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  yes  |
 | [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
-| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  yes  |
-| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  yes  |
-| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  yes  |
+| [Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  yes  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 
 
 

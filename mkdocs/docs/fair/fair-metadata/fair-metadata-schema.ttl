@@ -1,0 +1,1046 @@
+@prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.norge.no/fair-metadata> a linkml:SchemaDefinition ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    dcterms:title "FAIR Metadata Overbygning" ;
+    pav:version "1.0.0" ;
+    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
+        [ sh:namespace "https://data.norge.no/fair#"^^xsd:anyURI ;
+            sh:prefix "fair" ],
+        [ sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ;
+            sh:prefix "prov" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ] ;
+    linkml:classes <https://data.norge.no/FAIRMetadata>,
+        <https://data.norge.no/Gjenbruksmetadata>,
+        <https://data.norge.no/Katalogregistrering>,
+        <https://data.norge.no/Proveniensmetadata>,
+        <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:default_prefix "https://data.norge.no/fair#" ;
+    linkml:default_range <https://data.norge.no/string> ;
+    linkml:description """FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
+""" ;
+    linkml:generation_date "2026-05-18T09:12:24"^^xsd:dateTime ;
+    linkml:id "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    linkml:imports "linkml:types"^^xsd:anyURI ;
+    linkml:metamodel_version "1.7.0" ;
+    linkml:slots <https://data.norge.no/FAIRMetadata_beskrivelse>,
+        <https://data.norge.no/FAIRMetadata_gjenbruksmetadata>,
+        <https://data.norge.no/FAIRMetadata_katalogregistrering>,
+        <https://data.norge.no/FAIRMetadata_proveniensmetadata>,
+        <https://data.norge.no/FAIRMetadata_ressursIdentifikator>,
+        <https://data.norge.no/FAIRMetadata_ressurstype>,
+        <https://data.norge.no/FAIRMetadata_tilgangsmetadata>,
+        <https://data.norge.no/Gjenbruksmetadata_bruksavgrensingar>,
+        <https://data.norge.no/Gjenbruksmetadata_lisens>,
+        <https://data.norge.no/Gjenbruksmetadata_standardoverensstemming>,
+        <https://data.norge.no/Gjenbruksmetadata_vokabular>,
+        <https://data.norge.no/Katalogregistrering_katalogOppfoeringURL>,
+        <https://data.norge.no/Katalogregistrering_registreringsdato>,
+        <https://data.norge.no/Katalogregistrering_registrertIKatalog>,
+        <https://data.norge.no/Proveniensmetadata_ansvarlegAktoer>,
+        <https://data.norge.no/Proveniensmetadata_endringsdato>,
+        <https://data.norge.no/Proveniensmetadata_generertAvAktivitet>,
+        <https://data.norge.no/Proveniensmetadata_opprettingsdato>,
+        <https://data.norge.no/Tilgangsmetadata_autentiseringPaakrevd>,
+        <https://data.norge.no/Tilgangsmetadata_metadataPersistens>,
+        <https://data.norge.no/Tilgangsmetadata_tilgangsURL>,
+        <https://data.norge.no/Tilgangsmetadata_tilgangsprotokoll>,
+        <https://data.norge.no/Tilgangsmetadata_tilgangsrettar>,
+        <https://data.norge.no/ansvarlegAktoer>,
+        <https://data.norge.no/autentiseringPaakrevd>,
+        <https://data.norge.no/beskrivelse>,
+        <https://data.norge.no/bruksavgrensingar>,
+        <https://data.norge.no/endringsdato>,
+        <https://data.norge.no/generertAvAktivitet>,
+        <https://data.norge.no/gjenbruksmetadata>,
+        <https://data.norge.no/id>,
+        <https://data.norge.no/katalogOppfoeringURL>,
+        <https://data.norge.no/katalogregistrering>,
+        <https://data.norge.no/lisens>,
+        <https://data.norge.no/metadataPersistens>,
+        <https://data.norge.no/opprettingsdato>,
+        <https://data.norge.no/proveniensmetadata>,
+        <https://data.norge.no/registreringsdato>,
+        <https://data.norge.no/registrertIKatalog>,
+        <https://data.norge.no/ressursIdentifikator>,
+        <https://data.norge.no/ressurstype>,
+        <https://data.norge.no/standardoverensstemming>,
+        <https://data.norge.no/tilgangsURL>,
+        <https://data.norge.no/tilgangsmetadata>,
+        <https://data.norge.no/tilgangsprotokoll>,
+        <https://data.norge.no/tilgangsrettar>,
+        <https://data.norge.no/vokabular> ;
+    linkml:source_file "fair-metadata-schema.yaml" ;
+    linkml:source_file_date "2026-04-30T11:27:46"^^xsd:dateTime ;
+    linkml:source_file_size 8311 ;
+    linkml:subsets <https://data.norge.no/Accessible>,
+        <https://data.norge.no/Findable>,
+        <https://data.norge.no/Interoperable>,
+        <https://data.norge.no/Reusable> ;
+    linkml:types <https://data.norge.no/boolean>,
+        <https://data.norge.no/curie>,
+        <https://data.norge.no/date>,
+        <https://data.norge.no/date_or_datetime>,
+        <https://data.norge.no/datetime>,
+        <https://data.norge.no/decimal>,
+        <https://data.norge.no/double>,
+        <https://data.norge.no/float>,
+        <https://data.norge.no/integer>,
+        <https://data.norge.no/jsonpath>,
+        <https://data.norge.no/jsonpointer>,
+        <https://data.norge.no/ncname>,
+        <https://data.norge.no/nodeidentifier>,
+        <https://data.norge.no/objectidentifier>,
+        <https://data.norge.no/sparqlpath>,
+        <https://data.norge.no/string>,
+        <https://data.norge.no/time>,
+        <https://data.norge.no/uri>,
+        <https://data.norge.no/uriorcurie> .
+
+<https://data.norge.no/curie> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.w3.org/TR/curie/" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    skos:note "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation" ;
+    linkml:base "Curie" ;
+    linkml:definition_uri "https://w3id.org/linkml/Curie"^^xsd:anyURI ;
+    linkml:description "a compact URI" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/date_or_datetime> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/DateOrDatetime"^^xsd:anyURI ;
+    linkml:description "Either a date or a datetime" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "https://w3id.org/linkml/DateOrDatetime"^^xsd:anyURI .
+
+<https://data.norge.no/datetime> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"." ;
+    skos:exactMatch "schema:DateTime"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "XSDDateTime" ;
+    linkml:definition_uri "https://w3id.org/linkml/Datetime"^^xsd:anyURI ;
+    linkml:description "The combination of a date and time" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#dateTime"^^xsd:anyURI .
+
+<https://data.norge.no/decimal> a linkml:TypeDefinition ;
+    skos:broadMatch "schema:Number"^^xsd:anyURI ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "Decimal" ;
+    linkml:definition_uri "https://w3id.org/linkml/Decimal"^^xsd:anyURI ;
+    linkml:description "A real number with arbitrary precision that conforms to the xsd:decimal specification" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#decimal"^^xsd:anyURI .
+
+<https://data.norge.no/double> a linkml:TypeDefinition ;
+    skos:closeMatch "schema:Float"^^xsd:anyURI ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "float" ;
+    linkml:definition_uri "https://w3id.org/linkml/Double"^^xsd:anyURI ;
+    linkml:description "A real number that conforms to the xsd:double specification" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#double"^^xsd:anyURI .
+
+<https://data.norge.no/float> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"." ;
+    skos:exactMatch "schema:Float"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "float" ;
+    linkml:definition_uri "https://w3id.org/linkml/Float"^^xsd:anyURI ;
+    linkml:description "A real number that conforms to the xsd:float specification" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#float"^^xsd:anyURI .
+
+<https://data.norge.no/integer> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"." ;
+    skos:exactMatch "schema:Integer"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "int" ;
+    linkml:definition_uri "https://w3id.org/linkml/Integer"^^xsd:anyURI ;
+    linkml:description "An integer" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#integer"^^xsd:anyURI .
+
+<https://data.norge.no/jsonpath> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/Jsonpath"^^xsd:anyURI ;
+    linkml:description "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/jsonpointer> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://datatracker.ietf.org/doc/html/rfc6901" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/Jsonpointer"^^xsd:anyURI ;
+    linkml:description "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/ncname> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "NCName" ;
+    linkml:definition_uri "https://w3id.org/linkml/Ncname"^^xsd:anyURI ;
+    linkml:description "Prefix part of CURIE" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/nodeidentifier> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "NodeIdentifier" ;
+    linkml:definition_uri "https://w3id.org/linkml/Nodeidentifier"^^xsd:anyURI ;
+    linkml:description "A URI, CURIE or BNODE that represents a node in a model." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/ns/shex#nonLiteral"^^xsd:anyURI .
+
+<https://data.norge.no/objectidentifier> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    skos:note "Used for inheritance and type checking" ;
+    linkml:base "ElementIdentifier" ;
+    linkml:definition_uri "https://w3id.org/linkml/Objectidentifier"^^xsd:anyURI ;
+    linkml:description "A URI or CURIE that represents an object in the model." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/ns/shex#iri"^^xsd:anyURI .
+
+<https://data.norge.no/sparqlpath> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.w3.org/TR/sparql11-query/#propertypaths" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/Sparqlpath"^^xsd:anyURI ;
+    linkml:description "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/time> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\".",
+        "URI is dateTime because OWL reasoners do not work with straight date or time" ;
+    skos:exactMatch "schema:Time"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "XSDTime" ;
+    linkml:definition_uri "https://w3id.org/linkml/Time"^^xsd:anyURI ;
+    linkml:description "A time object represents a (local) time of day, independent of any particular day" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#time"^^xsd:anyURI .
+
+<https://data.norge.no/uri> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.ietf.org/rfc/rfc3987.txt" ;
+    skos:closeMatch "schema:URL"^^xsd:anyURI ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    skos:note "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node" ;
+    linkml:base "URI" ;
+    linkml:definition_uri "https://w3id.org/linkml/Uri"^^xsd:anyURI ;
+    linkml:description "a complete URI" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
+
+<https://data.norge.no/FAIRMetadata_beskrivelse> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Findable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/subject"^^xsd:anyURI ;
+    skos:prefLabel "beskrivelse" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/beskrivelse"^^xsd:anyURI ;
+    linkml:description "URI til ressursen som denne metadata-posten beskriver (FAIR F3)." ;
+    linkml:domain <https://data.norge.no/FAIRMetadata> ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:is_a <https://data.norge.no/beskrivelse> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/subject"^^xsd:anyURI ;
+    linkml:usage_slot_name "beskrivelse" .
+
+<https://data.norge.no/FAIRMetadata_gjenbruksmetadata> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#gjenbruksmetadata"^^xsd:anyURI ;
+    skos:prefLabel "gjenbruksmetadata" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/gjenbruksmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3)." ;
+    linkml:domain <https://data.norge.no/FAIRMetadata> ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:is_a <https://data.norge.no/gjenbruksmetadata> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:slot_uri "https://data.norge.no/fair#gjenbruksmetadata"^^xsd:anyURI ;
+    linkml:usage_slot_name "gjenbruksmetadata" .
+
+<https://data.norge.no/FAIRMetadata_katalogregistrering> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Findable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#katalogregistrering"^^xsd:anyURI ;
+    skos:prefLabel "katalogregistrering" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/katalogregistrering"^^xsd:anyURI ;
+    linkml:description "Dokumenterer registrering i søkbar katalog (FAIR F4)." ;
+    linkml:domain <https://data.norge.no/FAIRMetadata> ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:is_a <https://data.norge.no/katalogregistrering> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Katalogregistrering> ;
+    linkml:slot_uri "https://data.norge.no/fair#katalogregistrering"^^xsd:anyURI ;
+    linkml:usage_slot_name "katalogregistrering" .
+
+<https://data.norge.no/FAIRMetadata_proveniensmetadata> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#proveniensmetadata"^^xsd:anyURI ;
+    skos:prefLabel "proveniensmetadata" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/proveniensmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata om opphav og endringshistorie (FAIR R1.2)." ;
+    linkml:domain <https://data.norge.no/FAIRMetadata> ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:is_a <https://data.norge.no/proveniensmetadata> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Proveniensmetadata> ;
+    linkml:slot_uri "https://data.norge.no/fair#proveniensmetadata"^^xsd:anyURI ;
+    linkml:usage_slot_name "proveniensmetadata" .
+
+<https://data.norge.no/FAIRMetadata_ressursIdentifikator> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Findable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    skos:prefLabel "ressursIdentifikator" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/ressursIdentifikator"^^xsd:anyURI ;
+    linkml:description """Global og persistent identifikator for ressursen (FAIR F1). Skal vere ein PID (t.d. DOI, Handle, eller stabil URI).
+""" ;
+    linkml:domain <https://data.norge.no/FAIRMetadata> ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:is_a <https://data.norge.no/ressursIdentifikator> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    linkml:usage_slot_name "ressursIdentifikator" .
+
+<https://data.norge.no/FAIRMetadata_ressurstype> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Findable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/type"^^xsd:anyURI ;
+    skos:prefLabel "ressurstype" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/ressurstype"^^xsd:anyURI ;
+    linkml:description """Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI frå eit kontrollert vokabular (FAIR F2).
+""" ;
+    linkml:domain <https://data.norge.no/FAIRMetadata> ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:is_a <https://data.norge.no/ressurstype> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/type"^^xsd:anyURI ;
+    linkml:usage_slot_name "ressurstype" .
+
+<https://data.norge.no/FAIRMetadata_tilgangsmetadata> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Accessible> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#tilgangsmetadata"^^xsd:anyURI ;
+    skos:prefLabel "tilgangsmetadata" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata for tilgang og tilgjengelegheit (FAIR A1/A2)." ;
+    linkml:domain <https://data.norge.no/FAIRMetadata> ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:is_a <https://data.norge.no/tilgangsmetadata> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:slot_uri "https://data.norge.no/fair#tilgangsmetadata"^^xsd:anyURI ;
+    linkml:usage_slot_name "tilgangsmetadata" .
+
+<https://data.norge.no/Gjenbruksmetadata_bruksavgrensingar> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/rights"^^xsd:anyURI ;
+    skos:prefLabel "bruksavgrensingar" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/bruksavgrensingar"^^xsd:anyURI ;
+    linkml:description "Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1)." ;
+    linkml:domain <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:is_a <https://data.norge.no/bruksavgrensingar> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/string> ;
+    linkml:slot_uri "http://purl.org/dc/terms/rights"^^xsd:anyURI ;
+    linkml:usage_slot_name "bruksavgrensingar" .
+
+<https://data.norge.no/Gjenbruksmetadata_lisens> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/license"^^xsd:anyURI ;
+    skos:prefLabel "lisens" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/lisens"^^xsd:anyURI ;
+    linkml:description "Brukslisens for ressursen som URI (FAIR R1.1)." ;
+    linkml:domain <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:is_a <https://data.norge.no/lisens> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/license"^^xsd:anyURI ;
+    linkml:usage_slot_name "lisens" .
+
+<https://data.norge.no/Gjenbruksmetadata_standardoverensstemming> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Interoperable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/conformsTo"^^xsd:anyURI ;
+    skos:prefLabel "standardoverensstemming" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/standardoverensstemming"^^xsd:anyURI ;
+    linkml:description """Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO eller ISO 19115 (FAIR R1.3 / I3).
+""" ;
+    linkml:domain <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:is_a <https://data.norge.no/standardoverensstemming> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/conformsTo"^^xsd:anyURI ;
+    linkml:usage_slot_name "standardoverensstemming" .
+
+<https://data.norge.no/Gjenbruksmetadata_vokabular> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Interoperable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#vokabular"^^xsd:anyURI ;
+    skos:prefLabel "vokabular" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/vokabular"^^xsd:anyURI ;
+    linkml:description """Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR I2).
+""" ;
+    linkml:domain <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:is_a <https://data.norge.no/vokabular> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "https://data.norge.no/fair#vokabular"^^xsd:anyURI ;
+    linkml:usage_slot_name "vokabular" .
+
+<https://data.norge.no/Katalogregistrering_katalogOppfoeringURL> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Findable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#katalogOppfoeringURL"^^xsd:anyURI ;
+    skos:prefLabel "katalogOppfoeringURL" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/katalogOppfoeringURL"^^xsd:anyURI ;
+    linkml:description "Direkte URL til oppføringa i katalogen (FAIR F4)." ;
+    linkml:domain <https://data.norge.no/Katalogregistrering> ;
+    linkml:domain_of <https://data.norge.no/Katalogregistrering> ;
+    linkml:is_a <https://data.norge.no/katalogOppfoeringURL> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Katalogregistrering> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "https://data.norge.no/fair#katalogOppfoeringURL"^^xsd:anyURI ;
+    linkml:usage_slot_name "katalogOppfoeringURL" .
+
+<https://data.norge.no/Katalogregistrering_registreringsdato> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Findable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#registreringsdato"^^xsd:anyURI ;
+    skos:prefLabel "registreringsdato" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/registreringsdato"^^xsd:anyURI ;
+    linkml:description "Dato for katalogregistrering (FAIR F4)." ;
+    linkml:domain <https://data.norge.no/Katalogregistrering> ;
+    linkml:domain_of <https://data.norge.no/Katalogregistrering> ;
+    linkml:is_a <https://data.norge.no/registreringsdato> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Katalogregistrering> ;
+    linkml:range <https://data.norge.no/date> ;
+    linkml:slot_uri "https://data.norge.no/fair#registreringsdato"^^xsd:anyURI ;
+    linkml:usage_slot_name "registreringsdato" .
+
+<https://data.norge.no/Katalogregistrering_registrertIKatalog> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Findable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#registrertIKatalog"^^xsd:anyURI ;
+    skos:prefLabel "registrertIKatalog" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/registrertIKatalog"^^xsd:anyURI ;
+    linkml:description "URI til katalogen der metadata er registrert (FAIR F4)." ;
+    linkml:domain <https://data.norge.no/Katalogregistrering> ;
+    linkml:domain_of <https://data.norge.no/Katalogregistrering> ;
+    linkml:is_a <https://data.norge.no/registrertIKatalog> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Katalogregistrering> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "https://data.norge.no/fair#registrertIKatalog"^^xsd:anyURI ;
+    linkml:usage_slot_name "registrertIKatalog" .
+
+<https://data.norge.no/Proveniensmetadata_ansvarlegAktoer> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/prov#wasAttributedTo"^^xsd:anyURI ;
+    skos:prefLabel "ansvarlegAktoer" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/ansvarlegAktoer"^^xsd:anyURI ;
+    linkml:description """Organisasjon eller aktør som er ansvarleg for ressursen, som URI (FAIR R1.2).
+""" ;
+    linkml:domain <https://data.norge.no/Proveniensmetadata> ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:is_a <https://data.norge.no/ansvarlegAktoer> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://www.w3.org/ns/prov#wasAttributedTo"^^xsd:anyURI ;
+    linkml:usage_slot_name "ansvarlegAktoer" .
+
+<https://data.norge.no/Proveniensmetadata_endringsdato> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
+    skos:prefLabel "endringsdato" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/endringsdato"^^xsd:anyURI ;
+    linkml:description "Sist endra dato (FAIR R1.2)." ;
+    linkml:domain <https://data.norge.no/Proveniensmetadata> ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:is_a <https://data.norge.no/endringsdato> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
+    linkml:usage_slot_name "endringsdato" .
+
+<https://data.norge.no/Proveniensmetadata_generertAvAktivitet> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/prov#wasGeneratedBy"^^xsd:anyURI ;
+    skos:prefLabel "generertAvAktivitet" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/generertAvAktivitet"^^xsd:anyURI ;
+    linkml:description "Aktivitet som har generert ressursen (FAIR R1.2)." ;
+    linkml:domain <https://data.norge.no/Proveniensmetadata> ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:is_a <https://data.norge.no/generertAvAktivitet> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://www.w3.org/ns/prov#wasGeneratedBy"^^xsd:anyURI ;
+    linkml:usage_slot_name "generertAvAktivitet" .
+
+<https://data.norge.no/Proveniensmetadata_opprettingsdato> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Reusable> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/created"^^xsd:anyURI ;
+    skos:prefLabel "opprettingsdato" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/opprettingsdato"^^xsd:anyURI ;
+    linkml:description "Dato ressursen blei oppretta (FAIR R1.2)." ;
+    linkml:domain <https://data.norge.no/Proveniensmetadata> ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:is_a <https://data.norge.no/opprettingsdato> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/created"^^xsd:anyURI ;
+    linkml:usage_slot_name "opprettingsdato" .
+
+<https://data.norge.no/Tilgangsmetadata_autentiseringPaakrevd> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Accessible> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#autentiseringPaakrevd"^^xsd:anyURI ;
+    skos:prefLabel "autentiseringPaakrevd" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/autentiseringPaakrevd"^^xsd:anyURI ;
+    linkml:description "Om autentisering eller autorisasjon er nødvendig (FAIR A1.2)." ;
+    linkml:domain <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:is_a <https://data.norge.no/autentiseringPaakrevd> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/boolean> ;
+    linkml:slot_uri "https://data.norge.no/fair#autentiseringPaakrevd"^^xsd:anyURI ;
+    linkml:usage_slot_name "autentiseringPaakrevd" .
+
+<https://data.norge.no/Tilgangsmetadata_metadataPersistens> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Accessible> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#metadataPersistens"^^xsd:anyURI ;
+    skos:prefLabel "metadataPersistens" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/metadataPersistens"^^xsd:anyURI ;
+    linkml:description """Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger er tilgjengeleg (FAIR A2).
+""" ;
+    linkml:domain <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:is_a <https://data.norge.no/metadataPersistens> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/boolean> ;
+    linkml:slot_uri "https://data.norge.no/fair#metadataPersistens"^^xsd:anyURI ;
+    linkml:usage_slot_name "metadataPersistens" .
+
+<https://data.norge.no/Tilgangsmetadata_tilgangsURL> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Accessible> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/dcat#accessURL"^^xsd:anyURI ;
+    skos:prefLabel "tilgangsURL" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsURL"^^xsd:anyURI ;
+    linkml:description "URL for maskinell tilgang til ressurs eller metadata (FAIR A1)." ;
+    linkml:domain <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:is_a <https://data.norge.no/tilgangsURL> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://www.w3.org/ns/dcat#accessURL"^^xsd:anyURI ;
+    linkml:usage_slot_name "tilgangsURL" .
+
+<https://data.norge.no/Tilgangsmetadata_tilgangsprotokoll> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Accessible> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#tilgangsprotokoll"^^xsd:anyURI ;
+    skos:prefLabel "tilgangsprotokoll" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsprotokoll"^^xsd:anyURI ;
+    linkml:description "Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1)." ;
+    linkml:domain <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:is_a <https://data.norge.no/tilgangsprotokoll> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/string> ;
+    linkml:slot_uri "https://data.norge.no/fair#tilgangsprotokoll"^^xsd:anyURI ;
+    linkml:usage_slot_name "tilgangsprotokoll" .
+
+<https://data.norge.no/Tilgangsmetadata_tilgangsrettar> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/Accessible> ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/accessRights"^^xsd:anyURI ;
+    skos:prefLabel "tilgangsrettar" ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsrettar"^^xsd:anyURI ;
+    linkml:description """Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg, avgrensa, lukka) (FAIR A1.2).
+""" ;
+    linkml:domain <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:is_a <https://data.norge.no/tilgangsrettar> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/accessRights"^^xsd:anyURI ;
+    linkml:usage_slot_name "tilgangsrettar" .
+
+<https://data.norge.no/ansvarlegAktoer> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/prov#wasAttributedTo"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/ansvarlegAktoer"^^xsd:anyURI ;
+    linkml:description """Organisasjon eller aktør som er ansvarleg for ressursen, som URI (FAIR R1.2).
+""" ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://www.w3.org/ns/prov#wasAttributedTo"^^xsd:anyURI .
+
+<https://data.norge.no/autentiseringPaakrevd> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#autentiseringPaakrevd"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/autentiseringPaakrevd"^^xsd:anyURI ;
+    linkml:description "Om autentisering eller autorisasjon er nødvendig (FAIR A1.2)." ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/boolean> ;
+    linkml:slot_uri "https://data.norge.no/fair#autentiseringPaakrevd"^^xsd:anyURI .
+
+<https://data.norge.no/beskrivelse> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/subject"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/beskrivelse"^^xsd:anyURI ;
+    linkml:description "URI til ressursen som denne metadata-posten beskriver (FAIR F3)." ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/subject"^^xsd:anyURI .
+
+<https://data.norge.no/bruksavgrensingar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/rights"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/bruksavgrensingar"^^xsd:anyURI ;
+    linkml:description "Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1)." ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/string> ;
+    linkml:slot_uri "http://purl.org/dc/terms/rights"^^xsd:anyURI .
+
+<https://data.norge.no/endringsdato> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/endringsdato"^^xsd:anyURI ;
+    linkml:description "Sist endra dato (FAIR R1.2)." ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/modified"^^xsd:anyURI .
+
+<https://data.norge.no/generertAvAktivitet> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/prov#wasGeneratedBy"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/generertAvAktivitet"^^xsd:anyURI ;
+    linkml:description "Aktivitet som har generert ressursen (FAIR R1.2)." ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://www.w3.org/ns/prov#wasGeneratedBy"^^xsd:anyURI .
+
+<https://data.norge.no/gjenbruksmetadata> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#gjenbruksmetadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/gjenbruksmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3)." ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:slot_uri "https://data.norge.no/fair#gjenbruksmetadata"^^xsd:anyURI .
+
+<https://data.norge.no/id> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/id"^^xsd:anyURI ;
+    linkml:description "Persistent URI-identifikator for metadata-posten (FAIR F1)." ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:identifier true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/identifier"^^xsd:anyURI .
+
+<https://data.norge.no/katalogOppfoeringURL> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#katalogOppfoeringURL"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/katalogOppfoeringURL"^^xsd:anyURI ;
+    linkml:description "Direkte URL til oppføringa i katalogen (FAIR F4)." ;
+    linkml:domain_of <https://data.norge.no/Katalogregistrering> ;
+    linkml:owner <https://data.norge.no/Katalogregistrering> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "https://data.norge.no/fair#katalogOppfoeringURL"^^xsd:anyURI .
+
+<https://data.norge.no/katalogregistrering> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#katalogregistrering"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/katalogregistrering"^^xsd:anyURI ;
+    linkml:description "Dokumenterer registrering i søkbar katalog (FAIR F4)." ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Katalogregistrering> ;
+    linkml:slot_uri "https://data.norge.no/fair#katalogregistrering"^^xsd:anyURI .
+
+<https://data.norge.no/lisens> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/license"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/lisens"^^xsd:anyURI ;
+    linkml:description "Brukslisens for ressursen som URI (FAIR R1.1)." ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/license"^^xsd:anyURI .
+
+<https://data.norge.no/metadataPersistens> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#metadataPersistens"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/metadataPersistens"^^xsd:anyURI ;
+    linkml:description """Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger er tilgjengeleg (FAIR A2).
+""" ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/boolean> ;
+    linkml:slot_uri "https://data.norge.no/fair#metadataPersistens"^^xsd:anyURI .
+
+<https://data.norge.no/opprettingsdato> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/created"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/opprettingsdato"^^xsd:anyURI ;
+    linkml:description "Dato ressursen blei oppretta (FAIR R1.2)." ;
+    linkml:domain_of <https://data.norge.no/Proveniensmetadata> ;
+    linkml:owner <https://data.norge.no/Proveniensmetadata> ;
+    linkml:range <https://data.norge.no/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/created"^^xsd:anyURI .
+
+<https://data.norge.no/proveniensmetadata> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#proveniensmetadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/proveniensmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata om opphav og endringshistorie (FAIR R1.2)." ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Proveniensmetadata> ;
+    linkml:slot_uri "https://data.norge.no/fair#proveniensmetadata"^^xsd:anyURI .
+
+<https://data.norge.no/registreringsdato> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#registreringsdato"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/registreringsdato"^^xsd:anyURI ;
+    linkml:description "Dato for katalogregistrering (FAIR F4)." ;
+    linkml:domain_of <https://data.norge.no/Katalogregistrering> ;
+    linkml:owner <https://data.norge.no/Katalogregistrering> ;
+    linkml:range <https://data.norge.no/date> ;
+    linkml:slot_uri "https://data.norge.no/fair#registreringsdato"^^xsd:anyURI .
+
+<https://data.norge.no/registrertIKatalog> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#registrertIKatalog"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/registrertIKatalog"^^xsd:anyURI ;
+    linkml:description "URI til katalogen der metadata er registrert (FAIR F4)." ;
+    linkml:domain_of <https://data.norge.no/Katalogregistrering> ;
+    linkml:owner <https://data.norge.no/Katalogregistrering> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "https://data.norge.no/fair#registrertIKatalog"^^xsd:anyURI .
+
+<https://data.norge.no/ressursIdentifikator> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/ressursIdentifikator"^^xsd:anyURI ;
+    linkml:description """Global og persistent identifikator for ressursen (FAIR F1). Skal vere ein PID (t.d. DOI, Handle, eller stabil URI).
+""" ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/identifier"^^xsd:anyURI .
+
+<https://data.norge.no/ressurstype> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/type"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/ressurstype"^^xsd:anyURI ;
+    linkml:description """Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI frå eit kontrollert vokabular (FAIR F2).
+""" ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/type"^^xsd:anyURI .
+
+<https://data.norge.no/standardoverensstemming> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/conformsTo"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/standardoverensstemming"^^xsd:anyURI ;
+    linkml:description """Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO eller ISO 19115 (FAIR R1.3 / I3).
+""" ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/conformsTo"^^xsd:anyURI .
+
+<https://data.norge.no/tilgangsURL> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/dcat#accessURL"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsURL"^^xsd:anyURI ;
+    linkml:description "URL for maskinell tilgang til ressurs eller metadata (FAIR A1)." ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://www.w3.org/ns/dcat#accessURL"^^xsd:anyURI .
+
+<https://data.norge.no/tilgangsmetadata> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#tilgangsmetadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata for tilgang og tilgjengelegheit (FAIR A1/A2)." ;
+    linkml:domain_of <https://data.norge.no/FAIRMetadata> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:owner <https://data.norge.no/FAIRMetadata> ;
+    linkml:range <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:slot_uri "https://data.norge.no/fair#tilgangsmetadata"^^xsd:anyURI .
+
+<https://data.norge.no/tilgangsprotokoll> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#tilgangsprotokoll"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsprotokoll"^^xsd:anyURI ;
+    linkml:description "Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1)." ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/string> ;
+    linkml:slot_uri "https://data.norge.no/fair#tilgangsprotokoll"^^xsd:anyURI .
+
+<https://data.norge.no/tilgangsrettar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/accessRights"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/tilgangsrettar"^^xsd:anyURI ;
+    linkml:description """Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg, avgrensa, lukka) (FAIR A1.2).
+""" ;
+    linkml:domain_of <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:owner <https://data.norge.no/Tilgangsmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "http://purl.org/dc/terms/accessRights"^^xsd:anyURI .
+
+<https://data.norge.no/vokabular> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/fair#vokabular"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/vokabular"^^xsd:anyURI ;
+    linkml:description """Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR I2).
+""" ;
+    linkml:domain_of <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/Gjenbruksmetadata> ;
+    linkml:range <https://data.norge.no/uriorcurie> ;
+    linkml:slot_uri "https://data.norge.no/fair#vokabular"^^xsd:anyURI .
+
+<https://data.norge.no/Interoperable> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Interoperable"^^xsd:anyURI ;
+    linkml:description "Eigenskapar knytt til FAIR I-prinsippa (Interoperable)." .
+
+<https://data.norge.no/boolean> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"." ;
+    skos:exactMatch "schema:Boolean"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "Bool" ;
+    linkml:definition_uri "https://w3id.org/linkml/Boolean"^^xsd:anyURI ;
+    linkml:description "A binary (true or false) value" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "bool" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#boolean"^^xsd:anyURI .
+
+<https://data.norge.no/string> a linkml:TypeDefinition ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:exactMatch "schema:Text"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/String"^^xsd:anyURI ;
+    linkml:description "A character string" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/Accessible> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Accessible"^^xsd:anyURI ;
+    linkml:description "Eigenskapar knytt til FAIR A-prinsippa (Accessible)." .
+
+<https://data.norge.no/date> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\".",
+        "URI is dateTime because OWL reasoners don't work with straight date or time" ;
+    skos:exactMatch "schema:Date"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "XSDDate" ;
+    linkml:definition_uri "https://w3id.org/linkml/Date"^^xsd:anyURI ;
+    linkml:description "a date (year, month and day) in an idealized calendar" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#date"^^xsd:anyURI .
+
+<https://data.norge.no/Findable> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Findable"^^xsd:anyURI ;
+    linkml:description "Eigenskapar knytt til FAIR F-prinsippa (Findable)." .
+
+<https://data.norge.no/Reusable> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Reusable"^^xsd:anyURI ;
+    linkml:description "Eigenskapar knytt til FAIR R-prinsippa (Reusable)." .
+
+<https://data.norge.no/Katalogregistrering> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "fair:Katalogregistrering"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/fair#Katalogregistrering"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Katalogregistrering"^^xsd:anyURI ;
+    linkml:description "Dokumenterer registrering i søkbar katalog (FAIR F4)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/Katalogregistrering_katalogOppfoeringURL>,
+        <https://data.norge.no/Katalogregistrering_registreringsdato>,
+        <https://data.norge.no/Katalogregistrering_registrertIKatalog> .
+
+<https://data.norge.no/Gjenbruksmetadata> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "fair:Gjenbruksmetadata"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/fair#Gjenbruksmetadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Gjenbruksmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata som støttar gjenbruk av ressursen (FAIR R1.1, R1.3)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/Gjenbruksmetadata_bruksavgrensingar>,
+        <https://data.norge.no/Gjenbruksmetadata_lisens>,
+        <https://data.norge.no/Gjenbruksmetadata_standardoverensstemming>,
+        <https://data.norge.no/Gjenbruksmetadata_vokabular> .
+
+<https://data.norge.no/Proveniensmetadata> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "fair:Proveniensmetadata"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/fair#Proveniensmetadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Proveniensmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata om opphav og endringshistorie (FAIR R1.2)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/Proveniensmetadata_ansvarlegAktoer>,
+        <https://data.norge.no/Proveniensmetadata_endringsdato>,
+        <https://data.norge.no/Proveniensmetadata_generertAvAktivitet>,
+        <https://data.norge.no/Proveniensmetadata_opprettingsdato> .
+
+<https://data.norge.no/uriorcurie> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "URIorCURIE" ;
+    linkml:definition_uri "https://w3id.org/linkml/Uriorcurie"^^xsd:anyURI ;
+    linkml:description "a URI or a CURIE" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
+
+<https://data.norge.no/Tilgangsmetadata> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "fair:Tilgangsmetadata"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/fair#Tilgangsmetadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/Tilgangsmetadata"^^xsd:anyURI ;
+    linkml:description "Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/Tilgangsmetadata_autentiseringPaakrevd>,
+        <https://data.norge.no/Tilgangsmetadata_metadataPersistens>,
+        <https://data.norge.no/Tilgangsmetadata_tilgangsURL>,
+        <https://data.norge.no/Tilgangsmetadata_tilgangsprotokoll>,
+        <https://data.norge.no/Tilgangsmetadata_tilgangsrettar> .
+
+<https://data.norge.no/FAIRMetadata> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
+    skos:mappingRelation "fair:FAIRMetadata"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/fair#FAIRMetadata"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/fair-metadata/FAIRMetadata"^^xsd:anyURI ;
+    linkml:description """Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR-prinsippa.
+""" ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/FAIRMetadata_beskrivelse>,
+        <https://data.norge.no/FAIRMetadata_gjenbruksmetadata>,
+        <https://data.norge.no/FAIRMetadata_katalogregistrering>,
+        <https://data.norge.no/FAIRMetadata_proveniensmetadata>,
+        <https://data.norge.no/FAIRMetadata_ressursIdentifikator>,
+        <https://data.norge.no/FAIRMetadata_ressurstype>,
+        <https://data.norge.no/FAIRMetadata_tilgangsmetadata>,
+        <https://data.norge.no/id> .
+

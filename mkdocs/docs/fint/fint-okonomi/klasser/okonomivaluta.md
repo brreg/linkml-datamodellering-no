@@ -307,6 +307,7 @@ URI: [okn:Valuta](https://schema.fintlabs.no/okonomi/Valuta)
 name: OkonomiValuta
 description: Valuta for transaksjonsbeløp.
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slots:
 - id
 - kode
@@ -344,6 +345,7 @@ class_uri: okn:Valuta
 name: OkonomiValuta
 description: Valuta for transaksjonsbeløp.
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slot_usage:
   kode:
     name: kode

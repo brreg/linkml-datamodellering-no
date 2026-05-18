@@ -152,6 +152,7 @@ name: OffisiellAdresse
 description: Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse og forvaltast
   av Matrikkelen via NGR-adresse.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 class_uri: ngre:OffisiellAdresse
@@ -167,6 +168,7 @@ name: OffisiellAdresse
 description: Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse og forvaltast
   av Matrikkelen via NGR-adresse.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   id:
     name: id

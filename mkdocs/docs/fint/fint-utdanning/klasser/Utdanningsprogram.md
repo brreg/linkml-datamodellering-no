@@ -22,8 +22,8 @@ Alias: utdanningsprogram
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
 
 
 

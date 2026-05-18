@@ -24,9 +24,6 @@ Begrep {
     LangStringList verdiomrade  
     LangStringList versjonsmerknad  
 }
-Begrepssamling {
-    uriorcurie id  
-}
 Definisjon {
     uriorcurie id  
     uriList kjelde  
@@ -35,12 +32,6 @@ Definisjon {
 GeneriskRelasjon {
     uriorcurie id  
     LangStringList inndelingskriterium  
-}
-Konsept {
-    uriorcurie id  
-}
-Mediatype {
-    uriorcurie id  
 }
 Organisasjon {
     uriorcurie id  
@@ -77,8 +68,8 @@ Samling ||--|| Organisasjon : "utgjevar"
 Samling ||--}| Begrep : "medlem"
 Samling ||--}| VCardKontakt : "kontaktpunkt_vcard"
 
-```
 
+```
 
 
 Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/
@@ -91,16 +82,36 @@ Name: skos-ap-no
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [AssosiativRelasjon](klasser/assosiativrelasjon.md) | Ein assosiativ relasjon mellom to omgrep |
 | [Begrep](klasser/begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |
 | [Definisjon](klasser/definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |
 | [GeneriskRelasjon](klasser/generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |
-| [Organisasjon](klasser/organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |
 | [PartitivRelasjon](klasser/partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |
 | [Samling](klasser/samling.md) | Ei namngitt samling av omgrep (skos:Collection) |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Organisasjon](klasser/organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |
 | [VCardKontakt](klasser/vcardkontakt.md) | Kontaktinformasjon (vCard) for omgrepseigaren |
+
+
 
 
 

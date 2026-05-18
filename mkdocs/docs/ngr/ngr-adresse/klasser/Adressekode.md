@@ -222,6 +222,7 @@ URI: [ngr:Adressekode](https://data.norge.no/vocabulary/ngr-adresse#Adressekode)
 name: Adressekode
 description: Firesifra kommunal kode som identifiserer eit adressenavn.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 slots:
 - id
 - kode
@@ -244,6 +245,7 @@ class_uri: ngr:Adressekode
 name: Adressekode
 description: Firesifra kommunal kode som identifiserer eit adressenavn.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 slot_usage:
   kode:
     name: kode

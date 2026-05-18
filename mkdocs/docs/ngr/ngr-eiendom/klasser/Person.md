@@ -150,6 +150,7 @@ URI: [ngre:Person](https://data.norge.no/vocabulary/ngr-eiendom#Person)
 name: Person
 description: Ein fysisk person. Tilhøyrer Domene person.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 class_uri: ngre:Person
@@ -164,6 +165,7 @@ class_uri: ngre:Person
 name: Person
 description: Ein fysisk person. Tilhøyrer Domene person.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   id:
     name: id

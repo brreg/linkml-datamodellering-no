@@ -277,6 +277,7 @@ URI: [ngrp:InnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#Innf
 name: InnflyttingTilNorge
 description: Registrering av innflytting til Noreg i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - fraflyttingsland
@@ -308,6 +309,7 @@ class_uri: ngrp:InnflyttingTilNorge
 name: InnflyttingTilNorge
 description: Registrering av innflytting til Noreg i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   innflyttingsdato:
     name: innflyttingsdato

@@ -648,6 +648,7 @@ description: 'Containerklasse for alle forretningsobjekt i modellen. Gjer det mo
 
   '
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - aksjeselskaper
@@ -683,6 +684,7 @@ description: 'Containerklasse for alle forretningsobjekt i modellen. Gjer det mo
 
   '
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

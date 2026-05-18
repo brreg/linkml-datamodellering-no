@@ -22,25 +22,25 @@ Alias: gyldighetsperiode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
-| [Status](status.md) | Status på ei digital eining i fagsystemet |  yes  |
 | [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
 | [Produsent](produsent.md) | Produsent av ei digital eining |  yes  |
 | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  yes  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
 | [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  yes  |
-| [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Enhetstype](enhetstype.md) | Type digital eining |  yes  |
+| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
 | [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
+| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  yes  |
+| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
+| [Status](status.md) | Status på ei digital eining i fagsystemet |  yes  |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
 | [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |  yes  |
+| [Enhetstype](enhetstype.md) | Type digital eining |  yes  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |  yes  |
 
 
 

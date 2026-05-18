@@ -143,6 +143,7 @@ URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAk
 name: InnbetaltAksjekapital
 description: Innbetalt aksjekapital.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - belop
 
@@ -156,6 +157,7 @@ slots:
 name: InnbetaltAksjekapital
 description: Innbetalt aksjekapital.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   belop:
     name: belop

@@ -22,8 +22,8 @@ Alias: eier
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
 
 
 

@@ -165,6 +165,7 @@ name: Teig
 description: Eit samanhengande areal med same type grenser. Mangler ofte vannareal
   som høyrer til eigedommen. Grensene kan ha manglande eller dårleg nøyaktigheit.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 class_uri: ngre:Teig
@@ -180,6 +181,7 @@ name: Teig
 description: Eit samanhengande areal med same type grenser. Mangler ofte vannareal
   som høyrer til eigedommen. Grensene kan ha manglande eller dårleg nøyaktigheit.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   id:
     name: id

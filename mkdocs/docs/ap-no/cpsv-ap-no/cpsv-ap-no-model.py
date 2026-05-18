@@ -1,5 +1,5 @@
 # Auto generated from cpsv-ap-no-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-09T16:13:02
+# Generation date: 2026-05-18T09:10:42
 # Schema: cpsv-ap-no
 #
 # id: https://data.norge.no/linkml/cpsv-ap-no

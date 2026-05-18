@@ -22,9 +22,9 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 | [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  yes  |
 | [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  yes  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 | [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
 
 

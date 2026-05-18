@@ -590,6 +590,7 @@ URI: [ark:TilskuddFartoy](https://schema.fintlabs.no/arkiv/TilskuddFartoy)
 name: TilskuddFartoy
 description: Sak om søknad om tilskudd til freda fartøy.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slots:
 - fartoyNavn
@@ -629,6 +630,7 @@ class_uri: ark:TilskuddFartoy
 name: TilskuddFartoy
 description: Sak om søknad om tilskudd til freda fartøy.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slot_usage:
   fartoyNavn:

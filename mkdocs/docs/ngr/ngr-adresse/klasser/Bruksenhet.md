@@ -151,6 +151,7 @@ URI: [ngr:Bruksenhet](https://data.norge.no/vocabulary/ngr-adresse#Bruksenhet)
 name: Bruksenhet
 description: Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 slots:
 - id
 class_uri: ngr:Bruksenhet
@@ -165,6 +166,7 @@ class_uri: ngr:Bruksenhet
 name: Bruksenhet
 description: Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 attributes:
   id:
     name: id

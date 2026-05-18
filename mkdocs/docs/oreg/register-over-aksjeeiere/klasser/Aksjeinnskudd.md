@@ -202,6 +202,7 @@ URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
 name: Aksjeinnskudd
 description: Innskot knytt til aksjar i samband med selskapshending.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - gjelder_innbetalt_aksjekapital
@@ -217,6 +218,7 @@ slots:
 name: Aksjeinnskudd
 description: Innskot knytt til aksjar i samband med selskapshending.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

@@ -115,8 +115,8 @@ OffisiellAdresse ||--}| GeografiskOmrade : "geografisk_omrade"
 Postboksadresse ||--|| Postboks : "postboks_ref"
 Postboksadresse ||--|| Poststed : "poststed_ref"
 
-```
 
+```
 
 
 Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse
@@ -129,30 +129,50 @@ Name: ngr-adresse
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Adressekode](klasser/adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |
 | [Adressenavn](klasser/adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |
+| [Bruksenhetsnummer](klasser/bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |
+| [Fylke](klasser/fylke.md) | Eit norsk fylke |
+| [Husnummer](klasser/husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |
+| [Kommune](klasser/kommune.md) | Ein norsk kommune |
+| [OffisiellAdresse](klasser/offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |
+| [Postboks](klasser/postboks.md) | Ei postboks registrert i Postboksregisteret |
+| [Postboksadresse](klasser/postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |
+| [Poststed](klasser/poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |
+| [Representasjonspunkt](klasser/representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
 | [Adresseomrade](klasser/adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |
 | [Bruksenhet](klasser/bruksenhet.md) | Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen |
-| [Bruksenhetsnummer](klasser/bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |
 | [Bygning](klasser/bygning.md) | Referanse til ein bygning i Matrikkelen |
 | [GeografiskAdresse](klasser/geografiskadresse.md) | Abstrakt basisklasse for norske adressar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OffisiellAdresse](klasser/offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postboksadresse](klasser/postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |
 | [GeografiskOmrade](klasser/geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](klasser/fylke.md) | Eit norsk fylke |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunnkrets](klasser/grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kirkesokn](klasser/kirkesokn.md) | Eit kyrkjesokn |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[KommunalKrets](klasser/kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](klasser/kommune.md) | Ein norsk kommune |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Poststed](klasser/poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stemmekrets](klasser/stemmekrets.md) | Ei stemmekrets brukt ved val |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Svalbard](klasser/svalbard.md) | Svalbard som særskild geografisk område |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tettsted](klasser/tettsted.md) | Eit tettbygd område definert av SSB |
-| [Husnummer](klasser/husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |
-| [Postboks](klasser/postboks.md) | Ei postboks registrert i Postboksregisteret |
-| [Representasjonspunkt](klasser/representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |
+| [Grunnkrets](klasser/grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |
+| [Kirkesokn](klasser/kirkesokn.md) | Eit kyrkjesokn |
+| [KommunalKrets](klasser/kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |
+| [Stemmekrets](klasser/stemmekrets.md) | Ei stemmekrets brukt ved val |
+| [Svalbard](klasser/svalbard.md) | Svalbard som særskild geografisk område |
+| [Tettsted](klasser/tettsted.md) | Eit tettbygd område definert av SSB |
+
+
 
 
 
@@ -246,4 +266,11 @@ Name: ngr-adresse
 
 | Artefakt | Fil |
 |----------|-----|
+| SHACL shapes | [ngr-adresse-shapes.ttl](ngr-adresse-shapes.ttl) |
+| JSON-LD kontekst | [ngr-adresse-context.jsonld](ngr-adresse-context.jsonld) |
+| JSON Schema | [ngr-adresse-schema.json](ngr-adresse-schema.json) |
+| OWL ontologi | [ngr-adresse-ontology.ttl](ngr-adresse-ontology.ttl) |
+| RDF/Turtle skjema | [ngr-adresse-schema.ttl](ngr-adresse-schema.ttl) |
+| Python-klasser | [ngr-adresse-model.py](ngr-adresse-model.py) |
 | ER-diagram (Mermaid) | [ngr-adresse-erdiagram.md](ngr-adresse-erdiagram.md) |
+| Eksempeldata (Turtle) | [ngr-adresse-eksempel.ttl](ngr-adresse-eksempel.ttl) |

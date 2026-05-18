@@ -272,6 +272,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slots:
 - id
 - har_verdi_tekstdel
@@ -303,6 +304,7 @@ class_uri: oa:TextualBody
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slot_usage:
   har_verdi_tekstdel:
     name: har_verdi_tekstdel

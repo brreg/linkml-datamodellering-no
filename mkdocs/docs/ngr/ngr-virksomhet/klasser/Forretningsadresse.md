@@ -141,6 +141,7 @@ name: Forretningsadresse
 description: Forretningsadressa til hovudeininga – adressa der hovudkontoret held
   til.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: GeografiskAdresse
 class_uri: ngrv:Forretningsadresse
 
@@ -155,6 +156,7 @@ name: Forretningsadresse
 description: Forretningsadressa til hovudeininga – adressa der hovudkontoret held
   til.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: GeografiskAdresse
 attributes:
   id:

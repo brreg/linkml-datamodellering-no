@@ -22,13 +22,13 @@ Alias: kontaktinformasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
-| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  yes  |
-| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
-| [Person](person.md) | Fysiske private personar |  no  |
 | [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
 | [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  yes  |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 

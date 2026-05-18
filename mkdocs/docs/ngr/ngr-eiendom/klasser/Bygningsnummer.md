@@ -192,6 +192,7 @@ URI: [ngre:Bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bygnings
 name: Bygningsnummer
 description: Offisiell identifikator for ein bygning i Matrikkelen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - bygningsnummer_verdi
@@ -213,6 +214,7 @@ class_uri: ngre:Bygningsnummer
 name: Bygningsnummer
 description: Offisiell identifikator for ein bygning i Matrikkelen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   bygningsnummer_verdi:
     name: bygningsnummer_verdi

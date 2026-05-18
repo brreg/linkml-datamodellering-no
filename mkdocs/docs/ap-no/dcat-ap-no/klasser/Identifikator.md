@@ -153,6 +153,10 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a](https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a)
+
 
 
 ## Identifier and Mapping Information
@@ -192,6 +196,9 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+see_also:
+- https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
+rank: 1000
 slots:
 - id
 - notasjon
@@ -213,6 +220,9 @@ class_uri: adms:Identifier
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+see_also:
+- https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
+rank: 1000
 slot_usage:
   notasjon:
     name: notasjon

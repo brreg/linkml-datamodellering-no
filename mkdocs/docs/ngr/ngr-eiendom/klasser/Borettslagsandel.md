@@ -280,6 +280,7 @@ name: Borettslagsandel
 description: Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt
   bustad i burettslagsbygningen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - tilhoerer_borettslag
@@ -312,6 +313,7 @@ name: Borettslagsandel
 description: Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt
   bustad i burettslagsbygningen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   tilhoerer_borettslag:
     name: tilhoerer_borettslag

@@ -1,5 +1,5 @@
 # Auto generated from register-over-aksjeeiere-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-10T09:57:44
+# Generation date: 2026-05-18T09:10:47
 # Schema: aksje_eierskap
 #
 # id: https://example.no/ontology/aksje-eierskap

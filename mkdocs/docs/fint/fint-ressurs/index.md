@@ -2,11 +2,6 @@
 
 ```mermaid
 erDiagram
-Adresse {
-    stringList adresselinje  
-    string postnummer  
-    string poststed  
-}
 Applikasjon {
     uriorcurie id  
     string beskrivelse  
@@ -48,9 +43,6 @@ DigitalEnhet {
     boolean privateid  
     string serienummer  
 }
-Elev {
-    uriorcurie id  
-}
 Enhetsgruppe {
     uriorcurie id  
     string navn  
@@ -65,77 +57,21 @@ Enhetstype {
     string navn  
     boolean passiv  
 }
-Fylke {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
 Handhevingstype {
     uriorcurie id  
     string kode  
     string navn  
     boolean passiv  
 }
-Identifikator {
-    string identifikatorverdi  
-}
 Identitet {
     uriorcurie id  
     uriorcurie personalressurs  
-}
-Kjonn {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
-Kommune {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
-Kontaktinformasjon {
-    string epostadresse  
-    string mobiltelefonnummer  
-    string nettsted  
-    string sip  
-    string telefonnummer  
-}
-Kontaktperson {
-    uriorcurie id  
-    string type  
-}
-Landkode {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
 }
 Lisensmodell {
     uriorcurie id  
     string kode  
     string navn  
     boolean passiv  
-}
-Periode {
-    string beskrivelse  
-    datetime slutt  
-    datetime start  
-}
-Person {
-    uriorcurie id  
-    string bilde  
-    date fodselsdato  
-    uriorcurieList laerling  
-    uriorcurie otungdom  
-    uriorcurie personalressurs  
-}
-Personnavn {
-    string etternavn  
-    string fornavn  
-    string mellomnavn  
 }
 Plattform {
     uriorcurie id  
@@ -156,12 +92,6 @@ Rettighet {
     string navn  
     boolean passiv  
 }
-Spraak {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
 Status {
     uriorcurie id  
     string kode  
@@ -169,69 +99,30 @@ Status {
     boolean passiv  
 }
 
-Adresse ||--|o Landkode : "land"
-Applikasjon ||--|| Periode : "gyldighetsperiode"
 Applikasjon ||--}o Applikasjonskategori : "applikasjonskategori"
 Applikasjon ||--}o Applikasjonsressurs : "applikasjonsressurs"
 Applikasjon ||--}o Plattform : "plattform"
-Applikasjonskategori ||--|o Periode : "gyldighetsperiode"
 Applikasjonsressurs ||--|o Handhevingstype : "handhevingstype"
 Applikasjonsressurs ||--|o Lisensmodell : "lisensmodell"
 Applikasjonsressurs ||--|| Applikasjon : "applikasjon"
-Applikasjonsressurs ||--|| Periode : "gyldighetsperiode"
 Applikasjonsressurs ||--}o Applikasjonsressurstilgjengelighet : "ressurstilgjengelighet"
 Applikasjonsressurs ||--}| Brukertype : "brukertype"
 Applikasjonsressurstilgjengelighet ||--|| Applikasjonsressurs : "ressursRef"
-Applikasjonsressurstilgjengelighet ||--|| Periode : "gyldighetsperiode"
-Brukertype ||--|o Periode : "gyldighetsperiode"
-DigitalEnhet ||--|o Elev : "elev"
-DigitalEnhet ||--|o Identifikator : "dataobjektId"
 DigitalEnhet ||--|o Produsent : "produsent"
 DigitalEnhet ||--|o Status : "status"
 DigitalEnhet ||--|| Enhetstype : "enhetstype"
 DigitalEnhet ||--|| Plattform : "plattform"
 DigitalEnhet ||--}o Enhetsgruppemedlemskap : "enhetsgruppemedlemskap"
-Elev ||--|o Identifikator : "elevnummer"
-Elev ||--|o Person : "person"
 Enhetsgruppe ||--|| Enhetstype : "enhetstype"
 Enhetsgruppe ||--|| Plattform : "plattform"
 Enhetsgruppe ||--}o Enhetsgruppemedlemskap : "enhetsgruppemedlemskap"
 Enhetsgruppemedlemskap ||--|| DigitalEnhet : "digitalEnhet"
 Enhetsgruppemedlemskap ||--|| Enhetsgruppe : "enhetsgruppe"
-Enhetstype ||--|o Periode : "gyldighetsperiode"
-Fylke ||--|o Periode : "gyldighetsperiode"
-Fylke ||--}o Kommune : "kommune"
-Handhevingstype ||--|o Periode : "gyldighetsperiode"
-Identifikator ||--|o Periode : "gyldighetsperiode"
 Identitet ||--}o Rettighet : "rettighet"
-Kjonn ||--|o Periode : "gyldighetsperiode"
-Kommune ||--|o Periode : "gyldighetsperiode"
-Kommune ||--|| Fylke : "fylke"
-Kontaktperson ||--|o Kontaktinformasjon : "kontaktinformasjon"
-Kontaktperson ||--|o Personnavn : "kontaktperson_navn"
-Kontaktperson ||--}o Person : "kontaktperson"
-Landkode ||--|o Periode : "gyldighetsperiode"
-Lisensmodell ||--|o Periode : "gyldighetsperiode"
-Person ||--|o Adresse : "bostedsadresse, postadresse"
-Person ||--|o Elev : "elev"
-Person ||--|o Kjonn : "kjonn"
-Person ||--|o Kommune : "kommune"
-Person ||--|o Kontaktinformasjon : "kontaktinformasjon"
-Person ||--|o Spraak : "maalform, morsmaal"
-Person ||--|| Identifikator : "fodselsnummer"
-Person ||--|| Personnavn : "person_navn"
-Person ||--}o Kontaktperson : "parorende"
-Person ||--}o Landkode : "statsborgerskap"
-Person ||--}o Person : "foreldre, foreldreansvar"
-Plattform ||--|o Periode : "gyldighetsperiode"
-Produsent ||--|o Periode : "gyldighetsperiode"
-Rettighet ||--|o Periode : "gyldighetsperiode"
 Rettighet ||--}o Identitet : "identitet"
-Spraak ||--|o Periode : "gyldighetsperiode"
-Status ||--|o Periode : "gyldighetsperiode"
+
 
 ```
-
 
 
 FINT-domenemodell for ressursstyring. Dekkjer tre sub-pakkar: ressurs.eiendel (applikasjonar og lisensressursar), ressurs.datautstyr (digitale einingar og einingsgrupper) og ressurs.tilgang (identitetar og rettigheiter).
@@ -245,24 +136,50 @@ Name: fint-ressurs
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Applikasjon](klasser/applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |
-| [Applikasjonskategori](klasser/applikasjonskategori.md) | Kategori av applikasjonar |
 | [Applikasjonsressurs](klasser/applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |
 | [Applikasjonsressurstilgjengelighet](klasser/applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |
-| [Brukertype](klasser/brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |
 | [DigitalEnhet](klasser/digitalenhet.md) | Ei digital eining som t |
 | [Enhetsgruppe](klasser/enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |
 | [Enhetsgruppemedlemskap](klasser/enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |
+| [Rettighet](klasser/rettighet.md) | Ei namngitt rettighet |
+
+
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Applikasjonskategori](klasser/applikasjonskategori.md) | Kategori av applikasjonar |
+| [Brukertype](klasser/brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |
 | [Enhetstype](klasser/enhetstype.md) | Type digital eining |
 | [Handhevingstype](klasser/handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |
 | [Identitet](klasser/identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |
 | [Lisensmodell](klasser/lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |
 | [Plattform](klasser/plattform.md) | Plattforma tenesta kan leverast på |
 | [Produsent](klasser/produsent.md) | Produsent av ei digital eining |
-| [Rettighet](klasser/rettighet.md) | Ei namngitt rettighet |
 | [Status](klasser/status.md) | Status på ei digital eining i fagsystemet |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+
+
 
 
 

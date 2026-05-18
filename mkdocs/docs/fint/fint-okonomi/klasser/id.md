@@ -22,27 +22,27 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  no  |
-| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
-| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
-| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
-| [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar |  no  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester |  no  |
-| [Person](person.md) | Fysiske private personar |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
-| [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
-| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
 | [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester |  no  |
+| [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar |  no  |
 | [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  no  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  no  |
 
 
 

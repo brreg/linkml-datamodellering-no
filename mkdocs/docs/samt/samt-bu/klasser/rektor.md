@@ -179,6 +179,7 @@ URI: [samtbuskole:Rektor](https://example.no/ontology/skole#Rektor)
 name: Rektor
 description: Høgaste akademiske leder av en skole
 from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
 is_a: Person
 slots:
 - enhetsleder_for
@@ -193,6 +194,7 @@ slots:
 name: Rektor
 description: Høgaste akademiske leder av en skole
 from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
 is_a: Person
 attributes:
   enhetsleder_for:

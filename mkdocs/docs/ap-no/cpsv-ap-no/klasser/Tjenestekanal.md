@@ -385,6 +385,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 name: Tjenestekanal
 description: Ein kanal for å få tilgang til ei teneste (t.d. nett, telefon, oppmøte).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - identifikator_literal
@@ -431,6 +432,7 @@ class_uri: cv:Channel
 name: Tjenestekanal
 description: Ein kanal for å få tilgang til ei teneste (t.d. nett, telefon, oppmøte).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   identifikator_literal:
     name: identifikator_literal

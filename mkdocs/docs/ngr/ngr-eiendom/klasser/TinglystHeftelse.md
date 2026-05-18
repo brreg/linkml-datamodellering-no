@@ -153,6 +153,7 @@ name: TinglystHeftelse
 description: Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel.
   Nokre heftingar har avgrensa geografisk utbreiing og manglar stadfestring.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 class_uri: ngre:TinglystHeftelse
@@ -168,6 +169,7 @@ name: TinglystHeftelse
 description: Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel.
   Nokre heftingar har avgrensa geografisk utbreiing og manglar stadfestring.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   id:
     name: id

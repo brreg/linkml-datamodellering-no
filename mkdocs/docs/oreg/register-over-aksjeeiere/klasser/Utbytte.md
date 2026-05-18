@@ -229,6 +229,7 @@ URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
 name: Utbytte
 description: Utbytte knytt til ein eigarposisjon.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - tidspunkt
@@ -245,6 +246,7 @@ slots:
 name: Utbytte
 description: Utbytte knytt til ein eigarposisjon.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

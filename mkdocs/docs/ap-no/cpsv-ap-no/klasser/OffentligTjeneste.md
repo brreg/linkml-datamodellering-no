@@ -1251,6 +1251,7 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 name: OffentligTjeneste
 description: Ei konkret offentleg teneste levert av ein offentleg organisasjon.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -1422,6 +1423,7 @@ class_uri: cpsv:PublicService
 name: OffentligTjeneste
 description: Ei konkret offentleg teneste levert av ein offentleg organisasjon.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

@@ -353,6 +353,7 @@ URI: [utd:FagvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Fagvurderin
 name: FagvurderingAbstrakt
 description: Abstrakt basisklasse for fagvurderingar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slots:
 - id
@@ -396,6 +397,7 @@ class_uri: utd:FagvurderingAbstrakt
 name: FagvurderingAbstrakt
 description: Abstrakt basisklasse for fagvurderingar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slot_usage:
   kommentar:

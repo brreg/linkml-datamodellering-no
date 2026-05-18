@@ -191,6 +191,7 @@ name: Folkeregisteridentifikator
 description: Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete
   underklassar er Fødselsnummer og D-nummer.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 abstract: true
 slots:
 - id
@@ -208,6 +209,7 @@ name: Folkeregisteridentifikator
 description: Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete
   underklassar er Fødselsnummer og D-nummer.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 abstract: true
 attributes:
   id:

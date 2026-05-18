@@ -22,9 +22,9 @@ Alias: plattform
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
 | [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
-| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
 
 
 

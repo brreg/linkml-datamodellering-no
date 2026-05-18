@@ -265,6 +265,7 @@ name: Bruksenhetsnummer
 description: Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2.
   etasje, eining 1 (etasjeplan + etasjenummer + nummerering).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - etasjeplan
@@ -299,6 +300,7 @@ name: Bruksenhetsnummer
 description: Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2.
   etasje, eining 1 (etasjeplan + etasjenummer + nummerering).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   etasjeplan:
     name: etasjeplan

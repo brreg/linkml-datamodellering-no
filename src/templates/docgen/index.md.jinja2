@@ -17,15 +17,41 @@ Name: {{ schema.name }}
 
 ## Classes
 
+{% set subsets_ordered = ['Obligatorisk', 'Anbefalt', 'Valgfri'] %}
+
+{% if gen.hierarchical_class_view -%}
 | Class | Description |
 | --- | --- |
-{% if gen.hierarchical_class_view -%}
 {% for u, v in gen.class_hierarchy_as_tuples() -%}
 | {{ "&nbsp;"|safe*u*8 }}{{ gen.link(schemaview.get_class(v), True) }} | {{ schemaview.get_class(v).description|enshorten }} |
 {% endfor %}
 {% else -%}
-{% for c in gen.all_class_objects()|sort(attribute=sort_by) -%}
+{% for subset_name in subsets_ordered + ['Andre'] %}
+{%- set ns = namespace(classes=[]) %}
+{%- for c in gen.all_class_objects()|sort(attribute=sort_by) %}
+  {%- set ns2 = namespace(dominant='Andre') %}
+  {%- for sn in subsets_ordered %}
+    {%- if ns2.dominant == 'Andre' %}
+      {%- for su in (c.slot_usage or {}).values() %}
+        {%- if sn in (su.in_subset or []) %}
+          {%- set ns2.dominant = sn %}
+        {%- endif %}
+      {%- endfor %}
+    {%- endif %}
+  {%- endfor %}
+  {%- if ns2.dominant == subset_name %}
+    {%- set ns.classes = ns.classes + [c] %}
+  {%- endif %}
+{%- endfor %}
+{% if ns.classes %}
+### {{ subset_name }}
+
+| Class | Description |
+| --- | --- |
+{% for c in ns.classes -%}
 | {{ gen.link(c, True) }} | {{ c.description|enshorten }} |
+{% endfor %}
+{% endif %}
 {% endfor %}
 {% endif %}
 

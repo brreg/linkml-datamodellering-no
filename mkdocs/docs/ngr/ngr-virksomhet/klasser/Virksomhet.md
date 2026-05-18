@@ -498,6 +498,7 @@ name: Virksomhet
 description: Abstrakt overklasse for alle einingar registrert i Enhetsregisteret.
   Ei verksemd er alltid anten ei underleining eller ei hovudeining.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 abstract: true
 slots:
 - id
@@ -566,6 +567,7 @@ name: Virksomhet
 description: Abstrakt overklasse for alle einingar registrert i Enhetsregisteret.
   Ei verksemd er alltid anten ei underleining eller ei hovudeining.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 abstract: true
 slot_usage:
   organisasjonsnummer:

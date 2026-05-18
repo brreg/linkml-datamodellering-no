@@ -307,6 +307,7 @@ URI: [utd:Varseltype](https://schema.fintlabs.no/utdanning/Varseltype)
 name: Varseltype
 description: Type varsel knytt til ein elev.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - id
 - kode
@@ -344,6 +345,7 @@ class_uri: utd:Varseltype
 name: Varseltype
 description: Type varsel knytt til ein elev.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   kode:
     name: kode

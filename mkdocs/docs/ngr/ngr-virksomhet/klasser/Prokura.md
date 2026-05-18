@@ -194,6 +194,7 @@ name: Prokura
 description: Prokura gjev ein person fullmakt til å handle på vegne av verksemda i
   næringssaker. Verksemda kan ha fleire prokuraistar.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - prokura_bestemmelse
@@ -216,6 +217,7 @@ name: Prokura
 description: Prokura gjev ein person fullmakt til å handle på vegne av verksemda i
   næringssaker. Verksemda kan ha fleire prokuraistar.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   prokura_bestemmelse:
     name: prokura_bestemmelse

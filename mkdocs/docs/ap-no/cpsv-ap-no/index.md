@@ -14,9 +14,6 @@ Aktor {
     string identifikator_literal  
     LangStringList tittel  
 }
-Begrepssamling {
-    uriorcurie id  
-}
 Deltagelse {
     uriorcurie id  
 }
@@ -53,9 +50,6 @@ Katalog {
     SpraakList spraak  
     LangStringList tittel  
 }
-Konsept {
-    uriorcurie id  
-}
 Kontaktpunkt {
     uriorcurie id  
     uriList epost  
@@ -72,9 +66,6 @@ Livshendelse {
     uriList er_beskrive_av  
     string identifikator_literal  
     LangStringList tittel  
-}
-Mediatype {
-    uriorcurie id  
 }
 OffentligOrganisasjon {
     LangStringList foretrekt_namn  
@@ -159,63 +150,42 @@ Virksomhetshendelse {
 Aktor ||--|o Adresse : "adresse_ref"
 Aktor ||--}o Deltagelse : "deltek_i"
 Deltagelse ||--|o Aktor : "deltakar"
-Deltagelse ||--|o Konsept : "har_rolle"
-Dokumentasjonstype ||--|o Konsept : "klassifisering, utstedingsstad"
-Gebyr ||--|o Konsept : "valuta"
-Hendelse ||--|o Konsept : "type_concept"
-Hendelse ||--}o Konsept : "tema"
 Hendelse ||--}o OffentligTjeneste : "kan_utlose"
 Hendelse ||--}| Kontaktpunkt : "har_kontaktpunkt"
-Katalog ||--|o Konsept : "oppdateringsfrekvens"
 Katalog ||--|| Aktor : "utgjevar"
 Katalog ||--}o Hendelse : "inneheld_hending"
-Katalog ||--}o Konsept : "dekningsomraade"
 Katalog ||--}| Kontaktpunkt : "har_kontaktpunkt"
 Katalog ||--}| OffentligTjeneste : "inneheld_teneste"
-Livshendelse ||--|o Konsept : "type_concept"
-Livshendelse ||--}o Konsept : "tema"
 Livshendelse ||--}o OffentligTjeneste : "kan_utlose"
 Livshendelse ||--}| Kontaktpunkt : "har_kontaktpunkt"
 OffentligOrganisasjon ||--|o Adresse : "adresse_ref"
-OffentligOrganisasjon ||--|o Konsept : "type_concept"
 OffentligOrganisasjon ||--}o Deltagelse : "deltek_i"
-OffentligOrganisasjon ||--}| Konsept : "dekningsomraade"
-OffentligTjeneste ||--|o Konsept : "status, type_concept"
 OffentligTjeneste ||--}o Deltagelse : "har_deltaking"
 OffentligTjeneste ||--}o Dokumentasjonstype : "har_dokumentasjonstype"
 OffentligTjeneste ||--}o Gebyr : "har_gebyr"
 OffentligTjeneste ||--}o Hendelse : "er_gruppert_av"
-OffentligTjeneste ||--}o Konsept : "dekningsomraade, er_klassifisert_av, malgruppe, sektor, tema, temaomrade"
 OffentligTjeneste ||--}o Regel : "folger"
 OffentligTjeneste ||--}o RegulativRessurs : "har_regulativ_ressurs"
 OffentligTjeneste ||--}o Tjenestekanal : "har_tenestekanal"
 OffentligTjeneste ||--}| Kontaktpunkt : "har_kontaktpunkt"
 OffentligTjeneste ||--}| OffentligOrganisasjon : "har_ansvarleg_styremakt"
 OffentligTjeneste ||--}| Tjenesteresultattype : "har_tenesteresultattype"
-Regel ||--|o Konsept : "type_concept"
-RegulativRessurs ||--|o Konsept : "type_concept"
-Tjeneste ||--|o Konsept : "status, type_concept"
 Tjeneste ||--}o Deltagelse : "har_deltaking"
 Tjeneste ||--}o Dokumentasjonstype : "har_dokumentasjonstype"
 Tjeneste ||--}o Gebyr : "har_gebyr"
 Tjeneste ||--}o Hendelse : "er_gruppert_av"
-Tjeneste ||--}o Konsept : "dekningsomraade, er_klassifisert_av, malgruppe, sektor, tema, temaomrade"
 Tjeneste ||--}o Regel : "folger"
 Tjeneste ||--}o RegulativRessurs : "har_regulativ_ressurs"
 Tjeneste ||--}o Tjenestekanal : "har_tenestekanal"
 Tjeneste ||--}| Aktor : "eigd_av"
 Tjeneste ||--}| Kontaktpunkt : "har_kontaktpunkt"
 Tjeneste ||--}| Tjenesteresultattype : "har_tenesteresultattype"
-Tjenestekanal ||--|o Konsept : "type_concept"
-Tjenesteresultattype ||--|o Konsept : "type_concept"
 Tjenesteresultattype ||--}o Hendelse : "kan_skape_hending"
-Virksomhetshendelse ||--|o Konsept : "type_concept"
-Virksomhetshendelse ||--}o Konsept : "tema"
 Virksomhetshendelse ||--}o OffentligTjeneste : "kan_utlose"
 Virksomhetshendelse ||--}| Kontaktpunkt : "har_kontaktpunkt"
 
-```
 
+```
 
 
 Norsk applikasjonsprofil av CPSV (Core Public Service Vocabulary), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/cpsv-ap-no/
@@ -228,26 +198,58 @@ Name: cpsv-ap-no
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
-| [Adresse](klasser/adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |
 | [Aktor](klasser/aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OffentligOrganisasjon](klasser/offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |
-| [Deltagelse](klasser/deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |
 | [Dokumentasjonstype](klasser/dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |
-| [Gebyr](klasser/gebyr.md) | Eit gebyr knytt til ei teneste |
 | [Hendelse](klasser/hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Livshendelse](klasser/livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhetshendelse](klasser/virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |
 | [Katalog](klasser/katalog.md) | Ein katalog over offentlege tenester og hendingar |
-| [Kontaktpunkt](klasser/kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |
+| [OffentligOrganisasjon](klasser/offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |
 | [OffentligTjeneste](klasser/offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |
-| [Regel](klasser/regel.md) | Eit regelverk eller retningsliner som styrer levering av ei teneste |
-| [RegulativRessurs](klasser/regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
 | [Tjeneste](klasser/tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |
 | [Tjenestekanal](klasser/tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |
 | [Tjenesteresultattype](klasser/tjenesteresultattype.md) | Typen resultat som ei teneste produserer |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Livshendelse](klasser/livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |
+| [Virksomhetshendelse](klasser/virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Adresse](klasser/adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |
+| [Deltagelse](klasser/deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |
+| [Gebyr](klasser/gebyr.md) | Eit gebyr knytt til ei teneste |
+| [Kontaktpunkt](klasser/kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |
+| [Regel](klasser/regel.md) | Eit regelverk eller retningsliner som styrer levering av ei teneste |
+| [RegulativRessurs](klasser/regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
 | [Tjenesteresultattypeliste](klasser/tjenesteresultattypeliste.md) | Ei liste over moglege tjenesteresultattypar |
+
+
 
 
 

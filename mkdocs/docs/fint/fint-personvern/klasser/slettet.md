@@ -22,8 +22,8 @@ Alias: slettet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  yes  |
 | [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  yes  |
+| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  yes  |
 
 
 

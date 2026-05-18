@@ -206,6 +206,7 @@ URI: [dct:PeriodOfTime](http://purl.org/dc/terms/PeriodOfTime)
 name: Tidsrom
 description: Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slots:
 - id
 - tidsrom_start
@@ -222,6 +223,7 @@ class_uri: dct:PeriodOfTime
 name: Tidsrom
 description: Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 attributes:
   id:
     name: id

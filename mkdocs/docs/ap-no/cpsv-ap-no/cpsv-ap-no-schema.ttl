@@ -10,44 +10,44 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "CPSV-AP-NO" ;
     pav:version "1.0" ;
-    sh:declare [ sh:namespace "http://data.europa.eu/m8g/"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+            sh:prefix "skos" ],
+        [ sh:namespace "http://data.europa.eu/m8g/"^^xsd:anyURI ;
             sh:prefix "cv" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/cpsvno#"^^xsd:anyURI ;
-            sh:prefix "cpsvno" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/cccevno#"^^xsd:anyURI ;
-            sh:prefix "cccevno" ],
-        [ sh:namespace "http://rdf-vocabulary.ddialliance.org/xkos#"^^xsd:anyURI ;
-            sh:prefix "xkos" ],
-        [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
-            sh:prefix "foaf" ],
-        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
-            sh:prefix "rdfs" ],
-        [ sh:namespace "http://www.w3.org/ns/org#"^^xsd:anyURI ;
-            sh:prefix "org" ],
-        [ sh:namespace "http://purl.org/vocab/cpsv#"^^xsd:anyURI ;
-            sh:prefix "cpsv" ],
         [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
             sh:prefix "vcard" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
+        [ sh:namespace "http://purl.org/vocab/cpsv#"^^xsd:anyURI ;
+            sh:prefix "cpsv" ],
         [ sh:namespace "https://data.norge.no/vocabulary/dcatno#"^^xsd:anyURI ;
             sh:prefix "dcatno" ],
-        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
-            sh:prefix "xsd" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
-        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
-        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
-            sh:prefix "skos" ],
-        [ sh:namespace "http://data.europa.eu/eli/ontology#"^^xsd:anyURI ;
-            sh:prefix "eli" ],
+        [ sh:namespace "http://www.w3.org/ns/locn#"^^xsd:anyURI ;
+            sh:prefix "locn" ],
+        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            sh:prefix "rdfs" ],
         [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
             sh:prefix "rdf" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
+        [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
+            sh:prefix "foaf" ],
+        [ sh:namespace "https://data.norge.no/vocabulary/cccevno#"^^xsd:anyURI ;
+            sh:prefix "cccevno" ],
+        [ sh:namespace "http://data.europa.eu/eli/ontology#"^^xsd:anyURI ;
+            sh:prefix "eli" ],
         [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
             sh:prefix "adms" ],
-        [ sh:namespace "http://www.w3.org/ns/locn#"^^xsd:anyURI ;
-            sh:prefix "locn" ] ;
+        [ sh:namespace "http://www.w3.org/ns/org#"^^xsd:anyURI ;
+            sh:prefix "org" ],
+        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+            sh:prefix "xsd" ],
+        [ sh:namespace "https://data.norge.no/vocabulary/cpsvno#"^^xsd:anyURI ;
+            sh:prefix "cpsvno" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
+        [ sh:namespace "http://rdf-vocabulary.ddialliance.org/xkos#"^^xsd:anyURI ;
+            sh:prefix "xkos" ] ;
     linkml:classes <https://data.norge.no/linkml/cpsv-ap-no/Adresse>,
         <https://data.norge.no/linkml/cpsv-ap-no/Aktor>,
         <https://data.norge.no/linkml/cpsv-ap-no/Begrepssamling>,
@@ -72,7 +72,7 @@
     linkml:default_prefix "https://data.norge.no/linkml/cpsv-ap-no/" ;
     linkml:default_range <https://data.norge.no/linkml/cpsv-ap-no/string> ;
     linkml:description "Norsk applikasjonsprofil av CPSV (Core Public Service Vocabulary), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/cpsv-ap-no/" ;
-    linkml:generation_date "2026-05-09T16:13:59"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-18T09:12:26"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/cpsv-ap-no"^^xsd:anyURI ;
     linkml:imports "../common/common-ap-no-schema"^^xsd:anyURI,
         "linkml:types"^^xsd:anyURI ;

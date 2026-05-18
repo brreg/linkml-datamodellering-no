@@ -22,11 +22,11 @@ Alias: termin
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
-| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  yes  |
 | [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
-| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  yes  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
 
 
 

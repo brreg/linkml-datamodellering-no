@@ -234,6 +234,7 @@ from_schema: https://example.no/ontology/samt-bu-skole
 close_mappings:
 - schema:EducationalOccupationalProgram
 - schema:Course
+rank: 1000
 slots:
 - id
 - navn
@@ -253,6 +254,7 @@ from_schema: https://example.no/ontology/samt-bu-skole
 close_mappings:
 - schema:EducationalOccupationalProgram
 - schema:Course
+rank: 1000
 attributes:
   id:
     name: id

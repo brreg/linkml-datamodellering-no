@@ -142,6 +142,7 @@ URI: [ngrv:Postadresse](https://data.norge.no/vocabulary/ngr-virksomhet#Postadre
 name: Postadresse
 description: Postadressa verksemda mottar post på.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: GeografiskAdresse
 class_uri: ngrv:Postadresse
 
@@ -155,6 +156,7 @@ class_uri: ngrv:Postadresse
 name: Postadresse
 description: Postadressa verksemda mottar post på.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: GeografiskAdresse
 attributes:
   id:

@@ -22,9 +22,9 @@ Alias: laerling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  yes  |
 | [AvlagtProve](avlagtprove.md) | Ei avlagt prøve for ein lærling |  yes  |
 | [Person](person.md) | Fysiske private personar |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  yes  |
 
 
 

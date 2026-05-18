@@ -731,6 +731,7 @@ URI: [ark:Saksmappe](https://schema.fintlabs.no/arkiv/Saksmappe)
 name: Saksmappe
 description: Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Mappe
 abstract: true
 slots:
@@ -805,6 +806,7 @@ class_uri: ark:Saksmappe
 name: Saksmappe
 description: Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Mappe
 abstract: true
 slot_usage:

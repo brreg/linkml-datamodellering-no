@@ -274,6 +274,7 @@ name: Naeringskode
 description: Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE).
   Ei verksemd kan ha 1–3 næringskoder.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - naeringskode_kode
@@ -306,6 +307,7 @@ name: Naeringskode
 description: Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE).
   Ei verksemd kan ha 1–3 næringskoder.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   naeringskode_kode:
     name: naeringskode_kode

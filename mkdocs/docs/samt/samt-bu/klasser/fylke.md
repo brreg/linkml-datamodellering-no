@@ -182,6 +182,7 @@ description: Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt
 from_schema: https://example.no/ontology/samt-bu-skole
 exact_mappings:
 - org:Organization
+rank: 1000
 is_a: Skoleeier
 slots:
 - fylkesnummer
@@ -199,6 +200,7 @@ description: Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt
 from_schema: https://example.no/ontology/samt-bu-skole
 exact_mappings:
 - org:Organization
+rank: 1000
 is_a: Skoleeier
 attributes:
   fylkesnummer:

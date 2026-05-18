@@ -259,6 +259,7 @@ URI: [ngr:Postboksadresse](https://data.norge.no/vocabulary/ngr-adresse#Postboks
 name: Postboksadresse
 description: Ei postboksadresse registrert i Postboksregisteret (Posten Norge).
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskAdresse
 slots:
 - postboks_ref
@@ -291,6 +292,7 @@ class_uri: ngr:Postboksadresse
 name: Postboksadresse
 description: Ei postboksadresse registrert i Postboksregisteret (Posten Norge).
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskAdresse
 slot_usage:
   postboks_ref:

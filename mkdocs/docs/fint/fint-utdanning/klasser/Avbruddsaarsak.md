@@ -307,6 +307,7 @@ URI: [utd:Avbruddsaarsak](https://schema.fintlabs.no/utdanning/Avbruddsaarsak)
 name: Avbruddsaarsak
 description: Årsak til avbrot frå opplæring.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - id
 - kode
@@ -344,6 +345,7 @@ class_uri: utd:Avbruddsaarsak
 name: Avbruddsaarsak
 description: Årsak til avbrot frå opplæring.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   kode:
     name: kode

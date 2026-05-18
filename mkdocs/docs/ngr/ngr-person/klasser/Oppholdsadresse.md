@@ -224,6 +224,7 @@ URI: [ngrp:Oppholdsadresse](https://data.norge.no/vocabulary/ngr-person#Oppholds
 name: Oppholdsadresse
 description: Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa).
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 is_a: GeografiskAdresse
 slots:
 - gyldig_fra_og_med
@@ -249,6 +250,7 @@ class_uri: ngrp:Oppholdsadresse
 name: Oppholdsadresse
 description: Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa).
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 is_a: GeografiskAdresse
 slot_usage:
   gyldig_fra_og_med:

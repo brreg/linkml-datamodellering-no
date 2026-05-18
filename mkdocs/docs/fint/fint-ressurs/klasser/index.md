@@ -11,24 +11,50 @@ Name: fint-ressurs
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |
-| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |
 | [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |
 | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |
-| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |
 | [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |
 | [Enhetsgruppemedlemskap](enhetsgruppemedlemskap.md) | Medlemskap mellom ei digital eining og ei einingsgruppe |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |
+
+
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |
+| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |
 | [Enhetstype](enhetstype.md) | Type digital eining |
 | [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |
 | [Identitet](identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |
 | [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |
 | [Plattform](plattform.md) | Plattforma tenesta kan leverast på |
 | [Produsent](produsent.md) | Produsent av ei digital eining |
-| [Rettighet](rettighet.md) | Ei namngitt rettighet |
 | [Status](status.md) | Status på ei digital eining i fagsystemet |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+
+
 
 
 

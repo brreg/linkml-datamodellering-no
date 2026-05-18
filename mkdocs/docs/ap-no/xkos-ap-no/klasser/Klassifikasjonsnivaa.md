@@ -314,6 +314,7 @@ URI: [xkos:ClassificationLevel](http://rdf-vocabulary.ddialliance.org/xkos#Class
 name: Klassifikasjonsnivaa
 description: Eit nivå i ein klassifikasjon (xkos:ClassificationLevel).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -351,6 +352,7 @@ class_uri: xkos:ClassificationLevel
 name: Klassifikasjonsnivaa
 description: Eit nivå i ein klassifikasjon (xkos:ClassificationLevel).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

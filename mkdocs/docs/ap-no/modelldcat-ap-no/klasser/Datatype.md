@@ -211,6 +211,7 @@ URI: [modelldcatno:DataType](https://data.norge.no/vocabulary/modelldcatno#DataT
 name: Datatype
 description: Ein datatype — ein strukturert samansett type.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 class_uri: modelldcatno:DataType
 
@@ -224,6 +225,7 @@ class_uri: modelldcatno:DataType
 name: Datatype
 description: Ein datatype — ein strukturert samansett type.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 attributes:
   id:

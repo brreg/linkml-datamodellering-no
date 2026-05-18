@@ -181,6 +181,7 @@ name: Adresseomrade
 description: Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller
   eit stadnamn.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 slots:
 - id
 - namn
@@ -197,6 +198,7 @@ name: Adresseomrade
 description: Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller
   eit stadnamn.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 attributes:
   id:
     name: id

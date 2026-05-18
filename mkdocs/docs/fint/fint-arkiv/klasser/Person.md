@@ -22,8 +22,8 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 | [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  yes  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 
 
 

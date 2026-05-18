@@ -10,10 +10,15 @@ Name: ngr-eiendom
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Andel](andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |
-| [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |
 | [Borettslag](borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |
 | [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |
 | [Bruksenhet](bruksenhet.md) | Ei brukseining (leilegheit, kontor o |
@@ -22,37 +27,64 @@ Name: ngr-eiendom
 | [Bygning](bygning.md) | Ein bygning registrert i Matrikkelen |
 | [Bygningsnummer](bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |
 | [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
 | [Etasje](etasje.md) | Ei etasje i ein bygning |
 | [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |
 | [Festenummer](festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |
 | [Gaardsnummer](gaardsnummer.md) | Gårdsnummer innanfor kommunen |
 | [Hjemmel](hjemmel.md) | Abstrakt klasse for heimelsdokument |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |
-| [Hovedenhet](hovedenhet.md) | Ei hovudeining i Einingsregisteret |
 | [Kommune](kommune.md) | Norsk kommune |
 | [Kommunenummer](kommunenummer.md) | Firesifra kommunenummer (t |
 | [Matrikkelenhet](matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Anleggseiendom](anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AnnenMatrikkelenhet](annenmatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Festegrunn](festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunneiendom](grunneiendom.md) | Den vanlegaste typen matrikkelenheit |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |
 | [Matrikkelnummer](matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |
-| [OffisiellAdresse](offisielladresse.md) | Offisiell adresse tildelt av kommunen |
-| [Person](person.md) | Ein fysisk person |
 | [Representasjonspunkt](representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |
-| [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |
-| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |
 | [SamletFastEiendom](samletfasteiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |
 | [Seksjonsnummer](seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |
-| [Teig](teig.md) | Eit samanhengande areal med same type grenser |
-| [TinglystHeftelse](tinglystheftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |
 | [YtreInngang](ytreinngang.md) | Ytre inngang til ein bygning |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Festegrunn](festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |
+| [Grunneiendom](grunneiendom.md) | Den vanlegaste typen matrikkelenheit |
+| [Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |
+| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Anleggseiendom](anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |
+| [Anleggsprojeksjonsflate](anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |
+| [AnnenMatrikkelenhet](annenmatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |
+| [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |
+| [HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |
+| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining i Einingsregisteret |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
+| [OffisiellAdresse](offisielladresse.md) | Offisiell adresse tildelt av kommunen |
+| [Person](person.md) | Ein fysisk person |
+| [RettighetForAaBenytteEiendom](rettighetforaabenytteeiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |
+| [Teig](teig.md) | Eit samanhengande areal med same type grenser |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
+| [TinglystHeftelse](tinglystheftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |
+
+
 
 
 

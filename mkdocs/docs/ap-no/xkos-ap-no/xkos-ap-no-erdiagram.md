@@ -1,8 +1,5 @@
 ```mermaid
 erDiagram
-Begrepssamling {
-    uriorcurie id  
-}
 Kategori {
     uriorcurie id  
     LangStringList anbefalt_term  
@@ -34,12 +31,6 @@ Klassifikasjonssamanlikning {
     string identifikator_literal  
     LangStringList tittel  
 }
-Konsept {
-    uriorcurie id  
-}
-Mediatype {
-    uriorcurie id  
-}
 Organisasjon {
     uriorcurie id  
 }
@@ -57,12 +48,11 @@ Klassifikasjon ||--|o Tidsrom : "gjeld_for_tidsrom"
 Klassifikasjon ||--|| Organisasjon : "utgjevar"
 Klassifikasjon ||--}o Klassifikasjon : "er_samanlikna_med"
 Klassifikasjon ||--}o Klassifikasjonsnivaa : "forste_nivaa"
-Klassifikasjon ||--}o Konsept : "tema"
 Klassifikasjonsnivaa ||--}o Klassifikasjonsnivaa : "underordna_klassifikasjonsnivaa"
 Klassifikasjonsnivaa ||--}| Kategori : "har_medlem"
 Klassifikasjonssamanlikning ||--|| Organisasjon : "utgjevar"
 Klassifikasjonssamanlikning ||--}| Kategorisamanlikning : "bestar_av"
 Klassifikasjonssamanlikning ||--}| Klassifikasjon : "samanliknar"
 
-```
 
+```

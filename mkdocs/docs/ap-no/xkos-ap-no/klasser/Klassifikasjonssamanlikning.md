@@ -329,6 +329,7 @@ URI: [xkos:Correspondence](http://rdf-vocabulary.ddialliance.org/xkos#Correspond
 name: Klassifikasjonssamanlikning
 description: Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slots:
 - id
 - identifikator_literal
@@ -374,6 +375,7 @@ class_uri: xkos:Correspondence
 name: Klassifikasjonssamanlikning
 description: Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slot_usage:
   identifikator_literal:
     name: identifikator_literal

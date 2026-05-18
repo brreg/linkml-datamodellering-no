@@ -2219,6 +2219,7 @@ URI: [https://schema.fintlabs.no/utdanning/:UtdanningContainer](https://schema.f
 name: UtdanningContainer
 description: Rotcontainer for FINT Utdanning-instansar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - elevar
 - skolar
@@ -2407,6 +2408,7 @@ tree_root: true
 name: UtdanningContainer
 description: Rotcontainer for FINT Utdanning-instansar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   elevforhold:
     name: elevforhold

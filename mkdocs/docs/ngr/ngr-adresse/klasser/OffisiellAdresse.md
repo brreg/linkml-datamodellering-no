@@ -590,6 +590,7 @@ name: OffisiellAdresse
 description: Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenavn
   + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskAdresse
 slots:
 - kommunenummer_ref
@@ -670,6 +671,7 @@ name: OffisiellAdresse
 description: Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenavn
   + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskAdresse
 slot_usage:
   kommunenummer_ref:

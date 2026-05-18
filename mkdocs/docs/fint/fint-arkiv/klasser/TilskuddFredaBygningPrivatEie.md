@@ -596,6 +596,7 @@ URI: [ark:TilskuddFredaBygningPrivatEie](https://schema.fintlabs.no/arkiv/Tilsku
 name: TilskuddFredaBygningPrivatEie
 description: Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP).
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slots:
 - bygningsnavn
@@ -632,6 +633,7 @@ class_uri: ark:TilskuddFredaBygningPrivatEie
 name: TilskuddFredaBygningPrivatEie
 description: Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP).
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slot_usage:
   bygningsnavn:

@@ -236,6 +236,7 @@ name: Sektorkode
 description: Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer
   (t.d. offentleg, privat).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - sektorkode_kode
@@ -263,6 +264,7 @@ name: Sektorkode
 description: Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer
   (t.d. offentleg, privat).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   sektorkode_kode:
     name: sektorkode_kode

@@ -22,8 +22,8 @@ Alias: opningstider
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
 | [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
+| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
 
 
 

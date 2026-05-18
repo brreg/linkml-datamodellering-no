@@ -194,6 +194,7 @@ URI: [ngr:Kommune](https://data.norge.no/vocabulary/ngr-adresse#Kommune)
 name: Kommune
 description: Ein norsk kommune.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slots:
 - kommunenummer_kode
@@ -215,6 +216,7 @@ class_uri: ngr:Kommune
 name: Kommune
 description: Ein norsk kommune.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slot_usage:
   kommunenummer_kode:

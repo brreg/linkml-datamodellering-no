@@ -217,6 +217,7 @@ URI: [modelldcatno:Xor](https://data.norge.no/vocabulary/modelldcatno#Xor)
 name: XEllerY
 description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 class_uri: modelldcatno:Xor
 
@@ -230,6 +231,7 @@ class_uri: modelldcatno:Xor
 name: XEllerY
 description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 attributes:
   betinger:

@@ -1,0 +1,112 @@
+@prefix ngrv: <https://data.norge.no/vocabulary/ngr-virksomhet#> .
+@prefix ns1: <https://data.norge.no/linkml/ngr-virksomhet/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/hovudeining-987654321> a ngrv:Hovedenhet ;
+    ngrv:erKlassifisertINaeringskode <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/naeringskode-62010> ;
+    ngrv:erKlassifisertISektorkode <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/sektorkode-2100> ;
+    ngrv:erKlassifisertSomOrganisasjonsform <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/orgform-as> ;
+    ngrv:harBestemmelserOmSignaturrett <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/signaturrett-1> ;
+    ngrv:harForretningsadresse <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/forretningsadresse-1> ;
+    ngrv:harKontaktinformasjon <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/kontakt-1> ;
+    ngrv:harRolleIVirksomhet <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolle-dagligleder>,
+        <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolle-styreleder> ;
+    ngrv:harTilstand <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/tilstand-1> ;
+    ngrv:harVarslingsadresse <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/varsling-1> ;
+    ngrv:mottarPostPaa <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/postadresse-1> ;
+    ngrv:navn "Eksempel AS" ;
+    ngrv:organisasjonsnummer "987654321" ;
+    ngrv:stiftelsesdato "2010-03-15"^^xsd:date ;
+    ngrv:utoevarAktivitet <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/aktivitet-1> .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/underleining-123456789> a ngrv:Underenhet ;
+    ngrv:erKlassifisertINaeringskode <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/naeringskode-62010> ;
+    ngrv:erKlassifisertSomOrganisasjonsform <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/orgform-bedr> ;
+    ngrv:harBeliggenhetsadresse <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/beliggenhetsadresse-1> ;
+    ngrv:harTilstand <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/tilstand-1> ;
+    ngrv:harVarslingsadresse <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/varsling-2> ;
+    ngrv:navn "Eksempel AS avd. Bergen" ;
+    ngrv:oppstartsdato "2015-06-01"^^xsd:date ;
+    ngrv:organisasjonsnummer "123456789" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/aktivitet-1> a ngrv:Aktivitet ;
+    ngrv:aktivitetBeskrivelse "Utvikling og sal av programvare for norsk offentleg sektor." .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/beliggenhetsadresse-1> a ngrv:Beliggenhetsadresse .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/forretningsadresse-1> a ngrv:Forretningsadresse .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/kontakt-1> a ngrv:Kontaktinformasjon ;
+    ngrv:epostadresse "post@eksempel.no" ;
+    ngrv:nettside "https://www.eksempel.no" ;
+    ngrv:telefonnummer "22334455" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/orgform-as> a ngrv:Organisasjonsform ;
+    ngrv:organisasjonsformBeskrivelse "Aksjeselskap" ;
+    ngrv:organisasjonsformKode "AS" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/orgform-bedr> a ngrv:Organisasjonsform ;
+    ngrv:organisasjonsformBeskrivelse "Bedrift (underleining)" ;
+    ngrv:organisasjonsformKode "BEDR" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/postadresse-1> a ngrv:Postadresse .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolle-dagligleder> a ngrv:RolleIVirksomhet ;
+    ngrv:harRolleinnehaver <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolleinnehaver-1> ;
+    ngrv:rollebetegnelse "DAGLIG_LEDER" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolle-styreleder> a ngrv:RolleIVirksomhet ;
+    ngrv:harRolleinnehaver <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolleinnehaver-2> ;
+    ngrv:rollebetegnelse "STYRELEDER" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolleinnehaver-1> a ngrv:Rolleinnehaver ;
+    ngrv:kanVaereAvTypePerson <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/person-1> .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolleinnehaver-2> a ngrv:Rolleinnehaver ;
+    ngrv:rolleinnehaverNavn "Kari Nordmann" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/sektorkode-2100> a ngrv:Sektorkode ;
+    ngrv:sektorkodeBeskrivelse "Private aksjeselskaper mv." ;
+    ngrv:sektorkodeKode "2100" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/signaturrett-1> a ngrv:Signaturrett ;
+    ngrv:signaturrettBestemmelse "Styret i fellesskap" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/varsling-1> a ngrv:Varslingsadresse ;
+    ngrv:varslingstype "EPOST" ;
+    ngrv:varslingsverdi "varsling@eksempel.no" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/varsling-2> a ngrv:Varslingsadresse ;
+    ngrv:varslingstype "EPOST" ;
+    ngrv:varslingsverdi "bergen@eksempel.no" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/naeringskode-62010> a ngrv:Naeringskode ;
+    ngrv:erHovednaeringskode true ;
+    ngrv:naeringskodeBeskrivelse "Utvikling og produksjon av programvare" ;
+    ngrv:naeringskodeKode "62.010" .
+
+<https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/tilstand-1> a ngrv:Tilstand ;
+    ngrv:gyldigFra "2010-03-15"^^xsd:date ;
+    ngrv:tilstandstype "AKTIV" .
+
+[] a ns1:VirksomhetContainer ;
+    ns1:aktivitetar <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/aktivitet-1> ;
+    ns1:beliggenhetsadresser <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/beliggenhetsadresse-1> ;
+    ns1:forretningsadresser <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/forretningsadresse-1> ;
+    ns1:hovedenheter <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/hovudeining-987654321> ;
+    ns1:kontaktinformasjon <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/kontakt-1> ;
+    ns1:naeringskoder <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/naeringskode-62010> ;
+    ns1:organisasjonsformer <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/orgform-as>,
+        <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/orgform-bedr> ;
+    ns1:postadresser <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/postadresse-1> ;
+    ns1:rolleinnehavere <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolleinnehaver-1>,
+        <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolleinnehaver-2> ;
+    ns1:rollerIVirksomhet <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolle-dagligleder>,
+        <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/rolle-styreleder> ;
+    ns1:sektorkoder <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/sektorkode-2100> ;
+    ns1:signaturrettar <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/signaturrett-1> ;
+    ns1:tilstander <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/tilstand-1> ;
+    ns1:underenheter <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/underleining-123456789> ;
+    ns1:varslingsadresser <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/varsling-1>,
+        <https://data.norge.no/vocabulary/ngr-virksomhet#eksempel/varsling-2> .
+

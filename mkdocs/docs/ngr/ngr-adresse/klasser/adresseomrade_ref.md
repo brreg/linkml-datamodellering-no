@@ -22,8 +22,8 @@ Alias: adresseomrade_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  no  |
 | [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |  yes  |
+| [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |  no  |
 
 
 

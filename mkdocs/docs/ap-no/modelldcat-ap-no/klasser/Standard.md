@@ -249,6 +249,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 name: Standard
 description: Ein standard (dct:Standard).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -272,6 +273,7 @@ class_uri: dct:Standard
 name: Standard
 description: Ein standard (dct:Standard).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

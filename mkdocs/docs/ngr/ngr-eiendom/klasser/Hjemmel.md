@@ -202,6 +202,7 @@ description: Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset kv
   som har rett til eigedommen og i kva form, og består av ein eller fleire andeler
   med kvar sin rettigheitshavar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 abstract: true
 slots:
 - id
@@ -227,6 +228,7 @@ description: Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset kv
   som har rett til eigedommen og i kva form, og består av ein eller fleire andeler
   med kvar sin rettigheitshavar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 abstract: true
 slot_usage:
   har_andel:

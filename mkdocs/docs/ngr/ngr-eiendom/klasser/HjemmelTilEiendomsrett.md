@@ -154,6 +154,7 @@ URI: [ngre:HjemmelTilEiendomsrett](https://data.norge.no/vocabulary/ngr-eiendom#
 name: HjemmelTilEiendomsrett
 description: Heimelsdokument for eigedomsrett (full eigarrett).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Hjemmel
 class_uri: ngre:HjemmelTilEiendomsrett
 
@@ -167,6 +168,7 @@ class_uri: ngre:HjemmelTilEiendomsrett
 name: HjemmelTilEiendomsrett
 description: Heimelsdokument for eigedomsrett (full eigarrett).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Hjemmel
 attributes:
   id:

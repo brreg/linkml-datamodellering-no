@@ -183,6 +183,7 @@ from_schema: https://example.no/ontology/samt-bu-skole
 exact_mappings:
 - org:Organization
 - schema:Organization
+rank: 1000
 is_a: Skoleeier
 slots:
 - organisasjonsnummer
@@ -201,6 +202,7 @@ from_schema: https://example.no/ontology/samt-bu-skole
 exact_mappings:
 - org:Organization
 - schema:Organization
+rank: 1000
 is_a: Skoleeier
 attributes:
   organisasjonsnummer:

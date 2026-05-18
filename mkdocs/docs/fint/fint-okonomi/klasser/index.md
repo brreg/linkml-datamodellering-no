@@ -11,6 +11,12 @@ Name: fint-okonomi
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Bilag](bilag.md) | Dokumentasjon til ein transaksjon (kompleks datatype) |
@@ -19,14 +25,40 @@ Name: fint-okonomi
 | [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |
 | [Fakturamottaker](fakturamottaker.md) | Aktør som skal betale faktura (kompleks datatype) |
 | [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |
-| [Kontostreng](kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |
-| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester |
 | [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar |
 | [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |
 | [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |
 | [Postering](postering.md) | Føring på ein konto i rekneskapet |
 | [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |
 | [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Kontostreng](kontostreng.md) | Kontodimensjonar for ei postering (kompleks datatype) |
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Leverandor](leverandor.md) | Person eller verksemd som leverer produkt eller tenester |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+
+
 
 
 

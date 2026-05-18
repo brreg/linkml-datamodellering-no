@@ -596,6 +596,7 @@ URI: [ark:DispensasjonAutomatiskFredaKulturminne](https://schema.fintlabs.no/ark
 name: DispensasjonAutomatiskFredaKulturminne
 description: Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slots:
 - kulturminneId
@@ -634,6 +635,7 @@ class_uri: ark:DispensasjonAutomatiskFredaKulturminne
 name: DispensasjonAutomatiskFredaKulturminne
 description: Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slot_usage:
   kulturminneId:

@@ -270,6 +270,7 @@ URI: [skosno:PartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#P
 name: PartitivRelasjon
 description: Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slots:
 - id
 - har_partitivt_omgrep
@@ -300,6 +301,7 @@ class_uri: skosno:PartitiveConceptRelation
 name: PartitivRelasjon
 description: Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slot_usage:
   har_partitivt_omgrep:
     name: har_partitivt_omgrep

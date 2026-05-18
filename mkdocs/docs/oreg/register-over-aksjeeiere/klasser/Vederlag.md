@@ -172,6 +172,7 @@ URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
 name: Vederlag
 description: Vederlag knytt til ei aksjeoverdraging.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - belop
@@ -186,6 +187,7 @@ slots:
 name: Vederlag
 description: Vederlag knytt til ei aksjeoverdraging.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

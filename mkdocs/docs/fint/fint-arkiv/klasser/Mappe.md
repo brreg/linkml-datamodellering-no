@@ -669,6 +669,7 @@ name: Mappe
 description: Abstrakt basisklasse for alle mappetypar. Grupperer dokument som høyrer
   saman.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 abstract: true
 slots:
 - id
@@ -759,6 +760,7 @@ name: Mappe
 description: Abstrakt basisklasse for alle mappetypar. Grupperer dokument som høyrer
   saman.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 abstract: true
 slot_usage:
   avsluttetDato:

@@ -319,6 +319,7 @@ name: Spesialisering
 description: Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt
   modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - har_generelt_begrep
@@ -340,6 +341,7 @@ name: Spesialisering
 description: Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt
   modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   har_generelt_begrep:

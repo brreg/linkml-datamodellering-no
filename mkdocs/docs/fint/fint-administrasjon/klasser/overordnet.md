@@ -24,8 +24,8 @@ Alias: overordnet
 | --- | --- | --- |
 | [Funksjon](funksjon.md) | Del av kontostrengen som beskriv kva som vert produsert |  yes  |
 | [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
-| [Prosjektart](prosjektart.md) | Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur |  yes  |
 | [Ansvar](ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |  yes  |
+| [Prosjektart](prosjektart.md) | Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur |  yes  |
 
 
 

@@ -469,6 +469,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 name: Hendelse
 description: Ei hending som kan utløyse behov for ei offentleg teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -527,6 +528,7 @@ class_uri: cv:Event
 name: Hendelse
 description: Ei hending som kan utløyse behov for ei offentleg teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

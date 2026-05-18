@@ -22,8 +22,8 @@ Alias: sluttfagvurdering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
 | [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
+| [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
 
 
 

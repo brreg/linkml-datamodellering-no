@@ -22,8 +22,8 @@ Alias: pris
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
 | [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  yes  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
 
 
 

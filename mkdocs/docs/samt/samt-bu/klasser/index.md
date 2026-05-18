@@ -10,18 +10,32 @@ Name: skole_ontologi
 
 ## Classes
 
+
+
+
+
+
+
+
+
+
+
+### Andre
+
 | Class | Description |
 | --- | --- |
 | [Basisgruppe](basisgruppe.md) | Skoleklasse som hovedsaklig samler elever i ulike fag |
+| [Elev](elev.md) | En person som går på skole |
+| [Fylke](fylke.md) | Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt ... |
+| [Kommune](kommune.md) | En kommune er et geografisk avgrenset område som utgjør en egen politisk og a... |
+| [Kontaktlaerer](kontaktlaerer.md) | En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane... |
 | [Person](person.md) | Eit menneske individ |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Elev](elev.md) | En person som går på skole |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerer](kontaktlaerer.md) | En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Rektor](rektor.md) | Høgaste akademiske leder av en skole |
+| [PrivatVirksomhet](privatvirksomhet.md) | Virksomhet, eller foretak, er betegnelser for en juridisk person eller en org... |
+| [Rektor](rektor.md) | Høgaste akademiske leder av en skole |
 | [Skole](skole.md) | En skole er en privat eller offentlig institusjon eller et lærested hvor lære... |
 | [Skoleeier](skoleeier.md) | Superklasse for alle typer skoleeiere |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt ... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | En kommune er et geografisk avgrenset område som utgjør en egen politisk og a... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[PrivatVirksomhet](privatvirksomhet.md) | Virksomhet, eller foretak, er betegnelser for en juridisk person eller en org... |
+
+
 
 
 

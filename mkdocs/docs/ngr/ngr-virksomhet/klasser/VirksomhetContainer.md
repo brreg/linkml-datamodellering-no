@@ -564,6 +564,7 @@ name: VirksomhetContainer
 description: Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 attributes:
   underenheter:
     name: underenheter
@@ -738,6 +739,7 @@ name: VirksomhetContainer
 description: Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 attributes:
   underenheter:
     name: underenheter

@@ -315,6 +315,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 name: Aktor
 description: Ein aktør (person eller organisasjon) relatert til ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -352,6 +353,7 @@ class_uri: foaf:Agent
 name: Aktor
 description: Ein aktør (person eller organisasjon) relatert til ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

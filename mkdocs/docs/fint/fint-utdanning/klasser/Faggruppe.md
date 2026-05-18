@@ -22,10 +22,10 @@ Alias: faggruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](fag.md) | Eit skulefag |  yes  |
-| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  yes  |
-| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  yes  |
 
 
 

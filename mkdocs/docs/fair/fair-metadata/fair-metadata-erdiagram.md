@@ -36,5 +36,5 @@ FAIRMetadata ||--|o Katalogregistrering : "katalogregistrering"
 FAIRMetadata ||--|o Proveniensmetadata : "proveniensmetadata"
 FAIRMetadata ||--|o Tilgangsmetadata : "tilgangsmetadata"
 
-```
 
+```

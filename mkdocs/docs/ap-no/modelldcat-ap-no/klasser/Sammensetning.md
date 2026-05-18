@@ -318,6 +318,7 @@ URI: [modelldcatno:Composition](https://data.norge.no/vocabulary/modelldcatno#Co
 name: Sammensetning
 description: Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - inneholder
@@ -338,6 +339,7 @@ class_uri: modelldcatno:Composition
 name: Sammensetning
 description: Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   inneholder:

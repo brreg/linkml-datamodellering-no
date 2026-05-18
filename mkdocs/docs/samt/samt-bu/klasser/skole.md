@@ -164,6 +164,10 @@ URI: [samtbuskole:Skole](https://example.no/ontology/skole#Skole)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/fc9d0dda-71a2-3925-8688-52f849cf0f49](https://data.norge.no/concepts/fc9d0dda-71a2-3925-8688-52f849cf0f49)
+
 
 
 ## Identifier and Mapping Information
@@ -205,9 +209,12 @@ name: Skole
 description: En skole er en privat eller offentlig institusjon eller et lærested hvor
   lærere underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/fc9d0dda-71a2-3925-8688-52f849cf0f49
 exact_mappings:
 - org:OrganizationalUnit
 - schema:EducationalOrganization
+rank: 1000
 slots:
 - id
 - navn
@@ -224,9 +231,12 @@ name: Skole
 description: En skole er en privat eller offentlig institusjon eller et lærested hvor
   lærere underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/fc9d0dda-71a2-3925-8688-52f849cf0f49
 exact_mappings:
 - org:OrganizationalUnit
 - schema:EducationalOrganization
+rank: 1000
 attributes:
   id:
     name: id

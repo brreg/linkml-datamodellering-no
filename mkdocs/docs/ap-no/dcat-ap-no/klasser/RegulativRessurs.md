@@ -351,6 +351,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 slots:
 - id
 - beskrivelse
@@ -372,6 +373,7 @@ class_uri: eli:LegalResource
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

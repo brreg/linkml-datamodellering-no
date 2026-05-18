@@ -22,8 +22,8 @@ Alias: fakturautsteder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
 | [Fakturagrunnlag](fakturagrunnlag.md) | Grunnlag for fakturering |  yes  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
 
 
 

@@ -38,8 +38,8 @@ FAIRMetadata ||--|o Katalogregistrering : "katalogregistrering"
 FAIRMetadata ||--|o Proveniensmetadata : "proveniensmetadata"
 FAIRMetadata ||--|o Tilgangsmetadata : "tilgangsmetadata"
 
-```
 
+```
 
 
 FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
@@ -53,6 +53,18 @@ Name: fair-metadata
 
 ## Classes
 
+
+
+
+
+
+
+
+
+
+
+### Andre
+
 | Class | Description |
 | --- | --- |
 | [FAIRMetadata](klasser/fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |
@@ -60,6 +72,8 @@ Name: fair-metadata
 | [Katalogregistrering](klasser/katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |
 | [Proveniensmetadata](klasser/proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |
 | [Tilgangsmetadata](klasser/tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |
+
+
 
 
 
@@ -119,4 +133,10 @@ Name: fair-metadata
 
 | Artefakt | Fil |
 |----------|-----|
+| SHACL shapes | [fair-metadata-shapes.ttl](fair-metadata-shapes.ttl) |
+| JSON-LD kontekst | [fair-metadata-context.jsonld](fair-metadata-context.jsonld) |
+| JSON Schema | [fair-metadata-schema.json](fair-metadata-schema.json) |
+| OWL ontologi | [fair-metadata-ontology.ttl](fair-metadata-ontology.ttl) |
+| RDF/Turtle skjema | [fair-metadata-schema.ttl](fair-metadata-schema.ttl) |
+| Python-klasser | [fair-metadata-model.py](fair-metadata-model.py) |
 | ER-diagram (Mermaid) | [fair-metadata-erdiagram.md](fair-metadata-erdiagram.md) |

@@ -151,6 +151,7 @@ URI: [ngr:Svalbard](https://data.norge.no/vocabulary/ngr-adresse#Svalbard)
 name: Svalbard
 description: Svalbard som særskild geografisk område.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 class_uri: ngr:Svalbard
 
@@ -164,6 +165,7 @@ class_uri: ngr:Svalbard
 name: Svalbard
 description: Svalbard som særskild geografisk område.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 attributes:
   id:

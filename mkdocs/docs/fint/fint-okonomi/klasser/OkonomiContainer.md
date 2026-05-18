@@ -403,6 +403,7 @@ URI: [https://schema.fintlabs.no/okonomi/:OkonomiContainer](https://schema.fintl
 name: OkonomiContainer
 description: Rotcontainer for FINT Økonomi-instansar.
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slots:
 - fakturaer
 - fakturagrunnlag
@@ -431,6 +432,7 @@ tree_root: true
 name: OkonomiContainer
 description: Rotcontainer for FINT Økonomi-instansar.
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slot_usage:
   fakturagrunnlag:
     name: fakturagrunnlag

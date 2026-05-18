@@ -212,6 +212,7 @@ name: GeografiskOmrade
 description: Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer
   til.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 abstract: true
 slots:
 - id
@@ -229,6 +230,7 @@ name: GeografiskOmrade
 description: Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer
   til.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 abstract: true
 attributes:
   id:

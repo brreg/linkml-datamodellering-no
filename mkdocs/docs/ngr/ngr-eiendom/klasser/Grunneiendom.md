@@ -242,6 +242,7 @@ name: Grunneiendom
 description: Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller
   vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 slots:
 - kan_vaere_pa
@@ -263,6 +264,7 @@ name: Grunneiendom
 description: Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller
   vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 slot_usage:
   kan_vaere_pa:

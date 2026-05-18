@@ -107,8 +107,8 @@ Underenhet ||--|| Varslingsadresse : "har_varslingsadresse"
 Underenhet ||--}o Tilstand : "har_tilstand"
 Underenhet ||--}| Naeringskode : "er_klassifisert_i_naeringskode"
 
-```
 
+```
 
 
 Domenemodell for verksemdsdata basert på Nasjonale grunndata (utkast). Modellerer Virksomhet med Underenhet og Hovudeining, roller, adresser og klassifikasjonar frå Enhetsregisteret. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
@@ -121,27 +121,53 @@ Name: ngr-virksomhet
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Aktivitet](klasser/aktivitet.md) | Skildring av kva aktivitet ei hovudeining utøver |
-| [GeografiskAdresse](klasser/geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Beliggenhetsadresse](klasser/beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Forretningsadresse](klasser/forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](klasser/postadresse.md) | Postadressa verksemda mottar post på |
-| [Kontaktinformasjon](klasser/kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |
+| [Hovedenhet](klasser/hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |
 | [Naeringskode](klasser/naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |
 | [Organisasjonsform](klasser/organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |
-| [Person](klasser/person.md) | Ein fysisk person |
 | [Prokura](klasser/prokura.md) | Prokura gjev ein person fullmakt til å handle på vegne av verksemda i nærings... |
-| [Rolleinnehaver](klasser/rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |
 | [RolleIVirksomhet](klasser/rolleivirksomhet.md) | Ein definert rolle i ei hovudeining (t |
 | [Sektorkode](klasser/sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |
 | [Signaturrett](klasser/signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |
 | [Tilstand](klasser/tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |
+| [Underenhet](klasser/underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |
 | [Varslingsadresse](klasser/varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |
 | [Virksomhet](klasser/virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hovedenhet](klasser/hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underenhet](klasser/underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Kontaktinformasjon](klasser/kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |
+| [Rolleinnehaver](klasser/rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Beliggenhetsadresse](klasser/beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |
+| [Forretningsadresse](klasser/forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |
+| [GeografiskAdresse](klasser/geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
+| [Person](klasser/person.md) | Ein fysisk person |
+| [Postadresse](klasser/postadresse.md) | Postadressa verksemda mottar post på |
+
+
 
 
 
@@ -239,4 +265,11 @@ Name: ngr-virksomhet
 
 | Artefakt | Fil |
 |----------|-----|
+| SHACL shapes | [ngr-virksomhet-shapes.ttl](ngr-virksomhet-shapes.ttl) |
+| JSON-LD kontekst | [ngr-virksomhet-context.jsonld](ngr-virksomhet-context.jsonld) |
+| JSON Schema | [ngr-virksomhet-schema.json](ngr-virksomhet-schema.json) |
+| OWL ontologi | [ngr-virksomhet-ontology.ttl](ngr-virksomhet-ontology.ttl) |
+| RDF/Turtle skjema | [ngr-virksomhet-schema.ttl](ngr-virksomhet-schema.ttl) |
+| Python-klasser | [ngr-virksomhet-model.py](ngr-virksomhet-model.py) |
 | ER-diagram (Mermaid) | [ngr-virksomhet-erdiagram.md](ngr-virksomhet-erdiagram.md) |
+| Eksempeldata (Turtle) | [ngr-virksomhet-eksempel.ttl](ngr-virksomhet-eksempel.ttl) |

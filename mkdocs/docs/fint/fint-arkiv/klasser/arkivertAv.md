@@ -22,8 +22,8 @@ Alias: arkivertAv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 | [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  yes  |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 
 
 

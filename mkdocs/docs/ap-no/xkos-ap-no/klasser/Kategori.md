@@ -499,6 +499,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 name: Kategori
 description: Ein kategori i ein klassifikasjon (skos:Concept).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slots:
 - id
 - anbefalt_term
@@ -561,6 +562,7 @@ class_uri: skos:Concept
 name: Kategori
 description: Ein kategori i ein klassifikasjon (skos:Concept).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slot_usage:
   anbefalt_term:
     name: anbefalt_term

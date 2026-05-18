@@ -143,6 +143,7 @@ URI: [dct:Location](http://purl.org/dc/terms/Location)
 name: Lokasjon
 description: Eit geografisk område (dct:Location).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 class_uri: dct:Location
@@ -157,6 +158,7 @@ class_uri: dct:Location
 name: Lokasjon
 description: Eit geografisk område (dct:Location).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

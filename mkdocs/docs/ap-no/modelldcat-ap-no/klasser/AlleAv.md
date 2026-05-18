@@ -289,6 +289,7 @@ URI: [modelldcatno:AllOf](https://data.norge.no/vocabulary/modelldcatno#AllOf)
 name: AlleAv
 description: Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Valg
 class_uri: modelldcatno:AllOf
 
@@ -302,6 +303,7 @@ class_uri: modelldcatno:AllOf
 name: AlleAv
 description: Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Valg
 attributes:
   har_noe:

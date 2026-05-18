@@ -271,6 +271,7 @@ URI: [ark:Dokumentfil](https://schema.fintlabs.no/arkiv/Dokumentfil)
 name: Dokumentfil
 description: Sjølve dokumentfila med data og metadata.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 slots:
 - id
 - data
@@ -303,6 +304,7 @@ class_uri: ark:Dokumentfil
 name: Dokumentfil
 description: Sjølve dokumentfila med data og metadata.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 slot_usage:
   data:
     name: data

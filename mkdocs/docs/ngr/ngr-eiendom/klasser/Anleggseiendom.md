@@ -202,6 +202,7 @@ description: Eit volum – ein bygning eller konstruksjon – oppretta frå ei e
   matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs undergrunn eller
   sjøgrunn.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 class_uri: ngre:Anleggseiendom
 
@@ -218,6 +219,7 @@ description: Eit volum – ein bygning eller konstruksjon – oppretta frå ei e
   matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs undergrunn eller
   sjøgrunn.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 attributes:
   id:

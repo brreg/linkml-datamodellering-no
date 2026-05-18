@@ -204,8 +204,8 @@ Person ||--}| Statsborgerskap : "har_statsborgerskap"
 Sivilstand ||--|o Person : "relatert_ved_sivilstand"
 Verge ||--|| Person : "er_av_type_person"
 
-```
 
+```
 
 
 Domenemodell for persondata basert på Nasjonale grunndata (utkast). Modellerer Person med identifikasjon, familierelasjonar, adresser, eigarrettar og kontaktopplysningar frå Folkeregisteret og KRR. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
@@ -218,30 +218,30 @@ Name: ngr-person
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Adressebeskyttelse](klasser/adressebeskyttelse.md) | Gradering av adressebeskyttelse for innflyttede personar til Noreg |
+| [DNummer](klasser/dnummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |
 | [Dodsfall](klasser/dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |
 | [FalskIdentitet](klasser/falskidentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |
 | [FamilierelasjonBarn](klasser/familierelasjonbarn.md) | Familierelasjon der den relaterte personen er barn |
 | [FamilierelasjonEktefelle](klasser/familierelasjonektefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |
 | [FamilierelasjonForelder](klasser/familierelasjonforelder.md) | Familierelasjon der den relaterte personen er forelder |
 | [Foedsel](klasser/foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |
-| [Folkeregisteridentifikator](klasser/folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DNummer](klasser/dnummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Foedselsnummer](klasser/foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |
+| [Foedselsnummer](klasser/foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |
 | [ForeldreansvarBarn](klasser/foreldreansvarbarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |
 | [ForeldreansvarForelder](klasser/foreldreansvarforelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |
-| [GeografiskAdresse](klasser/geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Bostedsadresse](klasser/bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Oppholdsadresse](klasser/oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](klasser/postadresse.md) | Adressa der personen mottar post |
 | [Identifikasjonsdokument](klasser/identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |
 | [Identitetsgrunnlag](klasser/identitetsgrunnlag.md) | Grunnlaget som er brukt for å fastsetje identiteten til ein person ved regist... |
 | [InnflyttingTilNorge](klasser/innflyttingtilnorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |
 | [Kjoenn](klasser/kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |
 | [KontaktinformasjonDoedsbo](klasser/kontaktinformasjondoedsbo.md) | Kontaktinformasjon for eit dødsbu |
-| [Kontaktopplysninger](klasser/kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |
 | [Opphold](klasser/opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |
 | [Person](klasser/person.md) | Ein fysisk person registrert i Folkeregisteret |
 | [Personidentifikasjon](klasser/personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |
@@ -254,6 +254,32 @@ Name: ngr-person
 | [Statsborgerskap](klasser/statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |
 | [UtflyttingFraNorge](klasser/utflyttingfranorge.md) | Registrering av utflytting frå Noreg i Folkeregisteret |
 | [Verge](klasser/verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Bostedsadresse](klasser/bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |
+| [Kontaktopplysninger](klasser/kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |
+| [Oppholdsadresse](klasser/oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |
+| [Postadresse](klasser/postadresse.md) | Adressa der personen mottar post |
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Folkeregisteridentifikator](klasser/folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |
+| [GeografiskAdresse](klasser/geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
+
+
 
 
 
@@ -409,4 +435,11 @@ Name: ngr-person
 
 | Artefakt | Fil |
 |----------|-----|
+| SHACL shapes | [ngr-person-shapes.ttl](ngr-person-shapes.ttl) |
+| JSON-LD kontekst | [ngr-person-context.jsonld](ngr-person-context.jsonld) |
+| JSON Schema | [ngr-person-schema.json](ngr-person-schema.json) |
+| OWL ontologi | [ngr-person-ontology.ttl](ngr-person-ontology.ttl) |
+| RDF/Turtle skjema | [ngr-person-schema.ttl](ngr-person-schema.ttl) |
+| Python-klasser | [ngr-person-model.py](ngr-person-model.py) |
 | ER-diagram (Mermaid) | [ngr-person-erdiagram.md](ngr-person-erdiagram.md) |
+| Eksempeldata (Turtle) | [ngr-person-eksempel.ttl](ngr-person-eksempel.ttl) |

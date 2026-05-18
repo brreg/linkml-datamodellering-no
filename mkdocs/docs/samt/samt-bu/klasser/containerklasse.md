@@ -759,6 +759,7 @@ URI: [samtbuskole:Containerklasse](https://example.no/ontology/skole#Containerkl
 name: Containerklasse
 description: Containerklasse for alle klasser som kan inngå i datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
 slots:
 - kontaktpunkter
 - utgivere
@@ -795,6 +796,7 @@ tree_root: true
 name: Containerklasse
 description: Containerklasse for alle klasser som kan inngå i datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
+rank: 1000
 attributes:
   kontaktpunkter:
     name: kontaktpunkter

@@ -263,6 +263,7 @@ URI: [utd:Gruppe](https://schema.fintlabs.no/utdanning/Gruppe)
 name: Gruppe
 description: Abstrakt basisklasse for alle gruppetypar i utdanning.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slots:
 - id
@@ -290,6 +291,7 @@ class_uri: utd:Gruppe
 name: Gruppe
 description: Abstrakt basisklasse for alle gruppetypar i utdanning.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slot_usage:
   navn:

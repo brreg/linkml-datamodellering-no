@@ -231,6 +231,7 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 name: Deltagelse
 description: Ei rolle ein aktør har i leveringa av ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - har_rolle
@@ -256,6 +257,7 @@ class_uri: cv:Participation
 name: Deltagelse
 description: Ei rolle ein aktør har i leveringa av ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   har_rolle:
     name: har_rolle

@@ -200,6 +200,7 @@ URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
 name: Aksjeeier
 description: Person eller organisasjon som eig aksjar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - navn
@@ -215,6 +216,7 @@ slots:
 name: Aksjeeier
 description: Person eller organisasjon som eig aksjar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

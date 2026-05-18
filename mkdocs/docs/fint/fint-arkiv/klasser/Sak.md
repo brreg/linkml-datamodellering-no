@@ -440,6 +440,7 @@ URI: [ark:Sak](https://schema.fintlabs.no/arkiv/Sak)
 name: Sak
 description: Generisk saksmappe (konkret Sak i Noark).
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 class_uri: ark:Sak
 
@@ -453,6 +454,7 @@ class_uri: ark:Sak
 name: Sak
 description: Generisk saksmappe (konkret Sak i Noark).
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 attributes:
   journalpost:

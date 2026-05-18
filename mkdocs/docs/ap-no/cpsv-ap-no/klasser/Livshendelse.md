@@ -270,6 +270,7 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 name: Livshendelse
 description: Ei livshending som kan utløyse behov for tenester (t.d. fødsel, ekteskap).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 is_a: Hendelse
 slots:
 - kan_utlose_behov_for
@@ -290,6 +291,7 @@ class_uri: cv:LifeEvent
 name: Livshendelse
 description: Ei livshending som kan utløyse behov for tenester (t.d. fødsel, ekteskap).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 is_a: Hendelse
 slot_usage:
   kan_utlose_behov_for:

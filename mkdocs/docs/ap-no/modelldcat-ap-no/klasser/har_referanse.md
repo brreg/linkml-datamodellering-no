@@ -22,8 +22,8 @@ Alias: har_referanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
 | [Kodeliste](kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
+| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
 
 
 

@@ -113,5 +113,5 @@ OffisiellAdresse ||--}| GeografiskOmrade : "geografisk_omrade"
 Postboksadresse ||--|| Postboks : "postboks_ref"
 Postboksadresse ||--|| Poststed : "poststed_ref"
 
-```
 
+```

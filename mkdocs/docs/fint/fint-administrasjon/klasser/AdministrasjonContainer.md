@@ -1355,6 +1355,7 @@ URI: [https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer](https:
 name: AdministrasjonContainer
 description: Rotcontainer for FINT Administrasjon-instansar.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
+rank: 1000
 slots:
 - personar
 - kontaktpersonar
@@ -1469,6 +1470,7 @@ tree_root: true
 name: AdministrasjonContainer
 description: Rotcontainer for FINT Administrasjon-instansar.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
+rank: 1000
 slot_usage:
   arbeidsforhold:
     name: arbeidsforhold

@@ -217,6 +217,7 @@ URI: [modelldcatno:Not](https://data.norge.no/vocabulary/modelldcatno#Not)
 name: Ikke
 description: Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 class_uri: modelldcatno:Not
 
@@ -230,6 +231,7 @@ class_uri: modelldcatno:Not
 name: Ikke
 description: Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 attributes:
   betinger:

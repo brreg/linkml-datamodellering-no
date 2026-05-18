@@ -22,9 +22,9 @@ Alias: grepreferanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 | [Fag](fag.md) | Eit skulefag |  yes  |
 | [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
-| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 | [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
 
 

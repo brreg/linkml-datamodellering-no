@@ -151,6 +151,7 @@ name: Person
 description: Ein fysisk person. Tilhøyrer Domene person og forvaltast av Folkeregisteret.
   Enhetsregisteret nyttar kopi av data frå Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 class_uri: ngrv:Person
@@ -166,6 +167,7 @@ name: Person
 description: Ein fysisk person. Tilhøyrer Domene person og forvaltast av Folkeregisteret.
   Enhetsregisteret nyttar kopi av data frå Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 attributes:
   id:
     name: id

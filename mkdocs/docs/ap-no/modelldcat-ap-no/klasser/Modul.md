@@ -236,6 +236,7 @@ URI: [modelldcatno:Module](https://data.norge.no/vocabulary/modelldcatno#Module)
 name: Modul
 description: Ein modul som grupperer modellelement i informasjonsmodellen.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 class_uri: modelldcatno:Module
 
@@ -249,6 +250,7 @@ class_uri: modelldcatno:Module
 name: Modul
 description: Ein modul som grupperer modellelement i informasjonsmodellen.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 attributes:
   id:

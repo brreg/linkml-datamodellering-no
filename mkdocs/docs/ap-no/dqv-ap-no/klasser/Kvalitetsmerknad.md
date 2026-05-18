@@ -358,6 +358,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slots:
 - id
 - er_motivert_av
@@ -399,6 +400,7 @@ class_uri: dqv:QualityAnnotation
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slot_usage:
   er_motivert_av:
     name: er_motivert_av

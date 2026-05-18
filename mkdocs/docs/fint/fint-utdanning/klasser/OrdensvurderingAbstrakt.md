@@ -350,6 +350,7 @@ URI: [utd:OrdensvurderingAbstrakt](https://schema.fintlabs.no/utdanning/Ordensvu
 name: OrdensvurderingAbstrakt
 description: Abstrakt basisklasse for ordensvurderingar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slots:
 - id
@@ -393,6 +394,7 @@ class_uri: utd:OrdensvurderingAbstrakt
 name: OrdensvurderingAbstrakt
 description: Abstrakt basisklasse for ordensvurderingar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slot_usage:
   kommentar:

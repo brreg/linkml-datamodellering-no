@@ -185,6 +185,7 @@ URI: [ngr:KommunalKrets](https://data.norge.no/vocabulary/ngr-adresse#KommunalKr
 name: KommunalKrets
 description: Ein kommunal krets (administrativ inndeling definert av kommunen).
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slots:
 - kretsnummer
@@ -200,6 +201,7 @@ class_uri: ngr:KommunalKrets
 name: KommunalKrets
 description: Ein kommunal krets (administrativ inndeling definert av kommunen).
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 attributes:
   kretsnummer:

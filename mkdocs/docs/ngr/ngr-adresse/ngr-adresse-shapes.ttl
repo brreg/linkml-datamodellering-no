@@ -1,0 +1,685 @@
+@prefix locn: <http://www.w3.org/ns/locn#> .
+@prefix ngr: <https://data.norge.no/vocabulary/ngr-adresse#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+locn:Address a sh:NodeShape ;
+    rdfs:comment "Abstrakt basisklasse for norske adressar. Konkrete subklassar er OffisiellAdresse og Postboksadresse." ;
+    sh:closed false ;
+    sh:ignoredProperties ( ngr:referererTilPoststed ngr:adressererAnnetObjekt ngr:harAdressekode ngr:harAdressenavn ngr:harBruksenhetsnummer ngr:postboksanleggsnavn ngr:adressererBygning ngr:harKommunenummer rdf:type ngr:adressererBruksenhet ngr:referererTilGeografiskOmrade ngr:matrikkelnummer ngr:harHusnummer ngr:harPostboks ngr:harRepresentasjonspunkt ngr:adressetilleggsnavn ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass locn:Address .
+
+<https://data.norge.no/linkml/ngr-adresse/AdresseContainer> a sh:NodeShape ;
+    rdfs:comment "Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ngr:Adressekode ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/adressekoder> ],
+        [ sh:class ngr:Svalbard ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/svalbardOmrader> ],
+        [ sh:class ngr:Fylke ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/fylke> ],
+        [ sh:class ngr:KommunalKrets ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/kommunaleKretsar> ],
+        [ sh:class ngr:Bruksenhet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/bruksenheter> ],
+        [ sh:class ngr:Tettsted ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/tettstadar> ],
+        [ sh:class ngr:Stemmekrets ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/stemmekretsar> ],
+        [ sh:class ngr:Postboks ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/postboksar> ],
+        [ sh:class ngr:Adressenavn ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/adressenavn> ],
+        [ sh:class ngr:Adresseomrade ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/adresseomrader> ],
+        [ sh:class ngr:Bruksenhetsnummer ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/bruksenhetsnummer> ],
+        [ sh:class ngr:Grunnkrets ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/grunnkretsar> ],
+        [ sh:class ngr:Representasjonspunkt ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/representasjonspunkt> ],
+        [ sh:class ngr:Postboksadresse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/postboksadresser> ],
+        [ sh:class ngr:Kirkesokn ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/kirkesokn> ],
+        [ sh:class ngr:OffisiellAdresse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/offisielleAdresser> ],
+        [ sh:class ngr:Poststed ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/poststeder> ],
+        [ sh:class ngr:Husnummer ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/husnummer> ],
+        [ sh:class ngr:Bygning ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/bygningar> ],
+        [ sh:class ngr:Kommune ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/kommunar> ] ;
+    sh:targetClass <https://data.norge.no/linkml/ngr-adresse/AdresseContainer> .
+
+ngr:Fylke a sh:NodeShape ;
+    rdfs:comment "Eit norsk fylke." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Tosifra fylkesnummer (t.d. 03 for Oslo)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngr:fylkesnummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Fylke .
+
+ngr:GeografiskOmrade a sh:NodeShape ;
+    rdfs:comment "Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer til." ;
+    sh:closed false ;
+    sh:ignoredProperties ( rdf:type ngr:kirkesoknnummer ngr:kommunenummer ngr:grunnkretsnummer ngr:kretsnummer ngr:stemmekretsnummer locn:postCode ngr:fylkesnummer ngr:tettstedsnummer ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngr:namn ] ;
+    sh:targetClass ngr:GeografiskOmrade .
+
+ngr:Grunnkrets a sh:NodeShape ;
+    rdfs:comment "Ei grunnkrets – minste geografiske eining i statistisk inndeling." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngr:grunnkretsnummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ] ;
+    sh:targetClass ngr:Grunnkrets .
+
+ngr:Kirkesokn a sh:NodeShape ;
+    rdfs:comment "Eit kyrkjesokn." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kysokn-nummer frå Kyrkja." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngr:kirkesoknnummer ] ;
+    sh:targetClass ngr:Kirkesokn .
+
+ngr:KommunalKrets a sh:NodeShape ;
+    rdfs:comment "Ein kommunal krets (administrativ inndeling definert av kommunen)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommunalt kretsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngr:kretsnummer ] ;
+    sh:targetClass ngr:KommunalKrets .
+
+ngr:OffisiellAdresse a sh:NodeShape ;
+    rdfs:comment "Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenavn + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ngr:adressetilleggsnavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Matrikkelnummer for adresser utan vegadresse (t.d. 28/2-2)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ngr:matrikkelnummer ],
+        [ sh:class ngr:GeografiskOmrade ;
+            sh:description "Geografiske inndelingar (kommune, poststed, grunnkrets osv.) adressa ligg i." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ngr:referererTilGeografiskOmrade ],
+        [ sh:class ngr:Representasjonspunkt ;
+            sh:description "Geografisk punkt som representerer adressas posisjon." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ngr:harRepresentasjonspunkt ],
+        [ sh:class ngr:Kommune ;
+            sh:description "Kommunen denne adressa ligg i." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path ngr:harKommunenummer ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:class ngr:Husnummer ;
+            sh:description "Husnummer (nummer + bokstav) for adressa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngr:harHusnummer ],
+        [ sh:class ngr:Bygning ;
+            sh:description "Bygning denne adressa er tildelt (forvaltar: Matrikkelen)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path ngr:adressererBygning ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Anna objekt (t.d. badeplass, monument) denne adressa er tildelt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path ngr:adressererAnnetObjekt ],
+        [ sh:class ngr:Adressenavn ;
+            sh:description "Adressenavn (vegnamn o.l.) for adressa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ngr:harAdressenavn ],
+        [ sh:class ngr:Adressekode ;
+            sh:description "Kommunal adressekode for adressa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngr:harAdressekode ],
+        [ sh:class ngr:Bruksenhet ;
+            sh:description "Brukseining denne adressa er tildelt (forvaltar: Matrikkelen)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ngr:adressererBruksenhet ],
+        [ sh:class ngr:Bruksenhetsnummer ;
+            sh:description "Bruksenhetsnummer for leilegheit eller lokale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngr:harBruksenhetsnummer ] ;
+    sh:targetClass ngr:OffisiellAdresse .
+
+ngr:Postboksadresse a sh:NodeShape ;
+    rdfs:comment "Ei postboksadresse registrert i Postboksregisteret (Posten Norge)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ngr:Postboks ;
+            sh:description "Postboksen denne postboksadressa tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path ngr:harPostboks ],
+        [ sh:class ngr:Poststed ;
+            sh:description "Poststedet (postnummer) denne adressa høyrer til." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ngr:referererTilPoststed ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på postboksanlegget (t.d. bedriftsnamn, institusjon)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:postboksanleggsnavn ] ;
+    sh:targetClass ngr:Postboksadresse .
+
+ngr:Stemmekrets a sh:NodeShape ;
+    rdfs:comment "Ei stemmekrets brukt ved val." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Stemmekretsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngr:stemmekretsnummer ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Stemmekrets .
+
+ngr:Svalbard a sh:NodeShape ;
+    rdfs:comment "Svalbard som særskild geografisk område." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngr:namn ] ;
+    sh:targetClass ngr:Svalbard .
+
+ngr:Tettsted a sh:NodeShape ;
+    rdfs:comment "Eit tettbygd område definert av SSB." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "SSB-tettstedsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngr:tettstedsnummer ] ;
+    sh:targetClass ngr:Tettsted .
+
+ngr:Adressenavn a sh:NodeShape ;
+    rdfs:comment "Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av kommunen og godkjent av Kartverket." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Tekstleg namn på vegen eller stadnamnet (locn:thoroughfare)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path locn:thoroughfare ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:class ngr:Adresseomrade ;
+            sh:description "Adresseområdet dette adressenamnet eller adressekoden høyrer til." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngr:harAdresseomrade ],
+        [ sh:class ngr:Adressekode ;
+            sh:description "Adressekode tilknytt dette adressenamnet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngr:harAdressekode ] ;
+    sh:targetClass ngr:Adressenavn .
+
+ngr:Bruksenhet a sh:NodeShape ;
+    rdfs:comment "Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Bruksenhet .
+
+ngr:Bruksenhetsnummer a sh:NodeShape ;
+    rdfs:comment "Identifikator for ei brukseining (leilegheit o.l.) innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Løpenummer for brukseininga innanfor etasjen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngr:nummereringIEtasjen ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:description "Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M)." ;
+            sh:in ( "H" "U" "K" "L" "M" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path ngr:etasjeplan ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Etasjenummer (t.d. 2 for 2. etasje)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:etasjenummer ] ;
+    sh:targetClass ngr:Bruksenhetsnummer .
+
+ngr:Bygning a sh:NodeShape ;
+    rdfs:comment "Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Bygning .
+
+ngr:Husnummer a sh:NodeShape ;
+    rdfs:comment "Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t.d. 12 eller 12B)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Husnummeret (heltalsverdi)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngr:nummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Husbokstav (A–Å) som skil einingar med same husnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:bokstav ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Husnummer .
+
+ngr:Kommune a sh:NodeShape ;
+    rdfs:comment "Ein norsk kommune." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Firesifra kommunenummer (t.d. 0301 for Oslo)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngr:kommunenummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Kommune .
+
+ngr:Postboks a sh:NodeShape ;
+    rdfs:comment "Ei postboks registrert i Postboksregisteret." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Postboksnummer (heiltal)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngr:postboksnummer ] ;
+    sh:targetClass ngr:Postboks .
+
+ngr:Poststed a sh:NodeShape ;
+    rdfs:comment "Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:namn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Firesifra postnummer (locn:postCode)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path locn:postCode ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Poststed .
+
+ngr:Representasjonspunkt a sh:NodeShape ;
+    rdfs:comment "Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:float ;
+            sh:description "Nordleg koordinat (Y) i det angitte koordinatsystemet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngr:koordinatNord ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:float ;
+            sh:description "Austleg koordinat (X) i det angitte koordinatsystemet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngr:koordinatOst ],
+        [ sh:datatype xsd:string ;
+            sh:description "Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngr:koordinatsystem ] ;
+    sh:targetClass ngr:Representasjonspunkt .
+
+ngr:Adressekode a sh:NodeShape ;
+    rdfs:comment "Firesifra kommunal kode som identifiserer eit adressenavn." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Numerisk kode for adressekoden (kommunal firesifra kode)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngr:kode ],
+        [ sh:class ngr:Adresseomrade ;
+            sh:description "Adresseområdet dette adressenamnet eller adressekoden høyrer til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngr:harAdresseomrade ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ] ;
+    sh:targetClass ngr:Adressekode .
+
+ngr:Adresseomrade a sh:NodeShape ;
+    rdfs:comment "Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit stadnamn." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/ngr-adresse/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på det geografiske området eller adressekomponenten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngr:namn ] ;
+    sh:targetClass ngr:Adresseomrade .
+
+

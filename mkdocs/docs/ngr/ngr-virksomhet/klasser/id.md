@@ -22,25 +22,25 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolleinnehaver](rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |  no  |
-| [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  no  |
-| [Sektorkode](sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |  no  |
 | [Aktivitet](aktivitet.md) | Skildring av kva aktivitet ei hovudeining utøver |  no  |
-| [RolleIVirksomhet](rolleivirksomhet.md) | Ein definert rolle i ei hovudeining (t |  no  |
-| [Naeringskode](naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |  no  |
-| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |  no  |
-| [Forretningsadresse](forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |  no  |
-| [Beliggenhetsadresse](beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |  no  |
-| [Postadresse](postadresse.md) | Postadressa verksemda mottar post på |  no  |
-| [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |  no  |
 | [Organisasjonsform](organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |  no  |
-| [Signaturrett](signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |  no  |
+| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |  no  |
+| [Naeringskode](naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |  no  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
+| [Forretningsadresse](forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |  no  |
+| [Postadresse](postadresse.md) | Postadressa verksemda mottar post på |  no  |
 | [Tilstand](tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |  no  |
 | [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |  no  |
-| [Person](person.md) | Ein fysisk person |  no  |
+| [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  no  |
+| [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |  no  |
+| [Beliggenhetsadresse](beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |  no  |
+| [Signaturrett](signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |  no  |
 | [Prokura](prokura.md) | Prokura gjev ein person fullmakt til å handle på vegne av verksemda i nærings... |  no  |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
+| [RolleIVirksomhet](rolleivirksomhet.md) | Ein definert rolle i ei hovudeining (t |  no  |
+| [Sektorkode](sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |  no  |
+| [Rolleinnehaver](rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |  no  |
+| [Person](person.md) | Ein fysisk person |  no  |
 
 
 

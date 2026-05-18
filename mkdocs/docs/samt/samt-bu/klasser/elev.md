@@ -183,6 +183,7 @@ description: En person som går på skole
 from_schema: https://example.no/ontology/samt-bu-skole
 close_mappings:
 - schema:Student
+rank: 1000
 is_a: Person
 slots:
 - horer_til_basisgruppe
@@ -199,6 +200,7 @@ description: En person som går på skole
 from_schema: https://example.no/ontology/samt-bu-skole
 close_mappings:
 - schema:Student
+rank: 1000
 is_a: Person
 attributes:
   horer_til_basisgruppe:

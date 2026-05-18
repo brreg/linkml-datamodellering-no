@@ -247,6 +247,7 @@ URI: [modelldcatno:CodeList](https://data.norge.no/vocabulary/modelldcatno#CodeL
 name: Kodeliste
 description: Ei kodeliste — eit kontrollert vokabular av tillate verdiar.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 slots:
 - har_referanse
@@ -262,6 +263,7 @@ class_uri: modelldcatno:CodeList
 name: Kodeliste
 description: Ei kodeliste — eit kontrollert vokabular av tillate verdiar.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 attributes:
   har_referanse:

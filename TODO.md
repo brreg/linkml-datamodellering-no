@@ -12,7 +12,7 @@ Modellere opp BR modell fra MagicDraw
 
 
 
-gen-doc: endre generering av docs slik at index.html grupperer klasser som er i subset Obligatorisk først, fulgt av Anbefalt og Valgfri
+
 fikse warning ved bygg av dokportal
 INFO    -  Building documentation...
 WARNING -  A reference to 'fint/index.md' is included in the 'nav' configuration, which is not found in the documentation files.

@@ -262,6 +262,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 name: Gebyr
 description: Eit gebyr knytt til bruk av ein datatjeneste.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 slots:
 - id
 - belop
@@ -280,6 +281,7 @@ class_uri: cv:Cost
 name: Gebyr
 description: Eit gebyr knytt til bruk av ein datatjeneste.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

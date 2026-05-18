@@ -22,8 +22,8 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
 | [Aksjeklasse](aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |  no  |
+| [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
 | [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
 
 

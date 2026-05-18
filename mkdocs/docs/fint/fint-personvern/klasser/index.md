@@ -11,6 +11,12 @@ Name: fint-personvern
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |
@@ -18,6 +24,20 @@ Name: fint-personvern
 | [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |
 | [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |
 | [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+
+
 
 
 

@@ -11,6 +11,12 @@ Name: fint-utdanning
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Anmerkninger](anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |
@@ -21,69 +27,89 @@ Name: fint-utdanning
 | [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |
 | [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |
 | [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |
+| [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |
 | [Elevfravar](elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |
 | [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |
-| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |
 | [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |
+| [Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |
 | [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |
 | [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |
 | [FagvurderingAbstrakt](fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |
 | [Fravarsoversikt](fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |
 | [Fravarsprosent](fravarsprosent.md) | Kompleks type som representerer fråværsprosent for ein periode |
 | [Fravartype](fravartype.md) | Type fråvær (t |
 | [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |
 | [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |
 | [Gruppe](gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fag](fag.md) | Eit skulefag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |
-| [Gruppemedlemskap](gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |
+| [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |
+| [Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |
 | [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |
 | [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |
 | [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |
 | [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |
 | [Laerling](laerling.md) | Ein lærling i yrkesopplæring |
 | [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md) | Abstrakt basisklasse for ordensvurderingar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |
 | [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |
 | [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |
 | [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |
 | [Provestatus](provestatus.md) | Status for ei lærlingprøve |
-| [Rom](rom.md) | Eit rom eller lokale ved ein skule |
 | [Sensor](sensor.md) | Ein sensor for ein eksamen |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |
 | [Skoleaar](skoleaar.md) | Eit skoleår (t |
 | [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |
 | [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |
+| [Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |
 | [Termin](termin.md) | Ein skuleterm (t |
 | [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |
 | [Time](time.md) | Ein time i timeplanen |
-| [Utdanningsforhold](utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |
-| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |
+| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |
+| [Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |
 | [Varseltype](varseltype.md) | Type varsel knytt til ein elev |
 | [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |
+
+
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |
+| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |
+| [Fag](fag.md) | Eit skulefag |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |
+| [Gruppemedlemskap](gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |
+| [Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |
+| [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |
+| [Persongruppemedlemskap](persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |
+| [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |
+| [Rom](rom.md) | Eit rom eller lokale ved ein skule |
+| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |
+| [Utdanningsforhold](utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |
+| [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+
+
 
 
 

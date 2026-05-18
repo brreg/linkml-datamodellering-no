@@ -384,6 +384,7 @@ description: Abstrakt overklasse for alle typar matrikkeleiningar registrert i M
   Ei matrikkelenheit er den grunnleggjande eininga for registrering av fast eigedom
   i Noreg.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 abstract: true
 slots:
 - id
@@ -429,6 +430,7 @@ description: Abstrakt overklasse for alle typar matrikkeleiningar registrert i M
   Ei matrikkelenheit er den grunnleggjande eininga for registrering av fast eigedom
   i Noreg.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 abstract: true
 slot_usage:
   identifiseres_med:

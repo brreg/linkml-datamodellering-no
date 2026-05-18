@@ -224,6 +224,7 @@ URI: [ngrp:Postadresse](https://data.norge.no/vocabulary/ngr-person#Postadresse)
 name: Postadresse
 description: Adressa der personen mottar post.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 is_a: GeografiskAdresse
 slots:
 - gyldig_fra_og_med
@@ -249,6 +250,7 @@ class_uri: ngrp:Postadresse
 name: Postadresse
 description: Adressa der personen mottar post.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 is_a: GeografiskAdresse
 slot_usage:
   gyldig_fra_og_med:

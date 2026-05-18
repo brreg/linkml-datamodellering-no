@@ -143,6 +143,7 @@ URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverku
 name: InnbetaltOverkurs
 description: Innbetalt overkurs utover pålydande.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - belop
 
@@ -156,6 +157,7 @@ slots:
 name: InnbetaltOverkurs
 description: Innbetalt overkurs utover pålydande.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   belop:
     name: belop

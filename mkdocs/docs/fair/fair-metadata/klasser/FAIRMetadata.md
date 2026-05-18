@@ -400,6 +400,7 @@ description: 'Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tr
 
   '
 from_schema: https://data.norge.no/linkml/fair-metadata
+rank: 1000
 slots:
 - id
 - ressursIdentifikator
@@ -455,6 +456,7 @@ description: 'Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tr
 
   '
 from_schema: https://data.norge.no/linkml/fair-metadata
+rank: 1000
 slot_usage:
   ressursIdentifikator:
     name: ressursIdentifikator

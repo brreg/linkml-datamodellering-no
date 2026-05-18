@@ -350,6 +350,7 @@ name: Matrikkelnummer
 description: Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer,
   gards-, bruks- og eventuelt feste- og seksjonsnummer.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - bestar_av_kommunenummer
@@ -394,6 +395,7 @@ name: Matrikkelnummer
 description: Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer,
   gards-, bruks- og eventuelt feste- og seksjonsnummer.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   bestar_av_kommunenummer:
     name: bestar_av_kommunenummer

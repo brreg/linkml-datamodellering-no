@@ -276,6 +276,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slots:
 - id
 - er_kvalitetsmaaling_av
@@ -307,6 +308,7 @@ class_uri: dqv:QualityMeasurement
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slot_usage:
   er_kvalitetsmaaling_av:
     name: er_kvalitetsmaaling_av

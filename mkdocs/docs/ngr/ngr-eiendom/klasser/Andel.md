@@ -197,6 +197,7 @@ name: Andel
 description: Ein eigarandel i eit heimelsdokument (også kalt eierandel). Kvar andel
   har ein eller fleire rettigheitshavarar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - har_rettighetshaver
@@ -220,6 +221,7 @@ name: Andel
 description: Ein eigarandel i eit heimelsdokument (også kalt eierandel). Kvar andel
   har ein eller fleire rettigheitshavarar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   har_rettighetshaver:
     name: har_rettighetshaver

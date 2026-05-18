@@ -315,6 +315,7 @@ name: Bruksenhet
 description: Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit
   bruksenheitsnummer, ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - har_bruksenhetsnummer
@@ -354,6 +355,7 @@ name: Bruksenhet
 description: Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit
   bruksenheitsnummer, ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   har_bruksenhetsnummer:
     name: har_bruksenhetsnummer

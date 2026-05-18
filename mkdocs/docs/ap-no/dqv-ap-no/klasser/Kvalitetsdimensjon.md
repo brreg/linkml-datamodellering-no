@@ -239,6 +239,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slots:
 - id
 - har_anbefalt_term
@@ -264,6 +265,7 @@ class_uri: dqv:Dimension
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slot_usage:
   har_anbefalt_term:
     name: har_anbefalt_term

@@ -10,16 +10,36 @@ Name: skos-ap-no
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [AssosiativRelasjon](assosiativrelasjon.md) | Ein assosiativ relasjon mellom to omgrep |
 | [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |
 | [Definisjon](definisjon.md) | Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote) |
 | [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |
-| [Organisasjon](organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |
 | [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |
 | [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Organisasjon](organisasjon.md) | Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep |
 | [VCardKontakt](vcardkontakt.md) | Kontaktinformasjon (vCard) for omgrepseigaren |
+
+
 
 
 

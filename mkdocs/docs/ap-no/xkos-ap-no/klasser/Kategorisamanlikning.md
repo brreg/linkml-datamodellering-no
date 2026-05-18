@@ -228,6 +228,7 @@ URI: [xkos:ConceptAssociation](http://rdf-vocabulary.ddialliance.org/xkos#Concep
 name: Kategorisamanlikning
 description: Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:ConceptAssociation).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slots:
 - id
 - kjeldeomgrep
@@ -253,6 +254,7 @@ class_uri: xkos:ConceptAssociation
 name: Kategorisamanlikning
 description: Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:ConceptAssociation).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slot_usage:
   kjeldeomgrep:
     name: kjeldeomgrep

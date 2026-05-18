@@ -141,6 +141,7 @@ name: Beliggenhetsadresse
 description: Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten
   vert utøvd.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: GeografiskAdresse
 class_uri: ngrv:Beliggenhetsadresse
 
@@ -155,6 +156,7 @@ name: Beliggenhetsadresse
 description: Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten
   vert utøvd.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: GeografiskAdresse
 attributes:
   id:

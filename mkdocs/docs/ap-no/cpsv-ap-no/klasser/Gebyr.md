@@ -301,6 +301,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 name: Gebyr
 description: Eit gebyr knytt til ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - beskrivelse
@@ -336,6 +337,7 @@ class_uri: cv:Cost
 name: Gebyr
 description: Eit gebyr knytt til ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   beskrivelse:
     name: beskrivelse

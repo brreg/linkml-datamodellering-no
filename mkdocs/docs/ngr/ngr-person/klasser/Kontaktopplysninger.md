@@ -272,6 +272,7 @@ name: Kontaktopplysninger
 description: Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon
   med det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - epostadresse_verdi
@@ -303,6 +304,7 @@ name: Kontaktopplysninger
 description: Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon
   med det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   epostadresse_verdi:
     name: epostadresse_verdi

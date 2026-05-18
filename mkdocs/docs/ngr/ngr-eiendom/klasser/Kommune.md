@@ -199,6 +199,7 @@ name: Kommune
 description: Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og forvaltast
   av Nasjonal inndelingsbase.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - kommunenummer_verdi
@@ -221,6 +222,7 @@ name: Kommune
 description: Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og forvaltast
   av Nasjonal inndelingsbase.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   kommunenummer_verdi:
     name: kommunenummer_verdi

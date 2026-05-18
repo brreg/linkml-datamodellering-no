@@ -139,6 +139,10 @@ URI: [samtbuskole:Kommune](https://example.no/ontology/skole#Kommune)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/5b7fd4f2-39f6-39ed-9540-e6c2491ef633](https://data.norge.no/concepts/5b7fd4f2-39f6-39ed-9540-e6c2491ef633)
+
 
 
 ## Identifier and Mapping Information
@@ -180,8 +184,11 @@ name: Kommune
 description: En kommune er et geografisk avgrenset område som utgjør en egen politisk
   og administrativ enhet innen en statsdannelse.
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/5b7fd4f2-39f6-39ed-9540-e6c2491ef633
 exact_mappings:
 - org:Organization
+rank: 1000
 is_a: Skoleeier
 slots:
 - kommunenummer
@@ -197,8 +204,11 @@ name: Kommune
 description: En kommune er et geografisk avgrenset område som utgjør en egen politisk
   og administrativ enhet innen en statsdannelse.
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/5b7fd4f2-39f6-39ed-9540-e6c2491ef633
 exact_mappings:
 - org:Organization
+rank: 1000
 is_a: Skoleeier
 attributes:
   kommunenummer:

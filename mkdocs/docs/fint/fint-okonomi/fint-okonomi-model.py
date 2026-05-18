@@ -1,5 +1,5 @@
 # Auto generated from fint-okonomi-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-10T09:44:44
+# Generation date: 2026-05-18T09:10:56
 # Schema: fint-okonomi
 #
 # id: https://data.norge.no/linkml/fint-okonomi

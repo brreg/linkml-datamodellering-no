@@ -151,6 +151,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 name: Organisasjon
 description: Ein organisasjon eller aktør (foaf:Agent).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slots:
 - id
 class_uri: foaf:Agent
@@ -165,6 +166,7 @@ class_uri: foaf:Agent
 name: Organisasjon
 description: Ein organisasjon eller aktør (foaf:Agent).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 attributes:
   id:
     name: id

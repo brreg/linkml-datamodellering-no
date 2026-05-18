@@ -179,6 +179,7 @@ URI: [dct:LicenseDocument](http://purl.org/dc/terms/LicenseDocument)
 name: Lisensdokument
 description: Eit lisensdokument (dct:LicenseDocument).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - type_concept
@@ -194,6 +195,7 @@ class_uri: dct:LicenseDocument
 name: Lisensdokument
 description: Eit lisensdokument (dct:LicenseDocument).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

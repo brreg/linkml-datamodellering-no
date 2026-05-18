@@ -676,6 +676,7 @@ name: AdresseContainer
 description: Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 attributes:
   offisielleAdresser:
     name: offisielleAdresser
@@ -890,6 +891,7 @@ name: AdresseContainer
 description: Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 attributes:
   offisielleAdresser:
     name: offisielleAdresser

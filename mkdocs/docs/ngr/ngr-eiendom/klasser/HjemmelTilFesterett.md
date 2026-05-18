@@ -154,6 +154,7 @@ URI: [ngre:HjemmelTilFesterett](https://data.norge.no/vocabulary/ngr-eiendom#Hje
 name: HjemmelTilFesterett
 description: Heimelsdokument for festerett (langvarig bruksrett til festegrunn).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Hjemmel
 class_uri: ngre:HjemmelTilFesterett
 
@@ -167,6 +168,7 @@ class_uri: ngre:HjemmelTilFesterett
 name: HjemmelTilFesterett
 description: Heimelsdokument for festerett (langvarig bruksrett til festegrunn).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Hjemmel
 attributes:
   id:

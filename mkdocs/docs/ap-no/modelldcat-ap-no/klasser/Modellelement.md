@@ -441,6 +441,7 @@ URI: [modelldcatno:ModelElement](https://data.norge.no/vocabulary/modelldcatno#M
 name: Modellelement
 description: Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 abstract: true
 slots:
 - id
@@ -488,6 +489,7 @@ class_uri: modelldcatno:ModelElement
 name: Modellelement
 description: Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 abstract: true
 slot_usage:
   tittel:

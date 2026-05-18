@@ -198,6 +198,10 @@ URI: [samtbuskole:Kontaktlaerer](https://example.no/ontology/skole#Kontaktlaerer
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/59c7126f-7189-30f7-8dee-650cc9aa8762](https://data.norge.no/concepts/59c7126f-7189-30f7-8dee-650cc9aa8762)
+
 
 
 ## Identifier and Mapping Information
@@ -239,8 +243,11 @@ name: Kontaktlaerer
 description: En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for
   elevane i basisgruppa
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/59c7126f-7189-30f7-8dee-650cc9aa8762
 close_mappings:
 - schema:Teacher
+rank: 1000
 is_a: Person
 slots:
 - tilknyttet_basisgruppe
@@ -258,8 +265,11 @@ name: Kontaktlaerer
 description: En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for
   elevane i basisgruppa
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/59c7126f-7189-30f7-8dee-650cc9aa8762
 close_mappings:
 - schema:Teacher
+rank: 1000
 is_a: Person
 attributes:
   tilknyttet_basisgruppe:

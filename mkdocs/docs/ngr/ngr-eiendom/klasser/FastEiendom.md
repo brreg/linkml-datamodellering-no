@@ -387,6 +387,7 @@ description: Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast a
   og består av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige
   for å benytte eigedommen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - identifiseres_av
@@ -436,6 +437,7 @@ description: Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast a
   og består av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige
   for å benytte eigedommen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   identifiseres_av:
     name: identifiseres_av

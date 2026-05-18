@@ -111,6 +111,10 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be](https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be)
+
 
 
 ## Identifier and Mapping Information
@@ -150,6 +154,8 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 name: Konsept
 description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
 from_schema: https://data.norge.no/linkml/common-ap-no
+see_also:
+- https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be
 slots:
 - id
 class_uri: skos:Concept
@@ -164,6 +170,8 @@ class_uri: skos:Concept
 name: Konsept
 description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
 from_schema: https://data.norge.no/linkml/common-ap-no
+see_also:
+- https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be
 attributes:
   id:
     name: id

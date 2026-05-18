@@ -11,6 +11,18 @@ Name: aksje_eierskap
 
 ## Classes
 
+
+
+
+
+
+
+
+
+
+
+### Andre
+
 | Class | Description |
 | --- | --- |
 | [Aksje](aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |
@@ -31,6 +43,8 @@ Name: aksje_eierskap
 | [Utbytte](utbytte.md) | Utbytte knytt til ein eigarposisjon |
 | [Utdeling](utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |
 | [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |
+
+
 
 
 

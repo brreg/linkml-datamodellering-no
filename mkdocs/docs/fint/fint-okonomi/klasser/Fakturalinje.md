@@ -272,6 +272,7 @@ URI: [okn:Fakturalinje](https://schema.fintlabs.no/okonomi/Fakturalinje)
 name: Fakturalinje
 description: Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype).
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slots:
 - antall
 - pris
@@ -309,6 +310,7 @@ class_uri: okn:Fakturalinje
 name: Fakturalinje
 description: Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype).
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slot_usage:
   antall:
     name: antall

@@ -10,24 +10,44 @@ Name: dcat-ap-no
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |
-| [Gebyr](gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |
 | [Identifikator](identifikator.md) | Ein alternativ identifikator for ein ressurs |
-| [KatalogisertRessurs](katalogisertressurs.md) | Basisklasse for ressursar som kan katalogiserast |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |
 | [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |
 | [Kontaktopplysning](kontaktopplysning.md) | Kontaktinformasjon for ein aktør |
-| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
 | [Relasjon](relasjon.md) | Ein kvalifisert relasjon mellom to ressursar |
-| [Rettighetserklaring](rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |
 | [Sjekksum](sjekksum.md) | Ein sjekksum for ein distribusjon |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Gebyr](gebyr.md) | Eit gebyr knytt til bruk av ein datatjeneste |
+| [KatalogisertRessurs](katalogisertressurs.md) | Basisklasse for ressursar som kan katalogiserast |
+| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
+| [Rettighetserklaring](rettighetserklaring.md) | Ei erklæring om rettar til ein ressurs (ODRS) |
 | [Tidsrom](tidsrom.md) | Eit tidsintervall med start- og sluttdato |
+
+
 
 
 

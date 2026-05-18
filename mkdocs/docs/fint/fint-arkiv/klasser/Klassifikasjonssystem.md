@@ -22,9 +22,9 @@ Alias: klassifikasjonssystem
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Klasse](klasse.md) | Ein klasse i eit klassifikasjonssystem |  yes  |
-| [Arkivdel](arkivdel.md) | Ein vilkårleg definert del av eit arkiv |  yes  |
 | [ArkivContainer](arkivcontainer.md) | Rotcontainer for FINT Arkiv-instansar |  yes  |
+| [Arkivdel](arkivdel.md) | Ein vilkårleg definert del av eit arkiv |  yes  |
+| [Klasse](klasse.md) | Ein klasse i eit klassifikasjonssystem |  yes  |
 
 
 

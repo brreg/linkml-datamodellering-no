@@ -291,6 +291,7 @@ URI: [modelldcatno:ConstraintRule](https://data.norge.no/vocabulary/modelldcatno
 name: Betingelsesregel
 description: Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Merknad
 slots:
 - betinger
@@ -317,6 +318,7 @@ class_uri: modelldcatno:ConstraintRule
 name: Betingelsesregel
 description: Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Merknad
 slot_usage:
   betinger:

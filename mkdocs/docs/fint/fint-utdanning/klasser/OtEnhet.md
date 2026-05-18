@@ -343,6 +343,7 @@ URI: [utd:OtEnhet](https://schema.fintlabs.no/utdanning/OtEnhet)
 name: OtEnhet
 description: Eining i oppfølgingstenesta (OT).
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - id
 - kode
@@ -386,6 +387,7 @@ class_uri: utd:OtEnhet
 name: OtEnhet
 description: Eining i oppfølgingstenesta (OT).
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   kode:
     name: kode

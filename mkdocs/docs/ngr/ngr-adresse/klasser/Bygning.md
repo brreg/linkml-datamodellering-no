@@ -152,6 +152,7 @@ name: Bygning
 description: Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere
   ytre inngang(ar) til bygningen.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 slots:
 - id
 class_uri: ngr:Bygning
@@ -167,6 +168,7 @@ name: Bygning
 description: Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere
   ytre inngang(ar) til bygningen.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 attributes:
   id:
     name: id

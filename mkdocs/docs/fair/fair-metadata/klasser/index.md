@@ -11,6 +11,18 @@ Name: fair-metadata
 
 ## Classes
 
+
+
+
+
+
+
+
+
+
+
+### Andre
+
 | Class | Description |
 | --- | --- |
 | [FAIRMetadata](fairmetadata.md) | Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR... |
@@ -18,6 +30,8 @@ Name: fair-metadata
 | [Katalogregistrering](katalogregistrering.md) | Dokumenterer registrering i søkbar katalog (FAIR F4) |
 | [Proveniensmetadata](proveniensmetadata.md) | Metadata om opphav og endringshistorie (FAIR R1 |
 | [Tilgangsmetadata](tilgangsmetadata.md) | Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2) |
+
+
 
 
 

@@ -1,0 +1,408 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fair: <https://data.norge.no/fair#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.norge.no/fair#:FAIRMetadata> a owl:Class ;
+    rdfs:label "FAIRMetadata" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:gjenbruksmetadata> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsmetadata> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:ressursIdentifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsmetadata> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:proveniensmetadata> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/fair#:Gjenbruksmetadata> ;
+            owl:onProperty <https://data.norge.no/fair#:gjenbruksmetadata> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:gjenbruksmetadata> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/fair#:Proveniensmetadata> ;
+            owl:onProperty <https://data.norge.no/fair#:proveniensmetadata> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:ressursIdentifikator> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:proveniensmetadata> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/fair#:Tilgangsmetadata> ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsmetadata> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/fair#:Katalogregistrering> ;
+            owl:onProperty <https://data.norge.no/fair#:katalogregistrering> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:katalogregistrering> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:ressurstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:ressursIdentifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:ressurstype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:katalogregistrering> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:ressurstype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:beskrivelse> ] ;
+    skos:definition """Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR-prinsippa.
+""" ;
+    skos:exactMatch fair:FAIRMetadata ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/linkml/fair-metadata.owl.ttl> a owl:Ontology ;
+    rdfs:label "fair-metadata" ;
+    dct:title "FAIR Metadata Overbygning" ;
+    pav:version "1.0.0" ;
+    skos:definition """FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
+""" .
+
+<https://data.norge.no/fair#:Gjenbruksmetadata> a owl:Class ;
+    rdfs:label "Gjenbruksmetadata" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:lisens> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:bruksavgrensingar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:lisens> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:lisens> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:bruksavgrensingar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:standardoverensstemming> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:vokabular> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:standardoverensstemming> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/fair#:bruksavgrensingar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:vokabular> ] ;
+    skos:definition "Metadata som støttar gjenbruk av ressursen (FAIR R1.1, R1.3)." ;
+    skos:exactMatch fair:Gjenbruksmetadata ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:Katalogregistrering> a owl:Class ;
+    rdfs:label "Katalogregistrering" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:registrertIKatalog> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:registrertIKatalog> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:registreringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:registrertIKatalog> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:katalogOppfoeringURL> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/fair#:registreringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:registreringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:katalogOppfoeringURL> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:katalogOppfoeringURL> ] ;
+    skos:definition "Dokumenterer registrering i søkbar katalog (FAIR F4)." ;
+    skos:exactMatch fair:Katalogregistrering ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:Proveniensmetadata> a owl:Class ;
+    rdfs:label "Proveniensmetadata" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/fair#:endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:generertAvAktivitet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:generertAvAktivitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:opprettingsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:ansvarlegAktoer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:opprettingsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:ansvarlegAktoer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:endringsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:ansvarlegAktoer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/fair#:opprettingsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:generertAvAktivitet> ] ;
+    skos:definition "Metadata om opphav og endringshistorie (FAIR R1.2)." ;
+    skos:exactMatch fair:Proveniensmetadata ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:Tilgangsmetadata> a owl:Class ;
+    rdfs:label "Tilgangsmetadata" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsURL> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsURL> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsprotokoll> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsprotokoll> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:autentiseringPaakrevd> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://data.norge.no/fair#:autentiseringPaakrevd> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsrettar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsrettar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsURL> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:metadataPersistens> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsrettar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:tilgangsprotokoll> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/fair#:autentiseringPaakrevd> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://data.norge.no/fair#:metadataPersistens> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/fair#:metadataPersistens> ] ;
+    skos:definition "Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2)." ;
+    skos:exactMatch fair:Tilgangsmetadata ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:standardoverensstemming> a owl:DatatypeProperty ;
+    rdfs:label "standardoverensstemming" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition """Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO eller ISO 19115 (FAIR R1.3 / I3).
+""" ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:vokabular> a owl:DatatypeProperty ;
+    rdfs:label "vokabular" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition """Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR I2).
+""" ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:ansvarlegAktoer> a owl:DatatypeProperty ;
+    rdfs:label "ansvarlegAktoer" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition """Organisasjon eller aktør som er ansvarleg for ressursen, som URI (FAIR R1.2).
+""" ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:autentiseringPaakrevd> a owl:DatatypeProperty ;
+    rdfs:label "autentiseringPaakrevd" ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Om autentisering eller autorisasjon er nødvendig (FAIR A1.2)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:beskrivelse> a owl:DatatypeProperty ;
+    rdfs:label "beskrivelse" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI til ressursen som denne metadata-posten beskriver (FAIR F3)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:bruksavgrensingar> a owl:DatatypeProperty ;
+    rdfs:label "bruksavgrensingar" ;
+    rdfs:range xsd:string ;
+    skos:definition "Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:endringsdato> a owl:DatatypeProperty ;
+    rdfs:label "endringsdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Sist endra dato (FAIR R1.2)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:generertAvAktivitet> a owl:DatatypeProperty ;
+    rdfs:label "generertAvAktivitet" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Aktivitet som har generert ressursen (FAIR R1.2)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:gjenbruksmetadata> a owl:ObjectProperty ;
+    rdfs:label "gjenbruksmetadata" ;
+    rdfs:range <https://data.norge.no/fair#:Gjenbruksmetadata> ;
+    skos:definition "Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:id> a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Persistent URI-identifikator for metadata-posten (FAIR F1)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:katalogOppfoeringURL> a owl:DatatypeProperty ;
+    rdfs:label "katalogOppfoeringURL" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Direkte URL til oppføringa i katalogen (FAIR F4)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:katalogregistrering> a owl:ObjectProperty ;
+    rdfs:label "katalogregistrering" ;
+    rdfs:range <https://data.norge.no/fair#:Katalogregistrering> ;
+    skos:definition "Dokumenterer registrering i søkbar katalog (FAIR F4)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:lisens> a owl:DatatypeProperty ;
+    rdfs:label "lisens" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Brukslisens for ressursen som URI (FAIR R1.1)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:metadataPersistens> a owl:DatatypeProperty ;
+    rdfs:label "metadataPersistens" ;
+    rdfs:range xsd:boolean ;
+    skos:definition """Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger er tilgjengeleg (FAIR A2).
+""" ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:opprettingsdato> a owl:DatatypeProperty ;
+    rdfs:label "opprettingsdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato ressursen blei oppretta (FAIR R1.2)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:proveniensmetadata> a owl:ObjectProperty ;
+    rdfs:label "proveniensmetadata" ;
+    rdfs:range <https://data.norge.no/fair#:Proveniensmetadata> ;
+    skos:definition "Metadata om opphav og endringshistorie (FAIR R1.2)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:registreringsdato> a owl:DatatypeProperty ;
+    rdfs:label "registreringsdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato for katalogregistrering (FAIR F4)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:registrertIKatalog> a owl:DatatypeProperty ;
+    rdfs:label "registrertIKatalog" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI til katalogen der metadata er registrert (FAIR F4)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:ressursIdentifikator> a owl:DatatypeProperty ;
+    rdfs:label "ressursIdentifikator" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition """Global og persistent identifikator for ressursen (FAIR F1). Skal vere ein PID (t.d. DOI, Handle, eller stabil URI).
+""" ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:ressurstype> a owl:DatatypeProperty ;
+    rdfs:label "ressurstype" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition """Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI frå eit kontrollert vokabular (FAIR F2).
+""" ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:tilgangsURL> a owl:DatatypeProperty ;
+    rdfs:label "tilgangsURL" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URL for maskinell tilgang til ressurs eller metadata (FAIR A1)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:tilgangsmetadata> a owl:ObjectProperty ;
+    rdfs:label "tilgangsmetadata" ;
+    rdfs:range <https://data.norge.no/fair#:Tilgangsmetadata> ;
+    skos:definition "Metadata for tilgang og tilgjengelegheit (FAIR A1/A2)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:tilgangsprotokoll> a owl:DatatypeProperty ;
+    rdfs:label "tilgangsprotokoll" ;
+    rdfs:range xsd:string ;
+    skos:definition "Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1)." ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+<https://data.norge.no/fair#:tilgangsrettar> a owl:DatatypeProperty ;
+    rdfs:label "tilgangsrettar" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition """Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg, avgrensa, lukka) (FAIR A1.2).
+""" ;
+    skos:inScheme <https://data.norge.no/linkml/fair-metadata> .
+
+

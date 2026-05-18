@@ -22,8 +22,8 @@ Alias: kan_utlose_behov_for
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  yes  |
 | [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  yes  |
+| [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  yes  |
 
 
 

@@ -192,6 +192,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
 name: Brukartilbakemelding
 description: Tilbakemelding frå ein brukar om kvaliteten til eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 is_a: Kvalitetsmerknad
 class_uri: dqv:UserQualityFeedback
 
@@ -205,6 +206,7 @@ class_uri: dqv:UserQualityFeedback
 name: Brukartilbakemelding
 description: Tilbakemelding frå ein brukar om kvaliteten til eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 is_a: Kvalitetsmerknad
 attributes:
   id:

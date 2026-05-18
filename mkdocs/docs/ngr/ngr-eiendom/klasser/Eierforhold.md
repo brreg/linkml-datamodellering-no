@@ -357,6 +357,7 @@ description: Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarfo
   gjeld éi matrikkelenheit og kan eventuelt gjelde ein burettslagsandel. Inneheld
   heimelsdokument som fastset kven som er eigar og på kva vilkår.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 abstract: true
 slots:
 - id
@@ -401,6 +402,7 @@ description: Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarfo
   gjeld éi matrikkelenheit og kan eventuelt gjelde ein burettslagsandel. Inneheld
   heimelsdokument som fastset kven som er eigar og på kva vilkår.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 abstract: true
 slot_usage:
   gjelder_matrikkelenhet:

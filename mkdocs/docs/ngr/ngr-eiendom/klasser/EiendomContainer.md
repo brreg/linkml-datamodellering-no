@@ -844,6 +844,7 @@ name: EiendomContainer
 description: Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   fasteEiendommer:
     name: fasteEiendommer
@@ -1118,6 +1119,7 @@ name: EiendomContainer
 description: Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   fasteEiendommer:
     name: fasteEiendommer

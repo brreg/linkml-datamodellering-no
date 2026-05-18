@@ -192,6 +192,7 @@ URI: [ngre:Seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#Seksjons
 name: Seksjonsnummer
 description: Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - seksjonsnummer_verdi
@@ -213,6 +214,7 @@ class_uri: ngre:Seksjonsnummer
 name: Seksjonsnummer
 description: Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   seksjonsnummer_verdi:
     name: seksjonsnummer_verdi

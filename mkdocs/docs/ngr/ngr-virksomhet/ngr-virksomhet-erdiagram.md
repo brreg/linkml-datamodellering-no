@@ -105,5 +105,5 @@ Underenhet ||--|| Varslingsadresse : "har_varslingsadresse"
 Underenhet ||--}o Tilstand : "har_tilstand"
 Underenhet ||--}| Naeringskode : "er_klassifisert_i_naeringskode"
 
-```
 
+```

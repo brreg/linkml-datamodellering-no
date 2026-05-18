@@ -22,9 +22,9 @@ Alias: forretningsadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 

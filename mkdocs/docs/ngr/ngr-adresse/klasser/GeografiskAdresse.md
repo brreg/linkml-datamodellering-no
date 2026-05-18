@@ -156,6 +156,7 @@ name: GeografiskAdresse
 description: Abstrakt basisklasse for norske adressar. Konkrete subklassar er OffisiellAdresse
   og Postboksadresse.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 abstract: true
 slots:
 - id
@@ -172,6 +173,7 @@ name: GeografiskAdresse
 description: Abstrakt basisklasse for norske adressar. Konkrete subklassar er OffisiellAdresse
   og Postboksadresse.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 abstract: true
 attributes:
   id:

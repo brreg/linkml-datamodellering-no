@@ -22,8 +22,8 @@ Alias: har_versjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
 | [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
+| [Standard](standard.md) | Ein standard (dct:Standard) |  no  |
 
 
 

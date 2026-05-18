@@ -22,8 +22,8 @@ Alias: er_gruppert_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
 | [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
 
 
 

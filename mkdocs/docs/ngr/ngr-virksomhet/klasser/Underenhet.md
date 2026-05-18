@@ -404,6 +404,7 @@ name: Underenhet
 description: Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining
   vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: Virksomhet
 slots:
 - oppstartsdato
@@ -442,6 +443,7 @@ name: Underenhet
 description: Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining
   vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: Virksomhet
 slot_usage:
   oppstartsdato:

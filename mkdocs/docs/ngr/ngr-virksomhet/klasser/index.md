@@ -10,27 +10,53 @@ Name: ngr-virksomhet
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Aktivitet](aktivitet.md) | Skildring av kva aktivitet ei hovudeining utøver |
-| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Beliggenhetsadresse](beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Forretningsadresse](forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](postadresse.md) | Postadressa verksemda mottar post på |
-| [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |
+| [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |
 | [Naeringskode](naeringskode.md) | Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE) |
 | [Organisasjonsform](organisasjonsform.md) | Klassifikasjon av juridisk organisasjonsform (t |
-| [Person](person.md) | Ein fysisk person |
 | [Prokura](prokura.md) | Prokura gjev ein person fullmakt til å handle på vegne av verksemda i nærings... |
-| [Rolleinnehaver](rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |
 | [RolleIVirksomhet](rolleivirksomhet.md) | Ein definert rolle i ei hovudeining (t |
 | [Sektorkode](sektorkode.md) | Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t |
 | [Signaturrett](signaturrett.md) | Bestemmelse om kven som har rett til å signere på vegne av verksemda (t |
 | [Tilstand](tilstand.md) | Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldighe... |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |
 | [Varslingsadresse](varslingsadresse.md) | Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert ... |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Kontaktinformasjon](kontaktinformasjon.md) | Kontaktinformasjon for verksemda registrert i Enhetsregisteret |
+| [Rolleinnehaver](rolleinnehaver.md) | Den som innehar ein rolle i ei verksemd |
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Beliggenhetsadresse](beliggenhetsadresse.md) | Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten ... |
+| [Forretningsadresse](forretningsadresse.md) | Forretningsadressa til hovudeininga – adressa der hovudkontoret held til |
+| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
+| [Person](person.md) | Ein fysisk person |
+| [Postadresse](postadresse.md) | Postadressa verksemda mottar post på |
+
+
 
 
 

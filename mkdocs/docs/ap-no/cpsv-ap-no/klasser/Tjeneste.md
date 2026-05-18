@@ -1233,6 +1233,7 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 name: Tjeneste
 description: Ei teneste levert av ein ikkje-offentleg aktør.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -1400,6 +1401,7 @@ class_uri: cpsvno:Service
 name: Tjeneste
 description: Ei teneste levert av ein ikkje-offentleg aktør.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

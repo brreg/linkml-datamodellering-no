@@ -23,11 +23,11 @@ Alias: vigoreferanse
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  yes  |
-| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
 | [Fag](fag.md) | Eit skulefag |  yes  |
-| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
 
 
 

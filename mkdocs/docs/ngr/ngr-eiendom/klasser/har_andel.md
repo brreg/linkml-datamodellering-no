@@ -22,9 +22,9 @@ Alias: har_andel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
 | [HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |  no  |
 | [Hjemmel](hjemmel.md) | Abstrakt klasse for heimelsdokument |  yes  |
+| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
 | [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |  no  |
 
 

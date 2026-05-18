@@ -349,6 +349,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 name: OffentligOrganisasjon
 description: Ein offentleg organisasjon som er ansvarleg for ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 is_a: Aktor
 slots:
 - foretrekt_namn
@@ -390,6 +391,7 @@ class_uri: cv:PublicOrganisation
 name: OffentligOrganisasjon
 description: Ein offentleg organisasjon som er ansvarleg for ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 is_a: Aktor
 slot_usage:
   dekningsomraade:

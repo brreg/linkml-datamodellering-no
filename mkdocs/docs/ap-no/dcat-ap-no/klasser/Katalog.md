@@ -851,6 +851,7 @@ name: Katalog
 description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
   katalogar.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 is_a: KatalogisertRessurs
 slots:
 - beskrivelse
@@ -944,6 +945,7 @@ name: Katalog
 description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
   katalogar.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 is_a: KatalogisertRessurs
 slot_usage:
   beskrivelse:

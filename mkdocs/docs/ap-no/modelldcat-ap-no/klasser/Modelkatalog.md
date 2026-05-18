@@ -708,6 +708,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 name: Modelkatalog
 description: Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -804,6 +805,7 @@ class_uri: dcat:Catalog
 name: Modelkatalog
 description: Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

@@ -2,9 +2,6 @@
 
 ```mermaid
 erDiagram
-Begrepssamling {
-    uriorcurie id  
-}
 Kategori {
     uriorcurie id  
     LangStringList anbefalt_term  
@@ -36,12 +33,6 @@ Klassifikasjonssamanlikning {
     string identifikator_literal  
     LangStringList tittel  
 }
-Konsept {
-    uriorcurie id  
-}
-Mediatype {
-    uriorcurie id  
-}
 Organisasjon {
     uriorcurie id  
 }
@@ -59,15 +50,14 @@ Klassifikasjon ||--|o Tidsrom : "gjeld_for_tidsrom"
 Klassifikasjon ||--|| Organisasjon : "utgjevar"
 Klassifikasjon ||--}o Klassifikasjon : "er_samanlikna_med"
 Klassifikasjon ||--}o Klassifikasjonsnivaa : "forste_nivaa"
-Klassifikasjon ||--}o Konsept : "tema"
 Klassifikasjonsnivaa ||--}o Klassifikasjonsnivaa : "underordna_klassifikasjonsnivaa"
 Klassifikasjonsnivaa ||--}| Kategori : "har_medlem"
 Klassifikasjonssamanlikning ||--|| Organisasjon : "utgjevar"
 Klassifikasjonssamanlikning ||--}| Kategorisamanlikning : "bestar_av"
 Klassifikasjonssamanlikning ||--}| Klassifikasjon : "samanliknar"
 
-```
 
+```
 
 
 LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar. Basert på https://data.norge.no/specification/xkos-ap-no
@@ -80,15 +70,41 @@ Name: xkos-ap-no
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Kategori](klasser/kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |
-| [Kategorisamanlikning](klasser/kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |
 | [Klassifikasjon](klasser/klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |
 | [Klassifikasjonsnivaa](klasser/klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |
 | [Klassifikasjonssamanlikning](klasser/klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Kategorisamanlikning](klasser/kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
 | [Organisasjon](klasser/organisasjon.md) | Ein organisasjon eller aktør (foaf:Agent) |
 | [Tidsrom](klasser/tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |
+
+
 
 
 

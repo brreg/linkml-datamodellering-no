@@ -194,6 +194,7 @@ URI: [utd:Utdanningsforhold](https://schema.fintlabs.no/utdanning/Utdanningsforh
 name: Utdanningsforhold
 description: Abstrakt basisklasse for undervisningsforhold i utdanning.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slots:
 - id
@@ -215,6 +216,7 @@ class_uri: utd:Utdanningsforhold
 name: Utdanningsforhold
 description: Abstrakt basisklasse for undervisningsforhold i utdanning.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 abstract: true
 slot_usage:
   beskrivelse:

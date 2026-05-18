@@ -10,37 +10,32 @@ schema1:Thing a sh:NodeShape ;
 """ ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path aksje:identifikator ],
-        [ sh:class aksje:InnbetaltAksjekapital ;
-            sh:description "Samling av innbetalt aksjekapital." ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 16 ;
-            sh:path aksje:innbetalt_aksjekapitaler ],
-        [ sh:class aksje:Eierposisjon ;
+    sh:property [ sh:class aksje:Eierposisjon ;
             sh:description "Samling av eigarposisjonar." ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path aksje:eierposisjoner ],
-        [ sh:class aksje:Aksjeeierrettighet ;
-            sh:description "Samling av aksjeeierrettigheiter." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path aksje:aksjeeierrettigheter ],
-        [ sh:class aksje:Eierskapstransaksjon ;
-            sh:description "Samling av eigarskapstransaksjonar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path aksje:eierskapstransaksjoner ],
         [ sh:class aksje:Aksjepost ;
             sh:description "Samling av aksjepostar." ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path aksje:aksjeposter ],
+        [ sh:class aksje:InnbetaltAksjekapital ;
+            sh:description "Samling av innbetalt aksjekapital." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 16 ;
+            sh:path aksje:innbetalt_aksjekapitaler ],
+        [ sh:class aksje:Aksjeoverdragelse ;
+            sh:description "Samling av aksjeoverdragingar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path aksje:aksjeoverdragelser ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path aksje:identifikator ],
         [ sh:class aksje:InnbetaltOverkurs ;
             sh:description "Samling av innbetalt overkurs." ;
             sh:nodeKind sh:BlankNodeOrIRI ;
@@ -51,36 +46,21 @@ schema1:Thing a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 15 ;
             sh:path aksje:utdelinger ],
-        [ sh:class aksje:Aksjeinnskudd ;
-            sh:description "Samling av aksjeinnskot." ;
+        [ sh:class aksje:Vederlag ;
+            sh:description "Samling av vederlag." ;
             sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path aksje:aksjeinnskudder ],
-        [ sh:class aksje:Selskapshendelse ;
-            sh:description "Samling av selskapshendingar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path aksje:selskapshendelser ],
-        [ sh:class aksje:Utbytte ;
-            sh:description "Samling av utbytte." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path aksje:utbytter ],
+            sh:order 11 ;
+            sh:path aksje:vederlager ],
         [ sh:class aksje:Aksjeeier ;
             sh:description "Samling av aksjeeigarar." ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path aksje:aksjeeiere ],
-        [ sh:class aksje:Aksjeoverdragelse ;
-            sh:description "Samling av aksjeoverdragingar." ;
+        [ sh:class aksje:Aksjeselskap ;
+            sh:description "Samling av aksjeselskap." ;
             sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path aksje:aksjeoverdragelser ],
-        [ sh:class aksje:Aksjeklasse ;
-            sh:description "Samling av aksjeklasser." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path aksje:aksjeklasser ],
+            sh:order 1 ;
+            sh:path aksje:aksjeselskaper ],
         [ sh:class aksje:Aksjekapital ;
             sh:description "Samling av aksjekapitalar." ;
             sh:nodeKind sh:IRI ;
@@ -91,16 +71,36 @@ schema1:Thing a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path aksje:aksjer ],
-        [ sh:class aksje:Aksjeselskap ;
-            sh:description "Samling av aksjeselskap." ;
+        [ sh:class aksje:Eierskapstransaksjon ;
+            sh:description "Samling av eigarskapstransaksjonar." ;
             sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path aksje:aksjeselskaper ],
-        [ sh:class aksje:Vederlag ;
-            sh:description "Samling av vederlag." ;
+            sh:order 9 ;
+            sh:path aksje:eierskapstransaksjoner ],
+        [ sh:class aksje:Utbytte ;
+            sh:description "Samling av utbytte." ;
             sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path aksje:vederlager ] ;
+            sh:order 14 ;
+            sh:path aksje:utbytter ],
+        [ sh:class aksje:Aksjeklasse ;
+            sh:description "Samling av aksjeklasser." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path aksje:aksjeklasser ],
+        [ sh:class aksje:Selskapshendelse ;
+            sh:description "Samling av selskapshendingar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path aksje:selskapshendelser ],
+        [ sh:class aksje:Aksjeinnskudd ;
+            sh:description "Samling av aksjeinnskot." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path aksje:aksjeinnskudder ],
+        [ sh:class aksje:Aksjeeierrettighet ;
+            sh:description "Samling av aksjeeierrettigheiter." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path aksje:aksjeeierrettigheter ] ;
     sh:targetClass schema1:Thing .
 
 aksje:Tidspunkt a sh:NodeShape ;
@@ -125,44 +125,44 @@ aksje:Aksjeeier a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path aksje:har_eierposisjon ],
-        [ sh:datatype xsd:string ;
-            sh:description "Namn på instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path aksje:navn ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Global identifikator for instansen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path aksje:identifikator ] ;
+            sh:path aksje:identifikator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path aksje:navn ] ;
     sh:targetClass aksje:Aksjeeier .
 
 aksje:Aksjeeierrettighet a sh:NodeShape ;
     rdfs:comment "Rettigheiter knytt til aksjar, til dømes stemmerett." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekstleg forklaring av instansen." ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "Global identifikator for instansen." ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path aksje:beskrivelse ],
+            sh:order 0 ;
+            sh:path aksje:identifikator ],
         [ sh:class aksje:Aksjeklasse ;
             sh:description "Rettigheiter knytt til aksjeklassen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path aksje:gjelder_aksjer_i_aksjeklasse ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Global identifikator for instansen." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg forklaring av instansen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path aksje:identifikator ] ;
+            sh:order 1 ;
+            sh:path aksje:beskrivelse ] ;
     sh:targetClass aksje:Aksjeeierrettighet .
 
 aksje:Aksjeselskap a sh:NodeShape ;
@@ -176,6 +176,12 @@ aksje:Aksjeselskap a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path aksje:identifikator ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path aksje:navn ],
         [ sh:class aksje:Aksjekapital ;
             sh:description "Aksjekapital som høyrer til selskapet." ;
             sh:maxCount 1 ;
@@ -187,31 +193,19 @@ aksje:Aksjeselskap a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path aksje:utsteder_aksje ],
-        [ sh:datatype xsd:string ;
-            sh:description "Namn på instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path aksje:navn ] ;
+            sh:path aksje:utsteder_aksje ] ;
     sh:targetClass aksje:Aksjeselskap .
 
 aksje:Eierskapstransaksjon a sh:NodeShape ;
     rdfs:comment "Transaksjon som påverkar eigarskap i selskapet." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class aksje:Eierposisjon ;
-            sh:description "Eierskapstransaksjon knytt til eigarposisjonen." ;
+    sh:property [ sh:class aksje:Selskapshendelse ;
+            sh:description "Selskapshendelse i transaksjonen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path aksje:paavirker_eierposisjon ],
-        [ sh:class aksje:Aksjeoverdragelse ;
-            sh:description "Aksjeoverdraging i transaksjonen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path aksje:kan_vaere_aksjeoverdragelse ],
+            sh:order 3 ;
+            sh:path aksje:kan_vaere_selskapshendelse ],
         [ sh:datatype xsd:date ;
             sh:description "Tidspunkt for utbytte/eierskapstransaksjon." ;
             sh:maxCount 1 ;
@@ -225,12 +219,18 @@ aksje:Eierskapstransaksjon a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path aksje:identifikator ],
-        [ sh:class aksje:Selskapshendelse ;
-            sh:description "Selskapshendelse i transaksjonen." ;
+        [ sh:class aksje:Aksjeoverdragelse ;
+            sh:description "Aksjeoverdraging i transaksjonen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path aksje:kan_vaere_selskapshendelse ] ;
+            sh:order 2 ;
+            sh:path aksje:kan_vaere_aksjeoverdragelse ],
+        [ sh:class aksje:Eierposisjon ;
+            sh:description "Eierskapstransaksjon knytt til eigarposisjonen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path aksje:paavirker_eierposisjon ] ;
     sh:targetClass aksje:Eierskapstransaksjon .
 
 aksje:InnbetaltAksjekapital a sh:NodeShape ;
@@ -274,18 +274,18 @@ aksje:Utbytte a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path aksje:identifikator ],
-        [ sh:class aksje:Utdeling ;
-            sh:description "Utdeling knytt til utbyttet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path aksje:har_utdeling ],
         [ sh:datatype xsd:date ;
             sh:description "Tidspunkt for utbytte/eierskapstransaksjon." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path aksje:tidspunkt ] ;
+            sh:path aksje:tidspunkt ],
+        [ sh:class aksje:Utdeling ;
+            sh:description "Utdeling knytt til utbyttet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path aksje:har_utdeling ] ;
     sh:targetClass aksje:Utbytte .
 
 aksje:Aksje a sh:NodeShape ;
@@ -317,14 +317,7 @@ aksje:Aksjeinnskudd a sh:NodeShape ;
     rdfs:comment "Innskot knytt til aksjar i samband med selskapshending." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path aksje:identifikator ],
-        [ sh:datatype xsd:decimal ;
+    sh:property [ sh:datatype xsd:decimal ;
             sh:description "Innbetalt overkurs." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -335,7 +328,14 @@ aksje:Aksjeinnskudd a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path aksje:gjelder_innbetalt_aksjekapital ] ;
+            sh:path aksje:gjelder_innbetalt_aksjekapital ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path aksje:identifikator ] ;
     sh:targetClass aksje:Aksjeinnskudd .
 
 aksje:Aksjekapital a sh:NodeShape ;
@@ -361,31 +361,31 @@ aksje:Aksjeoverdragelse a sh:NodeShape ;
     rdfs:comment "Overdraging av aksjar mellom partar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class aksje:Vederlag ;
-            sh:description "Vederlag for aksjeoverdraging." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path aksje:kan_ha_vederlag ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "Global identifikator for instansen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path aksje:identifikator ] ;
+            sh:path aksje:identifikator ],
+        [ sh:class aksje:Vederlag ;
+            sh:description "Vederlag for aksjeoverdraging." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path aksje:kan_ha_vederlag ] ;
     sh:targetClass aksje:Aksjeoverdragelse .
 
 aksje:Aksjepost a sh:NodeShape ;
     rdfs:comment "Samling aksjar eigd av ein aksjeeigar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class aksje:Aksjeklasse ;
-            sh:description "Rettigheiter knytt til aksjeklassen." ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Tal aksjar." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path aksje:gjelder_aksjer_i_aksjeklasse ],
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path aksje:har_antall_aksjer ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Global identifikator for instansen." ;
             sh:maxCount 1 ;
@@ -393,12 +393,12 @@ aksje:Aksjepost a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path aksje:identifikator ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Tal aksjar." ;
+        [ sh:class aksje:Aksjeklasse ;
+            sh:description "Rettigheiter knytt til aksjeklassen." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path aksje:har_antall_aksjer ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path aksje:gjelder_aksjer_i_aksjeklasse ] ;
     sh:targetClass aksje:Aksjepost .
 
 aksje:Selskapshendelse a sh:NodeShape ;
@@ -443,19 +443,19 @@ aksje:Vederlag a sh:NodeShape ;
     rdfs:comment "Vederlag knytt til ei aksjeoverdraging." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:decimal ;
+            sh:description "Monetært beløp." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path aksje:belop ],
+        [ sh:datatype xsd:anyURI ;
             sh:description "Global identifikator for instansen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path aksje:identifikator ],
-        [ sh:datatype xsd:decimal ;
-            sh:description "Monetært beløp." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path aksje:belop ] ;
+            sh:path aksje:identifikator ] ;
     sh:targetClass aksje:Vederlag .
 
 aksje:Aksjeklasse a sh:NodeShape ;

@@ -703,6 +703,7 @@ name: Klassifikasjon
 description: Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til
   å klassifisere data (skos:ConceptScheme).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slots:
 - id
 - identifikator_literal
@@ -793,6 +794,7 @@ name: Klassifikasjon
 description: Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til
   å klassifisere data (skos:ConceptScheme).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
+rank: 1000
 slot_usage:
   identifikator_literal:
     name: identifikator_literal

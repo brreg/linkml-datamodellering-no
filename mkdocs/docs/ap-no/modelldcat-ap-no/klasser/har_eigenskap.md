@@ -22,13 +22,13 @@ Alias: har_eigenskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [RootObjekttype](rootobjekttype.md) | Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen |  no  |
-| [Modul](modul.md) | Ein modul som grupperer modellelement i informasjonsmodellen |  no  |
-| [Datatype](datatype.md) | Ein datatype — ein strukturert samansett type |  no  |
-| [Objekttype](objekttype.md) | Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen |  no  |
 | [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
 | [Modellelement](modellelement.md) | Abstrakt basisklasse for alle modellelement i ein informasjonsmodell |  yes  |
+| [RootObjekttype](rootobjekttype.md) | Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen |  no  |
 | [Kodeliste](kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
+| [Datatype](datatype.md) | Ein datatype — ein strukturert samansett type |  no  |
+| [Modul](modul.md) | Ein modul som grupperer modellelement i informasjonsmodellen |  no  |
+| [Objekttype](objekttype.md) | Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen |  no  |
 
 
 

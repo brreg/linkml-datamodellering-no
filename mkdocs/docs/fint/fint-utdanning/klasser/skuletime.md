@@ -22,9 +22,9 @@ Alias: skuletime
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rom](rom.md) | Eit rom eller lokale ved ein skule |  yes  |
-| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
 | [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
+| [Rom](rom.md) | Eit rom eller lokale ved ein skule |  yes  |
 
 
 

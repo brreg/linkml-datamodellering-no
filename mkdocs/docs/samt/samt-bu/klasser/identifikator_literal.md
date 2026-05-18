@@ -22,11 +22,11 @@ Alias: identifikator_literal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
-| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
 | [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
 

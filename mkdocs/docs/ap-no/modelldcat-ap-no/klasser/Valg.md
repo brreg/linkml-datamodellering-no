@@ -327,6 +327,7 @@ URI: [modelldcatno:Choice](https://data.norge.no/vocabulary/modelldcatno#Choice)
 name: Valg
 description: Eit val — ein eigenskap som representerer eit val mellom modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - har_noe
@@ -347,6 +348,7 @@ class_uri: modelldcatno:Choice
 name: Valg
 description: Eit val — ein eigenskap som representerer eit val mellom modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   har_noe:

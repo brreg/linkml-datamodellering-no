@@ -318,6 +318,7 @@ URI: [modelldcatno:Role](https://data.norge.no/vocabulary/modelldcatno#Role)
 name: Rolle
 description: Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - har_objekttype
@@ -338,6 +339,7 @@ class_uri: modelldcatno:Role
 name: Rolle
 description: Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   har_objekttype:

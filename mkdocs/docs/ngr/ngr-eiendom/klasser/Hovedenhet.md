@@ -152,6 +152,7 @@ name: Hovedenhet
 description: Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar.
   Tilhøyrer Domene virksomhet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 class_uri: ngre:Hovedenhet
@@ -167,6 +168,7 @@ name: Hovedenhet
 description: Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar.
   Tilhøyrer Domene virksomhet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   id:
     name: id

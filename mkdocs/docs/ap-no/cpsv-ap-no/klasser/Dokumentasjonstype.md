@@ -493,6 +493,7 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 name: Dokumentasjonstype
 description: Ein type dokumentasjon som krevst for å levere ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -556,6 +557,7 @@ class_uri: cv:EvidenceType
 name: Dokumentasjonstype
 description: Ein type dokumentasjon som krevst for å levere ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

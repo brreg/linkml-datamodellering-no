@@ -23,11 +23,11 @@ Alias: postadresse
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
-| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
-| [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  yes  |
-| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
 | [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 | [Person](person.md) | Fysiske private personar |  no  |
+| [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  yes  |
+| [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
 
 
 

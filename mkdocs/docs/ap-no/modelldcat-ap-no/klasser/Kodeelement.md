@@ -659,6 +659,7 @@ URI: [modelldcatno:CodeElement](https://data.norge.no/vocabulary/modelldcatno#Co
 name: Kodeelement
 description: Eit element i ei kodeliste (modelldcatno:CodeElement).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - i_skjema
@@ -716,6 +717,7 @@ class_uri: modelldcatno:CodeElement
 name: Kodeelement
 description: Eit element i ei kodeliste (modelldcatno:CodeElement).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slot_usage:
   i_skjema:
     name: i_skjema

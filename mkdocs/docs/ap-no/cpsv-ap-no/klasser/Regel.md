@@ -337,6 +337,7 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 name: Regel
 description: Eit regelverk eller retningsliner som styrer levering av ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -377,6 +378,7 @@ class_uri: cpsv:Rule
 name: Regel
 description: Eit regelverk eller retningsliner som styrer levering av ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

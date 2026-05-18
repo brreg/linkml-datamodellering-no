@@ -342,6 +342,7 @@ URI: [modelldcatno:Note](https://data.norge.no/vocabulary/modelldcatno#Note)
 name: Merknad
 description: Ei merknad knytt til eit modellelement eller eigenskap.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - annoterer
@@ -382,6 +383,7 @@ class_uri: modelldcatno:Note
 name: Merknad
 description: Ei merknad knytt til eit modellelement eller eigenskap.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slot_usage:
   annoterer:
     name: annoterer

@@ -217,6 +217,10 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69](https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69)
+
 
 
 ## Identifier and Mapping Information
@@ -256,6 +260,8 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+see_also:
+- https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 slots:
 - id
 - navn_aktor
@@ -279,6 +285,8 @@ class_uri: foaf:Agent
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+see_also:
+- https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 slot_usage:
   navn_aktor:
     name: navn_aktor

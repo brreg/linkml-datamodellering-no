@@ -192,6 +192,7 @@ URI: [ngre:Bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#Bruksnummer
 name: Bruksnummer
 description: Bruksnummer innanfor gardsnamnet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - bruksnummer_verdi
@@ -213,6 +214,7 @@ class_uri: ngre:Bruksnummer
 name: Bruksnummer
 description: Bruksnummer innanfor gardsnamnet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   bruksnummer_verdi:
     name: bruksnummer_verdi

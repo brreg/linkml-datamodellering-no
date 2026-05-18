@@ -23,8 +23,8 @@ Alias: tidsrom
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 
 
 

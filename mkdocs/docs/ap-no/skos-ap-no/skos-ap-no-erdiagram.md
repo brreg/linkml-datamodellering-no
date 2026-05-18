@@ -22,9 +22,6 @@ Begrep {
     LangStringList verdiomrade  
     LangStringList versjonsmerknad  
 }
-Begrepssamling {
-    uriorcurie id  
-}
 Definisjon {
     uriorcurie id  
     uriList kjelde  
@@ -33,12 +30,6 @@ Definisjon {
 GeneriskRelasjon {
     uriorcurie id  
     LangStringList inndelingskriterium  
-}
-Konsept {
-    uriorcurie id  
-}
-Mediatype {
-    uriorcurie id  
 }
 Organisasjon {
     uriorcurie id  
@@ -75,5 +66,5 @@ Samling ||--|| Organisasjon : "utgjevar"
 Samling ||--}| Begrep : "medlem"
 Samling ||--}| VCardKontakt : "kontaktpunkt_vcard"
 
-```
 
+```

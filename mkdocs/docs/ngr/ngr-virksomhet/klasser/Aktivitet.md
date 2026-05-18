@@ -194,6 +194,7 @@ name: Aktivitet
 description: Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen
   eller føremålet til verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - aktivitet_beskrivelse
@@ -216,6 +217,7 @@ name: Aktivitet
 description: Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen
   eller føremålet til verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   aktivitet_beskrivelse:
     name: aktivitet_beskrivelse

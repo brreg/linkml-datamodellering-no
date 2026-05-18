@@ -22,8 +22,8 @@ Alias: prosjektart
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Prosjekt](prosjekt.md) | Del av kontostrengen som peikar på løpande prosjekt |  yes  |
 | [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
+| [Prosjekt](prosjekt.md) | Del av kontostrengen som peikar på løpande prosjekt |  yes  |
 
 
 

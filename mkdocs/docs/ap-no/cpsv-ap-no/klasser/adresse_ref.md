@@ -22,8 +22,8 @@ Alias: adresse_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
 | [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
 
 
 

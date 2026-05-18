@@ -22,8 +22,8 @@ Alias: behandlingsgrunnlag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  yes  |
 | [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  yes  |
+| [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  yes  |
 
 
 

@@ -199,6 +199,7 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
 name: Aksjeeierrettighet
 description: Rettigheiter knytt til aksjar, til dømes stemmerett.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - beskrivelse
@@ -214,6 +215,7 @@ slots:
 name: Aksjeeierrettighet
 description: Rettigheiter knytt til aksjar, til dømes stemmerett.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

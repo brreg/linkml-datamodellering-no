@@ -263,6 +263,7 @@ URI: [https://schema.fintlabs.no/personvern/:PersonvernContainer](https://schema
 name: PersonvernContainer
 description: Rotcontainer for FINT Personvern-instansar.
 from_schema: https://data.norge.no/linkml/fint-personvern
+rank: 1000
 slots:
 - behandlingar
 - samtykker
@@ -286,6 +287,7 @@ tree_root: true
 name: PersonvernContainer
 description: Rotcontainer for FINT Personvern-instansar.
 from_schema: https://data.norge.no/linkml/fint-personvern
+rank: 1000
 slot_usage:
   behandlingsgrunnlag:
     name: behandlingsgrunnlag

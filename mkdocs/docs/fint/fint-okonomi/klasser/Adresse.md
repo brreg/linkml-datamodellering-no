@@ -22,8 +22,8 @@ Alias: adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
 | [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
+| [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
 
 
 

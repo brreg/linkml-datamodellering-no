@@ -277,6 +277,7 @@ URI: [ngrp:UtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#Utfly
 name: UtflyttingFraNorge
 description: Registrering av utflytting frå Noreg i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - tilflyttingsland
@@ -308,6 +309,7 @@ class_uri: ngrp:UtflyttingFraNorge
 name: UtflyttingFraNorge
 description: Registrering av utflytting frå Noreg i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   utflyttingsdato:
     name: utflyttingsdato

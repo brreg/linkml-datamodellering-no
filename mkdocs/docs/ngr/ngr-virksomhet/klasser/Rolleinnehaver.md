@@ -236,6 +236,7 @@ name: Rolleinnehaver
 description: Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå
   Folkeregisteret) eller ei anna eining.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - kan_vaere_av_type_person
@@ -262,6 +263,7 @@ name: Rolleinnehaver
 description: Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå
   Folkeregisteret) eller ei anna eining.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   kan_vaere_av_type_person:
     name: kan_vaere_av_type_person

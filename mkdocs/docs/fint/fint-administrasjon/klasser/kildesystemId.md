@@ -23,9 +23,9 @@ Alias: kildesystemId
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  yes  |
-| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
 | [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  yes  |
 | [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  yes  |
 
 

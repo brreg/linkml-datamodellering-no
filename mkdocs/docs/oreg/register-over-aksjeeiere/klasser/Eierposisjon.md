@@ -175,6 +175,7 @@ URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
 name: Eierposisjon
 description: Eierens samla posisjon i eit selskap.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - gjelder_aksjepost
@@ -189,6 +190,7 @@ slots:
 name: Eierposisjon
 description: Eierens samla posisjon i eit selskap.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

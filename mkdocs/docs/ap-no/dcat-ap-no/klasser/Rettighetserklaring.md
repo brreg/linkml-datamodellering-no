@@ -376,6 +376,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 slots:
 - id
 - anvendelsesretningslinjer
@@ -398,6 +399,7 @@ class_uri: dct:RightsStatement
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

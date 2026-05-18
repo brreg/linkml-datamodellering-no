@@ -22,8 +22,8 @@ Alias: identifikator_literal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 | [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
+| [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
 
 
 

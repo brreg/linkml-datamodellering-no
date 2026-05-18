@@ -22,8 +22,8 @@ Alias: har_antall_aksjer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
 | [Aksjekapital](aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |  no  |
+| [Aksjepost](aksjepost.md) | Samling aksjar eigd av ein aksjeeigar |  no  |
 
 
 

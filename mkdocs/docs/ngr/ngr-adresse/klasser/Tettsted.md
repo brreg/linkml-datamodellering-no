@@ -185,6 +185,7 @@ URI: [ngr:Tettsted](https://data.norge.no/vocabulary/ngr-adresse#Tettsted)
 name: Tettsted
 description: Eit tettbygd område definert av SSB.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slots:
 - tettstedsnummer
@@ -200,6 +201,7 @@ class_uri: ngr:Tettsted
 name: Tettsted
 description: Eit tettbygd område definert av SSB.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 attributes:
   tettstedsnummer:

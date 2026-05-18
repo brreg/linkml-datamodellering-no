@@ -204,6 +204,7 @@ URI: [modelldcatno:RootObjectType](https://data.norge.no/vocabulary/modelldcatno
 name: RootObjekttype
 description: Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 class_uri: modelldcatno:RootObjectType
 
@@ -217,6 +218,7 @@ class_uri: modelldcatno:RootObjectType
 name: RootObjekttype
 description: Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 attributes:
   id:

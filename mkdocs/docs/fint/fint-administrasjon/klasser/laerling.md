@@ -22,8 +22,8 @@ Alias: laerling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](person.md) | Fysiske private personar |  yes  |
 | [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  yes  |
+| [Person](person.md) | Fysiske private personar |  yes  |
 
 
 

@@ -10,30 +10,50 @@ Name: ngr-adresse
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Adressekode](adressekode.md) | Firesifra kommunal kode som identifiserer eit adressenavn |
 | [Adressenavn](adressenavn.md) | Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt ... |
+| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |
+| [Fylke](fylke.md) | Eit norsk fylke |
+| [Husnummer](husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |
+| [Kommune](kommune.md) | Ein norsk kommune |
+| [OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |
+| [Postboks](postboks.md) | Ei postboks registrert i Postboksregisteret |
+| [Postboksadresse](postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |
+| [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |
+| [Representasjonspunkt](representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
 | [Adresseomrade](adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |
 | [Bruksenhet](bruksenhet.md) | Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen |
-| [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining (leilegheit o |
 | [Bygning](bygning.md) | Referanse til ein bygning i Matrikkelen |
 | [GeografiskAdresse](geografiskadresse.md) | Abstrakt basisklasse for norske adressar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OffisiellAdresse](offisielladresse.md) | Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenav... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postboksadresse](postboksadresse.md) | Ei postboksadresse registrert i Postboksregisteret (Posten Norge) |
 | [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fylke](fylke.md) | Eit norsk fylke |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kommune](kommune.md) | Ein norsk kommune |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Svalbard](svalbard.md) | Svalbard som særskild geografisk område |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |
-| [Husnummer](husnummer.md) | Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t |
-| [Postboks](postboks.md) | Ei postboks registrert i Postboksregisteret |
-| [Representasjonspunkt](representasjonspunkt.md) | Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa |
+| [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |
+| [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |
+| [KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |
+| [Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |
+| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |
+| [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |
+
+
 
 
 

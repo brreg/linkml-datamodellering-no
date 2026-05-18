@@ -82,8 +82,8 @@ Selskapshendelse ||--|o Aksjeinnskudd : "kan_ha_aksjeinnskudd"
 Utbytte ||--|o Eierposisjon : "er_basert_paa_eierposisjon"
 Utbytte ||--|o Utdeling : "har_utdeling"
 
-```
 
+```
 
 
 LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
@@ -96,6 +96,18 @@ Name: aksje_eierskap
 
 
 ## Classes
+
+
+
+
+
+
+
+
+
+
+
+### Andre
 
 | Class | Description |
 | --- | --- |
@@ -117,6 +129,8 @@ Name: aksje_eierskap
 | [Utbytte](klasser/utbytte.md) | Utbytte knytt til ein eigarposisjon |
 | [Utdeling](klasser/utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |
 | [Vederlag](klasser/vederlag.md) | Vederlag knytt til ei aksjeoverdraging |
+
+
 
 
 

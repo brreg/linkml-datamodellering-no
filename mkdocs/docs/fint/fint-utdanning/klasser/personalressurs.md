@@ -22,8 +22,8 @@ Alias: personalressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](person.md) | Fysiske private personar |  no  |
 | [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
+| [Person](person.md) | Fysiske private personar |  no  |
 
 
 

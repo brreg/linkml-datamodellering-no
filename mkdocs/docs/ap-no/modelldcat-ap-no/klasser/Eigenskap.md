@@ -649,6 +649,7 @@ URI: [modelldcatno:Property](https://data.norge.no/vocabulary/modelldcatno#Prope
 name: Eigenskap
 description: Abstrakt basisklasse for eigenskapar knytt til eit modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 abstract: true
 slots:
 - id
@@ -725,6 +726,7 @@ class_uri: modelldcatno:Property
 name: Eigenskap
 description: Abstrakt basisklasse for eigenskapar knytt til eit modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 abstract: true
 slot_usage:
   begrep:

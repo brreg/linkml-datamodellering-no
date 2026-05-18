@@ -306,6 +306,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slots:
 - id
 - er_i_kvalitetsdeldimensjon
@@ -342,6 +343,7 @@ class_uri: dqv:Metric
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slot_usage:
   er_i_kvalitetsdeldimensjon:
     name: er_i_kvalitetsdeldimensjon

@@ -200,6 +200,7 @@ URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
 name: Aksjepost
 description: Samling aksjar eigd av ein aksjeeigar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - har_antall_aksjer
@@ -215,6 +216,7 @@ slots:
 name: Aksjepost
 description: Samling aksjar eigd av ein aksjeeigar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

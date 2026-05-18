@@ -194,6 +194,7 @@ URI: [ngr:Poststed](https://data.norge.no/vocabulary/ngr-adresse#Poststed)
 name: Poststed
 description: Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slots:
 - postnummer
@@ -215,6 +216,7 @@ class_uri: ngr:Poststed
 name: Poststed
 description: Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slot_usage:
   postnummer:

@@ -150,6 +150,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 name: KatalogisertRessurs
 description: Basisklasse for ressursar som kan katalogiserast (dcat:Resource).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 class_uri: dcat:Resource
@@ -164,6 +165,7 @@ class_uri: dcat:Resource
 name: KatalogisertRessurs
 description: Basisklasse for ressursar som kan katalogiserast (dcat:Resource).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

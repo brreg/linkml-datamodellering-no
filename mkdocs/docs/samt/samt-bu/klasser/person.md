@@ -140,6 +140,10 @@ URI: [samtbuskole:Person](https://example.no/ontology/skole#Person)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/9adf3e97-c9c2-3ee7-bc97-8f2a7e7fa69e](https://data.norge.no/concepts/9adf3e97-c9c2-3ee7-bc97-8f2a7e7fa69e)
+
 
 
 ## Identifier and Mapping Information
@@ -180,8 +184,11 @@ URI: [samtbuskole:Person](https://example.no/ontology/skole#Person)
 name: Person
 description: Eit menneske individ
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/9adf3e97-c9c2-3ee7-bc97-8f2a7e7fa69e
 exact_mappings:
 - foaf:Person
+rank: 1000
 abstract: true
 slots:
 - id
@@ -197,8 +204,11 @@ slots:
 name: Person
 description: Eit menneske individ
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/9adf3e97-c9c2-3ee7-bc97-8f2a7e7fa69e
 exact_mappings:
 - foaf:Person
+rank: 1000
 abstract: true
 attributes:
   id:

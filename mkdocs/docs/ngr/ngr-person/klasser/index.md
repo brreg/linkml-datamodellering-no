@@ -10,30 +10,30 @@ Name: ngr-person
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Adressebeskyttelse](adressebeskyttelse.md) | Gradering av adressebeskyttelse for innflyttede personar til Noreg |
+| [DNummer](dnummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |
 | [Dodsfall](dodsfall.md) | Dødsfallsinformasjon om ein person registrert i Folkeregisteret |
 | [FalskIdentitet](falskidentitet.md) | Registrering av at ein person har opptrådt med falsk identitet |
 | [FamilierelasjonBarn](familierelasjonbarn.md) | Familierelasjon der den relaterte personen er barn |
 | [FamilierelasjonEktefelle](familierelasjonektefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |
 | [FamilierelasjonForelder](familierelasjonforelder.md) | Familierelasjon der den relaterte personen er forelder |
 | [Foedsel](foedsel.md) | Fødselsinformasjon om ein person registrert i Folkeregisteret |
-| [Folkeregisteridentifikator](folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DNummer](dnummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Foedselsnummer](foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |
+| [Foedselsnummer](foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |
 | [ForeldreansvarBarn](foreldreansvarbarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |
 | [ForeldreansvarForelder](foreldreansvarforelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |
-| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Bostedsadresse](bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Oppholdsadresse](oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Postadresse](postadresse.md) | Adressa der personen mottar post |
 | [Identifikasjonsdokument](identifikasjonsdokument.md) | Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort... |
 | [Identitetsgrunnlag](identitetsgrunnlag.md) | Grunnlaget som er brukt for å fastsetje identiteten til ein person ved regist... |
 | [InnflyttingTilNorge](innflyttingtilnorge.md) | Registrering av innflytting til Noreg i Folkeregisteret |
 | [Kjoenn](kjoenn.md) | Kjønn registrert på ein person i Folkeregisteret |
 | [KontaktinformasjonDoedsbo](kontaktinformasjondoedsbo.md) | Kontaktinformasjon for eit dødsbu |
-| [Kontaktopplysninger](kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |
 | [Opphold](opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |
 | [Person](person.md) | Ein fysisk person registrert i Folkeregisteret |
 | [Personidentifikasjon](personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |
@@ -46,6 +46,32 @@ Name: ngr-person
 | [Statsborgerskap](statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |
 | [UtflyttingFraNorge](utflyttingfranorge.md) | Registrering av utflytting frå Noreg i Folkeregisteret |
 | [Verge](verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Bostedsadresse](bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |
+| [Kontaktopplysninger](kontaktopplysninger.md) | Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det... |
+| [Oppholdsadresse](oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |
+| [Postadresse](postadresse.md) | Adressa der personen mottar post |
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Folkeregisteridentifikator](folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |
+| [GeografiskAdresse](geografiskadresse.md) | Abstrakt klasse for geografiske adresser |
+
+
 
 
 

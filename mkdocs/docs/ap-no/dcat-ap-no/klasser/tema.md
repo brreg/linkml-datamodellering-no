@@ -22,8 +22,8 @@ Alias: tema
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 

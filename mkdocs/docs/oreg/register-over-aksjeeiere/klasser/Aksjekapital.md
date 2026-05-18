@@ -172,6 +172,7 @@ URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
 name: Aksjekapital
 description: Den registrerte aksjekapitalen i eit aksjeselskap.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - har_antall_aksjer
@@ -186,6 +187,7 @@ slots:
 name: Aksjekapital
 description: Den registrerte aksjekapitalen i eit aksjeselskap.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

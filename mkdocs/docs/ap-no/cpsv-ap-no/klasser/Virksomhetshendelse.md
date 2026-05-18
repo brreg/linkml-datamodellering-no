@@ -271,6 +271,7 @@ name: Virksomhetshendelse
 description: Ei verksemdhending som kan utløyse behov for tenester (t.d. oppstart,
   konkurs).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 is_a: Hendelse
 slots:
 - kan_utlose_behov_for
@@ -292,6 +293,7 @@ name: Virksomhetshendelse
 description: Ei verksemdhending som kan utløyse behov for tenester (t.d. oppstart,
   konkurs).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 is_a: Hendelse
 slot_usage:
   kan_utlose_behov_for:

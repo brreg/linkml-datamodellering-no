@@ -518,6 +518,7 @@ URI: [ark:SoeknadDrosjeloeyve](https://schema.fintlabs.no/arkiv/SoeknadDrosjeloe
 name: SoeknadDrosjeloeyve
 description: Sak om søknad om løyve til å køyre drosje.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slots:
 - organisasjonsnavn
@@ -545,6 +546,7 @@ class_uri: ark:SoeknadDrosjeloeyve
 name: SoeknadDrosjeloeyve
 description: Sak om søknad om løyve til å køyre drosje.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slot_usage:
   organisasjonsnavn:

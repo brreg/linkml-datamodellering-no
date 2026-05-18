@@ -278,6 +278,7 @@ name: Verge
 description: Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta
   interessene til ein person. Er av type Person.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - er_av_type_person
@@ -310,6 +311,7 @@ name: Verge
 description: Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta
   interessene til ein person. Er av type Person.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   er_av_type_person:
     name: er_av_type_person

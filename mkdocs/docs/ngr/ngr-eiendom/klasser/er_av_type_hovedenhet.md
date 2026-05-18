@@ -22,8 +22,8 @@ Alias: er_av_type_hovedenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  yes  |
 | [Borettslag](borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |  yes  |
+| [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  yes  |
 
 
 

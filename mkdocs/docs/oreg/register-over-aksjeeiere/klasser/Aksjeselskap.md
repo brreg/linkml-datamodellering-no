@@ -229,6 +229,7 @@ URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
 name: Aksjeselskap
 description: Selskap som utsteder aksjar og har aksjekapital.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - navn
@@ -245,6 +246,7 @@ slots:
 name: Aksjeselskap
 description: Selskap som utsteder aksjar og har aksjekapital.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

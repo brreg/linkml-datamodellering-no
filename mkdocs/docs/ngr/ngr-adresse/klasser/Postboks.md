@@ -193,6 +193,7 @@ URI: [ngr:Postboks](https://data.norge.no/vocabulary/ngr-adresse#Postboks)
 name: Postboks
 description: Ei postboks registrert i Postboksregisteret.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 slots:
 - id
 - postboksnummer
@@ -214,6 +215,7 @@ class_uri: ngr:Postboks
 name: Postboks
 description: Ei postboks registrert i Postboksregisteret.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 slot_usage:
   postboksnummer:
     name: postboksnummer

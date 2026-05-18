@@ -157,6 +157,7 @@ name: Anleggsprojeksjonsflate
 description: Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet og må
   supplerast på oppdrag.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 class_uri: ngre:Anleggsprojeksjonsflate
@@ -172,6 +173,7 @@ name: Anleggsprojeksjonsflate
 description: Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet og må
   supplerast på oppdrag.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   id:
     name: id

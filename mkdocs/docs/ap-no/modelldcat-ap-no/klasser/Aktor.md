@@ -250,6 +250,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - namn_aktor
@@ -273,6 +274,7 @@ class_uri: foaf:Agent
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slot_usage:
   namn_aktor:
     name: namn_aktor

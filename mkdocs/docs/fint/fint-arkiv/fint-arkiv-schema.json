@@ -1661,7 +1661,7 @@
                     "description": "Klassifikasjonssystem.",
                     "type": "string"
                 },
-                "rekkef\u00f8lge": {
+                "rekkefoelge": {
                     "description": "Rekkjef\u00f8lgje for klassifiseringar.",
                     "type": [
                         "integer",

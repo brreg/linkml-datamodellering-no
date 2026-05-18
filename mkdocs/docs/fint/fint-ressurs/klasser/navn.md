@@ -22,25 +22,25 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
-| [Status](status.md) | Status på ei digital eining i fagsystemet |  yes  |
 | [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
 | [Produsent](produsent.md) | Produsent av ei digital eining |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  yes  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
 | [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
 | [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  yes  |
+| [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
+| [Status](status.md) | Status på ei digital eining i fagsystemet |  yes  |
+| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |  yes  |
+| [Enhetstype](enhetstype.md) | Type digital eining |  yes  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 | [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |  yes  |
-| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Enhetstype](enhetstype.md) | Type digital eining |  yes  |
-| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
-| [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |  yes  |
 
 
 

@@ -387,6 +387,7 @@ description: Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit
   kan ha fleire ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i
   dag spreidd i fleire databasar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - har_bygningsnummer
@@ -437,6 +438,7 @@ description: Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit
   kan ha fleire ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i
   dag spreidd i fleire databasar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   har_bygningsnummer:
     name: har_bygningsnummer

@@ -230,6 +230,7 @@ name: Rettighetshaver
 description: Den som har ein rett knytt til ein eigedom. Kan vere ein fysisk person
   eller ei hovudeining (juridisk person).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - er_av_type_person
@@ -256,6 +257,7 @@ name: Rettighetshaver
 description: Den som har ein rett knytt til ein eigedom. Kan vere ein fysisk person
   eller ei hovudeining (juridisk person).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   er_av_type_person:
     name: er_av_type_person

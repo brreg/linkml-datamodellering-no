@@ -22,8 +22,8 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 | [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  yes  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 
 
 

@@ -539,6 +539,7 @@ URI: [modelldcatno:SimpleType](https://data.norge.no/vocabulary/modelldcatno#Sim
 name: EnkelType
 description: Ein enkel type med restriksjonar (xsd-fasettar).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 slots:
 - typedefinisjon_referanse
@@ -569,6 +570,7 @@ class_uri: modelldcatno:SimpleType
 name: EnkelType
 description: Ein enkel type med restriksjonar (xsd-fasettar).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 slot_usage:
   typedefinisjon_referanse:

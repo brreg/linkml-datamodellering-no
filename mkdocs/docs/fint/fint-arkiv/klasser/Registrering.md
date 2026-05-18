@@ -920,6 +920,7 @@ URI: [ark:Registrering](https://schema.fintlabs.no/arkiv/Registrering)
 name: Registrering
 description: Abstrakt basisklasse — arkivets primære byggeklossar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 abstract: true
 slots:
 - id
@@ -1045,6 +1046,7 @@ class_uri: ark:Registrering
 name: Registrering
 description: Abstrakt basisklasse — arkivets primære byggeklossar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 abstract: true
 slot_usage:
   arkivertDato:

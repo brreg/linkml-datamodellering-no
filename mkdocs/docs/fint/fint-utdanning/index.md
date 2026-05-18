@@ -2,11 +2,6 @@
 
 ```mermaid
 erDiagram
-Adresse {
-    stringList adresselinje  
-    string postnummer  
-    string poststed  
-}
 Anmerkninger {
     uriorcurie id  
     integer atferd  
@@ -78,9 +73,6 @@ Eksamensvurdering {
     uriorcurie id  
     string kommentar  
     datetime vurderingsdato  
-}
-Elev {
-    uriorcurie id  
 }
 Elevforhold {
     uriorcurie id  
@@ -155,12 +147,6 @@ Fullfortkode {
     string navn  
     boolean passiv  
 }
-Fylke {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
 Halvaarsfagvurdering {
     uriorcurie id  
     string kommentar  
@@ -170,9 +156,6 @@ Halvaarsordensvurdering {
     uriorcurie id  
     string kommentar  
     datetime vurderingsdato  
-}
-Identifikator {
-    string identifikatorverdi  
 }
 Karakterhistorie {
     uriorcurie id  
@@ -197,12 +180,6 @@ Karakterverdi {
     string navn  
     boolean passiv  
 }
-Kjonn {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
 Klasse {
     uriorcurie id  
     string beskrivelse  
@@ -210,19 +187,6 @@ Klasse {
 }
 Klassemedlemskap {
     uriorcurie id  
-}
-Kommune {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
-Kontaktinformasjon {
-    string epostadresse  
-    string mobiltelefonnummer  
-    string nettsted  
-    string sip  
-    string telefonnummer  
 }
 Kontaktlaerergruppe {
     uriorcurie id  
@@ -232,20 +196,10 @@ Kontaktlaerergruppe {
 Kontaktlaerergruppemedlemskap {
     uriorcurie id  
 }
-Kontaktperson {
-    uriorcurie id  
-    string type  
-}
 Laerling {
     uriorcurie id  
     uriorcurie bedrift  
     string kontraktstype  
-}
-Landkode {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
 }
 OtEnhet {
     uriorcurie id  
@@ -264,19 +218,6 @@ OtStatus {
 OtUngdom {
     uriorcurie id  
 }
-Periode {
-    string beskrivelse  
-    datetime slutt  
-    datetime start  
-}
-Person {
-    uriorcurie id  
-    string bilde  
-    date fodselsdato  
-    uriorcurieList laerling  
-    uriorcurie otungdom  
-    uriorcurie personalressurs  
-}
 Persongruppe {
     uriorcurie id  
     string beskrivelse  
@@ -284,11 +225,6 @@ Persongruppe {
 }
 Persongruppemedlemskap {
     uriorcurie id  
-}
-Personnavn {
-    string etternavn  
-    string fornavn  
-    string mellomnavn  
 }
 Programomrade {
     uriorcurie grepreferanse  
@@ -349,12 +285,6 @@ Sluttordensvurdering {
     uriorcurie id  
     string kommentar  
     datetime vurderingsdato  
-}
-Spraak {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
 }
 Termin {
     uriorcurie id  
@@ -422,22 +352,15 @@ Vitnemalsmerknad {
     boolean passiv  
 }
 
-Adresse ||--|o Landkode : "land"
 Anmerkninger ||--|o Skoleaar : "skoleaar"
 Arstrinn ||--}o Klasse : "klasse"
 Arstrinn ||--}o Programomrade : "programomrade"
-Avbruddsaarsak ||--|o Periode : "gyldighetsperiode"
 AvlagtProve ||--|o Bevistype : "bevistype"
 AvlagtProve ||--|o Brevtype : "brevtype"
 AvlagtProve ||--|o Fullfortkode : "fullfortkode"
 AvlagtProve ||--|o Provestatus : "provestatus"
-Betalingsstatus ||--|o Periode : "gyldighetsperiode"
-Bevistype ||--|o Periode : "gyldighetsperiode"
-Brevtype ||--|o Periode : "gyldighetsperiode"
 Eksamen ||--|o Eksamensgruppe : "eksamensgruppe"
-Eksamen ||--|o Periode : "tidsrom"
 Eksamen ||--}o Rom : "rom"
-Eksamensform ||--|o Periode : "gyldighetsperiode"
 Eksamensgruppe ||--|o Eksamen : "eksamen"
 Eksamensgruppe ||--|o Eksamensform : "eksamensform"
 Eksamensgruppe ||--|o Skoleaar : "skoleaar"
@@ -449,7 +372,6 @@ Eksamensgruppe ||--}o Sensor : "sensor"
 Eksamensgruppe ||--}o Undervisningsforhold : "undervisningsforhold"
 Eksamensgruppemedlemskap ||--|o Betalingsstatus : "betalingsstatus"
 Eksamensgruppemedlemskap ||--|o Karakterstatus : "nus"
-Eksamensgruppemedlemskap ||--|o Periode : "gyldighetsperiode"
 Eksamensgruppemedlemskap ||--|| Eksamensgruppe : "eksamensgruppe"
 Eksamensgruppemedlemskap ||--|| Elevforhold : "elevforhold"
 Eksamensvurdering ||--|o Fag : "fag"
@@ -458,14 +380,11 @@ Eksamensvurdering ||--|o Skoleaar : "skoleaar"
 Eksamensvurdering ||--|| Eksamensgruppe : "eksamensgruppe"
 Eksamensvurdering ||--|| Elevvurdering : "elevvurdering"
 Eksamensvurdering ||--}o Karakterhistorie : "karakterhistorie"
-Elev ||--|o Identifikator : "elevnummer"
-Elev ||--|o Person : "person"
 Elevforhold ||--|o Avbruddsaarsak : "avbruddsarsak"
 Elevforhold ||--|o Elevkategori : "kategori"
 Elevforhold ||--|o Elevvurdering : "elevvurdering"
 Elevforhold ||--|o Fravarsoversikt : "elevfravar"
 Elevforhold ||--|o Skoleaar : "skoleaar"
-Elevforhold ||--|| Elev : "elev"
 Elevforhold ||--|| Skole : "skole"
 Elevforhold ||--}o Eksamensgruppemedlemskap : "eksamensgruppemedlemskap"
 Elevforhold ||--}o Elevfravar : "fraversregistreringer"
@@ -478,7 +397,6 @@ Elevforhold ||--}o Programomrademedlemskap : "programomrademedlemskap"
 Elevforhold ||--}o Undervisningsgruppemedlemskap : "undervisningsgruppemedlemskap"
 Elevfravar ||--|| Elevforhold : "elevforhold"
 Elevfravar ||--}o Fraversregistrering : "fraversregistrering"
-Elevkategori ||--|o Periode : "gyldighetsperiode"
 Elevtilrettelegging ||--|o Eksamensform : "eksamensform"
 Elevtilrettelegging ||--|o Elevforhold : "elev"
 Elevtilrettelegging ||--|o Tilrettelegging : "tilrettelegging"
@@ -505,23 +423,15 @@ Faggruppemedlemskap ||--|o Elevforhold : "elevforhold"
 Faggruppemedlemskap ||--|o Faggruppe : "faggruppe"
 Faggruppemedlemskap ||--|o Fagmerknad : "fagmerknad"
 Faggruppemedlemskap ||--|o Fagstatus : "fagstatus"
-Faggruppemedlemskap ||--|o Periode : "gyldighetsperiode"
 Faggruppemedlemskap ||--}o Varsel : "varsel"
-Fagmerknad ||--|o Periode : "gyldighetsperiode"
-Fagstatus ||--|o Periode : "gyldighetsperiode"
 Fravarsoversikt ||--|| Elevforhold : "elevforhold"
 Fravarsoversikt ||--|| Fag : "fag"
 Fravarsoversikt ||--|| Fravarsprosent : "halvaar, skoleaarFravar"
-Fravartype ||--|o Periode : "gyldighetsperiode"
 Fraversregistrering ||--|o Elevfravar : "elevfravar"
 Fraversregistrering ||--|o Faggruppe : "faggruppe"
 Fraversregistrering ||--|o Skoleressurs : "registrertAv"
 Fraversregistrering ||--|| Fravartype : "fravartype"
-Fraversregistrering ||--|| Periode : "periode"
 Fraversregistrering ||--|| Undervisningsgruppe : "undervisningsgruppe"
-Fullfortkode ||--|o Periode : "gyldighetsperiode"
-Fylke ||--|o Periode : "gyldighetsperiode"
-Fylke ||--}o Kommune : "kommune"
 Halvaarsfagvurdering ||--|o Fag : "fag"
 Halvaarsfagvurdering ||--|o Karakterverdi : "karakter"
 Halvaarsfagvurdering ||--|o Skoleaar : "skoleaar"
@@ -529,16 +439,11 @@ Halvaarsfagvurdering ||--|| Elevvurdering : "elevvurdering"
 Halvaarsordensvurdering ||--|o Karakterverdi : "atferd, orden"
 Halvaarsordensvurdering ||--|o Skoleaar : "skoleaar"
 Halvaarsordensvurdering ||--|| Elevvurdering : "elevvurdering"
-Identifikator ||--|o Periode : "gyldighetsperiode"
 Karakterhistorie ||--|o Karakterstatus : "karakterstatus, opprinneligKarakterstatus"
 Karakterhistorie ||--|o Karakterverdi : "karakterverdi, opprinneligKarakterverdi"
 Karakterhistorie ||--|o Skoleressurs : "oppdatertAv"
-Karakterskala ||--|o Periode : "gyldighetsperiode"
 Karakterskala ||--}o Karakterverdi : "verdi"
-Karakterstatus ||--|o Periode : "gyldighetsperiode"
-Karakterverdi ||--|o Periode : "gyldighetsperiode"
 Karakterverdi ||--|| Karakterskala : "skala"
-Kjonn ||--|o Periode : "gyldighetsperiode"
 Klasse ||--|o Skole : "skole"
 Klasse ||--|o Skoleaar : "skoleaar"
 Klasse ||--}o Arstrinn : "trinn"
@@ -548,9 +453,6 @@ Klasse ||--}o Termin : "termin"
 Klasse ||--}o Undervisningsforhold : "undervisningsforhold"
 Klassemedlemskap ||--|o Elevforhold : "elevforhold"
 Klassemedlemskap ||--|o Klasse : "klasse"
-Klassemedlemskap ||--|o Periode : "gyldighetsperiode"
-Kommune ||--|o Periode : "gyldighetsperiode"
-Kommune ||--|| Fylke : "fylke"
 Kontaktlaerergruppe ||--|o Skole : "skole"
 Kontaktlaerergruppe ||--|o Skoleaar : "skoleaar"
 Kontaktlaerergruppe ||--}o Kontaktlaerergruppemedlemskap : "gruppemedlemskap"
@@ -559,33 +461,11 @@ Kontaktlaerergruppe ||--}o Undervisningsforhold : "undervisningsforhold"
 Kontaktlaerergruppe ||--}| Klasse : "klasse"
 Kontaktlaerergruppemedlemskap ||--|o Elevforhold : "elevforhold"
 Kontaktlaerergruppemedlemskap ||--|o Kontaktlaerergruppe : "kontaktlaerergruppe"
-Kontaktlaerergruppemedlemskap ||--|o Periode : "gyldighetsperiode"
-Kontaktperson ||--|o Kontaktinformasjon : "kontaktinformasjon"
-Kontaktperson ||--|o Personnavn : "kontaktperson_navn"
-Kontaktperson ||--}o Person : "kontaktperson"
-Laerling ||--|o Periode : "laretid"
 Laerling ||--|o Programomrade : "programomrade"
-Laerling ||--|| Person : "person"
 Laerling ||--}o AvlagtProve : "avlagtprove"
-Landkode ||--|o Periode : "gyldighetsperiode"
-OtEnhet ||--|o Periode : "gyldighetsperiode"
-OtEnhet ||--|| Kommune : "kommune"
-OtStatus ||--|o Periode : "gyldighetsperiode"
 OtUngdom ||--|o OtEnhet : "enhet"
 OtUngdom ||--|o OtStatus : "status"
 OtUngdom ||--|o Programomrade : "programomrade"
-OtUngdom ||--|| Person : "person"
-Person ||--|o Adresse : "bostedsadresse, postadresse"
-Person ||--|o Elev : "elev"
-Person ||--|o Kjonn : "kjonn"
-Person ||--|o Kommune : "kommune"
-Person ||--|o Kontaktinformasjon : "kontaktinformasjon"
-Person ||--|o Spraak : "maalform, morsmaal"
-Person ||--|| Identifikator : "fodselsnummer"
-Person ||--|| Personnavn : "person_navn"
-Person ||--}o Kontaktperson : "parorende"
-Person ||--}o Landkode : "statsborgerskap"
-Person ||--}o Person : "foreldre, foreldreansvar"
 Persongruppe ||--|o Skole : "skole"
 Persongruppe ||--|o Skoleaar : "skoleaar"
 Persongruppe ||--}o Elevforhold : "elev"
@@ -594,20 +474,15 @@ Persongruppe ||--}o Skoleressurs : "skoleressurs"
 Persongruppe ||--}o Termin : "termin"
 Persongruppe ||--}o Undervisningsforhold : "undervisningsforhold"
 Persongruppemedlemskap ||--|o Elevforhold : "elevforhold"
-Persongruppemedlemskap ||--|o Periode : "gyldighetsperiode"
 Persongruppemedlemskap ||--|o Persongruppe : "persongruppe"
 Programomrade ||--}o Arstrinn : "trinn"
 Programomrade ||--}o Programomrademedlemskap : "gruppemedlemskap"
 Programomrademedlemskap ||--|o Elevforhold : "elevforhold"
-Programomrademedlemskap ||--|o Periode : "gyldighetsperiode"
 Programomrademedlemskap ||--|o Programomrade : "programomrade"
-Provestatus ||--|o Periode : "gyldighetsperiode"
 Rom ||--}o Eksamen : "eksamen"
 Rom ||--}o Time : "skuletime"
 Sensor ||--|| Eksamensgruppe : "eksamensgruppe"
 Sensor ||--|| Skoleressurs : "skoleressurs"
-Skole ||--|o Adresse : "forretningsadresse, postadresse"
-Skole ||--|o Identifikator : "organisasjonsnummer, skolenummer"
 Skole ||--|o Skoleeiertype : "skoleeierType"
 Skole ||--}o Eksamensgruppe : "eksamensgruppe"
 Skole ||--}o Fag : "fag"
@@ -616,10 +491,6 @@ Skole ||--}o Klasse : "klasse"
 Skole ||--}o Kontaktlaerergruppe : "kontaktlaerergruppe"
 Skole ||--}o Skoleressurs : "skoleressurs"
 Skole ||--}o Utdanningsprogram : "utdanningsprogram"
-Skoleaar ||--|o Periode : "gyldighetsperiode"
-Skoleeiertype ||--|o Periode : "gyldighetsperiode"
-Skoleressurs ||--|o Identifikator : "feidenavn"
-Skoleressurs ||--|o Person : "person"
 Skoleressurs ||--}o Sensor : "sensor"
 Skoleressurs ||--}o Skole : "skole"
 Sluttfagvurdering ||--|o Eksamensgruppe : "eksamensgruppe"
@@ -631,10 +502,6 @@ Sluttfagvurdering ||--}o Karakterhistorie : "karakterhistorie"
 Sluttordensvurdering ||--|o Karakterverdi : "atferd, orden"
 Sluttordensvurdering ||--|o Skoleaar : "skoleaar"
 Sluttordensvurdering ||--|| Elevvurdering : "elevvurdering"
-Spraak ||--|o Periode : "gyldighetsperiode"
-Termin ||--|o Periode : "gyldighetsperiode"
-Tilrettelegging ||--|o Periode : "gyldighetsperiode"
-Time ||--|o Periode : "tidsrom"
 Time ||--}o Rom : "rom"
 Time ||--}| Undervisningsforhold : "undervisningsforhold"
 Time ||--}| Undervisningsgruppe : "undervisningsgruppe"
@@ -658,18 +525,15 @@ Undervisningsgruppe ||--}o Undervisningsforhold : "undervisningsforhold"
 Undervisningsgruppe ||--}o Undervisningsgruppemedlemskap : "gruppemedlemskap"
 Undervisningsgruppe ||--}| Fag : "fag"
 Undervisningsgruppemedlemskap ||--|o Elevforhold : "elevforhold"
-Undervisningsgruppemedlemskap ||--|o Periode : "gyldighetsperiode"
 Undervisningsgruppemedlemskap ||--|o Undervisningsgruppe : "undervisningsgruppe"
 Utdanningsprogram ||--}o Programomrade : "programomrade"
 Utdanningsprogram ||--}o Skole : "skole"
 Varsel ||--|o Skoleressurs : "karakteransvarlig, utsteder"
 Varsel ||--|o Varseltype : "type"
 Varsel ||--}o Faggruppemedlemskap : "faggruppemedlemskap"
-Varseltype ||--|o Periode : "gyldighetsperiode"
-Vitnemalsmerknad ||--|o Periode : "gyldighetsperiode"
+
 
 ```
-
 
 
 FINT-domenemodell for utdanning. Dekkjer elevar, skular, skoleressursar, elevforhold, undervisningsforhold, klasser, undervisningsgrupper, faggrupper, kontaktlærergrupper, utdanningsprogram, programområde, vurdering, lærling og OT.
@@ -683,6 +547,12 @@ Name: fint-utdanning
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Anmerkninger](klasser/anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |
@@ -693,69 +563,89 @@ Name: fint-utdanning
 | [Brevtype](klasser/brevtype.md) | Type brev knytt til lærlingprøve |
 | [Eksamen](klasser/eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |
 | [Eksamensform](klasser/eksamensform.md) | Form for gjennomføring av eksamen |
+| [Eksamensgruppe](klasser/eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |
+| [Eksamensgruppemedlemskap](klasser/eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |
+| [Eksamensvurdering](klasser/eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |
 | [Elevforhold](klasser/elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |
 | [Elevfravar](klasser/elevfravar.md) | Fråværsregistreringar for ein elev knytt til eit elevforhold |
 | [Elevkategori](klasser/elevkategori.md) | Kategori for eit elevforhold (t |
-| [Elevtilrettelegging](klasser/elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |
 | [Elevvurdering](klasser/elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |
+| [Faggruppe](klasser/faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |
 | [Fagmerknad](klasser/fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |
 | [Fagstatus](klasser/fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |
 | [FagvurderingAbstrakt](klasser/fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensvurdering](klasser/eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsfagvurdering](klasser/halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttfagvurdering](klasser/sluttfagvurdering.md) | Sluttkarakter i eit fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisfagvurdering](klasser/underveisfagvurdering.md) | Underveisfagvurdering for ein elev |
 | [Fravarsoversikt](klasser/fravarsoversikt.md) | Oversikt over fråvær for ein elev i eit fag |
 | [Fravarsprosent](klasser/fravarsprosent.md) | Kompleks type som representerer fråværsprosent for ein periode |
 | [Fravartype](klasser/fravartype.md) | Type fråvær (t |
 | [Fraversregistrering](klasser/fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |
 | [Fullfortkode](klasser/fullfortkode.md) | Kode for fullførtresultat av lærling |
 | [Gruppe](klasser/gruppe.md) | Abstrakt basisklasse for alle gruppetypar i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Arstrinn](klasser/arstrinn.md) | Eit årstrinn i skulen (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppe](klasser/eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Fag](klasser/fag.md) | Eit skulefag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppe](klasser/faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klasse](klasser/klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppe](klasser/kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppe](klasser/persongruppe.md) | Ei gruppe elevar definert for personlege føremål |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrade](klasser/programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppe](klasser/undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Utdanningsprogram](klasser/utdanningsprogram.md) | Eit utdanningsprogram (t |
-| [Gruppemedlemskap](klasser/gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eksamensgruppemedlemskap](klasser/eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Faggruppemedlemskap](klasser/faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Klassemedlemskap](klasser/klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Kontaktlaerergruppemedlemskap](klasser/kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Persongruppemedlemskap](klasser/persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Programomrademedlemskap](klasser/programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsgruppemedlemskap](klasser/undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |
+| [Halvaarsfagvurdering](klasser/halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |
+| [Halvaarsordensvurdering](klasser/halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |
 | [Karakterhistorie](klasser/karakterhistorie.md) | Historikk over endringar i ein karakter |
 | [Karakterskala](klasser/karakterskala.md) | Skala for karaktersetjing (t |
 | [Karakterstatus](klasser/karakterstatus.md) | Status for ein karakter (t |
 | [Karakterverdi](klasser/karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |
+| [Kontaktlaerergruppe](klasser/kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |
 | [Laerling](klasser/laerling.md) | Ein lærling i yrkesopplæring |
 | [OrdensvurderingAbstrakt](klasser/ordensvurderingabstrakt.md) | Abstrakt basisklasse for ordensvurderingar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Halvaarsordensvurdering](klasser/halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sluttordensvurdering](klasser/sluttordensvurdering.md) | Sluttordensvurdering for ein elev |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Underveisordensvurdering](klasser/underveisordensvurdering.md) | Underveisordensvurdering for ein elev |
 | [OtEnhet](klasser/otenhet.md) | Eining i oppfølgingstenesta (OT) |
 | [OtStatus](klasser/otstatus.md) | Status for ein ungdom i oppfølgingstenesta |
 | [OtUngdom](klasser/otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |
 | [Provestatus](klasser/provestatus.md) | Status for ei lærlingprøve |
-| [Rom](klasser/rom.md) | Eit rom eller lokale ved ein skule |
 | [Sensor](klasser/sensor.md) | Ein sensor for ein eksamen |
 | [Skole](klasser/skole.md) | Ein skule eller opplæringsinstitusjon |
 | [Skoleaar](klasser/skoleaar.md) | Eit skoleår (t |
 | [Skoleeiertype](klasser/skoleeiertype.md) | Type skuleeigartilknyting |
 | [Skoleressurs](klasser/skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |
+| [Sluttfagvurdering](klasser/sluttfagvurdering.md) | Sluttkarakter i eit fag |
+| [Sluttordensvurdering](klasser/sluttordensvurdering.md) | Sluttordensvurdering for ein elev |
 | [Termin](klasser/termin.md) | Ein skuleterm (t |
 | [Tilrettelegging](klasser/tilrettelegging.md) | Type tilrettelegging for elevar (t |
 | [Time](klasser/time.md) | Ein time i timeplanen |
-| [Utdanningsforhold](klasser/utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Undervisningsforhold](klasser/undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |
-| [Varsel](klasser/varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |
+| [Underveisfagvurdering](klasser/underveisfagvurdering.md) | Underveisfagvurdering for ein elev |
+| [Underveisordensvurdering](klasser/underveisordensvurdering.md) | Underveisordensvurdering for ein elev |
+| [Undervisningsforhold](klasser/undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |
+| [Undervisningsgruppe](klasser/undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |
 | [Varseltype](klasser/varseltype.md) | Type varsel knytt til ein elev |
 | [Vitnemalsmerknad](klasser/vitnemalsmerknad.md) | Merknad på vitnemål |
+
+
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Arstrinn](klasser/arstrinn.md) | Eit årstrinn i skulen (t |
+| [Elevtilrettelegging](klasser/elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |
+| [Fag](klasser/fag.md) | Eit skulefag |
+| [Faggruppemedlemskap](klasser/faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |
+| [Gruppemedlemskap](klasser/gruppemedlemskap.md) | Abstrakt basisklasse for gruppemedlemskapar i utdanning |
+| [Klasse](klasser/klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |
+| [Klassemedlemskap](klasser/klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |
+| [Kontaktlaerergruppemedlemskap](klasser/kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |
+| [Persongruppe](klasser/persongruppe.md) | Ei gruppe elevar definert for personlege føremål |
+| [Persongruppemedlemskap](klasser/persongruppemedlemskap.md) | Eit elevs medlemskap i ei persongruppe |
+| [Programomrade](klasser/programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |
+| [Programomrademedlemskap](klasser/programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |
+| [Rom](klasser/rom.md) | Eit rom eller lokale ved ein skule |
+| [Undervisningsgruppemedlemskap](klasser/undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |
+| [Utdanningsforhold](klasser/utdanningsforhold.md) | Abstrakt basisklasse for undervisningsforhold i utdanning |
+| [Utdanningsprogram](klasser/utdanningsprogram.md) | Eit utdanningsprogram (t |
+| [Varsel](klasser/varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+
+
 
 
 

@@ -199,6 +199,7 @@ URI: [cpsvno:OutputTypeList](https://data.norge.no/vocabulary/cpsvno#OutputTypeL
 name: Tjenesteresultattypeliste
 description: Ei liste over moglege tjenesteresultattypar.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -215,6 +216,7 @@ class_uri: cpsvno:OutputTypeList
 name: Tjenesteresultattypeliste
 description: Ei liste over moglege tjenesteresultattypar.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 attributes:
   id:
     name: id

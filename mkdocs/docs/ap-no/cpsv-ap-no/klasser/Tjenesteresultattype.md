@@ -457,6 +457,7 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 name: Tjenesteresultattype
 description: Typen resultat som ei teneste produserer.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -514,6 +515,7 @@ class_uri: cpsvno:OutputType
 name: Tjenesteresultattype
 description: Typen resultat som ei teneste produserer.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

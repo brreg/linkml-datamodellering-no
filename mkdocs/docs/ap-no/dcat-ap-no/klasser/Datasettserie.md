@@ -593,6 +593,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 is_a: KatalogisertRessurs
 slots:
 - beskrivelse
@@ -662,6 +663,7 @@ class_uri: dcat:DatasetSeries
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 is_a: KatalogisertRessurs
 slot_usage:
   beskrivelse:

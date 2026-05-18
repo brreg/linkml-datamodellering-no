@@ -7,11 +7,6 @@ AdministrativEnhet {
     string navn  
     uriorcurie organisasjonselement  
 }
-Adresse {
-    stringList adresselinje  
-    string postnummer  
-    string poststed  
-}
 Arkivdel {
     uriorcurie id  
     string tittel  
@@ -78,23 +73,11 @@ Dokumentobjekt {
     string sjekksumAlgoritme  
     integer versjonsnummer  
 }
-Elev {
-    uriorcurie id  
-}
 Format {
     uriorcurie id  
     string kode  
     string navn  
     boolean passiv  
-}
-Fylke {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
-Identifikator {
-    string identifikatorverdi  
 }
 JournalStatus {
     uriorcurie id  
@@ -130,12 +113,6 @@ JournalpostType {
     string navn  
     boolean passiv  
 }
-Kjonn {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
 Klasse {
     string klasseId  
     integer rekkefoelge  
@@ -156,23 +133,6 @@ Klassifikasjonstype {
     string navn  
     boolean passiv  
 }
-Kommune {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
-Kontaktinformasjon {
-    string epostadresse  
-    string mobiltelefonnummer  
-    string nettsted  
-    string sip  
-    string telefonnummer  
-}
-Kontaktperson {
-    uriorcurie id  
-    string type  
-}
 Korrespondansepart {
     string foedselsnummer  
     string kontaktperson_str  
@@ -184,18 +144,6 @@ KorrespondansepartType {
     string kode  
     string navn  
     boolean passiv  
-}
-Landkode {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
-}
-Matrikkelnummer {
-    string bruksnummer  
-    string festenummer  
-    string gaardsnummer  
-    string seksjonsnummer  
 }
 Merknad {
     datetime merknadsdato  
@@ -219,19 +167,6 @@ PartRolle {
     string navn  
     boolean passiv  
 }
-Periode {
-    string beskrivelse  
-    datetime slutt  
-    datetime start  
-}
-Person {
-    uriorcurie id  
-    string bilde  
-    date fodselsdato  
-    uriorcurieList laerling  
-    uriorcurie otungdom  
-    uriorcurie personalressurs  
-}
 Personalmappe {
     uriorcurie arbeidssted  
     uriorcurie leder  
@@ -247,11 +182,6 @@ Personalmappe {
     string sakssekvensnummer  
     string tittel  
     datetime utlaantDato  
-}
-Personnavn {
-    string etternavn  
-    string fornavn  
-    string mellomnavn  
 }
 Rolle {
     uriorcurie id  
@@ -307,12 +237,6 @@ SoeknadDrosjeloeyve {
     string sakssekvensnummer  
     string tittel  
     datetime utlaantDato  
-}
-Spraak {
-    uriorcurie id  
-    string kode  
-    string navn  
-    boolean passiv  
 }
 Tilgang {
     uriorcurie id  
@@ -374,10 +298,7 @@ Variantformat {
     boolean passiv  
 }
 
-AdministrativEnhet ||--|o Periode : "gyldighetsperiode"
-Adresse ||--|o Landkode : "land"
 Arkivdel ||--}o Klassifikasjonssystem : "klassifikasjonssystem"
-Arkivressurs ||--|o Identifikator : "kildesystemId"
 Arkivressurs ||--}o Autorisasjon : "autorisasjon"
 Arkivressurs ||--}o Tilgang : "tilgang"
 Autorisasjon ||--}o AdministrativEnhet : "administrativenhet"
@@ -386,21 +307,16 @@ Autorisasjon ||--}| Tilgangsrestriksjon : "tilgangsrestriksjon"
 DispensasjonAutomatiskFredaKulturminne ||--|o AdministrativEnhet : "journalenhet"
 DispensasjonAutomatiskFredaKulturminne ||--|o Arkivdel : "arkivdel"
 DispensasjonAutomatiskFredaKulturminne ||--|o Arkivressurs : "avsluttetAv"
-DispensasjonAutomatiskFredaKulturminne ||--|o Identifikator : "mappeId"
 DispensasjonAutomatiskFredaKulturminne ||--|o Saksmappetype : "saksmappetype"
 DispensasjonAutomatiskFredaKulturminne ||--|o Skjerming : "skjerming"
 DispensasjonAutomatiskFredaKulturminne ||--|o Tilgangsgruppe : "tilgangsgruppe"
 DispensasjonAutomatiskFredaKulturminne ||--|| AdministrativEnhet : "administrativEnhet"
 DispensasjonAutomatiskFredaKulturminne ||--|| Arkivressurs : "opprettetAv, saksansvarlig"
-DispensasjonAutomatiskFredaKulturminne ||--|| Identifikator : "soeknadsnummer"
-DispensasjonAutomatiskFredaKulturminne ||--|| Matrikkelnummer : "matrikkelnummer"
 DispensasjonAutomatiskFredaKulturminne ||--|| Saksstatus : "saksstatus"
 DispensasjonAutomatiskFredaKulturminne ||--}o Journalpost : "journalpost"
 DispensasjonAutomatiskFredaKulturminne ||--}o Klasse : "klasse"
 DispensasjonAutomatiskFredaKulturminne ||--}o Merknad : "merknad"
 DispensasjonAutomatiskFredaKulturminne ||--}o Part : "part"
-DokumentStatus ||--|o Periode : "gyldighetsperiode"
-DokumentType ||--|o Periode : "gyldighetsperiode"
 Dokumentbeskrivelse ||--|o Skjerming : "skjerming"
 Dokumentbeskrivelse ||--|| Arkivressurs : "opprettetAv, tilknyttetAv"
 Dokumentbeskrivelse ||--|| DokumentStatus : "dokumentstatus"
@@ -412,13 +328,6 @@ Dokumentobjekt ||--|o Dokumentfil : "referanseDokumentfil"
 Dokumentobjekt ||--|o Format : "filformat"
 Dokumentobjekt ||--|| Arkivressurs : "opprettetAv"
 Dokumentobjekt ||--|| Variantformat : "variantFormat"
-Elev ||--|o Identifikator : "elevnummer"
-Elev ||--|o Person : "person"
-Format ||--|o Periode : "gyldighetsperiode"
-Fylke ||--|o Periode : "gyldighetsperiode"
-Fylke ||--}o Kommune : "kommune"
-Identifikator ||--|o Periode : "gyldighetsperiode"
-JournalStatus ||--|o Periode : "gyldighetsperiode"
 Journalpost ||--|o AdministrativEnhet : "administrativEnhet, journalenhet"
 Journalpost ||--|o Arkivdel : "arkivdel"
 Journalpost ||--|o Arkivressurs : "saksbehandler"
@@ -433,66 +342,32 @@ Journalpost ||--}o Dokumentbeskrivelse : "dokumentbeskrivelse"
 Journalpost ||--}o Korrespondansepart : "korrespondansepart"
 Journalpost ||--}o Merknad : "merknad"
 Journalpost ||--}o Part : "part"
-JournalpostType ||--|o Periode : "gyldighetsperiode"
-Kjonn ||--|o Periode : "gyldighetsperiode"
 Klasse ||--|o Skjerming : "skjerming"
 Klasse ||--|| Klassifikasjonssystem : "klassifikasjonssystem"
 Klassifikasjonssystem ||--|o Klassifikasjonstype : "klassifikasjonstype"
 Klassifikasjonssystem ||--}| Arkivdel : "arkivdel"
 Klassifikasjonssystem ||--}| Klasse : "klasse"
-Klassifikasjonstype ||--|o Periode : "gyldighetsperiode"
-Kommune ||--|o Periode : "gyldighetsperiode"
-Kommune ||--|| Fylke : "fylke"
-Kontaktperson ||--|o Kontaktinformasjon : "kontaktinformasjon"
-Kontaktperson ||--|o Personnavn : "kontaktperson_navn"
-Kontaktperson ||--}o Person : "kontaktperson"
-Korrespondansepart ||--|o Adresse : "adresse"
-Korrespondansepart ||--|o Kontaktinformasjon : "kontaktinformasjon"
 Korrespondansepart ||--|o Skjerming : "skjerming"
 Korrespondansepart ||--|| KorrespondansepartType : "korrespondanseparttype"
-KorrespondansepartType ||--|o Periode : "gyldighetsperiode"
-Landkode ||--|o Periode : "gyldighetsperiode"
-Matrikkelnummer ||--|o Adresse : "adresse"
-Matrikkelnummer ||--|o Kommune : "kommunenummer"
 Merknad ||--|| Arkivressurs : "merknadRegistrertAv"
 Merknad ||--|| Merknadstype : "merknadstype"
-Merknadstype ||--|o Periode : "gyldighetsperiode"
-Part ||--|o Adresse : "adresse"
-Part ||--|o Kontaktinformasjon : "kontaktinformasjon"
 Part ||--|o PartRolle : "partRolle"
-PartRolle ||--|o Periode : "gyldighetsperiode"
-Person ||--|o Adresse : "bostedsadresse, postadresse"
-Person ||--|o Elev : "elev"
-Person ||--|o Kjonn : "kjonn"
-Person ||--|o Kommune : "kommune"
-Person ||--|o Kontaktinformasjon : "kontaktinformasjon"
-Person ||--|o Spraak : "maalform, morsmaal"
-Person ||--|| Identifikator : "fodselsnummer"
-Person ||--|| Personnavn : "person_navn"
-Person ||--}o Kontaktperson : "parorende"
-Person ||--}o Landkode : "statsborgerskap"
-Person ||--}o Person : "foreldre, foreldreansvar"
 Personalmappe ||--|o AdministrativEnhet : "journalenhet"
 Personalmappe ||--|o Arkivdel : "arkivdel"
 Personalmappe ||--|o Arkivressurs : "avsluttetAv"
-Personalmappe ||--|o Identifikator : "mappeId"
 Personalmappe ||--|o Saksmappetype : "saksmappetype"
 Personalmappe ||--|o Skjerming : "skjerming"
 Personalmappe ||--|o Tilgangsgruppe : "tilgangsgruppe"
 Personalmappe ||--|| AdministrativEnhet : "administrativEnhet"
 Personalmappe ||--|| Arkivressurs : "opprettetAv, saksansvarlig"
-Personalmappe ||--|| Person : "person"
-Personalmappe ||--|| Personnavn : "personnavn"
 Personalmappe ||--|| Saksstatus : "saksstatus"
 Personalmappe ||--}o Journalpost : "journalpost"
 Personalmappe ||--}o Klasse : "klasse"
 Personalmappe ||--}o Merknad : "merknad"
 Personalmappe ||--}o Part : "part"
-Rolle ||--|o Periode : "gyldighetsperiode"
 Sak ||--|o AdministrativEnhet : "journalenhet"
 Sak ||--|o Arkivdel : "arkivdel"
 Sak ||--|o Arkivressurs : "avsluttetAv"
-Sak ||--|o Identifikator : "mappeId"
 Sak ||--|o Saksmappetype : "saksmappetype"
 Sak ||--|o Skjerming : "skjerming"
 Sak ||--|o Tilgangsgruppe : "tilgangsgruppe"
@@ -503,15 +378,11 @@ Sak ||--}o Journalpost : "journalpost"
 Sak ||--}o Klasse : "klasse"
 Sak ||--}o Merknad : "merknad"
 Sak ||--}o Part : "part"
-Saksmappetype ||--|o Periode : "gyldighetsperiode"
-Saksstatus ||--|o Periode : "gyldighetsperiode"
 Skjerming ||--|| Skjermingshjemmel : "skjermingshjemmel"
 Skjerming ||--|| Tilgangsrestriksjon : "tilgangsrestriksjon"
-Skjermingshjemmel ||--|o Periode : "gyldighetsperiode"
 SoeknadDrosjeloeyve ||--|o AdministrativEnhet : "journalenhet"
 SoeknadDrosjeloeyve ||--|o Arkivdel : "arkivdel"
 SoeknadDrosjeloeyve ||--|o Arkivressurs : "avsluttetAv"
-SoeknadDrosjeloeyve ||--|o Identifikator : "mappeId"
 SoeknadDrosjeloeyve ||--|o Saksmappetype : "saksmappetype"
 SoeknadDrosjeloeyve ||--|o Skjerming : "skjerming"
 SoeknadDrosjeloeyve ||--|o Tilgangsgruppe : "tilgangsgruppe"
@@ -522,24 +393,18 @@ SoeknadDrosjeloeyve ||--}o Journalpost : "journalpost"
 SoeknadDrosjeloeyve ||--}o Klasse : "klasse"
 SoeknadDrosjeloeyve ||--}o Merknad : "merknad"
 SoeknadDrosjeloeyve ||--}o Part : "part"
-Spraak ||--|o Periode : "gyldighetsperiode"
 Tilgang ||--|o AdministrativEnhet : "administrativEnhet"
 Tilgang ||--|o Arkivdel : "arkivdel"
 Tilgang ||--|| Rolle : "rolle"
 Tilgang ||--}o Arkivressurs : "arkivressurs"
-Tilgangsgruppe ||--|o Periode : "gyldighetsperiode"
-Tilgangsrestriksjon ||--|o Periode : "gyldighetsperiode"
-TilknyttetRegistreringSom ||--|o Periode : "gyldighetsperiode"
 TilskuddFartoy ||--|o AdministrativEnhet : "journalenhet"
 TilskuddFartoy ||--|o Arkivdel : "arkivdel"
 TilskuddFartoy ||--|o Arkivressurs : "avsluttetAv"
-TilskuddFartoy ||--|o Identifikator : "mappeId"
 TilskuddFartoy ||--|o Saksmappetype : "saksmappetype"
 TilskuddFartoy ||--|o Skjerming : "skjerming"
 TilskuddFartoy ||--|o Tilgangsgruppe : "tilgangsgruppe"
 TilskuddFartoy ||--|| AdministrativEnhet : "administrativEnhet"
 TilskuddFartoy ||--|| Arkivressurs : "opprettetAv, saksansvarlig"
-TilskuddFartoy ||--|| Identifikator : "soeknadsnummer"
 TilskuddFartoy ||--|| Saksstatus : "saksstatus"
 TilskuddFartoy ||--}o Journalpost : "journalpost"
 TilskuddFartoy ||--}o Klasse : "klasse"
@@ -548,8 +413,6 @@ TilskuddFartoy ||--}o Part : "part"
 TilskuddFredaBygningPrivatEie ||--|o AdministrativEnhet : "journalenhet"
 TilskuddFredaBygningPrivatEie ||--|o Arkivdel : "arkivdel"
 TilskuddFredaBygningPrivatEie ||--|o Arkivressurs : "avsluttetAv"
-TilskuddFredaBygningPrivatEie ||--|o Identifikator : "mappeId, soeknadsnummer"
-TilskuddFredaBygningPrivatEie ||--|o Matrikkelnummer : "matrikkelnummer"
 TilskuddFredaBygningPrivatEie ||--|o Saksmappetype : "saksmappetype"
 TilskuddFredaBygningPrivatEie ||--|o Skjerming : "skjerming"
 TilskuddFredaBygningPrivatEie ||--|o Tilgangsgruppe : "tilgangsgruppe"
@@ -560,10 +423,9 @@ TilskuddFredaBygningPrivatEie ||--}o Journalpost : "journalpost"
 TilskuddFredaBygningPrivatEie ||--}o Klasse : "klasse"
 TilskuddFredaBygningPrivatEie ||--}o Merknad : "merknad"
 TilskuddFredaBygningPrivatEie ||--}o Part : "part"
-Variantformat ||--|o Periode : "gyldighetsperiode"
+
 
 ```
-
 
 
 FINT-domenemodell for arkiv basert på Noark 5-standarden. Dekkjer sakshandtering, journalpostar, dokumenthandsaming, tilgangsstyring og spesialiserte saksmappe-typar.
@@ -577,6 +439,12 @@ Name: fint-arkiv
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [AdministrativEnhet](klasser/administrativenhet.md) | Administrativ eining med ansvar for saksbehandling |
@@ -584,12 +452,14 @@ Name: fint-arkiv
 | [Arkivressurs](klasser/arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |
 | [Autorisasjon](klasser/autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |
 | [Avskrivning](klasser/avskrivning.md) | Avskriving av ein journalpost (markering som ferdigbehandla) |
+| [DispensasjonAutomatiskFredaKulturminne](klasser/dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |
 | [Dokumentbeskrivelse](klasser/dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |
 | [Dokumentfil](klasser/dokumentfil.md) | Sjølve dokumentfila med data og metadata |
 | [Dokumentobjekt](klasser/dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |
 | [DokumentStatus](klasser/dokumentstatus.md) | Status til eit dokument |
 | [DokumentType](klasser/dokumenttype.md) | Type dokument |
 | [Format](klasser/format.md) | Dokumentets filformat |
+| [Journalpost](klasser/journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |
 | [JournalpostType](klasser/journalposttype.md) | Namn på type journalpost |
 | [JournalStatus](klasser/journalstatus.md) | Status til journalposten |
 | [Klasse](klasser/klasse.md) | Ein klasse i eit klassifikasjonssystem |
@@ -598,29 +468,41 @@ Name: fint-arkiv
 | [Korrespondansepart](klasser/korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |
 | [KorrespondansepartType](klasser/korrespondanseparttype.md) | Type korrespondansepart |
 | [Mappe](klasser/mappe.md) | Abstrakt basisklasse for alle mappetypar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Saksmappe](klasser/saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DispensasjonAutomatiskFredaKulturminne](klasser/dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Personalmappe](klasser/personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sak](klasser/sak.md) | Generisk saksmappe (konkret Sak i Noark) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SoeknadDrosjeloeyve](klasser/soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TilskuddFartoy](klasser/tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TilskuddFredaBygningPrivatEie](klasser/tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |
 | [Merknad](klasser/merknad.md) | Merknad knytt til mappe, registrering eller dokumentbeskrivelse |
 | [Merknadstype](klasser/merknadstype.md) | Namn på type merknad |
 | [Part](klasser/part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |
 | [PartRolle](klasser/partrolle.md) | Rolla til ein part |
+| [Personalmappe](klasser/personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |
 | [Registrering](klasser/registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Journalpost](klasser/journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |
 | [Rolle](klasser/rolle.md) | Rolla til ein arkivressurs |
+| [Saksmappe](klasser/saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |
 | [Saksmappetype](klasser/saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |
 | [Saksstatus](klasser/saksstatus.md) | Status til saksmappa |
 | [Skjerming](klasser/skjerming.md) | Skjerming av mappe, registrering eller dokument etter offentleglova |
 | [Skjermingshjemmel](klasser/skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |
+| [SoeknadDrosjeloeyve](klasser/soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |
 | [Tilgang](klasser/tilgang.md) | Styring av kven som har tilgang til kva opplysningar |
 | [Tilgangsgruppe](klasser/tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |
 | [Tilgangsrestriksjon](klasser/tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |
 | [TilknyttetRegistreringSom](klasser/tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |
+| [TilskuddFartoy](klasser/tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |
+| [TilskuddFredaBygningPrivatEie](klasser/tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |
 | [Variantformat](klasser/variantformat.md) | Angiving av kva variant eit dokument førekjem i |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Sak](klasser/sak.md) | Generisk saksmappe (konkret Sak i Noark) |
+
+
 
 
 

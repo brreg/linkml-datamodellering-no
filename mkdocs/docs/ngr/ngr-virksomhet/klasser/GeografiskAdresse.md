@@ -160,6 +160,7 @@ description: Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse
   forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som kjelde til vegadresse,
   og gjer jamnleg vask mot Posten sitt adresseregister.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 abstract: true
 slots:
 - id
@@ -177,6 +178,7 @@ description: Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse
   forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som kjelde til vegadresse,
   og gjer jamnleg vask mot Posten sitt adresseregister.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 abstract: true
 attributes:
   id:

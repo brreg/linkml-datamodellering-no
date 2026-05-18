@@ -377,6 +377,7 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 name: Kontaktpunkt
 description: Kontaktinformasjon for ei teneste eller ein organisasjon.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - epost
@@ -422,6 +423,7 @@ class_uri: cv:ContactPoint
 name: Kontaktpunkt
 description: Kontaktinformasjon for ei teneste eller ein organisasjon.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   epost:
     name: epost

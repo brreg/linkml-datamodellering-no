@@ -626,6 +626,7 @@ URI: [ark:Personalmappe](https://schema.fintlabs.no/arkiv/Personalmappe)
 name: Personalmappe
 description: Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slots:
 - personnavn
@@ -671,6 +672,7 @@ class_uri: ark:Personalmappe
 name: Personalmappe
 description: Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 is_a: Saksmappe
 slot_usage:
   personnavn:

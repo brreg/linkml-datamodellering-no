@@ -228,6 +228,7 @@ URI: [skosno:AssociativeConceptRelation](https://data.norge.no/vocabulary/skosno
 name: AssosiativRelasjon
 description: Ein assosiativ relasjon mellom to omgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slots:
 - id
 - til_omgrep
@@ -255,6 +256,7 @@ class_uri: skosno:AssociativeConceptRelation
 name: AssosiativRelasjon
 description: Ein assosiativ relasjon mellom to omgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slot_usage:
   til_omgrep:
     name: til_omgrep

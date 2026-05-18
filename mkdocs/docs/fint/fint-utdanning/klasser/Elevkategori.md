@@ -307,6 +307,7 @@ URI: [utd:Elevkategori](https://schema.fintlabs.no/utdanning/Elevkategori)
 name: Elevkategori
 description: Kategori for eit elevforhold (t.d. Ordinær, Privatist, Voksen).
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - id
 - kode
@@ -344,6 +345,7 @@ class_uri: utd:Elevkategori
 name: Elevkategori
 description: Kategori for eit elevforhold (t.d. Ordinær, Privatist, Voksen).
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   kode:
     name: kode

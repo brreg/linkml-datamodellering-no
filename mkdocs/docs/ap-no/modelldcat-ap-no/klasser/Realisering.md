@@ -318,6 +318,7 @@ URI: [modelldcatno:Realization](https://data.norge.no/vocabulary/modelldcatno#Re
 name: Realisering
 description: Ein realisering — ein implementasjonsrelasjon mellom modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - har_leverandor
@@ -338,6 +339,7 @@ class_uri: modelldcatno:Realization
 name: Realisering
 description: Ein realisering — ein implementasjonsrelasjon mellom modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   har_leverandor:

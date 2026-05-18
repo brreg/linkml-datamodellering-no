@@ -22,8 +22,8 @@ Alias: fullmakt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolle](rolle.md) | Rettighet eller type fullmakt |  yes  |
 | [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  yes  |
+| [Rolle](rolle.md) | Rettighet eller type fullmakt |  yes  |
 
 
 

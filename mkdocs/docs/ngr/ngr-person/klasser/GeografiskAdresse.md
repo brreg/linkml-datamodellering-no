@@ -159,6 +159,7 @@ name: GeografiskAdresse
 description: Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og
   forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 abstract: true
 slots:
 - id
@@ -175,6 +176,7 @@ name: GeografiskAdresse
 description: Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og
   forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 abstract: true
 attributes:
   id:

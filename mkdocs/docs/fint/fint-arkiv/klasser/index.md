@@ -11,6 +11,12 @@ Name: fint-arkiv
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [AdministrativEnhet](administrativenhet.md) | Administrativ eining med ansvar for saksbehandling |
@@ -18,12 +24,14 @@ Name: fint-arkiv
 | [Arkivressurs](arkivressurs.md) | Ansatt med rolle og rettar innanfor arkiv |
 | [Autorisasjon](autorisasjon.md) | Siling av kva ein innlogga brukar får lov til å gjere i løysinga |
 | [Avskrivning](avskrivning.md) | Avskriving av ein journalpost (markering som ferdigbehandla) |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |
 | [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |
 | [Dokumentfil](dokumentfil.md) | Sjølve dokumentfila med data og metadata |
 | [Dokumentobjekt](dokumentobjekt.md) | Referanse til éin og berre éin dokumentfil |
 | [DokumentStatus](dokumentstatus.md) | Status til eit dokument |
 | [DokumentType](dokumenttype.md) | Type dokument |
 | [Format](format.md) | Dokumentets filformat |
+| [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |
 | [JournalpostType](journalposttype.md) | Namn på type journalpost |
 | [JournalStatus](journalstatus.md) | Status til journalposten |
 | [Klasse](klasse.md) | Ein klasse i eit klassifikasjonssystem |
@@ -32,29 +40,41 @@ Name: fint-arkiv
 | [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |
 | [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |
 | [Mappe](mappe.md) | Abstrakt basisklasse for alle mappetypar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Saksmappe](saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Sak](sak.md) | Generisk saksmappe (konkret Sak i Noark) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |
 | [Merknad](merknad.md) | Merknad knytt til mappe, registrering eller dokumentbeskrivelse |
 | [Merknadstype](merknadstype.md) | Namn på type merknad |
 | [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |
 | [PartRolle](partrolle.md) | Rolla til ein part |
+| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |
 | [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |
 | [Rolle](rolle.md) | Rolla til ein arkivressurs |
+| [Saksmappe](saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |
 | [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |
 | [Saksstatus](saksstatus.md) | Status til saksmappa |
 | [Skjerming](skjerming.md) | Skjerming av mappe, registrering eller dokument etter offentleglova |
 | [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |
 | [Tilgang](tilgang.md) | Styring av kven som har tilgang til kva opplysningar |
 | [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |
 | [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |
 | [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |
+| [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |
 | [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |
+
+
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Sak](sak.md) | Generisk saksmappe (konkret Sak i Noark) |
+
+
 
 
 

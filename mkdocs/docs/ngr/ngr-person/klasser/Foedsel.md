@@ -277,6 +277,7 @@ URI: [ngrp:Foedsel](https://data.norge.no/vocabulary/ngr-person#Foedsel)
 name: Foedsel
 description: Fødselsinformasjon om ein person registrert i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - foedselsdato
@@ -308,6 +309,7 @@ class_uri: ngrp:Foedsel
 name: Foedsel
 description: Fødselsinformasjon om ein person registrert i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   foedselsdato:
     name: foedselsdato

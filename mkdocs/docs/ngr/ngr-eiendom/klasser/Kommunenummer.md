@@ -192,6 +192,7 @@ URI: [ngre:Kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#Kommunenu
 name: Kommunenummer
 description: Firesifra kommunenummer (t.d. 0301 for Oslo).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - kommunenummer_verdi
@@ -213,6 +214,7 @@ class_uri: ngre:Kommunenummer
 name: Kommunenummer
 description: Firesifra kommunenummer (t.d. 0301 for Oslo).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   kommunenummer_verdi:
     name: kommunenummer_verdi

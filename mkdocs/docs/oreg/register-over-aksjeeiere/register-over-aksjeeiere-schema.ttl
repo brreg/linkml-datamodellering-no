@@ -7,10 +7,10 @@
 <https://example.no/ontology/aksje_eierskap> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Aksje- og eigarskapsmodell" ;
-    sh:declare [ sh:namespace "https://example.no/ontology/aksje#"^^xsd:anyURI ;
-            sh:prefix "aksje" ],
-        [ sh:namespace "http://schema.org/"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "http://schema.org/"^^xsd:anyURI ;
             sh:prefix "schema" ],
+        [ sh:namespace "https://example.no/ontology/aksje#"^^xsd:anyURI ;
+            sh:prefix "aksje" ],
         [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
             sh:prefix "linkml" ] ;
     linkml:classes <https://example.no/ontology/Aksje>,
@@ -36,7 +36,7 @@
     linkml:default_range <https://example.no/ontology/string> ;
     linkml:description """LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
 """ ;
-    linkml:generation_date "2026-05-10T09:57:53"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-18T09:12:33"^^xsd:dateTime ;
     linkml:id "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.7.0" ;

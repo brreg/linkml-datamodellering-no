@@ -12,30 +12,30 @@
     pav:version "1.0" ;
     sh:declare [ sh:namespace "http://rdf-vocabulary.ddialliance.org/xkos#"^^xsd:anyURI ;
             sh:prefix "xkos" ],
-        [ sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
-            sh:prefix "owl" ],
-        [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
-            sh:prefix "vcard" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/modelldcatno#"^^xsd:anyURI ;
-            sh:prefix "modelldcatno" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ],
-        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
-        [ sh:namespace "http://www.w3.org/ns/dx/prof/"^^xsd:anyURI ;
-            sh:prefix "prof" ],
-        [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
-            sh:prefix "adms" ],
-        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
-            sh:prefix "skos" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
+        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+            sh:prefix "skos" ],
+        [ sh:namespace "http://www.w3.org/2002/07/owl#"^^xsd:anyURI ;
+            sh:prefix "owl" ],
+        [ sh:namespace "https://data.norge.no/vocabulary/modelldcatno#"^^xsd:anyURI ;
+            sh:prefix "modelldcatno" ],
+        [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
+            sh:prefix "vcard" ],
+        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            sh:prefix "rdfs" ],
+        [ sh:namespace "http://www.w3.org/ns/dx/prof/"^^xsd:anyURI ;
+            sh:prefix "prof" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
+        [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
+            sh:prefix "adms" ],
         [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
             sh:prefix "foaf" ],
-        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
-            sh:prefix "rdfs" ] ;
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ] ;
     linkml:classes <https://data.norge.no/linkml/modelldcat-ap-no/Abstraksjon>,
         <https://data.norge.no/linkml/modelldcat-ap-no/Aktor>,
         <https://data.norge.no/linkml/modelldcat-ap-no/AlleAv>,
@@ -79,7 +79,7 @@
     linkml:default_prefix "https://data.norge.no/linkml/modelldcat-ap-no/" ;
     linkml:default_range <https://data.norge.no/linkml/modelldcat-ap-no/string> ;
     linkml:description "Norsk applikasjonsprofil for beskriving av informasjonsmodellar i DCAT-format, modellert i LinkML. Basert på https://data.norge.no/specification/modelldcat-ap-no" ;
-    linkml:generation_date "2026-05-09T16:14:17"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-18T09:12:57"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/modelldcat-ap-no"^^xsd:anyURI ;
     linkml:imports "../common/common-ap-no-schema"^^xsd:anyURI,
         "linkml:types"^^xsd:anyURI ;

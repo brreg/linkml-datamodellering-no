@@ -42,17 +42,18 @@ modelldcatno:Abstraction a sh:NodeShape ;
     rdfs:comment "Ein abstraksjon — ein forenkling som representerer eit modellelement." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+    sh:property [ sh:class modelldcatno:ModelElement ;
+            sh:description "Modellelement denne abstraksjonen representerer (modelldcatno:isAbstractionOf)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:isAbstractionOf ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:belongsToModule ],
+            sh:order 3 ;
+            sh:path dct:identifier ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -60,6 +61,12 @@ modelldcatno:Abstraction a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
         [ sh:class modelldcatno:Property ;
             sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
             sh:maxCount 1 ;
@@ -71,6 +78,12 @@ modelldcatno:Abstraction a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path dct:title ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
             sh:maxCount 1 ;
@@ -88,12 +101,11 @@ modelldcatno:Abstraction a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path dct:subject ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
+            sh:order 8 ;
+            sh:path dct:description ],
         [ sh:datatype rdf:langString ;
             sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
             sh:nodeKind sh:Literal ;
@@ -104,107 +116,95 @@ modelldcatno:Abstraction a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path modelldcatno:hasType ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dct:description ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement denne abstraksjonen representerer (modelldcatno:isAbstractionOf)." ;
-            sh:maxCount 1 ;
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:isAbstractionOf ] ;
+            sh:order 12 ;
+            sh:path modelldcatno:belongsToModule ] ;
     sh:targetClass modelldcatno:Abstraction .
 
 modelldcatno:AllOf a sh:NodeShape ;
     rdfs:comment "Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dct:description ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
+            sh:order 8 ;
+            sh:path dct:description ],
         [ sh:class skos:Concept ;
             sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path dct:subject ],
         [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ],
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
         [ sh:class modelldcatno:ModelElement ;
             sh:description "Modellelement som inngår i valet (modelldcatno:hasSome)." ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path modelldcatno:hasSome ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
         [ sh:datatype xsd:boolean ;
             sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path modelldcatno:navigable ] ;
+            sh:path modelldcatno:navigable ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:belongsToModule ] ;
     sh:targetClass modelldcatno:AllOf .
 
 modelldcatno:And a sh:NodeShape ;
@@ -217,11 +217,16 @@ modelldcatno:And a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path modelldcatno:constrains ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype rdf:langString ;
-            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
+            sh:description "Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:propertyNote ],
+            sh:order 1 ;
+            sh:path modelldcatno:constraintExpression ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
@@ -234,21 +239,16 @@ modelldcatno:And a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:propertyNote ],
         [ sh:class modelldcatno:ModelElement ;
             sh:description "Modellelement denne merknaden gjeld (modelldcatno:annotates)." ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path modelldcatno:annotates ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path modelldcatno:constraintExpression ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -261,57 +261,7 @@ modelldcatno:AnyOf a sh:NodeShape ;
     rdfs:comment "Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement som inngår i valet (modelldcatno:hasSome)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:hasSome ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:datatype xsd:nonNegativeInteger ;
+    sh:property [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -322,145 +272,201 @@ modelldcatno:AnyOf a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path dct:title ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Modellelement som inngår i valet (modelldcatno:hasSome)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:hasSome ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:navigable ],
         [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path dct:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path modelldcatno:minOccurs ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:navigable ] ;
+            sh:order 3 ;
+            sh:path dct:identifier ] ;
     sh:targetClass modelldcatno:AnyOf .
 
 modelldcatno:Association a sh:NodeShape ;
     rdfs:comment "Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:navigable ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:belongsToModule ],
         [ sh:class modelldcatno:ModelElement ;
             sh:description "Modellelement som eigenskapen refererer til (modelldcatno:refersTo)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path modelldcatno:refersTo ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path modelldcatno:minOccurs ],
         [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path dct:description ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ] ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:navigable ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ] ;
     sh:targetClass modelldcatno:Association .
 
 modelldcatno:Attribute a sh:NodeShape ;
     rdfs:comment "Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class modelldcatno:DataType ;
-            sh:description "Datatype for attributten (modelldcatno:hasDataType)." ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:hasDataType ],
-        [ sh:class modelldcatno:CodeList ;
-            sh:description "Kodeliste for tillate verdiar til attributten (modelldcatno:hasValueFrom)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path modelldcatno:hasValueFrom ],
+            sh:order 12 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:identifier ],
         [ sh:class modelldcatno:Module ;
             sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
             sh:nodeKind sh:IRI ;
             sh:order 15 ;
             sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+        [ sh:class modelldcatno:DataType ;
+            sh:description "Datatype for attributten (modelldcatno:hasDataType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:hasDataType ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path modelldcatno:minOccurs ],
+            sh:order 10 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:class modelldcatno:CodeList ;
+            sh:description "Kodeliste for tillate verdiar til attributten (modelldcatno:hasValueFrom)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path modelldcatno:hasValueFrom ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -468,219 +474,213 @@ modelldcatno:Attribute a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path dct:title ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:class modelldcatno:ObjectType ;
-            sh:description "Objekttype som attributten inneheld (modelldcatno:containsObjectType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path modelldcatno:containsObjectType ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:hasType ],
         [ sh:class modelldcatno:SimpleType ;
             sh:description "Enkel type for attributten (modelldcatno:hasSimpleType)." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path modelldcatno:hasSimpleType ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dct:subject ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 14 ;
             sh:path modelldcatno:sequenceNumber ],
+        [ sh:class modelldcatno:ObjectType ;
+            sh:description "Objekttype som attributten inneheld (modelldcatno:containsObjectType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path modelldcatno:containsObjectType ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path dct:description ],
         [ sh:datatype xsd:boolean ;
             sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path modelldcatno:navigable ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dct:subject ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:maxOccurs ] ;
+            sh:order 8 ;
+            sh:path modelldcatno:minOccurs ] ;
     sh:targetClass modelldcatno:Attribute .
 
 modelldcatno:Choice a sh:NodeShape ;
     rdfs:comment "Eit val — ein eigenskap som representerer eit val mellom modellelement." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
         [ sh:class modelldcatno:ModelElement ;
             sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path modelldcatno:hasType ],
         [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path dct:identifier ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:navigable ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:class modelldcatno:Module ;
             sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path modelldcatno:belongsToModule ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
         [ sh:class modelldcatno:ModelElement ;
             sh:description "Modellelement som inngår i valet (modelldcatno:hasSome)." ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path modelldcatno:hasSome ],
         [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path modelldcatno:minOccurs ],
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path modelldcatno:sequenceNumber ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ],
         [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
-            sh:path dct:description ] ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:navigable ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass modelldcatno:Choice .
 
 modelldcatno:Collection a sh:NodeShape ;
     rdfs:comment "Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:anyURI ;
+    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path modelldcatno:navigable ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path modelldcatno:hasType ],
         [ sh:datatype xsd:string ;
             sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path modelldcatno:maxOccurs ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path modelldcatno:navigable ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:sequenceNumber ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path dct:description ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:identifier ],
         [ sh:class skos:Concept ;
             sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
             sh:nodeKind sh:IRI ;
@@ -692,33 +692,46 @@ modelldcatno:Composition a sh:NodeShape ;
     rdfs:comment "Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dct:description ],
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
         [ sh:datatype xsd:boolean ;
             sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path modelldcatno:navigable ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement som er del av samansetjinga (modelldcatno:contains)." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:contains ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -732,57 +745,43 @@ modelldcatno:Composition a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ],
         [ sh:class modelldcatno:Module ;
             sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
+            sh:order 6 ;
+            sh:path dct:title ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:order 8 ;
+            sh:path dct:description ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Modellelement som er del av samansetjinga (modelldcatno:contains)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ] ;
+            sh:order 0 ;
+            sh:path modelldcatno:contains ] ;
     sh:targetClass modelldcatno:Composition .
 
 modelldcatno:ConstraintRule a sh:NodeShape ;
     rdfs:comment "Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:identifier ],
+    sh:property [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -790,11 +789,18 @@ modelldcatno:ConstraintRule a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
+            sh:order 5 ;
+            sh:path dct:identifier ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Modellelement betingelsesregelen avgrensar (modelldcatno:constrains)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:constrains ],
         [ sh:datatype rdf:langString ;
             sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
             sh:nodeKind sh:Literal ;
@@ -805,45 +811,23 @@ modelldcatno:ConstraintRule a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path modelldcatno:constraintExpression ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement betingelsesregelen avgrensar (modelldcatno:constrains)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:constrains ],
         [ sh:class modelldcatno:ModelElement ;
             sh:description "Modellelement denne merknaden gjeld (modelldcatno:annotates)." ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path modelldcatno:annotates ] ;
+            sh:path modelldcatno:annotates ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ] ;
     sh:targetClass modelldcatno:ConstraintRule .
 
 modelldcatno:Dependency a sh:NodeShape ;
     rdfs:comment "Ein avhengighet — ein relasjon der det eine modellelementet avheng av det andre." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:class modelldcatno:Module ;
+    sh:property [ sh:class modelldcatno:Module ;
             sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
@@ -854,22 +838,17 @@ modelldcatno:Dependency a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path modelldcatno:navigable ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
         [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path dct:description ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -877,18 +856,23 @@ modelldcatno:Dependency a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
         [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
             sh:maxCount 1 ;
@@ -901,6 +885,22 @@ modelldcatno:Dependency a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path modelldcatno:dependentOn ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ],
         [ sh:class skos:Concept ;
             sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
             sh:nodeKind sh:IRI ;
@@ -919,21 +919,31 @@ modelldcatno:Not a sh:NodeShape ;
             sh:order 0 ;
             sh:path modelldcatno:constrains ],
         [ sh:datatype rdf:langString ;
-            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:propertyNote ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:order 6 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Modellelement denne merknaden gjeld (modelldcatno:annotates)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path modelldcatno:belongsToModule ],
+            sh:order 3 ;
+            sh:path modelldcatno:annotates ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path dct:identifier ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path modelldcatno:constraintExpression ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -942,27 +952,22 @@ modelldcatno:Not a sh:NodeShape ;
             sh:order 2 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path modelldcatno:constraintExpression ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement denne merknaden gjeld (modelldcatno:annotates)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path modelldcatno:annotates ] ;
+            sh:order 4 ;
+            sh:path modelldcatno:propertyNote ] ;
     sh:targetClass modelldcatno:Not .
 
 modelldcatno:Note a sh:NodeShape ;
     rdfs:comment "Ei merknad knytt til eit modellelement eller eigenskap." ;
     sh:closed true ;
-    sh:ignoredProperties ( modelldcatno:constrains modelldcatno:constraintExpression rdf:type ) ;
-    sh:property [ sh:class modelldcatno:ModelElement ;
+    sh:ignoredProperties ( modelldcatno:constraintExpression modelldcatno:constrains rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:ModelElement ;
             sh:description "Modellelement denne merknaden gjeld (modelldcatno:annotates)." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
@@ -974,27 +979,22 @@ modelldcatno:Note a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dct:title ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path modelldcatno:propertyNote ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path dct:identifier ] ;
+            sh:path dct:identifier ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path modelldcatno:propertyNote ] ;
     sh:targetClass modelldcatno:Note .
 
 modelldcatno:Or a sh:NodeShape ;
@@ -1002,356 +1002,17 @@ modelldcatno:Or a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype rdf:langString ;
             sh:description "Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)." ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path modelldcatno:constraintExpression ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:propertyNote ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path dct:identifier ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement denne merknaden gjeld (modelldcatno:annotates)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path modelldcatno:annotates ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement betingelsesregelen avgrensar (modelldcatno:constrains)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:constrains ] ;
-    sh:targetClass modelldcatno:Or .
-
-modelldcatno:Realization a sh:NodeShape ;
-    rdfs:comment "Ein realisering — ein implementasjonsrelasjon mellom modellelement." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dct:description ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Leverandør-modellelement i realiseringa (modelldcatno:hasSupplier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:hasSupplier ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:navigable ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
-    sh:targetClass modelldcatno:Realization .
-
-modelldcatno:Role a sh:NodeShape ;
-    rdfs:comment "Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dct:description ],
-        [ sh:class modelldcatno:ObjectType ;
-            sh:description "Objekttype knytt til rolla (modelldcatno:hasObjectType)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:hasObjectType ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:navigable ] ;
-    sh:targetClass modelldcatno:Role .
-
-modelldcatno:RootObjectType a sh:NodeShape ;
-    rdfs:comment "Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:description ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path modelldcatno:hasProperty ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
-    sh:targetClass modelldcatno:RootObjectType .
-
-modelldcatno:Specialization a sh:NodeShape ;
-    rdfs:comment "Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modellelement." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path modelldcatno:formsSymmetryWith ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path dct:description ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:relationPropertyLabel ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path modelldcatno:hasType ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Det generelle modellelementet i ei spesialisering (modelldcatno:hasGeneralConcept)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path modelldcatno:hasGeneralConcept ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:navigable ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
-    sh:targetClass modelldcatno:Specialization .
-
-modelldcatno:Xor a sh:NodeShape ;
-    rdfs:comment "Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1365,16 +1026,6 @@ modelldcatno:Xor a sh:NodeShape ;
             sh:order 0 ;
             sh:path modelldcatno:constrains ],
         [ sh:datatype rdf:langString ;
-            sh:description "Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path modelldcatno:constraintExpression ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
@@ -1384,6 +1035,344 @@ modelldcatno:Xor a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path modelldcatno:annotates ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:propertyNote ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path modelldcatno:belongsToModule ] ;
+    sh:targetClass modelldcatno:Or .
+
+modelldcatno:Realization a sh:NodeShape ;
+    rdfs:comment "Ein realisering — ein implementasjonsrelasjon mellom modellelement." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:navigable ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Leverandør-modellelement i realiseringa (modelldcatno:hasSupplier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:hasSupplier ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ] ;
+    sh:targetClass modelldcatno:Realization .
+
+modelldcatno:Role a sh:NodeShape ;
+    rdfs:comment "Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:navigable ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class modelldcatno:ObjectType ;
+            sh:description "Objekttype knytt til rolla (modelldcatno:hasObjectType)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:hasObjectType ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ] ;
+    sh:targetClass modelldcatno:Role .
+
+modelldcatno:RootObjectType a sh:NodeShape ;
+    rdfs:comment "Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path modelldcatno:hasProperty ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:description ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ] ;
+    sh:targetClass modelldcatno:RootObjectType .
+
+modelldcatno:Specialization a sh:NodeShape ;
+    rdfs:comment "Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modellelement." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path modelldcatno:sequenceNumber ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Det generelle modellelementet i ei spesialisering (modelldcatno:hasGeneralConcept)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:hasGeneralConcept ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:navigable ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path modelldcatno:formsSymmetryWith ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path modelldcatno:hasType ] ;
+    sh:targetClass modelldcatno:Specialization .
+
+modelldcatno:Xor a sh:NodeShape ;
+    rdfs:comment "Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:propertyNote ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -1391,10 +1380,21 @@ modelldcatno:Xor a sh:NodeShape ;
             sh:order 5 ;
             sh:path dct:identifier ],
         [ sh:datatype rdf:langString ;
-            sh:description "Fritekstmerknad om ein eigenskap (modelldcatno:propertyNote)." ;
+            sh:description "Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:propertyNote ] ;
+            sh:order 1 ;
+            sh:path modelldcatno:constraintExpression ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Modellelement betingelsesregelen avgrensar (modelldcatno:constrains)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path modelldcatno:constrains ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Modellelement denne merknaden gjeld (modelldcatno:annotates)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path modelldcatno:annotates ] ;
     sh:targetClass modelldcatno:Xor .
 
 dct:PeriodOfTime a sh:NodeShape ;
@@ -1402,17 +1402,17 @@ dct:PeriodOfTime a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:date ;
-            sh:description "Startdato for tidsperioden (dcat:startDate)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dcat:startDate ],
-        [ sh:datatype xsd:date ;
             sh:description "Sluttdato for tidsperioden (dcat:endDate)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path dcat:endDate ],
+        [ sh:datatype xsd:date ;
+            sh:description "Startdato for tidsperioden (dcat:startDate)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dcat:startDate ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1439,29 +1439,39 @@ dcat:Catalog a sh:NodeShape ;
     rdfs:comment "Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class dct:LicenseDocument ;
-            sh:description "Lisens for bruk av ressursen (dct:license)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path dct:license ],
-        [ sh:class modelldcatno:InformationModel ;
-            sh:description "Informasjonsmodellar i modelkatalogen (modelldcatno:model)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path modelldcatno:model ],
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ],
         [ sh:class vcard:Organization ;
             sh:description "Kontaktinformasjon for ressursen (dcat:contactPoint)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path dcat:contactPoint ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
+        [ sh:datatype dct:language ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ],
+            sh:order 11 ;
+            sh:path dct:language ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path dct:modified ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path foaf:homepage ],
+        [ sh:class skos:Concept ;
+            sh:description "Tema frå eit kontrollert vokabular (dcat:theme)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path dcat:theme ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1469,28 +1479,19 @@ dcat:Catalog a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:ConceptScheme ;
-            sh:description "Temavokabular brukt i katalogen (dcat:themeTaxonomy)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path dcat:themeTaxonomy ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path foaf:homepage ],
+            sh:order 4 ;
+            sh:path dct:identifier ],
         [ sh:datatype xsd:date ;
-            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
+            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path dct:modified ],
+            sh:order 14 ;
+            sh:path dct:issued ],
         [ sh:class dcat:Catalog ;
             sh:description "Overordna modelkatalog (dct:isPartOf)." ;
             sh:maxCount 1 ;
@@ -1503,36 +1504,35 @@ dcat:Catalog a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path dct:hasPart ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dct:identifier ],
-        [ sh:datatype dct:language ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 11 ;
-            sh:path dct:language ],
-        [ sh:class skos:Concept ;
-            sh:description "Tema frå eit kontrollert vokabular (dcat:theme)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path dcat:theme ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path dct:issued ],
         [ sh:class foaf:Agent ;
             sh:description "Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
-            sh:path dct:publisher ] ;
+            sh:path dct:publisher ],
+        [ sh:class skos:ConceptScheme ;
+            sh:description "Temavokabular brukt i katalogen (dcat:themeTaxonomy)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path dcat:themeTaxonomy ],
+        [ sh:class dct:LicenseDocument ;
+            sh:description "Lisens for bruk av ressursen (dct:license)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path dct:license ],
+        [ sh:class modelldcatno:InformationModel ;
+            sh:description "Informasjonsmodellar i modelkatalogen (modelldcatno:model)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path modelldcatno:model ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ] ;
     sh:targetClass dcat:Catalog .
 
 dcat:Resource a sh:NodeShape ;
@@ -1558,13 +1558,6 @@ foaf:Document a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path dct:format ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype dct:language ;
             sh:description "Språk brukt i ressursen (dct:language)." ;
             sh:nodeKind sh:Literal ;
@@ -1574,40 +1567,25 @@ foaf:Document a sh:NodeShape ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path dct:title ] ;
+            sh:path dct:title ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass foaf:Document .
 
 modelldcatno:DataType a sh:NodeShape ;
     rdfs:comment "Ein datatype — ein strukturert samansett type." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype rdf:langString ;
+    sh:property [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path dct:description ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1619,65 +1597,115 @@ modelldcatno:DataType a sh:NodeShape ;
             sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
-            sh:path modelldcatno:hasProperty ] ;
+            sh:path modelldcatno:hasProperty ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ] ;
     sh:targetClass modelldcatno:DataType .
 
 modelldcatno:SimpleType a sh:NodeShape ;
     rdfs:comment "Ein enkel type med restriksjonar (xsd-fasettar)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Inklusiv minimumsverdi (xsd:minInclusive)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path xsd:minInclusive ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:string ;
-            sh:description "Eksklusiv minimumsverdi (xsd:minExclusive)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path xsd:minExclusive ],
-        [ sh:datatype xsd:string ;
-            sh:description "Inklusiv maksimumsverdi (xsd:maxInclusive)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path xsd:maxInclusive ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path modelldcatno:hasProperty ],
-        [ sh:datatype xsd:nonNegativeInteger ;
+    sh:property [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Maks totalt tal på siffer (xsd:totalDigits)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 10 ;
             sh:path xsd:totalDigits ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path dct:subject ],
+        [ sh:datatype xsd:string ;
+            sh:description "Eksklusiv maksimumsverdi (xsd:maxExclusive)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path dct:description ],
+            sh:order 3 ;
+            sh:path xsd:maxExclusive ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Maksimal lengd av strengen (xsd:maxLength)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path xsd:maxLength ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inklusiv maksimumsverdi (xsd:maxInclusive)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path xsd:maxInclusive ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path dct:description ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path modelldcatno:hasProperty ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Nøyaktig lengd av strengen (xsd:length)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path xsd:length ],
+        [ sh:datatype xsd:string ;
+            sh:description "Regulært uttrykk for tillate strengverdiar (xsd:pattern)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path xsd:pattern ],
         [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Minimal lengd av strengen (xsd:minLength)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path xsd:minLength ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Referanse til typedefinisjon (modelldcatno:typeDefinitionReference)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path modelldcatno:typeDefinitionReference ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path dct:identifier ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path dct:title ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1686,55 +1714,46 @@ modelldcatno:SimpleType a sh:NodeShape ;
             sh:order 11 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Nøyaktig lengd av strengen (xsd:length)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path xsd:length ],
-        [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Maks tal på desimalsiffer (xsd:fractionDigits)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path xsd:fractionDigits ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path dct:subject ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Referanse til typedefinisjon (modelldcatno:typeDefinitionReference)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path modelldcatno:typeDefinitionReference ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:description "Inklusiv minimumsverdi (xsd:minInclusive)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path dct:identifier ],
+            sh:order 7 ;
+            sh:path xsd:minInclusive ],
         [ sh:datatype xsd:string ;
-            sh:description "Regulært uttrykk for tillate strengverdiar (xsd:pattern)." ;
+            sh:description "Eksklusiv minimumsverdi (xsd:minExclusive)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path xsd:pattern ],
-        [ sh:datatype xsd:string ;
-            sh:description "Eksklusiv maksimumsverdi (xsd:maxExclusive)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path xsd:maxExclusive ] ;
+            sh:order 6 ;
+            sh:path xsd:minExclusive ] ;
     sh:targetClass modelldcatno:SimpleType .
 
 dct:LicenseDocument a sh:NodeShape ;
     rdfs:comment "Eit lisensdokument (dct:LicenseDocument)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dct:type ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    sh:targetClass dct:LicenseDocument .
+
+dct:Standard a sh:NodeShape ;
+    rdfs:comment "Ein standard (dct:Standard)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:anyURI ;
@@ -1744,42 +1763,23 @@ dct:LicenseDocument a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path dct:type ] ;
-    sh:targetClass dct:LicenseDocument .
-
-dct:Standard a sh:NodeShape ;
-    rdfs:comment "Ein standard (dct:Standard)." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
+        [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path dct:title ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+            sh:order 2 ;
+            sh:path rdfs:seeAlso ],
         [ sh:datatype xsd:string ;
             sh:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path owl:versionInfo ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path rdfs:seeAlso ] ;
+            sh:path owl:versionInfo ] ;
     sh:targetClass dct:Standard .
 
 vcard:Organization a sh:NodeShape ;
@@ -1800,52 +1800,26 @@ modelldcatno:CodeElement a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype rdf:langString ;
-            sh:description "Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNote)." ;
+            sh:description "Generelt notat om kodeelementet (skos:note)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path xkos:exclusionNote ],
+            sh:order 13 ;
+            sh:path skos:note ],
         [ sh:datatype rdf:langString ;
-            sh:description "Eksempel på bruk av kodeelementet (skos:example)." ;
+            sh:description "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path skos:example ],
-        [ sh:class modelldcatno:CodeList ;
-            sh:description "Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConceptOf)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path skos:topConceptOf ],
+            sh:order 3 ;
+            sh:path skos:prefLabel ],
         [ sh:datatype rdf:langString ;
             sh:description "Alternativ term for kodeelementet (skos:altLabel)." ;
             sh:nodeKind sh:Literal ;
             sh:order 16 ;
             sh:path skos:altLabel ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path xkos:inclusionNote ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:identifier ],
         [ sh:class modelldcatno:CodeElement ;
-            sh:description "Neste kodeelement i ein ordna kodeliste (xkos:next)." ;
+            sh:description "Førre kodeelement i ein ordna kodeliste (xkos:previous)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path xkos:next ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path dct:subject ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Generelt notat om kodeelementet (skos:note)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path skos:note ],
+            sh:order 10 ;
+            sh:path xkos:previous ],
         [ sh:datatype xsd:string ;
             sh:description "Kode/notasjon for kodeelementet (skos:notation)." ;
             sh:maxCount 1 ;
@@ -1853,11 +1827,6 @@ modelldcatno:CodeElement a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path skos:notation ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Definisjon av kodeelementet (skos:definition)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path skos:definition ],
         [ sh:class modelldcatno:CodeList ;
             sh:description "Kodeliste dette kodeelementet tilhøyrer (skos:inScheme)." ;
             sh:minCount 1 ;
@@ -1865,15 +1834,20 @@ modelldcatno:CodeElement a sh:NodeShape ;
             sh:order 1 ;
             sh:path skos:inScheme ],
         [ sh:datatype rdf:langString ;
-            sh:description "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path skos:prefLabel ],
-        [ sh:datatype rdf:langString ;
             sh:description "Skjult term for kodeelementet (skos:hiddenLabel)." ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path skos:hiddenLabel ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path dct:subject ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path xkos:inclusionNote ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1881,40 +1855,65 @@ modelldcatno:CodeElement a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Eksempel på bruk av kodeelementet (skos:example)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path skos:example ],
         [ sh:class modelldcatno:CodeElement ;
-            sh:description "Førre kodeelement i ein ordna kodeliste (xkos:previous)." ;
+            sh:description "Neste kodeelement i ein ordna kodeliste (xkos:next)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path xkos:previous ],
+            sh:order 14 ;
+            sh:path xkos:next ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNote)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path xkos:exclusionNote ],
+        [ sh:class modelldcatno:CodeList ;
+            sh:description "Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConceptOf)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path skos:topConceptOf ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Definisjon av kodeelementet (skos:definition)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path skos:definition ],
         [ sh:datatype rdf:langString ;
             sh:description "Notat om omfanget til kodeelementet (skos:scopeNote)." ;
             sh:nodeKind sh:Literal ;
             sh:order 15 ;
-            sh:path skos:scopeNote ] ;
+            sh:path skos:scopeNote ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:identifier ] ;
     sh:targetClass modelldcatno:CodeElement .
 
 modelldcatno:ObjectType a sh:NodeShape ;
     rdfs:comment "Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:subject ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+            sh:order 3 ;
+            sh:path dct:identifier ],
         [ sh:class modelldcatno:Property ;
             sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path modelldcatno:hasProperty ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:subject ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
@@ -1926,24 +1925,37 @@ modelldcatno:ObjectType a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path dct:description ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:class modelldcatno:Module ;
             sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ] ;
+            sh:path modelldcatno:belongsToModule ] ;
     sh:targetClass modelldcatno:ObjectType .
 
 foaf:Agent a sh:NodeShape ;
     rdfs:comment "Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:identifier ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:type ],
+        [ sh:datatype rdf:langString ;
             sh:description "Namn på aktøren (foaf:name)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -1955,19 +1967,7 @@ foaf:Agent a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path dct:type ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:identifier ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass foaf:Agent .
 
 modelldcatno:CodeList a sh:NodeShape ;
@@ -1975,6 +1975,13 @@ modelldcatno:CodeList a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype xsd:anyURI ;
             sh:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
@@ -1984,199 +1991,60 @@ modelldcatno:CodeList a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path dct:subject ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path modelldcatno:belongsToModule ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:description ],
+            sh:order 5 ;
+            sh:path modelldcatno:hasProperty ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path dct:identifier ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path modelldcatno:hasProperty ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+            sh:order 6 ;
+            sh:path dct:description ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path dct:title ] ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path modelldcatno:belongsToModule ] ;
     sh:targetClass modelldcatno:CodeList .
 
 modelldcatno:InformationModel a sh:NodeShape ;
     rdfs:comment "Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:InformationModel)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:identifier ],
-        [ sh:class dct:Standard ;
-            sh:description "Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path prof:isProfileOf ],
-        [ sh:datatype xsd:string ;
-            sh:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 28 ;
-            sh:path owl:versionInfo ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 23 ;
-            sh:path dcat:keyword ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dct:description ],
-        [ sh:class vcard:Organization ;
-            sh:description "Kontaktinformasjon for ressursen (dcat:contactPoint)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path dcat:contactPoint ],
-        [ sh:class skos:Concept ;
-            sh:description "Tema frå eit kontrollert vokabular (dcat:theme)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path dcat:theme ],
-        [ sh:class modelldcatno:ModelElement ;
-            sh:description "Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelElement)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path modelldcatno:containsModelElement ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dct:modified ],
-        [ sh:class skos:Concept ;
-            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 22 ;
-            sh:path adms:status ],
-        [ sh:class dct:Standard ;
-            sh:description "Standard ressursen er i samsvar med (dct:conformsTo)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path dct:conformsTo ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 20 ;
-            sh:path foaf:homepage ],
-        [ sh:class dct:LicenseDocument ;
-            sh:description "Lisens for bruk av ressursen (dct:license)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path dct:license ],
-        [ sh:class dct:PeriodOfTime ;
-            sh:description "Tidsperiode ressursen dekkar (dct:temporal)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path dct:temporal ],
-        [ sh:class modelldcatno:InformationModel ;
-            sh:description "Del-informasjonsmodell av denne modellen (dct:hasPart)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path dct:hasPart ],
-        [ sh:datatype dct:language ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 25 ;
-            sh:path dct:language ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path dct:subject ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 29 ;
-            sh:path adms:versionNotes ],
-        [ sh:class skos:Concept ;
-            sh:description "Geografisk dekningsområde (dct:spatial)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path dct:spatial ],
-        [ sh:class foaf:Agent ;
-            sh:description "Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:publisher ],
-        [ sh:datatype xsd:string ;
-            sh:description "Identifikator for informasjonsmodellen i domenet (modelldcatno:informationModelIdentifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path modelldcatno:informationModelIdentifier ],
-        [ sh:datatype xsd:date ;
+    sh:property [ sh:datatype xsd:date ;
             sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 27 ;
             sh:path dct:issued ],
-        [ sh:class foaf:Document ;
-            sh:description "Dokument som representerer ein annan form av modellen (dct:hasFormat)." ;
+        [ sh:class dct:Standard ;
+            sh:description "Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path dct:hasFormat ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:order 14 ;
+            sh:path prof:isProfileOf ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class modelldcatno:InformationModel ;
-            sh:description "Overordna informasjonsmodell (dct:isPartOf)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path dct:isPartOf ],
-        [ sh:class foaf:Agent ;
-            sh:description "Aktøren som primært har skapt ressursen (dct:creator)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path dct:creator ],
-        [ sh:class modelldcatno:InformationModel ;
-            sh:description "Informasjonsmodell som erstattar denne (dct:isReplacedBy)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path dct:isReplacedBy ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path dct:type ],
+            sh:order 29 ;
+            sh:path adms:versionNotes ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path dct:description ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
@@ -2187,68 +2055,68 @@ modelldcatno:InformationModel a sh:NodeShape ;
             sh:description "Informasjonsmodell som denne erstattar (dct:replaces)." ;
             sh:nodeKind sh:IRI ;
             sh:order 16 ;
-            sh:path dct:replaces ] ;
-    sh:targetClass modelldcatno:InformationModel .
-
-modelldcatno:Property a sh:NodeShape ;
-    rdfs:comment "Abstrakt basisklasse for eigenskapar knytt til eit modellelement." ;
-    sh:closed false ;
-    sh:ignoredProperties ( modelldcatno:hasValueFrom modelldcatno:hasSupplier modelldcatno:hasSimpleType modelldcatno:containsObjectType modelldcatno:isAbstractionOf modelldcatno:contains modelldcatno:hasObjectType rdf:type modelldcatno:dependentOn modelldcatno:hasGeneralConcept modelldcatno:refersTo modelldcatno:hasSome modelldcatno:hasDataType ) ;
-    sh:property [ sh:class skos:Concept ;
-            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:path dct:replaces ],
+        [ sh:class foaf:Agent ;
+            sh:description "Aktøren som primært har skapt ressursen (dct:creator)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path dct:subject ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:order 24 ;
+            sh:path dct:creator ],
+        [ sh:class foaf:Agent ;
+            sh:description "Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:publisher ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path modelldcatno:navigable ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:title ],
+            sh:order 12 ;
+            sh:path dct:modified ],
+        [ sh:class dct:LicenseDocument ;
+            sh:description "Lisens for bruk av ressursen (dct:license)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path dct:license ],
+        [ sh:class modelldcatno:InformationModel ;
+            sh:description "Del-informasjonsmodell av denne modellen (dct:hasPart)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path dct:hasPart ],
+        [ sh:class modelldcatno:InformationModel ;
+            sh:description "Informasjonsmodell som erstattar denne (dct:isReplacedBy)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path dct:isReplacedBy ],
+        [ sh:class skos:Concept ;
+            sh:description "Tema frå eit kontrollert vokabular (dcat:theme)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path dcat:theme ],
         [ sh:class modelldcatno:ModelElement ;
-            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:description "Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelElement)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path modelldcatno:hasType ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path modelldcatno:belongsToModule ],
+            sh:order 7 ;
+            sh:path modelldcatno:containsModelElement ],
         [ sh:datatype xsd:string ;
-            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:description "Identifikator for informasjonsmodellen i domenet (modelldcatno:informationModelIdentifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
-            sh:path modelldcatno:maxOccurs ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
+            sh:path modelldcatno:informationModelIdentifier ],
+        [ sh:class vcard:Organization ;
+            sh:description "Kontaktinformasjon for ressursen (dcat:contactPoint)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path dcat:contactPoint ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path modelldcatno:sequenceNumber ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path modelldcatno:minOccurs ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path modelldcatno:relationPropertyLabel ],
+            sh:order 20 ;
+            sh:path foaf:homepage ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -2257,41 +2125,155 @@ modelldcatno:Property a sh:NodeShape ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path dct:description ],
-        [ sh:class modelldcatno:Property ;
-            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:order 23 ;
+            sh:path dcat:keyword ],
+        [ sh:class skos:Concept ;
+            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path modelldcatno:formsSymmetryWith ] ;
-    sh:targetClass modelldcatno:Property .
+            sh:order 22 ;
+            sh:path adms:status ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path dct:type ],
+        [ sh:class skos:Concept ;
+            sh:description "Geografisk dekningsområde (dct:spatial)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path dct:spatial ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:identifier ],
+        [ sh:datatype xsd:string ;
+            sh:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 28 ;
+            sh:path owl:versionInfo ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:subject ],
+        [ sh:class foaf:Document ;
+            sh:description "Dokument som representerer ein annan form av modellen (dct:hasFormat)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path dct:hasFormat ],
+        [ sh:datatype dct:language ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 25 ;
+            sh:path dct:language ],
+        [ sh:class dct:Standard ;
+            sh:description "Standard ressursen er i samsvar med (dct:conformsTo)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path dct:conformsTo ],
+        [ sh:class modelldcatno:InformationModel ;
+            sh:description "Overordna informasjonsmodell (dct:isPartOf)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path dct:isPartOf ],
+        [ sh:class dct:PeriodOfTime ;
+            sh:description "Tidsperiode ressursen dekkar (dct:temporal)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path dct:temporal ] ;
+    sh:targetClass modelldcatno:InformationModel .
 
-modelldcatno:Module a sh:NodeShape ;
-    rdfs:comment "Ein modul som grupperer modellelement i informasjonsmodellen." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
+modelldcatno:Property a sh:NodeShape ;
+    rdfs:comment "Abstrakt basisklasse for eigenskapar knytt til eit modellelement." ;
+    sh:closed false ;
+    sh:ignoredProperties ( modelldcatno:refersTo modelldcatno:containsObjectType modelldcatno:isAbstractionOf rdf:type modelldcatno:contains modelldcatno:hasObjectType modelldcatno:hasSupplier modelldcatno:hasDataType modelldcatno:hasGeneralConcept modelldcatno:hasSome modelldcatno:hasValueFrom modelldcatno:hasSimpleType modelldcatno:dependentOn ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path modelldcatno:relationPropertyLabel ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:title ],
+        [ sh:datatype xsd:string ;
+            sh:description "Høgste multiplisitet — heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path modelldcatno:maxOccurs ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path modelldcatno:sequenceNumber ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path modelldcatno:navigable ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path modelldcatno:minOccurs ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagomgrep ressursen handlar om (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dct:subject ],
+        [ sh:class modelldcatno:ModelElement ;
+            sh:description "Type modellelement for eigenskapen (modelldcatno:hasType)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path modelldcatno:hasType ],
+        [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class modelldcatno:Module ;
-            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path modelldcatno:belongsToModule ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
+            sh:order 2 ;
             sh:path dct:identifier ],
+        [ sh:class modelldcatno:Property ;
+            sh:description "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path modelldcatno:formsSymmetryWith ],
         [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path dct:description ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path modelldcatno:belongsToModule ] ;
+    sh:targetClass modelldcatno:Property .
+
+modelldcatno:Module a sh:NodeShape ;
+    rdfs:comment "Ein modul som grupperer modellelement i informasjonsmodellen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
@@ -2301,6 +2283,12 @@ modelldcatno:Module a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path dct:subject ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
         [ sh:class modelldcatno:Property ;
             sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
             sh:nodeKind sh:IRI ;
@@ -2311,7 +2299,19 @@ modelldcatno:Module a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path dct:title ] ;
+            sh:path dct:title ],
+        [ sh:class modelldcatno:Module ;
+            sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path modelldcatno:belongsToModule ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass modelldcatno:Module .
 
 skos:Concept a sh:NodeShape ;
@@ -2330,8 +2330,14 @@ skos:Concept a sh:NodeShape ;
 modelldcatno:ModelElement a sh:NodeShape ;
     rdfs:comment "Abstrakt basisklasse for alle modellelement i ein informasjonsmodell." ;
     sh:closed false ;
-    sh:ignoredProperties ( xsd:fractionDigits xsd:maxInclusive xsd:length xsd:totalDigits rdf:type modelldcatno:typeDefinitionReference xsd:minLength xsd:minExclusive rdfs:seeAlso xsd:maxExclusive xsd:pattern xsd:minInclusive xsd:maxLength ) ;
-    sh:property [ sh:class modelldcatno:Module ;
+    sh:ignoredProperties ( xsd:pattern xsd:totalDigits rdf:type xsd:length xsd:fractionDigits xsd:minExclusive modelldcatno:typeDefinitionReference xsd:minLength xsd:maxExclusive xsd:maxInclusive xsd:minInclusive xsd:maxLength rdfs:seeAlso ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class modelldcatno:Module ;
             sh:description "Modul dette elementet tilhøyrer (modelldcatno:belongsToModule)." ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
@@ -2341,35 +2347,29 @@ modelldcatno:ModelElement a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path dct:subject ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
         [ sh:class modelldcatno:Property ;
             sh:description "Eigenskapar modellelementet har (modelldcatno:hasProperty)." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path modelldcatno:hasProperty ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:description ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:description ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass modelldcatno:ModelElement .
 
 

@@ -185,6 +185,7 @@ URI: [ngr:Grunnkrets](https://data.norge.no/vocabulary/ngr-adresse#Grunnkrets)
 name: Grunnkrets
 description: Ei grunnkrets – minste geografiske eining i statistisk inndeling.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slots:
 - grunnkretsnummer
@@ -200,6 +201,7 @@ class_uri: ngr:Grunnkrets
 name: Grunnkrets
 description: Ei grunnkrets – minste geografiske eining i statistisk inndeling.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 attributes:
   grunnkretsnummer:

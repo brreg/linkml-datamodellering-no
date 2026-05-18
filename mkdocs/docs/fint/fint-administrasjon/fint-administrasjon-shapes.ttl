@@ -9,161 +9,41 @@
     rdfs:comment "Rotcontainer for FINT Administrasjon-instansar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Landkode ;
-            sh:description "Alle landkodar i containeren." ;
+    sh:property [ sh:class fint:Kontaktperson ;
+            sh:description "Alle kontaktpersonar i containeren." ;
             sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path adm:landkodar ],
-        [ sh:class adm:Prosjektart ;
-            sh:description "Alle prosjektartar i containeren." ;
+            sh:order 1 ;
+            sh:path adm:kontaktpersonar ],
+        [ sh:class adm:Lopenummer ;
+            sh:description "Løpenummer i ei nummerserie." ;
             sh:nodeKind sh:IRI ;
-            sh:order 36 ;
-            sh:path adm:prosjektartar ],
-        [ sh:class fint:Valuta ;
-            sh:description "Alle valutaverdiar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path adm:valuta ],
-        [ sh:class adm:Ansvar ;
-            sh:description "Ansvarleg for ei utgift eller inntekt." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path adm:ansvar ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Alle personalressursar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path adm:personalressursar ],
+            sh:order 31 ;
+            sh:path adm:lopenummer ],
         [ sh:class adm:Rolle ;
             sh:description "Alle rollar i containeren." ;
             sh:nodeKind sh:IRI ;
             sh:order 17 ;
             sh:path adm:rollar ],
-        [ sh:class adm:Stillingskode ;
-            sh:description "Alle stillingskoder i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 38 ;
-            sh:path adm:stillingskoder ],
-        [ sh:class fint:Fylke ;
-            sh:description "Fylke." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path fint:fylke ],
-        [ sh:class fint:Kontaktperson ;
-            sh:description "Alle kontaktpersonar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path adm:kontaktpersonar ],
-        [ sh:class adm:Fravaer ;
-            sh:description "Fråvær knytt til ressursen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path adm:fravaer ],
-        [ sh:class adm:Formaal ;
-            sh:description "Formål viser aktivitet og tenesteproduksjon." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 25 ;
-            sh:path adm:formaal ],
-        [ sh:class adm:Arbeidslokasjon ;
-            sh:description "Alle arbeidslokasjoner i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path adm:arbeidslokasjoner ],
-        [ sh:class adm:Aktivitet ;
-            sh:description "Alle aktivitetar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path adm:aktivitetar ],
-        [ sh:class adm:Fasttillegg ;
-            sh:description "Faste tillegg for arbeidsforholdet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path adm:fasttillegg ],
-        [ sh:class adm:Lonsart ;
-            sh:description "Alle lønnsartar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 30 ;
-            sh:path adm:lonsartar ],
-        [ sh:class adm:Diverse ;
-            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path adm:diverse ],
-        [ sh:class adm:Organisasjonselement ;
-            sh:description "Organisasjonselement ressursen er knytt til." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path adm:organisasjonselement ],
-        [ sh:class adm:Arbeidsforholdstype ;
-            sh:description "Alle arbeidsforholdstypar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path adm:arbeidsforholdstypar ],
-        [ sh:class adm:Variabellonn ;
-            sh:description "Variabel lønn for arbeidsforholdet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path adm:variabellonn ],
-        [ sh:class fint:Person ;
-            sh:description "Alle personar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path adm:personar ],
-        [ sh:class fint:Virksomhet ;
-            sh:description "Alle verksemder i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path adm:virksomhetar ],
-        [ sh:class fint:Kommune ;
-            sh:description "Alle kommuneverdiar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path adm:kommunar ],
-        [ sh:class adm:Arbeidsforhold ;
-            sh:description "Arbeidsforhold ressursen er knytt til." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path adm:arbeidsforhold ],
-        [ sh:class adm:Fravaersgrunn ;
-            sh:description "Alle fråværsgrunnar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path adm:fravaersgrunnar ],
         [ sh:class adm:Prosjekt ;
             sh:description "Prosjekt ressursen er knytt til." ;
             sh:nodeKind sh:IRI ;
             sh:order 35 ;
             sh:path adm:prosjekt ],
-        [ sh:class adm:Personalressurskategori ;
-            sh:description "Alle personalressurskategoriar i containeren." ;
+        [ sh:class fint:Landkode ;
+            sh:description "Alle landkodar i containeren." ;
             sh:nodeKind sh:IRI ;
-            sh:order 34 ;
-            sh:path adm:personalressurskategoriar ],
-        [ sh:class adm:Fullmakt ;
-            sh:description "Alle fullmakter i containeren." ;
+            sh:order 3 ;
+            sh:path adm:landkodar ],
+        [ sh:class adm:Fravaer ;
+            sh:description "Fråvær knytt til ressursen." ;
             sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path adm:fullmakter ],
-        [ sh:class adm:Objekt ;
-            sh:description "Objekt ressursen er knytt til." ;
+            sh:order 14 ;
+            sh:path adm:fravaer ],
+        [ sh:class adm:Variabellonn ;
+            sh:description "Variabel lønn for arbeidsforholdet." ;
             sh:nodeKind sh:IRI ;
-            sh:order 32 ;
-            sh:path adm:objekt ],
-        [ sh:class adm:Fravaerstype ;
-            sh:description "Alle fråværstypar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 27 ;
-            sh:path adm:fravaerstypar ],
-        [ sh:class adm:Organisasjonstype ;
-            sh:description "Alle organisasjonstypar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 33 ;
-            sh:path adm:organisasjonstypar ],
-        [ sh:class fint:Spraak ;
-            sh:description "Alle språkverdiar i containeren." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path adm:spraak ],
+            sh:order 18 ;
+            sh:path adm:variabellonn ],
         [ sh:class adm:Uketimetall ;
             sh:description "Alle uketimetallverdiar i containeren." ;
             sh:nodeKind sh:IRI ;
@@ -174,97 +54,174 @@
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path adm:fastlonn ],
-        [ sh:class fint:Kjonn ;
-            sh:description "Kjønn." ;
+        [ sh:class fint:Kommune ;
+            sh:description "Alle kommuneverdiar i containeren." ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path fint:kjonn ],
-        [ sh:class adm:Lopenummer ;
-            sh:description "Løpenummer i ei nummerserie." ;
+            sh:order 6 ;
+            sh:path adm:kommunar ],
+        [ sh:class adm:Arbeidsforhold ;
+            sh:description "Arbeidsforhold ressursen er knytt til." ;
             sh:nodeKind sh:IRI ;
-            sh:order 31 ;
-            sh:path adm:lopenummer ],
-        [ sh:class adm:Anlegg ;
-            sh:description "Objekt som skal aktiverast eller avskrivast." ;
+            sh:order 10 ;
+            sh:path adm:arbeidsforhold ],
+        [ sh:class adm:Diverse ;
+            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
             sh:nodeKind sh:IRI ;
-            sh:order 20 ;
-            sh:path adm:anlegg ],
+            sh:order 24 ;
+            sh:path adm:diverse ],
+        [ sh:class fint:Virksomhet ;
+            sh:description "Alle verksemder i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path adm:virksomhetar ],
+        [ sh:class adm:Stillingskode ;
+            sh:description "Alle stillingskoder i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 38 ;
+            sh:path adm:stillingskoder ],
         [ sh:class adm:Art ;
             sh:description "Alle artar i containeren." ;
             sh:nodeKind sh:IRI ;
             sh:order 22 ;
             sh:path adm:artar ],
+        [ sh:class adm:Prosjektart ;
+            sh:description "Alle prosjektartar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 36 ;
+            sh:path adm:prosjektartar ],
+        [ sh:class adm:Arbeidslokasjon ;
+            sh:description "Alle arbeidslokasjoner i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path adm:arbeidslokasjoner ],
+        [ sh:class adm:Fravaerstype ;
+            sh:description "Alle fråværstypar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path adm:fravaerstypar ],
+        [ sh:class adm:Fravaersgrunn ;
+            sh:description "Alle fråværsgrunnar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path adm:fravaersgrunnar ],
+        [ sh:class adm:Arbeidsforholdstype ;
+            sh:description "Alle arbeidsforholdstypar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path adm:arbeidsforholdstypar ],
+        [ sh:class adm:Aktivitet ;
+            sh:description "Alle aktivitetar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path adm:aktivitetar ],
+        [ sh:class fint:Fylke ;
+            sh:description "Fylke." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path fint:fylke ],
         [ sh:class adm:Kontrakt ;
             sh:description "Alle kontrakter i containeren." ;
             sh:nodeKind sh:IRI ;
             sh:order 29 ;
             sh:path adm:kontrakter ],
+        [ sh:class fint:Spraak ;
+            sh:description "Alle språkverdiar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path adm:spraak ],
+        [ sh:class adm:Organisasjonstype ;
+            sh:description "Alle organisasjonstypar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 33 ;
+            sh:path adm:organisasjonstypar ],
+        [ sh:class adm:Ansvar ;
+            sh:description "Ansvarleg for ei utgift eller inntekt." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path adm:ansvar ],
+        [ sh:class adm:Objekt ;
+            sh:description "Objekt ressursen er knytt til." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 32 ;
+            sh:path adm:objekt ],
+        [ sh:class adm:Lonsart ;
+            sh:description "Alle lønnsartar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 30 ;
+            sh:path adm:lonsartar ],
+        [ sh:class fint:Person ;
+            sh:description "Alle personar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path adm:personar ],
+        [ sh:class adm:Fasttillegg ;
+            sh:description "Faste tillegg for arbeidsforholdet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path adm:fasttillegg ],
+        [ sh:class fint:Kjonn ;
+            sh:description "Kjønn." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path fint:kjonn ],
+        [ sh:class adm:Fullmakt ;
+            sh:description "Alle fullmakter i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path adm:fullmakter ],
         [ sh:class adm:Funksjon ;
             sh:description "Alle funksjonar i containeren." ;
             sh:nodeKind sh:IRI ;
             sh:order 28 ;
             sh:path adm:funksjonar ],
+        [ sh:class adm:Organisasjonselement ;
+            sh:description "Organisasjonselement ressursen er knytt til." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path adm:organisasjonselement ],
+        [ sh:class adm:Anlegg ;
+            sh:description "Objekt som skal aktiverast eller avskrivast." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path adm:anlegg ],
+        [ sh:class fint:Valuta ;
+            sh:description "Alle valutaverdiar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path adm:valuta ],
+        [ sh:class adm:Formaal ;
+            sh:description "Formål viser aktivitet og tenesteproduksjon." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path adm:formaal ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Alle personalressursar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path adm:personalressursar ],
         [ sh:class adm:Ramme ;
             sh:description "Alle rammer i containeren." ;
             sh:nodeKind sh:IRI ;
             sh:order 37 ;
-            sh:path adm:rammer ] ;
+            sh:path adm:rammer ],
+        [ sh:class adm:Personalressurskategori ;
+            sh:description "Alle personalressurskategoriar i containeren." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 34 ;
+            sh:path adm:personalressurskategoriar ] ;
     sh:targetClass <https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer> .
 
 adm:Lonn a sh:NodeShape ;
     rdfs:comment "Informasjon om lønn for eit arbeidsforhold (abstrakt base)." ;
     sh:closed false ;
-    sh:ignoredProperties ( rdf:type adm:antall adm:arbeidsforhold adm:prosent adm:lonsart adm:belop ) ;
-    sh:property [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart kontert." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path adm:kontert ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart anvist." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path adm:anvist ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har attestert lønsmeldinga etter fullmakt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path adm:attestant ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 8 ;
-            sh:path adm:periode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode der lønn vart opptent." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path adm:opptjent ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path adm:konterer ],
-        [ sh:class adm:Kontostreng ;
+    sh:ignoredProperties ( adm:antall adm:lonsart rdf:type adm:prosent adm:belop adm:arbeidsforhold ) ;
+    sh:property [ sh:class adm:Kontostreng ;
             sh:description "Kontering av lønn." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 6 ;
             sh:path adm:kontostreng ],
-        [ sh:class fint:Identifikator ;
-            sh:description "Kjeldesystemets unike identifikator." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path adm:kildesystemId ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -272,12 +229,12 @@ adm:Lonn a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart attestert." ;
+        [ sh:class fint:Identifikator ;
+            sh:description "Kjeldesystemets unike identifikator." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path adm:attestert ],
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path adm:kildesystemId ],
         [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
@@ -285,6 +242,49 @@ adm:Lonn a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path fint:beskrivelse ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har attestert lønsmeldinga etter fullmakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path adm:attestant ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart anvist." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path adm:anvist ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path adm:konterer ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart attestert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path adm:attestert ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode der lønn vart opptent." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path adm:opptjent ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 8 ;
+            sh:path adm:periode ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart kontert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path adm:kontert ],
         [ sh:class adm:Personalressurs ;
             sh:description "Personalressurs som har anvist lønsmeldinga etter fullmakt." ;
             sh:maxCount 1 ;
@@ -298,47 +298,17 @@ adm:Arbeidslokasjon a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Namn på eining registrert i Einingsregisteret." ;
+            sh:description "Namn som beskriv ein arbeidslokasjon." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:organisasjonsnavn ],
+            sh:order 2 ;
+            sh:path adm:lokasjonsnavn ],
         [ sh:class fint:Identifikator ;
             sh:description "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 5 ;
             sh:path fint:organisasjonsnummer ],
-        [ sh:class fint:Identifikator ;
-            sh:description "Kode som identifiserer ein arbeidslokasjon." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path adm:lokasjonskode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Namn som beskriv ein arbeidslokasjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path adm:lokasjonsnavn ],
-        [ sh:class adm:Arbeidsforhold ;
-            sh:description "Arbeidsforhold ressursen er knytt til." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path adm:arbeidsforhold ],
-        [ sh:class fint:Kontaktinformasjon ;
-            sh:description "Den føretrekte måten å kome i kontakt med ein aktør." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 6 ;
-            sh:path fint:kontaktinformasjon ],
-        [ sh:class fint:Adresse ;
-            sh:description "Informasjon om postadresse til ein aktør." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path fint:postadresse ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -351,7 +321,37 @@ adm:Arbeidslokasjon a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path fint:forretningsadresse ] ;
+            sh:path fint:forretningsadresse ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Kode som identifiserer ein arbeidslokasjon." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path adm:lokasjonskode ],
+        [ sh:class fint:Kontaktinformasjon ;
+            sh:description "Den føretrekte måten å kome i kontakt med ein aktør." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path fint:kontaktinformasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på eining registrert i Einingsregisteret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:organisasjonsnavn ],
+        [ sh:class fint:Adresse ;
+            sh:description "Informasjon om postadresse til ein aktør." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path fint:postadresse ],
+        [ sh:class adm:Arbeidsforhold ;
+            sh:description "Arbeidsforhold ressursen er knytt til." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path adm:arbeidsforhold ] ;
     sh:targetClass adm:Arbeidslokasjon .
 
 adm:Fastlonn a sh:NodeShape ;
@@ -365,43 +365,32 @@ adm:Fastlonn a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path fint:beskrivelse ],
-        [ sh:class fint:Identifikator ;
-            sh:description "Kjeldesystemets unike identifikator." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path adm:kildesystemId ],
-        [ sh:class adm:Kontostreng ;
-            sh:description "Kontering av lønn." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 9 ;
-            sh:path adm:kontostreng ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode der lønn vart opptent." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 10 ;
-            sh:path adm:opptjent ],
-        [ sh:class adm:Lonsart ;
-            sh:description "Lønnsart." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path adm:lonsart ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart kontert." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path adm:kontert ],
         [ sh:class adm:Personalressurs ;
             sh:description "Personalressurs som har anvist lønsmeldinga etter fullmakt." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path adm:anviser ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart kontert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path adm:kontert ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path adm:periode ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:integer ;
             sh:description "Prosent." ;
             sh:maxCount 1 ;
@@ -415,25 +404,18 @@ adm:Fastlonn a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 14 ;
             sh:path adm:attestant ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode der lønn vart opptent." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path adm:opptjent ],
         [ sh:datatype xsd:dateTime ;
             sh:description "Tidspunkt då lønn vart anvist." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path adm:anvist ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 11 ;
-            sh:path adm:periode ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart attestert." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path adm:attestert ],
         [ sh:class adm:Arbeidsforhold ;
             sh:description "Arbeidsforhold ressursen er knytt til." ;
             sh:maxCount 1 ;
@@ -441,31 +423,80 @@ adm:Fastlonn a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path adm:arbeidsforhold ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart attestert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path adm:attestert ],
         [ sh:class adm:Personalressurs ;
             sh:description "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 13 ;
             sh:path adm:konterer ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
+        [ sh:class fint:Identifikator ;
+            sh:description "Kjeldesystemets unike identifikator." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path adm:kildesystemId ],
+        [ sh:class adm:Lonsart ;
+            sh:description "Lønnsart." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path adm:lonsart ],
+        [ sh:class adm:Kontostreng ;
+            sh:description "Kontering av lønn." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 9 ;
+            sh:path adm:kontostreng ] ;
     sh:targetClass adm:Fastlonn .
 
 adm:Fasttillegg a sh:NodeShape ;
     rdfs:comment "Faste tillegg til utbetaling." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart attestert." ;
+    sh:property [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path adm:konterer ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Kjeldesystemets unike identifikator." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path adm:kildesystemId ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart anvist." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path adm:attestert ],
+            sh:order 4 ;
+            sh:path adm:anvist ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode der lønn vart opptent." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path adm:opptjent ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har attestert lønsmeldinga etter fullmakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path adm:attestant ],
         [ sh:class adm:Lonsart ;
             sh:description "Lønnsart." ;
             sh:maxCount 1 ;
@@ -473,18 +504,13 @@ adm:Fasttillegg a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path adm:lonsart ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har attestert lønsmeldinga etter fullmakt." ;
+        [ sh:class adm:Arbeidsforhold ;
+            sh:description "Arbeidsforhold ressursen er knytt til." ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path adm:attestant ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode der lønn vart opptent." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 10 ;
-            sh:path adm:opptjent ],
+            sh:order 2 ;
+            sh:path adm:arbeidsforhold ],
         [ sh:datatype xsd:dateTime ;
             sh:description "Tidspunkt då lønn vart kontert." ;
             sh:maxCount 1 ;
@@ -497,19 +523,6 @@ adm:Fasttillegg a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 12 ;
             sh:path adm:anviser ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path adm:konterer ],
-        [ sh:class adm:Arbeidsforhold ;
-            sh:description "Arbeidsforhold ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path adm:arbeidsforhold ],
         [ sh:class adm:Kontostreng ;
             sh:description "Kontering av lønn." ;
             sh:maxCount 1 ;
@@ -517,19 +530,6 @@ adm:Fasttillegg a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 9 ;
             sh:path adm:kontostreng ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart anvist." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path adm:anvist ],
         [ sh:datatype xsd:integer ;
             sh:description "Beløp i øre." ;
             sh:maxCount 1 ;
@@ -537,12 +537,12 @@ adm:Fasttillegg a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path adm:belop ],
-        [ sh:class fint:Identifikator ;
-            sh:description "Kjeldesystemets unike identifikator." ;
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart attestert." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path adm:kildesystemId ],
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path adm:attestert ],
         [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
@@ -563,920 +563,6 @@ adm:Fravaersgrunn a sh:NodeShape ;
     rdfs:comment "Grunn til fråvær." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ] ;
-    sh:targetClass adm:Fravaersgrunn .
-
-adm:Fravaerstype a sh:NodeShape ;
-    rdfs:comment "Type fråvær." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class adm:Lonsart ;
-            sh:description "Lønnsart." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path adm:lonsart ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir om fråvær av denne typen skal overførast til HR." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path adm:overfores ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path fint:gyldighetsperiode ] ;
-    sh:targetClass adm:Fravaerstype .
-
-adm:Organisasjonstype a sh:NodeShape ;
-    rdfs:comment "Typen til eit organisasjonselement." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
-    sh:targetClass adm:Organisasjonstype .
-
-adm:Personalressurskategori a sh:NodeShape ;
-    rdfs:comment "Ansettelsesform til eit arbeidsforhold." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
-    sh:targetClass adm:Personalressurskategori .
-
-adm:Rolle a sh:NodeShape ;
-    rdfs:comment "Rettighet eller type fullmakt." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:beskrivelse ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Identifikator ;
-            sh:description "Namn på rolla; unik identifikator." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path adm:rolleNavn ],
-        [ sh:class adm:Fullmakt ;
-            sh:description "Fullmakt ressursen er knytt til." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path adm:fullmakt ] ;
-    sh:targetClass adm:Rolle .
-
-adm:Uketimetall a sh:NodeShape ;
-    rdfs:comment "Timer per veke i 100 % stilling." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ] ;
-    sh:targetClass adm:Uketimetall .
-
-adm:Variabellonn a sh:NodeShape ;
-    rdfs:comment "Informasjon om variabel lønn." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart attestert." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path adm:attestert ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart anvist." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path adm:anvist ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Beløp i øre." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path adm:belop ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har attestert lønsmeldinga etter fullmakt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path adm:attestant ],
-        [ sh:class adm:Kontostreng ;
-            sh:description "Kontering av lønn." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 10 ;
-            sh:path adm:kontostreng ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path fint:beskrivelse ],
-        [ sh:class fint:Identifikator ;
-            sh:description "Kjeldesystemets unike identifikator." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 8 ;
-            sh:path adm:kildesystemId ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har anvist lønsmeldinga etter fullmakt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path adm:anviser ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då lønn vart kontert." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path adm:kontert ],
-        [ sh:class adm:Arbeidsforhold ;
-            sh:description "Arbeidsforhold ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path adm:arbeidsforhold ],
-        [ sh:class adm:Lonsart ;
-            sh:description "Lønnsart." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path adm:lonsart ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Mengde som vert beskriven av tillegget, i hundredeler." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path adm:antall ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path adm:konterer ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode der lønn vart opptent." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 11 ;
-            sh:path adm:opptjent ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 12 ;
-            sh:path adm:periode ] ;
-    sh:targetClass adm:Variabellonn .
-
-adm:Arbeidsforholdstype a sh:NodeShape ;
-    rdfs:comment "Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path fint:navn ],
-        [ sh:class adm:Arbeidsforholdstype ;
-            sh:description "Foreldreelement i hierarki." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path adm:forelder ] ;
-    sh:targetClass adm:Arbeidsforholdstype .
-
-adm:Stillingskode a sh:NodeShape ;
-    rdfs:comment "Felles kodeverk for stillingar." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path fint:navn ],
-        [ sh:class adm:Stillingskode ;
-            sh:description "Foreldreelement i hierarki." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path adm:forelder ] ;
-    sh:targetClass adm:Stillingskode .
-
-adm:Aktivitet a sh:NodeShape ;
-    rdfs:comment "Del av kontostrengen og detaljering av funksjon." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
-    sh:targetClass adm:Aktivitet .
-
-adm:Anlegg a sh:NodeShape ;
-    rdfs:comment "Del av kontostrengen; objekt som skal aktiverast eller avskrivast." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
-    sh:targetClass adm:Anlegg .
-
-adm:Diverse a sh:NodeShape ;
-    rdfs:comment "Del av kontostrengen; supplement til øvrige dimensjonar." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ] ;
-    sh:targetClass adm:Diverse .
-
-adm:Formaal a sh:NodeShape ;
-    rdfs:comment "Del av kontostrengen som detaljerer inntekter og utgifter ved drift." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
-    sh:targetClass adm:Formaal .
-
-adm:Fravaer a sh:NodeShape ;
-    rdfs:comment "Fråvær frå eit arbeidsforhold." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Identifikator ;
-            sh:description "Kjeldesystemets unike identifikator." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 2 ;
-            sh:path adm:kildesystemId ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class adm:Fravaerstype ;
-            sh:description "Type fråvær." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path adm:fravaerstype ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Prosent." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path adm:prosent ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt då fråværet vart godkjent." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path adm:godkjent ],
-        [ sh:class adm:Fravaer ;
-            sh:description "Fortsetjande fråvær." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path adm:fortsettelse ],
-        [ sh:class adm:Fravaersgrunn ;
-            sh:description "Grunn til fråværet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path adm:fravaersgrunn ],
-        [ sh:class adm:Arbeidsforhold ;
-            sh:description "Arbeidsforhold ressursen er knytt til." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path adm:arbeidsforhold ],
-        [ sh:class adm:Fravaer ;
-            sh:description "Fråværet dette fråværet er fortsetjing av." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path adm:fortsetter ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path adm:periode ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har godkjent fråværsmeldinga." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path adm:godkjenner ] ;
-    sh:targetClass adm:Fravaer .
-
-adm:Fullmakt a sh:NodeShape ;
-    rdfs:comment "Fullmakt til å gjere handlingar i høve til ei gjeven Rolle." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:class adm:Ramme ;
-            sh:description "Budsjettramme som skal bere kostnadane." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path adm:ramme ],
-        [ sh:class adm:Rolle ;
-            sh:description "Kva type fullmakt." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path adm:rolle ],
-        [ sh:class adm:Funksjon ;
-            sh:description "Det som vert produsert eller tenesta som vert levert." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path adm:funksjon ],
-        [ sh:class adm:Aktivitet ;
-            sh:description "Detaljering av funksjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path adm:aktivitet ],
-        [ sh:class adm:Kontrakt ;
-            sh:description "Kontrakt ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path adm:kontrakt ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Stedfortredar i fullmaktssamanheng." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path adm:stedfortreder ],
-        [ sh:class adm:Anlegg ;
-            sh:description "Objekt som skal aktiverast eller avskrivast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path adm:anlegg ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalressurs som har fått fullmakt til ei gjeven rolle." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path adm:fullmektig ],
-        [ sh:class adm:Art ;
-            sh:description "Type inntekt eller utgift." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path adm:art ],
-        [ sh:class adm:Formaal ;
-            sh:description "Formål viser aktivitet og tenesteproduksjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path adm:formaal ],
-        [ sh:class adm:Lopenummer ;
-            sh:description "Løpenummer i ei nummerserie." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path adm:lopenummer ],
-        [ sh:class adm:Objekt ;
-            sh:description "Objekt ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path adm:objekt ],
-        [ sh:class adm:Organisasjonselement ;
-            sh:description "Organisasjonselement ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path adm:organisasjonselement ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class adm:Diverse ;
-            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path adm:diverse ],
-        [ sh:class adm:Prosjekt ;
-            sh:description "Prosjekt ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path adm:prosjekt ],
-        [ sh:class adm:Ansvar ;
-            sh:description "Ansvarleg for ei utgift eller inntekt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path adm:ansvar ] ;
-    sh:targetClass adm:Fullmakt .
-
-adm:Kontostreng a sh:NodeShape ;
-    rdfs:comment "Sammensetning av kontodimensjonar for bokføring." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class adm:Ansvar ;
-            sh:description "Ansvarleg for ei utgift eller inntekt." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path adm:ansvar ],
-        [ sh:class adm:Prosjekt ;
-            sh:description "Prosjekt ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path adm:prosjekt ],
-        [ sh:class adm:Funksjon ;
-            sh:description "Det som vert produsert eller tenesta som vert levert." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path adm:funksjon ],
-        [ sh:class adm:Anlegg ;
-            sh:description "Objekt som skal aktiverast eller avskrivast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path adm:anlegg ],
-        [ sh:class adm:Lopenummer ;
-            sh:description "Løpenummer i ei nummerserie." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path adm:lopenummer ],
-        [ sh:class adm:Objekt ;
-            sh:description "Objekt ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path adm:objekt ],
-        [ sh:class adm:Kontrakt ;
-            sh:description "Kontrakt ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path adm:kontrakt ],
-        [ sh:class adm:Formaal ;
-            sh:description "Formål viser aktivitet og tenesteproduksjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path adm:formaal ],
-        [ sh:class adm:Prosjektart ;
-            sh:description "Deloppgåve eller delprosjekt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path adm:prosjektart ],
-        [ sh:class adm:Art ;
-            sh:description "Type inntekt eller utgift." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path adm:art ],
-        [ sh:class adm:Ramme ;
-            sh:description "Budsjettramme som skal bere kostnadane." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path adm:ramme ],
-        [ sh:class adm:Diverse ;
-            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path adm:diverse ],
-        [ sh:class adm:Aktivitet ;
-            sh:description "Detaljering av funksjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path adm:aktivitet ] ;
-    sh:targetClass adm:Kontostreng .
-
-adm:Kontrakt a sh:NodeShape ;
-    rdfs:comment "Kontrakt transaksjonen er knytt til." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ] ;
-    sh:targetClass adm:Kontrakt .
-
-adm:Lopenummer a sh:NodeShape ;
-    rdfs:comment "Løpenummer i ei nummerserie." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
@@ -1490,45 +576,6 @@ adm:Lopenummer a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ] ;
-    sh:targetClass adm:Lopenummer .
-
-adm:Objekt a sh:NodeShape ;
-    rdfs:comment "Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
@@ -1549,10 +596,61 @@ adm:Objekt a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ] ;
-    sh:targetClass adm:Objekt .
+    sh:targetClass adm:Fravaersgrunn .
 
-adm:Ramme a sh:NodeShape ;
-    rdfs:comment "Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane." ;
+adm:Fravaerstype a sh:NodeShape ;
+    rdfs:comment "Type fråvær." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path fint:kode ],
+        [ sh:class adm:Lonsart ;
+            sh:description "Lønnsart." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path adm:lonsart ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir om fråvær av denne typen skal overførast til HR." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path adm:overfores ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass adm:Fravaerstype .
+
+adm:Organisasjonstype a sh:NodeShape ;
+    rdfs:comment "Typen til eit organisasjonselement." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
@@ -1575,6 +673,869 @@ adm:Ramme a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass adm:Organisasjonstype .
+
+adm:Personalressurskategori a sh:NodeShape ;
+    rdfs:comment "Ansettelsesform til eit arbeidsforhold." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass adm:Personalressurskategori .
+
+adm:Rolle a sh:NodeShape ;
+    rdfs:comment "Rettighet eller type fullmakt." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Identifikator ;
+            sh:description "Namn på rolla; unik identifikator." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path adm:rolleNavn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class adm:Fullmakt ;
+            sh:description "Fullmakt ressursen er knytt til." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path adm:fullmakt ] ;
+    sh:targetClass adm:Rolle .
+
+adm:Uketimetall a sh:NodeShape ;
+    rdfs:comment "Timer per veke i 100 % stilling." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass adm:Uketimetall .
+
+adm:Variabellonn a sh:NodeShape ;
+    rdfs:comment "Informasjon om variabel lønn." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path adm:konterer ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Mengde som vert beskriven av tillegget, i hundredeler." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path adm:antall ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Kjeldesystemets unike identifikator." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 8 ;
+            sh:path adm:kildesystemId ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 12 ;
+            sh:path adm:periode ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har attestert lønsmeldinga etter fullmakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path adm:attestant ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart anvist." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path adm:anvist ],
+        [ sh:class adm:Arbeidsforhold ;
+            sh:description "Arbeidsforhold ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path adm:arbeidsforhold ],
+        [ sh:class adm:Lonsart ;
+            sh:description "Lønnsart." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path adm:lonsart ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart kontert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path adm:kontert ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode der lønn vart opptent." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path adm:opptjent ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Beløp i øre." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path adm:belop ],
+        [ sh:class adm:Kontostreng ;
+            sh:description "Kontering av lønn." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path adm:kontostreng ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då lønn vart attestert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path adm:attestert ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har anvist lønsmeldinga etter fullmakt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path adm:anviser ] ;
+    sh:targetClass adm:Variabellonn .
+
+adm:Arbeidsforholdstype a sh:NodeShape ;
+    rdfs:comment "Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path fint:passiv ],
+        [ sh:class adm:Arbeidsforholdstype ;
+            sh:description "Foreldreelement i hierarki." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path adm:forelder ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path fint:gyldighetsperiode ] ;
+    sh:targetClass adm:Arbeidsforholdstype .
+
+adm:Stillingskode a sh:NodeShape ;
+    rdfs:comment "Felles kodeverk for stillingar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path fint:passiv ],
+        [ sh:class adm:Stillingskode ;
+            sh:description "Foreldreelement i hierarki." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path adm:forelder ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path fint:gyldighetsperiode ] ;
+    sh:targetClass adm:Stillingskode .
+
+adm:Aktivitet a sh:NodeShape ;
+    rdfs:comment "Del av kontostrengen og detaljering av funksjon." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass adm:Aktivitet .
+
+adm:Anlegg a sh:NodeShape ;
+    rdfs:comment "Del av kontostrengen; objekt som skal aktiverast eller avskrivast." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ] ;
+    sh:targetClass adm:Anlegg .
+
+adm:Diverse a sh:NodeShape ;
+    rdfs:comment "Del av kontostrengen; supplement til øvrige dimensjonar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass adm:Diverse .
+
+adm:Formaal a sh:NodeShape ;
+    rdfs:comment "Del av kontostrengen som detaljerer inntekter og utgifter ved drift." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass adm:Formaal .
+
+adm:Fravaer a sh:NodeShape ;
+    rdfs:comment "Fråvær frå eit arbeidsforhold." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class adm:Fravaersgrunn ;
+            sh:description "Grunn til fråværet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path adm:fravaersgrunn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path adm:periode ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har godkjent fråværsmeldinga." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path adm:godkjenner ],
+        [ sh:class adm:Fravaer ;
+            sh:description "Fråværet dette fråværet er fortsetjing av." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path adm:fortsetter ],
+        [ sh:class adm:Fravaer ;
+            sh:description "Fortsetjande fråvær." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path adm:fortsettelse ],
+        [ sh:class adm:Arbeidsforhold ;
+            sh:description "Arbeidsforhold ressursen er knytt til." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path adm:arbeidsforhold ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt då fråværet vart godkjent." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path adm:godkjent ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Kjeldesystemets unike identifikator." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path adm:kildesystemId ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Prosent." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path adm:prosent ],
+        [ sh:class adm:Fravaerstype ;
+            sh:description "Type fråvær." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path adm:fravaerstype ] ;
+    sh:targetClass adm:Fravaer .
+
+adm:Fullmakt a sh:NodeShape ;
+    rdfs:comment "Fullmakt til å gjere handlingar i høve til ei gjeven Rolle." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class adm:Lopenummer ;
+            sh:description "Løpenummer i ei nummerserie." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path adm:lopenummer ],
+        [ sh:class adm:Art ;
+            sh:description "Type inntekt eller utgift." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path adm:art ],
+        [ sh:class adm:Objekt ;
+            sh:description "Objekt ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path adm:objekt ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class adm:Formaal ;
+            sh:description "Formål viser aktivitet og tenesteproduksjon." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path adm:formaal ],
+        [ sh:class adm:Diverse ;
+            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path adm:diverse ],
+        [ sh:class adm:Funksjon ;
+            sh:description "Det som vert produsert eller tenesta som vert levert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path adm:funksjon ],
+        [ sh:class adm:Ramme ;
+            sh:description "Budsjettramme som skal bere kostnadane." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path adm:ramme ],
+        [ sh:class adm:Aktivitet ;
+            sh:description "Detaljering av funksjon." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path adm:aktivitet ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class adm:Anlegg ;
+            sh:description "Objekt som skal aktiverast eller avskrivast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path adm:anlegg ],
+        [ sh:class adm:Rolle ;
+            sh:description "Kva type fullmakt." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path adm:rolle ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Stedfortredar i fullmaktssamanheng." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path adm:stedfortreder ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalressurs som har fått fullmakt til ei gjeven rolle." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path adm:fullmektig ],
+        [ sh:class adm:Prosjekt ;
+            sh:description "Prosjekt ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path adm:prosjekt ],
+        [ sh:class adm:Organisasjonselement ;
+            sh:description "Organisasjonselement ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path adm:organisasjonselement ],
+        [ sh:class adm:Kontrakt ;
+            sh:description "Kontrakt ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path adm:kontrakt ],
+        [ sh:class adm:Ansvar ;
+            sh:description "Ansvarleg for ei utgift eller inntekt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path adm:ansvar ] ;
+    sh:targetClass adm:Fullmakt .
+
+adm:Kontostreng a sh:NodeShape ;
+    rdfs:comment "Sammensetning av kontodimensjonar for bokføring." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class adm:Anlegg ;
+            sh:description "Objekt som skal aktiverast eller avskrivast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path adm:anlegg ],
+        [ sh:class adm:Aktivitet ;
+            sh:description "Detaljering av funksjon." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path adm:aktivitet ],
+        [ sh:class adm:Ramme ;
+            sh:description "Budsjettramme som skal bere kostnadane." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path adm:ramme ],
+        [ sh:class adm:Diverse ;
+            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path adm:diverse ],
+        [ sh:class adm:Lopenummer ;
+            sh:description "Løpenummer i ei nummerserie." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path adm:lopenummer ],
+        [ sh:class adm:Objekt ;
+            sh:description "Objekt ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path adm:objekt ],
+        [ sh:class adm:Art ;
+            sh:description "Type inntekt eller utgift." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path adm:art ],
+        [ sh:class adm:Formaal ;
+            sh:description "Formål viser aktivitet og tenesteproduksjon." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path adm:formaal ],
+        [ sh:class adm:Prosjektart ;
+            sh:description "Deloppgåve eller delprosjekt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path adm:prosjektart ],
+        [ sh:class adm:Kontrakt ;
+            sh:description "Kontrakt ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path adm:kontrakt ],
+        [ sh:class adm:Funksjon ;
+            sh:description "Det som vert produsert eller tenesta som vert levert." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path adm:funksjon ],
+        [ sh:class adm:Prosjekt ;
+            sh:description "Prosjekt ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path adm:prosjekt ],
+        [ sh:class adm:Ansvar ;
+            sh:description "Ansvarleg for ei utgift eller inntekt." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path adm:ansvar ] ;
+    sh:targetClass adm:Kontostreng .
+
+adm:Kontrakt a sh:NodeShape ;
+    rdfs:comment "Kontrakt transaksjonen er knytt til." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass adm:Kontrakt .
+
+adm:Lopenummer a sh:NodeShape ;
+    rdfs:comment "Løpenummer i ei nummerserie." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass adm:Lopenummer .
+
+adm:Objekt a sh:NodeShape ;
+    rdfs:comment "Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -1588,25 +1549,64 @@ adm:Ramme a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ] ;
-    sh:targetClass adm:Ramme .
+    sh:targetClass adm:Objekt .
 
-adm:Art a sh:NodeShape ;
-    rdfs:comment "Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld." ;
+adm:Ramme a sh:NodeShape ;
+    rdfs:comment "Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass adm:Ramme .
+
+adm:Art a sh:NodeShape ;
+    rdfs:comment "Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
             sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -1634,11 +1634,12 @@ adm:Lonsart a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Kategori lønnsart." ;
+            sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path adm:kategori ],
+            sh:order 4 ;
+            sh:path fint:navn ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -1646,6 +1647,18 @@ adm:Lonsart a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path fint:kode ],
+        [ sh:class adm:Art ;
+            sh:description "Type inntekt eller utgift." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path adm:art ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kategori lønnsart." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path adm:kategori ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1664,50 +1677,31 @@ adm:Lonsart a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 5 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:navn ],
-        [ sh:class adm:Art ;
-            sh:description "Type inntekt eller utgift." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path adm:art ] ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass adm:Lonsart .
 
 adm:Prosjekt a sh:NodeShape ;
     rdfs:comment "Del av kontostrengen som peikar på løpande prosjekt." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class adm:Prosjektart ;
+            sh:description "Deloppgåve eller delprosjekt." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path adm:prosjektart ],
+        [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path fint:navn ],
-        [ sh:class adm:Prosjektart ;
-            sh:description "Deloppgåve eller delprosjekt." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path adm:prosjektart ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -1721,25 +1715,43 @@ adm:Prosjekt a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass adm:Prosjekt .
 
 adm:Prosjektart a sh:NodeShape ;
     rdfs:comment "Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path fint:passiv ],
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path fint:gyldighetsperiode ],
         [ sh:class adm:Prosjektart ;
             sh:description "Overordna element i hierarkiet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path adm:overordnet ],
+        [ sh:class adm:Prosjektart ;
+            sh:description "Underordna element i hierarkiet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path adm:underordnet ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -1753,62 +1765,50 @@ adm:Prosjektart a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path adm:prosjekt ],
-        [ sh:class adm:Prosjektart ;
-            sh:description "Underordna element i hierarkiet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path adm:underordnet ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 6 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path fint:navn ] ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path fint:passiv ] ;
     sh:targetClass adm:Prosjektart .
 
 adm:Funksjon a sh:NodeShape ;
     rdfs:comment "Del av kontostrengen som beskriv kva som vert produsert." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class adm:Funksjon ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class adm:Funksjon ;
             sh:description "Overordna element i hierarkiet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path adm:overordnet ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 5 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path fint:kode ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -1816,13 +1816,13 @@ adm:Funksjon a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path fint:navn ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
+            sh:order 3 ;
+            sh:path fint:kode ],
         [ sh:class adm:Funksjon ;
             sh:description "Underordna element i hierarkiet." ;
             sh:nodeKind sh:IRI ;
@@ -1834,26 +1834,7 @@ adm:Ansvar a sh:NodeShape ;
     rdfs:comment "Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller inntekt." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class adm:Ansvar ;
-            sh:description "Underordna element i hierarkiet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path adm:underordnet ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:kode ],
-        [ sh:class fint:Periode ;
+    sh:property [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
@@ -1872,54 +1853,47 @@ adm:Ansvar a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 7 ;
             sh:path fint:passiv ],
-        [ sh:class adm:Organisasjonselement ;
-            sh:description "Organisasjonselement ressursen er knytt til." ;
+        [ sh:class adm:Ansvar ;
+            sh:description "Underordna element i hierarkiet." ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path adm:organisasjonselement ],
+            sh:order 1 ;
+            sh:path adm:underordnet ],
         [ sh:class adm:Ansvar ;
             sh:description "Overordna element i hierarkiet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path adm:overordnet ] ;
+            sh:path adm:overordnet ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:kode ],
+        [ sh:class adm:Organisasjonselement ;
+            sh:description "Organisasjonselement ressursen er knytt til." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path adm:organisasjonselement ] ;
     sh:targetClass adm:Ansvar .
 
 adm:Organisasjonselement a sh:NodeShape ;
     rdfs:comment "Eit element i organisasjonsstrukturen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path fint:navn ],
-        [ sh:class adm:Organisasjonstype ;
-            sh:description "Kva type organisasjonselement dette er." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:class adm:Organisasjonselement ;
+            sh:description "Underordna element i hierarkiet." ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path adm:organisasjonstype ],
-        [ sh:class adm:Organisasjonselement ;
-            sh:description "Overordna element i hierarkiet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path adm:overordnet ],
-        [ sh:class fint:Identifikator ;
-            sh:description "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 8 ;
-            sh:path fint:organisasjonsnummer ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Referanse til Skole (Utdanning)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path adm:skole ],
+            sh:order 15 ;
+            sh:path adm:underordnet ],
         [ sh:class fint:Identifikator ;
             sh:description "Beskriven kode for organisasjonselementet." ;
             sh:maxCount 1 ;
@@ -1927,45 +1901,67 @@ adm:Organisasjonselement a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 5 ;
             sh:path adm:organisasjonsKode ],
-        [ sh:class adm:Ansvar ;
-            sh:description "Ansvarleg for ei utgift eller inntekt." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path adm:ansvar ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Ansvarleg leiar for organisasjonselementet." ;
+        [ sh:class fint:Identifikator ;
+            sh:description "Unikt internnummer for organisasjonselementet." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path adm:leder ],
-        [ sh:datatype xsd:string ;
-            sh:description "Namn på eining registrert i Einingsregisteret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path fint:organisasjonsnavn ],
-        [ sh:class adm:Arbeidsforhold ;
-            sh:description "Arbeidsforhold ressursen er knytt til." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path adm:arbeidsforhold ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path adm:organisasjonsId ],
         [ sh:class adm:Organisasjonselement ;
-            sh:description "Underordna element i hierarkiet." ;
+            sh:description "Overordna element i hierarkiet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path adm:underordnet ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
+            sh:order 14 ;
+            sh:path adm:overordnet ],
+        [ sh:class fint:Adresse ;
+            sh:description "Informasjon om postadresse til ein aktør." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path fint:gyldighetsperiode ],
+            sh:order 10 ;
+            sh:path fint:postadresse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Forkorta namn som beskriv organisasjonselementet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path adm:kortnavn ],
+        [ sh:class adm:Organisasjonstype ;
+            sh:description "Kva type organisasjonselement dette er." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path adm:organisasjonstype ],
         [ sh:class fint:Adresse ;
             sh:description "Besøksadresse til ein organisasjonseining." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 6 ;
             sh:path fint:forretningsadresse ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Ansvarleg leiar for organisasjonselementet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path adm:leder ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Referanse til Skole (Utdanning)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path adm:skole ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class adm:Arbeidsforhold ;
+            sh:description "Arbeidsforhold ressursen er knytt til." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path adm:arbeidsforhold ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1974,53 +1970,52 @@ adm:Organisasjonselement a sh:NodeShape ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class fint:Identifikator ;
-            sh:description "Unikt internnummer for organisasjonselementet." ;
+            sh:description "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path adm:organisasjonsId ],
+            sh:order 8 ;
+            sh:path fint:organisasjonsnummer ],
+        [ sh:class adm:Ansvar ;
+            sh:description "Ansvarleg for ei utgift eller inntekt." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path adm:ansvar ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på eining registrert i Einingsregisteret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path fint:organisasjonsnavn ],
         [ sh:class fint:Kontaktinformasjon ;
             sh:description "Den føretrekte måten å kome i kontakt med ein aktør." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 9 ;
-            sh:path fint:kontaktinformasjon ],
-        [ sh:datatype xsd:string ;
-            sh:description "Forkorta namn som beskriv organisasjonselementet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path adm:kortnavn ],
-        [ sh:class fint:Adresse ;
-            sh:description "Informasjon om postadresse til ein aktør." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 10 ;
-            sh:path fint:postadresse ] ;
+            sh:path fint:kontaktinformasjon ] ;
     sh:targetClass adm:Organisasjonselement .
 
 adm:Arbeidsforhold a sh:NodeShape ;
     rdfs:comment "Eit avtaleforhold mellom personalressurs og arbeidsgjevar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class adm:Variabellonn ;
-            sh:description "Variabel lønn for arbeidsforholdet." ;
+    sh:property [ sh:class adm:Lopenummer ;
+            sh:description "Løpenummer i ei nummerserie." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 30 ;
-            sh:path adm:variabellonn ],
+            sh:order 19 ;
+            sh:path adm:lopenummer ],
         [ sh:class adm:Formaal ;
             sh:description "Formål viser aktivitet og tenesteproduksjon." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 16 ;
             sh:path adm:formaal ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode for ei gjeven stilling." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 2 ;
-            sh:path adm:arbeidsforholdsperiode ],
         [ sh:datatype xsd:integer ;
             sh:description "Prosenten personalressursen eig i høve til arbeidsavtalen." ;
             sh:maxCount 1 ;
@@ -2028,38 +2023,6 @@ adm:Arbeidsforhold a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path adm:ansettelsesprosent ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:class adm:Lopenummer ;
-            sh:description "Løpenummer i ei nummerserie." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path adm:lopenummer ],
-        [ sh:class adm:Personalressurs ;
-            sh:description "Personalleiar til arbeidsforholdet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 32 ;
-            sh:path adm:personalleder ],
-        [ sh:datatype xsd:string ;
-            sh:description "Løpenummer for stillinga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path adm:stillingsnummer ],
-        [ sh:class adm:Ramme ;
-            sh:description "Budsjettramme som skal bere kostnadane." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 22 ;
-            sh:path adm:ramme ],
         [ sh:datatype xsd:integer ;
             sh:description "Prosent av årslønn den tilsette skal ha utbetalt." ;
             sh:maxCount 1 ;
@@ -2067,62 +2030,30 @@ adm:Arbeidsforhold a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path adm:lonnsprosent ],
-        [ sh:class adm:Diverse ;
-            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
+        [ sh:class adm:Stillingskode ;
+            sh:description "Firesifra stillingskode frå KS, eventuelt utvida med to siffer." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path adm:diverse ],
-        [ sh:class adm:Uketimetall ;
-            sh:description "Timer per veke i 100 % stilling." ;
+            sh:order 23 ;
+            sh:path adm:stillingskode ],
+        [ sh:class adm:Funksjon ;
+            sh:description "Det som vert produsert eller tenesta som vert levert." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path adm:timerPerUke ],
-        [ sh:class adm:Aktivitet ;
-            sh:description "Detaljering av funksjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path adm:aktivitet ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Referanse til Undervisningsforhold (Utdanning)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 33 ;
-            sh:path adm:undervisningsforhold ],
+            sh:order 17 ;
+            sh:path adm:funksjon ],
         [ sh:class adm:Anlegg ;
             sh:description "Objekt som skal aktiverast eller avskrivast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 11 ;
             sh:path adm:anlegg ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class adm:Kontrakt ;
-            sh:description "Kontrakt ressursen er knytt til." ;
+        [ sh:class adm:Arbeidslokasjon ;
+            sh:description "Fysisk lokasjon der den tilsette har sitt arbeidsstad." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path adm:kontrakt ],
-        [ sh:datatype xsd:string ;
-            sh:description "Arbeidstakarens stillingstittel i gjeldande stilling." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path adm:stillingstittel ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir kva arbeidsforhold som er hovudarbeidsforhold." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path adm:hovedstilling ],
+            sh:order 25 ;
+            sh:path adm:arbeidslokasjon ],
         [ sh:datatype xsd:integer ;
             sh:description "Årslønn/grunnlønn i 100 % stilling." ;
             sh:maxCount 1 ;
@@ -2130,24 +2061,19 @@ adm:Arbeidsforhold a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path adm:aarslonn ],
-        [ sh:class adm:Ansvar ;
-            sh:description "Ansvarleg for ei utgift eller inntekt." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Løpenummer for stillinga." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path adm:ansvar ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path adm:stillingsnummer ],
         [ sh:class adm:Art ;
             sh:description "Type inntekt eller utgift." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 14 ;
             sh:path adm:art ],
-        [ sh:class adm:Objekt ;
-            sh:description "Objekt ressursen er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 20 ;
-            sh:path adm:objekt ],
         [ sh:class adm:Personalressurs ;
             sh:description "Personalressurs til arbeidsforholdet." ;
             sh:maxCount 1 ;
@@ -2155,34 +2081,43 @@ adm:Arbeidsforhold a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 31 ;
             sh:path adm:personalressurs ],
-        [ sh:class adm:Arbeidslokasjon ;
-            sh:description "Fysisk lokasjon der den tilsette har sitt arbeidsstad." ;
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Referanse til Undervisningsforhold (Utdanning)." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 25 ;
-            sh:path adm:arbeidslokasjon ],
-        [ sh:class adm:Funksjon ;
-            sh:description "Det som vert produsert eller tenesta som vert levert." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 33 ;
+            sh:path adm:undervisningsforhold ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir kva arbeidsforhold som er hovudarbeidsforhold." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path adm:funksjon ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path adm:hovedstilling ],
         [ sh:class adm:Fastlonn ;
             sh:description "Fastlønn for arbeidsforholdet." ;
             sh:nodeKind sh:IRI ;
             sh:order 27 ;
             sh:path adm:fastlonn ],
-        [ sh:class adm:Fravaer ;
-            sh:description "Fråvær knytt til ressursen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 29 ;
-            sh:path adm:fravaer ],
-        [ sh:class adm:Arbeidsforholdstype ;
-            sh:description "Beskriven kode som kategoriserer kva funksjon stillinga er gruppert til." ;
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode for ei gjeven stilling." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path adm:arbeidsforholdsperiode ],
+        [ sh:class adm:Kontrakt ;
+            sh:description "Kontrakt ressursen er knytt til." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path adm:arbeidsforholdstype ],
+            sh:order 18 ;
+            sh:path adm:kontrakt ],
         [ sh:class adm:Organisasjonselement ;
             sh:description "Tilhøyrsle til organisasjonsstrukturen." ;
             sh:maxCount 1 ;
@@ -2190,12 +2125,30 @@ adm:Arbeidsforhold a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 26 ;
             sh:path adm:arbeidssted ],
-        [ sh:class adm:Stillingskode ;
-            sh:description "Firesifra stillingskode frå KS, eventuelt utvida med to siffer." ;
+        [ sh:class adm:Arbeidsforholdstype ;
+            sh:description "Beskriven kode som kategoriserer kva funksjon stillinga er gruppert til." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path adm:stillingskode ],
+            sh:order 13 ;
+            sh:path adm:arbeidsforholdstype ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class adm:Fasttillegg ;
+            sh:description "Faste tillegg for arbeidsforholdet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path adm:fasttillegg ],
+        [ sh:class adm:Ramme ;
+            sh:description "Budsjettramme som skal bere kostnadane." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 22 ;
+            sh:path adm:ramme ],
         [ sh:datatype xsd:integer ;
             sh:description "Det personalressursen faktisk jobbar." ;
             sh:maxCount 1 ;
@@ -2203,42 +2156,100 @@ adm:Arbeidsforhold a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path adm:tilstedeprosent ],
-        [ sh:class adm:Fasttillegg ;
-            sh:description "Faste tillegg for arbeidsforholdet." ;
+        [ sh:class adm:Uketimetall ;
+            sh:description "Timer per veke i 100 % stilling." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 28 ;
-            sh:path adm:fasttillegg ],
+            sh:order 24 ;
+            sh:path adm:timerPerUke ],
+        [ sh:class adm:Objekt ;
+            sh:description "Objekt ressursen er knytt til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path adm:objekt ],
+        [ sh:class adm:Aktivitet ;
+            sh:description "Detaljering av funksjon." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path adm:aktivitet ],
+        [ sh:class adm:Ansvar ;
+            sh:description "Ansvarleg for ei utgift eller inntekt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path adm:ansvar ],
+        [ sh:datatype xsd:string ;
+            sh:description "Arbeidstakarens stillingstittel i gjeldande stilling." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path adm:stillingstittel ],
+        [ sh:class adm:Variabellonn ;
+            sh:description "Variabel lønn for arbeidsforholdet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 30 ;
+            sh:path adm:variabellonn ],
+        [ sh:class adm:Fravaer ;
+            sh:description "Fråvær knytt til ressursen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path adm:fravaer ],
         [ sh:class adm:Prosjekt ;
             sh:description "Prosjekt ressursen er knytt til." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 21 ;
-            sh:path adm:prosjekt ] ;
+            sh:path adm:prosjekt ],
+        [ sh:class adm:Personalressurs ;
+            sh:description "Personalleiar til arbeidsforholdet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 32 ;
+            sh:path adm:personalleder ],
+        [ sh:class adm:Diverse ;
+            sh:description "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path adm:diverse ] ;
     sh:targetClass adm:Arbeidsforhold .
 
 adm:Personalressurs a sh:NodeShape ;
     rdfs:comment "Arbeidstakar eller oppdragstakar i organisasjonen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Perioden personalressursen er i eit tilhøve til organisasjonen." ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Ansiennitet for personalressurs hos arbeidsgjevar." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 2 ;
-            sh:path adm:ansettelsesperiode ],
-        [ sh:class fint:Person ;
-            sh:description "Referanse til Person i Administrasjon-domenet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path adm:ansiennitet ],
+        [ sh:class adm:Personalressurskategori ;
+            sh:description "Kategori for personalressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path fint:person ],
-        [ sh:class adm:Arbeidsforhold ;
-            sh:description "Arbeidsforhold der personalressursen har personalansvar." ;
+            sh:order 10 ;
+            sh:path adm:personalressurskategori ],
+        [ sh:class adm:Fullmakt ;
+            sh:description "Fullmakt ressursen er knytt til." ;
             sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path adm:personalansvar ],
+            sh:order 9 ;
+            sh:path adm:fullmakt ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn som beskriv jobben eller stillinga." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path adm:jobbtittel ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Referanse til Skoleressurs (Utdanning)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path adm:skoleressurs ],
         [ sh:class fint:Identifikator ;
             sh:description "Unik identifikator for den tilsette i HR-systemet." ;
             sh:maxCount 1 ;
@@ -2257,12 +2268,23 @@ adm:Personalressurs a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 4 ;
             sh:path adm:brukernavn ],
-        [ sh:datatype xsd:date ;
-            sh:description "Ansiennitet for personalressurs hos arbeidsgjevar." ;
+        [ sh:class adm:Organisasjonselement ;
+            sh:description "Organisasjonselement personalressursen er leiar for." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path adm:lederFor ],
+        [ sh:class fint:Person ;
+            sh:description "Referanse til Person i Administrasjon-domenet." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path adm:ansiennitet ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path fint:person ],
+        [ sh:class adm:Fullmakt ;
+            sh:description "Stedfortredar i fullmaktssamanheng." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path adm:stedfortreder ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -2270,46 +2292,24 @@ adm:Personalressurs a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class adm:Fullmakt ;
-            sh:description "Fullmakt ressursen er knytt til." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path adm:fullmakt ],
-        [ sh:class adm:Fullmakt ;
-            sh:description "Stedfortredar i fullmaktssamanheng." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path adm:stedfortreder ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Referanse til Skoleressurs (Utdanning)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path adm:skoleressurs ],
-        [ sh:class adm:Organisasjonselement ;
-            sh:description "Organisasjonselement personalressursen er leiar for." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path adm:lederFor ],
-        [ sh:datatype xsd:string ;
-            sh:description "Namn som beskriv jobben eller stillinga." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path adm:jobbtittel ],
         [ sh:class fint:Kontaktinformasjon ;
             sh:description "Den føretrekte måten å kome i kontakt med ein aktør." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 6 ;
             sh:path fint:kontaktinformasjon ],
-        [ sh:class adm:Personalressurskategori ;
-            sh:description "Kategori for personalressursen." ;
+        [ sh:class adm:Arbeidsforhold ;
+            sh:description "Arbeidsforhold der personalressursen har personalansvar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path adm:personalansvar ],
+        [ sh:class fint:Periode ;
+            sh:description "Perioden personalressursen er i eit tilhøve til organisasjonen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path adm:personalressurskategori ] ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path adm:ansettelsesperiode ] ;
     sh:targetClass adm:Personalressurs .
 
 

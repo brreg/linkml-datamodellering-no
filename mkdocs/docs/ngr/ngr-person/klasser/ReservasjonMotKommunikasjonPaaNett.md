@@ -236,6 +236,7 @@ name: ReservasjonMotKommunikasjonPaaNett
 description: Registrering av at ein person har reservert seg mot digital kommunikasjon
   frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - er_reservert
@@ -263,6 +264,7 @@ name: ReservasjonMotKommunikasjonPaaNett
 description: Registrering av at ein person har reservert seg mot digital kommunikasjon
   frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   er_reservert:
     name: er_reservert

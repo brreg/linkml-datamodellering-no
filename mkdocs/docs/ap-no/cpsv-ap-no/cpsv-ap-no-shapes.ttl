@@ -21,11 +21,16 @@ cv:BusinessEvent a sh:NodeShape ;
     rdfs:comment "Ei verksemdhending som kan utløyse behov for tenester (t.d. oppstart, konkurs)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cpsv:PublicService ;
-            sh:description "Offentlege tenester hendinga kan utløyse." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path cpsvno:mayTrigger ],
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "Datasett som beskriv ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path cccevno:isDescribedBy ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:description ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -34,39 +39,10 @@ cv:BusinessEvent a sh:NodeShape ;
             sh:order 1 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
+            sh:description "Emne/tema tenesta handlar om." ;
             sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path dct:type ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Datasett som beskriv ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path cccevno:isDescribedBy ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:title ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Tenester det kan oppstå behov for som følgje av hendinga." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cpsvno:mayTriggerNeedFor ],
+            sh:order 7 ;
+            sh:path dct:subject ],
         [ sh:class cv:ContactPoint ;
             sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
             sh:minCount 1 ;
@@ -74,33 +50,45 @@ cv:BusinessEvent a sh:NodeShape ;
             sh:order 4 ;
             sh:path cv:contactPoint ],
         [ sh:class skos:Concept ;
-            sh:description "Emne/tema tenesta handlar om." ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path dct:subject ] ;
+            sh:order 9 ;
+            sh:path dct:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class cpsv:PublicService ;
+            sh:description "Offentlege tenester hendinga kan utløyse." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path cpsvno:mayTrigger ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Tenester det kan oppstå behov for som følgje av hendinga." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path cpsvno:mayTriggerNeedFor ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:title ] ;
     sh:targetClass cv:BusinessEvent .
 
 cv:LifeEvent a sh:NodeShape ;
     rdfs:comment "Ei livshending som kan utløyse behov for tenester (t.d. fødsel, ekteskap)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class cpsv:PublicService ;
-            sh:description "Offentlege tenester hendinga kan utløyse." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path cpsvno:mayTrigger ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
+    sh:property [ sh:datatype xsd:anyURI ;
+            sh:description "Tenester det kan oppstå behov for som følgje av hendinga." ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:title ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path dct:type ],
+            sh:order 0 ;
+            sh:path cpsvno:mayTriggerNeedFor ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -108,21 +96,11 @@ cv:LifeEvent a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:description ],
-        [ sh:class skos:Concept ;
-            sh:description "Emne/tema tenesta handlar om." ;
+        [ sh:class cpsv:PublicService ;
+            sh:description "Offentlege tenester hendinga kan utløyse." ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path dct:subject ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Tenester det kan oppstå behov for som følgje av hendinga." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path cpsvno:mayTriggerNeedFor ],
+            sh:order 6 ;
+            sh:path cpsvno:mayTrigger ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -130,17 +108,39 @@ cv:LifeEvent a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:title ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Datasett som beskriv ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path cccevno:isDescribedBy ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path dct:type ],
+        [ sh:class skos:Concept ;
+            sh:description "Emne/tema tenesta handlar om." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path dct:subject ],
         [ sh:class cv:ContactPoint ;
             sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
-            sh:path cv:contactPoint ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Datasett som beskriv ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path cccevno:isDescribedBy ] ;
+            sh:path cv:contactPoint ] ;
     sh:targetClass cv:LifeEvent .
 
 dct:MediaTypeOrExtent a sh:NodeShape ;
@@ -173,16 +173,11 @@ dcat:Catalog a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+            sh:description "Lisens for katalogen." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path foaf:homepage ],
-        [ sh:class cpsv:PublicService ;
-            sh:description "Offentlege tenester i katalogen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path dcatno:containsService ],
+            sh:order 12 ;
+            sh:path dct:license ],
         [ sh:class foaf:Agent ;
             sh:description "Utgjevar av katalogen." ;
             sh:maxCount 1 ;
@@ -190,6 +185,13 @@ dcat:Catalog a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path dct:publisher ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
         [ sh:class skos:Concept ;
             sh:description "Kor ofte katalogen vert oppdatert." ;
             sh:maxCount 1 ;
@@ -202,118 +204,107 @@ dcat:Catalog a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path dct:title ],
-        [ sh:datatype dct:language ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path dct:language ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class cv:ContactPoint ;
-            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path cv:contactPoint ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Lisens for katalogen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path dct:license ],
-        [ sh:class cv:Event ;
-            sh:description "Hendingar i katalogen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path dcatno:containsEvent ],
+            sh:order 10 ;
+            sh:path foaf:homepage ],
         [ sh:datatype rdf:langString ;
             sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path dct:description ],
+        [ sh:class cv:ContactPoint ;
+            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path cv:contactPoint ],
+        [ sh:class cpsv:PublicService ;
+            sh:description "Offentlege tenester i katalogen." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path dcatno:containsService ],
+        [ sh:class skos:Concept ;
+            sh:description "Geografisk dekningsområde (dct:spatial)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path dct:spatial ],
+        [ sh:class cv:Event ;
+            sh:description "Hendingar i katalogen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path dcatno:containsEvent ],
         [ sh:datatype xsd:date ;
             sh:description "Dato for siste endring av ressursen (dct:modified)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path dct:modified ],
-        [ sh:class skos:Concept ;
-            sh:description "Geografisk dekningsområde (dct:spatial)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path dct:spatial ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ] ;
-    sh:targetClass dcat:Catalog .
-
-cpsvno:OutputTypeList a sh:NodeShape ;
-    rdfs:comment "Ei liste over moglege tjenesteresultattypar." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
+        [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype dct:language ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path dct:language ] ;
+    sh:targetClass dcat:Catalog .
+
+cpsvno:OutputTypeList a sh:NodeShape ;
+    rdfs:comment "Ei liste over moglege tjenesteresultattypar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path dct:title ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ] ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass cpsvno:OutputTypeList .
 
 cpsvno:Service a sh:NodeShape ;
     rdfs:comment "Ei teneste levert av ein ikkje-offentleg aktør." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype dct:language ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 20 ;
-            sh:path dct:language ],
+    sh:property [ sh:class cv:ContactPoint ;
+            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path cv:contactPoint ],
+        [ sh:class eli:LegalResource ;
+            sh:description "Regulativ ressurs (lov, forskrift) knytt til tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path cv:hasLegalResource ],
+        [ sh:class cv:Event ;
+            sh:description "Hending(ar) som grupperer tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 22 ;
+            sh:path cv:isGroupedBy ],
         [ sh:datatype rdf:langString ;
             sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
             sh:nodeKind sh:Literal ;
             sh:order 29 ;
             sh:path dcat:keyword ],
-        [ sh:class cv:Participation ;
-            sh:description "Deltakarar med spesifikke roller i levering av tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path cv:hasParticipation ],
-        [ sh:class cv:Channel ;
-            sh:description "Kanal for tilgang til tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path cv:hasChannel ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Datasett som beskriv ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path cccevno:isDescribedBy ],
-        [ sh:class cpsv:Rule ;
-            sh:description "Regelverk tenesta følgjer." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path cpsv:follows ],
         [ sh:class skos:Concept ;
             sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
             sh:maxCount 1 ;
@@ -321,119 +312,15 @@ cpsvno:Service a sh:NodeShape ;
             sh:order 12 ;
             sh:path adms:status ],
         [ sh:class skos:Concept ;
-            sh:description "Industri/sektor tenesta tilhøyrer." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 30 ;
-            sh:path cv:sector ],
-        [ sh:class foaf:Agent ;
-            sh:description "Aktør som eig eller er ansvarleg for tenesta." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path cv:ownedBy ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path foaf:homepage ],
-        [ sh:class skos:Concept ;
-            sh:description "Målgruppe for tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 28 ;
-            sh:path dct:audience ],
-        [ sh:class eli:LegalResource ;
-            sh:description "Regulativ ressurs (lov, forskrift) knytt til tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path cv:hasLegalResource ],
-        [ sh:datatype xsd:duration ;
-            sh:description "Forventa behandlingstid for tenesta eller kanalen (ISO 8601)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path cv:processingTime ],
-        [ sh:class cv:ContactPoint ;
-            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path cv:contactPoint ],
-        [ sh:class cv:EvidenceType ;
-            sh:description "Dokumentasjon som krevst for tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path cv:hasInputType ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Relatert teneste." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 21 ;
-            sh:path cv:relatedService ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:class cpsvno:OutputType ;
-            sh:description "Typen resultat tenesta kan produsere." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path cpsvno:hasOutputType ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep tenesta er klassifisert med." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path cv:isClassifiedBy ],
-        [ sh:class cv:Event ;
-            sh:description "Hending(ar) som grupperer tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 22 ;
-            sh:path cv:isGroupedBy ],
-        [ sh:class skos:Concept ;
             sh:description "Emne/tema tenesta handlar om." ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path dct:subject ],
-        [ sh:class cv:Cost ;
-            sh:description "Gebyr knytt til tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 25 ;
-            sh:path cv:hasCost ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path dct:type ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Tenesta er del av ei anna teneste." ;
-            sh:maxCount 1 ;
+        [ sh:datatype dct:language ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path dct:isPartOf ],
-        [ sh:class skos:Concept ;
-            sh:description "Tematisk område for tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path cv:thematicArea ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Deltenester som inngår i denne tenesta." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 17 ;
-            sh:path dct:hasPart ],
-        [ sh:class skos:Concept ;
-            sh:description "Geografisk dekningsområde (dct:spatial)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path dct:spatial ],
+            sh:order 20 ;
+            sh:path dct:language ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -441,6 +328,87 @@ cpsvno:Service a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class cpsvno:OutputType ;
+            sh:description "Typen resultat tenesta kan produsere." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path cpsvno:hasOutputType ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ],
+        [ sh:class cv:Participation ;
+            sh:description "Deltakarar med spesifikke roller i levering av tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path cv:hasParticipation ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep tenesta er klassifisert med." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path cv:isClassifiedBy ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path dct:type ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path foaf:homepage ],
+        [ sh:class cv:Cost ;
+            sh:description "Gebyr knytt til tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path cv:hasCost ],
+        [ sh:class foaf:Agent ;
+            sh:description "Aktør som eig eller er ansvarleg for tenesta." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path cv:ownedBy ],
+        [ sh:class skos:Concept ;
+            sh:description "Målgruppe for tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path dct:audience ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Teneste eller ressurs denne tenesta krev." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 27 ;
+            sh:path dct:requires ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Tenesta er del av ei anna teneste." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path dct:isPartOf ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Relatert teneste." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path cv:relatedService ],
+        [ sh:datatype xsd:duration ;
+            sh:description "Forventa behandlingstid for tenesta eller kanalen (ISO 8601)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path cv:processingTime ],
+        [ sh:class skos:Concept ;
+            sh:description "Geografisk dekningsområde (dct:spatial)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path dct:spatial ],
+        [ sh:class skos:Concept ;
+            sh:description "Industri/sektor tenesta tilhøyrer." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 30 ;
+            sh:path cv:sector ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
@@ -448,58 +416,60 @@ cpsvno:Service a sh:NodeShape ;
             sh:order 1 ;
             sh:path dct:title ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "Teneste eller ressurs denne tenesta krev." ;
+            sh:description "Deltenester som inngår i denne tenesta." ;
             sh:nodeKind sh:Literal ;
-            sh:order 27 ;
-            sh:path dct:requires ] ;
+            sh:order 17 ;
+            sh:path dct:hasPart ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class cv:EvidenceType ;
+            sh:description "Dokumentasjon som krevst for tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path cv:hasInputType ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Datasett som beskriv ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path cccevno:isDescribedBy ],
+        [ sh:class skos:Concept ;
+            sh:description "Tematisk område for tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path cv:thematicArea ],
+        [ sh:class cpsv:Rule ;
+            sh:description "Regelverk tenesta følgjer." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path cpsv:follows ],
+        [ sh:class cv:Channel ;
+            sh:description "Kanal for tilgang til tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path cv:hasChannel ] ;
     sh:targetClass cpsvno:Service .
 
 cv:PublicOrganisation a sh:NodeShape ;
     rdfs:comment "Ein offentleg organisasjon som er ansvarleg for ei teneste." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Føretrekt namn/term for organisasjonen." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dct:identifier ],
+            sh:order 0 ;
+            sh:path skos:prefLabel ],
         [ sh:class skos:Concept ;
             sh:description "Geografisk dekningsområde (dct:spatial)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path dct:spatial ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path dct:type ],
-        [ sh:class locn:Address ;
-            sh:description "Postadresse knytt til aktøren." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path locn:address ],
-        [ sh:class cv:Participation ;
-            sh:description "Deltakingar aktøren er del av." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path cv:participates ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path dct:title ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Føretrekt namn/term for organisasjonen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path skos:prefLabel ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
             sh:nodeKind sh:Literal ;
@@ -511,7 +481,37 @@ cv:PublicOrganisation a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:type ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path dct:title ],
+        [ sh:class cv:Participation ;
+            sh:description "Deltakingar aktøren er del av." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path cv:participates ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dct:identifier ],
+        [ sh:class locn:Address ;
+            sh:description "Postadresse knytt til aktøren." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path locn:address ] ;
     sh:targetClass cv:PublicOrganisation .
 
 eli:LegalResource a sh:NodeShape ;
@@ -525,17 +525,17 @@ eli:LegalResource a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ],
         [ sh:class skos:Concept ;
             sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path dct:type ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -553,30 +553,11 @@ cv:Channel a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path dct:description ],
-        [ sh:datatype xsd:duration ;
-            sh:description "Forventa behandlingstid for tenesta eller kanalen (ISO 8601)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cv:processingTime ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype xsd:string ;
             sh:description "Opningstider." ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path cv:openingHours ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path dct:type ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -584,6 +565,25 @@ cv:Channel a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path dct:identifier ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:type ],
+        [ sh:datatype xsd:duration ;
+            sh:description "Forventa behandlingstid for tenesta eller kanalen (ISO 8601)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path cv:processingTime ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Nettside for tenestekanalane." ;
             sh:nodeKind sh:Literal ;
@@ -595,23 +595,23 @@ cv:Cost a sh:NodeShape ;
     rdfs:comment "Eit gebyr knytt til ei teneste." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:float ;
-            sh:description "Verdien av gebyret." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path cv:value ],
+            sh:order 1 ;
+            sh:path dct:description ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+        [ sh:datatype xsd:float ;
+            sh:description "Verdien av gebyret." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:description ],
+            sh:order 3 ;
+            sh:path cv:value ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -637,40 +637,18 @@ cv:EvidenceType a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path cv:evidenceTypeClassification ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Liste eller spesifikasjon ressursen er del av." ;
-            sh:maxCount 1 ;
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path cv:isSpecifiedIn ],
+            sh:order 2 ;
+            sh:path dct:description ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path dct:title ],
-        [ sh:datatype dct:language ;
-            sh:description "Språk dokumentasjonstypen er akseptert i." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path cccevno:acceptableLanguage ],
-        [ sh:class skos:Concept ;
-            sh:description "Stad dokumentasjonen er akseptert frå." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path cccevno:acceptableIssuingPlace ],
-        [ sh:datatype xsd:duration ;
-            sh:description "Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cccevno:acceptableValidityDuration ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Datasett som beskriv ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path cccevno:isDescribedBy ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -678,54 +656,76 @@ cv:EvidenceType a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
         [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
-    sh:targetClass cv:EvidenceType .
-
-cpsv:Rule a sh:NodeShape ;
-    rdfs:comment "Eit regelverk eller retningsliner som styrer levering av ei teneste." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Datasett som beskriv ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path cccevno:isDescribedBy ],
+        [ sh:class skos:Concept ;
+            sh:description "Stad dokumentasjonen er akseptert frå." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path cccevno:acceptableIssuingPlace ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Liste eller spesifikasjon ressursen er del av." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path cv:isSpecifiedIn ],
+        [ sh:datatype xsd:duration ;
+            sh:description "Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cccevno:acceptableValidityDuration ],
+        [ sh:datatype dct:language ;
+            sh:description "Språk dokumentasjonstypen er akseptert i." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cccevno:acceptableLanguage ] ;
+    sh:targetClass cv:EvidenceType .
+
+cpsv:Rule a sh:NodeShape ;
+    rdfs:comment "Eit regelverk eller retningsliner som styrer levering av ei teneste." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path dct:title ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
         [ sh:class skos:Concept ;
             sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path dct:type ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype dct:language ;
             sh:description "Språk brukt i ressursen (dct:language)." ;
             sh:nodeKind sh:Literal ;
@@ -737,12 +737,11 @@ locn:Address a sh:NodeShape ;
     rdfs:comment "Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Postnummer." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Poststad/by." ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path locn:postCode ],
+            sh:order 3 ;
+            sh:path locn:postName ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -751,21 +750,22 @@ locn:Address a sh:NodeShape ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:datatype xsd:string ;
-            sh:description "Full adresse som fritekst." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path locn:fullAddress ],
-        [ sh:datatype xsd:string ;
             sh:description "Land (ISO 3166-1 alpha-2 kode)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path locn:adminUnitL1 ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Poststad/by." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Postnummer." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path locn:postName ] ;
+            sh:order 2 ;
+            sh:path locn:postCode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Full adresse som fritekst." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path locn:fullAddress ] ;
     sh:targetClass locn:Address .
 
 cpsvno:OutputType a sh:NodeShape ;
@@ -773,6 +773,12 @@ cpsvno:OutputType a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ],
+        [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -784,12 +790,22 @@ cpsvno:OutputType a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path dct:type ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Datasett som beskriv ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path cccevno:isDescribedBy ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path dct:identifier ],
+        [ sh:datatype dct:language ;
+            sh:description "Mogleg språk for tenesteresultatet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path cpsvno:possibleLanguage ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -797,45 +813,29 @@ cpsvno:OutputType a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Liste eller spesifikasjon ressursen er del av." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path cv:isSpecifiedIn ],
-        [ sh:datatype dct:language ;
-            sh:description "Mogleg språk for tenesteresultatet." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cpsvno:possibleLanguage ],
         [ sh:class cv:Event ;
             sh:description "Hending tenesteresultatet kan skape." ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
-            sh:path xkos:causes ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Datasett som beskriv ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path cccevno:isDescribedBy ] ;
+            sh:path xkos:causes ] ;
     sh:targetClass cpsvno:OutputType .
 
 foaf:Agent a sh:NodeShape ;
     rdfs:comment "Ein aktør (person eller organisasjon) relatert til ei teneste." ;
     sh:closed true ;
-    sh:ignoredProperties ( dct:spatial dct:type skos:prefLabel foaf:homepage rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ],
+    sh:ignoredProperties ( rdf:type skos:prefLabel dct:type dct:spatial foaf:homepage ) ;
+    sh:property [ sh:class locn:Address ;
+            sh:description "Postadresse knytt til aktøren." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path locn:address ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -843,6 +843,11 @@ foaf:Agent a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class cv:Participation ;
+            sh:description "Deltakingar aktøren er del av." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path cv:participates ],
         [ sh:datatype xsd:string ;
             sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
@@ -850,57 +855,28 @@ foaf:Agent a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path dct:identifier ],
-        [ sh:class locn:Address ;
-            sh:description "Postadresse knytt til aktøren." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path locn:address ],
-        [ sh:class cv:Participation ;
-            sh:description "Deltakingar aktøren er del av." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path cv:participates ] ;
-    sh:targetClass foaf:Agent .
-
-cv:Event a sh:NodeShape ;
-    rdfs:comment "Ei hending som kan utløyse behov for ei offentleg teneste." ;
-    sh:closed true ;
-    sh:ignoredProperties ( cpsvno:mayTriggerNeedFor rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:identifier ],
-        [ sh:class cv:ContactPoint ;
-            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path cv:contactPoint ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dct:description ],
-        [ sh:class skos:Concept ;
-            sh:description "Emne/tema tenesta handlar om." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path dct:subject ],
         [ sh:datatype rdf:langString ;
             sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path dct:title ],
-        [ sh:class cpsv:PublicService ;
-            sh:description "Offentlege tenester hendinga kan utløyse." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path cpsvno:mayTrigger ],
+            sh:path dct:title ] ;
+    sh:targetClass foaf:Agent .
+
+cv:Event a sh:NodeShape ;
+    rdfs:comment "Ei hending som kan utløyse behov for ei offentleg teneste." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type cpsvno:mayTriggerNeedFor ) ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path dct:description ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Datasett som beskriv ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path cccevno:isDescribedBy ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -908,30 +884,48 @@ cv:Event a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class cpsv:PublicService ;
+            sh:description "Offentlege tenester hendinga kan utløyse." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path cpsvno:mayTrigger ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ],
+        [ sh:class cv:ContactPoint ;
+            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path cv:contactPoint ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:identifier ],
         [ sh:class skos:Concept ;
             sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path dct:type ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Datasett som beskriv ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path cccevno:isDescribedBy ] ;
+        [ sh:class skos:Concept ;
+            sh:description "Emne/tema tenesta handlar om." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path dct:subject ] ;
     sh:targetClass cv:Event .
 
 cv:Participation a sh:NodeShape ;
     rdfs:comment "Ei rolle ein aktør har i leveringa av ei teneste." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:Concept ;
-            sh:description "Rolla aktøren har i ei deltaking." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path cv:role ],
-        [ sh:class foaf:Agent ;
+    sh:property [ sh:class foaf:Agent ;
             sh:description "Aktøren som deltek." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -943,153 +937,83 @@ cv:Participation a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Rolla aktøren har i ei deltaking." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path cv:role ] ;
     sh:targetClass cv:Participation .
 
 cpsv:PublicService a sh:NodeShape ;
     rdfs:comment "Ei konkret offentleg teneste levert av ein offentleg organisasjon." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Tenesta er del av ei anna teneste." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path dct:isPartOf ],
-        [ sh:class eli:LegalResource ;
-            sh:description "Regulativ ressurs (lov, forskrift) knytt til tenesta." ;
+    sh:property [ sh:class skos:Concept ;
+            sh:description "Industri/sektor tenesta tilhøyrer." ;
             sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path cv:hasLegalResource ],
-        [ sh:class cpsv:Rule ;
-            sh:description "Regelverk tenesta følgjer." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path cpsv:follows ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path foaf:homepage ],
-        [ sh:class cv:ContactPoint ;
-            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path cv:contactPoint ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Datasett som beskriv ressursen." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path cccevno:isDescribedBy ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Deltenester som inngår i denne tenesta." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 17 ;
-            sh:path dct:hasPart ],
-        [ sh:class cv:EvidenceType ;
-            sh:description "Dokumentasjon som krevst for tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path cv:hasInputType ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep tenesta er klassifisert med." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path cv:isClassifiedBy ],
+            sh:order 30 ;
+            sh:path cv:sector ],
         [ sh:datatype rdf:langString ;
             sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
             sh:nodeKind sh:Literal ;
             sh:order 29 ;
             sh:path dcat:keyword ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:description ],
-        [ sh:class skos:Concept ;
-            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path adms:status ],
-        [ sh:class skos:Concept ;
-            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path dct:type ],
-        [ sh:class cv:Participation ;
-            sh:description "Deltakarar med spesifikke roller i levering av tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path cv:hasParticipation ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ],
-        [ sh:class cv:Cost ;
-            sh:description "Gebyr knytt til tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 25 ;
-            sh:path cv:hasCost ],
-        [ sh:class skos:Concept ;
-            sh:description "Emne/tema tenesta handlar om." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path dct:subject ],
-        [ sh:class skos:Concept ;
-            sh:description "Tematisk område for tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path cv:thematicArea ],
-        [ sh:class cv:Event ;
-            sh:description "Hending(ar) som grupperer tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 22 ;
-            sh:path cv:isGroupedBy ],
-        [ sh:datatype dct:language ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 20 ;
-            sh:path dct:language ],
-        [ sh:class cv:PublicOrganisation ;
-            sh:description "Offentleg organisasjon ansvarleg for tenesta." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path cv:hasCompetentAuthority ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Relatert teneste." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 21 ;
-            sh:path cv:relatedService ],
-        [ sh:class skos:Concept ;
-            sh:description "Geografisk dekningsområde (dct:spatial)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path dct:spatial ],
-        [ sh:class skos:Concept ;
-            sh:description "Målgruppe for tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 28 ;
-            sh:path dct:audience ],
         [ sh:class cpsvno:OutputType ;
             sh:description "Typen resultat tenesta kan produsere." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path cpsvno:hasOutputType ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:description ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Datasett som beskriv ressursen." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path cccevno:isDescribedBy ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Tenesta er del av ei anna teneste." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path dct:isPartOf ],
+        [ sh:class cv:Participation ;
+            sh:description "Deltakarar med spesifikke roller i levering av tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path cv:hasParticipation ],
+        [ sh:class skos:Concept ;
+            sh:description "Emne/tema tenesta handlar om." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path dct:subject ],
+        [ sh:class skos:Concept ;
+            sh:description "Målgruppe for tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path dct:audience ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Deltenester som inngår i denne tenesta." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path dct:hasPart ],
+        [ sh:class skos:Concept ;
+            sh:description "Geografisk dekningsområde (dct:spatial)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path dct:spatial ],
         [ sh:datatype xsd:anyURI ;
             sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
@@ -1097,43 +1021,129 @@ cpsv:PublicService a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "Teneste eller ressurs denne tenesta krev." ;
+        [ sh:class cpsv:Rule ;
+            sh:description "Regelverk tenesta følgjer." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path cpsv:follows ],
+        [ sh:datatype dct:language ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 27 ;
-            sh:path dct:requires ],
+            sh:order 20 ;
+            sh:path dct:language ],
+        [ sh:class cv:Channel ;
+            sh:description "Kanal for tilgang til tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path cv:hasChannel ],
+        [ sh:class cv:EvidenceType ;
+            sh:description "Dokumentasjon som krevst for tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path cv:hasInputType ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Relatert teneste." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path cv:relatedService ],
+        [ sh:class cv:ContactPoint ;
+            sh:description "Kontaktpunkt for tenesta eller organisasjonen." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path cv:contactPoint ],
+        [ sh:class cv:Event ;
+            sh:description "Hending(ar) som grupperer tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 22 ;
+            sh:path cv:isGroupedBy ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:identifier ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep tenesta er klassifisert med." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path cv:isClassifiedBy ],
+        [ sh:class cv:PublicOrganisation ;
+            sh:description "Offentleg organisasjon ansvarleg for tenesta." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path cv:hasCompetentAuthority ],
         [ sh:datatype xsd:duration ;
             sh:description "Forventa behandlingstid for tenesta eller kanalen (ISO 8601)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 14 ;
             sh:path cv:processingTime ],
-        [ sh:class cv:Channel ;
-            sh:description "Kanal for tilgang til tenesta." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path cv:hasChannel ],
         [ sh:class skos:Concept ;
-            sh:description "Industri/sektor tenesta tilhøyrer." ;
+            sh:description "Tematisk område for tenesta." ;
             sh:nodeKind sh:IRI ;
-            sh:order 30 ;
-            sh:path cv:sector ] ;
+            sh:order 13 ;
+            sh:path cv:thematicArea ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Teneste eller ressurs denne tenesta krev." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 27 ;
+            sh:path dct:requires ],
+        [ sh:class skos:Concept ;
+            sh:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path dct:type ],
+        [ sh:class eli:LegalResource ;
+            sh:description "Regulativ ressurs (lov, forskrift) knytt til tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path cv:hasLegalResource ],
+        [ sh:class cv:Cost ;
+            sh:description "Gebyr knytt til tenesta." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path cv:hasCost ],
+        [ sh:class skos:Concept ;
+            sh:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path adms:status ],
+        [ sh:datatype xsd:anyURI ;
+            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path foaf:homepage ] ;
     sh:targetClass cpsv:PublicService .
 
 cv:ContactPoint a sh:NodeShape ;
     rdfs:comment "Kontaktinformasjon for ei teneste eller ein organisasjon." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "E-postadresse (mailto:-URI)." ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Opningstider." ;
             sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path cv:email ],
+            sh:order 4 ;
+            sh:path cv:openingHours ],
+        [ sh:datatype xsd:string ;
+            sh:description "Telefonnummer." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path cv:telephone ],
         [ sh:datatype dct:language ;
             sh:description "Språk brukt i ressursen (dct:language)." ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path dct:language ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kategori for kontaktpunktet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path vcard:category ],
         [ sh:datatype xsd:anyURI ;
             sh:description "Kontaktside (nettadresse)." ;
             sh:nodeKind sh:Literal ;
@@ -1146,21 +1156,11 @@ cv:ContactPoint a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Kategori for kontaktpunktet." ;
+        [ sh:datatype xsd:anyURI ;
+            sh:description "E-postadresse (mailto:-URI)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path vcard:category ],
-        [ sh:datatype xsd:string ;
-            sh:description "Opningstider." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path cv:openingHours ],
-        [ sh:datatype xsd:string ;
-            sh:description "Telefonnummer." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path cv:telephone ] ;
+            sh:order 1 ;
+            sh:path cv:email ] ;
     sh:targetClass cv:ContactPoint .
 
 skos:Concept a sh:NodeShape ;

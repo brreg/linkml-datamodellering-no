@@ -1257,6 +1257,7 @@ name: Person
 description: Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene
   person.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - har_personnavn
@@ -1432,6 +1433,7 @@ name: Person
 description: Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene
   person.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   har_personnavn:
     name: har_personnavn

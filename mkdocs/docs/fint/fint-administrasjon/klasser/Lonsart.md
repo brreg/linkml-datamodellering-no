@@ -22,9 +22,9 @@ Alias: lonsart
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  yes  |
-| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  yes  |
 | [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  yes  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  yes  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  yes  |
 | [Fravaerstype](fravaerstype.md) | Type fråvær |  yes  |
 
 

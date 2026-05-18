@@ -22,10 +22,10 @@ Alias: skoleressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
-| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
-| [Sensor](sensor.md) | Ein sensor for ein eksamen |  yes  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
+| [Sensor](sensor.md) | Ein sensor for ein eksamen |  yes  |
 
 
 

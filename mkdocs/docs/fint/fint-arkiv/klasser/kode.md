@@ -22,29 +22,29 @@ Alias: kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolle](rolle.md) | Rolla til ein arkivressurs |  yes  |
-| [DokumentType](dokumenttype.md) | Type dokument |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [JournalpostType](journalposttype.md) | Namn på type journalpost |  yes  |
-| [Merknadstype](merknadstype.md) | Namn på type merknad |  yes  |
-| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  yes  |
-| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  yes  |
-| [PartRolle](partrolle.md) | Rolla til ein part |  yes  |
-| [Saksstatus](saksstatus.md) | Status til saksmappa |  yes  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  yes  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Format](format.md) | Dokumentets filformat |  yes  |
 | [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  yes  |
-| [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |  yes  |
-| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  yes  |
-| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
 | [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |  yes  |
 | [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
 | [JournalStatus](journalstatus.md) | Status til journalposten |  yes  |
+| [Format](format.md) | Dokumentets filformat |  yes  |
+| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  yes  |
+| [DokumentType](dokumenttype.md) | Type dokument |  yes  |
+| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  yes  |
+| [PartRolle](partrolle.md) | Rolla til ein part |  yes  |
+| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  yes  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Merknadstype](merknadstype.md) | Namn på type merknad |  yes  |
+| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  yes  |
+| [Rolle](rolle.md) | Rolla til ein arkivressurs |  yes  |
+| [Saksstatus](saksstatus.md) | Status til saksmappa |  yes  |
+| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  yes  |
 | [Klassifikasjonstype](klassifikasjonstype.md) | Type klassifikasjonssystem |  yes  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
+| [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |  yes  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [JournalpostType](journalposttype.md) | Namn på type journalpost |  yes  |
 
 
 

@@ -217,6 +217,7 @@ URI: [modelldcatno:And](https://data.norge.no/vocabulary/modelldcatno#And)
 name: Og
 description: Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 class_uri: modelldcatno:And
 
@@ -230,6 +231,7 @@ class_uri: modelldcatno:And
 name: Og
 description: Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 attributes:
   betinger:

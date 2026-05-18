@@ -319,6 +319,7 @@ name: Avhengighet
 description: Ein avhengighet — ein relasjon der det eine modellelementet avheng av
   det andre.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - avhengig_av
@@ -340,6 +341,7 @@ name: Avhengighet
 description: Ein avhengighet — ein relasjon der det eine modellelementet avheng av
   det andre.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   avhengig_av:

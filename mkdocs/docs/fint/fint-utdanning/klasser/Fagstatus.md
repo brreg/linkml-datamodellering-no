@@ -22,8 +22,8 @@ Alias: fagstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  yes  |
 
 
 

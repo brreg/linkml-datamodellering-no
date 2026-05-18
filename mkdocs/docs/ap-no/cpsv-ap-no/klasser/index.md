@@ -10,26 +10,58 @@ Name: cpsv-ap-no
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
-| [Adresse](adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |
 | [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |
-| [Deltagelse](deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |
 | [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |
-| [Gebyr](gebyr.md) | Eit gebyr knytt til ei teneste |
 | [Hendelse](hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |
 | [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |
-| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |
-| [Regel](regel.md) | Eit regelverk eller retningsliner som styrer levering av ei teneste |
-| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
 | [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |
 | [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |
 | [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |
+| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Adresse](adresse.md) | Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt |
+| [Deltagelse](deltagelse.md) | Ei rolle ein aktør har i leveringa av ei teneste |
+| [Gebyr](gebyr.md) | Eit gebyr knytt til ei teneste |
+| [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |
+| [Regel](regel.md) | Eit regelverk eller retningsliner som styrer levering av ei teneste |
+| [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
 | [Tjenesteresultattypeliste](tjenesteresultattypeliste.md) | Ei liste over moglege tjenesteresultattypar |
+
+
 
 
 

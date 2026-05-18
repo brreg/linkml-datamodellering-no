@@ -378,6 +378,7 @@ URI: [skos:Collection](http://www.w3.org/2004/02/skos/core#Collection)
 name: Samling
 description: Ei namngitt samling av omgrep (skos:Collection).
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slots:
 - id
 - identifikator_literal
@@ -428,6 +429,7 @@ class_uri: skos:Collection
 name: Samling
 description: Ei namngitt samling av omgrep (skos:Collection).
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slot_usage:
   identifikator_literal:
     name: identifikator_literal

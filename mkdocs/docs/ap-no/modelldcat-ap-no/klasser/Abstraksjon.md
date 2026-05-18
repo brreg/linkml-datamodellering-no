@@ -318,6 +318,7 @@ URI: [modelldcatno:Abstraction](https://data.norge.no/vocabulary/modelldcatno#Ab
 name: Abstraksjon
 description: Ein abstraksjon — ein forenkling som representerer eit modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - er_abstraksjon_av
@@ -338,6 +339,7 @@ class_uri: modelldcatno:Abstraction
 name: Abstraksjon
 description: Ein abstraksjon — ein forenkling som representerer eit modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   er_abstraksjon_av:

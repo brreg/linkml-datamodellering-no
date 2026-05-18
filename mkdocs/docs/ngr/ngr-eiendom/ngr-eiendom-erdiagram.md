@@ -216,5 +216,5 @@ TinglystEierforhold ||--|| Matrikkelenhet : "gjelder_matrikkelenhet"
 YtreInngang ||--|o OffisiellAdresse : "har_offisiell_adresse"
 YtreInngang ||--}| Bruksenhet : "gjelder_bruksenhet"
 
-```
 
+```

@@ -228,6 +228,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 slots:
 - id
 - har_rolle
@@ -255,6 +256,7 @@ class_uri: dcat:Relationship
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 slot_usage:
   har_rolle:
     name: har_rolle

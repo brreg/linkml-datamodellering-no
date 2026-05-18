@@ -174,6 +174,7 @@ URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
 name: Aksjeklasse
 description: Klasse aksjar høyrer til, med eigne rettigheiter.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - navn
@@ -188,6 +189,7 @@ slots:
 name: Aksjeklasse
 description: Klasse aksjar høyrer til, med eigne rettigheiter.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

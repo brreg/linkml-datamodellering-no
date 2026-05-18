@@ -22,8 +22,8 @@ Alias: kommune
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fylke](fylke.md) | Liste over Norges fylker |  yes  |
 | [Person](person.md) | Fysiske private personar |  yes  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  yes  |
 
 
 

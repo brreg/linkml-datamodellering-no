@@ -151,6 +151,7 @@ URI: [vcard:Organization](http://www.w3.org/2006/vcard/ns#Organization)
 name: Kontaktopplysning
 description: Kontaktinformasjon (vcard:Organization).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 class_uri: vcard:Organization
@@ -165,6 +166,7 @@ class_uri: vcard:Organization
 name: Kontaktopplysning
 description: Kontaktinformasjon (vcard:Organization).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

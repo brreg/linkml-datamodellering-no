@@ -194,6 +194,7 @@ URI: [ngre:Etasje](https://data.norge.no/vocabulary/ngr-eiendom#Etasje)
 name: Etasje
 description: Ei etasje i ein bygning.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - etasjenummer
@@ -215,6 +216,7 @@ class_uri: ngre:Etasje
 name: Etasje
 description: Ei etasje i ein bygning.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   etasjenummer:
     name: etasjenummer

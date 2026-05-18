@@ -270,6 +270,7 @@ URI: [skosno:GenericConceptRelation](https://data.norge.no/vocabulary/skosno#Gen
 name: GeneriskRelasjon
 description: Ein generisk relasjon mellom eit overomgrep og eit underomgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slots:
 - id
 - har_generisk_omgrep
@@ -300,6 +301,7 @@ class_uri: skosno:GenericConceptRelation
 name: GeneriskRelasjon
 description: Ein generisk relasjon mellom eit overomgrep og eit underomgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slot_usage:
   har_generisk_omgrep:
     name: har_generisk_omgrep

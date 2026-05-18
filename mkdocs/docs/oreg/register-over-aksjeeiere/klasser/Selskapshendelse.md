@@ -173,6 +173,7 @@ URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse
 name: Selskapshendelse
 description: Hending som påverkar selskapet sitt eigarskap eller kapital.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - kan_ha_aksjeinnskudd
@@ -187,6 +188,7 @@ slots:
 name: Selskapshendelse
 description: Hending som påverkar selskapet sitt eigarskap eller kapital.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

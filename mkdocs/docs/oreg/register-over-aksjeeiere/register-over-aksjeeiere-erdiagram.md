@@ -80,5 +80,5 @@ Selskapshendelse ||--|o Aksjeinnskudd : "kan_ha_aksjeinnskudd"
 Utbytte ||--|o Eierposisjon : "er_basert_paa_eierposisjon"
 Utbytte ||--|o Utdeling : "har_utdeling"
 
-```
 
+```

@@ -199,6 +199,7 @@ URI: [ngre:AnnenMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#Ann
 name: AnnenMatrikkelenhet
 description: Matrikkelenheit som ikkje fell inn under dei andre underklassane.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 class_uri: ngre:AnnenMatrikkelenhet
 
@@ -212,6 +213,7 @@ class_uri: ngre:AnnenMatrikkelenhet
 name: AnnenMatrikkelenhet
 description: Matrikkelenheit som ikkje fell inn under dei andre underklassane.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 attributes:
   id:

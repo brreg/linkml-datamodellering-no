@@ -185,6 +185,7 @@ URI: [ngr:Stemmekrets](https://data.norge.no/vocabulary/ngr-adresse#Stemmekrets)
 name: Stemmekrets
 description: Ei stemmekrets brukt ved val.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 slots:
 - stemmekretsnummer
@@ -200,6 +201,7 @@ class_uri: ngr:Stemmekrets
 name: Stemmekrets
 description: Ei stemmekrets brukt ved val.
 from_schema: https://data.norge.no/linkml/ngr-adresse
+rank: 1000
 is_a: GeografiskOmrade
 attributes:
   stemmekretsnummer:

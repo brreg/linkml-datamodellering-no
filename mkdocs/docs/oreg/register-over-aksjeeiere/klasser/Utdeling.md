@@ -172,6 +172,7 @@ URI: [aksje:Utdeling](https://example.no/ontology/aksje#Utdeling)
 name: Utdeling
 description: Konkret utdeling av verdiar til aksjeeigarar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - belop
@@ -186,6 +187,7 @@ slots:
 name: Utdeling
 description: Konkret utdeling av verdiar til aksjeeigarar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

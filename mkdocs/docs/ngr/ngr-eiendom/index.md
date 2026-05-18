@@ -218,8 +218,8 @@ TinglystEierforhold ||--|| Matrikkelenhet : "gjelder_matrikkelenhet"
 YtreInngang ||--|o OffisiellAdresse : "har_offisiell_adresse"
 YtreInngang ||--}| Bruksenhet : "gjelder_bruksenhet"
 
-```
 
+```
 
 
 Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast). Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold og tilknytta klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/
@@ -232,10 +232,15 @@ Name: ngr-eiendom
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Andel](klasser/andel.md) | Ein eigarandel i eit heimelsdokument (også kalt eierandel) |
-| [Anleggsprojeksjonsflate](klasser/anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |
 | [Borettslag](klasser/borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |
 | [Borettslagsandel](klasser/borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |
 | [Bruksenhet](klasser/bruksenhet.md) | Ei brukseining (leilegheit, kontor o |
@@ -244,37 +249,64 @@ Name: ngr-eiendom
 | [Bygning](klasser/bygning.md) | Ein bygning registrert i Matrikkelen |
 | [Bygningsnummer](klasser/bygningsnummer.md) | Offisiell identifikator for ein bygning i Matrikkelen |
 | [Eierforhold](klasser/eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[IkkeTinglystEierforhold](klasser/ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[TinglystEierforhold](klasser/tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
 | [Etasje](klasser/etasje.md) | Ei etasje i ein bygning |
 | [FastEiendom](klasser/fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |
 | [Festenummer](klasser/festenummer.md) | Festenummer, aktuelt berre for festegrunn (0 |
 | [Gaardsnummer](klasser/gaardsnummer.md) | Gårdsnummer innanfor kommunen |
 | [Hjemmel](klasser/hjemmel.md) | Abstrakt klasse for heimelsdokument |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilEiendomsrett](klasser/hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFesterett](klasser/hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[HjemmelTilFramfesterett](klasser/hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |
-| [Hovedenhet](klasser/hovedenhet.md) | Ei hovudeining i Einingsregisteret |
 | [Kommune](klasser/kommune.md) | Norsk kommune |
 | [Kommunenummer](klasser/kommunenummer.md) | Firesifra kommunenummer (t |
 | [Matrikkelenhet](klasser/matrikkelenhet.md) | Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Anleggseiendom](klasser/anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[AnnenMatrikkelenhet](klasser/annenmatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Eierseksjon](klasser/eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Festegrunn](klasser/festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Grunneiendom](klasser/grunneiendom.md) | Den vanlegaste typen matrikkelenheit |
-| &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[Jordsameie](klasser/jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |
 | [Matrikkelnummer](klasser/matrikkelnummer.md) | Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, g... |
-| [OffisiellAdresse](klasser/offisielladresse.md) | Offisiell adresse tildelt av kommunen |
-| [Person](klasser/person.md) | Ein fysisk person |
 | [Representasjonspunkt](klasser/representasjonspunkt.md) | Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen |
-| [RettighetForAaBenytteEiendom](klasser/rettighetforaabenytteeiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |
-| [Rettighetshaver](klasser/rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |
 | [SamletFastEiendom](klasser/samletfasteiendom.md) | Samling av to eller fleire faste eigedommar som er organiserte saman |
 | [Seksjonsnummer](klasser/seksjonsnummer.md) | Seksjonsnummer, aktuelt berre for eigarseksjonar (0 |
-| [Teig](klasser/teig.md) | Eit samanhengande areal med same type grenser |
-| [TinglystHeftelse](klasser/tinglystheftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |
 | [YtreInngang](klasser/ytreinngang.md) | Ytre inngang til ein bygning |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Eierseksjon](klasser/eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |
+
+
+
+
+### Valgfri
+
+| Class | Description |
+| --- | --- |
+| [Festegrunn](klasser/festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |
+| [Grunneiendom](klasser/grunneiendom.md) | Den vanlegaste typen matrikkelenheit |
+| [Jordsameie](klasser/jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |
+| [Rettighetshaver](klasser/rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
+| [Anleggseiendom](klasser/anleggseiendom.md) | Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire gru... |
+| [Anleggsprojeksjonsflate](klasser/anleggsprojeksjonsflate.md) | Fotavtrykk av 3D-eigedommar (anleggseigedommar) |
+| [AnnenMatrikkelenhet](klasser/annenmatrikkelenhet.md) | Matrikkelenheit som ikkje fell inn under dei andre underklassane |
+| [HjemmelTilEiendomsrett](klasser/hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |
+| [HjemmelTilFesterett](klasser/hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |
+| [HjemmelTilFramfesterett](klasser/hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |
+| [Hovedenhet](klasser/hovedenhet.md) | Ei hovudeining i Einingsregisteret |
+| [IkkeTinglystEierforhold](klasser/ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |
+| [OffisiellAdresse](klasser/offisielladresse.md) | Offisiell adresse tildelt av kommunen |
+| [Person](klasser/person.md) | Ein fysisk person |
+| [RettighetForAaBenytteEiendom](klasser/rettighetforaabenytteeiendom.md) | Rettar og avtalar som er nødvendige for å kunne benytte eigedommen |
+| [Teig](klasser/teig.md) | Eit samanhengande areal med same type grenser |
+| [TinglystEierforhold](klasser/tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |
+| [TinglystHeftelse](klasser/tinglystheftelse.md) | Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel |
+
+
 
 
 
@@ -388,4 +420,11 @@ Name: ngr-eiendom
 
 | Artefakt | Fil |
 |----------|-----|
+| SHACL shapes | [ngr-eiendom-shapes.ttl](ngr-eiendom-shapes.ttl) |
+| JSON-LD kontekst | [ngr-eiendom-context.jsonld](ngr-eiendom-context.jsonld) |
+| JSON Schema | [ngr-eiendom-schema.json](ngr-eiendom-schema.json) |
+| OWL ontologi | [ngr-eiendom-ontology.ttl](ngr-eiendom-ontology.ttl) |
+| RDF/Turtle skjema | [ngr-eiendom-schema.ttl](ngr-eiendom-schema.ttl) |
+| Python-klasser | [ngr-eiendom-model.py](ngr-eiendom-model.py) |
 | ER-diagram (Mermaid) | [ngr-eiendom-erdiagram.md](ngr-eiendom-erdiagram.md) |
+| Eksempeldata (Turtle) | [ngr-eiendom-eksempel.ttl](ngr-eiendom-eksempel.ttl) |

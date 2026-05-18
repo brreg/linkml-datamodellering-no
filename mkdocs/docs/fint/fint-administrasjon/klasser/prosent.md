@@ -22,8 +22,8 @@ Alias: prosent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  yes  |
 | [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  yes  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  yes  |
 
 
 

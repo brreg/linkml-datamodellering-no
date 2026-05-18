@@ -151,6 +151,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 name: VCardKontakt
 description: Kontaktinformasjon (vCard) for omgrepseigaren.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slots:
 - id
 class_uri: vcard:Kind
@@ -165,6 +166,7 @@ class_uri: vcard:Kind
 name: VCardKontakt
 description: Kontaktinformasjon (vCard) for omgrepseigaren.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 attributes:
   id:
     name: id

@@ -258,6 +258,7 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
 name: Eierskapstransaksjon
 description: Transaksjon som påverkar eigarskap i selskapet.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - tidspunkt
@@ -275,6 +276,7 @@ slots:
 name: Eierskapstransaksjon
 description: Transaksjon som påverkar eigarskap i selskapet.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

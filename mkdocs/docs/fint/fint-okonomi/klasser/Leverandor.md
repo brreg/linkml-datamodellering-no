@@ -22,8 +22,8 @@ Alias: leverandor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar |  yes  |
 | [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
+| [Leverandorgruppe](leverandorgruppe.md) | Gruppering av leverandørar |  yes  |
 
 
 

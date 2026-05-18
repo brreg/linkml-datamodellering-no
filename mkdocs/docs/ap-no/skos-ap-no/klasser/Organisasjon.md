@@ -152,6 +152,7 @@ URI: [org:Organization](http://www.w3.org/ns/org#Organization)
 name: Organisasjon
 description: Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slots:
 - id
 class_uri: org:Organization
@@ -166,6 +167,7 @@ class_uri: org:Organization
 name: Organisasjon
 description: Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep.
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 attributes:
   id:
     name: id

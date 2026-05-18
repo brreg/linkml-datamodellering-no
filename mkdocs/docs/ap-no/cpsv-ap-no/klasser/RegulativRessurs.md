@@ -265,6 +265,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -295,6 +296,7 @@ class_uri: eli:LegalResource
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

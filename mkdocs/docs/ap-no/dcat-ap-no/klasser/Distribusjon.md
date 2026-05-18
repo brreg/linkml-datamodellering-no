@@ -855,6 +855,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 slots:
 - id
 - tilgangs_url
@@ -918,6 +919,7 @@ class_uri: dcat:Distribution
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
+rank: 1000
 slot_usage:
   tilgangs_url:
     name: tilgangs_url

@@ -23,8 +23,8 @@ Alias: personalressurs
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Person](person.md) | Fysiske private personar |  no  |
-| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 | [Identitet](identitet.md) | Identitet som identifiserer innehavaren av rettigheiter i organisasjonen |  yes  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 
 
 

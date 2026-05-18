@@ -236,6 +236,7 @@ name: RolleIVirksomhet
 description: Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar).
   Kvar rolle kan ha éin eller fleire rolleinnehavarar.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - rollebetegnelse
@@ -263,6 +264,7 @@ name: RolleIVirksomhet
 description: Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar).
   Kvar rolle kan ha éin eller fleire rolleinnehavarar.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   rollebetegnelse:
     name: rollebetegnelse

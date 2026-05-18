@@ -272,6 +272,7 @@ name: FalskIdentitet
 description: Registrering av at ein person har opptrådt med falsk identitet. Kan peke
   på den rette identiteten om denne er kjent.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - er_falsk
@@ -304,6 +305,7 @@ name: FalskIdentitet
 description: Registrering av at ein person har opptrådt med falsk identitet. Kan peke
   på den rette identiteten om denne er kjent.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   er_falsk:
     name: er_falsk

@@ -8,24 +8,24 @@
 <https://data.norge.no/linkml/xkos-ap-no/xkos-ap-no> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "XKOS-AP-NO" ;
-    sh:declare [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
-            sh:prefix "skos" ],
+    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
+        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            sh:prefix "rdfs" ],
         [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
             sh:prefix "foaf" ],
         [ sh:namespace "http://purl.org/umu/uneskos#"^^xsd:anyURI ;
             sh:prefix "uneskos" ],
+        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+            sh:prefix "skos" ],
         [ sh:namespace "http://rdf-vocabulary.ddialliance.org/xkos#"^^xsd:anyURI ;
             sh:prefix "xkos" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
         [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
             sh:prefix "rdf" ],
-        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
-            sh:prefix "rdfs" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
-            sh:prefix "xsd" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ] ;
+            sh:prefix "xsd" ] ;
     linkml:classes <https://data.norge.no/linkml/xkos-ap-no/Begrepssamling>,
         <https://data.norge.no/linkml/xkos-ap-no/Kategori>,
         <https://data.norge.no/linkml/xkos-ap-no/Kategorisamanlikning>,
@@ -39,7 +39,7 @@
     linkml:default_prefix "https://data.norge.no/linkml/xkos-ap-no/" ;
     linkml:default_range <https://data.norge.no/linkml/xkos-ap-no/string> ;
     linkml:description "LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar. Basert på https://data.norge.no/specification/xkos-ap-no" ;
-    linkml:generation_date "2026-05-09T16:14:28"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-18T09:12:26"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/xkos-ap-no"^^xsd:anyURI ;
     linkml:imports "../common/common-ap-no-schema"^^xsd:anyURI,
         "linkml:types"^^xsd:anyURI ;

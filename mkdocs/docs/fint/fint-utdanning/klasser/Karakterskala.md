@@ -379,6 +379,7 @@ URI: [utd:Karakterskala](https://schema.fintlabs.no/utdanning/Karakterskala)
 name: Karakterskala
 description: Skala for karaktersetjing (t.d. 1-6, Bestått/Ikkje bestått).
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - id
 - kode
@@ -426,6 +427,7 @@ class_uri: utd:Karakterskala
 name: Karakterskala
 description: Skala for karaktersetjing (t.d. 1-6, Bestått/Ikkje bestått).
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   kode:
     name: kode

@@ -205,6 +205,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 is_a: Kvalitetsdimensjon
 slots:
 - er_deldimensjon_av
@@ -234,6 +235,7 @@ class_uri: dqvno:SubDimension
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 is_a: Kvalitetsdimensjon
 slot_usage:
   er_deldimensjon_av:

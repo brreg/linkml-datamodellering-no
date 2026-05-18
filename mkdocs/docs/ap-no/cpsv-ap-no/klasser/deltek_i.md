@@ -22,8 +22,8 @@ Alias: deltek_i
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
 | [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  no  |
+| [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
 
 
 

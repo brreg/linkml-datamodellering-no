@@ -318,6 +318,7 @@ URI: [modelldcatno:Association](https://data.norge.no/vocabulary/modelldcatno#As
 name: Assosiasjon
 description: Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - refererer_til
@@ -338,6 +339,7 @@ class_uri: modelldcatno:Association
 name: Assosiasjon
 description: Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   refererer_til:

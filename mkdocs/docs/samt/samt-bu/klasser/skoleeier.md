@@ -147,6 +147,10 @@ URI: [samtbuskole:Skoleeier](https://example.no/ontology/skole#Skoleeier)
 
 
 
+## See Also
+
+* [https://data.norge.no/concepts/91b83e9a-8beb-3747-b65c-238a2bef605a](https://data.norge.no/concepts/91b83e9a-8beb-3747-b65c-238a2bef605a)
+
 
 
 ## Identifier and Mapping Information
@@ -187,8 +191,11 @@ URI: [samtbuskole:Skoleeier](https://example.no/ontology/skole#Skoleeier)
 name: Skoleeier
 description: Superklasse for alle typer skoleeiere.
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/91b83e9a-8beb-3747-b65c-238a2bef605a
 exact_mappings:
 - foaf:Agent
+rank: 1000
 abstract: true
 slots:
 - id
@@ -204,8 +211,11 @@ slots:
 name: Skoleeier
 description: Superklasse for alle typer skoleeiere.
 from_schema: https://example.no/ontology/samt-bu-skole
+see_also:
+- https://data.norge.no/concepts/91b83e9a-8beb-3747-b65c-238a2bef605a
 exact_mappings:
 - foaf:Agent
+rank: 1000
 abstract: true
 attributes:
   id:

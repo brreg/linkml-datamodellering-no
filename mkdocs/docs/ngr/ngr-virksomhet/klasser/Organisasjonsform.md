@@ -238,6 +238,7 @@ name: Organisasjonsform
 description: Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF).
   Kodeverk forvalta av Enhetsregisteret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - organisasjonsform_kode
@@ -265,6 +266,7 @@ name: Organisasjonsform
 description: Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF).
   Kodeverk forvalta av Enhetsregisteret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   organisasjonsform_kode:
     name: organisasjonsform_kode

@@ -10,15 +10,41 @@ Name: xkos-ap-no
 
 ## Classes
 
+
+
+
+
+### Obligatorisk
+
 | Class | Description |
 | --- | --- |
 | [Kategori](kategori.md) | Ein kategori i ein klassifikasjon (skos:Concept) |
-| [Kategorisamanlikning](kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |
 | [Klassifikasjon](klassifikasjon.md) | Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassi... |
 | [Klassifikasjonsnivaa](klassifikasjonsnivaa.md) | Eit nivå i ein klassifikasjon (xkos:ClassificationLevel) |
 | [Klassifikasjonssamanlikning](klassifikasjonssamanlikning.md) | Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence) |
+
+
+
+
+### Anbefalt
+
+| Class | Description |
+| --- | --- |
+| [Kategorisamanlikning](kategorisamanlikning.md) | Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:Conc... |
+
+
+
+
+
+
+### Andre
+
+| Class | Description |
+| --- | --- |
 | [Organisasjon](organisasjon.md) | Ein organisasjon eller aktør (foaf:Agent) |
 | [Tidsrom](tidsrom.md) | Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime) |
+
+
 
 
 

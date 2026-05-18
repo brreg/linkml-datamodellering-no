@@ -154,6 +154,7 @@ URI: [ngre:HjemmelTilFramfesterett](https://data.norge.no/vocabulary/ngr-eiendom
 name: HjemmelTilFramfesterett
 description: Heimelsdokument for framfesterett (vidarefestekontrakt).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Hjemmel
 class_uri: ngre:HjemmelTilFramfesterett
 
@@ -167,6 +168,7 @@ class_uri: ngre:HjemmelTilFramfesterett
 name: HjemmelTilFramfesterett
 description: Heimelsdokument for framfesterett (vidarefestekontrakt).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Hjemmel
 attributes:
   id:

@@ -1,5 +1,5 @@
 # Auto generated from fint-arkiv-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-10T09:44:40
+# Generation date: 2026-05-18T09:11:07
 # Schema: fint-arkiv
 #
 # id: https://data.norge.no/linkml/fint-arkiv
@@ -1504,7 +1504,7 @@ class Klasse(YAMLRoot):
     klasseId: str = None
     tittel: str = None
     klassifikasjonssystem: Union[str, KlassifikasjonssystemId] = None
-    rekkefølge: Optional[int] = None
+    rekkefoelge: Optional[int] = None
     skjerming: Optional[Union[dict, "Skjerming"]] = None
 
     def __post_init__(self, *_: str, **kwargs: Any):
@@ -1523,8 +1523,8 @@ class Klasse(YAMLRoot):
         if not isinstance(self.klassifikasjonssystem, KlassifikasjonssystemId):
             self.klassifikasjonssystem = KlassifikasjonssystemId(self.klassifikasjonssystem)
 
-        if self.rekkefølge is not None and not isinstance(self.rekkefølge, int):
-            self.rekkefølge = int(self.rekkefølge)
+        if self.rekkefoelge is not None and not isinstance(self.rekkefoelge, int):
+            self.rekkefoelge = int(self.rekkefoelge)
 
         if self.skjerming is not None and not isinstance(self.skjerming, Skjerming):
             self.skjerming = Skjerming(**as_dict(self.skjerming))
@@ -3455,8 +3455,8 @@ slots.referanseDokumentfil = Slot(uri=ARK.referanseDokumentfil, name="referanseD
 slots.klasseId = Slot(uri=ARK.klasseId, name="klasseId", curie=ARK.curie('klasseId'),
                    model_uri=ARK.klasseId, domain=None, range=Optional[str])
 
-slots.rekkefølge = Slot(uri=ARK.rekkefolge, name="rekkefølge", curie=ARK.curie('rekkefolge'),
-                   model_uri=ARK.rekkefølge, domain=None, range=Optional[int])
+slots.rekkefoelge = Slot(uri=ARK.rekkefolge, name="rekkefoelge", curie=ARK.curie('rekkefolge'),
+                   model_uri=ARK.rekkefoelge, domain=None, range=Optional[int])
 
 slots.foedselsnummer = Slot(uri=ARK.foedselsnummer, name="foedselsnummer", curie=ARK.curie('foedselsnummer'),
                    model_uri=ARK.foedselsnummer, domain=None, range=Optional[str])
@@ -4118,8 +4118,8 @@ slots.Dokumentobjekt_referanseDokumentfil = Slot(uri=ARK.referanseDokumentfil, n
 slots.Klasse_klasseId = Slot(uri=ARK.klasseId, name="Klasse_klasseId", curie=ARK.curie('klasseId'),
                    model_uri=ARK.Klasse_klasseId, domain=Klasse, range=str)
 
-slots.Klasse_rekkefølge = Slot(uri=ARK.rekkefolge, name="Klasse_rekkefølge", curie=ARK.curie('rekkefolge'),
-                   model_uri=ARK.Klasse_rekkefølge, domain=Klasse, range=Optional[int])
+slots.Klasse_rekkefoelge = Slot(uri=ARK.rekkefolge, name="Klasse_rekkefoelge", curie=ARK.curie('rekkefolge'),
+                   model_uri=ARK.Klasse_rekkefoelge, domain=Klasse, range=Optional[int])
 
 slots.Klasse_skjerming = Slot(uri=ARK.skjerming, name="Klasse_skjerming", curie=ARK.curie('skjerming'),
                    model_uri=ARK.Klasse_skjerming, domain=Klasse, range=Optional[Union[dict, "Skjerming"]])

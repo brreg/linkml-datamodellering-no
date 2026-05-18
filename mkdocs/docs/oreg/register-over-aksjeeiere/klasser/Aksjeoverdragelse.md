@@ -173,6 +173,7 @@ URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragel
 name: Aksjeoverdragelse
 description: Overdraging av aksjar mellom partar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - kan_ha_vederlag
@@ -187,6 +188,7 @@ slots:
 name: Aksjeoverdragelse
 description: Overdraging av aksjar mellom partar.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

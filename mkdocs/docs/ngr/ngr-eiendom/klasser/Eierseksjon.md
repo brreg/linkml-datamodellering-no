@@ -244,6 +244,7 @@ description: Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigare
   i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere
   grunneigendom, festegrunn eller anleggseigendom.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 slots:
 - kan_vaere_pa
@@ -267,6 +268,7 @@ description: Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigare
   i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere
   grunneigendom, festegrunn eller anleggseigendom.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 slot_usage:
   kan_vaere_pa:

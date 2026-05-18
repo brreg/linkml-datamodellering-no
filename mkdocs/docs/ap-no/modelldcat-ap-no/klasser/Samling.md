@@ -276,6 +276,7 @@ URI: [modelldcatno:Collection](https://data.norge.no/vocabulary/modelldcatno#Col
 name: Samling
 description: Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 class_uri: modelldcatno:Collection
 
@@ -289,6 +290,7 @@ class_uri: modelldcatno:Collection
 name: Samling
 description: Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 attributes:
   id:

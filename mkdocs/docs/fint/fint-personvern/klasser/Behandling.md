@@ -22,8 +22,8 @@ Alias: behandling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  yes  |
 | [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  yes  |
+| [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  yes  |
 
 
 

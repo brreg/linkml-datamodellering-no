@@ -270,6 +270,7 @@ URI: [utd:Anmerkninger](https://schema.fintlabs.no/utdanning/Anmerkninger)
 name: Anmerkninger
 description: Åtferds- og ordensanmerkningar for ein elev i eit skoleår.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - id
 - atferd
@@ -304,6 +305,7 @@ class_uri: utd:Anmerkninger
 name: Anmerkninger
 description: Åtferds- og ordensanmerkningar for ein elev i eit skoleår.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   atferd:
     name: atferd

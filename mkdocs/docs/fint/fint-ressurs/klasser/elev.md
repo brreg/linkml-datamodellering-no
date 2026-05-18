@@ -22,8 +22,8 @@ Alias: elev
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 | [Person](person.md) | Fysiske private personar |  yes  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 
 
 

@@ -1216,6 +1216,7 @@ URI: [modelldcatno:InformationModel](https://data.norge.no/vocabulary/modelldcat
 name: Informasjonsmodell
 description: Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:InformationModel).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -1378,6 +1379,7 @@ class_uri: modelldcatno:InformationModel
 name: Informasjonsmodell
 description: Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:InformationModel).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

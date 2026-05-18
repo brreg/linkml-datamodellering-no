@@ -232,6 +232,7 @@ name: Varslingsadresse
 description: Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som
   vert brukt for offisielle meldingar frå offentlege styresmakter.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - varslingstype
@@ -260,6 +261,7 @@ name: Varslingsadresse
 description: Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som
   vert brukt for offisielle meldingar frå offentlege styresmakter.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   varslingstype:
     name: varslingstype

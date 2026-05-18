@@ -307,6 +307,7 @@ URI: [res:Applikasjonsressurstilgjengelighet](https://schema.fintlabs.no/ressurs
 name: Applikasjonsressurstilgjengelighet
 description: Kva organisasjonselements brukarar som har tilgang til ein ressurs.
 from_schema: https://data.norge.no/linkml/fint-ressurs
+rank: 1000
 slots:
 - id
 - gyldighetsperiode
@@ -345,6 +346,7 @@ class_uri: res:Applikasjonsressurstilgjengelighet
 name: Applikasjonsressurstilgjengelighet
 description: Kva organisasjonselements brukarar som har tilgang til ein ressurs.
 from_schema: https://data.norge.no/linkml/fint-ressurs
+rank: 1000
 slot_usage:
   gyldighetsperiode:
     name: gyldighetsperiode

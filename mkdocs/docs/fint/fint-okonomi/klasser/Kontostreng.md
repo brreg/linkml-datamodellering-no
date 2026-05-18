@@ -273,6 +273,7 @@ URI: [okn:Kontostreng](https://schema.fintlabs.no/okonomi/Kontostreng)
 name: Kontostreng
 description: Kontodimensjonar for ei postering (kompleks datatype).
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slots:
 - art
 - funksjon
@@ -307,6 +308,7 @@ class_uri: okn:Kontostreng
 name: Kontostreng
 description: Kontodimensjonar for ei postering (kompleks datatype).
 from_schema: https://data.norge.no/linkml/fint-okonomi
+rank: 1000
 slot_usage:
   art:
     name: art

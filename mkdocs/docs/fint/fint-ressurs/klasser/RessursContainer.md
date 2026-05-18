@@ -563,6 +563,7 @@ URI: [https://schema.fintlabs.no/ressurs/:RessursContainer](https://schema.fintl
 name: RessursContainer
 description: Rotcontainer for FINT Ressurs-instansar.
 from_schema: https://data.norge.no/linkml/fint-ressurs
+rank: 1000
 slots:
 - applikasjonar
 - applikasjonsressursar
@@ -592,6 +593,7 @@ tree_root: true
 name: RessursContainer
 description: Rotcontainer for FINT Ressurs-instansar.
 from_schema: https://data.norge.no/linkml/fint-ressurs
+rank: 1000
 attributes:
   applikasjonar:
     name: applikasjonar

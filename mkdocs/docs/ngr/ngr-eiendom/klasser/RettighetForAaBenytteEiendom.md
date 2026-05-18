@@ -152,6 +152,7 @@ name: RettighetForAaBenytteEiendom
 description: Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse
   er registrerte som heftingar i Grunnboka på teneleg eigedom.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 class_uri: ngre:RettighetForAaBenytteEiendom
@@ -167,6 +168,7 @@ name: RettighetForAaBenytteEiendom
 description: Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse
   er registrerte som heftingar i Grunnboka på teneleg eigedom.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 attributes:
   id:
     name: id

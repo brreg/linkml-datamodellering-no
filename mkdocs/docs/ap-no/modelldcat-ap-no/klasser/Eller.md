@@ -217,6 +217,7 @@ URI: [modelldcatno:Or](https://data.norge.no/vocabulary/modelldcatno#Or)
 name: Eller
 description: Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 class_uri: modelldcatno:Or
 
@@ -230,6 +231,7 @@ class_uri: modelldcatno:Or
 name: Eller
 description: Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Betingelsesregel
 attributes:
   betinger:

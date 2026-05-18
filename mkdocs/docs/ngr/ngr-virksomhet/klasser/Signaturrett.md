@@ -194,6 +194,7 @@ name: Signaturrett
 description: Bestemmelse om kven som har rett til å signere på vegne av verksemda
   (t.d. "Styret i fellesskap" eller "Dagleg leiar aleine").
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - signaturrett_bestemmelse
@@ -216,6 +217,7 @@ name: Signaturrett
 description: Bestemmelse om kven som har rett til å signere på vegne av verksemda
   (t.d. "Styret i fellesskap" eller "Dagleg leiar aleine").
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   signaturrett_bestemmelse:
     name: signaturrett_bestemmelse

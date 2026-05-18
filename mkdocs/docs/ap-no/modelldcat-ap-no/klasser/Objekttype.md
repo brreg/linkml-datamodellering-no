@@ -212,6 +212,7 @@ URI: [modelldcatno:ObjectType](https://data.norge.no/vocabulary/modelldcatno#Obj
 name: Objekttype
 description: Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 class_uri: modelldcatno:ObjectType
 
@@ -225,6 +226,7 @@ class_uri: modelldcatno:ObjectType
 name: Objekttype
 description: Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Modellelement
 attributes:
   id:

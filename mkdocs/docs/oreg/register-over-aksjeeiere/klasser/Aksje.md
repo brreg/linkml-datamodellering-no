@@ -202,6 +202,7 @@ URI: [aksje:Aksje](https://example.no/ontology/aksje#Aksje)
 name: Aksje
 description: Ei enkelt aksje utstedt av eit aksjeselskap.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 slots:
 - identifikator
 - har_palydende_belop
@@ -217,6 +218,7 @@ slots:
 name: Aksje
 description: Ei enkelt aksje utstedt av eit aksjeselskap.
 from_schema: https://example.no/ontology/aksje-eierskap
+rank: 1000
 attributes:
   identifikator:
     name: identifikator

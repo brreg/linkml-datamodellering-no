@@ -22,8 +22,8 @@ Alias: dekningsomraade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 | [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 

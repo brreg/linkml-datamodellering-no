@@ -518,6 +518,7 @@ name: Hovedenhet
 description: Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret
   (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: Virksomhet
 slots:
 - utoevar_aktivitet
@@ -572,6 +573,7 @@ name: Hovedenhet
 description: Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret
   (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 is_a: Virksomhet
 slot_usage:
   utoevar_aktivitet:

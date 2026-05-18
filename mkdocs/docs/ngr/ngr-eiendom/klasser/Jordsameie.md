@@ -243,6 +243,7 @@ description: Eit fellesareal som vert eigd av fleire eigedommar. Jordsameige er 
   type realsameige. Eit umatrikulert jordsameige er eit eksisterande sameige som ikkje
   er registrert som eigen matrikkelenheit.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 slots:
 - kan_vaere_pa
@@ -265,6 +266,7 @@ description: Eit fellesareal som vert eigd av fleire eigedommar. Jordsameige er 
   type realsameige. Eit umatrikulert jordsameige er eit eksisterande sameige som ikkje
   er registrert som eigen matrikkelenheit.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 is_a: Matrikkelenhet
 slot_usage:
   kan_vaere_pa:

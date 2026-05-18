@@ -1019,6 +1019,7 @@ URI: [https://schema.fintlabs.no/arkiv/:ArkivContainer](https://schema.fintlabs.
 name: ArkivContainer
 description: Rotcontainer for FINT Arkiv-instansar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 slots:
 - arkivdelar
 - arkivressursar
@@ -1069,6 +1070,7 @@ tree_root: true
 name: ArkivContainer
 description: Rotcontainer for FINT Arkiv-instansar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
+rank: 1000
 slot_usage:
   klassifikasjonssystem:
     name: klassifikasjonssystem

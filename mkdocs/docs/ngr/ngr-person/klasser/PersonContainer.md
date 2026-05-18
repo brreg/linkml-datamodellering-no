@@ -1012,6 +1012,7 @@ name: PersonContainer
 description: Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 attributes:
   personar:
     name: personar
@@ -1346,6 +1347,7 @@ name: PersonContainer
 description: Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare
   klassar; referansar mellom objekt brukar URI-lenking.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 attributes:
   personar:
     name: personar

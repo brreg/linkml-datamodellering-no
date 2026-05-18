@@ -22,8 +22,8 @@ Alias: fylke
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  yes  |
 | [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  yes  |
 
 
 

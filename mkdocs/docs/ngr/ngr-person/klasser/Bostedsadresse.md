@@ -224,6 +224,7 @@ URI: [ngrp:Bostedsadresse](https://data.norge.no/vocabulary/ngr-person#Bostedsad
 name: Bostedsadresse
 description: Adressa personen er registrert busett på i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 is_a: GeografiskAdresse
 slots:
 - gyldig_fra_og_med
@@ -249,6 +250,7 @@ class_uri: ngrp:Bostedsadresse
 name: Bostedsadresse
 description: Adressa personen er registrert busett på i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 is_a: GeografiskAdresse
 slot_usage:
   gyldig_fra_og_med:

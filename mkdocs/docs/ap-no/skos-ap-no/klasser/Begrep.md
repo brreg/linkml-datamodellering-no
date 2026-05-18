@@ -1447,6 +1447,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 name: Begrep
 description: Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept).
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slots:
 - id
 - anbefalt_term
@@ -1641,6 +1642,7 @@ class_uri: skos:Concept
 name: Begrep
 description: Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept).
 from_schema: https://data.norge.no/linkml/skos-ap-no
+rank: 1000
 slot_usage:
   anbefalt_term:
     name: anbefalt_term

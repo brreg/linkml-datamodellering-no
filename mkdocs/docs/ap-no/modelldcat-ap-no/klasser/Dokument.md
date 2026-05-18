@@ -234,6 +234,7 @@ URI: [foaf:Document](http://xmlns.com/foaf/0.1/Document)
 name: Dokument
 description: Eit dokument (foaf:Document).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -251,6 +252,7 @@ class_uri: foaf:Document
 name: Dokument
 description: Eit dokument (foaf:Document).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 attributes:
   id:
     name: id

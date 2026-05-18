@@ -192,6 +192,7 @@ URI: [ngre:Festenummer](https://data.norge.no/vocabulary/ngr-eiendom#Festenummer
 name: Festenummer
 description: Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - festenummer_verdi
@@ -213,6 +214,7 @@ class_uri: ngre:Festenummer
 name: Festenummer
 description: Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   festenummer_verdi:
     name: festenummer_verdi

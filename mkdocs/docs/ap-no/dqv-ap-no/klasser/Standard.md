@@ -351,6 +351,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 name: Standard
 description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -392,6 +393,7 @@ class_uri: dct:Standard
 name: Standard
 description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

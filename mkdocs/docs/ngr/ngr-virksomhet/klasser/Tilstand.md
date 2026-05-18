@@ -274,6 +274,7 @@ name: Tilstand
 description: Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med
   gyldigheitsperiode for historisk sporing.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slots:
 - id
 - tilstandstype
@@ -307,6 +308,7 @@ name: Tilstand
 description: Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med
   gyldigheitsperiode for historisk sporing.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
+rank: 1000
 slot_usage:
   tilstandstype:
     name: tilstandstype

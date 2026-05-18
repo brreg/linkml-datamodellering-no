@@ -22,9 +22,9 @@ Alias: type_concept
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
 | [Lisensdokument](lisensdokument.md) | Eit lisensdokument (dct:LicenseDocument) |  no  |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 

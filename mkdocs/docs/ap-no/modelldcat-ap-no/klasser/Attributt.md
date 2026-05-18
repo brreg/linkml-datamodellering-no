@@ -426,6 +426,7 @@ URI: [modelldcatno:Attribute](https://data.norge.no/vocabulary/modelldcatno#Attr
 name: Attributt
 description: Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slots:
 - har_datatype
@@ -461,6 +462,7 @@ class_uri: modelldcatno:Attribute
 name: Attributt
 description: Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Eigenskap
 slot_usage:
   har_datatype:

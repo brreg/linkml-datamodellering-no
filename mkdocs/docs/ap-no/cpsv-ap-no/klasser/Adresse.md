@@ -301,6 +301,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 name: Adresse
 description: Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - full_adresse
@@ -336,6 +337,7 @@ class_uri: locn:Address
 name: Adresse
 description: Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   full_adresse:
     name: full_adresse

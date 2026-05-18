@@ -192,6 +192,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 name: Kvalitetssertifikat
 description: Eit sertifikat som stadfester kvaliteten til eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 is_a: Kvalitetsmerknad
 class_uri: dqv:QualityCertificate
 
@@ -205,6 +206,7 @@ class_uri: dqv:QualityCertificate
 name: Kvalitetssertifikat
 description: Eit sertifikat som stadfester kvaliteten til eit datasett.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
+rank: 1000
 is_a: Kvalitetsmerknad
 attributes:
   id:

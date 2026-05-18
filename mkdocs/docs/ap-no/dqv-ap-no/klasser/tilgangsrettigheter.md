@@ -22,8 +22,8 @@ Alias: tilgangsrettigheter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 
 

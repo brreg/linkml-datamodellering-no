@@ -623,6 +623,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 name: Katalog
 description: Ein katalog over offentlege tenester og hendingar.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slots:
 - id
 - tittel
@@ -709,6 +710,7 @@ class_uri: dcat:Catalog
 name: Katalog
 description: Ein katalog over offentlege tenester og hendingar.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
+rank: 1000
 slot_usage:
   tittel:
     name: tittel

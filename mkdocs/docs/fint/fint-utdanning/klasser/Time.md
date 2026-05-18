@@ -381,6 +381,7 @@ URI: [utd:Time](https://schema.fintlabs.no/utdanning/Time)
 name: Time
 description: Ein time i timeplanen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slots:
 - id
 - navn
@@ -430,6 +431,7 @@ class_uri: utd:Time
 name: Time
 description: Ein time i timeplanen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
+rank: 1000
 slot_usage:
   navn:
     name: navn

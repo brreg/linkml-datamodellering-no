@@ -194,6 +194,7 @@ name: SpraakForElektroniskKommunikasjon
 description: Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter,
   valt av personen sjølv.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - spraakkode
@@ -216,6 +217,7 @@ name: SpraakForElektroniskKommunikasjon
 description: Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter,
   valt av personen sjølv.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   spraakkode:
     name: spraakkode

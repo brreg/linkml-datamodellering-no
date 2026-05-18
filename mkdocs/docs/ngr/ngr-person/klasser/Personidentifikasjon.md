@@ -230,6 +230,7 @@ name: Personidentifikasjon
 description: Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer,
   utanlandsk skatteidentifikasjon eller social security number.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slots:
 - id
 - identifikasjonstype
@@ -258,6 +259,7 @@ name: Personidentifikasjon
 description: Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer,
   utanlandsk skatteidentifikasjon eller social security number.
 from_schema: https://data.norge.no/linkml/ngr-person
+rank: 1000
 slot_usage:
   identifikasjonstype:
     name: identifikasjonstype

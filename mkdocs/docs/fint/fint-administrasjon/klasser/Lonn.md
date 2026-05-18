@@ -566,6 +566,7 @@ URI: [adm:Lonn](https://schema.fintlabs.no/administrasjon/Lonn)
 name: Lonn
 description: Informasjon om lønn for eit arbeidsforhold (abstrakt base).
 from_schema: https://data.norge.no/linkml/fint-administrasjon
+rank: 1000
 abstract: true
 slots:
 - id
@@ -640,6 +641,7 @@ class_uri: adm:Lonn
 name: Lonn
 description: Informasjon om lønn for eit arbeidsforhold (abstrakt base).
 from_schema: https://data.norge.no/linkml/fint-administrasjon
+rank: 1000
 abstract: true
 slot_usage:
   beskrivelse:

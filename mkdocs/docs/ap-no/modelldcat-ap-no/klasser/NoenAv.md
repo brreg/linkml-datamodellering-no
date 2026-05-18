@@ -289,6 +289,7 @@ URI: [modelldcatno:AnyOf](https://data.norge.no/vocabulary/modelldcatno#AnyOf)
 name: NoenAv
 description: Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Valg
 class_uri: modelldcatno:AnyOf
 
@@ -302,6 +303,7 @@ class_uri: modelldcatno:AnyOf
 name: NoenAv
 description: Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
+rank: 1000
 is_a: Valg
 attributes:
   har_noe:

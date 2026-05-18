@@ -22,11 +22,11 @@ Alias: utgivelsesdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
-| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 
 
 

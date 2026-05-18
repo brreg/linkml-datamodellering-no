@@ -236,6 +236,7 @@ name: YtreInngang
 description: Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen,
   men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire brukseiningar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - gjelder_bruksenhet
@@ -264,6 +265,7 @@ name: YtreInngang
 description: Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen,
   men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire brukseiningar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   gjelder_bruksenhet:
     name: gjelder_bruksenhet

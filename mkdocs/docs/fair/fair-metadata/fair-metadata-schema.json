@@ -1,0 +1,244 @@
+{
+    "$defs": {
+        "FAIRMetadata": {
+            "additionalProperties": false,
+            "description": "Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tr\u00e5d med FAIR-prinsippa.",
+            "properties": {
+                "beskrivelse": {
+                    "description": "URI til ressursen som denne metadata-posten beskriver (FAIR F3).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gjenbruksmetadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Gjenbruksmetadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Metadata som st\u00f8ttar gjenbruk av ressursen (FAIR R1.1/R1.3)."
+                },
+                "id": {
+                    "description": "Persistent URI-identifikator for metadata-posten (FAIR F1).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "katalogregistrering": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Katalogregistrering"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Dokumenterer registrering i s\u00f8kbar katalog (FAIR F4)."
+                },
+                "proveniensmetadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Proveniensmetadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Metadata om opphav og endringshistorie (FAIR R1.2)."
+                },
+                "ressursIdentifikator": {
+                    "description": "Global og persistent identifikator for ressursen (FAIR F1). Skal vere ein PID (t.d. DOI, Handle, eller stabil URI).\n",
+                    "type": "string"
+                },
+                "ressurstype": {
+                    "description": "Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI fr\u00e5 eit kontrollert vokabular (FAIR F2).\n",
+                    "type": "string"
+                },
+                "tilgangsmetadata": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Tilgangsmetadata"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Metadata for tilgang og tilgjengelegheit (FAIR A1/A2)."
+                }
+            },
+            "required": [
+                "id",
+                "ressursIdentifikator",
+                "ressurstype"
+            ],
+            "title": "FAIRMetadata",
+            "type": "object"
+        },
+        "Gjenbruksmetadata": {
+            "additionalProperties": false,
+            "description": "Metadata som st\u00f8ttar gjenbruk av ressursen (FAIR R1.1, R1.3).",
+            "properties": {
+                "bruksavgrensingar": {
+                    "description": "Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "lisens": {
+                    "description": "Brukslisens for ressursen som URI (FAIR R1.1).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "standardoverensstemming": {
+                    "description": "Standardar eller profilar ressursen f\u00f8lgjer, t.d. DCAT-AP-NO eller ISO 19115 (FAIR R1.3 / I3).\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "vokabular": {
+                    "description": "Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR I2).\n",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Gjenbruksmetadata",
+            "type": "object"
+        },
+        "Katalogregistrering": {
+            "additionalProperties": false,
+            "description": "Dokumenterer registrering i s\u00f8kbar katalog (FAIR F4).",
+            "properties": {
+                "katalogOppfoeringURL": {
+                    "description": "Direkte URL til oppf\u00f8ringa i katalogen (FAIR F4).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "registreringsdato": {
+                    "description": "Dato for katalogregistrering (FAIR F4).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "registrertIKatalog": {
+                    "description": "URI til katalogen der metadata er registrert (FAIR F4).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Katalogregistrering",
+            "type": "object"
+        },
+        "Proveniensmetadata": {
+            "additionalProperties": false,
+            "description": "Metadata om opphav og endringshistorie (FAIR R1.2).",
+            "properties": {
+                "ansvarlegAktoer": {
+                    "description": "Organisasjon eller akt\u00f8r som er ansvarleg for ressursen, som URI (FAIR R1.2).\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "endringsdato": {
+                    "description": "Sist endra dato (FAIR R1.2).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "generertAvAktivitet": {
+                    "description": "Aktivitet som har generert ressursen (FAIR R1.2).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "opprettingsdato": {
+                    "description": "Dato ressursen blei oppretta (FAIR R1.2).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Proveniensmetadata",
+            "type": "object"
+        },
+        "Tilgangsmetadata": {
+            "additionalProperties": false,
+            "description": "Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2).",
+            "properties": {
+                "autentiseringPaakrevd": {
+                    "description": "Om autentisering eller autorisasjon er n\u00f8dvendig (FAIR A1.2).",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "metadataPersistens": {
+                    "description": "Metadata er tilgjengeleg sj\u00f8lv om sj\u00f8lve ressursen ikkje lenger er tilgjengeleg (FAIR A2).\n",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "tilgangsURL": {
+                    "description": "URL for maskinell tilgang til ressurs eller metadata (FAIR A1).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tilgangsprotokoll": {
+                    "description": "Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tilgangsrettar": {
+                    "description": "Tilgangsniv\u00e5 som URI, t.d. fr\u00e5 EU Publications Office (offentleg, avgrensa, lukka) (FAIR A1.2).\n",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "title": "Tilgangsmetadata",
+            "type": "object"
+        }
+    },
+    "$id": "https://data.norge.no/linkml/fair-metadata",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.7.0",
+    "title": "fair-metadata",
+    "type": "object",
+    "version": "1.0.0"
+}
+

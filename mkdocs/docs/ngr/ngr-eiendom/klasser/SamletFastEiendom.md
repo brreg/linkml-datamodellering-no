@@ -193,6 +193,7 @@ name: SamletFastEiendom
 description: Samling av to eller fleire faste eigedommar som er organiserte saman.
   Lite brukt i praksis i dag.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slots:
 - id
 - bestar_av_fast_eiendom
@@ -216,6 +217,7 @@ name: SamletFastEiendom
 description: Samling av to eller fleire faste eigedommar som er organiserte saman.
   Lite brukt i praksis i dag.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
+rank: 1000
 slot_usage:
   bestar_av_fast_eiendom:
     name: bestar_av_fast_eiendom
