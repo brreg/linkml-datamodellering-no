@@ -36,24 +36,6 @@ def send(obj: dict) -> None:
 # FAIR-sjekkar
 # ---------------------------------------------------------------------------
 
-# Kjende URI-ar for lisensinformasjon (CURIE og full URI)
-_LICENSE_URIS = {
-    "dct:license",
-    "http://purl.org/dc/terms/license",
-}
-
-# Kjende URI-ar for proveniensinformasjon (CURIE og full URI)
-_PROVENANCE_URIS = {
-    "prov:wasAttributedTo", "http://www.w3.org/ns/prov#wasAttributedTo",
-    "prov:wasGeneratedBy",  "http://www.w3.org/ns/prov#wasGeneratedBy",
-    "dct:creator",          "http://purl.org/dc/terms/creator",
-    "dct:publisher",        "http://purl.org/dc/terms/publisher",
-    "dct:contributor",      "http://purl.org/dc/terms/contributor",
-}
-
-_STANDARD_PREFIXES = {"dct", "dcat", "skos", "prov", "rdf", "rdfs", "owl", "foaf", "xsd"}
-
-
 def _all_slot_uris(schema) -> set:
     """Samlar alle slot_uri-verdiar frå globale slots og class-attributtar."""
     uris = set()
@@ -68,94 +50,76 @@ def _all_slot_uris(schema) -> set:
     return uris
 
 
-def _fair_f1_persistent_id(sv, schema, issues):
-    """F1: Schema-id skal vere ein HTTP(S)-URI (persistent identifikator)."""
+def _fair_code(config: dict) -> str:
+    return "fair_" + config["principle"].lower().replace(".", "")
+
+
+def _check_schema_id_is_http_uri(sv, schema, config, issues):
     sid = str(schema.id or "")
     if not (sid.startswith("http://") or sid.startswith("https://")):
         issues.append(issue(
-            "error", "fair_f1", "schema",
-            "FAIR F1: schema.id er ikkje ein HTTP(S)-URI — persistent identifikator manglar",
+            config["severity"], _fair_code(config), "schema",
+            f"FAIR {config['principle']}: schema.id er ikkje ein HTTP(S)-URI — persistent identifikator manglar",
         ))
 
 
-def _fair_f2_title(sv, schema, issues):
-    """F2: Schema skal ha title (rike metadata)."""
-    if not schema.title:
+def _check_schema_field_present(sv, schema, config, issues):
+    field = config["field"]
+    if not getattr(schema, field, None):
         issues.append(issue(
-            "warning", "fair_f2", "schema",
-            "FAIR F2: schema.title manglar — rike metadata krev ein tittel",
+            config["severity"], _fair_code(config), "schema",
+            f"FAIR {config['principle']}: schema.{field} manglar",
         ))
 
 
-def _fair_f3_class_uris(sv, schema, issues):
-    """F3/I1: Alle klasser bør ha class_uri for formal ressursbeskrivelse.
-    tree_root-klasser er friteke (dei er strukturelle hjelpeklasser)."""
+def _check_all_classes_have_class_uri(sv, schema, config, issues):
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
             continue
         if not cls.class_uri:
             issues.append(issue(
-                "warning", "fair_f3", f"class:{cname}",
-                f"FAIR F3/I1: Klasse '{cname}' manglar class_uri (formal ressursbeskrivelse)",
+                config["severity"], _fair_code(config), f"class:{cname}",
+                f"FAIR {config['principle']}: Klasse '{cname}' manglar class_uri (formal ressursbeskrivelse)",
             ))
 
 
-def _fair_f4_version(sv, schema, issues):
-    """F4: Schema bør ha version for katalogregistrering og sporbarheit."""
-    if not schema.version:
-        issues.append(issue(
-            "warning", "fair_f4", "schema",
-            "FAIR F4: schema.version manglar — versjonering støttar katalogregistrering",
-        ))
-
-
-def _fair_i1_slot_uris(sv, schema, issues):
-    """I1: Alle globale slots bør ha slot_uri (formal semantikk via RDF)."""
+def _check_all_slots_have_slot_uri(sv, schema, config, issues):
     for sname, slot in (schema.slots or {}).items():
         if not slot.slot_uri:
             issues.append(issue(
-                "warning", "fair_i1", f"slot:{sname}",
-                f"FAIR I1: Slot '{sname}' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+                config["severity"], _fair_code(config), f"slot:{sname}",
+                f"FAIR {config['principle']}: Slot '{sname}' manglar slot_uri — formell RDF-semantikk er ikkje definert",
             ))
 
 
-def _fair_i2_standard_prefixes(sv, schema, issues):
-    """I2: Schema bør deklarere standard vokabularprefiks (dct, dcat, skos, prov …)."""
+def _check_schema_declares_standard_prefix(sv, schema, config, issues):
+    standard_prefixes = set(config.get("standard_prefixes", []))
     declared = set(schema.prefixes.keys()) if schema.prefixes else set()
-    if not (declared & _STANDARD_PREFIXES):
+    if not (declared & standard_prefixes):
         issues.append(issue(
-            "warning", "fair_i2", "schema",
-            "FAIR I2: Ingen standard vokabularprefiks deklarert (dct, dcat, skos, prov m.fl.)",
+            config["severity"], _fair_code(config), "schema",
+            f"FAIR {config['principle']}: Ingen standard vokabularprefiks deklarert "
+            f"({', '.join(sorted(standard_prefixes))})",
         ))
 
 
-def _fair_r11_license(sv, schema, issues):
-    """R1.1: Schema bør ha ein slot med dct:license (lisensinformasjon)."""
-    if not (_all_slot_uris(schema) & _LICENSE_URIS):
+def _check_schema_has_slot_with_uri(sv, schema, config, issues):
+    match_uris = set(config.get("match_any_uri", []))
+    if not (_all_slot_uris(schema) & match_uris):
+        curie_forms = sorted(u for u in match_uris if "://" not in u)
         issues.append(issue(
-            "warning", "fair_r11", "schema",
-            "FAIR R1.1: Ingen slot med dct:license funnen — lisensinformasjon manglar",
+            config["severity"], _fair_code(config), "schema",
+            f"FAIR {config['principle']}: Ingen slot med {' / '.join(curie_forms)} funnen",
         ))
 
 
-def _fair_r12_provenance(sv, schema, issues):
-    """R1.2: Schema bør ha proveniens-slot (prov:wasAttributedTo, dct:creator m.fl.)."""
-    if not (_all_slot_uris(schema) & _PROVENANCE_URIS):
-        issues.append(issue(
-            "warning", "fair_r12", "schema",
-            "FAIR R1.2: Ingen proveniens-slot funnen (prov:wasAttributedTo, dct:creator m.fl.)",
-        ))
-
-
-_FAIR_CHECKS = {
-    "f1_persistent_id":   _fair_f1_persistent_id,
-    "f2_title":           _fair_f2_title,
-    "f3_class_uris":      _fair_f3_class_uris,
-    "f4_version":         _fair_f4_version,
-    "i1_slot_uris":       _fair_i1_slot_uris,
-    "i2_standard_prefixes": _fair_i2_standard_prefixes,
-    "r11_license":        _fair_r11_license,
-    "r12_provenance":     _fair_r12_provenance,
+_FAIR_CHECK_HANDLERS = {
+    "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
+    "schema_field_present":            _check_schema_field_present,
+    "all_classes_have_class_uri":      _check_all_classes_have_class_uri,
+    "all_slots_have_slot_uri":         _check_all_slots_have_slot_uri,
+    "schema_declares_standard_prefix": _check_schema_declares_standard_prefix,
+    "schema_has_slot_with_uri":        _check_schema_has_slot_with_uri,
 }
 
 
@@ -258,10 +222,10 @@ def _check_container_classes(schema, policy: dict, issues: list) -> None:
 
 
 def _run_fair_checks(sv, schema, policy: dict, issues: list) -> None:
-    for check_name in policy.get("fair_checks", []):
-        fn = _FAIR_CHECKS.get(check_name)
-        if fn:
-            fn(sv, schema, issues)
+    for config in policy.get("fair_checks", {}).values():
+        handler = _FAIR_CHECK_HANDLERS.get(config.get("check"))
+        if handler:
+            handler(sv, schema, config, issues)
 
 
 # ---------------------------------------------------------------------------

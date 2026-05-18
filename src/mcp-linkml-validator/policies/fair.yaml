@@ -1,49 +1,117 @@
 version: 1
 
+description: >
+  FAIR-policy for LinkML-skjema. Sjekkar at skjemaet følgjer FAIR-prinsippa
+  (Findable, Accessible, Interoperable, Reusable) for opne offentlege data.
+
 # Standard felt-sjekkar (lik default)
 required:
-  schema:
-    - id
-    - name
+  schema: [id, name]
   class: []
   slot: []
 
 recommended:
-  schema:
-    - description
-  class:
-    - description
-  slot:
-    - description
+  schema: [description]
+  class: [description]
+  slot: [description]
 
 common_classes:
   must_use: []
 
-# FAIR-strukturelle sjekkar.
-# Kvart namn svarar til ein sjekk i _FAIR_CHECKS i server.py.
-#
-# F — Findable
-#   f1_persistent_id  : schema.id er HTTP(S)-URI (persistent identifikator)
-#   f2_title          : schema.title er sett (rike metadata)
-#   f3_class_uris     : alle klasser har class_uri (ressursbeskrivelse)
-#   f4_version        : schema.version er sett (versjonering / katalogregistrering)
-#
-# A — Accessible
-#   (dekt av f1 — HTTP(S)-URI er per definisjon resolvbar)
-#
-# I — Interoperable
-#   i1_slot_uris          : alle global slots har slot_uri (formal semantikk)
-#   i2_standard_prefixes  : schema deklarerer minst eitt standard vokabularprefiks
-#
-# R — Reusable
-#   r11_license    : schema har ein slot med dct:license (lisensinformasjon)
-#   r12_provenance : schema har ein proveniens-slot (prov:* eller dct:creator/publisher)
+# FAIR-sjekkar
+# Kvar sjekk er ein dict med:
+#   principle   — FAIR-prinsipp (F1, F2, I1, R1.1, …)
+#   severity    — error | warning
+#   description — kva sjekken validerer (lesbar utan å sjå i server.py)
+#   check       — type sjekk (bestemmer kva funksjon som køyrast i server.py)
+#   + eventuelle parametrar som check-funksjonen brukar
 fair_checks:
-  - f1_persistent_id
-  - f2_title
-  - f3_class_uris
-  - f4_version
-  - i1_slot_uris
-  - i2_standard_prefixes
-  - r11_license
-  - r12_provenance
+
+  # F — Findable: data og metadata er enkle å finne for menneske og maskiner
+
+  f1_persistent_id:
+    principle: F1
+    severity: error
+    description: >
+      schema.id skal vere ein HTTP(S)-URI som fungerer som persistent identifikator.
+      Gjer skjemaet adresserbart og søkbart i katalogtenester.
+    check: schema_id_is_http_uri
+
+  f2_title:
+    principle: F2
+    severity: warning
+    description: >
+      schema.title skal vere sett. Tittel er ein del av rike metadata
+      som gjer ressursen søkbar i katalogar.
+    check: schema_field_present
+    field: title
+
+  f3_class_uris:
+    principle: F3
+    severity: warning
+    description: >
+      Alle klasser (unntatt tree_root) skal ha class_uri som mappar klassen
+      til eit standard RDF-vokabular. Gjer klassane formelt beskriven og
+      søkbar via URI.
+    check: all_classes_have_class_uri
+
+  f4_version:
+    principle: F4
+    severity: warning
+    description: >
+      schema.version skal vere sett. Versjonering støttar katalogregistrering
+      og sporbarheit av endringar over tid.
+    check: schema_field_present
+    field: version
+
+  # I — Interoperable: data brukar eit formelt, tilgjengeleg og delt språk
+
+  i1_slot_uris:
+    principle: I1
+    severity: warning
+    description: >
+      Alle globale slots skal ha slot_uri som mappar eigenskapen til
+      eit standard RDF-vokabular (dct:, dcat:, foaf: o.l.).
+      Sikrar formal semantisk interoperabilitet.
+    check: all_slots_have_slot_uri
+
+  i2_standard_prefixes:
+    principle: I2
+    severity: warning
+    description: >
+      Skjemaet skal deklarere minst eitt standard vokabularprefiks.
+      Standardvokabular sikrar interoperabilitet på tvers av system.
+    check: schema_declares_standard_prefix
+    standard_prefixes: [dct, dcat, skos, prov, rdf, rdfs, owl, foaf, xsd]
+
+  # R — Reusable: data er godt beskriven og kan brukast på nytt
+
+  r11_license:
+    principle: R1.1
+    severity: warning
+    description: >
+      Skjemaet skal ha ein slot med dct:license som angir lisensinformasjon.
+      Lisens er ein føresetnad for at data kan brukast på nytt av andre.
+    check: schema_has_slot_with_uri
+    match_any_uri:
+      - dct:license
+      - http://purl.org/dc/terms/license
+
+  r12_provenance:
+    principle: R1.2
+    severity: warning
+    description: >
+      Skjemaet skal ha ein slot for proveniensinformasjon — opphav, opphavar
+      eller utgjevar. Proveniens er viktig for tillit til og gjenbruk av data.
+    check: schema_has_slot_with_uri
+    match_any_uri:
+      - prov:wasAttributedTo
+      - prov:wasGeneratedBy
+      - dct:creator
+      - dct:publisher
+      - dct:contributor
+      - http://www.w3.org/ns/prov#wasAttributedTo
+      - http://www.w3.org/ns/prov#wasGeneratedBy
+      - http://purl.org/dc/terms/creator
+      - http://purl.org/dc/terms/publisher
+      - http://purl.org/dc/terms/contributor
