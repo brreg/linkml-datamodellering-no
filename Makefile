@@ -76,7 +76,7 @@ endef
 .PHONY: all test validate clean domains \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
         linkml-build-docker python-build-docker \
-        mcp-build mcp-run mcp-test mcp-smoke mcp-validate \
+        mcp-build mcp-run mcp-test mcp-smoke mcp-validate mcp-test-policies \
 		docs-build-docker docs-serve docs-build docs-build-fast publish \
         $(DOMAINS)
 
@@ -336,6 +336,16 @@ mcp-smoke: mcp-build
 	@echo "$(CLR_HDR)*** make mcp-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
+
+mcp-test-policies: mcp-build
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-test-policies$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	podman run --rm \
+		-v "$(CURDIR):/work:ro" \
+		-e PYTHONWARNINGS=ignore \
+		$(MCP_IMAGE) \
+		python3 /work/tests/test_mcp_policies.py -v
 
 # Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
 mcp-validate:

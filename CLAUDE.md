@@ -1,6 +1,9 @@
 # CLAUDE.md
 
-## Importhierarki
+## Førende prinsipper
+- Ingen avhengigheter skal installeres lokalt. Alt skal kjøres som containere med podman i WSL2.
+
+## LinkML Importhierarki
 
 ```
 linkml:types
@@ -27,8 +30,9 @@ fair-metadata         ← kan importeres av alle domenemodeller
 ./tests/validate_schema.bash ./src/linkml/samt/samt-bu/samt-bu-schema.yaml ./examples/samt/samt-bu-eksempel.yaml
 
 # MCP-validator dersom dette er angitt av bruker:
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml
-make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=ap-no
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 ## Modelleringsprinsipper

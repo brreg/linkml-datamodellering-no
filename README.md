@@ -130,9 +130,9 @@ podman run --rm -v "$(pwd):/work" -w /work -e PYTHONWARNINGS=ignore \
 | `make mcp-test` | Køyr unit-testar for MCP-serveren |
 | `make mcp-smoke` | Røyk-test med eksempel-JSON-RPC-meldingar |
 | `make mcp-run` | Start MCP-serveren interaktivt (stdin/stdout) |
-| `make mcp-validate SCHEMA=<sti>` | Valider eit skjema med alle importar flatta ut (standard policy) |
-| `make mcp-validate SCHEMA=<sti> POLICY=ap-no-catalog` | Valider at container-klassen inkluderer DCAT-AP-NO og DQV-AP-NO |
-| `make mcp-validate SCHEMA=<sti> POLICY=fair` | Valider med FAIR-policy (F1–R1.3) |
+| `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Valider eit skjema med alle importar flatta ut |
+| `make mcp-validate SCHEMA=<sti> POLICY=silver` | Valider at container-klassen inkluderer DCAT-AP-NO og DQV-AP-NO |
+| `make mcp-validate SCHEMA=<sti> POLICY=gold` | Valider med FAIR-policy (F1–R1.3) |
 
 MCP-serveren les JSON-RPC-meldingar frå stdin og skriv responsar til stdout. Kvar melding er éi linje.
 
