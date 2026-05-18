@@ -51,7 +51,8 @@ kvalitetsmaalingar:
 kvalitetsmerknader:
   - id: https://example.org/merknader/adresser-kompletheit-1
     er_motivert_av: https://www.w3.org/ns/oa#assessing
-    er_i_kvalitetsdimensjon: https://data.norge.no/vocabulary/dqvno#completeness
+    er_i_kvalitetsdimensjon:
+      - https://data.norge.no/vocabulary/dqvno#completeness
     har_tekstdel: https://example.org/tekstdelar/adresser-vurdering-1
     har_merknad:
       - Datasettet dekkjer om lag 98,7 % av registrerte adresser i Noreg.
@@ -69,5 +70,6 @@ standardar:
     har_referanse:
       - https://www.iso.org/standard/32575.html
     har_versjonsnummer: "2013"
-    er_i_kvalitetsdimensjon: https://data.norge.no/vocabulary/dqvno#completeness
+    er_i_kvalitetsdimensjon:
+      - https://data.norge.no/vocabulary/dqvno#completeness
 

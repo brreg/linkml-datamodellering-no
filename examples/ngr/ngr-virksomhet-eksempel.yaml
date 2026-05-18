@@ -98,10 +98,10 @@ signaturrettar:
     signaturrett_bestemmelse: Styret i fellesskap
 
 postadresser:
-  - ngrv:eksempel/postadresse-1
+  - id: ngrv:eksempel/postadresse-1
 
 forretningsadresser:
-  - ngrv:eksempel/forretningsadresse-1
+  - id: ngrv:eksempel/forretningsadresse-1
 
 beliggenhetsadresser:
-  - ngrv:eksempel/beliggenhetsadresse-1
+  - id: ngrv:eksempel/beliggenhetsadresse-1
