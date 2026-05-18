@@ -5,6 +5,7 @@ docs_dir: docs
 
 theme:
   name: material
+  custom_dir: overrides
   language: nb
   features:
     - navigation.indexes
@@ -18,6 +19,7 @@ theme:
 
 plugins:
   - search
+  - build-cache
 
 extra_css:
   - stylesheets/aktivt-menypunkt.css

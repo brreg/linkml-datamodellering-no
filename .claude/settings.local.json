@@ -21,7 +21,8 @@
       "Bash(make -n validate)",
       "Bash(chmod +x *)",
       "Bash(make gen-erdiagram *)",
-      "Bash(make mcp-test-policies *)"
+      "Bash(make mcp-test-policies *)",
+      "Bash(make docs-serve *)"
     ]
   },
   "enabledMcpjsonServers": [

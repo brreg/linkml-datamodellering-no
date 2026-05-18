@@ -1,2 +1,4 @@
 FROM docker.io/squidfunk/mkdocs-material:9.5
-RUN pip install mkdocs-kroki-plugin
+RUN pip install --no-cache-dir \
+    mkdocs-kroki-plugin \
+    mkdocs-build-cache-plugin
