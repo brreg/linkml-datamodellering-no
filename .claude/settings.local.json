@@ -20,7 +20,8 @@
       "Bash(make -n oreg)",
       "Bash(make -n validate)",
       "Bash(chmod +x *)",
-      "Bash(make gen-erdiagram *)"
+      "Bash(make gen-erdiagram *)",
+      "Bash(make mcp-test-policies *)"
     ]
   },
   "enabledMcpjsonServers": [
