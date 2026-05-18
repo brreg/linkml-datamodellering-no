@@ -191,26 +191,15 @@ def _check_all_classes_have_identifier(sv, schema, config, issues):
 def _check_all_classes_have_concept_ref(sv, schema, config, issues):
     catalog_uri = config.get("concept_catalog_uri", "https://data.norge.no/concepts")
     code = "all_classes_have_concept_ref"
+    prefix = catalog_uri.rstrip("/") + "/"
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
             continue
-        mapping_lists = [
-            cls.exact_mappings,
-            cls.close_mappings,
-            cls.narrow_mappings,
-            cls.broad_mappings,
-            cls.related_mappings,
-            cls.see_also,
-        ]
-        if any(
-            str(uri).startswith(catalog_uri)
-            for mapping_list in mapping_lists
-            for uri in (mapping_list or [])
-        ):
+        if any(str(uri).startswith(prefix) for uri in (cls.see_also or [])):
             continue
         issues.append(issue(
             config["severity"], code, f"class:{cname}",
-            f"Klasse '{cname}' manglar referanse til begrep i {catalog_uri}",
+            f"Klasse '{cname}' manglar see_also-referanse til begrep i {catalog_uri}",
         ))
 
 

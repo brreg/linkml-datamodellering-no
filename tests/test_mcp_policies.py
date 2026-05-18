@@ -42,7 +42,7 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/1
     slots:
       - id
@@ -81,7 +81,7 @@ classes:
         multivalued: true
   Katalog:
     description: Ein DCAT-katalog
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/katalog
     slots:
       - id
@@ -91,7 +91,7 @@ classes:
       - utgiver
   Datasett:
     description: Eit DCAT-datasett
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/datasett
     slots:
       - id
@@ -102,13 +102,13 @@ classes:
       - utgiver
   Kvalitetsmaal:
     description: Eit kvalitetsmål
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/kvalitetsmaal
     slots:
       - id
   Kvalitetsmaaling:
     description: Ei kvalitetsmåling
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/kvalitetsmaaling
     slots:
       - id
@@ -171,7 +171,7 @@ classes:
   Katalog:
     class_uri: dcat:Catalog
     description: Ein DCAT-katalog
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/katalog
     slots:
       - id
@@ -184,7 +184,7 @@ classes:
   Datasett:
     class_uri: dcat:Dataset
     description: Eit DCAT-datasett
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/datasett
     slots:
       - id
@@ -196,14 +196,14 @@ classes:
   Kvalitetsmaal:
     class_uri: dqv:Metric
     description: Eit kvalitetsmål
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/kvalitetsmaal
     slots:
       - id
   Kvalitetsmaaling:
     class_uri: dqv:QualityMeasurement
     description: Ei kvalitetsmåling
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/kvalitetsmaaling
     slots:
       - id
@@ -313,7 +313,7 @@ classes:
   Ting:
     description: Ei ting
     is_a: Base
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/1
 slots:
   id:
@@ -385,7 +385,7 @@ classes:
         range: Ting
   Ting:
     description: Ei ting
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/1
     slots:
       - id
@@ -545,7 +545,7 @@ classes:
   Katalog:
     class_uri: dcat:Catalog
     description: Ein katalog
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/katalog
     slots:
       - id
@@ -596,7 +596,7 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/1
     slots:
       - id
@@ -636,7 +636,7 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/1
     slots:
       - id
@@ -675,7 +675,7 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/1
     slots:
       - id
@@ -702,7 +702,7 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    exact_mappings:
+    see_also:
       - https://data.norge.no/concepts/1
     slots:
       - id

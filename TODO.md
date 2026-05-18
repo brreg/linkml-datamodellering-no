@@ -1,9 +1,6 @@
-lage tester for alt
 
+lage agent som kan modellere linkml og bruke mcp-linkml-validator for å verifisere output.
 
-lage agent som kan modellere linkml og bruke mcp-linkml-validator for å 
-
-remodellere ngr modellar til å benytte slots istadenfor atributter
 Modellere opp BR modell fra MagicDraw
 
 
