@@ -66,6 +66,8 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
+    see_also:
+      - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 
   Kontaktopplysning:
     class_uri: vcard:Kind
@@ -80,6 +82,8 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
+    see_also:
+      - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
 
   Tidsrom:
     class_uri: dct:PeriodOfTime
@@ -90,6 +94,8 @@ classes:
       - sluttdato
       - begynnelse
       - slutt
+    see_also:
+      - https://data.norge.no/concepts/67a58f0e-2e39-33dc-bca9-1ef29a001b2f
 
   # Standard:
   #   class_uri: dct:Standard
@@ -129,6 +135,8 @@ classes:
         required: true
         in_subset:
           - Obligatorisk
+    see_also:
+      - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
 
   Rettighetserklaring:
     class_uri: dct:RightsStatement

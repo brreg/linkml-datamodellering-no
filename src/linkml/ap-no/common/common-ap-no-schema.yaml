@@ -91,6 +91,8 @@ classes:
     description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
     slots:
       - id
+    see_also:
+      - https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be
 
   Begrepssamling:
     class_uri: skos:ConceptScheme

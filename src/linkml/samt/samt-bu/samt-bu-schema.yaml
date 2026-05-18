@@ -57,6 +57,8 @@ classes:
       - id
       - navn
       - har_skoleeier
+    see_also:
+      - https://data.norge.no/concepts/fc9d0dda-71a2-3925-8688-52f849cf0f49
 
   # --- Abstrakt superklasse ---
   Skoleeier:
@@ -67,6 +69,8 @@ classes:
     slots:
       - id
       - navn
+    see_also:
+      - https://data.norge.no/concepts/91b83e9a-8beb-3747-b65c-238a2bef605a
 
   Kommune:
     exact_mappings:
@@ -75,6 +79,8 @@ classes:
     is_a: Skoleeier
     slots:
       - kommunenummer
+    see_also:
+      - https://data.norge.no/concepts/5b7fd4f2-39f6-39ed-9540-e6c2491ef633
 
   Fylke:
     description: Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt geografisk område, tilsvarende amt og len.
@@ -112,6 +118,8 @@ classes:
     slots:
       - id
       - navn
+    see_also:
+      - https://data.norge.no/concepts/9adf3e97-c9c2-3ee7-bc97-8f2a7e7fa69e
 
   Elev:
     description: En person som går på skole
@@ -136,6 +144,9 @@ classes:
       - tilknyttet_basisgruppe
       - har_saerlig_ansvar_for
       - jobber_paa_skole
+    see_also:
+      - https://data.norge.no/concepts/59c7126f-7189-30f7-8dee-650cc9aa8762
+
 slots:
 
   # --- Identifikator og namn ---
