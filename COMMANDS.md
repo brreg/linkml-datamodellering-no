@@ -78,21 +78,21 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make linkml-gen-generate SCHEMA=<sti>` | Generer LinkML-utkast frå JSON Schema-fil | `<same katalog>/<skjema>-schema.yaml` |
-| `make linkml-gen-generate SCHEMA=<sti> FORMAT=json-schema PROFILE=default` | Same med eksplisitt format og profil | `<same katalog>/<skjema>-schema.yaml` |
-| `make linkml-gen-build` | Bygg container-image | — |
-| `make linkml-gen-smoke` | Røyktest med eksempel-meldingar | — |
-| `make linkml-gen-test-converter` | Køyr alle unit-testar (44 testar) | — |
-| `make linkml-gen-run` | Start server interaktivt (stdin/stdout) | — |
+| `make mcp-generate SCHEMA=<sti>` | Generer LinkML-utkast frå JSON Schema-fil | `<same katalog>/<skjema>-schema.yaml` |
+| `make mcp-generate SCHEMA=<sti> FORMAT=json-schema PROFILE=default` | Same med eksplisitt format og profil | `<same katalog>/<skjema>-schema.yaml` |
+| `make mcp-gen-build` | Bygg container-image | — |
+| `make mcp-gen-smoke` | Røyktest med eksempel-meldingar | — |
+| `make mcp-gen-test` | Køyr alle unit-testar (44 testar) | — |
+| `make mcp-gen-run` | Start server interaktivt (stdin/stdout) | — |
 
 ## LinkML-validator mcp-server (mcp-linkml-validator)
 
 | Kommando | Beskriving |
 |---|---|
-| `make mcp-build` | Bygg container-image |
-| `make mcp-smoke` | Røyktest med eksempel-meldingar |
-| `make mcp-test-policies` | Køyr policy-testar |
-| `make mcp-run` | Start server interaktivt (stdin/stdout) |
+| `make mcp-val-build` | Bygg container-image |
+| `make mcp-val-smoke` | Røyktest med eksempel-meldingar |
+| `make mcp-val-test` | Køyr policy-testar |
+| `make mcp-val-run` | Start server interaktivt (stdin/stdout) |
 
 ## Container-image-bygging
 
@@ -103,6 +103,6 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make linkml-build-docker` | `linkml-local` | Artefaktgenerering og validering |
 | `make docs-build-docker` | `mkdocs-local` | Dokumentasjonsportal |
 | `make python-build-docker` | `python-pytest` | Python-testar |
-| `make linkml-gen-build` | `mcp-linkml-generator` | LinkML-generator MCP-server |
-| `make mcp-build` | `mcp-linkml-validator` | Validator MCP-server |
+| `make mcp-gen-build` | `mcp-linkml-generator` | LinkML-generator MCP-server |
+| `make mcp-val-build` | `mcp-linkml-validator` | Validator MCP-server |
 

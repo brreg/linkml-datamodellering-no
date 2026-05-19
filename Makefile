@@ -89,8 +89,10 @@ LINKML_GEN_RUN   := podman run -i --rm \
 .PHONY: all test validate clean domains \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
         linkml-build-docker python-build-docker \
-        mcp-build mcp-run mcp-test mcp-smoke mcp-validate mcp-test-policies \
-        linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter new-model \
+        mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
+        mcp-gen-build mcp-gen-run mcp-gen-smoke mcp-gen-test mcp-generate new-model \
+        mcp-build mcp-run mcp-smoke mcp-test-policies \
+        linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter \
 		docs-build-docker docs-serve docs-build docs-build-fast publish \
         $(DOMAINS)
 
@@ -328,34 +330,27 @@ MCP_RUN := podman run -i --rm \
   -v "$(CURDIR)/$(MCP_DIR)/server.py:/app/server.py:ro" \
   -v "$(CURDIR)/$(MCP_DIR)/policies:/app/policies:ro"
 
-mcp-build:
+mcp-val-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-build$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-val-build$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(MCP_IMAGE) $(MCP_DIR)
 
-mcp-run:
+mcp-val-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-val-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(MCP_RUN) $(MCP_IMAGE)
 
-mcp-test:
+mcp-val-smoke: mcp-val-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-test$(CLR_RST)"
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-#	$(PODMAN) bash -c "pip install pytest --quiet 2>/dev/null && python -m pytest tests/test_mcp_server.py -v"
-	$(PYTHON_RUN) python -m pytest tests/test_mcp_server.py"
-
-mcp-smoke: mcp-build
-	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-val-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-validator.json | $(MCP_RUN) $(MCP_IMAGE)
 
-mcp-test-policies: mcp-build
+mcp-val-test: mcp-val-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-test-policies$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-val-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman run --rm \
 		-v "$(CURDIR):/work:ro" \
@@ -363,30 +358,35 @@ mcp-test-policies: mcp-build
 		$(MCP_IMAGE) \
 		python3 /work/tests/test_mcp_policies.py -v
 
+mcp-build: mcp-val-build
+mcp-run: mcp-val-run
+mcp-smoke: mcp-val-smoke
+mcp-test-policies: mcp-val-test
+
 # ---------------------------------------------------------------------------
 # mcp-linkml-generator
 # ---------------------------------------------------------------------------
-linkml-gen-build:
+mcp-gen-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make linkml-gen-build$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-gen-build$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman build -t $(LINKML_GEN_IMAGE) $(LINKML_GEN_DIR)
 
-linkml-gen-run:
+mcp-gen-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make linkml-gen-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-gen-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	$(LINKML_GEN_RUN) $(LINKML_GEN_IMAGE)
 
-linkml-gen-smoke: linkml-gen-build
+mcp-gen-smoke: mcp-gen-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make linkml-gen-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-gen-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	cat tests/test-mcp-linkml-generator.json | $(LINKML_GEN_RUN) $(LINKML_GEN_IMAGE)
 
-linkml-gen-test-converter: linkml-gen-build
+mcp-gen-test: mcp-gen-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make linkml-gen-test-converter$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-gen-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman run --rm \
 		-v "$(CURDIR)/$(LINKML_GEN_DIR):/app/mcp-linkml-generator:ro" \
@@ -396,9 +396,14 @@ linkml-gen-test-converter: linkml-gen-build
 		$(LINKML_GEN_IMAGE) \
 		python -m pytest test_mcp_linkml_generator.py -v
 
-# Bruk: make linkml-gen-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=default]
-linkml-gen-generate:
-	@test -n "$(SCHEMA)" || (echo "Bruk: make linkml-gen-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=default]"; exit 1)
+linkml-gen-build: mcp-gen-build
+linkml-gen-run: mcp-gen-run
+linkml-gen-smoke: mcp-gen-smoke
+linkml-gen-test-converter: mcp-gen-test
+
+# Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=default]
+mcp-generate:
+	@test -n "$(SCHEMA)" || (echo "Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=default]"; exit 1)
 	@python3 -c "\
 import json; \
 content = open('$(SCHEMA)').read(); \
@@ -419,11 +424,13 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
  for r in map(json.loads, sys.stdin) if r.get('id') == 2] \
 "
 
+linkml-gen-generate: mcp-generate
+
 # Bruk: make new-model NAME=<namn> DOMAIN=<domene>
 new-model:
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
 	  (echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>"; exit 1)
-	@podman image exists $(LINKML_GEN_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory linkml-gen-build
+	@podman image exists $(LINKML_GEN_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-gen-build
 	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
 
 # Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
@@ -432,5 +439,5 @@ mcp-validate:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$(POLICY)$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-build
+	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build
 	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY)
