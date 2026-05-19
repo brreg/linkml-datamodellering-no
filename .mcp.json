@@ -1,5 +1,24 @@
 {
   "mcpServers": {
+    "json2linkml": {
+      "type": "stdio",
+      "command": "podman",
+      "args": [
+        "run",
+        "-i",
+        "--rm",
+        "-v",
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/server.py:/app/server.py:ro",
+        "-v",
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/converter.py:/app/converter.py:ro",
+        "-v",
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/validator.py:/app/validator.py:ro",
+        "-v",
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/profiles:/app/profiles:ro",
+        "mcp-json2linkml"
+      ],
+      "env": {}
+    },
     "linkml-validator": {
       "type": "stdio",
       "command": "podman",
