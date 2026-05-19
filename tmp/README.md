@@ -1,4 +1,4 @@
-# tmp katalogen
+# ./tmp
 
 Her har vi artefakter som ikkje er kildekode i prosjektet, men som kan benyttes i make kommandoer.
 F.eks `make json2linkml-generate SCHEMA=/tmp/person.json`.

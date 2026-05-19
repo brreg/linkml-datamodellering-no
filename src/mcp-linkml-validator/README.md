@@ -1,4 +1,4 @@
-# mcp-linkml-validator katalogen
+# ./src/mcp-linkml-validator
 
 Dette er en mcp server for å validere LinkML skjema mot utvalgt valideringspolicy.
 

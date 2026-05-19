@@ -1,4 +1,4 @@
-# mcp-json2linkml
+# ./src/mcp-json2linkml
 
 Dette er en mcp server for å generere utkast til ny LinkML modell basert på json schema.
 
