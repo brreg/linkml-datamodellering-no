@@ -27,7 +27,7 @@ from server import handle
 # ---------------------------------------------------------------------------
 
 def _profile() -> dict:
-    """Minimal testprofil — identisk med ap-no.yaml-innhaldet."""
+    """Minimal testprofil — identisk med default.yaml-innhaldet."""
     return {
         "naming": {"class_uri_prefix": "ex", "slot_uri_prefix": "ex"},
         "standard_prefixes": {"linkml": "https://w3id.org/linkml/"},
@@ -410,8 +410,8 @@ class TestGeneratedOutput(unittest.TestCase):
         finally:
             os.unlink(fname)
 
-    def test_load_profile_les_ap_no(self):
-        p = load_profile("ap-no")
+    def test_load_profile_les_default(self):
+        p = load_profile("default")
         self.assertEqual(p["version"], 1)
         self.assertIn("type_mapping", p)
         self.assertIn("format_mapping", p)
@@ -628,18 +628,18 @@ class TestListProfiles(unittest.TestCase):
         resp = _call("tools/call", {"name": "list_profiles", "arguments": {}})
         return json.loads(resp["result"]["content"][0]["text"])
 
-    def test_returnerer_minst_ap_no(self):
+    def test_returnerer_minst_default(self):
         names = [p["name"] for p in self._profiles()]
-        self.assertIn("ap-no", names)
+        self.assertIn("default", names)
 
     def test_kvar_profil_har_name_og_description(self):
         for p in self._profiles():
             self.assertIn("name", p)
             self.assertIn("description", p)
 
-    def test_ap_no_har_ikkje_tom_description(self):
-        ap_no = next(p for p in self._profiles() if p["name"] == "ap-no")
-        self.assertTrue(len(ap_no["description"]) > 0)
+    def test_default_har_ikkje_tom_description(self):
+        default = next(p for p in self._profiles() if p["name"] == "default")
+        self.assertTrue(len(default["description"]) > 0)
 
 
 if __name__ == "__main__":
