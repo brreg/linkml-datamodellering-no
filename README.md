@@ -1,9 +1,12 @@
 # linkml-w3c-no-profiles
 
 Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](https://linkml.io/).
-- mcp-linkml-generator og mcp-linkml-validator for å jobbe med og validere LinkML skjema (med mulighet for KI integrasjon). 
-- generatorer for å generere artifakter på andre formater fra LinkML skjema
-- dokumentasjonsportal med oversikt over alle LinkML skjemaer og genererte artifakter
+
+* mcp-linkml-generator og mcp-linkml-validator for å jobbe med og validere LinkML skjema (med mulighet for KI integrasjon). 
+* generatorer for å generere artifakter på andre formater fra LinkML skjema
+* dokumentasjonsportal med oversikt over alle LinkML skjemaer og genererte artifakter
+
+[koderepository](https://github.com/brreg/linkml-w3c-no-profiles)
 
 ## Kom i gang
 
@@ -60,7 +63,7 @@ Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.m
 | oreg | [register-over-aksjeeiere](src/linkml/oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigendelar |
 | samt | [samt-bu](src/linkml/samt/samt-bu/) | Skolar og barnehagar | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
 
-**AP-NO-profilane** og **FAIR-metadata** er bibliotek utan eigen `tree_root` — dei er meint å importerast av domenemodeller.
+**AP-NO-profilane** og **FAIR-metadata** er schema utan `tree_root` — dei er meint å importerast av domenemodeller (som har `tree_root`).
 
 Skjema ligg under `src/linkml/<domene>/<skjema>/`.  
 Øvrig struktur:
