@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Bygg mcp-linkml-validator
-        run: make mcp-build
+        run: make mcp-val-build
 
       - name: Valider alle skjema mot bronze-policy
         run: |
