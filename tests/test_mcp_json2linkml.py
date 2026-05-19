@@ -40,8 +40,8 @@ def _profile() -> dict:
             "add_container_class": True,
             "container_class_name": "Containerklasse",
             "container_slot_suffix": "er",
-            "add_see_also_stub": True,
-            "see_also_base_uri": "https://data.norge.no/concepts/",
+            "add_begrep_annotation": True,
+            "begrep_base_uri": "https://data.norge.no/concepts/",
         },
         "subsets": {
             "required_maps_to": "Obligatorisk",
@@ -295,7 +295,7 @@ class TestConversion(unittest.TestCase):
         self.assertIn("Tom", schema["classes"])
         self.assertNotIn("slot_usage", schema["classes"]["Tom"])
 
-    def test_see_also_stubb_vert_lagt_til(self):
+    def test_begrep_annotation_stubb_vert_lagt_til(self):
         schema, _ = _convert({
             "$defs": {
                 "Ting": {
@@ -304,9 +304,9 @@ class TestConversion(unittest.TestCase):
                 }
             }
         })
-        see_also = schema["classes"]["Ting"]["see_also"]
-        self.assertIsInstance(see_also, list)
-        self.assertTrue(any("data.norge.no/concepts" in s for s in see_also))
+        ann = schema["classes"]["Ting"]["annotations"]
+        self.assertIn("begrepsidentifikator", ann)
+        self.assertIn("data.norge.no/concepts", ann["begrepsidentifikator"])
 
     def test_class_uri_vert_sett(self):
         schema, _ = _convert({

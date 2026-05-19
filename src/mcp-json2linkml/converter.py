@@ -183,9 +183,9 @@ def convert(
     # ── Samle klasseinformasjon ───────────────────────────────────────────────
     classes_data = _collect_classes(json_schema, schema_name)
 
-    add_id       = gen.get("add_id_slot", True)
-    add_see_also = gen.get("add_see_also_stub", True)
-    see_also_base = gen.get("see_also_base_uri", "https://data.norge.no/concepts/")
+    add_id              = gen.get("add_id_slot", True)
+    add_begrep_annotation = gen.get("add_begrep_annotation", True)
+    begrep_base_uri     = gen.get("begrep_base_uri", "https://concept-catalog.fellesdatakatalog.digdir.no/collections/")
     req_subset   = subsets_cfg.get("required_maps_to", "Obligatorisk")
     def_subset   = subsets_cfg.get("non_required_default", "Anbefalt")
 
@@ -230,8 +230,8 @@ def convert(
         if desc:
             entry["description"] = desc
         entry["class_uri"] = f"ex:{cls_name}"
-        if add_see_also:
-            entry["see_also"] = [f"{see_also_base}TODO"]
+        if add_begrep_annotation:
+            entry["annotations"] = {"begrepsidentifikator": f"{begrep_base_uri}TODO"}
 
         slot_names = (["id"] if add_id else []) + [n for n in props if n != "id"]
         if slot_names:

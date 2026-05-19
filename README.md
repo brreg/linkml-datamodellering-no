@@ -321,3 +321,9 @@ Policyane støttar tre sjekktypear:
 | Metadata-felt | `required` / `recommended` | Obligatoriske og anbefalte felt på schema/class/slot |
 | Fellesklasser | `common_classes.must_use` | Klasser som må finnast i skjemaet (inkl. importar) |
 | Container-klasser | `container_classes.must_include` / `should_include` | Klasser som tree_root-klassen må/bør ha som `range` på attributtar |
+
+Policyer:
+bronze: Evaluerer om skjema tilfredsstiller medaljongarkitektur nivå bronse.
+silver: Evaluerer om skjema tilfredsstiller medaljongarkitektur nivå silver.
+gold: Evaluerer om skjema tilfredsstiller medaljongarkitektur nivå gold.
+
