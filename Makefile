@@ -2,7 +2,7 @@ SHELL           	:= /bin/bash
 .SHELLFLAGS     	:= -o pipefail -c
 LINKML_IMAGE    	:= localhost/linkml-local:latest
 LINKML_DOCKERFILE 	:= src/assets/containers/Dockerfile.linkml
-LINKML_RUN     		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(LINKML_IMAGE)
+LINKML_RUN     		:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore --user $(shell id -u):$(shell id -g) $(LINKML_IMAGE)
 GEN_DIR    			:= generated
 SCHEMA_DIR 			:= src/linkml
 MCP_DIR    			:= src/mcp-linkml-validator
