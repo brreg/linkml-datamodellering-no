@@ -97,4 +97,4 @@ Alle ap-no modeller og fair modeller skal alltid inkluderes i en annen domenemod
 Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
 
 ### Ny profil eller domenemodell
-Sjå `docs/ny-domenemodell.md` for steg-for-steg-rettleiing.
+Sjå `specs/ny-domenemodell.md` for steg-for-steg-rettleiing.

@@ -19,11 +19,23 @@ CLR_RST=$(printf '\033[0m')
 
 # ---------------------------------------------------------------------------
 # Skjemaoppdaging — same logikk som Makefile SCHEMAS-variabelen
+# Valfritt første argument avgrensar til eitt skjema: bash test_make.sh <sti>
 # ---------------------------------------------------------------------------
-mapfile -t SCHEMAS < <(
-    find "$SCHEMA_DIR" -mindepth 3 -maxdepth 3 -name '*-schema.yaml' \
-        | grep -v common | sort
-)
+SCHEMA_FILTER="${1:-}"
+
+if [ -n "$SCHEMA_FILTER" ]; then
+    SCHEMA_FILTER="${SCHEMA_FILTER#./}"
+    if [ ! -f "$SCHEMA_FILTER" ]; then
+        echo "Feil: skjema ikkje funne: $SCHEMA_FILTER" >&2
+        exit 1
+    fi
+    SCHEMAS=("$SCHEMA_FILTER")
+else
+    mapfile -t SCHEMAS < <(
+        find "$SCHEMA_DIR" -mindepth 3 -maxdepth 3 -name '*-schema.yaml' \
+            | grep -v common | sort
+    )
+fi
 
 schema_domain() { echo "$1" | cut -d/ -f3; }
 schema_name()   { echo "$1" | cut -d/ -f4; }

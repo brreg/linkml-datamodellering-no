@@ -102,7 +102,7 @@ test:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	bash tests/test_make.sh
+	bash tests/test_make.sh "$(SCHEMA)"
 
 validate:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"

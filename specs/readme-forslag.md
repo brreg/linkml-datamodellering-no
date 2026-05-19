@@ -1,3 +1,35 @@
+# Forslag: forkorta README.md
+
+## Kva er problemet
+
+Noverande README er 389 linjer og 100 tabellerader. Den har fire typar repetisjon:
+
+1. **Føresetnadar nemnde to gongar** — i "Kom i gang" og i "Krav"-seksjonen.
+2. **Same skjemaoversikt i tre tabellar** — ein kort AP-NO-tabell, ein kort domene-tabell og ei full skjemaliste. Ein ny lesar veit ikkje kva han skal lese.
+3. **Importhierarki kopiert frå CLAUDE.md** — vert utdatert kvar gong eitt av dei vert oppdatert.
+4. **Policy-beskriving to gongar** — som tabell midt i teksten og som fritekst heilt sist.
+
+I tillegg er det utdatert innhald (`json2linkml-*`-kommandoar, `mcp-json2linkml/`-sti, policynamn `default`/`ap-no-catalog`).
+
+## Kva bør skje med innhaldet
+
+| Innhald | No | Forslag |
+|---|---|---|
+| Føresetnadar | README (2×) | README (1×) |
+| Skjemaoversikt | README (3 tabellar) | README (1 tabell) |
+| Typisk arbeidsflyt | README | README (kortare) |
+| Alle make-kommandoar | README | `docs/kommandoar.md` |
+| MCP-server-internalar | README | `docs/kommandoar.md` |
+| Katalogstruktur | README | `docs/struktur.md` |
+| Importhierarki | README + CLAUDE.md | Berre CLAUDE.md |
+| Domene-beskriving | README (lang) | README (ei linje per domene) |
+| Policyar | README (2×) | Berre i `docs/kommandoar.md` |
+
+---
+
+## Foreslått README.md
+
+```markdown
 # linkml-w3c-no-profiles
 
 Norske W3C-applikasjonsprofiler og domenemodeller i [LinkML-format](https://linkml.io/).
@@ -7,31 +39,21 @@ Norske W3C-applikasjonsprofiler og domenemodeller i [LinkML-format](https://link
 **Føresetnadar:** [Podman](https://podman.io/), WSL2 og GNU make.
 
 ```bash
-# Scaffold nytt LinkML skjema
+# Scaffold ein ny modell
 make new-model NAME=mitt-register DOMAIN=oreg
-```
-```bash
-# Linte LinkML skjema
-./tests/lint_schema.bash <skjema>
-```
-```bash
-# Validere LinkML datafil mot LinkML skjema
-./tests/validate_schema.bash <skjema> <eksempel>
-```
-```bash
-# Valider LinkML skjema mot bronze policy
+
+# Valider eit skjema
 make mcp-validate SCHEMA=src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml POLICY=bronze
-```
-```bash
+
 # Generer alle artefaktar for eit domene, publiser og start dev-server
 make oreg && make publish && make docs-serve   # → http://localhost:8000
 ```
 
 Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk.
 
-Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [kommandoar.md](kommandoar.md) for alle tilgjengelege kommandoar.
+Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [docs/kommandoar.md](docs/kommandoar.md) for alle tilgjengelege kommandoar.
 
-## Skjema og struktur
+## Skjema
 
 | Domene | Skjema | Beskriving |
 |---|---|---|
@@ -58,21 +80,22 @@ Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [kommandoar.md](kommando
 
 AP-NO-profilane og FAIR-metadata er bibliotek utan eigen `tree_root` — dei er meint å importerast av domenemodeller.
 
-Skjema ligg under `src/linkml/<domene>/<skjema>/`. Øvrig struktur:
-
-```
-src/
-├── assets/                 # Containerar, skript og malar
-├── linkml/                 # LinkML schemaer
-├── mcp-linkml-validator/   # MCP-server: policy-basert validering
-├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
-└── templates/              # Jinja2 templates for make gen-docs
-
-examples/    # Eksempeldata per domene
-tests/       # Testar og fixtures
-generated/   # Genererte artefaktar (ikkje innsjekka i git)
-mkdocs/      # Dokumentasjonsportal (MkDocs Material)
-tmp/         # Midlertidige filer. F.eks json-schema som skal brukes i mcp-linkml-generator kan legges her.
 ```
 
-Fullstendig katalogtre med alle undermapper: [specs/struktur.md](specs/struktur.md).
+---
+
+## Kva fell ut av README
+
+Følgjande seksjonar er for detaljerte for ei oversikts-README og bør ligge i `docs/kommandoar.md`:
+
+- Alle make-targets (den lange tabellen med `gen-jsonld`, `gen-shacl` osv.)
+- `make publish`-internalar (6-punktslista om kva publish.sh gjer)
+- Rått `podman run`-eksempel for lint
+- MCP-validator-detaljar (smoke-test, flatten-and-validate, JSON-RPC-døme)
+- `mcp-linkml-generator`-kommandoar
+- Katalogstruktur-tre (eige dokument: `docs/struktur.md`)
+- Arkitekturprinsipp / importhierarki (berre i CLAUDE.md)
+- Policy-beskriving (berre i `docs/kommandoar.md`)
+
+`docs/kommandoar.md` bør alltid vere den autoritative kjelda for kommandoar slik at README ikkje treng oppdaterast kvar gong eit make-target vert endra.
+```
