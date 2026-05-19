@@ -276,13 +276,12 @@ $(1):
 			schema=$(SCHEMA_DIR)/$(1)/$$$$profil/$$$$profil-schema.yaml; \
 		fi; \
 		echo "$(CLR_STEP)→ linkml-convert  $$$$example$(CLR_RST)"; \
-		echo "$$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate --output $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl $$$$example"; \
+		echo "$$(LINKML_RUN) linkml-convert --schema $$$$schema --output-format ttl --no-validate $$$$example > $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl"; \
 		$$(LINKML_RUN) linkml-convert \
 			--schema $$$$schema \
 			--output-format ttl \
 			--no-validate \
-			--output $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl \
-			$$$$example; \
+			$$$$example > $(GEN_DIR)/$(1)/$$$$profil/$$$$name.ttl; \
 	done
 	$$(call run_gen_doc,$$(_schemas_$(1)))
 	$$(call run_gen_erdiagram,$$(_schemas_$(1)))

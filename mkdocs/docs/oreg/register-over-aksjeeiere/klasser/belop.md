@@ -22,8 +22,8 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
 | [InnbetaltOverkurs](innbetaltoverkurs.md) | Innbetalt overkurs utover pålydande |  no  |
+| [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
 | [Utdeling](utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |  no  |
 | [InnbetaltAksjekapital](innbetaltaksjekapital.md) | Innbetalt aksjekapital |  no  |
 

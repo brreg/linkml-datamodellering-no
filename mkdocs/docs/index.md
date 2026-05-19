@@ -1,80 +1,83 @@
-# LinkML W3C-profiler
+# linkml-w3c-no-profiles
 
-Dette repoet inneheld norske W3C-applikasjonsprofiler og domenemodeller
-modellert i [LinkML](https://linkml.io/).
+Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](https://linkml.io/).
 
-[Github repo](https://github.com/brreg/linkml-w3c-no-profiles) 
+* mcp-linkml-generator og mcp-linkml-validator for å jobbe med og validere LinkML skjema (med mulighet for KI integrasjon). 
+* generatorer for å generere artifakter på andre formater fra LinkML skjema
+* dokumentasjonsportal med oversikt over alle LinkML skjemaer og genererte artifakter
 
-## AP-NO Profiler for RDF baserte ressurser
+[koderepository](https://github.com/brreg/linkml-w3c-no-profiles)
 
-| Profil | Beskriving |
-|---|---|
-| **DCAT-AP-NO** | Datakatalogar |
-| **SKOS-AP-NO** | Begrepssamlingar |
-| **CPSV-AP-NO** | Offentlege tenester |
-| **DQV-AP-NO** | Datakvalitet |
-| **ModelldCAT-AP-NO** | Informasjonsmodellar |
-| **XKOS-AP-NO** | Utvida klassifikasjon |
+## Kom i gang
 
-## Domenemodeller
-
-### NGR – Nasjonale Grunndata
-
-| Modell | Beskriving |
-|---|---|
-| **NGR-adresse** | Adressemodell frå Noreg digitalt |
-| **NGR-eiendom** | Eigedomsmodell |
-| **NGR-person** | Personmodell frå folkeregisteret |
-| **NGR-virksomhet** | Verksemdsmodell |
-
-### FINT – Felles Fylkeskommunale INTegrasjoner
-
-| Modell | Beskriving |
-|---|---|
-| **FINT-administrasjon** | Personalressursar og organisasjon |
-| **FINT-arkiv** | Saksarkiv og journalføring |
-| **FINT-økonomi** | Faktura og rekneskap |
-| **FINT-personvern** | Behandlingsprotokoll |
-| **FINT-ressurs** | Brukarar og tilgangsrettar |
-| **FINT-utdanning** | Skule, elevar og klasser |
-
-### OREG – Offentlege registre
-
-| Modell | Beskriving |
-|---|---|
-| **Register over aksjeeiere** | Aksjonærar, aksjepostar og selskap |
-
-## Importhierarki
-
-```mermaid
-graph TD
-    LT[linkml:types]
-    CM[common-ap-no]
-    AP[AP-NO-profil\ndcat / skos / cpsv / …]
-    DM[Domenemodell\nNGR / OREG / …]
-    FM[fair-metadata]
-    FC[fint-common]
-    FD[FINT-domenemodell]
-
-    LT --> CM --> AP --> DM
-    FM -.->|valfri import| DM
-    LT --> FC --> FD
-    FM -.->|valfri import| FD
-    AP -.->|valfri import| FD
-```
-
-## Hurtigstart
+**Føresetnadar:** [Podman](https://podman.io/), WSL2 og GNU make.
 
 ```bash
-# Valider alle skjema
-make validate
+# Scaffold nytt LinkML skjema
+make new-model NAME=mitt-register DOMAIN=oreg
+```
+```bash
+# Linte LinkML skjema
+./tests/lint_schema.bash <skjema>
+```
+```bash
+# Validere LinkML datafil mot LinkML skjema
+./tests/validate_schema.bash <skjema> <eksempel>
+```
+```bash
+# Valider LinkML skjema mot bronze policy
+make mcp-validate SCHEMA=src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml POLICY=bronze
+```
+```bash
+# Generer alle artefaktar for eit domene, publiser og start dokumentasjons-server
+make oreg && make publish && make docs-serve   # → http://localhost:8000
+```
 
-# Generer SHACL shapes
-make gen-shacl
+Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk.
 
-# Valider eit enkelt skjema med MCP-validator
-make mcp-validate SCHEMA=src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml
 
-# FAIR-validering
-make mcp-validate SCHEMA=src/linkml/ngr/ngr-adresse/ngr-adresse-schema.yaml POLICY=fair
+## Skjema og struktur
+
+| Domene | Skjema | Beskriving | Dokumentasjon
+|---|---|---|---|
+| ap-no | common-ap-no | Felles slot-definisjonar for alle AP-NO-profiler |
+| ap-no | cpsv-ap-no | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
+| ap-no | dcat-ap-no | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
+| ap-no | dqv-ap-no | Datakvalitet | [data.norge.no/specification/dqv-ap-no](https://data.norge.no/specification/dqv-ap-no)
+| ap-no | modelldcat-ap-no | Informasjonsmodellar | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
+| ap-no | skos-ap-no | Begrepssamlingar | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| ap-no | xkos-ap-no | Utvidet klassifikasjon | [data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)
+| fair | fair-metadata | FAIR-metadataoverbygning (F/A/I/R-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
+| fint | fint-common | Felles klassar for FINT | 
+| fint | fint-administrasjon | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
+| fint | fint-arkiv | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
+| fint | fint-okonomi | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
+| fint | fint-personvern | Personvernmeldingar | [informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
+| fint | fint-ressurs | Ressursar | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
+| fint | fint-utdanning | Utdanning og skole | [informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
+| ngr | ngr-adresse | Adresse | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
+| ngr | ngr-eiendom | Fast eiendom, matrikkelenhet og bygning | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
+| ngr | ngr-person | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Person](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
+| ngr | ngr-virksomhet | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
+| oreg | register-over-aksjeeiere | Aksjeeigarar og eigendelar |
+| samt | samt-bu | Skolar og barnehagar | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
+
+**AP-NO-profilane** og **FAIR-metadata** er schema utan `tree_root` — dei er meint å importerast av domenemodeller (som har `tree_root`).
+
+Skjema ligg under `src/linkml/<domene>/<skjema>/`.  
+Øvrig struktur:
+
+```
+src/
+├── assets/                 # Containerar, skript og malar
+├── linkml/                 # LinkML skjemaer
+├── mcp-linkml-validator/   # MCP-server: policy-basert validering
+├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
+└── templates/              # Jinja2 templates for make gen-docs
+
+examples/    # Eksempeldata per domene
+tests/       # Testar og fixtures
+generated/   # Genererte artefaktar (ikkje innsjekka i git)
+mkdocs/      # Dokumentasjonsportal (MkDocs Material)
+tmp/         # Midlertidige filer. F.eks json-schema som skal brukes i mcp-linkml-generator kan legges her.
 ```
