@@ -42,8 +42,8 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    see_also:
-      - https://data.norge.no/concepts/1
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
     slots:
       - id
 slots:
@@ -81,8 +81,8 @@ classes:
         multivalued: true
   Katalog:
     description: Ein DCAT-katalog
-    see_also:
-      - https://data.norge.no/concepts/katalog
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/katalog
     slots:
       - id
       - beskrivelse
@@ -91,8 +91,8 @@ classes:
       - utgiver
   Datasett:
     description: Eit DCAT-datasett
-    see_also:
-      - https://data.norge.no/concepts/datasett
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/datasett
     slots:
       - id
       - beskrivelse
@@ -102,14 +102,14 @@ classes:
       - utgiver
   Kvalitetsmaal:
     description: Eit kvalitetsmål
-    see_also:
-      - https://data.norge.no/concepts/kvalitetsmaal
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/kvalitetsmaal
     slots:
       - id
   Kvalitetsmaaling:
     description: Ei kvalitetsmåling
-    see_also:
-      - https://data.norge.no/concepts/kvalitetsmaaling
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/kvalitetsmaaling
     slots:
       - id
 slots:
@@ -171,8 +171,8 @@ classes:
   Katalog:
     class_uri: dcat:Catalog
     description: Ein DCAT-katalog
-    see_also:
-      - https://data.norge.no/concepts/katalog
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/katalog
     slots:
       - id
       - beskrivelse
@@ -184,8 +184,8 @@ classes:
   Datasett:
     class_uri: dcat:Dataset
     description: Eit DCAT-datasett
-    see_also:
-      - https://data.norge.no/concepts/datasett
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/datasett
     slots:
       - id
       - beskrivelse
@@ -196,15 +196,15 @@ classes:
   Kvalitetsmaal:
     class_uri: dqv:Metric
     description: Eit kvalitetsmål
-    see_also:
-      - https://data.norge.no/concepts/kvalitetsmaal
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/kvalitetsmaal
     slots:
       - id
   Kvalitetsmaaling:
     class_uri: dqv:QualityMeasurement
     description: Ei kvalitetsmåling
-    see_also:
-      - https://data.norge.no/concepts/kvalitetsmaaling
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/kvalitetsmaaling
     slots:
       - id
 slots:
@@ -313,8 +313,8 @@ classes:
   Ting:
     description: Ei ting
     is_a: Base
-    see_also:
-      - https://data.norge.no/concepts/1
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
 slots:
   id:
     description: Identifikator
@@ -345,7 +345,7 @@ slots:
 """
         self.assertTrue(has_warning(validate_schema(schema, "bronze"), "all_classes_have_concept_ref"))
 
-    def test_see_also_til_begrepskatalog_godtatt(self):
+    def test_begrepsidentifikator_annotation_godtatt(self):
         schema = """\
 id: https://example.org/schema
 name: TestSchema
@@ -356,8 +356,8 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    see_also:
-      - https://data.norge.no/concepts/2
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/2
     slots:
       - id
 slots:
@@ -385,8 +385,8 @@ classes:
         range: Ting
   Ting:
     description: Ei ting
-    see_also:
-      - https://data.norge.no/concepts/1
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
     slots:
       - id
 slots:
@@ -545,8 +545,8 @@ classes:
   Katalog:
     class_uri: dcat:Catalog
     description: Ein katalog
-    see_also:
-      - https://data.norge.no/concepts/katalog
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/katalog
     slots:
       - id
 slots:
@@ -596,8 +596,8 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    see_also:
-      - https://data.norge.no/concepts/1
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
     slots:
       - id
 slots:
@@ -636,8 +636,8 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    see_also:
-      - https://data.norge.no/concepts/1
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
     slots:
       - id
 slots:
@@ -675,8 +675,8 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    see_also:
-      - https://data.norge.no/concepts/1
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
     slots:
       - id
 slots:
@@ -702,8 +702,8 @@ default_prefix: ex
 classes:
   Ting:
     description: Ei ting
-    see_also:
-      - https://data.norge.no/concepts/1
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/1
     slots:
       - id
       - lisens

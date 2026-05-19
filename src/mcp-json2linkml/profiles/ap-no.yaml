@@ -36,9 +36,9 @@ generation:
   # Overstyrer den enkle vokal/konsonant-heuristikken i converter.py
   container_slot_suffix: "er"
 
-  # Legg til see_also-stubb som peikar på Felles begrepskatalog
-  add_see_also_stub: true
-  see_also_base_uri: "https://data.norge.no/concepts/"
+  # Legg til annotations.begrepsidentifikator-stubb som peikar på Felles begrepskatalog
+  add_begrep_annotation: true
+  begrep_base_uri: "https://data.norge.no/concepts/"
 
 subsets:
   # JSON Schema required-felt → in_subset: [Obligatorisk]

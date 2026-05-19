@@ -195,11 +195,14 @@ def _check_all_classes_have_concept_ref(sv, schema, config, issues):
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
             continue
-        if any(str(uri).startswith(prefix) for uri in (cls.see_also or [])):
+        ann = cls.annotations or {}
+        begrep = ann.get("begrepsidentifikator")
+        begrep_val = str(begrep.value if hasattr(begrep, "value") else begrep or "")
+        if begrep_val.startswith(prefix):
             continue
         issues.append(issue(
             config["severity"], code, f"class:{cname}",
-            f"Klasse '{cname}' manglar see_also-referanse til begrep i {catalog_uri}",
+            f"Klasse '{cname}' manglar annotations.begrepsidentifikator som peikar på begrep i {catalog_uri}",
         ))
 
 

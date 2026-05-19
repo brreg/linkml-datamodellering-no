@@ -35,9 +35,9 @@ checks:
   all_classes_have_concept_ref:
     severity: warning
     description: >
-      Alle klasser (unntatt tree_root) bør ha minst ein see_also-verdi som
-      peiker på eit begrep i Felles begrepskatalog på forma
-      https://data.norge.no/concepts/<id>. Sikrar omgrepsforankring og
+      Alle klasser (unntatt tree_root) bør ha annotations.begrepsidentifikator
+      som peikar på eit begrep i Felles begrepskatalog på forma
+      https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>. Sikrar omgrepsforankring og
       semantisk interoperabilitet.
     check: all_classes_have_concept_ref
     concept_catalog_uri: https://data.norge.no/concepts
