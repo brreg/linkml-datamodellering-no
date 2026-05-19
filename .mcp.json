@@ -1,6 +1,6 @@
 {
   "mcpServers": {
-    "json2linkml": {
+    "linkml-generator": {
       "type": "stdio",
       "command": "podman",
       "args": [
@@ -8,14 +8,14 @@
         "-i",
         "--rm",
         "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/server.py:/app/server.py:ro",
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/server.py:/app/server.py:ro",
         "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/converter.py:/app/converter.py:ro",
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/converter.py:/app/converter.py:ro",
         "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/validator.py:/app/validator.py:ro",
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/validator.py:/app/validator.py:ro",
         "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-json2linkml/profiles:/app/profiles:ro",
-        "mcp-json2linkml"
+        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/profiles:/app/profiles:ro",
+        "mcp-linkml-generator"
       ],
       "env": {}
     },

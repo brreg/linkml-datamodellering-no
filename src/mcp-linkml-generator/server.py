@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""MCP-server for JSON Schema → LinkML-konvertering."""
+"""MCP-server for LinkML-generering frå ulike inputformat."""
 
 import json
 import sys
@@ -32,30 +32,40 @@ def _list_profiles() -> list:
 # ---------------------------------------------------------------------------
 
 TOOL_GENERATE = {
-    "name": "generate_linkml_from_json_schema",
+    "name": "generate_linkml",
     "description": (
-        "Konverterer eit JSON Schema til eit LinkML-skjema (utkast) "
-        "basert på ein konfigurerbar profil. Lintast og testvaliderast automatisk."
+        "Genererer eit LinkML-skjema (utkast) frå ulike inputformat. "
+        "Støtta format: 'json-schema' (JSON Schema som streng), 'empty' (tomt skjema med stub-klasse). "
+        "Lintast og testvaliderast automatisk."
     ),
     "inputSchema": {
         "type": "object",
-        "required": ["jsonSchema", "schemaId", "schemaName"],
+        "required": ["inputFormat"],
         "properties": {
-            "jsonSchema": {
+            "inputFormat": {
                 "type": "string",
-                "description": "JSON Schema som JSON-streng.",
+                "description": "Inputformat: 'json-schema' eller 'empty'.",
+                "enum": ["json-schema", "empty"],
+            },
+            "inputContent": {
+                "type": "string",
+                "description": "Innhaldet som skal konverterast (JSON Schema som streng). Ikkje påkravd for 'empty'.",
+                "default": "",
             },
             "schemaId": {
                 "type": "string",
                 "description": "URI-identifikator for det genererte LinkML-skjemaet.",
+                "default": "https://example.org/schema",
             },
             "schemaName": {
                 "type": "string",
                 "description": "Kortnamn for skjemaet (name-felt i LinkML).",
+                "default": "schema",
             },
             "schemaTitle": {
                 "type": "string",
                 "description": "Tittel for skjemaet (valfri).",
+                "default": "",
             },
             "profile": {
                 "type": "string",
@@ -96,7 +106,7 @@ def handle(msg: dict) -> dict | None:
             "result": {
                 "protocolVersion": "2024-11-05",
                 "capabilities": {"tools": {}},
-                "serverInfo": {"name": "mcp-json2linkml", "version": "1.0.0"},
+                "serverInfo": {"name": "mcp-linkml-generator", "version": "1.0.0"},
             },
         }
 
@@ -125,7 +135,7 @@ def handle(msg: dict) -> dict | None:
                 },
             }
 
-        if tool_name == "generate_linkml_from_json_schema":
+        if tool_name == "generate_linkml":
             return _handle_generate(msg_id, arguments)
 
         return {
@@ -145,20 +155,20 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
     from converter import load_profile, convert
     from validator import validate_generated
 
-    json_schema_str = arguments.get("jsonSchema", "{}")
-    schema_id    = arguments.get("schemaId",   "https://example.org/schema")
+    input_format = arguments.get("inputFormat", "")
+    input_content = arguments.get("inputContent", "")
+    schema_id    = arguments.get("schemaId",    "https://example.org/schema")
     schema_name  = arguments.get("schemaName",  "schema")
     schema_title = arguments.get("schemaTitle", "")
     profile_name = arguments.get("profile",     "default")
     do_validate  = arguments.get("validate",    True)
 
-    try:
-        json_schema = json.loads(json_schema_str)
-    except json.JSONDecodeError as exc:
+    valid_formats = {"json-schema", "empty"}
+    if input_format not in valid_formats:
         return {
             "jsonrpc": "2.0",
             "id": msg_id,
-            "error": {"code": -32602, "message": f"Ugyldig JSON Schema: {exc}"},
+            "error": {"code": -32602, "message": f"Ugyldig inputFormat: '{input_format}'. Gyldige: {sorted(valid_formats)}"},
         }
 
     try:
@@ -170,6 +180,18 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
             "error": {"code": -32602, "message": f"Ukjend profil: '{profile_name}'"},
         }
 
+    if input_format == "json-schema":
+        try:
+            json_schema = json.loads(input_content or "{}")
+        except json.JSONDecodeError as exc:
+            return {
+                "jsonrpc": "2.0",
+                "id": msg_id,
+                "error": {"code": -32602, "message": f"Ugyldig JSON Schema: {exc}"},
+            }
+    elif input_format == "empty":
+        json_schema = {"type": "object", "properties": {}}
+
     linkml_yaml, warnings = convert(
         json_schema, profile,
         schema_id=schema_id,
@@ -177,7 +199,7 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
         schema_title=schema_title,
     )
 
-    lint_issues     = []
+    lint_issues      = []
     dummy_validation = {"skipped": "validate: false"}
     if do_validate:
         val = validate_generated(linkml_yaml)
@@ -185,9 +207,9 @@ def _handle_generate(msg_id, arguments: dict) -> dict:
         dummy_validation = val.get("dummy_validation", {})
 
     result = {
-        "linkmlSchema":   linkml_yaml,
-        "warnings":       warnings,
-        "lintIssues":     lint_issues,
+        "linkmlSchema":    linkml_yaml,
+        "warnings":        warnings,
+        "lintIssues":      lint_issues,
         "dummyValidation": dummy_validation,
     }
     return {
