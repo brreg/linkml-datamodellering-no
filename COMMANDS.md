@@ -23,7 +23,7 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 | `make test` | Lint alle skjema og valider alle eksempelfiler |
 | `make validate` | Valider alle skjema mot LinkML-metaskjemaet |
 
-### Policyar
+### Validerings-Policyar
 
 | Policy | Beskriving |
 |---|---|

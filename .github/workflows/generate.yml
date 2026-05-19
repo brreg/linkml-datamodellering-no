@@ -1,0 +1,62 @@
+name: Generate and publish
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  generate:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Bygg linkml-local image
+        run: make linkml-build-docker
+
+      - name: Generer alle artefaktar
+        run: make domains
+
+      - name: Last opp genererte artefaktar
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated
+          path: generated/
+          retention-days: 7
+
+  publish:
+    needs: generate
+    runs-on: ubuntu-22.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Last ned genererte artefaktar
+        uses: actions/download-artifact@v4
+        with:
+          name: generated
+          path: generated/
+
+      - name: Bygg mkdocs-local image
+        run: make docs-build-docker
+
+      - name: Publiser og bygg dokumentasjonsportal
+        run: |
+          make publish
+          make docs-build
+
+      - name: Konfigurer GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Last opp Pages-artefakt
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: mkdocs/site/
+
+      - name: Deploy til GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
