@@ -26,7 +26,8 @@
       "Bash(make json2linkml-build *)",
       "Bash(make json2linkml-smoke *)",
       "Bash(make json2linkml-test-converter *)",
-      "Bash(make linkml-gen-test-converter *)"
+      "Bash(make linkml-gen-test-converter *)",
+      "Bash(make new-model *)"
     ]
   },
   "enabledMcpjsonServers": [

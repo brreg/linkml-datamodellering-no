@@ -90,7 +90,7 @@ LINKML_GEN_RUN   := podman run -i --rm \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
         linkml-build-docker python-build-docker \
         mcp-build mcp-run mcp-test mcp-smoke mcp-validate mcp-test-policies \
-        linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter \
+        linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter new-model \
 		docs-build-docker docs-serve docs-build docs-build-fast publish \
         $(DOMAINS)
 
@@ -418,6 +418,13 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
  or print('Skriv til:', out) \
  for r in map(json.loads, sys.stdin) if r.get('id') == 2] \
 "
+
+# Bruk: make new-model NAME=<namn> DOMAIN=<domene>
+new-model:
+	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
+	  (echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>"; exit 1)
+	@podman image exists $(LINKML_GEN_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory linkml-gen-build
+	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
 
 # Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
 mcp-validate:

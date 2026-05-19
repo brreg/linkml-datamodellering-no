@@ -295,8 +295,8 @@ def convert(
     )
 
     header = (
-        "# Generert av mcp-json2linkml — dette er eit utkast.\n"
+        "# Generert av mcp-linkml-generator — dette er eit utkast.\n"
         "# Prefiks 'ex:' er ein placeholder — erstatt med ekte vokabular-URIar.\n"
-        "# 'see_also: TODO' må erstattast med reelle begrepsreferansar.\n\n"
+        "# 'begrepsidentifikator: TODO' må erstattast med reelle begrepsreferansar.\n\n"
     )
     return header + yaml_str, warnings
