@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
-"""Automatiske testar for mcp-json2linkml converter.
+"""Automatiske testar for mcp-linkml-generator converter.
 
 Køyr frå repo-rot:
-  make json2linkml-test-converter
+  make linkml-gen-test-converter
 
 Krev linkml og linkml-runtime (tilgjengeleg i containeren):
-  python3 tests/test_mcp_json2linkml.py -v
+  python3 tests/test_mcp_linkml_generator.py -v
 """
 
 import json
@@ -16,7 +16,7 @@ import unittest
 import yaml
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "mcp-json2linkml"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "mcp-linkml-generator"))
 from converter import convert, load_profile
 from validator import validate_generated
 from server import handle
@@ -502,7 +502,7 @@ class TestMCPProtocol(unittest.TestCase):
 
     def test_initialize_returnerer_server_info(self):
         resp = _call("initialize")
-        self.assertEqual(resp["result"]["serverInfo"]["name"], "mcp-json2linkml")
+        self.assertEqual(resp["result"]["serverInfo"]["name"], "mcp-linkml-generator")
         self.assertIn("capabilities", resp["result"])
         self.assertIn("protocolVersion", resp["result"])
 
@@ -513,7 +513,7 @@ class TestMCPProtocol(unittest.TestCase):
     def test_tools_list_inneheld_begge_verktøy(self):
         resp = _call("tools/list")
         names = [t["name"] for t in resp["result"]["tools"]]
-        self.assertIn("generate_linkml_from_json_schema", names)
+        self.assertIn("generate_linkml", names)
         self.assertIn("list_profiles", names)
 
     def test_ukjent_verktøy_gir_32602(self):
@@ -524,7 +524,7 @@ class TestMCPProtocol(unittest.TestCase):
         resp = _call("finnes_ikkje")
         self.assertEqual(resp["error"]["code"], -32601)
 
-    def test_generate_med_gyldig_input_gir_gyldig_yaml(self):
+    def test_generate_json_schema_med_gyldig_input_gir_gyldig_yaml(self):
         json_schema = json.dumps({
             "$defs": {
                 "Ting": {
@@ -534,11 +534,12 @@ class TestMCPProtocol(unittest.TestCase):
             }
         })
         resp = _call("tools/call", {
-            "name": "generate_linkml_from_json_schema",
+            "name": "generate_linkml",
             "arguments": {
-                "jsonSchema": json_schema,
-                "schemaId":   "https://example.org/test",
-                "schemaName": "test",
+                "inputFormat":  "json-schema",
+                "inputContent": json_schema,
+                "schemaId":     "https://example.org/test",
+                "schemaName":   "test",
             },
         })
         result = json.loads(resp["result"]["content"][0]["text"])
@@ -546,15 +547,30 @@ class TestMCPProtocol(unittest.TestCase):
         self.assertIsInstance(parsed, dict)
         self.assertIn("classes", parsed)
 
-    def test_generate_med_validate_false_gir_tome_lint_issues(self):
-        json_schema = json.dumps({"type": "object", "properties": {}})
+    def test_generate_empty_gir_stub_schema(self):
         resp = _call("tools/call", {
-            "name": "generate_linkml_from_json_schema",
+            "name": "generate_linkml",
             "arguments": {
-                "jsonSchema": json_schema,
-                "schemaId":   "https://example.org/test",
-                "schemaName": "test",
-                "validate":   False,
+                "inputFormat": "empty",
+                "schemaId":    "https://example.org/test",
+                "schemaName":  "test",
+            },
+        })
+        result = json.loads(resp["result"]["content"][0]["text"])
+        parsed = yaml.safe_load(result["linkmlSchema"])
+        self.assertIsInstance(parsed, dict)
+        self.assertIn("id", parsed)
+        self.assertIn("name", parsed)
+
+    def test_generate_med_validate_false_gir_tome_lint_issues(self):
+        resp = _call("tools/call", {
+            "name": "generate_linkml",
+            "arguments": {
+                "inputFormat":  "json-schema",
+                "inputContent": json.dumps({"type": "object", "properties": {}}),
+                "schemaId":     "https://example.org/test",
+                "schemaName":   "test",
+                "validate":     False,
             },
         })
         result = json.loads(resp["result"]["content"][0]["text"])
@@ -562,23 +578,36 @@ class TestMCPProtocol(unittest.TestCase):
 
     def test_generate_med_ukjend_profil_gir_32602(self):
         resp = _call("tools/call", {
-            "name": "generate_linkml_from_json_schema",
+            "name": "generate_linkml",
             "arguments": {
-                "jsonSchema": "{}",
-                "schemaId":   "https://example.org/test",
-                "schemaName": "test",
-                "profile":    "finnes-ikkje",
+                "inputFormat": "json-schema",
+                "inputContent": "{}",
+                "schemaId":    "https://example.org/test",
+                "schemaName":  "test",
+                "profile":     "finnes-ikkje",
             },
         })
         self.assertEqual(resp["error"]["code"], -32602)
 
     def test_generate_med_ugyldig_json_schema_gir_32602(self):
         resp = _call("tools/call", {
-            "name": "generate_linkml_from_json_schema",
+            "name": "generate_linkml",
             "arguments": {
-                "jsonSchema": "dette er ikkje json",
-                "schemaId":   "https://example.org/test",
-                "schemaName": "test",
+                "inputFormat":  "json-schema",
+                "inputContent": "dette er ikkje json",
+                "schemaId":     "https://example.org/test",
+                "schemaName":   "test",
+            },
+        })
+        self.assertEqual(resp["error"]["code"], -32602)
+
+    def test_generate_med_ugyldig_format_gir_32602(self):
+        resp = _call("tools/call", {
+            "name": "generate_linkml",
+            "arguments": {
+                "inputFormat": "ikkje-eit-format",
+                "schemaId":    "https://example.org/test",
+                "schemaName":  "test",
             },
         })
         self.assertEqual(resp["error"]["code"], -32602)
@@ -603,14 +632,14 @@ class TestMCPProtocol(unittest.TestCase):
         )
 
     def test_generate_result_har_rett_nøklar(self):
-        json_schema = json.dumps({"type": "object", "properties": {}})
         resp = _call("tools/call", {
-            "name": "generate_linkml_from_json_schema",
+            "name": "generate_linkml",
             "arguments": {
-                "jsonSchema": json_schema,
-                "schemaId":   "https://example.org/test",
-                "schemaName": "test",
-                "validate":   False,
+                "inputFormat":  "json-schema",
+                "inputContent": json.dumps({"type": "object", "properties": {}}),
+                "schemaId":     "https://example.org/test",
+                "schemaName":   "test",
+                "validate":     False,
             },
         })
         result = json.loads(resp["result"]["content"][0]["text"])
