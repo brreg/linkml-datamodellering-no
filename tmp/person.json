@@ -1,0 +1,14 @@
+ {
+    "$defs": {
+      "Person": {
+        "type": "object",
+        "description": "Ein person.",
+        "properties": {
+          "namn":  { "type": "string" },
+          "epost": { "type": "string", "format": "uri" },
+          "alder": { "type": "integer" }
+        },
+        "required": ["namn"]
+      }
+    }
+  }

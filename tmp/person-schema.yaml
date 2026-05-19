@@ -1,0 +1,72 @@
+# Generert av mcp-json2linkml — dette er eit utkast.
+# Prefiks 'ex:' er ein placeholder — erstatt med ekte vokabular-URIar.
+# 'see_also: TODO' må erstattast med reelle begrepsreferansar.
+
+id: https://example.org/generated
+name: generated
+description: Generert frå JSON Schema 'generated'.
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ex: https://example.org/generated/
+  dct: http://purl.org/dc/terms/
+  dcat: http://www.w3.org/ns/dcat#
+  foaf: http://xmlns.com/foaf/0.1/
+  skos: http://www.w3.org/2004/02/skos/core#
+  xsd: http://www.w3.org/2001/XMLSchema#
+  rdf: http://www.w3.org/1999/02/22-rdf-syntax-ns#
+  rdfs: http://www.w3.org/2000/01/rdf-schema#
+default_prefix: ex
+default_range: string
+imports:
+- linkml:types
+subsets:
+  Obligatorisk:
+    description: Obligatoriske eigenskapar.
+  Anbefalt:
+    description: Anbefalte eigenskapar.
+  Valgfri:
+    description: Valfrie eigenskapar.
+classes:
+  Person:
+    description: Ein person.
+    class_uri: ex:Person
+    see_also:
+    - https://data.norge.no/concepts/TODO
+    slots:
+    - id
+    - namn
+    - epost
+    - alder
+    slot_usage:
+      namn:
+        required: true
+        in_subset:
+        - Obligatorisk
+      epost:
+        in_subset:
+        - Anbefalt
+      alder:
+        in_subset:
+        - Anbefalt
+  Containerklasse:
+    tree_root: true
+    attributes:
+      personer:
+        range: Person
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+slots:
+  id:
+    description: Unik URI-identifikator for ressursen.
+    identifier: true
+    range: uriorcurie
+  namn:
+    slot_uri: ex:namn
+    range: string
+  epost:
+    slot_uri: ex:epost
+    range: uriorcurie
+  alder:
+    slot_uri: ex:alder
+    range: integer

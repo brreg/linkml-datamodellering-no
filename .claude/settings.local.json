@@ -22,7 +22,10 @@
       "Bash(chmod +x *)",
       "Bash(make gen-erdiagram *)",
       "Bash(make mcp-test-policies *)",
-      "Bash(make docs-serve *)"
+      "Bash(make docs-serve *)",
+      "Bash(make json2linkml-build *)",
+      "Bash(make json2linkml-smoke *)",
+      "Bash(make json2linkml-test-converter *)"
     ]
   },
   "enabledMcpjsonServers": [

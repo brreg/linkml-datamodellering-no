@@ -1,0 +1,61 @@
+version: 1
+description: >
+  AP-NO-profil for JSON Schema → LinkML-konvertering.
+  Implementerer prinsippa i CLAUDE.md for norsk offentleg sektor:
+  globale slots, lenking framfor inlining, norske klassenamn,
+  obligatorisk/anbefalt/valgfri-subsets og containerklasse med tree_root.
+
+naming:
+  class_uri_prefix: "ex"
+  slot_uri_prefix: "ex"
+
+standard_prefixes:
+  linkml: "https://w3id.org/linkml/"
+  dct:    "http://purl.org/dc/terms/"
+  dcat:   "http://www.w3.org/ns/dcat#"
+  foaf:   "http://xmlns.com/foaf/0.1/"
+  skos:   "http://www.w3.org/2004/02/skos/core#"
+  xsd:    "http://www.w3.org/2001/XMLSchema#"
+  rdf:    "http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  rdfs:   "http://www.w3.org/2000/01/rdf-schema#"
+
+schema_defaults:
+  default_range: string
+  imports:
+    - linkml:types
+
+generation:
+  # Legg til id-slot med identifier: true og range: uriorcurie på alle klasser
+  add_id_slot: true
+
+  # Generer Containerklasse med tree_root: true automatisk
+  add_container_class: true
+  container_class_name: "Containerklasse"
+
+  # Suffiks for fleirtal i container-slots (t.d. "Person" → "Personers")
+  # Overstyrer den enkle vokal/konsonant-heuristikken i converter.py
+  container_slot_suffix: "er"
+
+  # Legg til see_also-stubb som peikar på Felles begrepskatalog
+  add_see_also_stub: true
+  see_also_base_uri: "https://data.norge.no/concepts/"
+
+subsets:
+  # JSON Schema required-felt → in_subset: [Obligatorisk]
+  required_maps_to: "Obligatorisk"
+  # Alle andre felt → in_subset: [Anbefalt]
+  non_required_default: "Anbefalt"
+
+# JSON Schema type → LinkML range
+type_mapping:
+  string:  string
+  integer: integer
+  number:  float
+  boolean: boolean
+
+# JSON Schema format → LinkML range (overrider type_mapping)
+format_mapping:
+  uri:       uriorcurie
+  date:      date
+  date-time: datetime
+  time:      time

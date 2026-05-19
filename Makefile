@@ -78,10 +78,19 @@ endef
 # ---------------------------------------------------------------------------
 # Top-level targets
 # ---------------------------------------------------------------------------
+JSON2LINKML_DIR   := src/mcp-json2linkml
+JSON2LINKML_IMAGE := mcp-json2linkml
+JSON2LINKML_RUN   := podman run -i --rm \
+  -v "$(CURDIR)/$(JSON2LINKML_DIR)/server.py:/app/server.py:ro" \
+  -v "$(CURDIR)/$(JSON2LINKML_DIR)/converter.py:/app/converter.py:ro" \
+  -v "$(CURDIR)/$(JSON2LINKML_DIR)/validator.py:/app/validator.py:ro" \
+  -v "$(CURDIR)/$(JSON2LINKML_DIR)/profiles:/app/profiles:ro"
+
 .PHONY: all test validate clean domains \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
         linkml-build-docker python-build-docker \
         mcp-build mcp-run mcp-test mcp-smoke mcp-validate mcp-test-policies \
+        json2linkml-build json2linkml-run json2linkml-smoke json2linkml-generate json2linkml-test-converter \
 		docs-build-docker docs-serve docs-build docs-build-fast publish \
         $(DOMAINS)
 
@@ -353,6 +362,61 @@ mcp-test-policies: mcp-build
 		-e PYTHONWARNINGS=ignore \
 		$(MCP_IMAGE) \
 		python3 /work/tests/test_mcp_policies.py -v
+
+# ---------------------------------------------------------------------------
+# mcp-json2linkml
+# ---------------------------------------------------------------------------
+json2linkml-build:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make json2linkml-build$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	podman build -t $(JSON2LINKML_IMAGE) $(JSON2LINKML_DIR)
+
+json2linkml-run:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make json2linkml-run$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(JSON2LINKML_RUN) $(JSON2LINKML_IMAGE)
+
+json2linkml-smoke: json2linkml-build
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make json2linkml-smoke$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	cat tests/test-mcp-json2linkml.json | $(JSON2LINKML_RUN) $(JSON2LINKML_IMAGE)
+
+json2linkml-test-converter: json2linkml-build
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make json2linkml-test-converter$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	podman run --rm \
+		-v "$(CURDIR)/$(JSON2LINKML_DIR):/app/mcp-json2linkml:ro" \
+		-v "$(CURDIR)/tests:/app/tests:ro" \
+		-w /app/tests \
+		-e PYTHONPATH=/app/mcp-json2linkml \
+		$(JSON2LINKML_IMAGE) \
+		python -m pytest test_mcp_json2linkml.py -v
+
+# Bruk: make json2linkml-generate SCHEMA=<sti-til-json-schema> [PROFILE=ap-no]
+json2linkml-generate:
+	@test -n "$(SCHEMA)" || (echo "Bruk: make json2linkml-generate SCHEMA=<sti> [PROFILE=ap-no]"; exit 1)
+	@python3 -c "\
+import json; \
+schema = open('$(SCHEMA)').read(); \
+profile = '$(or $(PROFILE),ap-no)'; \
+msgs = [ \
+  {'jsonrpc':'2.0','id':1,'method':'initialize','params':{}}, \
+  {'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'generate_linkml_from_json_schema','arguments':{'jsonSchema':schema,'schemaId':'https://example.org/generated','schemaName':'generated','profile':profile}}}, \
+]; \
+print('\n'.join(json.dumps(m) for m in msgs)) \
+" | $(JSON2LINKML_RUN) $(JSON2LINKML_IMAGE) \
+  | python3 -c "\
+import json, sys, pathlib; \
+inp = pathlib.Path('$(SCHEMA)'); \
+out = inp.parent / (inp.stem + '-schema.yaml'); \
+[out.write_text(json.loads(r['result']['content'][0]['text'])['linkmlSchema'], encoding='utf-8') \
+ or print('Skriv til:', out) \
+ for r in map(json.loads, sys.stdin) if r.get('id') == 2] \
+"
 
 # Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
 mcp-validate:
