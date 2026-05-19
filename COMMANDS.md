@@ -89,6 +89,7 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 
 | Kommando | Beskriving |
 |---|---|
+| `make mcp-validate SCHEMA=<sti> POLICY=bronze` | Validerer LinkML skjema mot bronze policyen |
 | `make mcp-val-build` | Bygg container-image |
 | `make mcp-val-smoke` | Røyktest med eksempel-meldingar |
 | `make mcp-val-test` | Køyr policy-testar |

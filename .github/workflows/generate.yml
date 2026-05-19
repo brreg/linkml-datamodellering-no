@@ -13,6 +13,9 @@ jobs:
       - name: Bygg linkml-local image
         run: make linkml-build-docker
 
+      - name: Bygg python-pytest image
+        run: make python-build-docker
+
       - name: Generer alle artefaktar
         run: make domains
 
