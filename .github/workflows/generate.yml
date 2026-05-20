@@ -39,54 +39,252 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/generate-domain
+      - uses: ./.github/actions/load-images
+      - uses: ./.github/actions/gen-linkml
         with:
           domain: ap-no
+      - uses: ./.github/actions/gen-context
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-shapes
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-python
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-json-schema
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-owl
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-rdf
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-examples
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-doc
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/gen-erdiagram
+        with:
+          domain: ap-no
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-ap-no
+          path: generated/ap-no/
+          retention-days: 1
 
   generate-fair:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/generate-domain
+      - uses: ./.github/actions/load-images
+      - uses: ./.github/actions/gen-linkml
         with:
           domain: fair
+      - uses: ./.github/actions/gen-context
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-shapes
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-python
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-json-schema
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-owl
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-rdf
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-examples
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-doc
+        with:
+          domain: fair
+      - uses: ./.github/actions/gen-erdiagram
+        with:
+          domain: fair
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-fair
+          path: generated/fair/
+          retention-days: 1
 
   generate-fint:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/generate-domain
+      - uses: ./.github/actions/load-images
+      - uses: ./.github/actions/gen-linkml
         with:
           domain: fint
+      - uses: ./.github/actions/gen-context
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-shapes
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-python
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-json-schema
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-owl
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-rdf
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-examples
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-doc
+        with:
+          domain: fint
+      - uses: ./.github/actions/gen-erdiagram
+        with:
+          domain: fint
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-fint
+          path: generated/fint/
+          retention-days: 1
 
   generate-ngr:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/generate-domain
+      - uses: ./.github/actions/load-images
+      - uses: ./.github/actions/gen-linkml
         with:
           domain: ngr
+      - uses: ./.github/actions/gen-context
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-shapes
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-python
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-json-schema
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-owl
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-rdf
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-examples
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-doc
+        with:
+          domain: ngr
+      - uses: ./.github/actions/gen-erdiagram
+        with:
+          domain: ngr
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-ngr
+          path: generated/ngr/
+          retention-days: 1
 
   generate-oreg:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/generate-domain
+      - uses: ./.github/actions/load-images
+      - uses: ./.github/actions/gen-linkml
         with:
           domain: oreg
+      - uses: ./.github/actions/gen-context
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-shapes
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-python
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-json-schema
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-owl
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-rdf
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-examples
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-doc
+        with:
+          domain: oreg
+      - uses: ./.github/actions/gen-erdiagram
+        with:
+          domain: oreg
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-oreg
+          path: generated/oreg/
+          retention-days: 1
 
   generate-samt:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/generate-domain
+      - uses: ./.github/actions/load-images
+      - uses: ./.github/actions/gen-linkml
         with:
           domain: samt
+      - uses: ./.github/actions/gen-context
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-shapes
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-python
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-json-schema
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-owl
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-rdf
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-examples
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-doc
+        with:
+          domain: samt
+      - uses: ./.github/actions/gen-erdiagram
+        with:
+          domain: samt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: generated-samt
+          path: generated/samt/
+          retention-days: 1
 
   publish:
     needs: [generate-ap-no, generate-fair, generate-fint, generate-ngr, generate-oreg, generate-samt]

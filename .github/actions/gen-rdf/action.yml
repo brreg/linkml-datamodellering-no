@@ -1,0 +1,14 @@
+name: Generer schema.ttl (RDF)
+description: Køyrer gen-rdf for alle skjema i domenet (hoppar over dersom GEN_RDF_SKIP er sett)
+
+inputs:
+  domain:
+    description: Domenenamn (ap-no, fair, fint, ngr, oreg, samt)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Generer schema.ttl (RDF)
+      shell: bash
+      run: make domain-gen-rdf DOMAIN=${{ inputs.domain }}
