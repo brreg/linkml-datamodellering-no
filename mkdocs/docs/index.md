@@ -10,30 +10,28 @@ Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](h
 
 ## Kom i gang
 
-**Føresetnadar:** [Podman](https://podman.io/), WSL2 og GNU make.
+**Føresetnadar:** [Podman](https://podman.io/) (rootless), WSL2 og GNU make.
 
 ```bash
-# Scaffold nytt LinkML skjema
+# 1. Bygg container-images (éin gong)
+make linkml-build-docker && make python-build-docker && make mcp-val-build
+```
+```bash
+# 2. Lag eit nytt schema
 make new-model NAME=mitt-register DOMAIN=oreg
 ```
 ```bash
-# Linte LinkML skjema
-./tests/lint_schema.bash <skjema>
+# 3. Valider mot minimumskrav
+make mcp-validate SCHEMA=src/linkml/oreg/mitt-register/mitt-register-schema.yaml POLICY=bronze
 ```
 ```bash
-# Validere LinkML datafil mot LinkML skjema
-./tests/validate_schema.bash <skjema> <eksempel>
-```
-```bash
-# Valider LinkML skjema mot bronze policy
-make mcp-validate SCHEMA=src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml POLICY=bronze
-```
-```bash
-# Generer alle artefaktar for eit domene, publiser og start dokumentasjons-server
+# 4. Generer artefaktar og sjå resultatet
 make oreg && make publish && make docs-serve   # → http://localhost:8000
 ```
 
 Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk.
+
+For full rettleiing om modellering, validering og importar: [Ny domenemodell](ny-domenemodell.md).
 
 
 ## Skjema og struktur

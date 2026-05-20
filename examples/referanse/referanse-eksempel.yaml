@@ -1,0 +1,11 @@
+# Eksempelinstans for referanse-schema.
+# Viser serialiseringsformat: LangString som liste, URI-referansar for lenker.
+
+Ressurskatalog:
+  ressursar:
+    - id: https://example.org/ressursar/1
+      tittel:
+        - Eksempelressurs
+      beskrivelse:
+        - Ein enkel ressurs som viser serialiseringsformatet for referanse-schema.
+      utgjevar: https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827

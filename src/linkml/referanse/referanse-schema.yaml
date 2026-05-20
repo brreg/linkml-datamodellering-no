@@ -1,0 +1,110 @@
+##
+## Annotert referanseskjema for nye utviklarar.
+## Viser alle hovudmønster brukte i dette repoet.
+## Ikkje ein del av produksjonsdomenet — generer ikkje artefaktar for denne fila.
+##
+
+id: https://example.org/linkml/referanse
+name: referanse-schema
+title: Referanseskjema
+description: >-
+  Annotert referanseskjema som viser alle hovudmønster: containerklasse,
+  globale slots, import frå AP-NO-profil, class_uri/slot_uri, LangString,
+  in_subset og lenking framfor inlining.
+
+version: "1.0.0"
+
+# Importer alltid frå eit AP-NO-profil — ikkje linkml:types direkte.
+# AP-NO-profilane arvar sjølve frå common-ap-no (typar, subsets og gjenbrukbare slots).
+imports:
+  - linkml:types
+  - ../ap-no/dcat-ap-no/dcat-ap-no-schema
+
+prefixes:
+  linkml:  https://w3id.org/linkml/
+  ex:      https://example.org/vocab/referanse#
+  dct:     http://purl.org/dc/terms/
+
+default_prefix: https://example.org/linkml/referanse/
+default_range: string
+
+# Subsets brukast i slot_usage for å markere om ein eigeskap er
+# obligatorisk, anbefalt eller valgfri per spesifikasjonen.
+subsets:
+  Obligatorisk: {}
+  Anbefalt: {}
+  Valgfri: {}
+
+classes:
+
+  # Containerklassen er inngangspunktet for validering og serialisering.
+  # tree_root: true — éin per skjema, treng ikkje class_uri.
+  # Attributtane skrives alltid i fleirtal.
+  Ressurskatalog:
+    description: Samling av ressursar — toppnivåobjekt for datafila.
+    tree_root: true
+    slots:
+      - ressursar
+
+  # Domenemodellklassar skal alltid ha class_uri som peikar til riktig RDF-vokabular.
+  # annotations.begrepsidentifikator kobler klassen til Felles begrepskatalog.
+  Ressurs:
+    description: Ein generisk ressurs med tittel, skildring og utgjevar.
+    class_uri: dct:BibliographicResource
+    annotations:
+      begrepsidentifikator: https://data.norge.no/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - beskrivelse
+      - utgjevar
+    slot_usage:
+      # required: true setjast alltid i slot_usage på klassen — ikkje i den globale slotdefinisjonen.
+      tittel:
+        required: true
+        in_subset:
+          - Obligatorisk
+      beskrivelse:
+        in_subset:
+          - Anbefalt
+      utgjevar:
+        in_subset:
+          - Anbefalt
+
+slots:
+
+  # identifier: true gjer instansen refererbar via URI i koblede data.
+  # Hindrar at objektet vert bygd inn (inlined) som standardoppførsel i andre objekt.
+  id:
+    description: Unik URI-identifikator for ressursen.
+    identifier: true
+    range: uriorcurie
+    slot_uri: dct:identifier
+
+  # LangString (arva frå common-ap-no via dcat-ap-no) brukast for alle eigenskapar
+  # som er definerte som rdf:langString i spesifikasjonen (tittel, skildring osv.).
+  tittel:
+    description: Namn eller tittel på ressursen.
+    slot_uri: dct:title
+    range: LangString
+
+  beskrivelse:
+    description: Kortfatta skildring av ressursen.
+    slot_uri: dct:description
+    range: LangString
+
+  # Referansar til andre ressursar (f.eks. organisasjonar) brukast som URI-ar,
+  # ikkje som inlina objekt — sjølv om Organisasjon finst som klasse andre stader.
+  utgjevar:
+    description: Organisasjon ansvarleg for ressursen (referert med URI).
+    slot_uri: dct:publisher
+    range: uriorcurie
+
+  # Container-slots skal alltid vere multivalued + inlined_as_list: true.
+  # inlined: true + inlined_as_list: true → serialisert som YAML-liste, ikkje objekt.
+  ressursar:
+    description: Ressursane i katalogen.
+    range: Ressurs
+    multivalued: true
+    inlined: true
+    inlined_as_list: true

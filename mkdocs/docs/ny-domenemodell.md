@@ -17,6 +17,12 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering. Nye skjema vert oppda
 
 ## Arbeidsflyt
 
+### 0 — Bygg images (éin gong)
+
+```bash
+make linkml-build-docker && make python-build-docker && make mcp-val-build
+```
+
 ### 1 — Scaffold
 
 ```bash
@@ -132,6 +138,32 @@ Valider mot gold-policy:
 ```bash
 make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=gold
 ```
+
+---
+
+## Genererte artefaktar
+
+Kvar generator produserer ein artefakt under `generated/<domene>/<skjema>/`:
+
+| Artefakt | Fil | Brukstilfelle |
+|---|---|---|
+| JSON-LD kontekst | `context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar |
+| SHACL shapes | `shapes.ttl` | Validering av RDF-data mot skjema i triple stores |
+| Python-klasser | `model.py` | Direkte bruk i Python-applikasjonar via LinkML |
+| JSON Schema | `schema.json` | Validering av JSON-data i applikasjonar |
+| OWL ontologi | `ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy |
+| RDF/Turtle skjema | `schema.ttl` | Fullstendig RDF-representasjon av skjemaet |
+| ER-diagram | `erdiagram.md` | Visuell oversikt over klasser og relasjonar |
+| HTML-dokumentasjon | `docs/` | Menneskeleseleg referansedokumentasjon |
+| Eksempel-RDF | `eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon |
+
+**Unntak:** FINT-domenemodellane genererer ikkje `schema.ttl` (RDF/Turtle skjema) eller SHACL shapes med full import-kjede.
+
+---
+
+## Referanseskjema
+
+`src/linkml/referanse/referanse-schema.yaml` er eit annotert eksempelskjema som viser alle hovudmønster brukte i dette repoet: containerklasse, globale slots, import frå AP-NO-profil, `class_uri`/`slot_uri`, `LangString` og `in_subset`. Bruk det som oppslagsverk når du startar eit nytt skjema.
 
 ---
 

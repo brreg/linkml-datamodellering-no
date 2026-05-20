@@ -99,7 +99,8 @@ LINKML_GEN_RUN   := podman run -i --rm \
         domain-gen-linkml domain-gen-context domain-gen-shapes domain-gen-python \
         domain-gen-json-schema domain-gen-owl domain-gen-rdf \
         domain-gen-examples domain-gen-doc domain-gen-erdiagram \
-        domain-validate-bronze domain-validate-examples
+        domain-validate-bronze domain-validate-examples \
+        check-prereqs
 
 all: test
 
@@ -526,6 +527,12 @@ new-model:
 	  (echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>"; exit 1)
 	@podman image exists $(LINKML_GEN_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-gen-build
 	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
+
+check-prereqs:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make check-prereqs$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@bash src/assets/scripts/check-prereqs.bash
 
 # Bruk: make mcp-validate SCHEMA=<sti-til-skjema> [POLICY=gold]
 mcp-validate:
