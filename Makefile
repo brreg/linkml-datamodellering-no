@@ -64,6 +64,7 @@ define run_gen_doc
 @$(foreach s,$(1), \
   echo "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)" && \
   echo "$(LINKML_RUN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram -d $(call schema_outdir,$(s))/docs $(s)" && \
+  mkdir -p $(call schema_outdir,$(s))/docs && \
   $(LINKML_RUN) gen-doc \
     --template-directory src/templates/docgen \
     --no-mergeimports \
