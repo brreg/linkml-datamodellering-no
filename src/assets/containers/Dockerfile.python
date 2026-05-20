@@ -7,7 +7,7 @@ ENV PYTHONUNBUFFERED=1
 WORKDIR /work
 
 # installer pytest
-COPY src/assets/requirements-python-test.txt .
+COPY requirements-python-test.txt .
 RUN pip install --no-cache-dir -r requirements-python-test.txt
 
 
