@@ -11,6 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v4
       - name: Cache mcp-linkml-validator image
@@ -24,12 +25,16 @@ jobs:
         run: |
           make mcp-val-build
           podman save mcp-linkml-validator | zstd -T0 > mcp-linkml-validator.tar.zst
-      - name: Last opp validator-artefakt
-        uses: actions/upload-artifact@v4
-        with:
-          name: validator-image
-          path: mcp-linkml-validator.tar.zst
-          retention-days: 1
+      - name: Last inn image frå cache
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: podman load < <(zstd -d -c mcp-linkml-validator.tar.zst)
+      - name: Push til GHCR
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+          podman tag mcp-linkml-validator ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }}
+          podman push ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }}
+          podman tag mcp-linkml-validator ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest
+          podman push ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest
 
   validate-ap-no:
     needs: build-validator

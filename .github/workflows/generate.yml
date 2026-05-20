@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v4
       - name: Cache linkml-local image
@@ -23,17 +24,22 @@ jobs:
         run: |
           make linkml-build-docker
           podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
-      - name: Last opp image-artefakt
-        uses: actions/upload-artifact@v4
-        with:
-          name: linkml-local-image
-          path: linkml-local.tar.zst
-          retention-days: 1
+      - name: Last inn image frå cache
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: podman load < <(zstd -d -c linkml-local.tar.zst)
+      - name: Push til GHCR
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+          podman tag localhost/linkml-local:latest ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
+          podman push ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
+          podman tag localhost/linkml-local:latest ghcr.io/${{ github.repository_owner }}/linkml-local:latest
+          podman push ghcr.io/${{ github.repository_owner }}/linkml-local:latest
 
   build-python:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
+      packages: write
     steps:
       - uses: actions/checkout@v4
       - name: Cache python-pytest image
@@ -47,12 +53,16 @@ jobs:
         run: |
           make python-build-docker
           podman save localhost/python-pytest:latest | zstd -T0 > python-pytest.tar.zst
-      - name: Last opp image-artefakt
-        uses: actions/upload-artifact@v4
-        with:
-          name: python-pytest-image
-          path: python-pytest.tar.zst
-          retention-days: 1
+      - name: Last inn image frå cache
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: podman load < <(zstd -d -c python-pytest.tar.zst)
+      - name: Push til GHCR
+        run: |
+          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+          podman tag localhost/python-pytest:latest ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
+          podman push ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
+          podman tag localhost/python-pytest:latest ghcr.io/${{ github.repository_owner }}/python-pytest:latest
+          podman push ghcr.io/${{ github.repository_owner }}/python-pytest:latest
 
   generate-ap-no:
     needs: [build-linkml, build-python]
