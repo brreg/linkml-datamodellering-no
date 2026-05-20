@@ -10,4 +10,4 @@ runs:
 
     - name: Last inn validator-image
       shell: bash
-      run: podman load < <(gunzip -c mcp-linkml-validator.tar.gz)
+      run: podman load < <(zstd -d -c mcp-linkml-validator.tar.zst)

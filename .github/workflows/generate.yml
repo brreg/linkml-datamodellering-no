@@ -13,11 +13,11 @@ jobs:
       - name: Bygg linkml-local image
         run: make linkml-build-docker
       - name: Lagre image som artefakt
-        run: podman save localhost/linkml-local:latest | gzip > linkml-local.tar.gz
+        run: podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
       - uses: actions/upload-artifact@v4
         with:
           name: linkml-local-image
-          path: linkml-local.tar.gz
+          path: linkml-local.tar.zst
           retention-days: 1
 
   build-python:
@@ -27,11 +27,11 @@ jobs:
       - name: Bygg python-pytest image
         run: make python-build-docker
       - name: Lagre image som artefakt
-        run: podman save localhost/python-pytest:latest | gzip > python-pytest.tar.gz
+        run: podman save localhost/python-pytest:latest | zstd -T0 > python-pytest.tar.zst
       - uses: actions/upload-artifact@v4
         with:
           name: python-pytest-image
-          path: python-pytest.tar.gz
+          path: python-pytest.tar.zst
           retention-days: 1
 
   generate-ap-no:
