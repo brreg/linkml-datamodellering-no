@@ -13,7 +13,8 @@ DOCS_RUN   			:= podman run --rm \
 	-v "$(CURDIR)/mkdocs/docs:/docs/docs" \
   	-v "$(CURDIR)/mkdocs/mkdocs.yml:/docs/mkdocs.yml" \
   	-v "$(CURDIR)/mkdocs/overrides:/docs/overrides" \
-  	-v "$(CURDIR)/mkdocs/.cache:/docs/.cache"
+  	-v "$(CURDIR)/mkdocs/.cache:/docs/.cache" \
+  	-v "$(CURDIR)/mkdocs/site:/docs/site"
 PYTHON_IMAGE		:= localhost/python-pytest:latest
 PYTHON_DOCKERFILE 	:= src/assets/containers/Dockerfile.python
 PYTHON_RUN			:= podman run --rm -v "$(CURDIR):/work" -w /work -e PYTHONWARNINGS=ignore $(PYTHON_IMAGE)
@@ -399,15 +400,14 @@ docs-serve:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make docs-serve$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@mkdir -p "$(CURDIR)/mkdocs/.cache"
-	@echo "Sikra katalog: $(CURDIR)/mkdocs/.cache"
+	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
 	$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000 --dirtyreload --no-livereload
 
 docs-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make docs-build$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@mkdir -p "$(CURDIR)/mkdocs/.cache"
+	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
 	$(DOCS_RUN) $(DOCS_IMAGE) build
 
 # Raskare bygg for iterativ utvikling: hoppar over sider utan endringar sidan sist bygg.
@@ -416,6 +416,7 @@ docs-build-fast:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make docs-build-fast$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
 	$(DOCS_RUN) $(DOCS_IMAGE) build --dirty
 
 # ---------------------------------------------------------------------------
