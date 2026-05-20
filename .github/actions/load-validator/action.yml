@@ -1,0 +1,13 @@
+name: Last inn validator-image
+description: Last ned og load mcp-linkml-validator image frå workflow-artefakt
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: mcp-linkml-validator-image
+
+    - name: Last inn validator-image
+      shell: bash
+      run: podman load < <(gunzip -c mcp-linkml-validator.tar.gz)

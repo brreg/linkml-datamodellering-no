@@ -26,7 +26,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/validate-domain
+      - uses: ./.github/actions/load-validator
+      - uses: ./.github/actions/validate-bronze
+        with:
+          domain: ap-no
+      - uses: ./.github/actions/validate-examples
         with:
           domain: ap-no
 
@@ -35,7 +39,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/validate-domain
+      - uses: ./.github/actions/load-validator
+      - uses: ./.github/actions/validate-bronze
+        with:
+          domain: fair
+      - uses: ./.github/actions/validate-examples
         with:
           domain: fair
 
@@ -44,7 +52,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/validate-domain
+      - uses: ./.github/actions/load-validator
+      - uses: ./.github/actions/validate-bronze
+        with:
+          domain: fint
+      - uses: ./.github/actions/validate-examples
         with:
           domain: fint
 
@@ -53,7 +65,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/validate-domain
+      - uses: ./.github/actions/load-validator
+      - uses: ./.github/actions/validate-bronze
+        with:
+          domain: ngr
+      - uses: ./.github/actions/validate-examples
         with:
           domain: ngr
 
@@ -62,7 +78,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/validate-domain
+      - uses: ./.github/actions/load-validator
+      - uses: ./.github/actions/validate-bronze
+        with:
+          domain: oreg
+      - uses: ./.github/actions/validate-examples
         with:
           domain: oreg
 
@@ -71,6 +91,10 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/validate-domain
+      - uses: ./.github/actions/load-validator
+      - uses: ./.github/actions/validate-bronze
+        with:
+          domain: samt
+      - uses: ./.github/actions/validate-examples
         with:
           domain: samt
