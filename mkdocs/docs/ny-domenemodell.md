@@ -17,9 +17,10 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering. Nye skjema vert oppda
 
 ## Arbeidsflyt
 
-### 0 — Bygg images (éin gong)
+### 0 — Sjekk føresetnader og bygg images (éin gong)
 
 ```bash
+make check-prereqs
 make linkml-build-docker && make python-build-docker && make mcp-val-build
 ```
 

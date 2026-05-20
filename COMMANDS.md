@@ -95,6 +95,12 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 | `make mcp-val-test` | Køyr policy-testar |
 | `make mcp-val-run` | Start server interaktivt (stdin/stdout) |
 
+## Oppsett og føresetnadar
+
+| Kommando | Beskriving |
+|---|---|
+| `make check-prereqs` | Sjekk at Podman, GNU make, user namespace og diskplass er korrekt konfigurert |
+
 ## Container-image-bygging
 
 Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
