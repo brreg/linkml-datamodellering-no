@@ -11,7 +11,7 @@ runs:
     - name: Hent images frå GHCR
       shell: bash
       run: |
-        podman pull ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
-        podman pull ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
-        podman tag ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }} localhost/linkml-local:latest
-        podman tag ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }} localhost/python-pytest:latest
+        podman pull ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+        podman pull ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
+        podman tag ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }} localhost/linkml-local:latest
+        podman tag ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }} localhost/python-pytest:latest

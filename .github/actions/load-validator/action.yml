@@ -11,5 +11,5 @@ runs:
     - name: Hent validator-image frå GHCR
       shell: bash
       run: |
-        podman pull ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }}
-        podman tag ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }} mcp-linkml-validator:latest
+        podman pull ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
+        podman tag ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }} mcp-linkml-validator:latest
