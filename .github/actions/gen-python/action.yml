@@ -1,0 +1,14 @@
+name: Generer model.py
+description: Køyrer gen-python for alle skjema i domenet
+
+inputs:
+  domain:
+    description: Domenenamn (ap-no, fair, fint, ngr, oreg, samt)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Generer model.py
+      shell: bash
+      run: make domain-gen-python DOMAIN=${{ inputs.domain }}

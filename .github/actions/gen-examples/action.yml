@@ -1,0 +1,14 @@
+name: Konverter eksempelfiler til Turtle
+description: Køyrer linkml-convert på alle eksempelfiler i domenet
+
+inputs:
+  domain:
+    description: Domenenamn (ap-no, fair, fint, ngr, oreg, samt)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Konverter eksempelfiler til Turtle
+      shell: bash
+      run: make domain-gen-examples DOMAIN=${{ inputs.domain }}

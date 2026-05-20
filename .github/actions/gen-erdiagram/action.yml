@@ -1,0 +1,14 @@
+name: Generer ER-diagram
+description: Køyrer gen-erdiagram for alle skjema i domenet
+
+inputs:
+  domain:
+    description: Domenenamn (ap-no, fair, fint, ngr, oreg, samt)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Generer ER-diagram
+      shell: bash
+      run: make domain-gen-erdiagram DOMAIN=${{ inputs.domain }}

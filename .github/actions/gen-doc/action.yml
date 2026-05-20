@@ -1,0 +1,14 @@
+name: Generer dokumentasjon (gen-doc)
+description: Køyrer gen-doc for alle skjema i domenet
+
+inputs:
+  domain:
+    description: Domenenamn (ap-no, fair, fint, ngr, oreg, samt)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - name: Generer dokumentasjon (gen-doc)
+      shell: bash
+      run: make domain-gen-doc DOMAIN=${{ inputs.domain }}
