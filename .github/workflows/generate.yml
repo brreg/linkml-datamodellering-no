@@ -5,29 +5,91 @@ on:
     branches: [main]
 
 jobs:
-  generate:
+
+  build-linkml:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v4
-
       - name: Bygg linkml-local image
         run: make linkml-build-docker
+      - name: Lagre image som artefakt
+        run: podman save localhost/linkml-local:latest | gzip > linkml-local.tar.gz
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linkml-local-image
+          path: linkml-local.tar.gz
+          retention-days: 1
 
+  build-python:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
       - name: Bygg python-pytest image
         run: make python-build-docker
-
-      - name: Generer alle artefaktar
-        run: make domains
-
-      - name: Last opp genererte artefaktar
-        uses: actions/upload-artifact@v4
+      - name: Lagre image som artefakt
+        run: podman save localhost/python-pytest:latest | gzip > python-pytest.tar.gz
+      - uses: actions/upload-artifact@v4
         with:
-          name: generated
-          path: generated/
-          retention-days: 7
+          name: python-pytest-image
+          path: python-pytest.tar.gz
+          retention-days: 1
+
+  generate-ap-no:
+    needs: [build-linkml, build-python]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/generate-domain
+        with:
+          domain: ap-no
+
+  generate-fair:
+    needs: [build-linkml, build-python]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/generate-domain
+        with:
+          domain: fair
+
+  generate-fint:
+    needs: [build-linkml, build-python]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/generate-domain
+        with:
+          domain: fint
+
+  generate-ngr:
+    needs: [build-linkml, build-python]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/generate-domain
+        with:
+          domain: ngr
+
+  generate-oreg:
+    needs: [build-linkml, build-python]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/generate-domain
+        with:
+          domain: oreg
+
+  generate-samt:
+    needs: [build-linkml, build-python]
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/generate-domain
+        with:
+          domain: samt
 
   publish:
-    needs: generate
+    needs: [generate-ap-no, generate-fair, generate-fint, generate-ngr, generate-oreg, generate-samt]
     runs-on: ubuntu-22.04
     permissions:
       pages: write
@@ -38,11 +100,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Last ned genererte artefaktar
+      - name: Last ned alle genererte artefaktar
         uses: actions/download-artifact@v4
         with:
-          name: generated
+          pattern: generated-*
           path: generated/
+          merge-multiple: true
 
       - name: Bygg mkdocs-local image
         run: make docs-build-docker

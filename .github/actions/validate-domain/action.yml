@@ -1,0 +1,59 @@
+name: Valider domene
+description: Last inn validator-image og valider skjema og eksempelfiler for eit domene
+
+inputs:
+  domain:
+    description: Domenenamn (ap-no, fair, fint, ngr, oreg, samt)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: mcp-linkml-validator-image
+
+    - name: Last inn validator-image
+      shell: bash
+      run: podman load < <(gunzip -c mcp-linkml-validator.tar.gz)
+
+    - name: Valider ${{ inputs.domain }} mot bronze-policy
+      shell: bash
+      run: |
+        set +e
+        FAILED=0
+        while IFS= read -r schema; do
+          echo "--- $schema ---"
+          result=$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$schema" bronze 2>/dev/null)
+          echo "$result"
+          if ! SCHEMA="$schema" python3 -c "import json,sys,os;d=json.loads(sys.stdin.read());s=os.environ.get('SCHEMA','');[print('::{} file={}::{}: {}'.format('error' if i.get('severity')=='error' else 'warning',s,i.get('target',''),i.get('message','').replace(chr(10),' '))) for i in d.get('issues',[])];sys.exit(0 if d.get('valid',True) else 1)" <<< "$result"; then
+            FAILED=$((FAILED + 1))
+          fi
+        done < <(find src/linkml/${{ inputs.domain }} -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort)
+        exit $FAILED
+
+    - name: Valider eksempelfiler for ${{ inputs.domain }} mot skjema
+      shell: bash
+      run: |
+        set +e
+        FAILED=0
+        while IFS= read -r schema; do
+          name=$(basename "$schema" -schema.yaml)
+          example="examples/${{ inputs.domain }}/$name-eksempel.yaml"
+          if [ ! -f "$example" ]; then
+            echo "::warning file=$schema::Ingen eksempelfil funne: $example"
+            continue
+          fi
+          echo "--- $schema ---"
+          result=$(podman run --rm -v "$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
+            docker.io/linkml/linkml:latest linkml validate --schema "$schema" "$example" 2>&1)
+          echo "$result"
+          if echo "$result" | grep -q "\[ERROR\]"; then
+            echo "$result" | grep "\[ERROR\]" | while IFS= read -r line; do
+              echo "::error file=$example::$(echo "$line" | sed 's/\[ERROR\] //')"
+            done
+            FAILED=$((FAILED + 1))
+          fi
+        done < <(find src/linkml/${{ inputs.domain }} -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
+          | grep -v common | sort | xargs grep -l "tree_root: true")
+        exit $FAILED

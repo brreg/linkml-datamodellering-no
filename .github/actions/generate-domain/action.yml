@@ -1,0 +1,34 @@
+name: Generer domene
+description: Last inn images og generer artefaktar for eit domene
+
+inputs:
+  domain:
+    description: Domenenamn (ap-no, fair, fint, ngr, oreg, samt)
+    required: true
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/download-artifact@v4
+      with:
+        name: linkml-local-image
+
+    - uses: actions/download-artifact@v4
+      with:
+        name: python-pytest-image
+
+    - name: Last inn images
+      shell: bash
+      run: |
+        podman load < <(gunzip -c linkml-local.tar.gz)
+        podman load < <(gunzip -c python-pytest.tar.gz)
+
+    - name: Generer ${{ inputs.domain }}
+      shell: bash
+      run: make ${{ inputs.domain }}
+
+    - uses: actions/upload-artifact@v4
+      with:
+        name: generated-${{ inputs.domain }}
+        path: generated/${{ inputs.domain }}/
+        retention-days: 1
