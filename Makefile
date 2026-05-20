@@ -95,7 +95,11 @@ LINKML_GEN_RUN   := podman run -i --rm \
         mcp-build mcp-run mcp-smoke mcp-test-policies \
         linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter \
 		docs-build-docker docs-serve docs-build docs-build-fast publish \
-        $(DOMAINS)
+        $(DOMAINS) \
+        domain-gen-linkml domain-gen-context domain-gen-shapes domain-gen-python \
+        domain-gen-json-schema domain-gen-owl domain-gen-rdf \
+        domain-gen-examples domain-gen-doc domain-gen-erdiagram \
+        domain-validate-bronze domain-validate-examples
 
 all: test
 
@@ -289,6 +293,95 @@ $(1):
 endef
 
 $(foreach d,$(DOMAINS),$(eval $(call domain_target,$(d))))
+
+# ---------------------------------------------------------------------------
+# Per-artifakt-mål for CI – krev DOMAIN=<domenenamn>
+# Eksempel: make domain-gen-shapes DOMAIN=oreg
+# ---------------------------------------------------------------------------
+
+domain-gen-linkml:
+	@$(foreach s,$(_schemas_$(DOMAIN)),echo "$(CLR_STEP)→ gen-linkml  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
+
+domain-gen-context:
+	$(call run_gen,$(_schemas_$(DOMAIN)),gen-jsonld-context,context.jsonld)
+
+domain-gen-shapes:
+	$(call run_gen,$(_schemas_$(DOMAIN)),gen-shacl $(SHACL_FLAGS_$(DOMAIN)),shapes.ttl)
+
+domain-gen-python:
+	$(call run_gen,$(_schemas_$(DOMAIN)),gen-python,model.py)
+
+domain-gen-json-schema:
+	$(call run_gen,$(_schemas_$(DOMAIN)),gen-json-schema,schema.json)
+
+domain-gen-owl:
+	$(call run_gen,$(_schemas_$(DOMAIN)),gen-owl $(OWL_FLAGS_$(DOMAIN)),ontology.ttl)
+
+domain-gen-rdf:
+	$(if $(GEN_RDF_SKIP_$(DOMAIN)),@echo "Hoppar over gen-rdf for $(DOMAIN) (GEN_RDF_SKIP_$(DOMAIN) er sett)",$(call run_gen,$(_schemas_$(DOMAIN)),gen-rdf,schema.ttl))
+
+domain-gen-examples:
+	@for example in examples/$(DOMAIN)/*-eksempel.yaml; do \
+		[ -f "$$example" ] || continue; \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		mkdir -p $(GEN_DIR)/$(DOMAIN)/$$profil; \
+		if [ -f tests/fixtures/$$profil-fixture.yaml ]; then \
+			schema=tests/fixtures/$$profil-fixture.yaml; \
+		else \
+			schema=$(SCHEMA_DIR)/$(DOMAIN)/$$profil/$$profil-schema.yaml; \
+		fi; \
+		echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
+		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate $$example > $(GEN_DIR)/$(DOMAIN)/$$profil/$$name.ttl"; \
+		$(LINKML_RUN) linkml-convert \
+			--schema $$schema \
+			--output-format ttl \
+			--no-validate \
+			$$example > $(GEN_DIR)/$(DOMAIN)/$$profil/$$name.ttl; \
+	done
+
+domain-gen-doc:
+	$(call run_gen_doc,$(_schemas_$(DOMAIN)))
+
+domain-gen-erdiagram:
+	$(call run_gen_erdiagram,$(_schemas_$(DOMAIN)))
+
+domain-validate-bronze:
+	@set +e; \
+	FAILED=0; \
+	while IFS= read -r schema; do \
+		echo "--- $$schema ---"; \
+		result=$$(bash src/mcp-linkml-validator/flatten-and-validate.bash "$$schema" bronze 2>/dev/null); \
+		echo "$$result"; \
+		if ! SCHEMA="$$schema" python3 -c "import json,sys,os;d=json.loads(sys.stdin.read());s=os.environ.get('SCHEMA','');[print('::{} file={}::{}: {}'.format('error' if i.get('severity')=='error' else 'warning',s,i.get('target',''),i.get('message','').replace(chr(10),' '))) for i in d.get('issues',[])];sys.exit(0 if d.get('valid',True) else 1)" <<< "$$result"; then \
+			FAILED=$$((FAILED + 1)); \
+		fi; \
+	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' | grep -v common | sort); \
+	exit $$FAILED
+
+domain-validate-examples:
+	@set +e; \
+	FAILED=0; \
+	while IFS= read -r schema; do \
+		name=$$(basename "$$schema" -schema.yaml); \
+		example="examples/$(DOMAIN)/$$name-eksempel.yaml"; \
+		if [ ! -f "$$example" ]; then \
+			echo "::warning file=$$schema::Ingen eksempelfil funne: $$example"; \
+			continue; \
+		fi; \
+		echo "--- $$schema ---"; \
+		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
+			docker.io/linkml/linkml:latest linkml validate --schema "$$schema" "$$example" 2>&1); \
+		echo "$$result"; \
+		if echo "$$result" | grep -q "\[ERROR\]"; then \
+			echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \
+				echo "::error file=$$example::$$(echo "$$line" | sed 's/\[ERROR\] //')"; \
+			done; \
+			FAILED=$$((FAILED + 1)); \
+		fi; \
+	done < <(find src/linkml/$(DOMAIN) -mindepth 2 -maxdepth 2 -name '*-schema.yaml' \
+		| grep -v common | sort | xargs grep -l "tree_root: true"); \
+	exit $$FAILED
 
 # ---------------------------------------------------------------------------
 # Dokumentasjonsportal (MkDocs Material)

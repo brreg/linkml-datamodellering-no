@@ -23,9 +23,45 @@ runs:
         podman load < <(gunzip -c linkml-local.tar.gz)
         podman load < <(gunzip -c python-pytest.tar.gz)
 
-    - name: Generer ${{ inputs.domain }}
+    - name: Flattar ut importar (gen-linkml)
       shell: bash
-      run: make ${{ inputs.domain }}
+      run: make domain-gen-linkml DOMAIN=${{ inputs.domain }}
+
+    - name: Generer context.jsonld
+      shell: bash
+      run: make domain-gen-context DOMAIN=${{ inputs.domain }}
+
+    - name: Generer shapes.ttl (SHACL)
+      shell: bash
+      run: make domain-gen-shapes DOMAIN=${{ inputs.domain }}
+
+    - name: Generer model.py
+      shell: bash
+      run: make domain-gen-python DOMAIN=${{ inputs.domain }}
+
+    - name: Generer schema.json
+      shell: bash
+      run: make domain-gen-json-schema DOMAIN=${{ inputs.domain }}
+
+    - name: Generer ontology.ttl (OWL)
+      shell: bash
+      run: make domain-gen-owl DOMAIN=${{ inputs.domain }}
+
+    - name: Generer schema.ttl (RDF)
+      shell: bash
+      run: make domain-gen-rdf DOMAIN=${{ inputs.domain }}
+
+    - name: Konverter eksempelfiler til Turtle
+      shell: bash
+      run: make domain-gen-examples DOMAIN=${{ inputs.domain }}
+
+    - name: Generer dokumentasjon (gen-doc)
+      shell: bash
+      run: make domain-gen-doc DOMAIN=${{ inputs.domain }}
+
+    - name: Generer ER-diagram
+      shell: bash
+      run: make domain-gen-erdiagram DOMAIN=${{ inputs.domain }}
 
     - uses: actions/upload-artifact@v4
       with:
