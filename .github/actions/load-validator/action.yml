@@ -1,15 +1,16 @@
 name: Last inn validator-image
-description: Hent mcp-linkml-validator image frå GHCR
+description: Last mcp-linkml-validator image frå workflow-artefakt
 
 runs:
   using: composite
   steps:
-    - name: Logg inn på GHCR
-      shell: bash
-      run: echo "${{ github.token }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+    - name: Last ned validator-artefakt
+      uses: actions/download-artifact@v4
+      with:
+        name: validator-image
+        path: /tmp/images
 
-    - name: Hent validator-image frå GHCR
+    - name: Last inn validator-image
       shell: bash
       run: |
-        podman pull ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }}
-        podman tag ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }} mcp-linkml-validator:latest
+        podman load < <(zstd -d -c /tmp/images/mcp-linkml-validator.tar.zst)

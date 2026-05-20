@@ -11,22 +11,18 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
-      packages: write
     steps:
       - uses: actions/checkout@v4
-      - name: Logg inn på GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
-      - name: Bygg og push mcp-linkml-validator image
-        run: |
-          if podman pull ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }} 2>/dev/null; then
-            echo "Image finst allereie i GHCR, hoppar over bygging"
-          else
-            make mcp-val-build
-            podman tag mcp-linkml-validator ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }}
-            podman push ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.sha }}
-            podman tag mcp-linkml-validator ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest
-            podman push ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest
-          fi
+      - name: Bygg mcp-linkml-validator image
+        run: make mcp-val-build
+      - name: Lagre og komprimer image
+        run: podman save mcp-linkml-validator | zstd -T0 > mcp-linkml-validator.tar.zst
+      - name: Last opp validator-artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: validator-image
+          path: mcp-linkml-validator.tar.zst
+          retention-days: 1
 
   validate-ap-no:
     needs: build-validator

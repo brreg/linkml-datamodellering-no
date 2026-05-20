@@ -10,43 +10,35 @@ jobs:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
-      packages: write
     steps:
       - uses: actions/checkout@v4
-      - name: Logg inn på GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
-      - name: Bygg og push linkml-local image
-        run: |
-          if podman pull ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }} 2>/dev/null; then
-            echo "Image finst allereie i GHCR, hoppar over bygging"
-          else
-            make linkml-build-docker
-            podman tag localhost/linkml-local:latest ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
-            podman push ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
-            podman tag localhost/linkml-local:latest ghcr.io/${{ github.repository_owner }}/linkml-local:latest
-            podman push ghcr.io/${{ github.repository_owner }}/linkml-local:latest
-          fi
+      - name: Bygg linkml-local image
+        run: make linkml-build-docker
+      - name: Lagre og komprimer image
+        run: podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
+      - name: Last opp image-artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: linkml-local-image
+          path: linkml-local.tar.zst
+          retention-days: 1
 
   build-python:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
-      packages: write
     steps:
       - uses: actions/checkout@v4
-      - name: Logg inn på GHCR
-        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
-      - name: Bygg og push python-pytest image
-        run: |
-          if podman pull ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }} 2>/dev/null; then
-            echo "Image finst allereie i GHCR, hoppar over bygging"
-          else
-            make python-build-docker
-            podman tag localhost/python-pytest:latest ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
-            podman push ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
-            podman tag localhost/python-pytest:latest ghcr.io/${{ github.repository_owner }}/python-pytest:latest
-            podman push ghcr.io/${{ github.repository_owner }}/python-pytest:latest
-          fi
+      - name: Bygg python-pytest image
+        run: make python-build-docker
+      - name: Lagre og komprimer image
+        run: podman save localhost/python-pytest:latest | zstd -T0 > python-pytest.tar.zst
+      - name: Last opp image-artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-pytest-image
+          path: python-pytest.tar.zst
+          retention-days: 1
 
   generate-ap-no:
     needs: [build-linkml, build-python]

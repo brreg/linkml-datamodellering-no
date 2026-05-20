@@ -1,17 +1,23 @@
 name: Last inn container-images
-description: Hent linkml-local og python-pytest images frå GHCR
+description: Last linkml-local og python-pytest images frå workflow-artefaktar
 
 runs:
   using: composite
   steps:
-    - name: Logg inn på GHCR
-      shell: bash
-      run: echo "${{ github.token }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+    - name: Last ned linkml-local artefakt
+      uses: actions/download-artifact@v4
+      with:
+        name: linkml-local-image
+        path: /tmp/images
 
-    - name: Hent images frå GHCR
+    - name: Last ned python-pytest artefakt
+      uses: actions/download-artifact@v4
+      with:
+        name: python-pytest-image
+        path: /tmp/images
+
+    - name: Last inn images
       shell: bash
       run: |
-        podman pull ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
-        podman pull ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
-        podman tag ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }} localhost/linkml-local:latest
-        podman tag ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }} localhost/python-pytest:latest
+        podman load < <(zstd -d -c /tmp/images/linkml-local.tar.zst)
+        podman load < <(zstd -d -c /tmp/images/python-pytest.tar.zst)
