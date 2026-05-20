@@ -19,24 +19,32 @@ jobs:
         with:
           path: linkml-local.tar.zst
           key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+      - name: Logg inn på GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Sjekk om image finst i GHCR
+        id: ghcr-check
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+          if podman pull "$IMAGE" 2>/dev/null; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
       - name: Bygg linkml-local image
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           make linkml-build-docker
           podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
       - name: Last inn image frå cache
-        if: steps.cache.outputs.cache-hit == 'true'
+        if: steps.cache.outputs.cache-hit == 'true' && steps.ghcr-check.outputs.exists != 'true'
         run: podman load < <(zstd -d -c linkml-local.tar.zst)
       - name: Push til GHCR
+        if: steps.ghcr-check.outputs.exists != 'true'
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
           IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
-          if podman pull "$IMAGE" 2>/dev/null; then
-            echo "Image finst allereie i GHCR, hoppar over push"
-          else
-            podman tag localhost/linkml-local:latest "$IMAGE"
-            podman push "$IMAGE"
-          fi
+          podman tag localhost/linkml-local:latest "$IMAGE"
+          podman push "$IMAGE"
 
   build-python:
     runs-on: ubuntu-22.04
@@ -51,24 +59,32 @@ jobs:
         with:
           path: python-pytest.tar.zst
           key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
+      - name: Logg inn på GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+      - name: Sjekk om image finst i GHCR
+        id: ghcr-check
+        if: steps.cache.outputs.cache-hit == 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
+          if podman pull "$IMAGE" 2>/dev/null; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+          fi
       - name: Bygg python-pytest image
         if: steps.cache.outputs.cache-hit != 'true'
         run: |
           make python-build-docker
           podman save localhost/python-pytest:latest | zstd -T0 > python-pytest.tar.zst
       - name: Last inn image frå cache
-        if: steps.cache.outputs.cache-hit == 'true'
+        if: steps.cache.outputs.cache-hit == 'true' && steps.ghcr-check.outputs.exists != 'true'
         run: podman load < <(zstd -d -c python-pytest.tar.zst)
       - name: Push til GHCR
+        if: steps.ghcr-check.outputs.exists != 'true'
         run: |
-          echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
           IMAGE=ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
-          if podman pull "$IMAGE" 2>/dev/null; then
-            echo "Image finst allereie i GHCR, hoppar over push"
-          else
-            podman tag localhost/python-pytest:latest "$IMAGE"
-            podman push "$IMAGE"
-          fi
+          podman tag localhost/python-pytest:latest "$IMAGE"
+          podman push "$IMAGE"
 
   generate-ap-no:
     needs: [build-linkml, build-python]

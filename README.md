@@ -6,7 +6,7 @@ Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](h
 * generatorer for å generere artifakter på andre formater fra LinkML skjema
 * dokumentasjonsportal med oversikt over alle LinkML skjemaer og genererte artifakter
 
-[koderepository](https://github.com/brreg/linkml-w3c-no-profiles)
+[Koderepository](https://github.com/brreg/linkml-w3c-no-profiles)
 
 ## Kom i gang
 
