@@ -290,6 +290,7 @@ jobs:
     needs: [generate-ap-no, generate-fair, generate-fint, generate-ngr, generate-oreg, generate-samt]
     runs-on: ubuntu-22.04
     permissions:
+      contents: read
       pages: write
       id-token: write
     environment:
