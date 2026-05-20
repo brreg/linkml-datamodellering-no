@@ -12,10 +12,17 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+      - name: Cache linkml-local image
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: linkml-local.tar.zst
+          key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
       - name: Bygg linkml-local image
-        run: make linkml-build-docker
-      - name: Lagre og komprimer image
-        run: podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          make linkml-build-docker
+          podman save localhost/linkml-local:latest | zstd -T0 > linkml-local.tar.zst
       - name: Last opp image-artefakt
         uses: actions/upload-artifact@v4
         with:
@@ -29,10 +36,17 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+      - name: Cache python-pytest image
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: python-pytest.tar.zst
+          key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
       - name: Bygg python-pytest image
-        run: make python-build-docker
-      - name: Lagre og komprimer image
-        run: podman save localhost/python-pytest:latest | zstd -T0 > python-pytest.tar.zst
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          make python-build-docker
+          podman save localhost/python-pytest:latest | zstd -T0 > python-pytest.tar.zst
       - name: Last opp image-artefakt
         uses: actions/upload-artifact@v4
         with:
@@ -312,8 +326,19 @@ jobs:
           path: generated/
           merge-multiple: true
 
+      - name: Cache mkdocs-local image
+        id: cache-mkdocs
+        uses: actions/cache@v4
+        with:
+          path: mkdocs-local.tar.zst
+          key: mkdocs-local-${{ hashFiles('mkdocs/Dockerfile.mkdocs') }}
       - name: Bygg mkdocs-local image
-        run: make docs-build-docker
+        if: steps.cache-mkdocs.outputs.cache-hit != 'true'
+        run: |
+          make docs-build-docker
+          podman save localhost/mkdocs-local:latest | zstd -T0 > mkdocs-local.tar.zst
+      - name: Last inn mkdocs-local image
+        run: podman load < <(zstd -d -c mkdocs-local.tar.zst)
 
       - name: Publiser og bygg dokumentasjonsportal
         run: |

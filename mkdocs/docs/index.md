@@ -13,6 +13,10 @@ Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](h
 **Føresetnadar:** [Podman](https://podman.io/) (rootless), WSL2 og GNU make.
 
 ```bash
+# 0. Sjekk at alt er på plass
+make check-prereqs
+```
+```bash
 # 1. Bygg container-images (éin gong)
 make linkml-build-docker && make python-build-docker && make mcp-val-build
 ```
@@ -31,7 +35,7 @@ make oreg && make publish && make docs-serve   # → http://localhost:8000
 
 Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk.
 
-For full rettleiing om modellering, validering og importar: [Ny domenemodell](ny-domenemodell.md).
+For full rettleiing om modellering, validering og importar: sjå [Ny domenemodell](https://brreg.github.io/linkml-w3c-no-profiles/ny-domenemodell/) i dokumentasjonsportalen.
 
 
 ## Skjema og struktur
@@ -66,16 +70,17 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`.
 Øvrig struktur:
 
 ```
-src/
-├── assets/                 # Containerar, skript og malar
-├── linkml/                 # LinkML skjemaer
-├── mcp-linkml-validator/   # MCP-server: policy-basert validering
-├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
-└── templates/              # Jinja2 templates for make gen-docs
-
-examples/    # Eksempeldata per domene
-tests/       # Testar og fixtures
-generated/   # Genererte artefaktar (ikkje innsjekka i git)
-mkdocs/      # Dokumentasjonsportal (MkDocs Material)
-tmp/         # Midlertidige filer. F.eks json-schema som skal brukes i mcp-linkml-generator kan legges her.
+linkml-w3c-no-profiles/
+├──src/
+│   ├── assets/                 # Containerar, skript og malar
+│   ├── linkml/                 # LinkML skjemaer
+│   ├── mcp-linkml-validator/   # MCP-server: policy-basert validering
+│   ├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
+│   └── templates/              # Jinja2 templates for make gen-docs
+│
+├──examples/    # Eksempeldata per domene
+├──tests/       # Testar og fixtures
+├──generated/   # Genererte artefaktar (ikkje innsjekka i git)
+├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)
+├──tmp/         # Midlertidige filer. F.eks json-schema som skal brukes i mcp-linkml-generator kan legges her.
 ```

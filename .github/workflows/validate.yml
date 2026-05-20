@@ -13,10 +13,17 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v4
+      - name: Cache mcp-linkml-validator image
+        id: cache
+        uses: actions/cache@v4
+        with:
+          path: mcp-linkml-validator.tar.zst
+          key: mcp-linkml-validator-${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
       - name: Bygg mcp-linkml-validator image
-        run: make mcp-val-build
-      - name: Lagre og komprimer image
-        run: podman save mcp-linkml-validator | zstd -T0 > mcp-linkml-validator.tar.zst
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: |
+          make mcp-val-build
+          podman save mcp-linkml-validator | zstd -T0 > mcp-linkml-validator.tar.zst
       - name: Last opp validator-artefakt
         uses: actions/upload-artifact@v4
         with:
