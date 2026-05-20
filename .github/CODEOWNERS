@@ -1,0 +1,14 @@
+# Standardeigar for alt i repoet
+* @AudunVindenesEggeBR
+
+# Domenemodeller
+/src/linkml/ap-no/ @AudunVindenesEggeBR
+/src/linkml/fair/  @AudunVindenesEggeBR
+/src/linkml/fint/  @AudunVindenesEggeBR
+/src/linkml/ngr/   @AudunVindenesEggeBR
+/src/linkml/oreg/  @AudunVindenesEggeBR
+/src/linkml/samt/  @AudunVindenesEggeBR
+
+# CI/CD og infrastruktur
+/.github/          @AudunVindenesEggeBR
+/Makefile          @AudunVindenesEggeBR
