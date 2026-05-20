@@ -30,10 +30,13 @@ jobs:
       - name: Push til GHCR
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
-          podman tag localhost/linkml-local:latest ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
-          podman push ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.sha }}
-          podman tag localhost/linkml-local:latest ghcr.io/${{ github.repository_owner }}/linkml-local:latest
-          podman push ghcr.io/${{ github.repository_owner }}/linkml-local:latest
+          IMAGE=ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+          if podman pull "$IMAGE" 2>/dev/null; then
+            echo "Image finst allereie i GHCR, hoppar over push"
+          else
+            podman tag localhost/linkml-local:latest "$IMAGE"
+            podman push "$IMAGE"
+          fi
 
   build-python:
     runs-on: ubuntu-22.04
@@ -59,10 +62,13 @@ jobs:
       - name: Push til GHCR
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
-          podman tag localhost/python-pytest:latest ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
-          podman push ghcr.io/${{ github.repository_owner }}/python-pytest:${{ github.sha }}
-          podman tag localhost/python-pytest:latest ghcr.io/${{ github.repository_owner }}/python-pytest:latest
-          podman push ghcr.io/${{ github.repository_owner }}/python-pytest:latest
+          IMAGE=ghcr.io/${{ github.repository_owner }}/python-pytest:${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
+          if podman pull "$IMAGE" 2>/dev/null; then
+            echo "Image finst allereie i GHCR, hoppar over push"
+          else
+            podman tag localhost/python-pytest:latest "$IMAGE"
+            podman push "$IMAGE"
+          fi
 
   generate-ap-no:
     needs: [build-linkml, build-python]
