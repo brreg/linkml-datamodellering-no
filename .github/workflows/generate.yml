@@ -9,6 +9,7 @@ jobs:
   build-linkml:
     runs-on: ubuntu-22.04
     permissions:
+      contents: read
       packages: write
     steps:
       - uses: actions/checkout@v4
@@ -29,6 +30,7 @@ jobs:
   build-python:
     runs-on: ubuntu-22.04
     permissions:
+      contents: read
       packages: write
     steps:
       - uses: actions/checkout@v4
