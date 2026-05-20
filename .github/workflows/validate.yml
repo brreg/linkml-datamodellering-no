@@ -14,11 +14,11 @@ jobs:
       - name: Bygg mcp-linkml-validator
         run: make mcp-val-build
       - name: Lagre image som artefakt
-        run: podman save mcp-linkml-validator | gzip > mcp-linkml-validator.tar.gz
+        run: podman save mcp-linkml-validator | zstd -T0 > mcp-linkml-validator.tar.zst
       - uses: actions/upload-artifact@v4
         with:
           name: mcp-linkml-validator-image
-          path: mcp-linkml-validator.tar.gz
+          path: mcp-linkml-validator.tar.zst
           retention-days: 1
 
   validate-ap-no:

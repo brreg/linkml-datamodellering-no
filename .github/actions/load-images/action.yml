@@ -15,5 +15,5 @@ runs:
     - name: Last inn images
       shell: bash
       run: |
-        podman load < <(gunzip -c linkml-local.tar.gz)
-        podman load < <(gunzip -c python-pytest.tar.gz)
+        podman load < <(zstd -d -c linkml-local.tar.zst)
+        podman load < <(zstd -d -c python-pytest.tar.zst)
