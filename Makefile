@@ -406,6 +406,7 @@ docs-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make docs-build$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@mkdir -p "$(CURDIR)/mkdocs/.cache"
 	$(DOCS_RUN) $(DOCS_IMAGE) build
 
 # Raskare bygg for iterativ utvikling: hoppar over sider utan endringar sidan sist bygg.
