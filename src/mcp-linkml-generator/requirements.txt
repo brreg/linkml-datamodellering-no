@@ -1,4 +1,4 @@
-linkml
-linkml-runtime
-pyyaml
-pytest
+linkml>=1.11.0,<2.0.0
+linkml-runtime>=1.11.0,<2.0.0
+pyyaml>=6.0
+pytest>=8.0

@@ -29,7 +29,8 @@
       "Bash(make linkml-gen-test-converter *)",
       "Bash(make new-model *)",
       "Bash(make publish *)",
-      "Bash(podman inspect *)"
+      "Bash(podman inspect *)",
+      "Bash(podman pull *)"
     ]
   },
   "enabledMcpjsonServers": [

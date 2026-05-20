@@ -2,35 +2,19 @@
   "mcpServers": {
     "linkml-generator": {
       "type": "stdio",
-      "command": "podman",
+      "command": "bash",
       "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/server.py:/app/server.py:ro",
-        "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/converter.py:/app/converter.py:ro",
-        "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/validator.py:/app/validator.py:ro",
-        "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-generator/profiles:/app/profiles:ro",
-        "mcp-linkml-generator"
+        "-c",
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-generator/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-generator/converter.py:/app/converter.py:ro\" -v \"$REPO/src/mcp-linkml-generator/validator.py:/app/validator.py:ro\" -v \"$REPO/src/mcp-linkml-generator/profiles:/app/profiles:ro\" mcp-linkml-generator"
       ],
       "env": {}
     },
     "linkml-validator": {
       "type": "stdio",
-      "command": "podman",
+      "command": "bash",
       "args": [
-        "run",
-        "-i",
-        "--rm",
-        "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-validator/server.py:/app/server.py:ro",
-        "-v",
-        "/mnt/c/dev/github/linkml-w3c-no-profiles/src/mcp-linkml-validator/policies:/app/policies:ro",
-        "mcp-linkml-validator"
+        "-c",
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-validator/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-validator/policies:/app/policies:ro\" mcp-linkml-validator"
       ],
       "env": {}
     }

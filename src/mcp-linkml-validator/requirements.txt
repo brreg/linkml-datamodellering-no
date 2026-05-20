@@ -1,3 +1,3 @@
-linkml
-linkml-runtime
-pyyaml
+linkml>=1.11.0,<2.0.0
+linkml-runtime>=1.11.0,<2.0.0
+pyyaml>=6.0

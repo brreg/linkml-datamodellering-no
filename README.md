@@ -69,16 +69,17 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`.
 Øvrig struktur:
 
 ```
-src/
-├── assets/                 # Containerar, skript og malar
-├── linkml/                 # LinkML skjemaer
-├── mcp-linkml-validator/   # MCP-server: policy-basert validering
-├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
-└── templates/              # Jinja2 templates for make gen-docs
-
-examples/    # Eksempeldata per domene
-tests/       # Testar og fixtures
-generated/   # Genererte artefaktar (ikkje innsjekka i git)
-mkdocs/      # Dokumentasjonsportal (MkDocs Material)
-tmp/         # Midlertidige filer. F.eks json-schema som skal brukes i mcp-linkml-generator kan legges her.
+linkml-w3c-no-profiles/
+├──src/
+│   ├── assets/                 # Containerar, skript og malar
+│   ├── linkml/                 # LinkML skjemaer
+│   ├── mcp-linkml-validator/   # MCP-server: policy-basert validering
+│   ├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
+│   └── templates/              # Jinja2 templates for make gen-docs
+│
+├──examples/    # Eksempeldata per domene
+├──tests/       # Testar og fixtures
+├──generated/   # Genererte artefaktar (ikkje innsjekka i git)
+├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)
+├──tmp/         # Midlertidige filer. F.eks json-schema som skal brukes i mcp-linkml-generator kan legges her.
 ```
