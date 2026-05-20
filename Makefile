@@ -161,7 +161,7 @@ python-build-docker:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make python-build-docker$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-    podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
+	podman build -f $(PYTHON_DOCKERFILE) -t $(PYTHON_IMAGE)
 
 
 
