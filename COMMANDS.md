@@ -2,6 +2,24 @@
 
 Alle kommandoar køyrer via containerar — ingen lokal Python-installasjon trengst.
 
+## Oppsett og føresetnadar
+
+| Kommando | Beskriving |
+|---|---|
+| `make check-prereqs` | Sjekk at Podman, GNU make, user namespace og diskplass er korrekt konfigurert |
+
+## Container-image-bygging
+
+Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
+
+| Kommando | Image | Bruk |
+|---|---|---|
+| `make linkml-build-docker` | `linkml-local` | Artefaktgenerering og validering |
+| `make docs-build-docker` | `mkdocs-local` | Dokumentasjonsportal |
+| `make python-build-docker` | `python-pytest` | Python-testar |
+| `make mcp-gen-build` | `mcp-linkml-generator` | LinkML-generator MCP-server |
+| `make mcp-val-build` | `mcp-linkml-validator` | Validator MCP-server |
+
 ## Ny modell
 
 | Kommando | Beskriving | Output |
@@ -95,21 +113,4 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 | `make mcp-val-test` | Køyr policy-testar |
 | `make mcp-val-run` | Start server interaktivt (stdin/stdout) |
 
-## Oppsett og føresetnadar
-
-| Kommando | Beskriving |
-|---|---|
-| `make check-prereqs` | Sjekk at Podman, GNU make, user namespace og diskplass er korrekt konfigurert |
-
-## Container-image-bygging
-
-Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
-
-| Kommando | Image | Bruk |
-|---|---|---|
-| `make linkml-build-docker` | `linkml-local` | Artefaktgenerering og validering |
-| `make docs-build-docker` | `mkdocs-local` | Dokumentasjonsportal |
-| `make python-build-docker` | `python-pytest` | Python-testar |
-| `make mcp-gen-build` | `mcp-linkml-generator` | LinkML-generator MCP-server |
-| `make mcp-val-build` | `mcp-linkml-validator` | Validator MCP-server |
 
