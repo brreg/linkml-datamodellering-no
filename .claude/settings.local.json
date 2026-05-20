@@ -28,7 +28,8 @@
       "Bash(make json2linkml-test-converter *)",
       "Bash(make linkml-gen-test-converter *)",
       "Bash(make new-model *)",
-      "Bash(make publish *)"
+      "Bash(make publish *)",
+      "Bash(podman inspect *)"
     ]
   },
   "enabledMcpjsonServers": [
