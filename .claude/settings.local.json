@@ -30,12 +30,13 @@
       "Bash(make new-model *)",
       "Bash(make publish *)",
       "Bash(podman inspect *)",
-      "Bash(podman pull *)"
+      "Bash(podman pull *)",
+      "Bash(make mcp-gen-smoke *)"
     ]
   },
+  "enableAllProjectMcpServers": true,
   "enabledMcpjsonServers": [
     "linkml-validator",
     "linkml-generator"
-  ],
-  "enableAllProjectMcpServers": true
+  ]
 }
