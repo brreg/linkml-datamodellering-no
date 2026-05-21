@@ -378,7 +378,7 @@ jobs:
           make docs-build
 
       - name: Konfigurer GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Last opp Pages-artefakt
         uses: actions/upload-pages-artifact@v3
