@@ -42,7 +42,7 @@ jobs:
           output: trivy-assets.sarif
 
       - name: Last opp resultater til GitHub Security
-        uses: github/codeql-action/upload-sarif@v3
+        uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
           sarif_file: .
