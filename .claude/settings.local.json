@@ -31,7 +31,10 @@
       "Bash(make publish *)",
       "Bash(podman inspect *)",
       "Bash(podman pull *)",
-      "Bash(make mcp-gen-smoke *)"
+      "Bash(make mcp-gen-smoke *)",
+      "Bash(make python-build-docker *)",
+      "Bash(make mcp-val-smoke *)",
+      "Bash(make linkml-build-docker *)"
     ]
   },
   "enableAllProjectMcpServers": true,

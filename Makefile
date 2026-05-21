@@ -373,7 +373,7 @@ domain-validate-examples:
 		fi; \
 		echo "--- $$schema ---"; \
 		result=$$(podman run --rm -v "$$PWD:/work" -w /work -e PYTHONWARNINGS=ignore \
-			docker.io/linkml/linkml:latest linkml validate --schema "$$schema" "$$example" 2>&1); \
+			$(LINKML_IMAGE) linkml validate --schema "$$schema" "$$example" 2>&1); \
 		echo "$$result"; \
 		if echo "$$result" | grep -q "\[ERROR\]"; then \
 			echo "$$result" | grep "\[ERROR\]" | while IFS= read -r line; do \

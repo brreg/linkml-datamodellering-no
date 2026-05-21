@@ -1,2 +1,20 @@
-FROM docker.io/linkml/linkml:1.11.0
-RUN pip install --no-cache-dir rdflib
+FROM python:3.11-slim AS builder
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends build-essential \
+    && rm -rf /var/lib/apt/lists/*
+
+RUN pip install --no-cache-dir --prefix=/install \
+    "linkml==1.11.1" \
+    rdflib
+
+
+FROM python:3.11-slim
+
+RUN apt-get update \
+    && apt-get install -y --no-install-recommends graphviz \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY --from=builder /install /usr/local
+
+WORKDIR /work
