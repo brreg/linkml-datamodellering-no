@@ -270,7 +270,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kategorisamanlikning
     domain_of:
     - Mediatype
@@ -293,7 +292,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:sourceConcept
-    alias: kjeldeomgrep
     owner: Kategorisamanlikning
     domain_of:
     - Kategorisamanlikning
@@ -306,7 +304,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:targetConcept
-    alias: maalomgrep
     owner: Kategorisamanlikning
     domain_of:
     - Kategorisamanlikning

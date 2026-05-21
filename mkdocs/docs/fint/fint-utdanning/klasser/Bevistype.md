@@ -10,8 +10,6 @@ _Type kompetansebevis._
 
 
 URI: [utd:bevistype](https://schema.fintlabs.no/utdanning/bevistype)
-Alias: bevistype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type kompetansebevis.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:bevistype
-alias: bevistype
 domain_of:
 - AvlagtProve
 range: Bevistype

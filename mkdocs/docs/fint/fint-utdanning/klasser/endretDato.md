@@ -10,8 +10,6 @@ _Dato og tidspunkt for endringa._
 
 
 URI: [utd:endretDato](https://schema.fintlabs.no/utdanning/endretDato)
-Alias: endretDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato og tidspunkt for endringa.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:endretDato
-alias: endretDato
 domain_of:
 - Karakterhistorie
 range: datetime

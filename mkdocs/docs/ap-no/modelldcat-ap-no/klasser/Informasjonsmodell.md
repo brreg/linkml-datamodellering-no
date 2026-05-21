@@ -1505,7 +1505,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Informasjonsmodell
     domain_of:
     - Mediatype
@@ -1534,7 +1533,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Informasjonsmodell
     domain_of:
     - Standard
@@ -1555,7 +1553,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:publisher
-    alias: utgiver
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1570,7 +1567,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1586,7 +1582,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1602,7 +1597,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Informasjonsmodell
     domain_of:
     - Aktor
@@ -1621,7 +1615,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:informationModelIdentifier
-    alias: informasjonsmodellidentifikator
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1634,7 +1627,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:containsModelElement
-    alias: inneholder_modellelement
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1648,7 +1640,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dcat:contactPoint
-    alias: kontaktpunkt
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1663,7 +1654,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:license
-    alias: lisens
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1677,7 +1667,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dcat:theme
-    alias: tema
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1691,7 +1680,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
-    alias: dekningsomraade
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1704,7 +1692,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1718,7 +1705,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:isPartOf
-    alias: er_del_av_modell
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1732,7 +1718,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: prof:isProfileOf
-    alias: er_profil_av
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1746,7 +1731,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:isReplacedBy
-    alias: er_erstatta_av
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1760,7 +1744,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:replaces
-    alias: erstatter
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1774,7 +1757,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:hasPart
-    alias: har_del_modell
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1788,7 +1770,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:hasFormat
-    alias: har_format
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1802,7 +1783,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:temporal
-    alias: tidsperiode
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1815,7 +1795,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
-    alias: heimeside
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1830,7 +1809,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:conformsTo
-    alias: er_i_samsvar_med
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1843,7 +1821,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
-    alias: status
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1855,7 +1832,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dcat:keyword
-    alias: nokkelord
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1869,7 +1845,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:creator
-    alias: skapar
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell
@@ -1881,7 +1856,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Informasjonsmodell
     domain_of:
     - Dokument
@@ -1896,7 +1870,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Informasjonsmodell
     domain_of:
     - Aktor
@@ -1910,7 +1883,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
-    alias: utgivelsesdato
     owner: Informasjonsmodell
     domain_of:
     - Modelkatalog
@@ -1923,7 +1895,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
-    alias: har_versjonsnummer
     owner: Informasjonsmodell
     domain_of:
     - Standard
@@ -1936,7 +1907,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:versionNotes
-    alias: versjonsmerknad
     owner: Informasjonsmodell
     domain_of:
     - Informasjonsmodell

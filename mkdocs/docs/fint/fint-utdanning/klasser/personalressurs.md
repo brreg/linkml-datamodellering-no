@@ -10,8 +10,6 @@ _Referanse til Personalressurs i Administrasjon-domenet._
 
 
 URI: [utd:personalressurs](https://schema.fintlabs.no/utdanning/personalressurs)
-Alias: personalressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Referanse til Personalressurs i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:personalressurs
-alias: personalressurs
 domain_of:
 - Person
 - Skoleressurs

@@ -222,7 +222,6 @@ attributes:
       bestemt identifikator.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:identifikatorverdi
-    alias: identifikatorverdi
     owner: Identifikator
     domain_of:
     - Identifikator
@@ -233,7 +232,6 @@ attributes:
     description: Periode ressursen er gyldig for.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
-    alias: gyldighetsperiode
     owner: Identifikator
     domain_of:
     - Begrep

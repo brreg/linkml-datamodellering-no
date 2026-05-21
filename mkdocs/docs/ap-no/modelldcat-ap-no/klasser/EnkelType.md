@@ -586,7 +586,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:typeDefinitionReference
-    alias: typedefinisjon_referanse
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -597,7 +596,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:fractionDigits
-    alias: fraksjonssifre
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -608,7 +606,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:length
-    alias: lengde
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -619,7 +616,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:maxExclusive
-    alias: maks_eksklusiv
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -630,7 +626,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:maxInclusive
-    alias: maks_inklusiv
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -641,7 +636,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:maxLength
-    alias: maks_lengde
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -652,7 +646,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:minExclusive
-    alias: min_eksklusiv
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -663,7 +656,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:minInclusive
-    alias: min_inklusiv
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -674,7 +666,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:minLength
-    alias: min_lengde
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -685,7 +676,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:pattern
-    alias: monster
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -696,7 +686,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xsd:totalDigits
-    alias: totalt_sifre
     owner: EnkelType
     domain_of:
     - EnkelType
@@ -706,7 +695,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: EnkelType
     domain_of:
     - Mediatype
@@ -735,7 +723,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: EnkelType
     domain_of:
     - Standard
@@ -756,7 +743,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: EnkelType
     domain_of:
     - Informasjonsmodell
@@ -772,7 +758,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: EnkelType
     domain_of:
     - Aktor
@@ -791,7 +776,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasProperty
-    alias: har_eigenskap
     owner: EnkelType
     domain_of:
     - Modellelement
@@ -804,7 +788,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: EnkelType
     domain_of:
     - Modelkatalog
@@ -821,7 +804,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:belongsToModule
-    alias: tilhorer_modul
     owner: EnkelType
     domain_of:
     - Modellelement

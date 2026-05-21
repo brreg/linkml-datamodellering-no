@@ -368,7 +368,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kvalitetsmaal
     domain_of:
     - Mediatype
@@ -403,7 +402,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     rank: 1000
     slot_uri: dqvno:inSubDimension
-    alias: er_i_kvalitetsdeldimensjon
     owner: Kvalitetsmaal
     domain_of:
     - Kvalitetsmaal
@@ -417,7 +415,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     rank: 1000
     slot_uri: dqv:expectedDataType
-    alias: har_forventet_datatype
     owner: Kvalitetsmaal
     domain_of:
     - Kvalitetsmaal
@@ -430,7 +427,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     rank: 1000
     slot_uri: skos:prefLabel
-    alias: har_anbefalt_term
     owner: Kvalitetsmaal
     domain_of:
     - Kvalitetsdimensjon
@@ -445,7 +441,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     rank: 1000
     slot_uri: skos:definition
-    alias: har_definisjon
     owner: Kvalitetsmaal
     domain_of:
     - Kvalitetsdimensjon

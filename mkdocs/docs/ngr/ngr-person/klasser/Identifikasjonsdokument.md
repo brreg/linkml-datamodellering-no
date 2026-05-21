@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/identifikasjonsdokument](https://data.norge.no/linkml/ngr-person/identifikasjonsdokument)
-Alias: identifikasjonsdokument
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: identifikasjonsdokument
 name: identifikasjonsdokument
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: identifikasjonsdokument
 owner: PersonContainer
 domain_of:
 - PersonContainer

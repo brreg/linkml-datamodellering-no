@@ -10,8 +10,6 @@ _Type opphald (MIDLERTIDIG, PERMANENT, OPPLYSNING_MANGLER)._
 
 
 URI: [ngrp:oppholdType](https://data.norge.no/vocabulary/ngr-person#oppholdType)
-Alias: oppholds_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type opphald (MIDLERTIDIG, PERMANENT, OPPLYSNING_MANGLER).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:oppholdType
-alias: oppholds_type
 domain_of:
 - Opphold
 range: OppholdstypeKode

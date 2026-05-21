@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av skole 
 
 
 URI: [samtbuskole:skoler](https://example.no/ontology/skole#skoler)
-Alias: skoler
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   skole i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: skoler
 domain_of:
 - Containerklasse
 range: Skole

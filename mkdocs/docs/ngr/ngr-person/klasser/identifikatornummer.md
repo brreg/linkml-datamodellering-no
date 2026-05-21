@@ -10,8 +10,6 @@ _Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer)
 
 
 URI: [ngrp:identifikatornummer](https://data.norge.no/vocabulary/ngr-person#identifikatornummer)
-Alias: identifikatornummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: identifikatornummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Folkeregisteridentifikator](folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |  no  |
 | [Personidentifikasjon](personidentifikasjon.md) | Utanlandsk eller alternativ identifikasjon av ein person, t |  yes  |
 | [Foedselsnummer](foedselsnummer.md) | Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast ... |  yes  |
-| [Folkeregisteridentifikator](folkeregisteridentifikator.md) | Abstrakt overklasse for unik identifikator i Folkeregisteret |  no  |
 | [DNummer](dnummer.md) | Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i N... |  yes  |
 
 
@@ -89,7 +87,6 @@ description: Sjølve identifikatoren som tekststreng (11 siffer for fødselsnumm
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:identifikatornummer
-alias: identifikatornummer
 domain_of:
 - Folkeregisteridentifikator
 - Personidentifikasjon

@@ -10,8 +10,6 @@ _Angir om deltakinga er delegert._
 
 
 URI: [utd:delegert](https://schema.fintlabs.no/utdanning/delegert)
-Alias: delegert
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om deltakinga er delegert.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:delegert
-alias: delegert
 domain_of:
 - Eksamensgruppemedlemskap
 range: boolean

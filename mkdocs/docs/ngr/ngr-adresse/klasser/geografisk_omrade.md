@@ -10,8 +10,6 @@ _Geografiske inndelingar (kommune, poststed, grunnkrets osv.) adressa ligg i._
 
 
 URI: [ngr:referererTilGeografiskOmrade](https://data.norge.no/vocabulary/ngr-adresse#referererTilGeografiskOmrade)
-Alias: geografisk_omrade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Geografiske inndelingar (kommune, poststed, grunnkrets osv.) adress
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:referererTilGeografiskOmrade
-alias: geografisk_omrade
 domain_of:
 - OffisiellAdresse
 range: GeografiskOmrade

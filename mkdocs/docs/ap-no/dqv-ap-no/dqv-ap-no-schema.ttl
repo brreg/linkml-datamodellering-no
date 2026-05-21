@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix pav: <http://purl.org/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -10,26 +11,26 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "DQV-AP-NO" ;
     pav:version "1.0" ;
-    sh:declare [ sh:namespace "https://data.norge.no/vocabulary/dqvno#"^^xsd:anyURI ;
-            sh:prefix "dqvno" ],
+    sh:declare [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
         [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
             sh:prefix "rdfs" ],
         [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
             sh:prefix "skos" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ],
-        [ sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI ;
-            sh:prefix "dqv" ],
-        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
+        [ sh:namespace "https://data.norge.no/vocabulary/dqvno#"^^xsd:anyURI ;
+            sh:prefix "dqvno" ],
         [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
             sh:prefix "rdf" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
         [ sh:namespace "http://www.w3.org/ns/oa#"^^xsd:anyURI ;
-            sh:prefix "oa" ] ;
+            sh:prefix "oa" ],
+        [ sh:namespace "http://www.w3.org/ns/dqv#"^^xsd:anyURI ;
+            sh:prefix "dqv" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ] ;
     linkml:classes <https://data.norge.no/linkml/dqv-ap-no/Aktor>,
         <https://data.norge.no/linkml/dqv-ap-no/Begrepssamling>,
         <https://data.norge.no/linkml/dqv-ap-no/Brukartilbakemelding>,
@@ -61,13 +62,13 @@
     linkml:default_prefix "https://data.norge.no/linkml/dqv-ap-no/" ;
     linkml:default_range <https://data.norge.no/linkml/dqv-ap-no/string> ;
     linkml:description "Norsk applikasjonsprofil av DQV (Data Quality Vocabulary), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dqv-ap-no/" ;
-    linkml:generation_date "2026-05-18T09:12:46"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:10"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/dqv-ap-no"^^xsd:anyURI ;
     linkml:imports "../common/common-ap-no-schema"^^xsd:anyURI,
         "../dcat-ap-no/dcat-ap-no-schema"^^xsd:anyURI,
         "../dqv-ap-no/dqv-ap-no-schema"^^xsd:anyURI,
         "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/linkml/dqv-ap-no/Aktor_navn_aktor>,
         <https://data.norge.no/linkml/dqv-ap-no/Datasett_begrep>,
         <https://data.norge.no/linkml/dqv-ap-no/Datasett_beskrivelse>,
@@ -3303,6 +3304,7 @@
     linkml:slot_uri "http://purl.org/dc/terms/language"^^xsd:anyURI .
 
 <https://data.norge.no/linkml/dqv-ap-no/Identifikator> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "adms:Identifier"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/ns/adms#Identifier"^^xsd:anyURI ;
@@ -3384,6 +3386,7 @@
     linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI .
 
 <https://data.norge.no/linkml/dqv-ap-no/Konsept> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "skos:Concept"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/2004/02/skos/core#Concept"^^xsd:anyURI ;
@@ -3415,6 +3418,7 @@
         <https://data.norge.no/linkml/dqv-ap-no/id> .
 
 <https://data.norge.no/linkml/dqv-ap-no/Tidsrom> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/67a58f0e-2e39-33dc-bca9-1ef29a001b2f"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dct:PeriodOfTime"^^xsd:anyURI ;
     linkml:class_uri "http://purl.org/dc/terms/PeriodOfTime"^^xsd:anyURI ;
@@ -3441,6 +3445,7 @@
         <https://data.norge.no/linkml/dqv-ap-no/id> .
 
 <https://data.norge.no/linkml/dqv-ap-no/Aktor> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "foaf:Agent"^^xsd:anyURI ;
     linkml:class_uri "http://xmlns.com/foaf/0.1/Agent"^^xsd:anyURI ;
@@ -3453,6 +3458,7 @@
         <https://data.norge.no/linkml/dqv-ap-no/type_concept> .
 
 <https://data.norge.no/linkml/dqv-ap-no/Kontaktopplysning> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "vcard:Kind"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/2006/vcard/ns#Kind"^^xsd:anyURI ;
@@ -3672,7 +3678,7 @@
         <https://data.norge.no/linkml/dqv-ap-no/utgivelsesdato> .
 
 <https://data.norge.no/linkml/dqv-ap-no/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

@@ -10,8 +10,6 @@ _Generelt notat om kodeelementet (skos:note)._
 
 
 URI: [skos:note](http://www.w3.org/2004/02/skos/core#note)
-Alias: notat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Generelt notat om kodeelementet (skos:note).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: skos:note
-alias: notat
 domain_of:
 - Kodeelement
 range: LangString

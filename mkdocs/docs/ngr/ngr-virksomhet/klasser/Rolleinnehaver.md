@@ -280,7 +280,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Rolleinnehaver
     domain_of:
     - Virksomhet
@@ -307,7 +306,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:kanVaereAvTypePerson
-    alias: kan_vaere_av_type_person
     owner: Rolleinnehaver
     domain_of:
     - Rolleinnehaver
@@ -320,7 +318,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:rolleinnehaverNavn
-    alias: rolleinnehaver_navn
     owner: Rolleinnehaver
     domain_of:
     - Rolleinnehaver

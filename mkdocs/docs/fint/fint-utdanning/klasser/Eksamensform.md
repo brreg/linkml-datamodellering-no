@@ -10,8 +10,6 @@ _Eksamensform._
 
 
 URI: [utd:eksamensform](https://schema.fintlabs.no/utdanning/eksamensform)
-Alias: eksamensform
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Eksamensform.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:eksamensform
-alias: eksamensform
 domain_of:
 - Elevtilrettelegging
 - Eksamensgruppe

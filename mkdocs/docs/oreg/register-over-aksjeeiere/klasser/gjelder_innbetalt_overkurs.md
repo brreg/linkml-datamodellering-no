@@ -10,8 +10,6 @@ _Innbetalt overkurs._
 
 
 URI: [aksje:gjelder_innbetalt_overkurs](https://example.no/ontology/aksje#gjelder_innbetalt_overkurs)
-Alias: gjelder_innbetalt_overkurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Innbetalt overkurs.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Aksjeinnskudd
-alias: gjelder_innbetalt_overkurs
 domain_of:
 - Aksjeinnskudd
 range: decimal

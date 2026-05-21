@@ -164,7 +164,6 @@ attributes:
     description: Monetært beløp.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: belop
     owner: InnbetaltAksjekapital
     domain_of:
     - Utdeling

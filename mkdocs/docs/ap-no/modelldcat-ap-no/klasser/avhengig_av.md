@@ -10,8 +10,6 @@ _Modellelement dette elementet avheng av (modelldcatno:dependentOn)._
 
 
 URI: [modelldcatno:dependentOn](https://data.norge.no/vocabulary/modelldcatno#dependentOn)
-Alias: avhengig_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Modellelement dette elementet avheng av (modelldcatno:dependentOn).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:dependentOn
-alias: avhengig_av
 domain_of:
 - Avhengighet
 range: Modellelement

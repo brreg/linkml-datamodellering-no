@@ -10,8 +10,6 @@ _Fylke._
 
 
 URI: [fint:fylke](https://schema.fintlabs.no/fylke)
-Alias: fylke
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: fylke
 description: Fylke.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fylke
-alias: fylke
 domain_of:
 - Kommune
 range: Fylke

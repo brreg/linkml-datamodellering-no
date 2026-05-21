@@ -10,8 +10,6 @@ _Poststedet (postnummer) denne adressa høyrer til._
 
 
 URI: [ngr:referererTilPoststed](https://data.norge.no/vocabulary/ngr-adresse#referererTilPoststed)
-Alias: poststed_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Poststedet (postnummer) denne adressa høyrer til.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:referererTilPoststed
-alias: poststed_ref
 domain_of:
 - Postboksadresse
 range: Poststed

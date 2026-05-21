@@ -10,8 +10,6 @@ _Namn på mengdeeininga varen leverast i._
 
 
 URI: [okn:enhet](https://schema.fintlabs.no/okonomi/enhet)
-Alias: enhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på mengdeeininga varen leverast i.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:enhet
-alias: enhet
 domain_of:
 - Vare
 range: string

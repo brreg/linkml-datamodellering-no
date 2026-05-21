@@ -10,8 +10,6 @@ _Administrative einingar autorisasjonen er gyldig for._
 
 
 URI: [ark:administrativenhet](https://schema.fintlabs.no/arkiv/administrativenhet)
-Alias: administrativenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Administrative einingar autorisasjonen er gyldig for.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:administrativenhet
-alias: administrativenhet
 domain_of:
 - Autorisasjon
 range: AdministrativEnhet

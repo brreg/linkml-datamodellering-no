@@ -10,8 +10,6 @@ _Rettigheitshavar(ar) for andelen._
 
 
 URI: [ngre:harRettighetshaver](https://data.norge.no/vocabulary/ngr-eiendom#harRettighetshaver)
-Alias: har_rettighetshaver
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Rettigheitshavar(ar) for andelen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harRettighetshaver
-alias: har_rettighetshaver
 domain_of:
 - Andel
 range: Rettighetshaver

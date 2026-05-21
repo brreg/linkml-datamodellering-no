@@ -210,7 +210,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:grunnkretsnummer
-    alias: grunnkretsnummer
     owner: Grunnkrets
     domain_of:
     - Grunnkrets
@@ -221,7 +220,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: Grunnkrets
     domain_of:
     - GeografiskAdresse
@@ -243,7 +241,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:namn
-    alias: namn
     owner: Grunnkrets
     domain_of:
     - Adresseomrade

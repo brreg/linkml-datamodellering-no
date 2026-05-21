@@ -10,8 +10,6 @@ _Alle elevar i containeren._
 
 
 URI: [utd:elevar](https://schema.fintlabs.no/utdanning/elevar)
-Alias: elevar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle elevar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:elevar
-alias: elevar
 domain_of:
 - UtdanningContainer
 range: Elev

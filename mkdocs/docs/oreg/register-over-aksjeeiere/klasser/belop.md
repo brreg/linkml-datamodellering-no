@@ -10,8 +10,6 @@ _Monetært beløp._
 
 
 URI: [aksje:belop](https://example.no/ontology/aksje#belop)
-Alias: belop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [InnbetaltOverkurs](innbetaltoverkurs.md) | Innbetalt overkurs utover pålydande |  no  |
-| [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
 | [Utdeling](utdeling.md) | Konkret utdeling av verdiar til aksjeeigarar |  no  |
+| [Vederlag](vederlag.md) | Vederlag knytt til ei aksjeoverdraging |  no  |
 | [InnbetaltAksjekapital](innbetaltaksjekapital.md) | Innbetalt aksjekapital |  no  |
+| [InnbetaltOverkurs](innbetaltoverkurs.md) | Innbetalt overkurs utover pålydande |  no  |
 
 
 
@@ -87,7 +85,6 @@ name: belop
 description: Monetært beløp.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: belop
 domain_of:
 - Utdeling
 - Vederlag

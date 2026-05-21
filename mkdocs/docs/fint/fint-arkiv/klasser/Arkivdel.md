@@ -10,8 +10,6 @@ _Arkivdel arkivenheten tilhøyrer._
 
 
 URI: [ark:arkivdel](https://schema.fintlabs.no/arkiv/arkivdel)
-Alias: arkivdel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,18 +20,18 @@ Alias: arkivdel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
-| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  yes  |
-| [Tilgang](tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  yes  |
-| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
-| [Klassifikasjonssystem](klassifikasjonssystem.md) | Overordna struktur for mappene i ein eller fleire arkivdelar |  yes  |
-| [Sak](sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
 | [Mappe](mappe.md) | Abstrakt basisklasse for alle mappetypar |  yes  |
-| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
-| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
+| [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  yes  |
+| [Klassifikasjonssystem](klassifikasjonssystem.md) | Overordna struktur for mappene i ein eller fleire arkivdelar |  yes  |
+| [Tilgang](tilgang.md) | Styring av kven som har tilgang til kva opplysningar |  yes  |
 | [Saksmappe](saksmappe.md) | Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark |  no  |
 | [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
+| [Sak](sak.md) | Generisk saksmappe (konkret Sak i Noark) |  no  |
+| [Personalmappe](personalmappe.md) | Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold |  no  |
+| [DispensasjonAutomatiskFredaKulturminne](dispensasjonautomatiskfredakulturminne.md) | Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne |  no  |
+| [TilskuddFartoy](tilskuddfartoy.md) | Sak om søknad om tilskudd til freda fartøy |  no  |
 | [TilskuddFredaBygningPrivatEie](tilskuddfredabygningprivateie.md) | Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP) |  no  |
+| [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  no  |
 
 
 
@@ -97,7 +95,6 @@ description: Arkivdel arkivenheten tilhøyrer.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:arkivdel
-alias: arkivdel
 domain_of:
 - Mappe
 - Registrering

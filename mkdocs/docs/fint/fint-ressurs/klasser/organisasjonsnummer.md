@@ -10,8 +10,6 @@ _Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret._
 
 
 URI: [fint:organisasjonsnummer](https://schema.fintlabs.no/organisasjonsnummer)
-Alias: organisasjonsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: organisasjonsnummer
 description: Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:organisasjonsnummer
-alias: organisasjonsnummer
 domain_of:
 - Enhet
 range: Identifikator

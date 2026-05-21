@@ -10,8 +10,6 @@ _Utferdigde fakturaer for fakturagrunnlaget._
 
 
 URI: [okn:faktura](https://schema.fintlabs.no/okonomi/faktura)
-Alias: faktura
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Utferdigde fakturaer for fakturagrunnlaget.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:faktura
-alias: faktura
 domain_of:
 - Fakturagrunnlag
 range: Faktura

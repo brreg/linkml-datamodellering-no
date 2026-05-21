@@ -709,7 +709,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:personnavn
-    alias: personnavn
     owner: Personalmappe
     domain_of:
     - Personalmappe
@@ -723,7 +722,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:person
-    alias: person
     owner: Personalmappe
     domain_of:
     - Elev
@@ -738,7 +736,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:leder
-    alias: leder
     owner: Personalmappe
     domain_of:
     - Personalmappe
@@ -752,7 +749,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arbeidssted
-    alias: arbeidssted
     owner: Personalmappe
     domain_of:
     - Personalmappe
@@ -766,7 +762,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:personalressurs
-    alias: personalressurs
     owner: Personalmappe
     domain_of:
     - Person
@@ -782,7 +777,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalpost
-    alias: journalpost
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -796,7 +790,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksaar
-    alias: saksaar
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -809,7 +802,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksdato
-    alias: saksdato
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -822,7 +814,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:sakssekvensnummer
-    alias: sakssekvensnummer
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -835,7 +826,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:utlaantDato
-    alias: utlaantDato
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -848,7 +838,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksmappetype
-    alias: saksmappetype
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -861,7 +850,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksstatus
-    alias: saksstatus
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -875,7 +863,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangsgruppe
-    alias: tilgangsgruppe
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -889,7 +876,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalenhet
-    alias: journalenhet
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -903,7 +889,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:administrativEnhet
-    alias: administrativEnhet
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -919,7 +904,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksansvarlig
-    alias: saksansvarlig
     owner: Personalmappe
     domain_of:
     - Saksmappe
@@ -930,7 +914,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Personalmappe
     domain_of:
     - Begrep
@@ -976,7 +959,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetDato
-    alias: avsluttetDato
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -989,7 +971,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: Personalmappe
     domain_of:
     - Periode
@@ -1006,7 +987,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:klasse
-    alias: klasse
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1014,6 +994,7 @@ attributes:
     - Klassifikasjonssystem
     range: Klasse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   mappeId:
     name: mappeId
@@ -1023,7 +1004,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:mappeId
-    alias: mappeId
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1037,7 +1017,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:merknad
-    alias: merknad
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1054,7 +1033,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:noekkelord
-    alias: noekkelord
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1068,7 +1046,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:offentligTittel
-    alias: offentligTittel
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1082,7 +1059,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetDato
-    alias: opprettetDato
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1098,7 +1074,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:part
-    alias: part
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1116,7 +1091,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:skjerming
-    alias: skjerming
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1134,7 +1108,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tittel
-    alias: tittel
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1153,7 +1126,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivdel
-    alias: arkivdel
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1169,7 +1141,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetAv
-    alias: avsluttetAv
     owner: Personalmappe
     domain_of:
     - Mappe
@@ -1182,7 +1153,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetAv
-    alias: opprettetAv
     owner: Personalmappe
     domain_of:
     - Mappe

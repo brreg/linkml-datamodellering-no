@@ -10,8 +10,6 @@ _Vederlag for aksjeoverdraging._
 
 
 URI: [aksje:kan_ha_vederlag](https://example.no/ontology/aksje#kan_ha_vederlag)
-Alias: kan_ha_vederlag
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Vederlag for aksjeoverdraging.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Aksjeoverdragelse
-alias: kan_ha_vederlag
 domain_of:
 - Aksjeoverdragelse
 range: Vederlag

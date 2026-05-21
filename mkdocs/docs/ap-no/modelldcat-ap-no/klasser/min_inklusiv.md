@@ -10,8 +10,6 @@ _Inklusiv minimumsverdi (xsd:minInclusive)._
 
 
 URI: [xsd:minInclusive](http://www.w3.org/2001/XMLSchema#minInclusive)
-Alias: min_inklusiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Inklusiv minimumsverdi (xsd:minInclusive).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:minInclusive
-alias: min_inklusiv
 domain_of:
 - EnkelType
 range: string

@@ -10,8 +10,6 @@ _Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år._
 
 
 URI: [samtbuskole:trinniva](https://example.no/ontology/skole#trinniva)
-Alias: trinniva
-
 <!-- no inheritance hierarchy -->
 
 
@@ -84,7 +82,6 @@ name: trinniva
 description: Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: trinniva
 domain_of:
 - Basisgruppe
 range: string

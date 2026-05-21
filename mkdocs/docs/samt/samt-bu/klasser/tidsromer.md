@@ -10,8 +10,6 @@ _Tidsrom for kvalitetsmerknad._
 
 
 URI: [samtbuskole:tidsromer](https://example.no/ontology/skole#tidsromer)
-Alias: tidsromer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: tidsromer
 description: Tidsrom for kvalitetsmerknad.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: tidsromer
 domain_of:
 - Containerklasse
 range: Tidsrom

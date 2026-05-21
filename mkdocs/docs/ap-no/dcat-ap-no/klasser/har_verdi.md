@@ -10,8 +10,6 @@ _Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Literal
 
 
 URI: [dqv:value](http://www.w3.org/ns/dqv#value)
-Alias: har_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller 
   avhengig av kvalitetsmålet).
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqv:value
-alias: har_verdi
 domain_of:
 - Kvalitetsmaaling
 range: string

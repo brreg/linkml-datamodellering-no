@@ -10,8 +10,6 @@ _Forkorta versjon av fullt namn._
 
 
 URI: [ngrp:forkortetNavn](https://data.norge.no/vocabulary/ngr-person#forkortetNavn)
-Alias: forkortet_navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Forkorta versjon av fullt namn.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:forkortetNavn
-alias: forkortet_navn
 domain_of:
 - Personnavn
 range: string

@@ -226,7 +226,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Aksje
     domain_of:
     - Containerklasse
@@ -253,7 +252,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Aksje
-    alias: har_palydende_belop
     owner: Aksje
     domain_of:
     - Aksje
@@ -265,7 +263,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Aksje
-    alias: tilhorer_aksjeklasse
     owner: Aksje
     domain_of:
     - Aksje

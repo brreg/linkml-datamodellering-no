@@ -10,8 +10,6 @@ _Fastlønn for arbeidsforholdet._
 
 
 URI: [adm:fastlonn](https://schema.fintlabs.no/administrasjon/fastlonn)
-Alias: fastlonn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: fastlonn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 | [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Fastlønn for arbeidsforholdet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fastlonn
-alias: fastlonn
 domain_of:
 - AdministrasjonContainer
 - Arbeidsforhold

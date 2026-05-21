@@ -10,8 +10,6 @@ _Etasjar i bygningen._
 
 
 URI: [ngre:harEtasje](https://data.norge.no/vocabulary/ngr-eiendom#harEtasje)
-Alias: har_etasje
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Etasjar i bygningen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harEtasje
-alias: har_etasje
 domain_of:
 - Bygning
 range: Etasje

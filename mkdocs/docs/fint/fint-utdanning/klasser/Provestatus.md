@@ -10,8 +10,6 @@ _Status for prøva._
 
 
 URI: [utd:provestatus](https://schema.fintlabs.no/utdanning/provestatus)
-Alias: provestatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status for prøva.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:provestatus
-alias: provestatus
 domain_of:
 - AvlagtProve
 range: Provestatus

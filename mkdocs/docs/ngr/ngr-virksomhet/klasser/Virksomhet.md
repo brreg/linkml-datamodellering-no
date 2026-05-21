@@ -619,7 +619,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -646,7 +645,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:organisasjonsnummer
-    alias: organisasjonsnummer
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -660,7 +658,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:navn
-    alias: navn
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -674,7 +671,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harTilstand
-    alias: har_tilstand
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -688,7 +684,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:mottarPostPaa
-    alias: mottar_post_paa
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -701,7 +696,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erKlassifisertSomOrganisasjonsform
-    alias: er_klassifisert_som_organisasjonsform
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -715,7 +709,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harKontaktinformasjon
-    alias: har_kontaktinformasjon
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -728,7 +721,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harVarslingsadresse
-    alias: har_varslingsadresse
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -742,7 +734,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erKlassifisertINaeringskode
-    alias: er_klassifisert_i_naeringskode
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -758,7 +749,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:antallAnsatte
-    alias: antall_ansatte
     owner: Virksomhet
     domain_of:
     - Virksomhet

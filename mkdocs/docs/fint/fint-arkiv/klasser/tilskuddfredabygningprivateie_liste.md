@@ -5,8 +5,6 @@
 
 
 URI: [ark:tilskuddFredaBygningPrivatEie](https://schema.fintlabs.no/arkiv/tilskuddFredaBygningPrivatEie)
-Alias: tilskuddFredaBygningPrivatEie_liste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: tilskuddFredaBygningPrivatEie_liste
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilskuddFredaBygningPrivatEie
-alias: tilskuddFredaBygningPrivatEie_liste
 domain_of:
 - ArkivContainer
 range: TilskuddFredaBygningPrivatEie

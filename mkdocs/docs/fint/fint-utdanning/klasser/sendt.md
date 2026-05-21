@@ -10,8 +10,6 @@ _Dato varselet vart sendt._
 
 
 URI: [utd:sendt](https://schema.fintlabs.no/utdanning/sendt)
-Alias: sendt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato varselet vart sendt.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:sendt
-alias: sendt
 domain_of:
 - Varsel
 range: date

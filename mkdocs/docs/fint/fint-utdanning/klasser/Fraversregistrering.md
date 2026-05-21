@@ -10,8 +10,6 @@ _Fråversregistreringar._
 
 
 URI: [utd:fraversregistrering](https://schema.fintlabs.no/utdanning/fraversregistrering)
-Alias: fraversregistrering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Fråversregistreringar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fraversregistrering
-alias: fraversregistrering
 domain_of:
 - UtdanningContainer
 - Elevfravar

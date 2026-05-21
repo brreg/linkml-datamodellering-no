@@ -10,8 +10,6 @@ _Type vergemål (mindreårig, vaksen o.l.)._
 
 
 URI: [ngrp:vergetype](https://data.norge.no/vocabulary/ngr-person#vergetype)
-Alias: vergetype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type vergemål (mindreårig, vaksen o.l.).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:vergetype
-alias: vergetype
 domain_of:
 - Verge
 range: VergetypeKode

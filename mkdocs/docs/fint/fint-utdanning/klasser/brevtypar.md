@@ -10,8 +10,6 @@ _Alle brevtypar i containeren._
 
 
 URI: [utd:brevtypar](https://schema.fintlabs.no/utdanning/brevtypar)
-Alias: brevtypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle brevtypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:brevtypar
-alias: brevtypar
 domain_of:
 - UtdanningContainer
 range: Brevtype

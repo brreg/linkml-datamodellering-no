@@ -10,8 +10,6 @@ _Underordna klassifikasjonsnivå (xkos:nextLevel)._
 
 
 URI: [xkos:nextLevel](http://rdf-vocabulary.ddialliance.org/xkos#nextLevel)
-Alias: underordna_klassifikasjonsnivaa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Underordna klassifikasjonsnivå (xkos:nextLevel).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:nextLevel
-alias: underordna_klassifikasjonsnivaa
 domain_of:
 - Klassifikasjonsnivaa
 range: Klassifikasjonsnivaa

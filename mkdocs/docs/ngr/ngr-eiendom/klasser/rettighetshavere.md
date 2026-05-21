@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/rettighetshavere](https://data.norge.no/linkml/ngr-eiendom/rettighetshavere)
-Alias: rettighetshavere
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: rettighetshavere
 name: rettighetshavere
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: rettighetshavere
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

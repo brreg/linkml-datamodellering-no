@@ -10,8 +10,6 @@ _Omgrep som erstattar dette omgrepet (dct:isReplacedBy)._
 
 
 URI: [dct:isReplacedBy](http://purl.org/dc/terms/isReplacedBy)
-Alias: er_erstatta_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep som erstattar dette omgrepet (dct:isReplacedBy).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:isReplacedBy
-alias: er_erstatta_av
 domain_of:
 - Begrep
 range: Begrep

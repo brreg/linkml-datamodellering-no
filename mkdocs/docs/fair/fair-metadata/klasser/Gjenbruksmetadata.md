@@ -10,8 +10,6 @@ _Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3)._
 
 
 URI: [fair:gjenbruksmetadata](https://data.norge.no/fair#gjenbruksmetadata)
-Alias: gjenbruksmetadata
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:gjenbruksmetadata
-alias: gjenbruksmetadata
 domain_of:
 - FAIRMetadata
 range: Gjenbruksmetadata

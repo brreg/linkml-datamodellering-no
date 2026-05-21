@@ -10,8 +10,6 @@ _Arkivressursar._
 
 
 URI: [ark:arkivressurs](https://schema.fintlabs.no/arkiv/arkivressurs)
-Alias: arkivressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Arkivressursar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:arkivressurs
-alias: arkivressurs
 domain_of:
 - Autorisasjon
 - Tilgang

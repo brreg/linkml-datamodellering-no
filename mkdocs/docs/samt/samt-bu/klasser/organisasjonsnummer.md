@@ -10,8 +10,6 @@ _Organisasjonsnummer er i Norge et ni-sifret registreringsnummer som tildeles av
 
 
 URI: [dct:identifier](http://purl.org/dc/terms/identifier)
-Alias: organisasjonsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ exact_mappings:
 - adms:identifier
 rank: 1000
 slot_uri: dct:identifier
-alias: organisasjonsnummer
 domain_of:
 - PrivatVirksomhet
 range: string

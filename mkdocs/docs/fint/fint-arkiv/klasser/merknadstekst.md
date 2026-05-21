@@ -10,8 +10,6 @@ _Merknad frå saksbehandlar, leiar eller arkivpersonale._
 
 
 URI: [ark:merknadstekst](https://schema.fintlabs.no/arkiv/merknadstekst)
-Alias: merknadstekst
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Merknad frå saksbehandlar, leiar eller arkivpersonale.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:merknadstekst
-alias: merknadstekst
 domain_of:
 - Merknad
 range: string

@@ -10,8 +10,6 @@ _Fritekstnotat om kategorien (skos:note)._
 
 
 URI: [skos:note](http://www.w3.org/2004/02/skos/core#note)
-Alias: har_notat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Fritekstnotat om kategorien (skos:note).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: skos:note
-alias: har_notat
 domain_of:
 - Kategori
 range: LangString

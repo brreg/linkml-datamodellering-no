@@ -233,7 +233,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: locn:postCode
-    alias: postnummer
     owner: Poststed
     domain_of:
     - Poststed
@@ -245,7 +244,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: Poststed
     domain_of:
     - GeografiskAdresse
@@ -267,7 +265,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:namn
-    alias: namn
     owner: Poststed
     domain_of:
     - Adresseomrade

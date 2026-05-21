@@ -10,8 +10,6 @@ _Typen resultat tenesta kan produsere._
 
 
 URI: [cpsvno:hasOutputType](https://data.norge.no/vocabulary/cpsvno#hasOutputType)
-Alias: har_tenesteresultattype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_tenesteresultattype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Typen resultat tenesta kan produsere.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:hasOutputType
-alias: har_tenesteresultattype
 domain_of:
 - OffentligTjeneste
 - Tjeneste

@@ -10,8 +10,6 @@ _Personalleiar til arbeidsforholdet._
 
 
 URI: [adm:personalleder](https://schema.fintlabs.no/administrasjon/personalleder)
-Alias: personalleder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Personalleiar til arbeidsforholdet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:personalleder
-alias: personalleder
 domain_of:
 - Arbeidsforhold
 range: Personalressurs

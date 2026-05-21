@@ -10,8 +10,6 @@ _Startdato for tidsromet (dct:startDate)._
 
 
 URI: [dct:startDate](http://purl.org/dc/terms/startDate)
-Alias: tidsrom_start
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Startdato for tidsromet (dct:startDate).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: dct:startDate
-alias: tidsrom_start
 domain_of:
 - Tidsrom
 range: date

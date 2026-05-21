@@ -10,8 +10,6 @@ _Definisjon av dimensjonen eller målet._
 
 
 URI: [skos:definition](http://www.w3.org/2004/02/skos/core#definition)
-Alias: har_definisjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_definisjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 | [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |  yes  |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
 
 
@@ -88,7 +86,6 @@ name: har_definisjon
 description: Definisjon av dimensjonen eller målet.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: skos:definition
-alias: har_definisjon
 domain_of:
 - Kvalitetsdimensjon
 - Kvalitetsmaal

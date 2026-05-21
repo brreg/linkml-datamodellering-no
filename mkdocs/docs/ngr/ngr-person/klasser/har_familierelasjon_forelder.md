@@ -10,8 +10,6 @@ _Familierelasjonar der den relaterte personen er forelder (maks 2)._
 
 
 URI: [ngrp:harFamilierelasjonForelder](https://data.norge.no/vocabulary/ngr-person#harFamilierelasjonForelder)
-Alias: har_familierelasjon_forelder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Familierelasjonar der den relaterte personen er forelder (maks 2).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harFamilierelasjonForelder
-alias: har_familierelasjon_forelder
 domain_of:
 - Person
 range: FamilierelasjonForelder

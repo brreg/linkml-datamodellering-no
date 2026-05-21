@@ -10,8 +10,6 @@ _Verdien for varslingskanalen (e-postadresse eller mobilnummer)._
 
 
 URI: [ngrv:varslingsverdi](https://data.norge.no/vocabulary/ngr-virksomhet#varslingsverdi)
-Alias: varslingsverdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Verdien for varslingskanalen (e-postadresse eller mobilnummer).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:varslingsverdi
-alias: varslingsverdi
 domain_of:
 - Varslingsadresse
 range: string

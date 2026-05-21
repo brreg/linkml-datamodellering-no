@@ -604,7 +604,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Dokumentasjonstype
     domain_of:
     - Mediatype
@@ -634,7 +633,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Dokumentasjonstype
     domain_of:
     - OffentligTjeneste
@@ -657,7 +655,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Dokumentasjonstype
     domain_of:
     - OffentligTjeneste
@@ -680,7 +677,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Dokumentasjonstype
     domain_of:
     - OffentligTjeneste
@@ -704,7 +700,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:acceptableValidityDuration
-    alias: gyldig_i
     owner: Dokumentasjonstype
     domain_of:
     - Dokumentasjonstype
@@ -717,7 +712,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:acceptableLanguage
-    alias: godtek_spraak
     owner: Dokumentasjonstype
     domain_of:
     - Dokumentasjonstype
@@ -731,7 +725,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:evidenceTypeClassification
-    alias: klassifisering
     owner: Dokumentasjonstype
     domain_of:
     - Dokumentasjonstype
@@ -744,7 +737,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
-    alias: er_beskrive_av
     owner: Dokumentasjonstype
     domain_of:
     - OffentligTjeneste
@@ -762,7 +754,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isSpecifiedIn
-    alias: er_spesifisert_i
     owner: Dokumentasjonstype
     domain_of:
     - Dokumentasjonstype
@@ -776,7 +767,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:acceptableIssuingPlace
-    alias: utstedingsstad
     owner: Dokumentasjonstype
     domain_of:
     - Dokumentasjonstype

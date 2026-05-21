@@ -10,8 +10,6 @@ _Betalingsstatus._
 
 
 URI: [utd:betalingsstatus](https://schema.fintlabs.no/utdanning/betalingsstatus)
-Alias: betalingsstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: betalingsstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Eksamensgruppemedlemskap](eksamensgruppemedlemskap.md) | Eit elevs deltaking i ei eksamensgruppe |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Betalingsstatus.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:betalingsstatus
-alias: betalingsstatus
 domain_of:
 - UtdanningContainer
 - Eksamensgruppemedlemskap

@@ -10,8 +10,6 @@ _Dato bilaget er registrert._
 
 
 URI: [okn:bilagsdato](https://schema.fintlabs.no/okonomi/bilagsdato)
-Alias: bilagsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato bilaget er registrert.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:bilagsdato
-alias: bilagsdato
 domain_of:
 - Bilag
 range: date

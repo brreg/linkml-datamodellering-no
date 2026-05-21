@@ -10,8 +10,6 @@ _Sjekksumverdi som heksadesimal streng._
 
 
 URI: [spdx:checksumValue](http://spdx.org/rdf/terms#checksumValue)
-Alias: sjekksumverdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: sjekksumverdi
 description: Sjekksumverdi som heksadesimal streng.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: spdx:checksumValue
-alias: sjekksumverdi
 domain_of:
 - Sjekksum
 range: string

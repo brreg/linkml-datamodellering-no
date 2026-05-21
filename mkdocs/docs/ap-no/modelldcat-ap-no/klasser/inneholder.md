@@ -10,8 +10,6 @@ _Modellelement som er del av samansetjinga (modelldcatno:contains)._
 
 
 URI: [modelldcatno:contains](https://data.norge.no/vocabulary/modelldcatno#contains)
-Alias: inneholder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Modellelement som er del av samansetjinga (modelldcatno:contains).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:contains
-alias: inneholder
 domain_of:
 - Sammensetning
 range: Modellelement

@@ -10,8 +10,6 @@ _Full adresse som fritekst._
 
 
 URI: [locn:fullAddress](http://www.w3.org/ns/locn#fullAddress)
-Alias: full_adresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Full adresse som fritekst.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: locn:fullAddress
-alias: full_adresse
 domain_of:
 - Adresse
 range: string

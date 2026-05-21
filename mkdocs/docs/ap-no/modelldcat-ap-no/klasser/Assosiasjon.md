@@ -355,7 +355,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:refersTo
-    alias: refererer_til
     owner: Assosiasjon
     domain_of:
     - Assosiasjon
@@ -365,7 +364,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Assosiasjon
     domain_of:
     - Mediatype
@@ -395,7 +393,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: Assosiasjon
     domain_of:
     - Informasjonsmodell
@@ -411,7 +408,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Assosiasjon
     domain_of:
     - Aktor
@@ -430,7 +426,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:navigable
-    alias: navigerbar
     owner: Assosiasjon
     domain_of:
     - Eigenskap
@@ -443,7 +438,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:minOccurs
-    alias: min_multiplisitet
     owner: Assosiasjon
     domain_of:
     - Eigenskap
@@ -455,7 +449,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Assosiasjon
     domain_of:
     - Standard
@@ -475,7 +468,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:maxOccurs
-    alias: maks_multiplisitet
     owner: Assosiasjon
     domain_of:
     - Eigenskap
@@ -487,7 +479,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Assosiasjon
     domain_of:
     - Modelkatalog
@@ -504,7 +495,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasType
-    alias: har_type
     owner: Assosiasjon
     domain_of:
     - Eigenskap
@@ -518,7 +508,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:relationPropertyLabel
-    alias: relasjonsegenskapetikett
     owner: Assosiasjon
     domain_of:
     - Eigenskap
@@ -532,7 +521,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:sequenceNumber
-    alias: sekvensnummer
     owner: Assosiasjon
     domain_of:
     - Eigenskap
@@ -545,7 +533,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:belongsToModule
-    alias: tilhorer_modul
     owner: Assosiasjon
     domain_of:
     - Modellelement
@@ -561,7 +548,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:formsSymmetryWith
-    alias: danner_symmetri_med
     owner: Assosiasjon
     domain_of:
     - Eigenskap

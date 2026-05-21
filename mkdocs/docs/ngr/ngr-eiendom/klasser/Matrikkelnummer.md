@@ -427,7 +427,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Matrikkelnummer
     domain_of:
     - FastEiendom
@@ -470,7 +469,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvKommunenummer
-    alias: bestar_av_kommunenummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -484,7 +482,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvGaardsnummer
-    alias: bestar_av_gaardsnummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -498,7 +495,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvBruksnummer
-    alias: bestar_av_bruksnummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -512,7 +508,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvFestenummer
-    alias: bestar_av_festenummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -525,7 +520,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvSeksjonsnummer
-    alias: bestar_av_seksjonsnummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer

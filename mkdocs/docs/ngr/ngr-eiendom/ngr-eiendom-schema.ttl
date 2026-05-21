@@ -60,10 +60,10 @@
     linkml:default_range <https://data.norge.no/linkml/ngr-eiendom/string> ;
     linkml:description "Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast). Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold og tilknytta klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/" ;
     linkml:enums <https://data.norge.no/linkml/ngr-eiendom/Etasjeplan> ;
-    linkml:generation_date "2026-05-18T09:12:41"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:08"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/ngr-eiendom"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/linkml/ngr-eiendom/Andel_har_rettighetshaver>,
         <https://data.norge.no/linkml/ngr-eiendom/Borettslag_er_av_type_hovedenhet>,
         <https://data.norge.no/linkml/ngr-eiendom/Borettslagsandel_har_eierforhold>,
@@ -2507,7 +2507,7 @@
     linkml:slots <https://data.norge.no/linkml/ngr-eiendom/id> .
 
 <https://data.norge.no/linkml/ngr-eiendom/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

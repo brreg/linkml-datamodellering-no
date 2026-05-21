@@ -230,7 +230,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Tidsrom
     domain_of:
     - Mediatype
@@ -251,7 +250,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: dct:startDate
-    alias: tidsrom_start
     owner: Tidsrom
     domain_of:
     - Tidsrom
@@ -262,7 +260,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: dct:endDate
-    alias: tidsrom_slutt
     owner: Tidsrom
     domain_of:
     - Tidsrom

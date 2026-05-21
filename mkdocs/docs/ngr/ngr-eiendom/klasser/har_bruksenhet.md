@@ -10,8 +10,6 @@ _Brukseining(ar) i bygningen._
 
 
 URI: [ngre:harBruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#harBruksenhet)
-Alias: har_bruksenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Brukseining(ar) i bygningen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harBruksenhet
-alias: har_bruksenhet
 domain_of:
 - Bygning
 range: Bruksenhet

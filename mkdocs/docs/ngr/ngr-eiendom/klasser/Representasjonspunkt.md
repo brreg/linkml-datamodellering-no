@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/representasjonspunkt](https://data.norge.no/linkml/ngr-eiendom/representasjonspunkt)
-Alias: representasjonspunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: representasjonspunkt
 name: representasjonspunkt
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: representasjonspunkt
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

@@ -10,8 +10,6 @@ _Matrikkeleininga brukseininga er knytt til._
 
 
 URI: [ngre:erTilknyttetMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#erTilknyttetMatrikkelenhet)
-Alias: er_tilknyttet_matrikkelenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Matrikkeleininga brukseininga er knytt til.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:erTilknyttetMatrikkelenhet
-alias: er_tilknyttet_matrikkelenhet
 domain_of:
 - Bruksenhet
 range: Matrikkelenhet

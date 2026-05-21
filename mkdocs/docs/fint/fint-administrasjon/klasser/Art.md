@@ -10,8 +10,6 @@ _Type inntekt eller utgift._
 
 
 URI: [adm:art](https://schema.fintlabs.no/administrasjon/art)
-Alias: art
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: art
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
+| [Lonsart](lonsart.md) | Type ytelse |  yes  |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [Lonsart](lonsart.md) | Type ytelse |  yes  |
-| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Type inntekt eller utgift.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:art
-alias: art
 domain_of:
 - Kontostreng
 - Lonsart

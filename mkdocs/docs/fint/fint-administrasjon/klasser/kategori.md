@@ -10,8 +10,6 @@ _Kategori lønnsart._
 
 
 URI: [adm:kategori](https://schema.fintlabs.no/administrasjon/kategori)
-Alias: kategori
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kategori lønnsart.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:kategori
-alias: kategori
 domain_of:
 - Lonsart
 range: string

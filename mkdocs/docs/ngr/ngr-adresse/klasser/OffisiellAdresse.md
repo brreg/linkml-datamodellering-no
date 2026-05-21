@@ -735,7 +735,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harKommunenummer
-    alias: kommunenummer_ref
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -749,7 +748,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harAdressenavn
-    alias: adressenavn_ref
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -763,7 +761,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harAdressekode
-    alias: adressekode_ref
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -777,7 +774,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harHusnummer
-    alias: husnummer_ref
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -790,7 +786,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harBruksenhetsnummer
-    alias: bruksenhetsnummer_ref
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -803,7 +798,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harRepresentasjonspunkt
-    alias: representasjonspunkt_ref
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -816,7 +810,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:adressetilleggsnavn
-    alias: adressetilleggsnavn
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -829,7 +822,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:matrikkelnummer
-    alias: matrikkelnummer
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -842,7 +834,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:adressererBygning
-    alias: adresserer_bygning
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -855,7 +846,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:adressererBruksenhet
-    alias: adresserer_bruksenhet
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -868,7 +858,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:adressererAnnetObjekt
-    alias: adresserer_annet_objekt
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -882,7 +871,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:referererTilGeografiskOmrade
-    alias: geografisk_omrade
     owner: OffisiellAdresse
     domain_of:
     - OffisiellAdresse
@@ -895,7 +883,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: OffisiellAdresse
     domain_of:
     - GeografiskAdresse

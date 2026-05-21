@@ -10,8 +10,6 @@ _Perioden personalressursen er i eit tilhøve til organisasjonen._
 
 
 URI: [adm:ansettelsesperiode](https://schema.fintlabs.no/administrasjon/ansettelsesperiode)
-Alias: ansettelsesperiode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Perioden personalressursen er i eit tilhøve til organisasjonen.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:ansettelsesperiode
-alias: ansettelsesperiode
 domain_of:
 - Personalressurs
 range: Periode

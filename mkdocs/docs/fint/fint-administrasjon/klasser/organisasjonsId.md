@@ -10,8 +10,6 @@ _Unikt internnummer for organisasjonselementet._
 
 
 URI: [adm:organisasjonsId](https://schema.fintlabs.no/administrasjon/organisasjonsId)
-Alias: organisasjonsId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Unikt internnummer for organisasjonselementet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:organisasjonsId
-alias: organisasjonsId
 domain_of:
 - Organisasjonselement
 range: Identifikator

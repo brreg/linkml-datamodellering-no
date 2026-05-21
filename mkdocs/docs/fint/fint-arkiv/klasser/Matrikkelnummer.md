@@ -10,8 +10,6 @@ _Kulturminnets/bygningens identifikator i Matrikkelen._
 
 
 URI: [ark:matrikkelnummer](https://schema.fintlabs.no/arkiv/matrikkelnummer)
-Alias: matrikkelnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kulturminnets/bygningens identifikator i Matrikkelen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:matrikkelnummer
-alias: matrikkelnummer
 domain_of:
 - DispensasjonAutomatiskFredaKulturminne
 - TilskuddFredaBygningPrivatEie

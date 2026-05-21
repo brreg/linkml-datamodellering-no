@@ -5,8 +5,6 @@
 
 
 URI: [ark:tilgangsrestriksjonar](https://schema.fintlabs.no/arkiv/tilgangsrestriksjonar)
-Alias: tilgangsrestriksjonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: tilgangsrestriksjonar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilgangsrestriksjonar
-alias: tilgangsrestriksjonar
 domain_of:
 - ArkivContainer
 range: Tilgangsrestriksjon

@@ -10,8 +10,6 @@ _Sluttordensvurderingar._
 
 
 URI: [utd:sluttordensvurdering](https://schema.fintlabs.no/utdanning/sluttordensvurdering)
-Alias: sluttordensvurdering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: sluttordensvurdering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Sluttordensvurderingar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:sluttordensvurdering
-alias: sluttordensvurdering
 domain_of:
 - UtdanningContainer
 - Elevvurdering

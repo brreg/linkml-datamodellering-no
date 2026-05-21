@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/anleggseiendommer](https://data.norge.no/linkml/ngr-eiendom/anleggseiendommer)
-Alias: anleggseiendommer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: anleggseiendommer
 name: anleggseiendommer
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: anleggseiendommer
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

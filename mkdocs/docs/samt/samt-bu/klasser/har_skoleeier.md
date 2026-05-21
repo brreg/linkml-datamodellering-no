@@ -10,8 +10,6 @@ _Skoleeier for skolen_
 
 
 URI: [samtbuskole:har_skoleeier](https://example.no/ontology/skole#har_skoleeier)
-Alias: har_skoleeier
-
 <!-- no inheritance hierarchy -->
 
 
@@ -89,7 +87,6 @@ exact_mappings:
 - org:hasUnit
 rank: 1000
 domain: Skole
-alias: har_skoleeier
 domain_of:
 - Skole
 range: Skoleeier

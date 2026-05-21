@@ -10,8 +10,6 @@ _Direkte URL til oppføringa i katalogen (FAIR F4)._
 
 
 URI: [fair:katalogOppfoeringURL](https://data.norge.no/fair#katalogOppfoeringURL)
-Alias: katalogOppfoeringURL
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Direkte URL til oppføringa i katalogen (FAIR F4).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:katalogOppfoeringURL
-alias: katalogOppfoeringURL
 domain_of:
 - Katalogregistrering
 range: uriorcurie

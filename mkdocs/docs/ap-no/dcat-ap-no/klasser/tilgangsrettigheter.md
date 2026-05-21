@@ -10,8 +10,6 @@ _Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang eller
 
 
 URI: [dct:accessRights](http://purl.org/dc/terms/accessRights)
-Alias: tilgangsrettigheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: tilgangsrettigheter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 
 
 
@@ -89,7 +87,6 @@ description: Egenskapen brukes til å angi om det er allmenn tilgang, betinget t
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dct:accessRights
-alias: tilgangsrettigheter
 domain_of:
 - Datasett
 - Datatjeneste

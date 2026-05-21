@@ -10,8 +10,6 @@ _SSB-tettstedsnummer._
 
 
 URI: [ngr:tettstedsnummer](https://data.norge.no/vocabulary/ngr-adresse#tettstedsnummer)
-Alias: tettstedsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: SSB-tettstedsnummer.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:tettstedsnummer
-alias: tettstedsnummer
 domain_of:
 - Tettsted
 range: string

@@ -10,8 +10,6 @@ _Samling av vederlag._
 
 
 URI: [aksje:vederlager](https://example.no/ontology/aksje#vederlager)
-Alias: vederlager
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av vederlag.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: vederlager
 domain_of:
 - Containerklasse
 range: Vederlag

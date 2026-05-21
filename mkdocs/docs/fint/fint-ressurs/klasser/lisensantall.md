@@ -10,8 +10,6 @@ _Totalt tal på lisensar._
 
 
 URI: [res:lisensantall](https://schema.fintlabs.no/ressurs/lisensantall)
-Alias: lisensantall
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: lisensantall
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  yes  |
 | [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
+| [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Totalt tal på lisensar.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:lisensantall
-alias: lisensantall
 domain_of:
 - Applikasjonsressurs
 - Applikasjonsressurstilgjengelighet

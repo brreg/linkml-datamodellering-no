@@ -10,8 +10,6 @@ _Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar)._
 
 
 URI: [ngre:bestarAvSeksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvSeksjonsnummer)
-Alias: bestar_av_seksjonsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar)
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvSeksjonsnummer
-alias: bestar_av_seksjonsnummer
 domain_of:
 - Matrikkelnummer
 range: Seksjonsnummer

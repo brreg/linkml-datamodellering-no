@@ -10,8 +10,6 @@ _Prosenten personalressursen eig i høve til arbeidsavtalen._
 
 
 URI: [adm:ansettelsesprosent](https://schema.fintlabs.no/administrasjon/ansettelsesprosent)
-Alias: ansettelsesprosent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Prosenten personalressursen eig i høve til arbeidsavtalen.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:ansettelsesprosent
-alias: ansettelsesprosent
 domain_of:
 - Arbeidsforhold
 range: integer

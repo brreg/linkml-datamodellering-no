@@ -10,8 +10,6 @@ _Nummerering av kommunen i høve til SSB si offisielle liste._
 
 
 URI: [fint:kommunenummer](https://schema.fintlabs.no/kommunenummer)
-Alias: kommunenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: kommunenummer
 description: Nummerering av kommunen i høve til SSB si offisielle liste.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kommunenummer
-alias: kommunenummer
 domain_of:
 - Matrikkelnummer
 range: Kommune

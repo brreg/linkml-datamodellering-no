@@ -10,8 +10,6 @@ _Informasjon om postadresse til ein aktør._
 
 
 URI: [fint:postadresse](https://schema.fintlabs.no/postadresse)
-Alias: postadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: postadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](person.md) | Fysiske private personar |  no  |
-| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 | [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -89,7 +87,6 @@ name: postadresse
 description: Informasjon om postadresse til ein aktør.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:postadresse
-alias: postadresse
 domain_of:
 - Aktoer
 - Skole

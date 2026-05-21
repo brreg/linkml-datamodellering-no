@@ -10,8 +10,6 @@ _Om denne identiteten er registrert som falsk._
 
 
 URI: [ngrp:erFalsk](https://data.norge.no/vocabulary/ngr-person#erFalsk)
-Alias: er_falsk
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Om denne identiteten er registrert som falsk.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:erFalsk
-alias: er_falsk
 domain_of:
 - FalskIdentitet
 range: boolean

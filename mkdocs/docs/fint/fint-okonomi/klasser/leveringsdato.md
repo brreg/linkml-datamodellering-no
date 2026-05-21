@@ -10,8 +10,6 @@ _Dato varer eller tenester vart leverte._
 
 
 URI: [okn:leveringsdato](https://schema.fintlabs.no/okonomi/leveringsdato)
-Alias: leveringsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato varer eller tenester vart leverte.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:leveringsdato
-alias: leveringsdato
 domain_of:
 - Fakturagrunnlag
 range: date

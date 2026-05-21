@@ -10,8 +10,6 @@ _Hending(ar) som grupperer tenesta._
 
 
 URI: [cv:isGroupedBy](http://data.europa.eu/m8g/isGroupedBy)
-Alias: er_gruppert_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: er_gruppert_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Hending(ar) som grupperer tenesta.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:isGroupedBy
-alias: er_gruppert_av
 domain_of:
 - OffentligTjeneste
 - Tjeneste

@@ -10,8 +10,6 @@ _Datasett som er del av katalogen._
 
 
 URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
-Alias: datasett
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: datasett
 description: Datasett som er del av katalogen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:dataset
-alias: datasett
 domain_of:
 - Katalog
 range: Datasett

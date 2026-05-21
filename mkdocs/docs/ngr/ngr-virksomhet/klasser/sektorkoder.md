@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/sektorkoder](https://data.norge.no/linkml/ngr-virksomhet/sektorkoder)
-Alias: sektorkoder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: sektorkoder
 name: sektorkoder
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: sektorkoder
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

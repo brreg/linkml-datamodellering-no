@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/spraak](https://data.norge.no/linkml/ngr-person/spraak)
-Alias: spraak
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: spraak
 name: spraak
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: spraak
 owner: PersonContainer
 domain_of:
 - PersonContainer

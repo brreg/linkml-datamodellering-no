@@ -10,8 +10,6 @@ _Status/type for identitetsgrunnlaget (t.d. FOLKEREGISTERET, PASS)._
 
 
 URI: [ngrp:identitetsgrunnlagStatus](https://data.norge.no/vocabulary/ngr-person#identitetsgrunnlagStatus)
-Alias: identitetsgrunnlag_status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status/type for identitetsgrunnlaget (t.d. FOLKEREGISTERET, PASS).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:identitetsgrunnlagStatus
-alias: identitetsgrunnlag_status
 domain_of:
 - Identitetsgrunnlag
 range: string

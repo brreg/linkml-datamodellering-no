@@ -242,7 +242,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kontaktinformasjon
-    alias: kontaktinformasjon
     owner: Aktoer
     domain_of:
     - Aktoer
@@ -259,7 +258,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:postadresse
-    alias: postadresse
     owner: Aktoer
     domain_of:
     - Aktoer

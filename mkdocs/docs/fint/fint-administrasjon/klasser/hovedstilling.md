@@ -10,8 +10,6 @@ _Angir kva arbeidsforhold som er hovudarbeidsforhold._
 
 
 URI: [adm:hovedstilling](https://schema.fintlabs.no/administrasjon/hovedstilling)
-Alias: hovedstilling
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir kva arbeidsforhold som er hovudarbeidsforhold.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:hovedstilling
-alias: hovedstilling
 domain_of:
 - Arbeidsforhold
 range: boolean

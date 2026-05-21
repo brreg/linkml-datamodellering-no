@@ -5,8 +5,6 @@
 
 
 URI: [res:brukertypar](https://schema.fintlabs.no/ressurs/brukertypar)
-Alias: brukertypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: brukertypar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:brukertypar
-alias: brukertypar
 domain_of:
 - RessursContainer
 range: Brukertype

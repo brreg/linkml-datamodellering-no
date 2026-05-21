@@ -10,8 +10,6 @@ _Namn på type dokument._
 
 
 URI: [ark:dokumentType](https://schema.fintlabs.no/arkiv/dokumentType)
-Alias: dokumentType
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på type dokument.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumentType
-alias: dokumentType
 domain_of:
 - Dokumentbeskrivelse
 range: DokumentType

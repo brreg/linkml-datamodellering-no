@@ -10,8 +10,6 @@ _Dato prøva vart avlagt._
 
 
 URI: [utd:provedato](https://schema.fintlabs.no/utdanning/provedato)
-Alias: provedato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato prøva vart avlagt.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:provedato
-alias: provedato
 domain_of:
 - AvlagtProve
 range: date

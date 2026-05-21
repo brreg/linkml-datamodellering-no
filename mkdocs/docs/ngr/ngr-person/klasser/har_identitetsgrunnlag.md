@@ -10,8 +10,6 @@ _Grunnlaget for personens identitetsfastsetjing._
 
 
 URI: [ngrp:harIdentitetsgrunnlag](https://data.norge.no/vocabulary/ngr-person#harIdentitetsgrunnlag)
-Alias: har_identitetsgrunnlag
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Grunnlaget for personens identitetsfastsetjing.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harIdentitetsgrunnlag
-alias: har_identitetsgrunnlag
 domain_of:
 - Person
 range: Identitetsgrunnlag

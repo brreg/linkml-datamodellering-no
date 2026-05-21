@@ -10,8 +10,6 @@ _Burettslagsandelen dette eigarforholdet eventuelt gjeld._
 
 
 URI: [ngre:kanGjeldeBorettslagsandel](https://data.norge.no/vocabulary/ngr-eiendom#kanGjeldeBorettslagsandel)
-Alias: kan_gjelde_borettslagsandel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: kan_gjelde_borettslagsandel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
-| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
 | [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
 
 
 
@@ -88,7 +86,6 @@ description: Burettslagsandelen dette eigarforholdet eventuelt gjeld.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:kanGjeldeBorettslagsandel
-alias: kan_gjelde_borettslagsandel
 domain_of:
 - Eierforhold
 range: Borettslagsandel

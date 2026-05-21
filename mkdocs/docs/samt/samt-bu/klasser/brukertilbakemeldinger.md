@@ -10,8 +10,6 @@ _Brukartilbakemeldingar for datasettet._
 
 
 URI: [samtbuskole:brukertilbakemeldinger](https://example.no/ontology/skole#brukertilbakemeldinger)
-Alias: brukertilbakemeldinger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: brukertilbakemeldinger
 description: Brukartilbakemeldingar for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: brukertilbakemeldinger
 domain_of:
 - Containerklasse
 range: Brukartilbakemelding

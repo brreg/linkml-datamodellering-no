@@ -10,8 +10,6 @@ _Oppdateringsfrekvens for datasettet._
 
 
 URI: [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity)
-Alias: frekvens
-
 <!-- no inheritance hierarchy -->
 
 
@@ -96,7 +94,6 @@ annotations:
 description: Oppdateringsfrekvens for datasettet.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:accrualPeriodicity
-alias: frekvens
 domain_of:
 - Datasettserie
 range: string

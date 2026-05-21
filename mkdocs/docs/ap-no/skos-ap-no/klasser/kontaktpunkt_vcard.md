@@ -10,8 +10,6 @@ _Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)._
 
 
 URI: [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint)
-Alias: kontaktpunkt_vcard
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: kontaktpunkt_vcard
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 | [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dcat:contactPoint
-alias: kontaktpunkt_vcard
 domain_of:
 - Begrep
 - Samling

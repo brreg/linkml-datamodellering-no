@@ -10,8 +10,6 @@ _Kjelde for katalogposten (ekstern oppføring)._
 
 
 URI: [dct:source](http://purl.org/dc/terms/source)
-Alias: kilde_post
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kjelde for katalogposten (ekstern oppføring).
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dct:source
-alias: kilde_post
 domain_of:
 - Katalogpost
 range: uri

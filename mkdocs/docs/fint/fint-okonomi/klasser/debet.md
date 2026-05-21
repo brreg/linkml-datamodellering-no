@@ -10,8 +10,6 @@ _Angir om posteringa er debet eller kredit._
 
 
 URI: [okn:debet](https://schema.fintlabs.no/okonomi/debet)
-Alias: debet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om posteringa er debet eller kredit.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:debet
-alias: debet
 domain_of:
 - Postering
 range: boolean

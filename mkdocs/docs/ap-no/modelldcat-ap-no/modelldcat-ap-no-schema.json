@@ -910,6 +910,125 @@
             "title": "Dokument",
             "type": "object"
         },
+        "Eigenskap": {
+            "additionalProperties": false,
+            "description": "Abstrakt basisklasse for eigenskapar knytt til eit modellelement.",
+            "properties": {
+                "begrep": {
+                    "description": "Fagomgrep ressursen handlar om (dct:subject).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "beskrivelse": {
+                    "description": "Fritekstbeskrivelse av ressursen (dct:description).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "danner_symmetri_med": {
+                    "description": "Eigenskap som denne eigenskapen dannar symmetri med (modelldcatno:formsSymmetryWith).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "har_type": {
+                    "description": "Type modellelement for eigenskapen (modelldcatno:hasType).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator_literal": {
+                    "description": "Tekstleg identifikator for ressursen (dct:identifier).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "maks_multiplisitet": {
+                    "description": "H\u00f8gste multiplisitet \u2014 heltalstal, \"n\" eller \"*\" (modelldcatno:maxOccurs).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "min_multiplisitet": {
+                    "description": "Minste multiplisitet for eigenskapen (modelldcatno:minOccurs).",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "navigerbar": {
+                    "description": "Om eigenskapen er navigerbar i begge retningar (modelldcatno:navigable).",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                },
+                "relasjonsegenskapetikett": {
+                    "description": "Lesetekst for eigenskapen i ein relasjon (modelldcatno:relationPropertyLabel).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "sekvensnummer": {
+                    "description": "Sekvensnummer for eigenskapen i modellelementet (modelldcatno:sequenceNumber).",
+                    "minimum": 0,
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "tilhorer_modul": {
+                    "description": "Modul dette elementet tilh\u00f8yrer (modelldcatno:belongsToModule).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tittel": {
+                    "description": "Namn/tittel p\u00e5 ressursen (dct:title).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Eigenskap",
+            "type": "object"
+        },
         "Eller": {
             "additionalProperties": false,
             "description": "Eller \u2014 logisk ELLER-betingelse; minst eitt modellelement m\u00e5 gjelde.",
@@ -1129,6 +1248,7 @@
                 },
                 "typedefinisjon_referanse": {
                     "description": "Referanse til typedefinisjon (modelldcatno:typeDefinitionReference).",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -1344,6 +1464,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1706,6 +1827,7 @@
                 "har_referanse": {
                     "description": "Referanse til ekstern ressurs (rdfs:seeAlso).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1822,10 +1944,7 @@
             "properties": {
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1932,6 +2051,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -2031,6 +2151,76 @@
                 "utgiver"
             ],
             "title": "Modelkatalog",
+            "type": "object"
+        },
+        "Modellelement": {
+            "additionalProperties": false,
+            "description": "Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.",
+            "properties": {
+                "begrep": {
+                    "description": "Fagomgrep ressursen handlar om (dct:subject).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "beskrivelse": {
+                    "description": "Fritekstbeskrivelse av ressursen (dct:description).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_eigenskap": {
+                    "description": "Eigenskapar modellelementet har (modelldcatno:hasProperty).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator_literal": {
+                    "description": "Tekstleg identifikator for ressursen (dct:identifier).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tilhorer_modul": {
+                    "description": "Modul dette elementet tilh\u00f8yrer (modelldcatno:belongsToModule).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tittel": {
+                    "description": "Namn/tittel p\u00e5 ressursen (dct:title).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "tittel"
+            ],
+            "title": "Modellelement",
             "type": "object"
         },
         "Modul": {
@@ -3082,6 +3272,7 @@
                 "har_referanse": {
                     "description": "Referanse til ekstern ressurs (rdfs:seeAlso).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -3359,7 +3550,7 @@
     "$id": "https://data.norge.no/linkml/modelldcat-ap-no",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "title": "modelldcat-ap-no",
     "type": "object",
     "version": "1.0"

@@ -10,8 +10,6 @@ _Distribusjonar av datasettet._
 
 
 URI: [samtbuskole:datasettdistribusjoner](https://example.no/ontology/skole#datasettdistribusjoner)
-Alias: datasettdistribusjoner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: datasettdistribusjoner
 description: Distribusjonar av datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: datasettdistribusjoner
 domain_of:
 - Containerklasse
 range: Distribusjon

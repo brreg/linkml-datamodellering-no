@@ -10,8 +10,6 @@ _Skulen dette gjeld._
 
 
 URI: [utd:skole](https://schema.fintlabs.no/utdanning/skole)
-Alias: skole
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,16 +20,16 @@ Alias: skole
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
-| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
-| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
-| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  yes  |
-| [Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  yes  |
-| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
-| [Fag](fag.md) | Eit skulefag |  yes  |
-| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
 | [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
+| [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  yes  |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
+| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
+| [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
+| [Faggruppe](faggruppe.md) | Ei gruppe elevar knytt til eit fag på ein skule |  yes  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
+| [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
 
 
 
@@ -95,7 +93,6 @@ description: Skulen dette gjeld.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skole
-alias: skole
 domain_of:
 - Elevforhold
 - Klasse

@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av kommun
 
 
 URI: [samtbuskole:kommuner](https://example.no/ontology/skole#kommuner)
-Alias: kommuner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   kommune i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: kommuner
 domain_of:
 - Containerklasse
 range: Kommune

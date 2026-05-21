@@ -10,8 +10,6 @@ _Namn på person eller organisasjon som skapte dokumentet._
 
 
 URI: [ark:forfatter](https://schema.fintlabs.no/arkiv/forfatter)
-Alias: forfatter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: forfatter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  yes  |
 | [Registrering](registrering.md) | Abstrakt basisklasse — arkivets primære byggeklossar |  yes  |
+| [Dokumentbeskrivelse](dokumentbeskrivelse.md) | Skildring av eit dokument tilknytt ein journalpost |  yes  |
 | [Journalpost](journalpost.md) | Ein journalpost (inn- eller utgåande dokument, notat o |  no  |
 
 
@@ -89,7 +87,6 @@ description: Namn på person eller organisasjon som skapte dokumentet.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:forfatter
-alias: forfatter
 domain_of:
 - Registrering
 - Dokumentbeskrivelse

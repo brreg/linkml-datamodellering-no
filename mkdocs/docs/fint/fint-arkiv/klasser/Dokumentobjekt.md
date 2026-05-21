@@ -10,8 +10,6 @@ _Dokumentobjekt tilhøyrande dokumentbeskrivelsa._
 
 
 URI: [ark:dokumentobjekt](https://schema.fintlabs.no/arkiv/dokumentobjekt)
-Alias: dokumentobjekt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Dokumentobjekt tilhøyrande dokumentbeskrivelsa.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumentobjekt
-alias: dokumentobjekt
 domain_of:
 - Dokumentbeskrivelse
 range: Dokumentobjekt

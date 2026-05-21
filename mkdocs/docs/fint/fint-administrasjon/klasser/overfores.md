@@ -10,8 +10,6 @@ _Angir om fråvær av denne typen skal overførast til HR._
 
 
 URI: [adm:overfores](https://schema.fintlabs.no/administrasjon/overfores)
-Alias: overfores
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om fråvær av denne typen skal overførast til HR.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:overfores
-alias: overfores
 domain_of:
 - Fravaerstype
 range: boolean

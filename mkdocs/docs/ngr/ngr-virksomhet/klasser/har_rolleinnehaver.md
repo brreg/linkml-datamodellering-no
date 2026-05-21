@@ -10,8 +10,6 @@ _Rolleinnehavar(ar) for denne rolla._
 
 
 URI: [ngrv:harRolleinnehaver](https://data.norge.no/vocabulary/ngr-virksomhet#harRolleinnehaver)
-Alias: har_rolleinnehaver
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Rolleinnehavar(ar) for denne rolla.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harRolleinnehaver
-alias: har_rolleinnehaver
 domain_of:
 - RolleIVirksomhet
 range: Rolleinnehaver

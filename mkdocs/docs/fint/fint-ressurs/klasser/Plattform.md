@@ -10,8 +10,6 @@ _Plattforma ressursen er knytt til._
 
 
 URI: [res:plattform](https://schema.fintlabs.no/ressurs/plattform)
-Alias: plattform
-
 <!-- no inheritance hierarchy -->
 
 
@@ -23,8 +21,8 @@ Alias: plattform
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
-| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Plattforma ressursen er knytt til.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:plattform
-alias: plattform
 domain_of:
 - Applikasjon
 - DigitalEnhet

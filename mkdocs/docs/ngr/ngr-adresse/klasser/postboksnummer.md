@@ -10,8 +10,6 @@ _Postboksnummer (heiltal)._
 
 
 URI: [ngr:postboksnummer](https://data.norge.no/vocabulary/ngr-adresse#postboksnummer)
-Alias: postboksnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Postboksnummer (heiltal).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:postboksnummer
-alias: postboksnummer
 domain_of:
 - Postboks
 range: integer

@@ -10,8 +10,6 @@ _Tekstinnhaldet i tekstdelen._
 
 
 URI: [rdfs:value](http://www.w3.org/2000/01/rdf-schema#value)
-Alias: har_verdi_tekstdel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: har_verdi_tekstdel
 description: Tekstinnhaldet i tekstdelen.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: rdfs:value
-alias: har_verdi_tekstdel
 domain_of:
 - Tekstdel
 range: string

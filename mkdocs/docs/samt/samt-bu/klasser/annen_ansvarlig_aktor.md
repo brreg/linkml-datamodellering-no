@@ -10,8 +10,6 @@ _Kvalifisert attributering til ansvarleg aktør._
 
 
 URI: [prov:qualifiedAttribution](http://www.w3.org/ns/prov#qualifiedAttribution)
-Alias: annen_ansvarlig_aktor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -97,7 +95,6 @@ annotations:
 description: Kvalifisert attributering til ansvarleg aktør.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: prov:qualifiedAttribution
-alias: annen_ansvarlig_aktor
 domain_of:
 - Datasett
 range: string

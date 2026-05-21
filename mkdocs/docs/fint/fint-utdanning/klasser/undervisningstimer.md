@@ -10,8 +10,6 @@ _Totalt antal undervisningstimar._
 
 
 URI: [utd:undervisningstimer](https://schema.fintlabs.no/utdanning/undervisningstimer)
-Alias: undervisningstimer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Totalt antal undervisningstimar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:undervisningstimer
-alias: undervisningstimer
 domain_of:
 - Fravarsprosent
 range: integer

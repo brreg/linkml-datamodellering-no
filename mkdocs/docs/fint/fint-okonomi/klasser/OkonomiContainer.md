@@ -444,7 +444,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:fakturaer
-    alias: fakturaer
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -458,7 +457,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:fakturagrunnlag
-    alias: fakturagrunnlag
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -466,13 +464,13 @@ attributes:
     - Fakturautsteder
     range: Fakturagrunnlag
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fakturautstederear:
     name: fakturautstederear
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:fakturautstederear
-    alias: fakturautstederear
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -485,7 +483,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:transaksjonar
-    alias: transaksjonar
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -498,7 +495,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:posteringar
-    alias: posteringar
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -511,7 +507,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:leverandorar
-    alias: leverandorar
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -524,7 +519,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:leverandorgrupper
-    alias: leverandorgrupper
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -537,7 +531,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:varer
-    alias: varer
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -550,7 +543,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:merverdiavgifter
-    alias: merverdiavgifter
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer
@@ -563,7 +555,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:valutaer
-    alias: valutaer
     owner: OkonomiContainer
     domain_of:
     - OkonomiContainer

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/eierseksjoner](https://data.norge.no/linkml/ngr-eiendom/eierseksjoner)
-Alias: eierseksjoner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: eierseksjoner
 name: eierseksjoner
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: eierseksjoner
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

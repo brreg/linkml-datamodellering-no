@@ -10,8 +10,6 @@ _Barn som denne personen har juridisk foreldreansvar for._
 
 
 URI: [ngrp:harForeldreansvarBarn](https://data.norge.no/vocabulary/ngr-person#harForeldreansvarBarn)
-Alias: har_foreldreansvar_barn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Barn som denne personen har juridisk foreldreansvar for.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harForeldreansvarBarn
-alias: har_foreldreansvar_barn
 domain_of:
 - Person
 range: ForeldreansvarBarn

@@ -10,8 +10,6 @@ _Gebyr knytt til tenesta._
 
 
 URI: [cv:hasCost](http://data.europa.eu/m8g/hasCost)
-Alias: har_gebyr
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_gebyr
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Gebyr knytt til tenesta.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasCost
-alias: har_gebyr
 domain_of:
 - OffentligTjeneste
 - Tjeneste

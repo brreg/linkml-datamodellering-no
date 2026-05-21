@@ -10,8 +10,6 @@ _Alle stillingskoder i containeren._
 
 
 URI: [adm:stillingskoder](https://schema.fintlabs.no/administrasjon/stillingskoder)
-Alias: stillingskoder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle stillingskoder i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:stillingskoder
-alias: stillingskoder
 domain_of:
 - AdministrasjonContainer
 range: Stillingskode

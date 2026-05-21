@@ -282,7 +282,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Sektorkode
     domain_of:
     - Virksomhet
@@ -309,7 +308,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:sektorkodeKode
-    alias: sektorkode_kode
     owner: Sektorkode
     domain_of:
     - Sektorkode
@@ -323,7 +321,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:sektorkodeBeskrivelse
-    alias: sektorkode_beskrivelse
     owner: Sektorkode
     domain_of:
     - Sektorkode

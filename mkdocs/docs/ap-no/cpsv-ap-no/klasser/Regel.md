@@ -406,7 +406,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Regel
     domain_of:
     - Mediatype
@@ -436,7 +435,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Regel
     domain_of:
     - OffentligTjeneste
@@ -458,7 +456,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Regel
     domain_of:
     - OffentligTjeneste
@@ -480,7 +477,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Regel
     domain_of:
     - OffentligTjeneste
@@ -502,7 +498,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Regel
     domain_of:
     - OffentligTjeneste
@@ -519,7 +514,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Regel
     domain_of:
     - OffentligTjeneste

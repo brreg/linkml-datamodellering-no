@@ -12,8 +12,6 @@ __
 
 
 URI: [dct:identifier](http://purl.org/dc/terms/identifier)
-Alias: ressursIdentifikator
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ description: 'Global og persistent identifikator for ressursen (FAIR F1). Skal v
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:identifier
-alias: ressursIdentifikator
 domain_of:
 - FAIRMetadata
 range: uriorcurie

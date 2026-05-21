@@ -10,8 +10,6 @@ _Angir om skulen er føretrekt for eksamenen._
 
 
 URI: [utd:foretrukketSkole](https://schema.fintlabs.no/utdanning/foretrukketSkole)
-Alias: foretrukketSkole
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om skulen er føretrekt for eksamenen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:foretrukketSkole
-alias: foretrukketSkole
 domain_of:
 - Eksamensgruppemedlemskap
 range: boolean

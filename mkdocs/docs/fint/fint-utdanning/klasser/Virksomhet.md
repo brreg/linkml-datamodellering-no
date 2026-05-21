@@ -343,7 +343,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Virksomhet
     domain_of:
     - Begrep
@@ -406,7 +405,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:virksomhetsId
-    alias: virksomhetsId
     owner: Virksomhet
     domain_of:
     - Virksomhet
@@ -420,7 +418,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:laerling
-    alias: laerling
     owner: Virksomhet
     domain_of:
     - Person
@@ -435,7 +432,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:forretningsadresse
-    alias: forretningsadresse
     owner: Virksomhet
     domain_of:
     - Enhet
@@ -449,7 +445,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnavn
-    alias: organisasjonsnavn
     owner: Virksomhet
     domain_of:
     - Enhet
@@ -462,7 +457,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnummer
-    alias: organisasjonsnummer
     owner: Virksomhet
     domain_of:
     - Enhet
@@ -476,7 +470,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kontaktinformasjon
-    alias: kontaktinformasjon
     owner: Virksomhet
     domain_of:
     - Aktoer
@@ -490,7 +483,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:postadresse
-    alias: postadresse
     owner: Virksomhet
     domain_of:
     - Aktoer

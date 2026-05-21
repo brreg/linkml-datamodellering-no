@@ -10,8 +10,6 @@ _Reservasjon mot digital kommunikasjon frå det offentlege._
 
 
 URI: [ngrp:harReservasjonMotKommunikasjon](https://data.norge.no/vocabulary/ngr-person#harReservasjonMotKommunikasjon)
-Alias: har_reservasjon_mot_kommunikasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Reservasjon mot digital kommunikasjon frå det offentlege.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harReservasjonMotKommunikasjon
-alias: har_reservasjon_mot_kommunikasjon
 domain_of:
 - Person
 range: ReservasjonMotKommunikasjonPaaNett

@@ -10,8 +10,6 @@ _Tidspunkt for registrering av transaksjonen._
 
 
 URI: [okn:transaksjonstidspunkt](https://schema.fintlabs.no/okonomi/transaksjonstidspunkt)
-Alias: transaksjonstidspunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tidspunkt for registrering av transaksjonen.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:transaksjonstidspunkt
-alias: transaksjonstidspunkt
 domain_of:
 - Transaksjon
 range: datetime

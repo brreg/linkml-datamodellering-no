@@ -10,8 +10,6 @@ _Industri/sektor tenesta tilhøyrer._
 
 
 URI: [cv:sector](http://data.europa.eu/m8g/sector)
-Alias: sektor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: sektor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Industri/sektor tenesta tilhøyrer.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:sector
-alias: sektor
 domain_of:
 - OffentligTjeneste
 - Tjeneste

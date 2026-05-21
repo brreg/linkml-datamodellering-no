@@ -10,8 +10,6 @@ _Opphavleg karakterverdi._
 
 
 URI: [utd:opprinneligKarakterverdi](https://schema.fintlabs.no/utdanning/opprinneligKarakterverdi)
-Alias: opprinneligKarakterverdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Opphavleg karakterverdi.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:opprinneligKarakterverdi
-alias: opprinneligKarakterverdi
 domain_of:
 - Karakterhistorie
 range: Karakterverdi

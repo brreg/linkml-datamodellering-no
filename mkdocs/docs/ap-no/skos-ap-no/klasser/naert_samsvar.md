@@ -10,8 +10,6 @@ _Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch)._
 
 
 URI: [skos:closeMatch](http://www.w3.org/2004/02/skos/core#closeMatch)
-Alias: naert_samsvar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch)
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:closeMatch
-alias: naert_samsvar
 domain_of:
 - Begrep
 range: Begrep

@@ -10,8 +10,6 @@ _Nærare spesifikasjon av dokumentets format._
 
 
 URI: [ark:formatDetaljer](https://schema.fintlabs.no/arkiv/formatDetaljer)
-Alias: formatDetaljer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Nærare spesifikasjon av dokumentets format.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:formatDetaljer
-alias: formatDetaljer
 domain_of:
 - Dokumentobjekt
 range: string

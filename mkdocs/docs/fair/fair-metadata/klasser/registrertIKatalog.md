@@ -10,8 +10,6 @@ _URI til katalogen der metadata er registrert (FAIR F4)._
 
 
 URI: [fair:registrertIKatalog](https://data.norge.no/fair#registrertIKatalog)
-Alias: registrertIKatalog
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: URI til katalogen der metadata er registrert (FAIR F4).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:registrertIKatalog
-alias: registrertIKatalog
 domain_of:
 - Katalogregistrering
 range: uriorcurie

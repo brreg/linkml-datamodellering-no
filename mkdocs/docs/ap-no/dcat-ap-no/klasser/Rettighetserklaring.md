@@ -406,7 +406,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Rettighetserklaring
     domain_of:
     - Mediatype
@@ -439,7 +438,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:reuserGuidelines
-    alias: anvendelsesretningslinjer
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -450,7 +448,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:jurisdiction
-    alias: jurisdiksjon
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -461,7 +458,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:attributionText
-    alias: krediteringstekst
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -472,7 +468,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:attributionURL
-    alias: krediteringsurl
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -483,7 +478,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightStatement
-    alias: opphavsrettserklaring
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -494,7 +488,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightHolder
-    alias: opphavsrettsinnehaver
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -505,7 +498,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightNotice
-    alias: opphavsrettsnotis
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -516,7 +508,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightYear
-    alias: opphavsrettsaar
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring

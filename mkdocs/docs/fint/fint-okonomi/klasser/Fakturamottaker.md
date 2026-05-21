@@ -10,8 +10,6 @@ _Mottakar som skal betale faktura._
 
 
 URI: [okn:fakturamottaker](https://schema.fintlabs.no/okonomi/fakturamottaker)
-Alias: fakturamottaker
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Mottakar som skal betale faktura.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fakturamottaker
-alias: fakturamottaker
 domain_of:
 - Fakturagrunnlag
 range: Fakturamottaker

@@ -10,8 +10,6 @@ _Einingsens ID i datakatalogen._
 
 
 URI: [res:dataobjektId](https://schema.fintlabs.no/ressurs/dataobjektId)
-Alias: dataobjektId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Einingsens ID i datakatalogen.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:dataobjektId
-alias: dataobjektId
 domain_of:
 - DigitalEnhet
 range: Identifikator

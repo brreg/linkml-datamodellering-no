@@ -10,8 +10,6 @@ _Klasse._
 
 
 URI: [utd:klasse](https://schema.fintlabs.no/utdanning/klasse)
-Alias: klasse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: klasse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
-| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
-| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
 | [Klassemedlemskap](klassemedlemskap.md) | Eit elevs medlemskap i ei klasse |  yes  |
 | [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  yes  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
+| [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
 
 
 
@@ -90,7 +88,6 @@ description: Klasse.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:klasse
-alias: klasse
 domain_of:
 - Klassemedlemskap
 - Kontaktlaerergruppe

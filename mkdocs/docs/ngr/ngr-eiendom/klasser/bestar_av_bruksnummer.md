@@ -10,8 +10,6 @@ _Bruksnummerdelen av matrikkelnummeret._
 
 
 URI: [ngre:bestarAvBruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvBruksnummer)
-Alias: bestar_av_bruksnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Bruksnummerdelen av matrikkelnummeret.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvBruksnummer
-alias: bestar_av_bruksnummer
 domain_of:
 - Matrikkelnummer
 range: Bruksnummer

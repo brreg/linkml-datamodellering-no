@@ -10,8 +10,6 @@ _Skjult term for kodeelementet (skos:hiddenLabel)._
 
 
 URI: [skos:hiddenLabel](http://www.w3.org/2004/02/skos/core#hiddenLabel)
-Alias: skjult_term
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Skjult term for kodeelementet (skos:hiddenLabel).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: skos:hiddenLabel
-alias: skjult_term
 domain_of:
 - Kodeelement
 range: LangString

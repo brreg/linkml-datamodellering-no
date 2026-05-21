@@ -10,8 +10,6 @@ _Antal nivå i klassifikasjonen (xkos:numberOfLevels)._
 
 
 URI: [xkos:numberOfLevels](http://rdf-vocabulary.ddialliance.org/xkos#numberOfLevels)
-Alias: antall_nivaa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Antal nivå i klassifikasjonen (xkos:numberOfLevels).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:numberOfLevels
-alias: antall_nivaa
 domain_of:
 - Klassifikasjon
 range: NonNegativeInteger

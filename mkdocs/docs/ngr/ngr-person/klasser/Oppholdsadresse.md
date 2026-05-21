@@ -270,7 +270,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:gyldigFraOgMed
-    alias: gyldig_fra_og_med
     owner: Oppholdsadresse
     domain_of:
     - Kjoenn
@@ -291,7 +290,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:gyldigTilOgMed
-    alias: gyldig_til_og_med
     owner: Oppholdsadresse
     domain_of:
     - Statsborgerskap
@@ -306,7 +304,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: Oppholdsadresse
     domain_of:
     - Person

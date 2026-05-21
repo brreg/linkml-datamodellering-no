@@ -10,8 +10,6 @@ _Modellelement som eigenskapen refererer til (modelldcatno:refersTo)._
 
 
 URI: [modelldcatno:refersTo](https://data.norge.no/vocabulary/modelldcatno#refersTo)
-Alias: refererer_til
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Modellelement som eigenskapen refererer til (modelldcatno:refersTo)
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:refersTo
-alias: refererer_til
 domain_of:
 - Assosiasjon
 range: Modellelement

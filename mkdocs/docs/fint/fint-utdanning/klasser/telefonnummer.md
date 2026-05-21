@@ -10,8 +10,6 @@ _Telefonnummer._
 
 
 URI: [fint:telefonnummer](https://schema.fintlabs.no/telefonnummer)
-Alias: telefonnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: telefonnummer
 description: Telefonnummer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:telefonnummer
-alias: telefonnummer
 domain_of:
 - Kontaktinformasjon
 range: string

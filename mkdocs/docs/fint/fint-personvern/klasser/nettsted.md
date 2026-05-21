@@ -10,8 +10,6 @@ _Adresse til eit nettstad._
 
 
 URI: [fint:nettsted](https://schema.fintlabs.no/nettsted)
-Alias: nettsted
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: nettsted
 description: Adresse til eit nettstad.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:nettsted
-alias: nettsted
 domain_of:
 - Kontaktinformasjon
 range: string

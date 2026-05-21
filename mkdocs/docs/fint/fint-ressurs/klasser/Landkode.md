@@ -208,7 +208,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Landkode
     domain_of:
     - Begrep
@@ -242,7 +241,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
-    alias: kode
     owner: Landkode
     domain_of:
     - Begrep
@@ -264,7 +262,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
-    alias: navn
     owner: Landkode
     domain_of:
     - Begrep
@@ -290,7 +287,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
-    alias: gyldighetsperiode
     owner: Landkode
     domain_of:
     - Begrep
@@ -316,7 +312,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
-    alias: passiv
     owner: Landkode
     domain_of:
     - Begrep

@@ -10,8 +10,6 @@ _Etasjenummer (t.d. 2 for 2. etasje)._
 
 
 URI: [ngre:etasjenummer](https://data.norge.no/vocabulary/ngr-eiendom#etasjenummer)
-Alias: etasjenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: etasjenummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Etasje](etasje.md) | Ei etasje i ein bygning |  yes  |
 | [Bruksenhetsnummer](bruksenhetsnummer.md) | Identifikator for ei brukseining innanfor ein bygning, t |  yes  |
+| [Etasje](etasje.md) | Ei etasje i ein bygning |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Etasjenummer (t.d. 2 for 2. etasje).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:etasjenummer
-alias: etasjenummer
 domain_of:
 - Bruksenhetsnummer
 - Etasje

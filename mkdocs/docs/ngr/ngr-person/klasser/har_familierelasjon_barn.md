@@ -10,8 +10,6 @@ _Familierelasjonar der den relaterte personen er barn._
 
 
 URI: [ngrp:harFamilierelasjonBarn](https://data.norge.no/vocabulary/ngr-person#harFamilierelasjonBarn)
-Alias: har_familierelasjon_barn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Familierelasjonar der den relaterte personen er barn.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harFamilierelasjonBarn
-alias: har_familierelasjon_barn
 domain_of:
 - Person
 range: FamilierelasjonBarn

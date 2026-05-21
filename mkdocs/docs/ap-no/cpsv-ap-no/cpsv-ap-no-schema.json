@@ -152,6 +152,7 @@
                 "er_beskrive_av": {
                     "description": "Datasett som beskriv ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -285,6 +286,7 @@
                 "er_beskrive_av": {
                     "description": "Datasett som beskriv ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -390,6 +392,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -424,6 +427,7 @@
                 },
                 "lisens": {
                     "description": "Lisens for katalogen.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -492,6 +496,7 @@
                 "epost": {
                     "description": "E-postadresse (mailto:-URI).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -516,6 +521,7 @@
                 "kontaktside": {
                     "description": "Kontaktside (nettadresse).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -577,6 +583,7 @@
                 "er_beskrive_av": {
                     "description": "Datasett som beskriv ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -659,10 +666,7 @@
             "properties": {
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -709,6 +713,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -780,6 +785,7 @@
                 "er_beskrive_av": {
                     "description": "Datasett som beskriv ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -908,6 +914,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1173,6 +1180,7 @@
                 "er_beskrive_av": {
                     "description": "Datasett som beskriv ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1294,6 +1302,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1455,6 +1464,7 @@
                 "nettside": {
                     "description": "Nettside for tenestekanalane.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1501,6 +1511,7 @@
                 "er_beskrive_av": {
                     "description": "Datasett som beskriv ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1621,6 +1632,7 @@
                 "er_beskrive_av": {
                     "description": "Datasett som beskriv ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1701,7 +1713,7 @@
     "$id": "https://data.norge.no/linkml/cpsv-ap-no",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "title": "cpsv-ap-no",
     "type": "object",
     "version": "1.0"

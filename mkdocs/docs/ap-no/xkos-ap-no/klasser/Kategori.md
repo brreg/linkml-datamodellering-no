@@ -608,7 +608,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kategori
     domain_of:
     - Mediatype
@@ -630,7 +629,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: skos:prefLabel
-    alias: anbefalt_term
     owner: Kategori
     domain_of:
     - Kategori
@@ -645,7 +643,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: skos:inScheme
-    alias: er_i_klassifikasjon
     owner: Kategori
     domain_of:
     - Kategori
@@ -659,7 +656,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:belongsTo
-    alias: tilhorande_klassifikasjonsnivaa
     owner: Kategori
     domain_of:
     - Kategori
@@ -672,7 +668,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: skos:broader
-    alias: overordna_kategori
     owner: Kategori
     domain_of:
     - Kategori
@@ -686,7 +681,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: skos:narrower
-    alias: underordna_kategori
     owner: Kategori
     domain_of:
     - Kategori
@@ -700,7 +694,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: skos:note
-    alias: har_notat
     owner: Kategori
     domain_of:
     - Kategori
@@ -714,7 +707,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: uneskos:broadMatch
-    alias: er_ekvivalent_med
     owner: Kategori
     domain_of:
     - Kategori
@@ -728,7 +720,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:exclusivelyBroadMatch
-    alias: er_eksklusivt_ekvivalent_med
     owner: Kategori
     domain_of:
     - Kategori
@@ -742,7 +733,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:disjointMatch
-    alias: er_ikkje_ekvivalent_med
     owner: Kategori
     domain_of:
     - Kategori

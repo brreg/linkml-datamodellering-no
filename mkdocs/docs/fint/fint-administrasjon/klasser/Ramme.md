@@ -10,8 +10,6 @@ _Budsjettramme som skal bere kostnadane._
 
 
 URI: [adm:ramme](https://schema.fintlabs.no/administrasjon/ramme)
-Alias: ramme
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: ramme
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Budsjettramme som skal bere kostnadane.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:ramme
-alias: ramme
 domain_of:
 - Kontostreng
 - Fullmakt

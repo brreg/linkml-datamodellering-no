@@ -10,8 +10,6 @@ _ISO 3166-1 landkode for landet personen flytta til._
 
 
 URI: [ngrp:tilflyttingsland](https://data.norge.no/vocabulary/ngr-person#tilflyttingsland)
-Alias: tilflyttingsland
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: ISO 3166-1 landkode for landet personen flytta til.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:tilflyttingsland
-alias: tilflyttingsland
 domain_of:
 - UtflyttingFraNorge
 range: string

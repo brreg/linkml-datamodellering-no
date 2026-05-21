@@ -10,8 +10,6 @@ _Matrikkeleininga denne faste eigedommen fysisk består av._
 
 
 URI: [ngre:bestarAvMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvMatrikkelenhet)
-Alias: bestar_av_matrikkelenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Matrikkeleininga denne faste eigedommen fysisk består av.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvMatrikkelenhet
-alias: bestar_av_matrikkelenhet
 domain_of:
 - FastEiendom
 range: Matrikkelenhet

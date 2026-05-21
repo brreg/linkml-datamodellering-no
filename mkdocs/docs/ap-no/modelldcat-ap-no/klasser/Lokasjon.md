@@ -165,7 +165,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Lokasjon
     domain_of:
     - Mediatype

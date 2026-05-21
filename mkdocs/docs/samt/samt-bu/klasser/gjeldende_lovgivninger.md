@@ -10,8 +10,6 @@ _Gjeldande lovgiving for datasettet._
 
 
 URI: [samtbuskole:gjeldende_lovgivninger](https://example.no/ontology/skole#gjeldende_lovgivninger)
-Alias: gjeldende_lovgivninger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: gjeldende_lovgivninger
 description: Gjeldande lovgiving for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: gjeldende_lovgivninger
 domain_of:
 - Containerklasse
 range: RegulativRessurs

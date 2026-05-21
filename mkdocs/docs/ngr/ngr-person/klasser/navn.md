@@ -10,8 +10,6 @@ _Namn på person eller institusjon._
 
 
 URI: [ngrp:namn](https://data.norge.no/vocabulary/ngr-person#namn)
-Alias: navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på person eller institusjon.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:namn
-alias: navn
 domain_of:
 - KontaktinformasjonDoedsbo
 range: string

@@ -10,8 +10,6 @@ _Brukseiningane den ytre inngangen gir tilgang til._
 
 
 URI: [ngre:gjelderBruksenhet](https://data.norge.no/vocabulary/ngr-eiendom#gjelderBruksenhet)
-Alias: gjelder_bruksenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Brukseiningane den ytre inngangen gir tilgang til.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:gjelderBruksenhet
-alias: gjelder_bruksenhet
 domain_of:
 - YtreInngang
 range: Bruksenhet

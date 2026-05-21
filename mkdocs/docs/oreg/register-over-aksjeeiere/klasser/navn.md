@@ -10,8 +10,6 @@ _Namn på instansen._
 
 
 URI: [aksje:navn](https://example.no/ontology/aksje#navn)
-Alias: navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
 | [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
 | [Aksjeklasse](aksjeklasse.md) | Klasse aksjar høyrer til, med eigne rettigheiter |  no  |
+| [Aksjeeier](aksjeeier.md) | Person eller organisasjon som eig aksjar |  no  |
 
 
 
@@ -86,7 +84,6 @@ name: navn
 description: Namn på instansen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: navn
 domain_of:
 - Aksjeselskap
 - Aksjeklasse

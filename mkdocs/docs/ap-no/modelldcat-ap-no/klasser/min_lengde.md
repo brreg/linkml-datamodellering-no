@@ -10,8 +10,6 @@ _Minimal lengd av strengen (xsd:minLength)._
 
 
 URI: [xsd:minLength](http://www.w3.org/2001/XMLSchema#minLength)
-Alias: min_lengde
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Minimal lengd av strengen (xsd:minLength).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:minLength
-alias: min_lengde
 domain_of:
 - EnkelType
 range: NonNegativeInteger

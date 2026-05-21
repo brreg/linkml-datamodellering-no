@@ -10,8 +10,6 @@ _Personar kontaktpersonen er pårørande for._
 
 
 URI: [fint:kontaktpersonFor](https://schema.fintlabs.no/kontaktpersonFor)
-Alias: kontaktperson
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: kontaktperson
 description: Personar kontaktpersonen er pårørande for.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kontaktpersonFor
-alias: kontaktperson
 domain_of:
 - Kontaktperson
 range: Person

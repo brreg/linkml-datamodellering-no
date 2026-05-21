@@ -10,8 +10,6 @@ _Nummeret på identifikasjonsdokumentet._
 
 
 URI: [ngrp:dokumentnummer](https://data.norge.no/vocabulary/ngr-person#dokumentnummer)
-Alias: dokumentnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Nummeret på identifikasjonsdokumentet.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:dokumentnummer
-alias: dokumentnummer
 domain_of:
 - Identifikasjonsdokument
 range: string

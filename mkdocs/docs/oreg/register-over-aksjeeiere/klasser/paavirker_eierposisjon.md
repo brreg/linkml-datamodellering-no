@@ -10,8 +10,6 @@ _Eierskapstransaksjon knytt til eigarposisjonen._
 
 
 URI: [aksje:paavirker_eierposisjon](https://example.no/ontology/aksje#paavirker_eierposisjon)
-Alias: paavirker_eierposisjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Eierskapstransaksjon knytt til eigarposisjonen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Eierskapstransaksjon
-alias: paavirker_eierposisjon
 domain_of:
 - Eierskapstransaksjon
 range: Eierposisjon

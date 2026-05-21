@@ -10,8 +10,6 @@ _Skoleressurs som sende varselet._
 
 
 URI: [utd:utsteder](https://schema.fintlabs.no/utdanning/utsteder)
-Alias: utsteder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Skoleressurs som sende varselet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:utsteder
-alias: utsteder
 domain_of:
 - Varsel
 range: Skoleressurs

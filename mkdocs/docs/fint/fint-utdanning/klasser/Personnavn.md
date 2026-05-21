@@ -259,7 +259,6 @@ attributes:
     description: Fornamn til personen.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:fornavn
-    alias: fornavn
     owner: Personnavn
     domain_of:
     - Personnavn
@@ -270,7 +269,6 @@ attributes:
     description: Mellomnamn.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:mellomnavn
-    alias: mellomnavn
     owner: Personnavn
     domain_of:
     - Personnavn
@@ -280,7 +278,6 @@ attributes:
     description: Etternamn til personen.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:etternavn
-    alias: etternavn
     owner: Personnavn
     domain_of:
     - Personnavn

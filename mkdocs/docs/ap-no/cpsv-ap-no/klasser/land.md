@@ -10,8 +10,6 @@ _Land (ISO 3166-1 alpha-2 kode)._
 
 
 URI: [locn:adminUnitL1](http://www.w3.org/ns/locn#adminUnitL1)
-Alias: land
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Land (ISO 3166-1 alpha-2 kode).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: locn:adminUnitL1
-alias: land
 domain_of:
 - Adresse
 range: string

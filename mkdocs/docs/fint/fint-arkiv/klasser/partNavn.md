@@ -10,8 +10,6 @@ _Namn på verksemd eller person som er part._
 
 
 URI: [ark:partNavn](https://schema.fintlabs.no/arkiv/partNavn)
-Alias: partNavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på verksemd eller person som er part.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:partNavn
-alias: partNavn
 domain_of:
 - Part
 range: string

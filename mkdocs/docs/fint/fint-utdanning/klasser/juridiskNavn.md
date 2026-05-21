@@ -10,8 +10,6 @@ _Juridisk namn på skulen._
 
 
 URI: [utd:juridiskNavn](https://schema.fintlabs.no/utdanning/juridiskNavn)
-Alias: juridiskNavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Juridisk namn på skulen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:juridiskNavn
-alias: juridiskNavn
 domain_of:
 - Skole
 range: string

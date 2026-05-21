@@ -10,8 +10,6 @@ _Omgrep dette omgrepet erstattar (dct:replaces)._
 
 
 URI: [dct:replaces](http://purl.org/dc/terms/replaces)
-Alias: erstattar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep dette omgrepet erstattar (dct:replaces).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:replaces
-alias: erstattar
 domain_of:
 - Begrep
 range: Begrep

@@ -10,8 +10,6 @@ _Offisielt registrert namn på personen._
 
 
 URI: [ngrp:harPersonnavn](https://data.norge.no/vocabulary/ngr-person#harPersonnavn)
-Alias: har_personnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Offisielt registrert namn på personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harPersonnavn
-alias: har_personnavn
 domain_of:
 - Person
 range: Personnavn

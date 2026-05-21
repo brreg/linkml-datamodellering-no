@@ -10,8 +10,6 @@ _Ulike ressursar (lisensar) knytt til ein applikasjon._
 
 
 URI: [res:applikasjonsressurs](https://schema.fintlabs.no/ressurs/applikasjonsressurs)
-Alias: applikasjonsressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Ulike ressursar (lisensar) knytt til ein applikasjon.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:applikasjonsressurs
-alias: applikasjonsressurs
 domain_of:
 - Applikasjon
 range: Applikasjonsressurs

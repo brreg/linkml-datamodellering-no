@@ -10,8 +10,6 @@ _Ansvarleg leiar for organisasjonselementet._
 
 
 URI: [adm:leder](https://schema.fintlabs.no/administrasjon/leder)
-Alias: leder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Ansvarleg leiar for organisasjonselementet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:leder
-alias: leder
 domain_of:
 - Organisasjonselement
 range: Personalressurs

@@ -10,8 +10,6 @@ _Frå tidspunkt._
 
 
 URI: [fint:start](https://schema.fintlabs.no/start)
-Alias: start
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: start
 description: Frå tidspunkt.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:start
-alias: start
 domain_of:
 - Periode
 range: datetime

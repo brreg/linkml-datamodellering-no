@@ -10,8 +10,6 @@ _Kjønn._
 
 
 URI: [fint:kjonn](https://schema.fintlabs.no/kjonn)
-Alias: kjonn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: kjonn
 description: Kjønn.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kjonn
-alias: kjonn
 domain_of:
 - Person
 range: Kjonn

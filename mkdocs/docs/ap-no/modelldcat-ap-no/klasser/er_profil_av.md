@@ -10,8 +10,6 @@ _Standard denne informasjonsmodellen er ein profil av (prof:isProfileOf)._
 
 
 URI: [prof:isProfileOf](http://www.w3.org/ns/dx/prof/isProfileOf)
-Alias: er_profil_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Standard denne informasjonsmodellen er ein profil av (prof:isProfil
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: prof:isProfileOf
-alias: er_profil_av
 domain_of:
 - Informasjonsmodell
 range: Standard

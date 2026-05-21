@@ -5,8 +5,6 @@
 
 
 URI: [okn:fakturaer](https://schema.fintlabs.no/okonomi/fakturaer)
-Alias: fakturaer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: fakturaer
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fakturaer
-alias: fakturaer
 domain_of:
 - OkonomiContainer
 range: Faktura

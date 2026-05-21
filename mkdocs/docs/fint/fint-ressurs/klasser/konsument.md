@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement som har tilgang til ressursen._
 
 
 URI: [res:konsument](https://schema.fintlabs.no/ressurs/konsument)
-Alias: konsument
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement som har tilgang til ressursen.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:konsument
-alias: konsument
 domain_of:
 - Applikasjonsressurstilgjengelighet
 range: uriorcurie

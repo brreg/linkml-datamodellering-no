@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/opphold](https://data.norge.no/linkml/ngr-person/opphold)
-Alias: opphold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: opphold
 name: opphold
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: opphold
 owner: PersonContainer
 domain_of:
 - PersonContainer

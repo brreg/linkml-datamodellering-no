@@ -10,8 +10,6 @@ _Dato ressursen vart første gong publisert (dct:issued)._
 
 
 URI: [dct:issued](http://purl.org/dc/terms/issued)
-Alias: utgivelsesdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -75,7 +73,6 @@ name: utgivelsesdato
 description: Dato ressursen vart første gong publisert (dct:issued).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:issued
-alias: utgivelsesdato
 range: date
 
 ```

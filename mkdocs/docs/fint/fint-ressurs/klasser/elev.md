@@ -10,8 +10,6 @@ _Referanse til Elev (Utdanning)._
 
 
 URI: [fint:elev](https://schema.fintlabs.no/elev)
-Alias: elev
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: elev
 description: Referanse til Elev (Utdanning).
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:elev
-alias: elev
 domain_of:
 - Person
 - DigitalEnhet

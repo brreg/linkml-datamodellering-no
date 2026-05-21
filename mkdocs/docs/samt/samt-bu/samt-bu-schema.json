@@ -6,10 +6,7 @@
             "properties": {
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "identifikator_literal": {
                     "description": "Tekstleg identifikator for ressursen (dct:identifier).",
@@ -111,6 +108,7 @@
                 },
                 "har_maal": {
                     "description": "Ressursen merknaden gjeld.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -434,6 +432,7 @@
                 "ble_generert_ved": {
                     "description": "Brukes til \u00e5 referere til en aktivitet som genererte datasettet, eller som gir forretningskontekst for oppretting av det.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -464,6 +463,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -580,6 +580,7 @@
                 "landingsside": {
                     "description": "Nettside med informasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -607,6 +608,7 @@
                 "relatert_ressurs": {
                     "description": "Generisk relasjon til ein annan ressurs.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -644,6 +646,7 @@
                 "tilgangsrettigheter": {
                     "description": "Egenskapen brukes til \u00e5 angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -842,6 +845,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -852,6 +856,7 @@
                 "endepunkts_url": {
                     "description": "URL til datatjenestens endepunkt.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": "array"
@@ -859,6 +864,7 @@
                 "endepunktsbeskrivelse": {
                     "description": "URL til beskriving av endepunktet (t.d. OpenAPI-dokument).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -924,6 +930,7 @@
                 "landingsside": {
                     "description": "Nettside med informasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -975,6 +982,7 @@
                 "tilgangsrettigheter": {
                     "description": "Egenskapen brukes til \u00e5 angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1055,6 +1063,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1133,6 +1142,7 @@
                 "nedlastningslenke": {
                     "description": "Direkte nedlastingslenke for distribusjonsfila.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1195,6 +1205,7 @@
                 "tilgangs_url": {
                     "description": "URL for tilgang til distribusjonen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": "array"
@@ -1324,6 +1335,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1441,6 +1453,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1567,6 +1580,21 @@
             "title": "Katalog",
             "type": "object"
         },
+        "KatalogisertRessurs": {
+            "additionalProperties": false,
+            "description": "Basisklasse for ressursar som kan katalogiserast.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "KatalogisertRessurs",
+            "type": "object"
+        },
         "Katalogpost": {
             "additionalProperties": false,
             "description": "Ein katalogpost som beskriv ein ressurs i katalogen.",
@@ -1602,6 +1630,7 @@
                 },
                 "kilde_post": {
                     "description": "Kjelde for katalogposten (ekstern oppf\u00f8ring).",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -1958,6 +1987,7 @@
                 },
                 "har_maal": {
                     "description": "Ressursen merknaden gjeld.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -2012,6 +2042,7 @@
                 },
                 "har_maal": {
                     "description": "Ressursen merknaden gjeld.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -2061,6 +2092,28 @@
             "title": "Mediatype",
             "type": "object"
         },
+        "Person": {
+            "additionalProperties": false,
+            "description": "Eit menneske individ",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Namn p\u00e5 ressursen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Person",
+            "type": "object"
+        },
         "PrivatVirksomhet": {
             "additionalProperties": false,
             "description": "Virksomhet, eller foretak, er betegnelser for en juridisk person eller en organisasjon som produserer varer eller tjenester.",
@@ -2107,6 +2160,7 @@
                 "har_referanse": {
                     "description": "Referanse til ekstern ressurs (rdfs:seeAlso).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -2212,6 +2266,7 @@
                 },
                 "relasjon_til": {
                     "description": "Den relaterte ressursen i ein kvalifisert relasjon.",
+                    "format": "uri",
                     "type": "string"
                 }
             },
@@ -2254,6 +2309,7 @@
                 },
                 "krediteringsurl": {
                     "description": "URL for kreditering av rettshavar.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -2348,6 +2404,28 @@
             "title": "Skole",
             "type": "object"
         },
+        "Skoleeier": {
+            "additionalProperties": false,
+            "description": "Superklasse for alle typer skoleeiere.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Namn p\u00e5 ressursen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Skoleeier",
+            "type": "object"
+        },
         "Standard": {
             "additionalProperties": false,
             "description": "Ein standard eller spesifikasjon som eit datasett er i samsvar med.",
@@ -2375,6 +2453,7 @@
                 "har_referanse": {
                     "description": "Referanse til ekstern ressurs (rdfs:seeAlso).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -2497,7 +2576,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Containerklasse for alle klasser som kan inng\u00e5 i datasettet.",
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "properties": {
         "basisgrupper": {
             "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av basisgruppe i ei datafil.",

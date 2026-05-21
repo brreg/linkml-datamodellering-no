@@ -10,8 +10,6 @@ _Unik identifikator for den tilsette i HR-systemet._
 
 
 URI: [adm:ansattnummer](https://schema.fintlabs.no/administrasjon/ansattnummer)
-Alias: ansattnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Unik identifikator for den tilsette i HR-systemet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:ansattnummer
-alias: ansattnummer
 domain_of:
 - Personalressurs
 range: Identifikator

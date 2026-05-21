@@ -10,8 +10,6 @@ _Versjonsnummer for ressursen (owl:versionInfo)._
 
 
 URI: [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo)
-Alias: har_versjonsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: har_versjonsnummer
 description: Versjonsnummer for ressursen (owl:versionInfo).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: owl:versionInfo
-alias: har_versjonsnummer
 domain_of:
 - Klassifikasjon
 range: string

@@ -373,7 +373,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Applikasjonsressurstilgjengelighet
     domain_of:
     - Begrep
@@ -407,7 +406,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
-    alias: gyldighetsperiode
     owner: Applikasjonsressurstilgjengelighet
     domain_of:
     - Begrep
@@ -435,7 +433,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:lisensantall
-    alias: lisensantall
     owner: Applikasjonsressurstilgjengelighet
     domain_of:
     - Applikasjonsressurs
@@ -449,7 +446,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:konsument
-    alias: konsument
     owner: Applikasjonsressurstilgjengelighet
     domain_of:
     - Applikasjonsressurstilgjengelighet
@@ -463,7 +459,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:ressursRef
-    alias: ressursRef
     owner: Applikasjonsressurstilgjengelighet
     domain_of:
     - Applikasjonsressurstilgjengelighet

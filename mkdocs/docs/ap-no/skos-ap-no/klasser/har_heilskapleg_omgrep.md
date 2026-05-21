@@ -10,8 +10,6 @@ _Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept)._
 
 
 URI: [skosno:hasComprehensiveConcept](https://data.norge.no/vocabulary/skosno#hasComprehensiveConcept)
-Alias: har_heilskapleg_omgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensive
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:hasComprehensiveConcept
-alias: har_heilskapleg_omgrep
 domain_of:
 - PartitivRelasjon
 range: Begrep

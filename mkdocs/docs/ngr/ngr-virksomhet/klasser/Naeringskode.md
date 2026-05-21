@@ -329,7 +329,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Naeringskode
     domain_of:
     - Virksomhet
@@ -356,7 +355,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:naeringskodeKode
-    alias: naeringskode_kode
     owner: Naeringskode
     domain_of:
     - Naeringskode
@@ -370,7 +368,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:naeringskodeBeskrivelse
-    alias: naeringskode_beskrivelse
     owner: Naeringskode
     domain_of:
     - Naeringskode
@@ -383,7 +380,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erHovednaeringskode
-    alias: er_hovednaeringskode
     owner: Naeringskode
     domain_of:
     - Naeringskode

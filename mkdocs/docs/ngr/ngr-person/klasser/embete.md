@@ -10,8 +10,6 @@ _Statsforvaltarembetet som oppnemnde vergjet._
 
 
 URI: [ngrp:embete](https://data.norge.no/vocabulary/ngr-person#embete)
-Alias: embete
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Statsforvaltarembetet som oppnemnde vergjet.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:embete
-alias: embete
 domain_of:
 - Verge
 range: string

@@ -10,8 +10,6 @@ _Filstørrelse i bytes._
 
 
 URI: [dcat:byteSize](http://www.w3.org/ns/dcat#byteSize)
-Alias: filstorrelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: filstorrelse
 description: Filstørrelse i bytes.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:byteSize
-alias: filstorrelse
 domain_of:
 - Distribusjon
 range: NonNegativeInteger

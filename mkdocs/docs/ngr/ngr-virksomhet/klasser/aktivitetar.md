@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/aktivitetar](https://data.norge.no/linkml/ngr-virksomhet/aktivitetar)
-Alias: aktivitetar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: aktivitetar
 name: aktivitetar
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: aktivitetar
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

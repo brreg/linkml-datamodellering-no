@@ -10,8 +10,6 @@ _Brukes til å referere til en aktivitet som genererte datasettet, eller som gir
 
 
 URI: [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy)
-Alias: ble_generert_ved
-
 <!-- no inheritance hierarchy -->
 
 
@@ -100,7 +98,6 @@ description: Brukes til å referere til en aktivitet som genererte datasettet, e
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 domain: Datasett
 slot_uri: prov:wasGeneratedBy
-alias: ble_generert_ved
 domain_of:
 - Datasett
 range: uri

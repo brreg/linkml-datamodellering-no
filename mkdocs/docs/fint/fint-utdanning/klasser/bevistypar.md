@@ -10,8 +10,6 @@ _Alle bevistypar i containeren._
 
 
 URI: [utd:bevistypar](https://schema.fintlabs.no/utdanning/bevistypar)
-Alias: bevistypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle bevistypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:bevistypar
-alias: bevistypar
 domain_of:
 - UtdanningContainer
 range: Bevistype

@@ -10,8 +10,6 @@ _Sensor._
 
 
 URI: [utd:sensor](https://schema.fintlabs.no/utdanning/sensor)
-Alias: sensor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: sensor
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
 
 
@@ -89,7 +87,6 @@ description: Sensor.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:sensor
-alias: sensor
 domain_of:
 - UtdanningContainer
 - Skoleressurs

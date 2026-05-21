@@ -10,8 +10,6 @@ _Skildring av kva aktivitet verksemda utøver (formålsparagraf o.l.)._
 
 
 URI: [ngrv:aktivitetBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#aktivitetBeskrivelse)
-Alias: aktivitet_beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Skildring av kva aktivitet verksemda utøver (formålsparagraf o.l.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:aktivitetBeskrivelse
-alias: aktivitet_beskrivelse
 domain_of:
 - Aktivitet
 range: string

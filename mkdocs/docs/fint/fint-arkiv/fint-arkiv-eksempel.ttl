@@ -73,7 +73,7 @@
 <https://example.no/fint/arkivressurs/ar-1> a ark:Arkivressurs ;
     ark:kildesystemId [ a fint:Identifikator ;
             fint:identifikatorverdi "AR001" ] ;
-    ark:personalressurs "finta:personalressurs/p12345"^^xsd:anyURI .
+    ark:personalressurs <https://example.no/fint/personalressurs/p12345> .
 
 [] a <https://schema.fintlabs.no/arkiv/:ArkivContainer> ;
     ark:administrativeEiningar <https://example.no/fint/administrativenhet/post-og-arkiv> ;

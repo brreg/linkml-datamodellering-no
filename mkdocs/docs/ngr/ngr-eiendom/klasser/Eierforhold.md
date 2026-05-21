@@ -433,7 +433,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Eierforhold
     domain_of:
     - FastEiendom
@@ -476,7 +475,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:gjelderMatrikkelenhet
-    alias: gjelder_matrikkelenhet
     owner: Eierforhold
     domain_of:
     - Eierforhold
@@ -490,7 +488,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:kanGjeldeBorettslagsandel
-    alias: kan_gjelde_borettslagsandel
     owner: Eierforhold
     domain_of:
     - Eierforhold
@@ -503,7 +500,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:gjelderHjemmelEiendomsrett
-    alias: gjelder_hjemmel_eiendomsrett
     owner: Eierforhold
     domain_of:
     - Eierforhold
@@ -516,7 +512,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:gjelderHjemmelFesterett
-    alias: gjelder_hjemmel_festerett
     owner: Eierforhold
     domain_of:
     - Eierforhold
@@ -529,7 +524,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:gjelderHjemmelFramfesterett
-    alias: gjelder_hjemmel_framfesterett
     owner: Eierforhold
     domain_of:
     - Eierforhold

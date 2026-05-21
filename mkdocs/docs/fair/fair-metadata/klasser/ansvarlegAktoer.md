@@ -12,8 +12,6 @@ __
 
 
 URI: [prov:wasAttributedTo](http://www.w3.org/ns/prov#wasAttributedTo)
-Alias: ansvarlegAktoer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ description: 'Organisasjon eller aktør som er ansvarleg for ressursen, som URI 
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: prov:wasAttributedTo
-alias: ansvarlegAktoer
 domain_of:
 - Proveniensmetadata
 range: uriorcurie

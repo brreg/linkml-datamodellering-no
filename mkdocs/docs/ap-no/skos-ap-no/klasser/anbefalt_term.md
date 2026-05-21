@@ -10,8 +10,6 @@ _Føretrukke term/namn for ressursen (skos:prefLabel)._
 
 
 URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
-Alias: anbefalt_term
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: anbefalt_term
 description: Føretrukke term/namn for ressursen (skos:prefLabel).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: skos:prefLabel
-alias: anbefalt_term
 domain_of:
 - Begrep
 range: LangString

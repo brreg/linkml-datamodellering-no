@@ -335,7 +335,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Borettslagsandel
     domain_of:
     - FastEiendom
@@ -378,7 +377,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:tilhoererBorettslag
-    alias: tilhoerer_borettslag
     owner: Borettslagsandel
     domain_of:
     - Borettslagsandel
@@ -392,7 +390,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harEierforhold
-    alias: har_eierforhold
     owner: Borettslagsandel
     domain_of:
     - FastEiendom
@@ -407,7 +404,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harTinglystHeftelse
-    alias: har_tinglyst_heftelse
     owner: Borettslagsandel
     domain_of:
     - FastEiendom

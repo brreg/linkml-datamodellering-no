@@ -10,8 +10,6 @@ _Mellomnamn._
 
 
 URI: [fint:mellomnavn](https://schema.fintlabs.no/mellomnavn)
-Alias: mellomnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: mellomnavn
 description: Mellomnamn.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:mellomnavn
-alias: mellomnavn
 domain_of:
 - Personnavn
 range: string

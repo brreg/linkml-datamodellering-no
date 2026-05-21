@@ -10,8 +10,6 @@ _Modellelement denne abstraksjonen representerer (modelldcatno:isAbstractionOf).
 
 
 URI: [modelldcatno:isAbstractionOf](https://data.norge.no/vocabulary/modelldcatno#isAbstractionOf)
-Alias: er_abstraksjon_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Modellelement denne abstraksjonen representerer (modelldcatno:isAbs
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:isAbstractionOf
-alias: er_abstraksjon_av
 domain_of:
 - Abstraksjon
 range: Modellelement

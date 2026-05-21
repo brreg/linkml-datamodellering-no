@@ -10,8 +10,6 @@ _Åtferdskarakter._
 
 
 URI: [utd:atferd](https://schema.fintlabs.no/utdanning/atferd)
-Alias: atferd
-
 <!-- no inheritance hierarchy -->
 
 
@@ -23,10 +21,10 @@ Alias: atferd
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [OrdensvurderingAbstrakt](ordensvurderingabstrakt.md) | Abstrakt basisklasse for ordensvurderingar |  yes  |
-| [Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  no  |
 | [Anmerkninger](anmerkninger.md) | Åtferds- og ordensanmerkningar for ein elev i eit skoleår |  yes  |
-| [Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  no  |
 | [Halvaarsordensvurdering](halvaarsordensvurdering.md) | Halvårsordensvurdering for ein elev |  no  |
+| [Sluttordensvurdering](sluttordensvurdering.md) | Sluttordensvurdering for ein elev |  no  |
+| [Underveisordensvurdering](underveisordensvurdering.md) | Underveisordensvurdering for ein elev |  no  |
 
 
 
@@ -90,7 +88,6 @@ description: Åtferdskarakter.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:atferd
-alias: atferd
 domain_of:
 - OrdensvurderingAbstrakt
 - Anmerkninger

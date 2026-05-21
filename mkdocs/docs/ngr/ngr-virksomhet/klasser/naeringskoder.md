@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/naeringskoder](https://data.norge.no/linkml/ngr-virksomhet/naeringskoder)
-Alias: naeringskoder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: naeringskoder
 name: naeringskoder
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: naeringskoder
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

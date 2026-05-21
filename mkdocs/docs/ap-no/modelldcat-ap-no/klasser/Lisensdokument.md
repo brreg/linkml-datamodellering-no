@@ -202,7 +202,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Lisensdokument
     domain_of:
     - Mediatype
@@ -229,7 +228,6 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Lisensdokument
     domain_of:
     - Aktor

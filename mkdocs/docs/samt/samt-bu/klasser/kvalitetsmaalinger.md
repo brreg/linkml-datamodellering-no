@@ -10,8 +10,6 @@ _Kvalitetsmålingar for datasettet._
 
 
 URI: [samtbuskole:kvalitetsmaalinger](https://example.no/ontology/skole#kvalitetsmaalinger)
-Alias: kvalitetsmaalinger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: kvalitetsmaalinger
 description: Kvalitetsmålingar for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: kvalitetsmaalinger
 domain_of:
 - Containerklasse
 range: Kvalitetsmaaling

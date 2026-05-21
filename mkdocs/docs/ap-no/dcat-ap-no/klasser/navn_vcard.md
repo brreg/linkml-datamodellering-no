@@ -10,8 +10,6 @@ _Formatert namn (vCard)._
 
 
 URI: [vcard:fn](http://www.w3.org/2006/vcard/ns#fn)
-Alias: navn_vcard
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Formatert namn (vCard).
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: vcard:fn
-alias: navn_vcard
 domain_of:
 - Kontaktopplysning
 range: LangString

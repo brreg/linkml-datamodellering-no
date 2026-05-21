@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/familierelasjonEktefelle](https://data.norge.no/linkml/ngr-person/familierelasjonEktefelle)
-Alias: familierelasjonEktefelle
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: familierelasjonEktefelle
 name: familierelasjonEktefelle
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: familierelasjonEktefelle
 owner: PersonContainer
 domain_of:
 - PersonContainer

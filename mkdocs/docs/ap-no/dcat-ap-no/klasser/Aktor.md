@@ -298,7 +298,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Aktor
     domain_of:
     - Mediatype
@@ -333,7 +332,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: foaf:name
-    alias: navn_aktor
     owner: Aktor
     domain_of:
     - Aktor
@@ -345,7 +343,6 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Aktor
     domain_of:
     - Aktor
@@ -359,7 +356,6 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Aktor
     domain_of:
     - Aktor

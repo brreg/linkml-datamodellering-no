@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/dodsfall](https://data.norge.no/linkml/ngr-person/dodsfall)
-Alias: dodsfall
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: dodsfall
 name: dodsfall
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: dodsfall
 owner: PersonContainer
 domain_of:
 - PersonContainer

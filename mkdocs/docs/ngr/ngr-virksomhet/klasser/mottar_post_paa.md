@@ -10,8 +10,6 @@ _Postadressa verksemda mottar post på._
 
 
 URI: [ngrv:mottarPostPaa](https://data.norge.no/vocabulary/ngr-virksomhet#mottarPostPaa)
-Alias: mottar_post_paa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: mottar_post_paa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -88,7 +86,6 @@ description: Postadressa verksemda mottar post på.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:mottarPostPaa
-alias: mottar_post_paa
 domain_of:
 - Virksomhet
 range: Postadresse

@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad._
 
 
 URI: [ark:arbeidssted](https://schema.fintlabs.no/arkiv/arbeidssted)
-Alias: arbeidssted
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement som er arbeidstakarens arbeidsst
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:arbeidssted
-alias: arbeidssted
 domain_of:
 - Personalmappe
 range: uriorcurie

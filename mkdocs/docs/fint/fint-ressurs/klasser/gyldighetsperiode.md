@@ -10,8 +10,6 @@ _Periode ressursen er gyldig for._
 
 
 URI: [fint:gyldighetsperiode](https://schema.fintlabs.no/gyldighetsperiode)
-Alias: gyldighetsperiode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,25 +20,25 @@ Alias: gyldighetsperiode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Produsent](produsent.md) | Produsent av ei digital eining |  yes  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
+| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
+| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
 | [Applikasjonsressurstilgjengelighet](applikasjonsressurstilgjengelighet.md) | Kva organisasjonselements brukarar som har tilgang til ein ressurs |  yes  |
 | [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
-| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
-| [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
-| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  yes  |
 | [Applikasjonskategori](applikasjonskategori.md) | Kategori av applikasjonar |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
-| [Status](status.md) | Status på ei digital eining i fagsystemet |  yes  |
-| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
 | [Brukertype](brukertype.md) | Dei ulike brukartypane som kan nytte lisensen |  yes  |
 | [Enhetstype](enhetstype.md) | Type digital eining |  yes  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
 | [Handhevingstype](handhevingstype.md) | Korleis ulike lisensmodellar kan handhevast |  yes  |
+| [Lisensmodell](lisensmodell.md) | Lisensmodellar som kan knytast til ein lisens |  yes  |
+| [Plattform](plattform.md) | Plattforma tenesta kan leverast på |  yes  |
+| [Produsent](produsent.md) | Produsent av ei digital eining |  yes  |
+| [Status](status.md) | Status på ei digital eining i fagsystemet |  yes  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -103,7 +101,6 @@ name: gyldighetsperiode
 description: Periode ressursen er gyldig for.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:gyldighetsperiode
-alias: gyldighetsperiode
 domain_of:
 - Begrep
 - Identifikator

@@ -10,8 +10,6 @@ _Matrikkeleininga dette eigarforholdet gjeld._
 
 
 URI: [ngre:gjelderMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#gjelderMatrikkelenhet)
-Alias: gjelder_matrikkelenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: gjelder_matrikkelenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
-| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
 | [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
 
 
 
@@ -88,7 +86,6 @@ description: Matrikkeleininga dette eigarforholdet gjeld.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:gjelderMatrikkelenhet
-alias: gjelder_matrikkelenhet
 domain_of:
 - Eierforhold
 range: Matrikkelenhet

@@ -10,8 +10,6 @@ _URL til datatjenestens endepunkt._
 
 
 URI: [dcat:endpointURL](http://www.w3.org/ns/dcat#endpointURL)
-Alias: endepunkts_url
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: endepunkts_url
 description: URL til datatjenestens endepunkt.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:endpointURL
-alias: endepunkts_url
 domain_of:
 - Datatjeneste
 range: uri

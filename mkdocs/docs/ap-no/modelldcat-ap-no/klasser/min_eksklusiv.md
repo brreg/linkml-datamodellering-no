@@ -10,8 +10,6 @@ _Eksklusiv minimumsverdi (xsd:minExclusive)._
 
 
 URI: [xsd:minExclusive](http://www.w3.org/2001/XMLSchema#minExclusive)
-Alias: min_eksklusiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Eksklusiv minimumsverdi (xsd:minExclusive).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:minExclusive
-alias: min_eksklusiv
 domain_of:
 - EnkelType
 range: string

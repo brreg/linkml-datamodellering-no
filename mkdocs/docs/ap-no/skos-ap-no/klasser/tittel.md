@@ -10,8 +10,6 @@ _Namn/tittel på ressursen (dct:title)._
 
 
 URI: [dct:title](http://purl.org/dc/terms/title)
-Alias: tittel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: tittel
 description: Namn/tittel på ressursen (dct:title).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:title
-alias: tittel
 domain_of:
 - Samling
 range: LangString

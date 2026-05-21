@@ -10,8 +10,6 @@ _Dokument som representerer ein annan form av modellen (dct:hasFormat)._
 
 
 URI: [dct:hasFormat](http://purl.org/dc/terms/hasFormat)
-Alias: har_format
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Dokument som representerer ein annan form av modellen (dct:hasForma
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:hasFormat
-alias: har_format
 domain_of:
 - Informasjonsmodell
 range: Dokument

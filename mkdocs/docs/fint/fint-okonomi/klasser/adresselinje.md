@@ -10,8 +10,6 @@ _Adresseinformasjon._
 
 
 URI: [fint:adresselinje](https://schema.fintlabs.no/adresselinje)
-Alias: adresselinje
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: adresselinje
 description: Adresseinformasjon.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:adresselinje
-alias: adresselinje
 domain_of:
 - Adresse
 range: string

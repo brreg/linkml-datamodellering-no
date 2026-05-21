@@ -10,8 +10,6 @@ _Sluttdato for tidsrommet._
 
 
 URI: [dcat:endDate](http://www.w3.org/ns/dcat#endDate)
-Alias: sluttdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: sluttdato
 description: Sluttdato for tidsrommet.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:endDate
-alias: sluttdato
 domain_of:
 - Tidsrom
 range: date

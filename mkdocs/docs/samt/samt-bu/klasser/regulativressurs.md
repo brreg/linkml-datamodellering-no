@@ -379,7 +379,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: RegulativRessurs
     domain_of:
     - KatalogisertRessurs
@@ -416,7 +415,6 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: RegulativRessurs
     domain_of:
     - RegulativRessurs
@@ -434,7 +432,6 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: RegulativRessurs
     domain_of:
     - Aktor
@@ -448,7 +445,6 @@ attributes:
     description: Referanse til ekstern ressurs (rdfs:seeAlso).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:seeAlso
-    alias: har_referanse
     owner: RegulativRessurs
     domain_of:
     - RegulativRessurs
@@ -460,7 +456,6 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: RegulativRessurs
     domain_of:
     - RegulativRessurs
@@ -476,7 +471,6 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: RegulativRessurs
     domain_of:
     - RegulativRessurs
@@ -494,7 +488,6 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: RegulativRessurs
     domain_of:
     - Aktor
@@ -506,7 +499,6 @@ attributes:
     description: Relatert regulativ ressurs.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:relation
-    alias: relatert_regulativ_ressurs
     owner: RegulativRessurs
     domain_of:
     - RegulativRessurs

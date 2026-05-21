@@ -5,8 +5,6 @@
 
 
 URI: [ark:tilknyttetRegistreringSomKodar](https://schema.fintlabs.no/arkiv/tilknyttetRegistreringSomKodar)
-Alias: tilknyttetRegistreringSomKodar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: tilknyttetRegistreringSomKodar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilknyttetRegistreringSomKodar
-alias: tilknyttetRegistreringSomKodar
 domain_of:
 - ArkivContainer
 range: TilknyttetRegistreringSom

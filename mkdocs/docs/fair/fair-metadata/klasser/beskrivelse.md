@@ -10,8 +10,6 @@ _URI til ressursen som denne metadata-posten beskriver (FAIR F3)._
 
 
 URI: [dct:subject](http://purl.org/dc/terms/subject)
-Alias: beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: URI til ressursen som denne metadata-posten beskriver (FAIR F3).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:subject
-alias: beskrivelse
 domain_of:
 - FAIRMetadata
 range: uriorcurie

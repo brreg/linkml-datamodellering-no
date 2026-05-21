@@ -10,8 +10,6 @@ _Fornamn til personen._
 
 
 URI: [fint:fornavn](https://schema.fintlabs.no/fornavn)
-Alias: fornavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: fornavn
 description: Fornamn til personen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fornavn
-alias: fornavn
 domain_of:
 - Personnavn
 range: string

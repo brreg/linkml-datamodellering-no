@@ -10,8 +10,6 @@ _Varsel._
 
 
 URI: [utd:varsel](https://schema.fintlabs.no/utdanning/varsel)
-Alias: varsel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Varsel.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:varsel
-alias: varsel
 domain_of:
 - UtdanningContainer
 - Faggruppemedlemskap

@@ -10,8 +10,6 @@ _Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept)._
 
 
 URI: [skosno:hasGenericConcept](https://data.norge.no/vocabulary/skosno#hasGenericConcept)
-Alias: har_generisk_omgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:hasGenericConcept
-alias: har_generisk_omgrep
 domain_of:
 - GeneriskRelasjon
 range: Begrep

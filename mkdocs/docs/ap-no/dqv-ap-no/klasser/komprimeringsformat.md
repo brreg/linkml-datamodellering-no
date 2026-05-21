@@ -10,8 +10,6 @@ _Komprimeringsformat brukt i distribusjonen._
 
 
 URI: [dcat:compressFormat](http://www.w3.org/ns/dcat#compressFormat)
-Alias: komprimeringsformat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: komprimeringsformat
 description: Komprimeringsformat brukt i distribusjonen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:compressFormat
-alias: komprimeringsformat
 domain_of:
 - Distribusjon
 range: Mediatype

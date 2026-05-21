@@ -10,8 +10,6 @@ _Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing)._
 
 
 URI: [oa:motivatedBy](http://www.w3.org/ns/oa#motivatedBy)
-Alias: er_motivert_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ name: er_motivert_av
 description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: oa:motivatedBy
-alias: er_motivert_av
 domain_of:
 - Kvalitetsmerknad
 range: uriorcurie

@@ -10,8 +10,6 @@ _Alle faggrupper i containeren._
 
 
 URI: [utd:faggrupper](https://schema.fintlabs.no/utdanning/faggrupper)
-Alias: faggrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle faggrupper i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:faggrupper
-alias: faggrupper
 domain_of:
 - UtdanningContainer
 range: Faggruppe

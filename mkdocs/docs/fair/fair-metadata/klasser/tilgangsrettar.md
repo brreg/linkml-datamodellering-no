@@ -12,8 +12,6 @@ __
 
 
 URI: [dct:accessRights](http://purl.org/dc/terms/accessRights)
-Alias: tilgangsrettar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ description: 'Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:accessRights
-alias: tilgangsrettar
 domain_of:
 - Tilgangsmetadata
 range: uriorcurie

@@ -10,8 +10,6 @@ _Alle fråværstypar i containeren._
 
 
 URI: [utd:fravartypar](https://schema.fintlabs.no/utdanning/fravartypar)
-Alias: fravartypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle fråværstypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fravartypar
-alias: fravartypar
 domain_of:
 - UtdanningContainer
 range: Fravartype

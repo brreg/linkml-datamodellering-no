@@ -10,8 +10,6 @@ _E-postadresse til kontaktpunktet._
 
 
 URI: [vcard:hasEmail](http://www.w3.org/2006/vcard/ns#hasEmail)
-Alias: har_epost
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: har_epost
 description: E-postadresse til kontaktpunktet.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: vcard:hasEmail
-alias: har_epost
 domain_of:
 - Kontaktopplysning
 range: string

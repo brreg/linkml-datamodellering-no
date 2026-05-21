@@ -10,8 +10,6 @@ _Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1)._
 
 
 URI: [dct:rights](http://purl.org/dc/terms/rights)
-Alias: bruksavgrensingar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:rights
-alias: bruksavgrensingar
 domain_of:
 - Gjenbruksmetadata
 range: string

@@ -10,8 +10,6 @@ _Tekstleg namn på vegen eller stadnamnet (locn:thoroughfare)._
 
 
 URI: [locn:thoroughfare](http://www.w3.org/ns/locn#thoroughfare)
-Alias: adressenavn_tekst
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tekstleg namn på vegen eller stadnamnet (locn:thoroughfare).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: locn:thoroughfare
-alias: adressenavn_tekst
 domain_of:
 - Adressenavn
 range: string

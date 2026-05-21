@@ -10,8 +10,6 @@ _Datoen journalposten er oppretta/arkivert._
 
 
 URI: [ark:journalDato](https://schema.fintlabs.no/arkiv/journalDato)
-Alias: journalDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen journalposten er oppretta/arkivert.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:journalDato
-alias: journalDato
 domain_of:
 - Journalpost
 range: datetime

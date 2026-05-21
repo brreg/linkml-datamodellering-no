@@ -10,8 +10,6 @@ _Aktøren som primært har skapt ressursen._
 
 
 URI: [dct:creator](http://purl.org/dc/terms/creator)
-Alias: produsent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: produsent
 description: Aktøren som primært har skapt ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:creator
-alias: produsent
 domain_of:
 - Datasett
 - Katalog

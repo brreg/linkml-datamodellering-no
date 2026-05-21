@@ -10,8 +10,6 @@ _Fråværet dette fråværet er fortsetjing av._
 
 
 URI: [adm:fortsetter](https://schema.fintlabs.no/administrasjon/fortsetter)
-Alias: fortsetter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fråværet dette fråværet er fortsetjing av.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fortsetter
-alias: fortsetter
 domain_of:
 - Fravaer
 range: Fravaer

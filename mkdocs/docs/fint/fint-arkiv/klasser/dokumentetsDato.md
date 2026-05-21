@@ -10,8 +10,6 @@ _Dato påført sjølve dokumentet._
 
 
 URI: [ark:dokumentetsDato](https://schema.fintlabs.no/arkiv/dokumentetsDato)
-Alias: dokumentetsDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato påført sjølve dokumentet.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumentetsDato
-alias: dokumentetsDato
 domain_of:
 - Journalpost
 range: datetime

@@ -10,8 +10,6 @@ _Postadresse knytt til aktøren._
 
 
 URI: [locn:address](http://www.w3.org/ns/locn#address)
-Alias: adresse_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: adresse_ref
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
 | [Aktor](aktor.md) | Ein aktør (person eller organisasjon) relatert til ei teneste |  yes  |
+| [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Postadresse knytt til aktøren.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: locn:address
-alias: adresse_ref
 domain_of:
 - Aktor
 range: Adresse

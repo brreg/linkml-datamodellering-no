@@ -10,8 +10,6 @@ _Dokumentets format._
 
 
 URI: [ark:filformat](https://schema.fintlabs.no/arkiv/filformat)
-Alias: filformat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dokumentets format.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:filformat
-alias: filformat
 domain_of:
 - Dokumentobjekt
 range: Format

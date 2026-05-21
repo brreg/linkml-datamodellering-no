@@ -10,8 +10,6 @@ _Domenenamn for skulen._
 
 
 URI: [utd:domenenavn](https://schema.fintlabs.no/utdanning/domenenavn)
-Alias: domenenavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Domenenamn for skulen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:domenenavn
-alias: domenenavn
 domain_of:
 - Skole
 range: string

@@ -10,8 +10,6 @@ _Kva type fullmakt._
 
 
 URI: [adm:rolle](https://schema.fintlabs.no/administrasjon/rolle)
-Alias: rolle
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kva type fullmakt.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:rolle
-alias: rolle
 domain_of:
 - Fullmakt
 range: Rolle

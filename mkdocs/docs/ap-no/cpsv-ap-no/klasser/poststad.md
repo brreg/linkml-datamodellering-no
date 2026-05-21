@@ -10,8 +10,6 @@ _Poststad/by._
 
 
 URI: [locn:postName](http://www.w3.org/ns/locn#postName)
-Alias: poststad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Poststad/by.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: locn:postName
-alias: poststad
 domain_of:
 - Adresse
 range: LangString

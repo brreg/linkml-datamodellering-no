@@ -10,8 +10,6 @@ _Nøkkelord som skildrar innhaldet (Registrering)._
 
 
 URI: [ark:nokkelord](https://schema.fintlabs.no/arkiv/nokkelord)
-Alias: nokkelord
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Nøkkelord som skildrar innhaldet (Registrering).
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:nokkelord
-alias: nokkelord
 domain_of:
 - Registrering
 range: string

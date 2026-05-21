@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement (Administrasjon)._
 
 
 URI: [okn:organisasjonselement](https://schema.fintlabs.no/okonomi/organisasjonselement)
-Alias: organisasjonselement
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement (Administrasjon).
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:organisasjonselement
-alias: organisasjonselement
 domain_of:
 - Fakturautsteder
 range: uriorcurie

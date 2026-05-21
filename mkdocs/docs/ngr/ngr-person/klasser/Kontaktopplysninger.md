@@ -325,7 +325,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: Kontaktopplysninger
     domain_of:
     - Person
@@ -367,7 +366,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:epostadresse
-    alias: epostadresse_verdi
     owner: Kontaktopplysninger
     domain_of:
     - KontaktinformasjonDoedsbo
@@ -381,7 +379,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:mobiltelefonnummer
-    alias: mobiltelefonnummer
     owner: Kontaktopplysninger
     domain_of:
     - Kontaktopplysninger
@@ -394,7 +391,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:sistOppdatert
-    alias: sist_oppdatert
     owner: Kontaktopplysninger
     domain_of:
     - Kontaktopplysninger

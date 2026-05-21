@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/identitetsgrunnlag](https://data.norge.no/linkml/ngr-person/identitetsgrunnlag)
-Alias: identitetsgrunnlag
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: identitetsgrunnlag
 name: identitetsgrunnlag
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: identitetsgrunnlag
 owner: PersonContainer
 domain_of:
 - PersonContainer

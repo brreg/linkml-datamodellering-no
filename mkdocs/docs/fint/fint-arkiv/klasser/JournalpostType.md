@@ -10,8 +10,6 @@ _Namn på type journalpost._
 
 
 URI: [ark:journalposttype](https://schema.fintlabs.no/arkiv/journalposttype)
-Alias: journalposttype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på type journalpost.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:journalposttype
-alias: journalposttype
 domain_of:
 - Journalpost
 range: JournalpostType

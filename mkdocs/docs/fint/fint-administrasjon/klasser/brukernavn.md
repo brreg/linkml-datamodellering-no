@@ -10,8 +10,6 @@ _Brukarnamn til den tilsette._
 
 
 URI: [adm:brukernavn](https://schema.fintlabs.no/administrasjon/brukernavn)
-Alias: brukernavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Brukarnamn til den tilsette.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:brukernavn
-alias: brukernavn
 domain_of:
 - Personalressurs
 range: Identifikator

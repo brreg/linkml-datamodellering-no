@@ -10,8 +10,6 @@ _Dato(ar) for eigarskifte i underleininga._
 
 
 URI: [ngrv:eierskiftedato](https://data.norge.no/vocabulary/ngr-virksomhet#eierskiftedato)
-Alias: eierskiftedatoer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Dato(ar) for eigarskifte i underleininga.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:eierskiftedato
-alias: eierskiftedatoer
 domain_of:
 - Underenhet
 range: date

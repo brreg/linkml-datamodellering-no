@@ -10,8 +10,6 @@ _Mobiltelefonnummer for verksemda._
 
 
 URI: [ngrv:mobiltelefonnummer](https://data.norge.no/vocabulary/ngr-virksomhet#mobiltelefonnummer)
-Alias: mobiltelefonnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Mobiltelefonnummer for verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:mobiltelefonnummer
-alias: mobiltelefonnummer
 domain_of:
 - Kontaktinformasjon
 range: string

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/bostedsadresser](https://data.norge.no/linkml/ngr-person/bostedsadresser)
-Alias: bostedsadresser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: bostedsadresser
 name: bostedsadresser
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: bostedsadresser
 owner: PersonContainer
 domain_of:
 - PersonContainer

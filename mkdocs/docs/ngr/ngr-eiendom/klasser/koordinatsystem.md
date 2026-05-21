@@ -10,8 +10,6 @@ _Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N)._
 
 
 URI: [ngre:koordinatsystem](https://data.norge.no/vocabulary/ngr-eiendom#koordinatsystem)
-Alias: koordinatsystem
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:koordinatsystem
-alias: koordinatsystem
 domain_of:
 - Representasjonspunkt
 range: string

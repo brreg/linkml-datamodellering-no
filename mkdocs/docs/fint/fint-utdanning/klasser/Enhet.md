@@ -10,8 +10,6 @@ _OT-eining._
 
 
 URI: [utd:enhet](https://schema.fintlabs.no/utdanning/enhet)
-Alias: enhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: OT-eining.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:enhet
-alias: enhet
 domain_of:
 - OtUngdom
 range: OtEnhet

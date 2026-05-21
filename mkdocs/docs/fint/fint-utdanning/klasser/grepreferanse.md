@@ -10,8 +10,6 @@ _Referanse til GREP-registeret._
 
 
 URI: [utd:grepreferanse](https://schema.fintlabs.no/utdanning/grepreferanse)
-Alias: grepreferanse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: grepreferanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
-| [Fag](fag.md) | Eit skulefag |  yes  |
 | [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 | [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Referanse til GREP-registeret.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:grepreferanse
-alias: grepreferanse
 domain_of:
 - Arstrinn
 - Programomrade

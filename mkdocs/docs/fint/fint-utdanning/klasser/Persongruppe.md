@@ -10,8 +10,6 @@ _Persongruppe._
 
 
 URI: [utd:persongruppe](https://schema.fintlabs.no/utdanning/persongruppe)
-Alias: persongruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Persongruppe.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:persongruppe
-alias: persongruppe
 domain_of:
 - Persongruppemedlemskap
 range: Persongruppe

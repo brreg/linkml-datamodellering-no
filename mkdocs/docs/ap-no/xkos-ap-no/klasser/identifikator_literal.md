@@ -10,8 +10,6 @@ _Tekstleg identifikator for ressursen (dct:identifier)._
 
 
 URI: [dct:identifier](http://purl.org/dc/terms/identifier)
-Alias: identifikator_literal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: identifikator_literal
 description: Tekstleg identifikator for ressursen (dct:identifier).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:identifier
-alias: identifikator_literal
 domain_of:
 - Klassifikasjon
 - Klassifikasjonssamanlikning

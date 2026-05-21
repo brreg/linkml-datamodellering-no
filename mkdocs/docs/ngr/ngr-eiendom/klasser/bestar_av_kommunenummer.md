@@ -10,8 +10,6 @@ _Kommunenummerdelen av matrikkelnummeret._
 
 
 URI: [ngre:bestarAvKommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvKommunenummer)
-Alias: bestar_av_kommunenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kommunenummerdelen av matrikkelnummeret.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvKommunenummer
-alias: bestar_av_kommunenummer
 domain_of:
 - Matrikkelnummer
 range: Kommunenummer

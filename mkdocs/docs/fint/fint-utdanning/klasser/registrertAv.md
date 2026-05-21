@@ -10,8 +10,6 @@ _Skoleressurs som registrerte fråværet._
 
 
 URI: [utd:registrertAv](https://schema.fintlabs.no/utdanning/registrertAv)
-Alias: registrertAv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Skoleressurs som registrerte fråværet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:registrertAv
-alias: registrertAv
 domain_of:
 - Fraversregistrering
 range: Skoleressurs

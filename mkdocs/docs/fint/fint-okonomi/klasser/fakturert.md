@@ -10,8 +10,6 @@ _Status på utsending._
 
 
 URI: [okn:fakturert](https://schema.fintlabs.no/okonomi/fakturert)
-Alias: fakturert
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status på utsending.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fakturert
-alias: fakturert
 domain_of:
 - Faktura
 range: boolean

@@ -10,8 +10,6 @@ _E-postadresse (mailto:-URI)._
 
 
 URI: [cv:email](http://data.europa.eu/m8g/email)
-Alias: epost
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: E-postadresse (mailto:-URI).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:email
-alias: epost
 domain_of:
 - Kontaktpunkt
 range: uri

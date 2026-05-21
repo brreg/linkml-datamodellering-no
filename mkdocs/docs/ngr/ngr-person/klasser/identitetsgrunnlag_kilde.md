@@ -10,8 +10,6 @@ _Kjelde for identitetsgrunnlaget._
 
 
 URI: [ngrp:identitetsgrunnlagKilde](https://data.norge.no/vocabulary/ngr-person#identitetsgrunnlagKilde)
-Alias: identitetsgrunnlag_kilde
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kjelde for identitetsgrunnlaget.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:identitetsgrunnlagKilde
-alias: identitetsgrunnlag_kilde
 domain_of:
 - Identitetsgrunnlag
 range: string

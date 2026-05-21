@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/svalbardOmrader](https://data.norge.no/linkml/ngr-adresse/svalbardOmrader)
-Alias: svalbardOmrader
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: svalbardOmrader
 name: svalbardOmrader
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: svalbardOmrader
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

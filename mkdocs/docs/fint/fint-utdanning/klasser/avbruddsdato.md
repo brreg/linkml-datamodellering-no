@@ -10,8 +10,6 @@ _Dato for avbrot frå opplæring._
 
 
 URI: [utd:avbruddsdato](https://schema.fintlabs.no/utdanning/avbruddsdato)
-Alias: avbruddsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato for avbrot frå opplæring.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:avbruddsdato
-alias: avbruddsdato
 domain_of:
 - Elevforhold
 range: date

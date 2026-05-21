@@ -10,8 +10,6 @@ _Utgjevarar av datasettet._
 
 
 URI: [samtbuskole:utgivere](https://example.no/ontology/skole#utgivere)
-Alias: utgivere
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: utgivere
 description: Utgjevarar av datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: utgivere
 domain_of:
 - Containerklasse
 range: Aktor

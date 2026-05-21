@@ -10,8 +10,6 @@ _Alle kontaktlærargrupper i containeren._
 
 
 URI: [utd:kontaktlaerergrupper](https://schema.fintlabs.no/utdanning/kontaktlaerergrupper)
-Alias: kontaktlaerergrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle kontaktlærargrupper i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:kontaktlaerergrupper
-alias: kontaktlaerergrupper
 domain_of:
 - UtdanningContainer
 range: Kontaktlaerergruppe

@@ -1,5 +1,5 @@
 # Auto generated from ngr-virksomhet-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-18T09:10:48
+# Generation date: 2026-05-21T17:57:41
 # Schema: ngr-virksomhet
 #
 # id: https://data.norge.no/linkml/ngr-virksomhet
@@ -59,7 +59,7 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Boolean, Date, Integer, String, Uriorcurie
 from linkml_runtime.utils.metamodelcore import Bool, URIorCURIE, XSDDate
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.11.0"
 version = None
 
 # Namespaces

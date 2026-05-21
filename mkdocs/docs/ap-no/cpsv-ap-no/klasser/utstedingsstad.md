@@ -10,8 +10,6 @@ _Stad dokumentasjonen er akseptert frå._
 
 
 URI: [cccevno:acceptableIssuingPlace](https://data.norge.no/vocabulary/cccevno#acceptableIssuingPlace)
-Alias: utstedingsstad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Stad dokumentasjonen er akseptert frå.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:acceptableIssuingPlace
-alias: utstedingsstad
 domain_of:
 - Dokumentasjonstype
 range: Konsept

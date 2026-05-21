@@ -10,8 +10,6 @@ _Brukslisens for ressursen som URI (FAIR R1.1)._
 
 
 URI: [dct:license](http://purl.org/dc/terms/license)
-Alias: lisens
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Brukslisens for ressursen som URI (FAIR R1.1).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:license
-alias: lisens
 domain_of:
 - Gjenbruksmetadata
 range: uriorcurie

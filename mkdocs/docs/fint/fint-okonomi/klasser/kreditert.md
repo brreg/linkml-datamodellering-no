@@ -10,8 +10,6 @@ _Status på kreditering._
 
 
 URI: [okn:kreditert](https://schema.fintlabs.no/okonomi/kreditert)
-Alias: kreditert
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status på kreditering.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:kreditert
-alias: kreditert
 domain_of:
 - Faktura
 range: boolean

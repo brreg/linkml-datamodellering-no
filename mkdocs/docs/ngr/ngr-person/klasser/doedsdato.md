@@ -10,8 +10,6 @@ _Dato for dødsfallet._
 
 
 URI: [ngrp:doedsdato](https://data.norge.no/vocabulary/ngr-person#doedsdato)
-Alias: doedsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato for dødsfallet.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:doedsdato
-alias: doedsdato
 domain_of:
 - Dodsfall
 range: date

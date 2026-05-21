@@ -10,8 +10,6 @@ _Timer per veke i 100 % stilling._
 
 
 URI: [adm:timerPerUke](https://schema.fintlabs.no/administrasjon/timerPerUke)
-Alias: timerPerUke
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Timer per veke i 100 % stilling.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:timerPerUke
-alias: timerPerUke
 domain_of:
 - Arbeidsforhold
 range: Uketimetall

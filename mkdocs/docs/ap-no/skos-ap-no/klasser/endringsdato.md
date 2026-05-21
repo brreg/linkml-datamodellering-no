@@ -10,8 +10,6 @@ _Dato for siste endring av ressursen (dct:modified)._
 
 
 URI: [dct:modified](http://purl.org/dc/terms/modified)
-Alias: endringsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: endringsdato
 description: Dato for siste endring av ressursen (dct:modified).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:modified
-alias: endringsdato
 domain_of:
 - Begrep
 range: date

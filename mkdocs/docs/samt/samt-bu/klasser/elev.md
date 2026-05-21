@@ -211,7 +211,6 @@ attributes:
     - schema:memberOf
     rank: 1000
     domain: Elev
-    alias: horer_til_basisgruppe
     owner: Elev
     domain_of:
     - Elev
@@ -221,7 +220,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Elev
     domain_of:
     - KatalogisertRessurs
@@ -258,7 +256,6 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: navn
     owner: Elev
     domain_of:
     - Skole

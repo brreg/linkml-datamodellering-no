@@ -10,8 +10,6 @@ _Lisens for bruk av ressursen._
 
 
 URI: [dct:license](http://purl.org/dc/terms/license)
-Alias: lisens
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ name: lisens
 description: Lisens for bruk av ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:license
-alias: lisens
 domain_of:
 - Distribusjon
 - Datatjeneste

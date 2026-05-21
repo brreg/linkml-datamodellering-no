@@ -803,7 +803,6 @@ attributes:
     description: Kontaktpunkt for datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: kontaktpunkter
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -816,7 +815,6 @@ attributes:
     description: Utgjevarar av datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: utgivere
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -829,7 +827,6 @@ attributes:
     description: Organisasjonar knytt til datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: organisasjoner
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -842,7 +839,6 @@ attributes:
     description: Gjeldande lovgiving for datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: gjeldende_lovgivninger
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -855,7 +851,6 @@ attributes:
     description: Distribusjonar av datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: datasettdistribusjoner
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -868,7 +863,6 @@ attributes:
     description: Metadata om datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: dataset_metadata
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -881,7 +875,6 @@ attributes:
     description: Kvalitetsmerknader for datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: kvalitetsmerknader
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -894,7 +887,6 @@ attributes:
     description: Brukartilbakemeldingar for datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: brukertilbakemeldinger
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -907,7 +899,6 @@ attributes:
     description: Kvalitetsmålingar for datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: kvalitetsmaalinger
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -920,7 +911,6 @@ attributes:
     description: Grupper knytt til datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: grupper
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -933,7 +923,6 @@ attributes:
     description: Standardar datasettet følgjer.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: standarder
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -946,7 +935,6 @@ attributes:
     description: Kvalitetsdimensjoner for datasettet.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: kvalitetsdimensjoner
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -959,7 +947,6 @@ attributes:
     description: Tidsrom for kvalitetsmerknad.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: tidsromer
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -972,7 +959,6 @@ attributes:
     description: Tekstdel for kvalitetsmerknad.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: tekstdeler
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -985,7 +971,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Containerklasse
     domain_of:
     - KatalogisertRessurs
@@ -1023,7 +1008,6 @@ attributes:
       av skole i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: skoler
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -1037,7 +1021,6 @@ attributes:
       av kommune i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: kommuner
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -1051,7 +1034,6 @@ attributes:
       av fylke i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: fylker
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -1065,7 +1047,6 @@ attributes:
       av private_virksomheter i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: private_virksomheter
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -1079,7 +1060,6 @@ attributes:
       av basisgruppe i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: basisgrupper
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -1093,7 +1073,6 @@ attributes:
       av elev i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: elever
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -1107,7 +1086,6 @@ attributes:
       av rektor i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: rektorer
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -1121,7 +1099,6 @@ attributes:
       av kontaktlaerer i ei datafil.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: kontaktlaerere
     owner: Containerklasse
     domain_of:
     - Containerklasse

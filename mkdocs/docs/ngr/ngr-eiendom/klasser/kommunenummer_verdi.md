@@ -10,8 +10,6 @@ _Firesifra kommunenummer (t.d. 0301 for Oslo)._
 
 
 URI: [ngre:kommunenummer](https://data.norge.no/vocabulary/ngr-eiendom#kommunenummer)
-Alias: kommunenummer_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: kommunenummer_verdi
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kommune](kommune.md) | Norsk kommune |  yes  |
 | [Kommunenummer](kommunenummer.md) | Firesifra kommunenummer (t |  yes  |
+| [Kommune](kommune.md) | Norsk kommune |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Firesifra kommunenummer (t.d. 0301 for Oslo).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:kommunenummer
-alias: kommunenummer_verdi
 domain_of:
 - Kommunenummer
 - Kommune

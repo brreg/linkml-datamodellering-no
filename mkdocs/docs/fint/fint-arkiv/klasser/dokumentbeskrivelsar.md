@@ -5,8 +5,6 @@
 
 
 URI: [ark:dokumentbeskrivelsar](https://schema.fintlabs.no/arkiv/dokumentbeskrivelsar)
-Alias: dokumentbeskrivelsar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: dokumentbeskrivelsar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumentbeskrivelsar
-alias: dokumentbeskrivelsar
 domain_of:
 - ArkivContainer
 range: Dokumentbeskrivelse

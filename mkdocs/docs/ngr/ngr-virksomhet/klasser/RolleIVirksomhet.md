@@ -282,7 +282,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: RolleIVirksomhet
     domain_of:
     - Virksomhet
@@ -309,7 +308,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:rollebetegnelse
-    alias: rollebetegnelse
     owner: RolleIVirksomhet
     domain_of:
     - RolleIVirksomhet
@@ -323,7 +321,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harRolleinnehaver
-    alias: har_rolleinnehaver
     owner: RolleIVirksomhet
     domain_of:
     - RolleIVirksomhet

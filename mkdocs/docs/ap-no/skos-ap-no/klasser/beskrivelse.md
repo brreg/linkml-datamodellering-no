@@ -10,8 +10,6 @@ _Fritekstbeskrivelse av ressursen (dct:description)._
 
 
 URI: [dct:description](http://purl.org/dc/terms/description)
-Alias: beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: beskrivelse
 description: Fritekstbeskrivelse av ressursen (dct:description).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:description
-alias: beskrivelse
 domain_of:
 - Samling
 range: LangString

@@ -10,8 +10,6 @@ _Kontaktpunkt for datasettet._
 
 
 URI: [samtbuskole:kontaktpunkter](https://example.no/ontology/skole#kontaktpunkter)
-Alias: kontaktpunkter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: kontaktpunkter
 description: Kontaktpunkt for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: kontaktpunkter
 domain_of:
 - Containerklasse
 range: Kontaktopplysning

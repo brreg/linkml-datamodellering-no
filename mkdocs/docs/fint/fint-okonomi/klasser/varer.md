@@ -5,8 +5,6 @@
 
 
 URI: [okn:varer](https://schema.fintlabs.no/okonomi/varer)
-Alias: varer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: varer
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:varer
-alias: varer
 domain_of:
 - OkonomiContainer
 range: Vare

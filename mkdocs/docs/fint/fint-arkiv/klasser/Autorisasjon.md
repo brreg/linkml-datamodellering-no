@@ -10,8 +10,6 @@ _Autorisasjonar gjevne til arkivressursen._
 
 
 URI: [ark:autorisasjon](https://schema.fintlabs.no/arkiv/autorisasjon)
-Alias: autorisasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Autorisasjonar gjevne til arkivressursen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:autorisasjon
-alias: autorisasjon
 domain_of:
 - Arkivressurs
 range: Autorisasjon

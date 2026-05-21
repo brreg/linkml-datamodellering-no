@@ -5,8 +5,6 @@
 
 
 URI: [ark:dokumentfiler](https://schema.fintlabs.no/arkiv/dokumentfiler)
-Alias: dokumentfiler
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: dokumentfiler
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumentfiler
-alias: dokumentfiler
 domain_of:
 - ArkivContainer
 range: Dokumentfil

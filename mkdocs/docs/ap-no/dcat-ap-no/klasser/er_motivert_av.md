@@ -10,8 +10,6 @@ _Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing)._
 
 
 URI: [oa:motivatedBy](http://www.w3.org/ns/oa#motivatedBy)
-Alias: er_motivert_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: er_motivert_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 | [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
 | [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
-| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: er_motivert_av
 description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: oa:motivatedBy
-alias: er_motivert_av
 domain_of:
 - Kvalitetsmerknad
 range: uriorcurie

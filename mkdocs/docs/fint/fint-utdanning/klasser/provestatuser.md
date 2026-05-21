@@ -10,8 +10,6 @@ _Alle prøvestatuser i containeren._
 
 
 URI: [utd:provestatuser](https://schema.fintlabs.no/utdanning/provestatuser)
-Alias: provestatuser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle prøvestatuser i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:provestatuser
-alias: provestatuser
 domain_of:
 - UtdanningContainer
 range: Provestatus

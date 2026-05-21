@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement som administrerer eininga._
 
 
 URI: [res:administrator](https://schema.fintlabs.no/ressurs/administrator)
-Alias: administrator
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement som administrerer eininga.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:administrator
-alias: administrator
 domain_of:
 - DigitalEnhet
 range: uriorcurie

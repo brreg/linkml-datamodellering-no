@@ -274,7 +274,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Relasjon
     domain_of:
     - Mediatype
@@ -309,7 +308,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: dcat:hadRole
-    alias: har_rolle
     owner: Relasjon
     domain_of:
     - Relasjon
@@ -323,7 +321,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: dct:relation
-    alias: relasjon_til
     owner: Relasjon
     domain_of:
     - Relasjon

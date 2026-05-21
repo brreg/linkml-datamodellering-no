@@ -10,8 +10,6 @@ _Beskriven namn eller omtale._
 
 
 URI: [fint:beskrivelse](https://schema.fintlabs.no/beskrivelse)
-Alias: beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,12 +20,12 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rolle](rolle.md) | Rettighet eller type fullmakt |  yes  |
-| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
 | [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
-| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
 | [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  yes  |
+| [Rolle](rolle.md) | Rettighet eller type fullmakt |  yes  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
 
 
 
@@ -90,7 +88,6 @@ name: beskrivelse
 description: Beskriven namn eller omtale.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:beskrivelse
-alias: beskrivelse
 domain_of:
 - Periode
 - Lonn

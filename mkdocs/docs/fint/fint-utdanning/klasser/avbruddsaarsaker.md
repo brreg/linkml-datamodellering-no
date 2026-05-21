@@ -10,8 +10,6 @@ _Alle avbruddsårsakar i containeren._
 
 
 URI: [utd:avbruddsaarsaker](https://schema.fintlabs.no/utdanning/avbruddsaarsaker)
-Alias: avbruddsaarsaker
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle avbruddsårsakar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:avbruddsaarsaker
-alias: avbruddsaarsaker
 domain_of:
 - UtdanningContainer
 range: Avbruddsaarsak

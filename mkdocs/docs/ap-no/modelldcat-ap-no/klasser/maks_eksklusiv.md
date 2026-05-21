@@ -10,8 +10,6 @@ _Eksklusiv maksimumsverdi (xsd:maxExclusive)._
 
 
 URI: [xsd:maxExclusive](http://www.w3.org/2001/XMLSchema#maxExclusive)
-Alias: maks_eksklusiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Eksklusiv maksimumsverdi (xsd:maxExclusive).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:maxExclusive
-alias: maks_eksklusiv
 domain_of:
 - EnkelType
 range: string

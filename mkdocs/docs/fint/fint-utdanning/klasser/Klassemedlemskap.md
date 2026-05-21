@@ -10,8 +10,6 @@ _Klassemedlemskap._
 
 
 URI: [utd:klassemedlemskap](https://schema.fintlabs.no/utdanning/klassemedlemskap)
-Alias: klassemedlemskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: klassemedlemskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
 
 
@@ -89,7 +87,6 @@ description: Klassemedlemskap.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:klassemedlemskap
-alias: klassemedlemskap
 domain_of:
 - UtdanningContainer
 - Elevforhold

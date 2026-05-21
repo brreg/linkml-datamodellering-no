@@ -10,8 +10,6 @@ _Referanse til den deltakinga er delegert til._
 
 
 URI: [utd:delegertTil](https://schema.fintlabs.no/utdanning/delegertTil)
-Alias: delegertTil
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til den deltakinga er delegert til.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:delegertTil
-alias: delegertTil
 domain_of:
 - Eksamensgruppemedlemskap
 range: uriorcurie

@@ -10,8 +10,6 @@ _Maksimal lengd av strengen (xsd:maxLength)._
 
 
 URI: [xsd:maxLength](http://www.w3.org/2001/XMLSchema#maxLength)
-Alias: maks_lengde
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Maksimal lengd av strengen (xsd:maxLength).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:maxLength
-alias: maks_lengde
 domain_of:
 - EnkelType
 range: NonNegativeInteger

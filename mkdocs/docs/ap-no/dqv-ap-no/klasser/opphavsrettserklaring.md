@@ -10,8 +10,6 @@ _Opphavsrettserklæring._
 
 
 URI: [odrs:copyrightStatement](http://schema.theodi.org/odrs#copyrightStatement)
-Alias: opphavsrettserklaring
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: opphavsrettserklaring
 description: Opphavsrettserklæring.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:copyrightStatement
-alias: opphavsrettserklaring
 domain_of:
 - Rettighetserklaring
 range: string

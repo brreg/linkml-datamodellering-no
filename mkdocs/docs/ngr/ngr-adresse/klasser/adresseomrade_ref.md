@@ -10,8 +10,6 @@ _Adresseområdet dette adressenamnet eller adressekoden høyrer til._
 
 
 URI: [ngr:harAdresseomrade](https://data.norge.no/vocabulary/ngr-adresse#harAdresseomrade)
-Alias: adresseomrade_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Adresseområdet dette adressenamnet eller adressekoden høyrer til.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harAdresseomrade
-alias: adresseomrade_ref
 domain_of:
 - Adressenavn
 - Adressekode

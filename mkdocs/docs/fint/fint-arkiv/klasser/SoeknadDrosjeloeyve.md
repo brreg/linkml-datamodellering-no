@@ -567,7 +567,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnavn
-    alias: organisasjonsnavn
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Enhet
@@ -582,7 +581,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:organisasjonsnummer
-    alias: orgnummer
     owner: SoeknadDrosjeloeyve
     domain_of:
     - SoeknadDrosjeloeyve
@@ -598,7 +596,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalpost
-    alias: journalpost
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -612,7 +609,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksaar
-    alias: saksaar
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -625,7 +621,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksdato
-    alias: saksdato
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -638,7 +633,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:sakssekvensnummer
-    alias: sakssekvensnummer
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -651,7 +645,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:utlaantDato
-    alias: utlaantDato
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -664,7 +657,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksmappetype
-    alias: saksmappetype
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -677,7 +669,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksstatus
-    alias: saksstatus
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -691,7 +682,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangsgruppe
-    alias: tilgangsgruppe
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -705,7 +695,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalenhet
-    alias: journalenhet
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -719,7 +708,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:administrativEnhet
-    alias: administrativEnhet
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -735,7 +723,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksansvarlig
-    alias: saksansvarlig
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Saksmappe
@@ -746,7 +733,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Begrep
@@ -792,7 +778,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetDato
-    alias: avsluttetDato
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -805,7 +790,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Periode
@@ -822,7 +806,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:klasse
-    alias: klasse
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -830,6 +813,7 @@ attributes:
     - Klassifikasjonssystem
     range: Klasse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   mappeId:
     name: mappeId
@@ -839,7 +823,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:mappeId
-    alias: mappeId
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -853,7 +836,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:merknad
-    alias: merknad
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -870,7 +852,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:noekkelord
-    alias: noekkelord
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -884,7 +865,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:offentligTittel
-    alias: offentligTittel
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -898,7 +878,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetDato
-    alias: opprettetDato
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -914,7 +893,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:part
-    alias: part
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -932,7 +910,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:skjerming
-    alias: skjerming
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -950,7 +927,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tittel
-    alias: tittel
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -969,7 +945,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivdel
-    alias: arkivdel
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -985,7 +960,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetAv
-    alias: avsluttetAv
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe
@@ -998,7 +972,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetAv
-    alias: opprettetAv
     owner: SoeknadDrosjeloeyve
     domain_of:
     - Mappe

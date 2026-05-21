@@ -10,8 +10,6 @@ _Avskriving av journalposten._
 
 
 URI: [ark:avskrivning](https://schema.fintlabs.no/arkiv/avskrivning)
-Alias: avskrivning
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Avskriving av journalposten.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:avskrivning
-alias: avskrivning
 domain_of:
 - Journalpost
 range: Avskrivning

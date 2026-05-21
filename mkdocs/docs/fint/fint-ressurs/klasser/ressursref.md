@@ -10,8 +10,6 @@ _Ressursen organisasjonselementet har tilgang til._
 
 
 URI: [res:ressursRef](https://schema.fintlabs.no/ressurs/ressursRef)
-Alias: ressursRef
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Ressursen organisasjonselementet har tilgang til.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:ressursRef
-alias: ressursRef
 domain_of:
 - Applikasjonsressurstilgjengelighet
 range: Applikasjonsressurs

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/kontaktopplysningar](https://data.norge.no/linkml/ngr-person/kontaktopplysningar)
-Alias: kontaktopplysningar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: kontaktopplysningar
 name: kontaktopplysningar
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: kontaktopplysningar
 owner: PersonContainer
 domain_of:
 - PersonContainer

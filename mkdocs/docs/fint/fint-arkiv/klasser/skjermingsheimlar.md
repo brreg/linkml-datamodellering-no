@@ -5,8 +5,6 @@
 
 
 URI: [ark:skjermingsheimlar](https://schema.fintlabs.no/arkiv/skjermingsheimlar)
-Alias: skjermingsheimlar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: skjermingsheimlar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:skjermingsheimlar
-alias: skjermingsheimlar
 domain_of:
 - ArkivContainer
 range: Skjermingshjemmel

@@ -5,8 +5,6 @@
 
 
 URI: [ark:tilgangar](https://schema.fintlabs.no/arkiv/tilgangar)
-Alias: tilgangar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: tilgangar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilgangar
-alias: tilgangar
 domain_of:
 - ArkivContainer
 range: Tilgang

@@ -10,8 +10,6 @@ _Kva variant dokumentet førekjem i._
 
 
 URI: [ark:variantFormat](https://schema.fintlabs.no/arkiv/variantFormat)
-Alias: variantFormat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kva variant dokumentet førekjem i.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:variantFormat
-alias: variantFormat
 domain_of:
 - Dokumentobjekt
 range: Variantformat

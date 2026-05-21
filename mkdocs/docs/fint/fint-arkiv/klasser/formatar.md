@@ -5,8 +5,6 @@
 
 
 URI: [ark:formatar](https://schema.fintlabs.no/arkiv/formatar)
-Alias: formatar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: formatar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:formatar
-alias: formatar
 domain_of:
 - ArkivContainer
 range: Format

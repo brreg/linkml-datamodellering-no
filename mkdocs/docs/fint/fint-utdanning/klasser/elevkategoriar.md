@@ -10,8 +10,6 @@ _Alle elevkategoriar i containeren._
 
 
 URI: [utd:elevkategoriar](https://schema.fintlabs.no/utdanning/elevkategoriar)
-Alias: elevkategoriar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle elevkategoriar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:elevkategoriar
-alias: elevkategoriar
 domain_of:
 - UtdanningContainer
 range: Elevkategori

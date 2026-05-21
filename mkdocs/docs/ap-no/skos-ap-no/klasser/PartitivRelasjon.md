@@ -321,7 +321,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: PartitivRelasjon
     domain_of:
     - Mediatype
@@ -345,7 +344,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:hasPartitiveConcept
-    alias: har_partitivt_omgrep
     owner: PartitivRelasjon
     domain_of:
     - PartitivRelasjon
@@ -359,7 +357,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:hasComprehensiveConcept
-    alias: har_heilskapleg_omgrep
     owner: PartitivRelasjon
     domain_of:
     - PartitivRelasjon
@@ -373,7 +370,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:description
-    alias: inndelingskriterium
     owner: PartitivRelasjon
     domain_of:
     - GeneriskRelasjon

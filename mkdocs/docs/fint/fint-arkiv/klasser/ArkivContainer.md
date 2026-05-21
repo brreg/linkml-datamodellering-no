@@ -1082,7 +1082,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivdelar
-    alias: arkivdelar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1095,7 +1094,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivressursar
-    alias: arkivressursar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1108,7 +1106,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:autorisasjonar
-    alias: autorisasjonar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1121,7 +1118,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:administrativeEiningar
-    alias: administrativeEiningar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1134,7 +1130,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:dokumentfiler
-    alias: dokumentfiler
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1147,7 +1142,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:dokumentbeskrivelsar
-    alias: dokumentbeskrivelsar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1160,7 +1154,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalpostar
-    alias: journalpostar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1174,7 +1167,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:klassifikasjonssystem
-    alias: klassifikasjonssystem
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1182,13 +1174,13 @@ attributes:
     - Klasse
     range: Klassifikasjonssystem
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilgangar:
     name: tilgangar
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangar
-    alias: tilgangar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1201,7 +1193,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:sakar
-    alias: sakar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1214,7 +1205,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:personalmappe
-    alias: personalmappe_liste
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1227,7 +1217,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:dispensasjonAutomatiskFredaKulturminne
-    alias: dispensasjonAutomatiskFredaKulturminne_liste
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1240,7 +1229,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilskuddFartoy
-    alias: tilskuddFartoy_liste
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1253,7 +1241,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilskuddFredaBygningPrivatEie
-    alias: tilskuddFredaBygningPrivatEie_liste
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1266,7 +1253,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:soeknadDrosjeloeyve
-    alias: soeknadDrosjeloeyve_liste
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1279,7 +1265,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:dokumentstatuskodar
-    alias: dokumentstatuskodar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1292,7 +1277,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:dokumenttypar
-    alias: dokumenttypar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1305,7 +1289,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:formatar
-    alias: formatar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1318,7 +1301,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalposttypar
-    alias: journalposttypar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1331,7 +1313,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalstatuskodar
-    alias: journalstatuskodar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1344,7 +1325,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:klassifikasjonstypar
-    alias: klassifikasjonstypar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1357,7 +1337,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:korrespondanseparttypar
-    alias: korrespondanseparttypar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1370,7 +1349,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:merknadstypar
-    alias: merknadstypar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1383,7 +1361,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:partRollar
-    alias: partRollar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1396,7 +1373,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:rollar
-    alias: rollar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1409,7 +1385,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksmappetypar
-    alias: saksmappetypar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1422,7 +1397,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:sakstatuskodar
-    alias: sakstatuskodar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1435,7 +1409,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:skjermingsheimlar
-    alias: skjermingsheimlar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1448,7 +1421,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangsgrupper
-    alias: tilgangsgrupper
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1461,7 +1433,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangsrestriksjonar
-    alias: tilgangsrestriksjonar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1474,7 +1445,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilknyttetRegistreringSomKodar
-    alias: tilknyttetRegistreringSomKodar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer
@@ -1487,7 +1457,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:variantformatar
-    alias: variantformatar
     owner: ArkivContainer
     domain_of:
     - ArkivContainer

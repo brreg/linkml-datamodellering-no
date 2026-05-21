@@ -10,8 +10,6 @@ _Mellomnamn til personen._
 
 
 URI: [ngrp:mellomnavn](https://data.norge.no/vocabulary/ngr-person#mellomnavn)
-Alias: mellomnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Mellomnamn til personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:mellomnavn
-alias: mellomnavn
 domain_of:
 - Personnavn
 range: string

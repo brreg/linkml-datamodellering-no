@@ -5,8 +5,6 @@
 
 
 URI: [ark:variantformatar](https://schema.fintlabs.no/arkiv/variantformatar)
-Alias: variantformatar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: variantformatar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:variantformatar
-alias: variantformatar
 domain_of:
 - ArkivContainer
 range: Variantformat

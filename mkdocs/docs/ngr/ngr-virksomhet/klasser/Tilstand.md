@@ -331,7 +331,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Tilstand
     domain_of:
     - Virksomhet
@@ -358,7 +357,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:tilstandstype
-    alias: tilstandstype
     owner: Tilstand
     domain_of:
     - Tilstand
@@ -372,7 +370,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:gyldigFra
-    alias: gyldig_fra
     owner: Tilstand
     domain_of:
     - Tilstand
@@ -386,7 +383,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:gyldigTil
-    alias: gyldig_til
     owner: Tilstand
     domain_of:
     - Tilstand

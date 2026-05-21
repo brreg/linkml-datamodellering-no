@@ -10,8 +10,6 @@ _Kontaktinformasjon for hendvendelsar om ressursen._
 
 
 URI: [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint)
-Alias: kontaktpunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: kontaktpunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
-| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 
 
 
@@ -90,7 +88,6 @@ description: Kontaktinformasjon for hendvendelsar om ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:contactPoint
-alias: kontaktpunkt
 domain_of:
 - Datasett
 - Datasettserie

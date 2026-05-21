@@ -10,8 +10,6 @@ _Alle fullmakter i containeren._
 
 
 URI: [adm:fullmakter](https://schema.fintlabs.no/administrasjon/fullmakter)
-Alias: fullmakter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle fullmakter i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fullmakter
-alias: fullmakter
 domain_of:
 - AdministrasjonContainer
 range: Fullmakt

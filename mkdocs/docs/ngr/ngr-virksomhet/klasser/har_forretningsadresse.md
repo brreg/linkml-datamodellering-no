@@ -10,8 +10,6 @@ _Forretningsadressa (hovudkontor) til hovudeininga._
 
 
 URI: [ngrv:harForretningsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#harForretningsadresse)
-Alias: har_forretningsadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Forretningsadressa (hovudkontor) til hovudeininga.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harForretningsadresse
-alias: har_forretningsadresse
 domain_of:
 - Hovedenhet
 range: Forretningsadresse

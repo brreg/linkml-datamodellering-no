@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/festegrunn](https://data.norge.no/linkml/ngr-eiendom/festegrunn)
-Alias: festegrunn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: festegrunn
 name: festegrunn
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: festegrunn
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

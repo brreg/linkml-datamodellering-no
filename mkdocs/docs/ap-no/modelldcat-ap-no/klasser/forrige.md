@@ -10,8 +10,6 @@ _Førre kodeelement i ein ordna kodeliste (xkos:previous)._
 
 
 URI: [xkos:previous](http://rdf-vocabulary.ddialliance.org/xkos#previous)
-Alias: forrige
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Førre kodeelement i ein ordna kodeliste (xkos:previous).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xkos:previous
-alias: forrige
 domain_of:
 - Kodeelement
 range: Kodeelement

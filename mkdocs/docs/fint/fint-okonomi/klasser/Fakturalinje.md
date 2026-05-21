@@ -340,7 +340,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:antall
-    alias: antall
     owner: Fakturalinje
     domain_of:
     - Fakturalinje
@@ -354,7 +353,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:pris
-    alias: pris
     owner: Fakturalinje
     domain_of:
     - Fakturalinje
@@ -369,7 +367,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:fritekst
-    alias: fritekst
     owner: Fakturalinje
     domain_of:
     - Fakturalinje
@@ -383,7 +380,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:vare
-    alias: vare
     owner: Fakturalinje
     domain_of:
     - Fakturautsteder

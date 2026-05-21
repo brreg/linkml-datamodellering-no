@@ -10,8 +10,6 @@ _Alle fråværsoversikter i containeren._
 
 
 URI: [utd:fravarsoversikt](https://schema.fintlabs.no/utdanning/fravarsoversikt)
-Alias: fravarsoversikt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle fråværsoversikter i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fravarsoversikt
-alias: fravarsoversikt
 domain_of:
 - UtdanningContainer
 range: Fravarsoversikt

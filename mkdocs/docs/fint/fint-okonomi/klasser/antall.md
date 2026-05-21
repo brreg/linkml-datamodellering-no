@@ -10,8 +10,6 @@ _Mengd av varen levert._
 
 
 URI: [okn:antall](https://schema.fintlabs.no/okonomi/antall)
-Alias: antall
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Mengd av varen levert.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:antall
-alias: antall
 domain_of:
 - Fakturalinje
 range: float

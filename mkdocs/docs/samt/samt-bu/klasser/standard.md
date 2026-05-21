@@ -421,7 +421,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Standard
     domain_of:
     - KatalogisertRessurs
@@ -460,7 +459,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Standard
     domain_of:
     - RegulativRessurs
@@ -483,7 +481,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:inDimension
-    alias: er_i_kvalitetsdimensjon
     owner: Standard
     domain_of:
     - Kvalitetsmerknad
@@ -498,7 +495,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:seeAlso
-    alias: har_referanse
     owner: Standard
     domain_of:
     - RegulativRessurs
@@ -512,7 +508,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
-    alias: har_merknad
     owner: Standard
     domain_of:
     - Kvalitetsmerknad
@@ -527,7 +522,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
-    alias: har_versjonsnummer
     owner: Standard
     domain_of:
     - Standard

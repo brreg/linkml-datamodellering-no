@@ -10,8 +10,6 @@ _Tekstleg identifikator for ressursen (dct:identifier)._
 
 
 URI: [dct:identifier](http://purl.org/dc/terms/identifier)
-Alias: identifikator_literal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: identifikator_literal
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 | [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 
 
 
@@ -86,7 +84,6 @@ name: identifikator_literal
 description: Tekstleg identifikator for ressursen (dct:identifier).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:identifier
-alias: identifikator_literal
 domain_of:
 - Begrep
 - Samling

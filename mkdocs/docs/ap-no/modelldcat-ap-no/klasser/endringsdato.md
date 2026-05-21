@@ -10,8 +10,6 @@ _Dato for siste endring av ressursen (dct:modified)._
 
 
 URI: [dct:modified](http://purl.org/dc/terms/modified)
-Alias: endringsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: endringsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -86,7 +84,6 @@ name: endringsdato
 description: Dato for siste endring av ressursen (dct:modified).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:modified
-alias: endringsdato
 domain_of:
 - Modelkatalog
 - Informasjonsmodell

@@ -10,8 +10,6 @@ _OT-status for ungdommen._
 
 
 URI: [utd:status](https://schema.fintlabs.no/utdanning/status)
-Alias: status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: OT-status for ungdommen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:status
-alias: status
 domain_of:
 - OtUngdom
 range: OtStatus

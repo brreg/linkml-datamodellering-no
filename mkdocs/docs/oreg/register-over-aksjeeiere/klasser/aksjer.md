@@ -10,8 +10,6 @@ _Samling av aksjar._
 
 
 URI: [aksje:aksjer](https://example.no/ontology/aksje#aksjer)
-Alias: aksjer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av aksjar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: aksjer
 domain_of:
 - Containerklasse
 range: Aksje

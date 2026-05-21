@@ -280,7 +280,6 @@ attributes:
     - schema:teaches
     rank: 1000
     domain: Kontaktlaerer
-    alias: tilknyttet_basisgruppe
     owner: Kontaktlaerer
     domain_of:
     - Kontaktlaerer
@@ -291,7 +290,6 @@ attributes:
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
     domain: Kontaktlaerer
-    alias: har_saerlig_ansvar_for
     owner: Kontaktlaerer
     domain_of:
     - Kontaktlaerer
@@ -305,7 +303,6 @@ attributes:
     - org:memberOf
     rank: 1000
     domain: Kontaktlaerer
-    alias: jobber_paa_skole
     owner: Kontaktlaerer
     domain_of:
     - Kontaktlaerer
@@ -315,7 +312,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kontaktlaerer
     domain_of:
     - KatalogisertRessurs
@@ -352,7 +348,6 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: navn
     owner: Kontaktlaerer
     domain_of:
     - Skole

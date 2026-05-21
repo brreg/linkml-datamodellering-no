@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av elev i
 
 
 URI: [samtbuskole:elever](https://example.no/ontology/skole#elever)
-Alias: elever
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   elev i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: elever
 domain_of:
 - Containerklasse
 range: Elev

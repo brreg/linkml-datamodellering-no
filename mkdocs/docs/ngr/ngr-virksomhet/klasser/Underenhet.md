@@ -473,7 +473,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:oppstartsdato
-    alias: oppstartsdato
     owner: Underenhet
     domain_of:
     - Underenhet
@@ -487,7 +486,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:eierskiftedato
-    alias: eierskiftedatoer
     owner: Underenhet
     domain_of:
     - Underenhet
@@ -501,7 +499,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:nedleggelsesdato
-    alias: nedleggelsesdato
     owner: Underenhet
     domain_of:
     - Underenhet
@@ -514,7 +511,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harBeliggenhetsadresse
-    alias: har_beliggenhetsadresse
     owner: Underenhet
     domain_of:
     - Underenhet
@@ -526,7 +522,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -553,7 +548,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:organisasjonsnummer
-    alias: organisasjonsnummer
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -567,7 +561,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:navn
-    alias: navn
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -581,7 +574,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harTilstand
-    alias: har_tilstand
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -595,7 +587,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:mottarPostPaa
-    alias: mottar_post_paa
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -608,7 +599,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erKlassifisertSomOrganisasjonsform
-    alias: er_klassifisert_som_organisasjonsform
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -622,7 +612,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harKontaktinformasjon
-    alias: har_kontaktinformasjon
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -635,7 +624,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harVarslingsadresse
-    alias: har_varslingsadresse
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -649,7 +637,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erKlassifisertINaeringskode
-    alias: er_klassifisert_i_naeringskode
     owner: Underenhet
     domain_of:
     - Virksomhet
@@ -665,7 +652,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:antallAnsatte
-    alias: antall_ansatte
     owner: Underenhet
     domain_of:
     - Virksomhet

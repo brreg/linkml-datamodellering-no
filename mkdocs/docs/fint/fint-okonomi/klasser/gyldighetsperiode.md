@@ -10,8 +10,6 @@ _Periode ressursen er gyldig for._
 
 
 URI: [fint:gyldighetsperiode](https://schema.fintlabs.no/gyldighetsperiode)
-Alias: gyldighetsperiode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,16 +20,16 @@ Alias: gyldighetsperiode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
 | [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
+| [Identifikator](identifikator.md) | Unik identifikasjon til eit objekt |  no  |
 | [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
+| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  yes  |
+| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  yes  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
 | [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
 | [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  yes  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -94,7 +92,6 @@ name: gyldighetsperiode
 description: Periode ressursen er gyldig for.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:gyldighetsperiode
-alias: gyldighetsperiode
 domain_of:
 - Begrep
 - Identifikator

@@ -10,8 +10,6 @@ _Alle landkodar i containeren._
 
 
 URI: [adm:landkodar](https://schema.fintlabs.no/administrasjon/landkodar)
-Alias: landkodar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle landkodar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:landkodar
-alias: landkodar
 domain_of:
 - AdministrasjonContainer
 range: Landkode

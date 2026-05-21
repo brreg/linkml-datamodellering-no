@@ -228,7 +228,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Anleggseiendom
     domain_of:
     - FastEiendom
@@ -271,7 +270,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:identifiseresMed
-    alias: identifiseres_med
     owner: Anleggseiendom
     domain_of:
     - Matrikkelenhet
@@ -285,7 +283,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:liggerInnenforKommune
-    alias: ligger_innenfor_kommune
     owner: Anleggseiendom
     domain_of:
     - Matrikkelenhet
@@ -299,7 +296,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:erDelAvTeig
-    alias: er_del_av_teig
     owner: Anleggseiendom
     domain_of:
     - Matrikkelenhet
@@ -313,7 +309,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harTeig
-    alias: har_teig
     owner: Anleggseiendom
     domain_of:
     - Matrikkelenhet
@@ -327,7 +322,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harAnleggsprojeksjonsflate
-    alias: har_anleggsprojeksjonsflate
     owner: Anleggseiendom
     domain_of:
     - Matrikkelenhet

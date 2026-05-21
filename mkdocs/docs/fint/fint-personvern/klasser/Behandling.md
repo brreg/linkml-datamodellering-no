@@ -10,8 +10,6 @@ _Behandlingsaktivitet._
 
 
 URI: [pvn:behandling](https://schema.fintlabs.no/personvern/behandling)
-Alias: behandling
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: behandling
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  yes  |
 | [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  yes  |
+| [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Behandlingsaktivitet.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:behandling
-alias: behandling
 domain_of:
 - Samtykke
 - Tjeneste

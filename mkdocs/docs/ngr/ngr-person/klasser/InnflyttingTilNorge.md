@@ -331,7 +331,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: InnflyttingTilNorge
     domain_of:
     - Person
@@ -373,7 +372,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:fraflyttingsland
-    alias: fraflyttingsland
     owner: InnflyttingTilNorge
     domain_of:
     - InnflyttingTilNorge
@@ -386,7 +384,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:fraflyttingsstedIUtlandet
-    alias: fraflyttingssted_i_utlandet
     owner: InnflyttingTilNorge
     domain_of:
     - InnflyttingTilNorge
@@ -399,7 +396,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:innflyttingsdato
-    alias: innflyttingsdato
     owner: InnflyttingTilNorge
     domain_of:
     - InnflyttingTilNorge

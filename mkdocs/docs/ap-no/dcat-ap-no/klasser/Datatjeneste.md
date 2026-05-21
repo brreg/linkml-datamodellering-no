@@ -10,8 +10,6 @@ _Datatjeneste som er del av katalogen._
 
 
 URI: [dcat:service](http://www.w3.org/ns/dcat#service)
-Alias: datatjeneste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Datatjeneste som er del av katalogen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:service
-alias: datatjeneste
 domain_of:
 - Katalog
 range: Datatjeneste

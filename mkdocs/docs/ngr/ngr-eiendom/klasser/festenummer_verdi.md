@@ -10,8 +10,6 @@ _Festenummer (0..1 – berre for festegrunn)._
 
 
 URI: [ngre:festenummer](https://data.norge.no/vocabulary/ngr-eiendom#festenummer)
-Alias: festenummer_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Festenummer (0..1 – berre for festegrunn).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:festenummer
-alias: festenummer_verdi
 domain_of:
 - Festenummer
 range: integer

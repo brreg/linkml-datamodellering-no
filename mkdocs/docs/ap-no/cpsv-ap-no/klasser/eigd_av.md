@@ -10,8 +10,6 @@ _Aktør som eig eller er ansvarleg for tenesta._
 
 
 URI: [cv:ownedBy](http://data.europa.eu/m8g/ownedBy)
-Alias: eigd_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Aktør som eig eller er ansvarleg for tenesta.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:ownedBy
-alias: eigd_av
 domain_of:
 - Tjeneste
 range: Aktor

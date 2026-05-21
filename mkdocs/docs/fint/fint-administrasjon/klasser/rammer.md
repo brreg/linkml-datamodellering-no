@@ -10,8 +10,6 @@ _Alle rammer i containeren._
 
 
 URI: [adm:rammer](https://schema.fintlabs.no/administrasjon/rammer)
-Alias: rammer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle rammer i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:rammer
-alias: rammer
 domain_of:
 - AdministrasjonContainer
 range: Ramme

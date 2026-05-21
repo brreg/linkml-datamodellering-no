@@ -10,8 +10,6 @@ _Stad i utlandet personen flytta til._
 
 
 URI: [ngrp:tilflyttingsstedIUtlandet](https://data.norge.no/vocabulary/ngr-person#tilflyttingsstedIUtlandet)
-Alias: tilflyttingssted_i_utlandet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Stad i utlandet personen flytta til.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:tilflyttingsstedIUtlandet
-alias: tilflyttingssted_i_utlandet
 domain_of:
 - UtflyttingFraNorge
 range: string

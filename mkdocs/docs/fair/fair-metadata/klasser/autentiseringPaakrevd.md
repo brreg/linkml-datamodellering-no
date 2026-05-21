@@ -10,8 +10,6 @@ _Om autentisering eller autorisasjon er nødvendig (FAIR A1.2)._
 
 
 URI: [fair:autentiseringPaakrevd](https://data.norge.no/fair#autentiseringPaakrevd)
-Alias: autentiseringPaakrevd
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Om autentisering eller autorisasjon er nødvendig (FAIR A1.2).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:autentiseringPaakrevd
-alias: autentiseringPaakrevd
 domain_of:
 - Tilgangsmetadata
 range: boolean

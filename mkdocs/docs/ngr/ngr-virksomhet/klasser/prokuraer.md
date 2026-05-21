@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/prokuraer](https://data.norge.no/linkml/ngr-virksomhet/prokuraer)
-Alias: prokuraer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: prokuraer
 name: prokuraer
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: prokuraer
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

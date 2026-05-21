@@ -10,8 +10,6 @@ _Kvalitetsdimensjoner for datasettet._
 
 
 URI: [samtbuskole:kvalitetsdimensjoner](https://example.no/ontology/skole#kvalitetsdimensjoner)
-Alias: kvalitetsdimensjoner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: kvalitetsdimensjoner
 description: Kvalitetsdimensjoner for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: kvalitetsdimensjoner
 domain_of:
 - Containerklasse
 range: Kvalitetsdimensjon

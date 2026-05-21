@@ -50,6 +50,21 @@
             "title": "Forretningsadresse",
             "type": "object"
         },
+        "GeografiskAdresse": {
+            "additionalProperties": false,
+            "description": "Abstrakt klasse for geografiske adresser. Tilh\u00f8yrer Domene adresse og forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som kjelde til vegadresse, og gjer jamnleg vask mot Posten sitt adresseregister.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeografiskAdresse",
+            "type": "object"
+        },
         "Hovedenhet": {
             "additionalProperties": false,
             "description": "Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.",
@@ -565,10 +580,7 @@
                 },
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "mottar_post_paa": {
                     "description": "Postadressa verksemda mottar post p\u00e5.",
@@ -644,6 +656,81 @@
                 "varslingsverdi"
             ],
             "title": "Varslingsadresse",
+            "type": "object"
+        },
+        "Virksomhet": {
+            "additionalProperties": false,
+            "description": "Abstrakt overklasse for alle einingar registrert i Enhetsregisteret. Ei verksemd er alltid anten ei underleining eller ei hovudeining.",
+            "properties": {
+                "antall_ansatte": {
+                    "description": "Antal tilsette i verksemda (rapportert til a-ordninga).",
+                    "type": [
+                        "integer",
+                        "null"
+                    ]
+                },
+                "er_klassifisert_i_naeringskode": {
+                    "description": "N\u00e6ringskode(r) verksemda er klassifisert under (1\u20133).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "er_klassifisert_som_organisasjonsform": {
+                    "description": "Organisasjonsform (juridisk form) for verksemda.",
+                    "type": "string"
+                },
+                "har_kontaktinformasjon": {
+                    "description": "Kontaktinformasjon registrert p\u00e5 verksemda.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "har_tilstand": {
+                    "description": "Registrert tilstand (status) for verksemda, inkl. historikk.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_varslingsadresse": {
+                    "description": "Offisiell varslingsadresse for offentlege meldingar.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "mottar_post_paa": {
+                    "description": "Postadressa verksemda mottar post p\u00e5.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "navn": {
+                    "description": "Registrert namn p\u00e5 verksemda i Enhetsregisteret.",
+                    "type": "string"
+                },
+                "organisasjonsnummer": {
+                    "description": "Niesifra organisasjonsnummer tildelt av Enhetsregisteret.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "organisasjonsnummer",
+                "navn",
+                "er_klassifisert_som_organisasjonsform",
+                "har_varslingsadresse",
+                "er_klassifisert_i_naeringskode"
+            ],
+            "title": "Virksomhet",
             "type": "object"
         },
         "VirksomhetContainer": {
@@ -803,7 +890,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.",
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "properties": {
         "aktivitetar": {
             "items": {

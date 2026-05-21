@@ -8,12 +8,12 @@
 <https://data.norge.no/linkml/ngr-person/ngr-person> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Nasjonale grunndata – Person" ;
-    sh:declare [ sh:namespace "https://data.norge.no/vocabulary/ngr-person#"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
+        [ sh:namespace "https://data.norge.no/vocabulary/ngr-person#"^^xsd:anyURI ;
             sh:prefix "ngrp" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
-            sh:prefix "xsd" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ] ;
+            sh:prefix "xsd" ] ;
     linkml:classes <https://data.norge.no/linkml/ngr-person/Adressebeskyttelse>,
         <https://data.norge.no/linkml/ngr-person/Bostedsadresse>,
         <https://data.norge.no/linkml/ngr-person/DNummer>,
@@ -60,10 +60,10 @@
         <https://data.norge.no/linkml/ngr-person/RettsligHandleevneType>,
         <https://data.norge.no/linkml/ngr-person/SivilstandType>,
         <https://data.norge.no/linkml/ngr-person/VergetypeKode> ;
-    linkml:generation_date "2026-05-18T09:12:46"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:04"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/ngr-person"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/linkml/ngr-person/Adressebeskyttelse_adressebeskyttelse_gradering>,
         <https://data.norge.no/linkml/ngr-person/Bostedsadresse_gyldig_fra_og_med>,
         <https://data.norge.no/linkml/ngr-person/Bostedsadresse_gyldig_til_og_med>,
@@ -4064,7 +4064,7 @@
     linkml:description "Valfrie eigenskapar i domenemodellen." .
 
 <https://data.norge.no/linkml/ngr-person/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

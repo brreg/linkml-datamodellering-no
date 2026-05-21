@@ -10,8 +10,6 @@ _Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:relationship
 
 
 URI: [skosno:relationshipWithSource](https://data.norge.no/vocabulary/skosno#relationshipWithSource)
-Alias: kjelde_relasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:relationshipWithSource
-alias: kjelde_relasjon
 domain_of:
 - Definisjon
 range: Begrep

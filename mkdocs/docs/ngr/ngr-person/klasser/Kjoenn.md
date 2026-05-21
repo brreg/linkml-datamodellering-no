@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/kjoenn](https://data.norge.no/linkml/ngr-person/kjoenn)
-Alias: kjoenn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: kjoenn
 name: kjoenn
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: kjoenn
 owner: PersonContainer
 domain_of:
 - PersonContainer

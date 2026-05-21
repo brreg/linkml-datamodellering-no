@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/kontaktinformasjonDoedsbo](https://data.norge.no/linkml/ngr-person/kontaktinformasjonDoedsbo)
-Alias: kontaktinformasjonDoedsbo
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: kontaktinformasjonDoedsbo
 name: kontaktinformasjonDoedsbo
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: kontaktinformasjonDoedsbo
 owner: PersonContainer
 domain_of:
 - PersonContainer

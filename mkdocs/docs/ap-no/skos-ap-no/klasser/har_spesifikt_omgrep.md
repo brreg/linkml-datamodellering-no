@@ -10,8 +10,6 @@ _Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept)._
 
 
 URI: [skosno:hasSpecificConcept](https://data.norge.no/vocabulary/skosno#hasSpecificConcept)
-Alias: har_spesifikt_omgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:hasSpecificConcept
-alias: har_spesifikt_omgrep
 domain_of:
 - GeneriskRelasjon
 range: Begrep

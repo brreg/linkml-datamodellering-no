@@ -274,7 +274,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: AssosiativRelasjon
     domain_of:
     - Mediatype
@@ -298,7 +297,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:hasToConcept
-    alias: til_omgrep
     owner: AssosiativRelasjon
     domain_of:
     - AssosiativRelasjon
@@ -313,7 +311,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:relationRole
-    alias: relasjontype
     owner: AssosiativRelasjon
     domain_of:
     - AssosiativRelasjon

@@ -10,8 +10,6 @@ _Samling av utbytte._
 
 
 URI: [aksje:utbytter](https://example.no/ontology/aksje#utbytter)
-Alias: utbytter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av utbytte.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: utbytter
 domain_of:
 - Containerklasse
 range: Utbytte

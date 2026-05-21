@@ -10,8 +10,6 @@ _Dato då samtykket vart oppretta._
 
 
 URI: [pvn:opprettet](https://schema.fintlabs.no/personvern/opprettet)
-Alias: opprettet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato då samtykket vart oppretta.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:opprettet
-alias: opprettet
 domain_of:
 - Samtykke
 range: datetime

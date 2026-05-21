@@ -10,8 +10,6 @@ _Karakterskalaen denne verdien tilhøyrer._
 
 
 URI: [utd:skala](https://schema.fintlabs.no/utdanning/skala)
-Alias: skala
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Karakterskalaen denne verdien tilhøyrer.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skala
-alias: skala
 domain_of:
 - Karakterverdi
 range: Karakterskala

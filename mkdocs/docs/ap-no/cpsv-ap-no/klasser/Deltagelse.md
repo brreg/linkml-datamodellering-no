@@ -273,7 +273,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Deltagelse
     domain_of:
     - Mediatype
@@ -304,7 +303,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:role
-    alias: har_rolle
     owner: Deltagelse
     domain_of:
     - Deltagelse
@@ -317,7 +315,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:participant
-    alias: deltakar
     owner: Deltagelse
     domain_of:
     - Deltagelse

@@ -600,7 +600,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:applikasjonar
-    alias: applikasjonar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -613,7 +612,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:applikasjonsressursar
-    alias: applikasjonsressursar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -626,7 +624,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:applikasjonsressurstilgjengelegheit
-    alias: applikasjonsressurstilgjengelegheit
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -639,7 +636,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:digitaleEiningar
-    alias: digitaleEiningar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -652,7 +648,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:einingsgrupper
-    alias: einingsgrupper
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -665,7 +660,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:einingsgruppedmedlemskap
-    alias: einingsgruppedmedlemskap
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -678,7 +672,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:identitetar
-    alias: identitetar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -691,7 +684,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:rettigheiter
-    alias: rettigheiter
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -704,7 +696,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:applikasjonskategoriar
-    alias: applikasjonskategoriar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -717,7 +708,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:brukertypar
-    alias: brukertypar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -730,7 +720,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:einingstypar
-    alias: einingstypar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -743,7 +732,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:handhaevingstypar
-    alias: handhaevingstypar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -756,7 +744,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:lisensmodellar
-    alias: lisensmodellar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -769,7 +756,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:plattformar
-    alias: plattformar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -782,7 +768,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:produsentar
-    alias: produsentar
     owner: RessursContainer
     domain_of:
     - RessursContainer
@@ -795,7 +780,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-ressurs
     rank: 1000
     slot_uri: res:statusar
-    alias: statusar
     owner: RessursContainer
     domain_of:
     - RessursContainer

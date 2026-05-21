@@ -10,8 +10,6 @@ _Aktiviteten hovudeininga utøver._
 
 
 URI: [ngrv:utoevarAktivitet](https://data.norge.no/vocabulary/ngr-virksomhet#utoevarAktivitet)
-Alias: utoevar_aktivitet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aktiviteten hovudeininga utøver.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:utoevarAktivitet
-alias: utoevar_aktivitet
 domain_of:
 - Hovedenhet
 range: Aktivitet

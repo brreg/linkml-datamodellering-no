@@ -10,8 +10,6 @@ _Metadata om opphav og endringshistorie (FAIR R1.2)._
 
 
 URI: [fair:proveniensmetadata](https://data.norge.no/fair#proveniensmetadata)
-Alias: proveniensmetadata
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Metadata om opphav og endringshistorie (FAIR R1.2).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:proveniensmetadata
-alias: proveniensmetadata
 domain_of:
 - FAIRMetadata
 range: Proveniensmetadata

@@ -861,7 +861,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Klassifikasjon
     domain_of:
     - Mediatype
@@ -883,7 +882,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -897,7 +895,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -911,7 +908,6 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -925,7 +921,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: dct:publisher
-    alias: utgjevar
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -940,7 +935,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: tema
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -953,7 +947,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dcat:keyword
-    alias: nokkelord
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -966,7 +959,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -979,7 +971,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
-    alias: har_versjonsnummer
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -991,7 +982,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -1003,7 +993,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
-    alias: utgivelsesdato
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -1015,7 +1004,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
-    alias: heimeside
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -1029,7 +1017,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: dct:temporal
-    alias: gjeld_for_tidsrom
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -1042,7 +1029,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:numberOfLevels
-    alias: antall_nivaa
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -1055,7 +1041,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:compares
-    alias: er_samanlikna_med
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon
@@ -1069,7 +1054,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:levels
-    alias: forste_nivaa
     owner: Klassifikasjon
     domain_of:
     - Klassifikasjon

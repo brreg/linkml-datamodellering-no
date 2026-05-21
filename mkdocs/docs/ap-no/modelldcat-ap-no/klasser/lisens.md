@@ -10,8 +10,6 @@ _Lisens for bruk av ressursen (dct:license)._
 
 
 URI: [dct:license](http://purl.org/dc/terms/license)
-Alias: lisens
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: lisens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Lisens for bruk av ressursen (dct:license).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:license
-alias: lisens
 domain_of:
 - Modelkatalog
 - Informasjonsmodell

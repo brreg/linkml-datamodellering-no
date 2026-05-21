@@ -10,8 +10,6 @@ _Type ressurs frå eit kontrollert vokabular (dct:type)._
 
 
 URI: [dct:type](http://purl.org/dc/terms/type)
-Alias: type_concept
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: type_concept
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Aktor](aktor.md) | Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs |  no  |
 | [Lisensdokument](lisensdokument.md) | Eit lisensdokument (dct:LicenseDocument) |  no  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: type_concept
 description: Type ressurs frå eit kontrollert vokabular (dct:type).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:type
-alias: type_concept
 domain_of:
 - Aktor
 - Lisensdokument

@@ -404,7 +404,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Rettighetserklaring
     domain_of:
     - KatalogisertRessurs
@@ -441,7 +440,6 @@ attributes:
     description: Retningslinjer for gjenbruk av data.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:reuserGuidelines
-    alias: anvendelsesretningslinjer
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -451,7 +449,6 @@ attributes:
     description: Jurisdiksjon for rettigheitserklæringa.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:jurisdiction
-    alias: jurisdiksjon
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -461,7 +458,6 @@ attributes:
     description: Tekst som skal brukast ved kreditering.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:attributionText
-    alias: krediteringstekst
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -471,7 +467,6 @@ attributes:
     description: URL for kreditering av rettshavar.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:attributionURL
-    alias: krediteringsurl
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -481,7 +476,6 @@ attributes:
     description: Opphavsrettserklæring.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightStatement
-    alias: opphavsrettserklaring
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -491,7 +485,6 @@ attributes:
     description: Namn på opphavsrettsinnehavar.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightHolder
-    alias: opphavsrettsinnehaver
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -501,7 +494,6 @@ attributes:
     description: Opphavsrettsnotis.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightNotice
-    alias: opphavsrettsnotis
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring
@@ -511,7 +503,6 @@ attributes:
     description: Årstal for opphavsrett.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrs:copyrightYear
-    alias: opphavsrettsaar
     owner: Rettighetserklaring
     domain_of:
     - Rettighetserklaring

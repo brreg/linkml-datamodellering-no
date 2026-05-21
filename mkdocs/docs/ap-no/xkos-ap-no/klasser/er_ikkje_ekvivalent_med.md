@@ -10,8 +10,6 @@ _Klar ikkje-ekvivalens til kategori i annan klassifikasjon (xkos:disjointMatch).
 
 
 URI: [xkos:disjointMatch](http://rdf-vocabulary.ddialliance.org/xkos#disjointMatch)
-Alias: er_ikkje_ekvivalent_med
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Klar ikkje-ekvivalens til kategori i annan klassifikasjon (xkos:dis
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:disjointMatch
-alias: er_ikkje_ekvivalent_med
 domain_of:
 - Kategori
 range: Kategori

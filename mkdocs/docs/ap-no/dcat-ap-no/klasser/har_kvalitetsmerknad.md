@@ -10,8 +10,6 @@ _Kvalitetsmerknad knytt til datasettet._
 
 
 URI: [dqv:hasQualityAnnotation](http://www.w3.org/ns/dqv#hasQualityAnnotation)
-Alias: har_kvalitetsmerknad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kvalitetsmerknad knytt til datasettet.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dqv:hasQualityAnnotation
-alias: har_kvalitetsmerknad
 domain_of:
 - Datasett
 range: Kvalitetsmerknad

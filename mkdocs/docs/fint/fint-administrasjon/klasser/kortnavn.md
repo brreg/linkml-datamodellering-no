@@ -10,8 +10,6 @@ _Forkorta namn som beskriv organisasjonselementet._
 
 
 URI: [adm:kortnavn](https://schema.fintlabs.no/administrasjon/kortnavn)
-Alias: kortnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Forkorta namn som beskriv organisasjonselementet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:kortnavn
-alias: kortnavn
 domain_of:
 - Organisasjonselement
 range: string

@@ -10,8 +10,6 @@ _Selskapshendelse i transaksjonen._
 
 
 URI: [aksje:kan_vaere_selskapshendelse](https://example.no/ontology/aksje#kan_vaere_selskapshendelse)
-Alias: kan_vaere_selskapshendelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Selskapshendelse i transaksjonen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Eierskapstransaksjon
-alias: kan_vaere_selskapshendelse
 domain_of:
 - Eierskapstransaksjon
 range: Selskapshendelse

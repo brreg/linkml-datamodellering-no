@@ -10,8 +10,6 @@ _Overordna kvalitetsdimensjon denne deldimensjonen høyrer til._
 
 
 URI: [skos:broader](http://www.w3.org/2004/02/skos/core#broader)
-Alias: er_deldimensjon_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Overordna kvalitetsdimensjon denne deldimensjonen høyrer til.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 rank: 1000
 slot_uri: skos:broader
-alias: er_deldimensjon_av
 domain_of:
 - Kvalitetsdeldimensjon
 range: Kvalitetsdimensjon

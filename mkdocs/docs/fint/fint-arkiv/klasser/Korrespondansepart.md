@@ -10,8 +10,6 @@ _Mottakar eller sendar av arkivdokument._
 
 
 URI: [ark:korrespondansepart](https://schema.fintlabs.no/arkiv/korrespondansepart)
-Alias: korrespondansepart
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Mottakar eller sendar av arkivdokument.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:korrespondansepart
-alias: korrespondansepart
 domain_of:
 - Registrering
 range: Korrespondansepart

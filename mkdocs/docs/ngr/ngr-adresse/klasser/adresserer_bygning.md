@@ -10,8 +10,6 @@ _Bygning denne adressa er tildelt (forvaltar: Matrikkelen)._
 
 
 URI: [ngr:adressererBygning](https://data.norge.no/vocabulary/ngr-adresse#adressererBygning)
-Alias: adresserer_bygning
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: 'Bygning denne adressa er tildelt (forvaltar: Matrikkelen).'
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:adressererBygning
-alias: adresserer_bygning
 domain_of:
 - OffisiellAdresse
 range: Bygning

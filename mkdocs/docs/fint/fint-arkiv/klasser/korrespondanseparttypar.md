@@ -5,8 +5,6 @@
 
 
 URI: [ark:korrespondanseparttypar](https://schema.fintlabs.no/arkiv/korrespondanseparttypar)
-Alias: korrespondanseparttypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: korrespondanseparttypar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:korrespondanseparttypar
-alias: korrespondanseparttypar
 domain_of:
 - ArkivContainer
 range: KorrespondansepartType

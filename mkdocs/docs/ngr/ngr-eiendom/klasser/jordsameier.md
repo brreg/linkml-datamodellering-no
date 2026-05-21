@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/jordsameier](https://data.norge.no/linkml/ngr-eiendom/jordsameier)
-Alias: jordsameier
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: jordsameier
 name: jordsameier
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: jordsameier
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

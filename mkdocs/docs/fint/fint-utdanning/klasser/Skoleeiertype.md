@@ -10,8 +10,6 @@ _Kategori for skuleeigartilknyting._
 
 
 URI: [utd:skoleeierType](https://schema.fintlabs.no/utdanning/skoleeierType)
-Alias: skoleeierType
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kategori for skuleeigartilknyting.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skoleeierType
-alias: skoleeierType
 domain_of:
 - Skole
 range: Skoleeiertype

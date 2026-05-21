@@ -10,8 +10,6 @@ _Opningstider._
 
 
 URI: [cv:openingHours](http://data.europa.eu/m8g/openingHours)
-Alias: opningstider
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: opningstider
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
 | [Kontaktpunkt](kontaktpunkt.md) | Kontaktinformasjon for ei teneste eller ein organisasjon |  yes  |
+| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Opningstider.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:openingHours
-alias: opningstider
 domain_of:
 - Kontaktpunkt
 - Tjenestekanal

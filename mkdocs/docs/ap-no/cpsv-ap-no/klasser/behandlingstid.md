@@ -10,8 +10,6 @@ _Forventa behandlingstid for tenesta eller kanalen (ISO 8601)._
 
 
 URI: [cv:processingTime](http://data.europa.eu/m8g/processingTime)
-Alias: behandlingstid
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: behandlingstid
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [Tjenestekanal](tjenestekanal.md) | Ein kanal for å få tilgang til ei teneste (t |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Forventa behandlingstid for tenesta eller kanalen (ISO 8601).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:processingTime
-alias: behandlingstid
 domain_of:
 - OffentligTjeneste
 - Tjeneste

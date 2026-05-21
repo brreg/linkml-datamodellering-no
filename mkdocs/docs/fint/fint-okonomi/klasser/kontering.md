@@ -10,8 +10,6 @@ _Kontodimensjonar._
 
 
 URI: [okn:kontering](https://schema.fintlabs.no/okonomi/kontering)
-Alias: kontering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: kontering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
 | [Postering](postering.md) | Føring på ein konto i rekneskapet |  yes  |
+| [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Kontodimensjonar.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:kontering
-alias: kontering
 domain_of:
 - Postering
 - Vare

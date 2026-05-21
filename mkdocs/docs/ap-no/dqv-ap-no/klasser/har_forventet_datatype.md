@@ -10,8 +10,6 @@ _Forventa XSD-datatype for verdien av ei kvalitetsmåling._
 
 
 URI: [dqv:expectedDataType](http://www.w3.org/ns/dqv#expectedDataType)
-Alias: har_forventet_datatype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Forventa XSD-datatype for verdien av ei kvalitetsmåling.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 rank: 1000
 slot_uri: dqv:expectedDataType
-alias: har_forventet_datatype
 domain_of:
 - Kvalitetsmaal
 range: uriorcurie

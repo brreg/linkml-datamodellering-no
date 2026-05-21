@@ -218,7 +218,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: Folkeregisteridentifikator
     domain_of:
     - Person
@@ -258,7 +257,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:identifikatornummer
-    alias: identifikatornummer
     owner: Folkeregisteridentifikator
     domain_of:
     - Folkeregisteridentifikator

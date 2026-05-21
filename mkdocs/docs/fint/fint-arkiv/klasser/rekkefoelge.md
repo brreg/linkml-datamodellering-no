@@ -10,8 +10,6 @@ _Rekkjefølgje for klassifiseringar._
 
 
 URI: [ark:rekkefolge](https://schema.fintlabs.no/arkiv/rekkefolge)
-Alias: rekkefoelge
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Rekkjefølgje for klassifiseringar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:rekkefolge
-alias: rekkefoelge
 domain_of:
 - Klasse
 range: integer

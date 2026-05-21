@@ -10,8 +10,6 @@ _Type identifikasjonsdokument (pass, førekort, nasjonalt ID-kort o.l.)._
 
 
 URI: [ngrp:dokumenttype](https://data.norge.no/vocabulary/ngr-person#dokumenttype)
-Alias: dokumenttype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type identifikasjonsdokument (pass, førekort, nasjonalt ID-kort o.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:dokumenttype
-alias: dokumenttype
 domain_of:
 - Identifikasjonsdokument
 range: IdentifikasjonsdokumentType

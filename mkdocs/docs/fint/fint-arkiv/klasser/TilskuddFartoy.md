@@ -662,7 +662,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:fartoyNavn
-    alias: fartoyNavn
     owner: TilskuddFartoy
     domain_of:
     - TilskuddFartoy
@@ -676,7 +675,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:kallesignal
-    alias: kallesignal
     owner: TilskuddFartoy
     domain_of:
     - TilskuddFartoy
@@ -690,7 +688,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:kulturminneId
-    alias: kulturminneId
     owner: TilskuddFartoy
     domain_of:
     - DispensasjonAutomatiskFredaKulturminne
@@ -706,7 +703,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:soeknadsnummer
-    alias: soeknadsnummer
     owner: TilskuddFartoy
     domain_of:
     - DispensasjonAutomatiskFredaKulturminne
@@ -723,7 +719,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalpost
-    alias: journalpost
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -737,7 +732,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksaar
-    alias: saksaar
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -750,7 +744,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksdato
-    alias: saksdato
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -763,7 +756,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:sakssekvensnummer
-    alias: sakssekvensnummer
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -776,7 +768,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:utlaantDato
-    alias: utlaantDato
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -789,7 +780,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksmappetype
-    alias: saksmappetype
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -802,7 +792,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksstatus
-    alias: saksstatus
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -816,7 +805,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangsgruppe
-    alias: tilgangsgruppe
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -830,7 +818,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalenhet
-    alias: journalenhet
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -844,7 +831,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:administrativEnhet
-    alias: administrativEnhet
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -860,7 +846,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksansvarlig
-    alias: saksansvarlig
     owner: TilskuddFartoy
     domain_of:
     - Saksmappe
@@ -871,7 +856,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: TilskuddFartoy
     domain_of:
     - Begrep
@@ -917,7 +901,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetDato
-    alias: avsluttetDato
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -930,7 +913,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: TilskuddFartoy
     domain_of:
     - Periode
@@ -947,7 +929,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:klasse
-    alias: klasse
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -955,6 +936,7 @@ attributes:
     - Klassifikasjonssystem
     range: Klasse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   mappeId:
     name: mappeId
@@ -964,7 +946,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:mappeId
-    alias: mappeId
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -978,7 +959,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:merknad
-    alias: merknad
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -995,7 +975,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:noekkelord
-    alias: noekkelord
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1009,7 +988,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:offentligTittel
-    alias: offentligTittel
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1023,7 +1001,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetDato
-    alias: opprettetDato
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1039,7 +1016,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:part
-    alias: part
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1057,7 +1033,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:skjerming
-    alias: skjerming
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1075,7 +1050,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tittel
-    alias: tittel
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1094,7 +1068,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivdel
-    alias: arkivdel
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1110,7 +1083,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetAv
-    alias: avsluttetAv
     owner: TilskuddFartoy
     domain_of:
     - Mappe
@@ -1123,7 +1095,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetAv
-    alias: opprettetAv
     owner: TilskuddFartoy
     domain_of:
     - Mappe

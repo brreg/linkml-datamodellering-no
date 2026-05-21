@@ -10,8 +10,6 @@ _Dokumentfilens data, koda som Base64._
 
 
 URI: [ark:data](https://schema.fintlabs.no/arkiv/data)
-Alias: data
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dokumentfilens data, koda som Base64.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:data
-alias: data
 domain_of:
 - Dokumentfil
 range: string

@@ -10,8 +10,6 @@ _Enhet rektor er enhetsleder for_
 
 
 URI: [samtbuskole:enhetsleder_for](https://example.no/ontology/skole#enhetsleder_for)
-Alias: enhetsleder_for
-
 <!-- no inheritance hierarchy -->
 
 
@@ -89,7 +87,6 @@ close_mappings:
 - org:headOf
 rank: 1000
 domain: Rektor
-alias: enhetsleder_for
 domain_of:
 - Rektor
 range: Skole

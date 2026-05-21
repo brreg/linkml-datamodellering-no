@@ -10,8 +10,6 @@ _Fritekst som skildrar varen slik han er levert._
 
 
 URI: [okn:fritekst](https://schema.fintlabs.no/okonomi/fritekst)
-Alias: fritekst
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Fritekst som skildrar varen slik han er levert.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fritekst
-alias: fritekst
 domain_of:
 - Fakturalinje
 range: string

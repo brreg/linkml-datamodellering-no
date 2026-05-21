@@ -172,7 +172,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: KatalogisertRessurs
     domain_of:
     - Mediatype

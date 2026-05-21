@@ -10,8 +10,6 @@ _Klassifikasjonar som er samanlikna (xkos:compares)._
 
 
 URI: [xkos:compares](http://rdf-vocabulary.ddialliance.org/xkos#compares)
-Alias: er_samanlikna_med
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Klassifikasjonar som er samanlikna (xkos:compares).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:compares
-alias: er_samanlikna_med
 domain_of:
 - Klassifikasjon
 range: Klassifikasjon

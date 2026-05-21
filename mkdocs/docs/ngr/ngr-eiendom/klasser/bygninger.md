@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/bygninger](https://data.norge.no/linkml/ngr-eiendom/bygninger)
-Alias: bygninger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: bygninger
 name: bygninger
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: bygninger
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

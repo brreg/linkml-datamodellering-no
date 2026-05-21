@@ -10,8 +10,6 @@ _Temavokabular som vert brukt i katalogen._
 
 
 URI: [dcat:themeTaxonomy](http://www.w3.org/ns/dcat#themeTaxonomy)
-Alias: temaer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Temavokabular som vert brukt i katalogen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:themeTaxonomy
-alias: temaer
 domain_of:
 - Katalog
 range: Begrepssamling

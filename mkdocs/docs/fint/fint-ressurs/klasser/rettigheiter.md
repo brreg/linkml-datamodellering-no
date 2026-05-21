@@ -5,8 +5,6 @@
 
 
 URI: [res:rettigheiter](https://schema.fintlabs.no/ressurs/rettigheiter)
-Alias: rettigheiter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: rettigheiter
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:rettigheiter
-alias: rettigheiter
 domain_of:
 - RessursContainer
 range: Rettighet

@@ -10,8 +10,6 @@ _Referanse til typedefinisjon (modelldcatno:typeDefinitionReference)._
 
 
 URI: [modelldcatno:typeDefinitionReference](https://data.norge.no/vocabulary/modelldcatno#typeDefinitionReference)
-Alias: typedefinisjon_referanse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til typedefinisjon (modelldcatno:typeDefinitionReference)
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:typeDefinitionReference
-alias: typedefinisjon_referanse
 domain_of:
 - EnkelType
 range: uri

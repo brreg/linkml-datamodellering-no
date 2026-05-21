@@ -210,7 +210,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:stemmekretsnummer
-    alias: stemmekretsnummer
     owner: Stemmekrets
     domain_of:
     - Stemmekrets
@@ -221,7 +220,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: Stemmekrets
     domain_of:
     - GeografiskAdresse
@@ -243,7 +241,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:namn
-    alias: namn
     owner: Stemmekrets
     domain_of:
     - Adresseomrade

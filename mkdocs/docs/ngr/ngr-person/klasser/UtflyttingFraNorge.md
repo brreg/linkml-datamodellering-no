@@ -331,7 +331,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: UtflyttingFraNorge
     domain_of:
     - Person
@@ -373,7 +372,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:tilflyttingsland
-    alias: tilflyttingsland
     owner: UtflyttingFraNorge
     domain_of:
     - UtflyttingFraNorge
@@ -386,7 +384,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:tilflyttingsstedIUtlandet
-    alias: tilflyttingssted_i_utlandet
     owner: UtflyttingFraNorge
     domain_of:
     - UtflyttingFraNorge
@@ -399,7 +396,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:utflyttingsdato
-    alias: utflyttingsdato
     owner: UtflyttingFraNorge
     domain_of:
     - UtflyttingFraNorge

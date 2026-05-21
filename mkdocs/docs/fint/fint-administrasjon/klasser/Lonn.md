@@ -697,7 +697,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Lonn
     domain_of:
     - Begrep
@@ -724,7 +723,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:anvist
-    alias: anvist
     owner: Lonn
     domain_of:
     - Lonn
@@ -737,7 +735,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:attestert
-    alias: attestert
     owner: Lonn
     domain_of:
     - Lonn
@@ -749,7 +746,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: Lonn
     domain_of:
     - Periode
@@ -765,7 +761,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:kildesystemId
-    alias: kildesystemId
     owner: Lonn
     domain_of:
     - Lonn
@@ -780,7 +775,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:kontert
-    alias: kontert
     owner: Lonn
     domain_of:
     - Lonn
@@ -793,7 +787,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:kontostreng
-    alias: kontostreng
     owner: Lonn
     domain_of:
     - Lonn
@@ -808,7 +801,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:opptjent
-    alias: opptjent
     owner: Lonn
     domain_of:
     - Lonn
@@ -822,7 +814,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:periode
-    alias: periode
     owner: Lonn
     domain_of:
     - Lonn
@@ -838,7 +829,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:anviser
-    alias: anviser
     owner: Lonn
     domain_of:
     - Lonn
@@ -851,7 +841,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:konterer
-    alias: konterer
     owner: Lonn
     domain_of:
     - Lonn
@@ -864,7 +853,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-administrasjon
     rank: 1000
     slot_uri: adm:attestant
-    alias: attestant
     owner: Lonn
     domain_of:
     - Lonn

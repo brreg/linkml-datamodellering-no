@@ -10,8 +10,6 @@ _Hending tenesteresultatet kan skape._
 
 
 URI: [xkos:causes](http://rdf-vocabulary.ddialliance.org/xkos#causes)
-Alias: kan_skape_hending
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Hending tenesteresultatet kan skape.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: xkos:causes
-alias: kan_skape_hending
 domain_of:
 - Tjenesteresultattype
 range: Hendelse

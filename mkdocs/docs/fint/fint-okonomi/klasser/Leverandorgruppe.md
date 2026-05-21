@@ -10,8 +10,6 @@ _Gruppe av leverandørar leverandøren tilhøyrer._
 
 
 URI: [okn:leverandorgruppe](https://schema.fintlabs.no/okonomi/leverandorgruppe)
-Alias: leverandorgruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Gruppe av leverandørar leverandøren tilhøyrer.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:leverandorgruppe
-alias: leverandorgruppe
 domain_of:
 - Leverandor
 range: Leverandorgruppe

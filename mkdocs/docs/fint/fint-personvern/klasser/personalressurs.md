@@ -10,8 +10,6 @@ _Referanse til Personalressurs (Administrasjon)._
 
 
 URI: [fint:personalressurs](https://schema.fintlabs.no/personalressurs)
-Alias: personalressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -101,7 +99,6 @@ in_subset:
 from_schema: https://data.norge.no/linkml/fint-common
 rank: 1000
 slot_uri: fint:personalressurs
-alias: personalressurs
 owner: Person
 domain_of:
 - Person

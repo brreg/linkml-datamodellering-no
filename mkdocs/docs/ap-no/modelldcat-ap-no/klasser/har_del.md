@@ -10,8 +10,6 @@ _Del-ressurs inkludert i denne katalogen (dct:hasPart)._
 
 
 URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
-Alias: har_del
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Del-ressurs inkludert i denne katalogen (dct:hasPart).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:hasPart
-alias: har_del
 domain_of:
 - Modelkatalog
 range: KatalogisertRessurs

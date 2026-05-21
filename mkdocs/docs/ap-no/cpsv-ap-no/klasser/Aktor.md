@@ -379,7 +379,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Aktor
     domain_of:
     - Mediatype
@@ -409,7 +408,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Aktor
     domain_of:
     - OffentligTjeneste
@@ -432,7 +430,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Aktor
     domain_of:
     - OffentligTjeneste
@@ -456,7 +453,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: locn:address
-    alias: adresse_ref
     owner: Aktor
     domain_of:
     - Aktor
@@ -469,7 +465,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:participates
-    alias: deltek_i
     owner: Aktor
     domain_of:
     - Aktor

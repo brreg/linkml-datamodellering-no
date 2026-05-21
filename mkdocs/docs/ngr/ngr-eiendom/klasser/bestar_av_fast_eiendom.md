@@ -10,8 +10,6 @@ _Faste eigedommar som inngår i samlinga (minimum 2)._
 
 
 URI: [ngre:bestarAvFastEiendom](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvFastEiendom)
-Alias: bestar_av_fast_eiendom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Faste eigedommar som inngår i samlinga (minimum 2).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvFastEiendom
-alias: bestar_av_fast_eiendom
 domain_of:
 - SamletFastEiendom
 range: FastEiendom

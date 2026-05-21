@@ -5,8 +5,6 @@
 
 
 URI: [okn:posteringar](https://schema.fintlabs.no/okonomi/posteringar)
-Alias: posteringar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: posteringar
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:posteringar
-alias: posteringar
 domain_of:
 - OkonomiContainer
 range: Postering

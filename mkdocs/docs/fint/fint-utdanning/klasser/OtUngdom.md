@@ -10,8 +10,6 @@ _Alle OT-ungdom i containeren._
 
 
 URI: [utd:otUngdom](https://schema.fintlabs.no/utdanning/otUngdom)
-Alias: otUngdom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle OT-ungdom i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:otUngdom
-alias: otUngdom
 domain_of:
 - UtdanningContainer
 range: OtUngdom

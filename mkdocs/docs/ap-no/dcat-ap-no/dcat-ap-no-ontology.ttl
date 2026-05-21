@@ -64,13 +64,13 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
 <https://data.norge.no/linkml/common-ap-no/Begrepssamling> a owl:Class ;
     rdfs:label "Begrepssamling" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Ei SKOS-omgrepssamling (temavokabular)." ;
     skos:exactMatch skos:ConceptScheme ;
@@ -82,147 +82,44 @@ xsd:nonNegativeInteger a rdfs:Datatype ;
     skos:definition "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
     skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
 
-ns1:Datasettserie a owl:Class ;
-    rdfs:label "Datasettserie" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:siste ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Aktor ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:frekvens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tidsrom ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:RegulativRessurs ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:forste ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:frekvens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:kontaktpunkt ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:forste ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Tidsrom ;
-            owl:onProperty ns1:tidsrom ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:siste ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datasett ;
-            owl:onProperty ns1:siste ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datasett ;
-            owl:onProperty ns1:forste ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:tema ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:frekvens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:tema ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Kontaktopplysning ;
-            owl:onProperty ns1:kontaktpunkt ],
-        ns1:KatalogisertRessurs ;
-    skos:definition "Ei serie av relaterte datasett publisert separat men med felles metadata." ;
-    skos:exactMatch dcat:DatasetSeries ;
-    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
-
 ns1:Gebyr a owl:Class ;
     rdfs:label "Gebyr" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:dokumentasjon ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/valuta> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:belop ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ns1:belop ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/valuta> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/valuta> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:belop ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty ns1:dokumentasjon ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/valuta> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/valuta> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:dokumentasjon ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty ns1:belop ] ;
@@ -232,24 +129,25 @@ ns1:Gebyr a owl:Class ;
 
 ns1:Identifikator a owl:Class ;
     rdfs:label "Identifikator" ;
+    rdfs:seeAlso <https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a> ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:notasjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:notasjon ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:notasjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty ns1:notasjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:notasjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:notasjon ] ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Ein alternativ identifikator for ein ressurs." ;
     skos:exactMatch adms:Identifier ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
@@ -257,68 +155,17 @@ ns1:Identifikator a owl:Class ;
 ns1:Katalogpost a owl:Class ;
     rdfs:label "Katalogpost" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:kilde_post ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
-            owl:onProperty ns1:i_samsvar_med ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:primaertema ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:KatalogisertRessurs ;
-            owl:onProperty ns1:primaertema ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:primaertema ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:kilde_post ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ns1:kilde_post ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
@@ -326,14 +173,65 @@ ns1:Katalogpost a owl:Class ;
             owl:allValuesFrom dct:language ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:kilde_post ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:primaertema ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:primaertema ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
+            owl:onProperty ns1:i_samsvar_med ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ns1:i_samsvar_med ] ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:KatalogisertRessurs ;
+            owl:onProperty ns1:primaertema ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:kilde_post ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:i_samsvar_med ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ] ;
     skos:definition "Ein katalogpost som beskriv ein ressurs i katalogen." ;
     skos:exactMatch dcat:CatalogRecord ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
@@ -341,29 +239,29 @@ ns1:Katalogpost a owl:Class ;
 ns1:Relasjon a owl:Class ;
     rdfs:label "Relasjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:har_rolle ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty ns1:har_rolle ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ns1:relasjon_til ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:relasjon_til ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty ns1:har_rolle ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty ns1:relasjon_til ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:relasjon_til ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ns1:har_rolle ] ;
@@ -374,23 +272,11 @@ ns1:Relasjon a owl:Class ;
 ns1:Sjekksum a owl:Class ;
     rdfs:label "Sjekksum" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:sjekksumverdi ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:sjekksumverdi ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ns1:algoritme ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty ns1:algoritme ],
@@ -398,7 +284,19 @@ ns1:Sjekksum a owl:Class ;
             owl:maxCardinality 1 ;
             owl:onProperty ns1:algoritme ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:sjekksumverdi ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:sjekksumverdi ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty ns1:sjekksumverdi ] ;
     skos:definition "Ein sjekksum for ein distribusjon." ;
     skos:exactMatch spdx:Checksum ;
@@ -579,22 +477,22 @@ ns1:underkatalog a owl:ObjectProperty ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdeldimensjon> a owl:Class ;
     rdfs:label "Kvalitetsdeldimensjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dcat-ap-no/:har_anbefalt_term> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dcat-ap-no/:har_definisjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dcat-ap-no/:har_anbefalt_term> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/dcat-ap-no/:har_definisjon> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
@@ -613,29 +511,17 @@ ns1:underkatalog a owl:ObjectProperty ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdeldimensjon> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdeldimensjon> ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
@@ -643,8 +529,20 @@ ns1:underkatalog a owl:ObjectProperty ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ] ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon." ;
     skos:exactMatch <http://www.w3.org/ns/dqv#Metric> ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -652,38 +550,38 @@ ns1:underkatalog a owl:ObjectProperty ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaaling> a owl:Class ;
     rdfs:label "Kvalitetsmaaling" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaal> ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaal> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_kvalitetsmaaling_av> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ] ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Ei konkret måling av eit kvalitetsmål for eit datasett." ;
     skos:exactMatch <http://www.w3.org/ns/dqv#QualityMeasurement> ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -691,14 +589,8 @@ ns1:underkatalog a owl:ObjectProperty ;
 <https://data.norge.no/linkml/dqv-ap-no/Tekstdel> a owl:Class ;
     rdfs:label "Tekstdel" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
@@ -706,23 +598,29 @@ ns1:underkatalog a owl:ObjectProperty ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
         [ a owl:Restriction ;
             owl:allValuesFrom dct:language ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel> ] ;
     skos:definition "Ein tekstleg del av ein kvalitetsmerknad (Web Annotation)." ;
     skos:exactMatch <http://www.w3.org/ns/oa#TextualBody> ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -744,6 +642,109 @@ ns1:underkatalog a owl:ObjectProperty ;
     rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
     skos:definition "Valuta (cv:currency)." ;
     skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+ns1:Datasettserie a owl:Class ;
+    rdfs:label "Datasettserie" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:frekvens ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:forste ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:RegulativRessurs ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:siste ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:forste ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:frekvens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Kontaktopplysning ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Aktor ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datasett ;
+            owl:onProperty ns1:siste ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:frekvens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:siste ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:tema ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:tema ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tidsrom ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Tidsrom ;
+            owl:onProperty ns1:tidsrom ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datasett ;
+            owl:onProperty ns1:forste ],
+        ns1:KatalogisertRessurs ;
+    skos:definition "Ei serie av relaterte datasett publisert separat men med felles metadata." ;
+    skos:exactMatch dcat:DatasetSeries ;
+    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
 
 ns1:algoritme a owl:DatatypeProperty ;
     rdfs:label "algoritme" ;
@@ -1012,658 +1013,336 @@ ns1:tidsopplosning a owl:DatatypeProperty ;
     skos:definition "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
     skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
 
-ns1:Datatjeneste a owl:Class ;
-    rdfs:label "Datatjeneste" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Rettighetserklaring ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:landingsside ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datasett ;
-            owl:onProperty ns1:tilgjengeliggjor_datasett ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Kontaktopplysning ;
-            owl:onProperty ns1:kontaktpunkt ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
-            owl:onProperty ns1:i_samsvar_med ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tilgjengeliggjor_datasett ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tema ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:endepunktsbeskrivelse ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:endepunkts_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Aktor ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:har_gebyr ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:versjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:RegulativRessurs ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:versjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tilgjengelighet ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:lisens ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:lisens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:dokumentasjon ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:versjon ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:tilgjengelighet ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tilgangsrettigheter ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:tema ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:kontaktpunkt ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:tilgangsrettigheter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:endepunktsbeskrivelse ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:i_samsvar_med ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:tilgjengelighet ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Gebyr ;
-            owl:onProperty ns1:har_gebyr ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:endepunkts_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:lisens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:landingsside ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:dokumentasjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        ns1:KatalogisertRessurs ;
-    skos:definition "Ei samling operasjonar tilgjengeleg via eit API-grensesnitt." ;
-    skos:exactMatch dcat:DataService ;
-    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
-
 ns1:Distribusjon a owl:Class ;
     rdfs:label "Distribusjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ns1:sjekksum ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tilgjengelighet ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:tilgjengelighet ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tidsopplosning ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:komprimeringsformat ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+            owl:onProperty ns1:tilgangstjeneste ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:lisens ],
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
+            owl:onProperty ns1:i_samsvar_med ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty ns1:komprimeringsformat ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:nonNegativeInteger ;
             owl:onProperty ns1:filstorrelse ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:nedlastningslenke ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:tilgangs_url ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
-            owl:onProperty ns1:pakkeformat ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ns1:pakkeformat ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
-            owl:onProperty ns1:komprimeringsformat ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:filstorrelse ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:tidsopplosning ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:policy ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:medietype ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:RegulativRessurs ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+            owl:onProperty ns1:tilgjengelighet ],
         [ a owl:Restriction ;
             owl:allValuesFrom ns1:Rettighetserklaring ;
             owl:onProperty ns1:rettigheter ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+            owl:onProperty ns1:sjekksum ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty ns1:pakkeformat ],
+            owl:onProperty ns1:komprimeringsformat ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:nedlastningslenke ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datatjeneste ;
-            owl:onProperty ns1:tilgangstjeneste ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ns1:policy ],
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:tilgangs_url ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:dokumentasjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom ns1:RegulativRessurs ;
             owl:onProperty ns1:gjeldende_lovgivning ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:medietype ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty ns1:filstorrelse ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tilgangstjeneste ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty ns1:lisens ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty ns1:policy ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tidsopplosning ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:komprimeringsformat ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:pakkeformat ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
+            owl:onProperty ns1:pakkeformat ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:medietype ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty ns1:sjekksum ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:policy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:pakkeformat ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:i_samsvar_med ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom dct:language ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:nonNegativeInteger ;
+            owl:onProperty ns1:filstorrelse ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:tilgangs_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:duration ;
+            owl:onProperty ns1:tidsopplosning ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:dokumentasjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:dokumentasjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:nedlastningslenke ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
+            owl:onProperty ns1:komprimeringsformat ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:tidsopplosning ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:tilgjengelighet ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datatjeneste ;
+            owl:onProperty ns1:tilgangstjeneste ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:tilgangs_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:tilgjengelighet ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
+            owl:onProperty ns1:medietype ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:policy ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:nedlastningslenke ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:lisens ],
         [ a owl:Restriction ;
             owl:allValuesFrom ns1:Sjekksum ;
             owl:onProperty ns1:sjekksum ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ns1:i_samsvar_med ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:dokumentasjon ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:tilgjengelighet ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom dct:language ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Mediatype> ;
             owl:onProperty ns1:medietype ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
-            owl:onProperty ns1:i_samsvar_med ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:duration ;
-            owl:onProperty ns1:tidsopplosning ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:lisens ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ] ;
     skos:definition "Ein spesifikk representasjon/nedlastbar form av eit datasett." ;
     skos:exactMatch dcat:Distribution ;
-    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
-
-ns1:Katalog a owl:Class ;
-    rdfs:label "Katalog" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:har_del ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:temaer ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Kontaktopplysning ;
-            owl:onProperty ns1:kontaktpunkt ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:produsent ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:katalogpost ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Katalog ;
-            owl:onProperty ns1:underkatalog ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Katalogpost ;
-            owl:onProperty ns1:katalogpost ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/heimeside> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:lisens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Aktor ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:produsent ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:RegulativRessurs ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Aktor ;
-            owl:onProperty ns1:produsent ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:datasett ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Rettighetserklaring ;
-            owl:onProperty ns1:rettigheter ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:lisens ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datasett ;
-            owl:onProperty ns1:datasett ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datatjeneste ;
-            owl:onProperty ns1:datatjeneste ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tidsrom ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:underkatalog ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/heimeside> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom dct:language ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Tidsrom ;
-            owl:onProperty ns1:tidsrom ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:kontaktpunkt ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:datatjeneste ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Katalog ;
-            owl:onProperty ns1:har_del ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:lisens ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Begrepssamling> ;
-            owl:onProperty ns1:temaer ],
-        ns1:KatalogisertRessurs ;
-    skos:definition "Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar." ;
-    skos:exactMatch dcat:Catalog ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
 
 ns1:Rettighetserklaring a owl:Class ;
     rdfs:label "Rettighetserklaring" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:jurisdiksjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:opphavsrettserklaring ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:krediteringstekst ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:opphavsrettsinnehaver ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:opphavsrettserklaring ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:opphavsrettserklaring ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:opphavsrettsinnehaver ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:opphavsrettsaar ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:jurisdiksjon ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty ns1:krediteringsurl ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:anvendelsesretningslinjer ],
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:opphavsrettserklaring ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:opphavsrettsnotis ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:opphavsrettsnotis ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:anvendelsesretningslinjer ],
+            owl:allValuesFrom xsd:gYear ;
+            owl:onProperty ns1:opphavsrettsaar ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty ns1:krediteringstekst ],
+            owl:onProperty ns1:opphavsrettsinnehaver ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:anvendelsesretningslinjer ],
+            owl:onProperty ns1:opphavsrettserklaring ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty ns1:opphavsrettsnotis ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty ns1:krediteringstekst ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:krediteringsurl ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:opphavsrettsnotis ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:opphavsrettsaar ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:opphavsrettsaar ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:krediteringsurl ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:jurisdiksjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:opphavsrettsnotis ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:anvendelsesretningslinjer ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:krediteringstekst ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty ns1:opphavsrettsinnehaver ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:opphavsrettsnotis ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:krediteringsurl ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:gYear ;
-            owl:onProperty ns1:opphavsrettsaar ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:opphavsrettsaar ],
+            owl:onProperty ns1:opphavsrettsinnehaver ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:anvendelsesretningslinjer ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:opphavsrettserklaring ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:krediteringstekst ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty ns1:jurisdiksjon ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ns1:krediteringsurl ] ;
+            owl:onProperty ns1:anvendelsesretningslinjer ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:jurisdiksjon ] ;
     skos:definition "Ei erklæring om rettar til ein ressurs (ODRS)." ;
     skos:exactMatch dct:RightsStatement ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
 
 ns1:Tidsrom a owl:Class ;
     rdfs:label "Tidsrom" ;
+    rdfs:seeAlso <https://data.norge.no/concepts/67a58f0e-2e39-33dc-bca9-1ef29a001b2f> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:dateTime ;
             owl:onProperty ns1:begynnelse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty ns1:sluttdato ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:startdato ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty ns1:slutt ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:sluttdato ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty ns1:startdato ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:startdato ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:slutt ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty ns1:sluttdato ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:slutt ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty ns1:sluttdato ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:dateTime ;
-            owl:onProperty ns1:begynnelse ],
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty ns1:startdato ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:dateTime ;
+            owl:maxCardinality 1 ;
             owl:onProperty ns1:slutt ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty ns1:slutt ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty ns1:begynnelse ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:begynnelse ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty ns1:startdato ] ;
+            owl:onProperty ns1:startdato ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:sluttdato ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Eit tidsintervall med start- og sluttdato." ;
     skos:exactMatch dct:PeriodOfTime ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
@@ -1683,53 +1362,53 @@ ns1:tilgangsrettigheter a owl:DatatypeProperty ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad> a owl:Class ;
     rdfs:label "Kvalitetsmerknad" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Tekstdel> ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Tekstdel> ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_motivert_av> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_maal> ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_tekstdel> ] ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ] ;
     skos:definition "Ein merknad om kvaliteten til eit datasett." ;
     skos:exactMatch <http://www.w3.org/ns/dqv#QualityAnnotation> ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
@@ -1753,40 +1432,364 @@ ns1:tilgangsrettigheter a owl:DatatypeProperty ;
     skos:definition "Definisjon av dimensjonen eller målet." ;
     skos:inScheme <https://data.norge.no/linkml/dqv-ap-no> .
 
-ns1:Kontaktopplysning a owl:Class ;
-    rdfs:label "Kontaktopplysning" ;
+ns1:Datatjeneste a owl:Class ;
+    rdfs:label "Datatjeneste" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:endepunktsbeskrivelse ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:tilgjengelighet ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:tilgjengelighet ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Rettighetserklaring ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:endepunkts_url ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:dokumentasjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:dokumentasjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:har_gebyr ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Kontaktopplysning ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:RegulativRessurs ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Gebyr ;
+            owl:onProperty ns1:har_gebyr ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:endepunkts_url ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datasett ;
+            owl:onProperty ns1:tilgjengeliggjor_datasett ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/format> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Aktor ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:tema ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tilgjengelighet ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tilgjengeliggjor_datasett ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:landingsside ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
+            owl:onProperty ns1:i_samsvar_med ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tilgangsrettigheter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tema ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:versjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:landingsside ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:tilgangsrettigheter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:versjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:versjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:i_samsvar_med ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:endepunktsbeskrivelse ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
+        ns1:KatalogisertRessurs ;
+    skos:definition "Ei samling operasjonar tilgjengeleg via eit API-grensesnitt." ;
+    skos:exactMatch dcat:DataService ;
+    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
+
+ns1:Katalog a owl:Class ;
+    rdfs:label "Katalog" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/heimeside> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Begrepssamling> ;
+            owl:onProperty ns1:temaer ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:underkatalog ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/heimeside> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:temaer ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Katalogpost ;
+            owl:onProperty ns1:katalogpost ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Aktor ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datatjeneste ;
+            owl:onProperty ns1:datatjeneste ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:datatjeneste ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:katalogpost ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom dct:language ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:produsent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datasett ;
+            owl:onProperty ns1:datasett ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Katalog ;
+            owl:onProperty ns1:har_del ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:har_del ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Aktor ;
+            owl:onProperty ns1:produsent ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:datasett ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Kontaktopplysning ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:lisens ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Rettighetserklaring ;
+            owl:onProperty ns1:rettigheter ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:produsent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Tidsrom ;
+            owl:onProperty ns1:tidsrom ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tidsrom ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Katalog ;
+            owl:onProperty ns1:underkatalog ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:RegulativRessurs ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        ns1:KatalogisertRessurs ;
+    skos:definition "Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar." ;
+    skos:exactMatch dcat:Catalog ;
+    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
+
+ns1:Kontaktopplysning a owl:Class ;
+    rdfs:label "Kontaktopplysning" ;
+    rdfs:seeAlso <https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty ns1:har_epost ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:har_kontaktside ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:har_kontaktside ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:har_kontaktside ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty ns1:navn_vcard ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:har_kontaktside ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:har_epost ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:har_kontaktside ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty ns1:navn_vcard ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty ns1:har_kontaktside ],
+            owl:onProperty ns1:har_epost ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 0 ;
             owl:onProperty ns1:har_epost ] ;
     skos:definition "Kontaktinformasjon for ein aktør." ;
     skos:exactMatch vcard:Kind ;
@@ -1795,29 +1798,23 @@ ns1:Kontaktopplysning a owl:Class ;
 <https://data.norge.no/linkml/dqv-ap-no/Standard> a owl:Class ;
     rdfs:label "Standard" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
@@ -1828,13 +1825,19 @@ ns1:Kontaktopplysning a owl:Class ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_merknad> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Ein standard eller spesifikasjon som eit datasett er i samsvar med." ;
     skos:exactMatch dct:Standard ;
@@ -1843,10 +1846,10 @@ ns1:Kontaktopplysning a owl:Class ;
 <https://data.norge.no/linkml/common-ap-no/Mediatype> a owl:Class ;
     rdfs:label "Mediatype" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
@@ -1869,14 +1872,15 @@ ns1:Kontaktopplysning a owl:Class ;
 
 ns1:KatalogisertRessurs a owl:Class ;
     rdfs:label "KatalogisertRessurs" ;
-    rdfs:subClassOf [ a owl:Restriction ;
+    rdfs:subClassOf [ owl:unionOf ( ns1:Datasett ns1:Datasettserie ns1:Datatjeneste ns1:Katalog ) ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Basisklasse for ressursar som kan katalogiserast." ;
     skos:exactMatch dcat:Resource ;
@@ -1915,23 +1919,23 @@ ns1:versjon a owl:DatatypeProperty ;
 <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon> a owl:Class ;
     rdfs:label "Kvalitetsdimensjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_definisjon> ],
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
@@ -1943,39 +1947,40 @@ dct:language a rdfs:Datatype .
 
 ns1:Aktor a owl:Class ;
     rdfs:label "Aktor" ;
+    rdfs:seeAlso <https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:navn_aktor ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty ns1:navn_aktor ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom rdf:langString ;
             owl:onProperty ns1:navn_aktor ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ] ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ] ;
     skos:definition "Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs." ;
     skos:exactMatch foaf:Agent ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
@@ -1983,62 +1988,62 @@ ns1:Aktor a owl:Class ;
 ns1:RegulativRessurs a owl:Class ;
     rdfs:label "RegulativRessurs" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:relatert_regulativ_ressurs ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
         [ a owl:Restriction ;
             owl:allValuesFrom dct:language ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:RegulativRessurs ;
             owl:onProperty ns1:relatert_regulativ_ressurs ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:RegulativRessurs ;
-            owl:onProperty ns1:relatert_regulativ_ressurs ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_referanse> ] ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ] ;
     skos:definition "Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs." ;
     skos:exactMatch eli:LegalResource ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
@@ -2097,252 +2102,252 @@ ns1:gjeldende_lovgivning a owl:ObjectProperty ;
     skos:definition "Lovgjeving som gjeld for ressursen." ;
     skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
 
-ns1:Datasett a owl:Class ;
-    rdfs:label "Datasett" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:kilde_datasett ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:annen_identifikator ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:eksempeldata ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:dokumentasjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Aktor ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:datasettdistribusjon ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad> ;
-            owl:onProperty ns1:har_kvalitetsmerknad ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:annen_ansvarlig_aktor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Distribusjon ;
-            owl:onProperty ns1:datasettdistribusjon ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:versjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:kontaktpunkt ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datasettserie ;
-            owl:onProperty ns1:i_serie ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:RegulativRessurs ;
-            owl:onProperty ns1:gjeldende_lovgivning ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tidsrom ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Tidsrom ;
-            owl:onProperty ns1:tidsrom ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Distribusjon ;
-            owl:onProperty ns1:eksempeldata ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom dct:language ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:tilgangsrettigheter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:eierskapshistorikk ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:versjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:annen_ansvarlig_aktor ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:produsent ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Datasett ;
-            owl:onProperty ns1:kilde_datasett ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:i_serie ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Kontaktopplysning ;
-            owl:onProperty ns1:kontaktpunkt ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:tema ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:begrep ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:tilgangsrettigheter ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:landingsside ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Identifikator ;
-            owl:onProperty ns1:annen_identifikator ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:produsent ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:ble_generert_ved ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:ble_generert_ved ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:har_kvalitetsmerknad ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:annen_spesifikk_relasjon ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:eierskapshistorikk ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Relasjon ;
-            owl:onProperty ns1:annen_spesifikk_relasjon ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:tema ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:dokumentasjon ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:relatert_ressurs ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom ns1:Aktor ;
-            owl:onProperty ns1:produsent ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty ns1:begrep ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
-            owl:onProperty ns1:i_samsvar_med ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty ns1:landingsside ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:relatert_ressurs ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:utgiver ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty ns1:i_samsvar_med ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaaling> ;
-            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty ns1:versjon ],
-        ns1:KatalogisertRessurs ;
-    skos:definition "Ei samling av data utgjeven eller kuratert av éin aktør." ;
-    skos:exactMatch dcat:Dataset ;
-    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
-
 <https://data.norge.no/linkml/common-ap-no/spraak> a owl:DatatypeProperty ;
     rdfs:label "spraak" ;
     rdfs:range dct:language ;
     skos:definition "Språk brukt i ressursen (dct:language)." ;
     skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+ns1:Datasett a owl:Class ;
+    rdfs:label "Datasett" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datasettserie ;
+            owl:onProperty ns1:i_serie ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:begrep ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:har_kvalitetsmerknad ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:annen_ansvarlig_aktor ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:versjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaaling> ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:i_serie ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:versjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Identifikator ;
+            owl:onProperty ns1:annen_identifikator ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:annen_ansvarlig_aktor ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:dokumentasjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Aktor ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:relatert_ressurs ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:eksempeldata ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:RegulativRessurs ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Aktor ;
+            owl:onProperty ns1:produsent ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:landingsside ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Distribusjon ;
+            owl:onProperty ns1:datasettdistribusjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Tidsrom ;
+            owl:onProperty ns1:tidsrom ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:eierskapshistorikk ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:produsent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Standard> ;
+            owl:onProperty ns1:i_samsvar_med ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tilgangsrettigheter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Relasjon ;
+            owl:onProperty ns1:annen_spesifikk_relasjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:relatert_ressurs ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Distribusjon ;
+            owl:onProperty ns1:eksempeldata ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:annen_spesifikk_relasjon ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:ble_generert_ved ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty ns1:tema ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:datasettdistribusjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:kilde_datasett ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:eierskapshistorikk ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/type_concept> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:dokumentasjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:tidsrom ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad> ;
+            owl:onProperty ns1:har_kvalitetsmerknad ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:landingsside ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:produsent ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/dekningsomraade> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:gjeldende_lovgivning ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty ns1:tema ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Kontaktopplysning ;
+            owl:onProperty ns1:kontaktpunkt ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty ns1:tilgangsrettigheter ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom ns1:Datasett ;
+            owl:onProperty ns1:kilde_datasett ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:ble_generert_ved ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:begrep ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty ns1:utgiver ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:versjon ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:annen_identifikator ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty ns1:i_samsvar_med ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom dct:language ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling> ],
+        ns1:KatalogisertRessurs ;
+    skos:definition "Ei samling av data utgjeven eller kuratert av éin aktør." ;
+    skos:exactMatch dcat:Dataset ;
+    skos:inScheme <https://data.norge.no/linkml/dcat-ap-no> .
 
 ns1:utgiver a owl:ObjectProperty ;
     rdfs:label "utgiver" ;
@@ -2352,14 +2357,15 @@ ns1:utgiver a owl:ObjectProperty ;
 
 <https://data.norge.no/linkml/common-ap-no/Konsept> a owl:Class ;
     rdfs:label "Konsept" ;
+    rdfs:seeAlso <https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be> ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
     skos:definition "Referanse til eit SKOS-omgrep frå eit kontrollert vokabular." ;
     skos:exactMatch skos:Concept ;

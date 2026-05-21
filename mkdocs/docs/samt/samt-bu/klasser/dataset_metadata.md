@@ -10,8 +10,6 @@ _Metadata om datasettet._
 
 
 URI: [samtbuskole:dataset_metadata](https://example.no/ontology/skole#dataset_metadata)
-Alias: dataset_metadata
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: dataset_metadata
 description: Metadata om datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: dataset_metadata
 domain_of:
 - Containerklasse
 range: Datasett

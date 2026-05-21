@@ -206,6 +206,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -399,10 +400,7 @@
             "properties": {
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -461,7 +459,7 @@
     "$id": "https://data.norge.no/linkml/xkos-ap-no",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "title": "xkos-ap-no",
     "type": "object",
     "version": null

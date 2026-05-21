@@ -10,8 +10,6 @@ _Tidsperiode ressursen dekkar (dct:temporal)._
 
 
 URI: [dct:temporal](http://purl.org/dc/terms/temporal)
-Alias: tidsperiode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Tidsperiode ressursen dekkar (dct:temporal).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:temporal
-alias: tidsperiode
 domain_of:
 - Informasjonsmodell
 range: Tidsperiode

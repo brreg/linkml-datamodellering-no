@@ -10,8 +10,6 @@ _Postnummer._
 
 
 URI: [fint:postnummer](https://schema.fintlabs.no/postnummer)
-Alias: postnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: postnummer
 description: Postnummer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:postnummer
-alias: postnummer
 domain_of:
 - Adresse
 range: string

@@ -10,8 +10,6 @@ _Samling av aksjepostar._
 
 
 URI: [aksje:aksjeposter](https://example.no/ontology/aksje#aksjeposter)
-Alias: aksjeposter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av aksjepostar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: aksjeposter
 domain_of:
 - Containerklasse
 range: Aksjepost

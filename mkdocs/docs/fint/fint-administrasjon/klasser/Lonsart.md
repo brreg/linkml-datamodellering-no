@@ -10,8 +10,6 @@ _Lønnsart._
 
 
 URI: [adm:lonsart](https://schema.fintlabs.no/administrasjon/lonsart)
-Alias: lonsart
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: lonsart
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Fravaerstype](fravaerstype.md) | Type fråvær |  yes  |
 | [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  yes  |
 | [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  yes  |
 | [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  yes  |
-| [Fravaerstype](fravaerstype.md) | Type fråvær |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Lønnsart.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:lonsart
-alias: lonsart
 domain_of:
 - Fravaerstype
 - Fastlonn

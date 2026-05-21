@@ -10,8 +10,6 @@ _Den relaterte ressursen i ein kvalifisert relasjon._
 
 
 URI: [dct:relation](http://purl.org/dc/terms/relation)
-Alias: relasjon_til
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: relasjon_til
 description: Den relaterte ressursen i ein kvalifisert relasjon.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:relation
-alias: relasjon_til
 domain_of:
 - Relasjon
 range: uri

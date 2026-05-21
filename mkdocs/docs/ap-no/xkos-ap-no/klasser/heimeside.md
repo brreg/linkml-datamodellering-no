@@ -10,8 +10,6 @@ _Heimeside for ressursen eller organisasjonen (foaf:homepage)._
 
 
 URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
-Alias: heimeside
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: heimeside
 description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: foaf:homepage
-alias: heimeside
 domain_of:
 - Klassifikasjon
 range: uri

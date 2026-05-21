@@ -10,8 +10,6 @@ _Referanse til Personalressurs i Administrasjon-domenet._
 
 
 URI: [ark:personalressurs](https://schema.fintlabs.no/arkiv/personalressurs)
-Alias: personalressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Referanse til Personalressurs i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:personalressurs
-alias: personalressurs
 domain_of:
 - Person
 - Arkivressurs

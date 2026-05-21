@@ -10,8 +10,6 @@ _Offisiell varslingsadresse for offentlege meldingar._
 
 
 URI: [ngrv:harVarslingsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#harVarslingsadresse)
-Alias: har_varslingsadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_varslingsadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -88,7 +86,6 @@ description: Offisiell varslingsadresse for offentlege meldingar.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harVarslingsadresse
-alias: har_varslingsadresse
 domain_of:
 - Virksomhet
 range: Varslingsadresse

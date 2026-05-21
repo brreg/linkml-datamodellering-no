@@ -10,8 +10,6 @@ _Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation)
 
 
 URI: [skosno:hasPartitiveConceptRelation](https://data.norge.no/vocabulary/skosno#hasPartitiveConceptRelation)
-Alias: har_partitiv_relasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConc
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:hasPartitiveConceptRelation
-alias: har_partitiv_relasjon
 domain_of:
 - Begrep
 range: PartitivRelasjon

@@ -10,8 +10,6 @@ _Verdi som gir integritetssikring til dokumentets innhald._
 
 
 URI: [ark:sjekksum](https://schema.fintlabs.no/arkiv/sjekksum)
-Alias: sjekksum
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Verdi som gir integritetssikring til dokumentets innhald.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:sjekksum
-alias: sjekksum
 domain_of:
 - Dokumentobjekt
 range: string

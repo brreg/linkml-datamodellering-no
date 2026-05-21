@@ -10,8 +10,6 @@ _Leverandør-modellelement i realiseringa (modelldcatno:hasSupplier)._
 
 
 URI: [modelldcatno:hasSupplier](https://data.norge.no/vocabulary/modelldcatno#hasSupplier)
-Alias: har_leverandor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Leverandør-modellelement i realiseringa (modelldcatno:hasSupplier)
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:hasSupplier
-alias: har_leverandor
 domain_of:
 - Realisering
 range: Modellelement

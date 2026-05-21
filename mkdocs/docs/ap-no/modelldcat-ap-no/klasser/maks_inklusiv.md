@@ -10,8 +10,6 @@ _Inklusiv maksimumsverdi (xsd:maxInclusive)._
 
 
 URI: [xsd:maxInclusive](http://www.w3.org/2001/XMLSchema#maxInclusive)
-Alias: maks_inklusiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Inklusiv maksimumsverdi (xsd:maxInclusive).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:maxInclusive
-alias: maks_inklusiv
 domain_of:
 - EnkelType
 range: string

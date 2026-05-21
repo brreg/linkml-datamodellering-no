@@ -10,8 +10,6 @@ _Alle verksemder i containeren._
 
 
 URI: [adm:virksomhetar](https://schema.fintlabs.no/administrasjon/virksomhetar)
-Alias: virksomhetar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle verksemder i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:virksomhetar
-alias: virksomhetar
 domain_of:
 - AdministrasjonContainer
 range: Virksomhet

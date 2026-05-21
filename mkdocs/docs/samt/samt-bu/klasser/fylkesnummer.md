@@ -10,8 +10,6 @@ _Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territor
 
 
 URI: [dcat:identifier](http://www.w3.org/ns/dcat#identifier)
-Alias: fylkesnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -90,7 +88,6 @@ close_mappings:
 - skos:notation
 rank: 1000
 slot_uri: dcat:identifier
-alias: fylkesnummer
 domain_of:
 - Fylke
 range: string

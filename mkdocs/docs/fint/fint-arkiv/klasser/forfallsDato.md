@@ -10,8 +10,6 @@ _Frist for å svare på eit inngåande dokument._
 
 
 URI: [ark:forfallsDato](https://schema.fintlabs.no/arkiv/forfallsDato)
-Alias: forfallsDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Frist for å svare på eit inngåande dokument.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:forfallsDato
-alias: forfallsDato
 domain_of:
 - Journalpost
 range: datetime

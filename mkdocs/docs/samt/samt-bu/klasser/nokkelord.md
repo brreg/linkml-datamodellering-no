@@ -10,8 +10,6 @@ _Nøkkelord som beskriv ressursen (dcat:keyword)._
 
 
 URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
-Alias: nokkelord
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: nokkelord
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: nokkelord
 description: Nøkkelord som beskriv ressursen (dcat:keyword).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dcat:keyword
-alias: nokkelord
 domain_of:
 - Datasett
 - Datatjeneste

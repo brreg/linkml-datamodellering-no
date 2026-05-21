@@ -10,8 +10,6 @@ _Namn på bilagets fil._
 
 
 URI: [okn:filnavn](https://schema.fintlabs.no/okonomi/filnavn)
-Alias: filnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på bilagets fil.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:filnavn
-alias: filnavn
 domain_of:
 - Bilag
 range: string

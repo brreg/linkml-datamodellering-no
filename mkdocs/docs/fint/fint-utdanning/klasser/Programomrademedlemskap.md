@@ -10,8 +10,6 @@ _Programområdemedlemskap._
 
 
 URI: [utd:programomrademedlemskap](https://schema.fintlabs.no/utdanning/programomrademedlemskap)
-Alias: programomrademedlemskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: programomrademedlemskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Programområdemedlemskap.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:programomrademedlemskap
-alias: programomrademedlemskap
 domain_of:
 - UtdanningContainer
 - Elevforhold

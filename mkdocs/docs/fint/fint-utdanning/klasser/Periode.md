@@ -10,8 +10,6 @@ _Periode._
 
 
 URI: [utd:periode](https://schema.fintlabs.no/utdanning/periode)
-Alias: periode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Periode.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:periode
-alias: periode
 domain_of:
 - Fraversregistrering
 range: Periode

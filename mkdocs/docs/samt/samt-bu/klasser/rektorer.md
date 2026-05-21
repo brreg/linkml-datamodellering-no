@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av rektor
 
 
 URI: [samtbuskole:rektorer](https://example.no/ontology/skole#rektorer)
-Alias: rektorer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   rektor i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: rektorer
 domain_of:
 - Containerklasse
 range: Rektor

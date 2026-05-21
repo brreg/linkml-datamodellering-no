@@ -324,7 +324,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Bruksenhetsnummer
     domain_of:
     - FastEiendom
@@ -367,7 +366,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:etasjeplan
-    alias: etasjeplan
     owner: Bruksenhetsnummer
     domain_of:
     - Bruksenhetsnummer
@@ -381,7 +379,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:etasjenummer
-    alias: etasjenummer
     owner: Bruksenhetsnummer
     domain_of:
     - Bruksenhetsnummer
@@ -396,7 +393,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:nummereringIEtasjen
-    alias: nummerering_i_etasjen
     owner: Bruksenhetsnummer
     domain_of:
     - Bruksenhetsnummer

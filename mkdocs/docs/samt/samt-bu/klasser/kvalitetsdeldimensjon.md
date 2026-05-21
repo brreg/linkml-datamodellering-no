@@ -257,7 +257,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:broader
-    alias: er_deldimensjon_av
     owner: Kvalitetsdeldimensjon
     domain_of:
     - Kvalitetsdeldimensjon
@@ -268,7 +267,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kvalitetsdeldimensjon
     domain_of:
     - KatalogisertRessurs
@@ -307,7 +305,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:prefLabel
-    alias: har_anbefalt_term
     owner: Kvalitetsdeldimensjon
     domain_of:
     - Kvalitetsdimensjon
@@ -321,7 +318,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:definition
-    alias: har_definisjon
     owner: Kvalitetsdeldimensjon
     domain_of:
     - Kvalitetsdimensjon

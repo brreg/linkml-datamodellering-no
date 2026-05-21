@@ -10,8 +10,6 @@ _Merknad til faget._
 
 
 URI: [utd:fagmerknad](https://schema.fintlabs.no/utdanning/fagmerknad)
-Alias: fagmerknad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Merknad til faget.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fagmerknad
-alias: fagmerknad
 domain_of:
 - Faggruppemedlemskap
 range: Fagmerknad

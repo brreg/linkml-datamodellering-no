@@ -10,8 +10,6 @@ _Dato og klokkeslett for avskrivinga._
 
 
 URI: [ark:avskrivningsdato](https://schema.fintlabs.no/arkiv/avskrivningsdato)
-Alias: avskrivningsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato og klokkeslett for avskrivinga.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:avskrivningsdato
-alias: avskrivningsdato
 domain_of:
 - Avskrivning
 range: datetime

@@ -10,8 +10,6 @@ _Fullmakt ressursen er knytt til._
 
 
 URI: [adm:fullmakt](https://schema.fintlabs.no/administrasjon/fullmakt)
-Alias: fullmakt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: fullmakt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  yes  |
 | [Rolle](rolle.md) | Rettighet eller type fullmakt |  yes  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Fullmakt ressursen er knytt til.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fullmakt
-alias: fullmakt
 domain_of:
 - Rolle
 - Personalressurs

@@ -10,8 +10,6 @@ _Rekkjefølgja journalpostane vart oppretta innanfor saksmappa._
 
 
 URI: [ark:journalPostnummer](https://schema.fintlabs.no/arkiv/journalPostnummer)
-Alias: journalPostnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Rekkjefølgja journalpostane vart oppretta innanfor saksmappa.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:journalPostnummer
-alias: journalPostnummer
 domain_of:
 - Journalpost
 range: integer

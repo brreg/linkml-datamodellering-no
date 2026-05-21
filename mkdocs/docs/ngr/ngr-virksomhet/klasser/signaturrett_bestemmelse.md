@@ -10,8 +10,6 @@ _Tekstleg bestemmelse om signaturrett (t.d. 'Styret i fellesskap')._
 
 
 URI: [ngrv:signaturrettBestemmelse](https://data.norge.no/vocabulary/ngr-virksomhet#signaturrettBestemmelse)
-Alias: signaturrett_bestemmelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tekstleg bestemmelse om signaturrett (t.d. 'Styret i fellesskap').
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:signaturrettBestemmelse
-alias: signaturrett_bestemmelse
 domain_of:
 - Signaturrett
 range: string

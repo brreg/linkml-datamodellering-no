@@ -10,8 +10,6 @@ _Om den rette identiteten er ukjent (når falsk identitet er registrert)._
 
 
 URI: [ngrp:rettIdentitetErUkjent](https://data.norge.no/vocabulary/ngr-person#rettIdentitetErUkjent)
-Alias: rett_identitet_er_ukjent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Om den rette identiteten er ukjent (når falsk identitet er registr
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:rettIdentitetErUkjent
-alias: rett_identitet_er_ukjent
 domain_of:
 - FalskIdentitet
 range: boolean

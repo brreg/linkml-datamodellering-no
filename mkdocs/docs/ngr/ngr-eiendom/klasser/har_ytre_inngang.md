@@ -10,8 +10,6 @@ _Ytre inngang(ar) til bygningen._
 
 
 URI: [ngre:harYtreInngang](https://data.norge.no/vocabulary/ngr-eiendom#harYtreInngang)
-Alias: har_ytre_inngang
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Ytre inngang(ar) til bygningen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harYtreInngang
-alias: har_ytre_inngang
 domain_of:
 - Bygning
 range: YtreInngang

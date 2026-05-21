@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/hovedenheter](https://data.norge.no/linkml/ngr-virksomhet/hovedenheter)
-Alias: hovedenheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: hovedenheter
 name: hovedenheter
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: hovedenheter
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

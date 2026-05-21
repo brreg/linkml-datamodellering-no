@@ -425,7 +425,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: skos:prefLabel
-    alias: foretrekt_namn
     owner: OffentligOrganisasjon
     domain_of:
     - OffentligOrganisasjon
@@ -439,7 +438,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
-    alias: dekningsomraade
     owner: OffentligOrganisasjon
     domain_of:
     - OffentligTjeneste
@@ -456,7 +454,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
-    alias: heimeside
     owner: OffentligOrganisasjon
     domain_of:
     - OffentligTjeneste
@@ -472,7 +469,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: OffentligOrganisasjon
     domain_of:
     - OffentligTjeneste
@@ -489,7 +485,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: OffentligOrganisasjon
     domain_of:
     - Mediatype
@@ -519,7 +514,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: OffentligOrganisasjon
     domain_of:
     - OffentligTjeneste
@@ -542,7 +536,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: OffentligOrganisasjon
     domain_of:
     - OffentligTjeneste
@@ -566,7 +559,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: locn:address
-    alias: adresse_ref
     owner: OffentligOrganisasjon
     domain_of:
     - Aktor
@@ -579,7 +571,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:participates
-    alias: deltek_i
     owner: OffentligOrganisasjon
     domain_of:
     - Aktor

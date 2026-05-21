@@ -10,8 +10,6 @@ _Alle statsborgarskap personen har._
 
 
 URI: [fint:statsborgerskap](https://schema.fintlabs.no/statsborgerskap)
-Alias: statsborgerskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: statsborgerskap
 description: Alle statsborgarskap personen har.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:statsborgerskap
-alias: statsborgerskap
 domain_of:
 - Person
 range: Landkode

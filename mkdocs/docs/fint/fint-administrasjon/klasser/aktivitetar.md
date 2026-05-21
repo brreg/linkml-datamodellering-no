@@ -10,8 +10,6 @@ _Alle aktivitetar i containeren._
 
 
 URI: [adm:aktivitetar](https://schema.fintlabs.no/administrasjon/aktivitetar)
-Alias: aktivitetar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle aktivitetar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:aktivitetar
-alias: aktivitetar
 domain_of:
 - AdministrasjonContainer
 range: Aktivitet

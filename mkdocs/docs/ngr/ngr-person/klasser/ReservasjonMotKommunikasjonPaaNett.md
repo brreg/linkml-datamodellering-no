@@ -282,7 +282,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: ReservasjonMotKommunikasjonPaaNett
     domain_of:
     - Person
@@ -324,7 +323,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:erReservert
-    alias: er_reservert
     owner: ReservasjonMotKommunikasjonPaaNett
     domain_of:
     - ReservasjonMotKommunikasjonPaaNett
@@ -338,7 +336,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:gyldigFraOgMed
-    alias: gyldig_fra_og_med
     owner: ReservasjonMotKommunikasjonPaaNett
     domain_of:
     - Kjoenn

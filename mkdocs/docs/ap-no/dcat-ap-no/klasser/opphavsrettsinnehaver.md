@@ -10,8 +10,6 @@ _Namn på opphavsrettsinnehavar._
 
 
 URI: [odrs:copyrightHolder](http://schema.theodi.org/odrs#copyrightHolder)
-Alias: opphavsrettsinnehaver
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på opphavsrettsinnehavar.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: odrs:copyrightHolder
-alias: opphavsrettsinnehaver
 domain_of:
 - Rettighetserklaring
 range: string

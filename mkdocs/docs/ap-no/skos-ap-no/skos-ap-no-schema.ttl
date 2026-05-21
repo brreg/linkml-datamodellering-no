@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix pav: <http://purl.org/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -10,34 +11,34 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "SKOS-AP-NO" ;
     pav:version "2.0" ;
-    sh:declare [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-            sh:prefix "rdf" ],
+    sh:declare [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
+            sh:prefix "adms" ],
+        [ sh:namespace "http://rdf-vocabulary.ddialliance.org/xkos#"^^xsd:anyURI ;
+            sh:prefix "xkos" ],
         [ sh:namespace "http://purl.org/umu/uneskos#"^^xsd:anyURI ;
             sh:prefix "uneskos" ],
-        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
-            sh:prefix "rdfs" ],
         [ sh:namespace "http://www.w3.org/ns/org#"^^xsd:anyURI ;
             sh:prefix "org" ],
-        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
-            sh:prefix "skos" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
         [ sh:namespace "http://publications.europa.eu/ontology/euvoc#"^^xsd:anyURI ;
             sh:prefix "euvoc" ],
+        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            sh:prefix "rdf" ],
+        [ sh:namespace "https://data.norge.no/vocabulary/skosno#"^^xsd:anyURI ;
+            sh:prefix "skosno" ],
         [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
             sh:prefix "vcard" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/skosno#"^^xsd:anyURI ;
-            sh:prefix "skosno" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
-        [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
-            sh:prefix "adms" ],
-        [ sh:namespace "http://rdf-vocabulary.ddialliance.org/xkos#"^^xsd:anyURI ;
-            sh:prefix "xkos" ],
-        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
+        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+            sh:prefix "skos" ],
+        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            sh:prefix "rdfs" ],
         [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ] ;
+            sh:prefix "dct" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ] ;
     linkml:classes <https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon>,
         <https://data.norge.no/linkml/skos-ap-no/Begrep>,
         <https://data.norge.no/linkml/skos-ap-no/Begrepssamling>,
@@ -52,11 +53,11 @@
     linkml:default_prefix "https://data.norge.no/linkml/skos-ap-no/" ;
     linkml:default_range <https://data.norge.no/linkml/skos-ap-no/string> ;
     linkml:description "Norsk applikasjonsprofil av SKOS for omgrep (begrep), modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/skos-ap-no-begrep/" ;
-    linkml:generation_date "2026-05-18T09:12:30"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:01"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
     linkml:imports "../common/common-ap-no-schema"^^xsd:anyURI,
         "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon_relasjontype>,
         <https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon_til_omgrep>,
         <https://data.norge.no/linkml/skos-ap-no/Begrep_anbefalt_term>,
@@ -1965,6 +1966,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
 
 <https://data.norge.no/linkml/skos-ap-no/Konsept> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "skos:Concept"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/2004/02/skos/core#Concept"^^xsd:anyURI ;
@@ -1995,7 +1997,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#date"^^xsd:anyURI .
 
 <https://data.norge.no/linkml/skos-ap-no/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

@@ -5,8 +5,6 @@
 
 
 URI: [okn:fakturautstederear](https://schema.fintlabs.no/okonomi/fakturautstederear)
-Alias: fakturautstederear
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: fakturautstederear
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fakturautstederear
-alias: fakturautstederear
 domain_of:
 - OkonomiContainer
 range: Fakturautsteder

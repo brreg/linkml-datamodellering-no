@@ -10,8 +10,6 @@ _Fråvær knytt til ressursen._
 
 
 URI: [adm:fravaer](https://schema.fintlabs.no/administrasjon/fravaer)
-Alias: fravaer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: fravaer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 | [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Fråvær knytt til ressursen.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fravaer
-alias: fravaer
 domain_of:
 - AdministrasjonContainer
 - Arbeidsforhold

@@ -10,8 +10,6 @@ _Offisiell adresse for den ytre inngangen eller brukseininga._
 
 
 URI: [ngre:harOffisiellAdresse](https://data.norge.no/vocabulary/ngr-eiendom#harOffisiellAdresse)
-Alias: har_offisiell_adresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Offisiell adresse for den ytre inngangen eller brukseininga.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harOffisiellAdresse
-alias: har_offisiell_adresse
 domain_of:
 - YtreInngang
 - Bruksenhet

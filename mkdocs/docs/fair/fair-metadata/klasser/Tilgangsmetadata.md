@@ -10,8 +10,6 @@ _Metadata for tilgang og tilgjengelegheit (FAIR A1/A2)._
 
 
 URI: [fair:tilgangsmetadata](https://data.norge.no/fair#tilgangsmetadata)
-Alias: tilgangsmetadata
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Metadata for tilgang og tilgjengelegheit (FAIR A1/A2).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:tilgangsmetadata
-alias: tilgangsmetadata
 domain_of:
 - FAIRMetadata
 range: Tilgangsmetadata

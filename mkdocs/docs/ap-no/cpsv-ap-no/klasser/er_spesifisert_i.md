@@ -10,8 +10,6 @@ _Liste eller spesifikasjon ressursen er del av._
 
 
 URI: [cv:isSpecifiedIn](http://data.europa.eu/m8g/isSpecifiedIn)
-Alias: er_spesifisert_i
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: er_spesifisert_i
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 | [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Liste eller spesifikasjon ressursen er del av.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:isSpecifiedIn
-alias: er_spesifisert_i
 domain_of:
 - Dokumentasjonstype
 - Tjenesteresultattype

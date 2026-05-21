@@ -10,8 +10,6 @@ _Personstatustype (BOSATT, UTFLYTTET, DOED o.l.)._
 
 
 URI: [ngrp:personstatusType](https://data.norge.no/vocabulary/ngr-person#personstatusType)
-Alias: personstatus_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Personstatustype (BOSATT, UTFLYTTET, DOED o.l.).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:personstatusType
-alias: personstatus_type
 domain_of:
 - Personstatus
 range: PersonstatusType

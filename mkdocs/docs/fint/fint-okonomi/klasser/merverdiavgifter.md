@@ -5,8 +5,6 @@
 
 
 URI: [okn:merverdiavgifter](https://schema.fintlabs.no/okonomi/merverdiavgifter)
-Alias: merverdiavgifter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: merverdiavgifter
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:merverdiavgifter
-alias: merverdiavgifter
 domain_of:
 - OkonomiContainer
 range: Merverdiavgift

@@ -10,8 +10,6 @@ _Feide-identifikator._
 
 
 URI: [utd:feidenavn](https://schema.fintlabs.no/utdanning/feidenavn)
-Alias: feidenavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Feide-identifikator.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:feidenavn
-alias: feidenavn
 domain_of:
 - Skoleressurs
 range: Identifikator

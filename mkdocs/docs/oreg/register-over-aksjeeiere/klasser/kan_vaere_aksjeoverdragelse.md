@@ -10,8 +10,6 @@ _Aksjeoverdraging i transaksjonen._
 
 
 URI: [aksje:kan_vaere_aksjeoverdragelse](https://example.no/ontology/aksje#kan_vaere_aksjeoverdragelse)
-Alias: kan_vaere_aksjeoverdragelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aksjeoverdraging i transaksjonen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Eierskapstransaksjon
-alias: kan_vaere_aksjeoverdragelse
 domain_of:
 - Eierskapstransaksjon
 range: Aksjeoverdragelse

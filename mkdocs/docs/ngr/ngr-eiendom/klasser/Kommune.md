@@ -236,7 +236,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Kommune
     domain_of:
     - FastEiendom
@@ -279,7 +278,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:kommunenummer
-    alias: kommunenummer_verdi
     owner: Kommune
     domain_of:
     - Kommunenummer

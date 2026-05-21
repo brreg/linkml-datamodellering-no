@@ -10,8 +10,6 @@ _Sluttidspunkt for eit tidsrom._
 
 
 URI: [time:hasEnd](http://www.w3.org/6006/time#hasEnd)
-Alias: slutt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sluttidspunkt for eit tidsrom.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: time:hasEnd
-alias: slutt
 domain_of:
 - Tidsrom
 range: datetime

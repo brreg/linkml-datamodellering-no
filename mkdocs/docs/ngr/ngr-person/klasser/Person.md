@@ -1571,7 +1571,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: Person
     domain_of:
     - Person
@@ -1613,7 +1612,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harPersonnavn
-    alias: har_personnavn
     owner: Person
     domain_of:
     - Person
@@ -1627,7 +1625,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harFolkeregisteridentifikator
-    alias: har_folkeregisteridentifikator
     owner: Person
     domain_of:
     - Person
@@ -1641,7 +1638,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harPersonidentifikasjon
-    alias: har_personidentifikasjon
     owner: Person
     domain_of:
     - Person
@@ -1655,7 +1651,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harFalskIdentitet
-    alias: har_falsk_identitet
     owner: Person
     domain_of:
     - Person
@@ -1668,7 +1663,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harUtenlandskIdentifikasjonsdokument
-    alias: har_utenlandsk_identifikasjonsdokument
     owner: Person
     domain_of:
     - Person
@@ -1682,7 +1676,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harIdentitetsgrunnlag
-    alias: har_identitetsgrunnlag
     owner: Person
     domain_of:
     - Person
@@ -1695,7 +1688,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harKjoenn
-    alias: har_kjoenn
     owner: Person
     domain_of:
     - Person
@@ -1709,7 +1701,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harSivilstand
-    alias: har_sivilstand
     owner: Person
     domain_of:
     - Person
@@ -1723,7 +1714,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harPersonstatus
-    alias: har_personstatus
     owner: Person
     domain_of:
     - Person
@@ -1737,7 +1727,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harStatsborgerskap
-    alias: har_statsborgerskap
     owner: Person
     domain_of:
     - Person
@@ -1753,7 +1742,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harLovligOpphold
-    alias: har_lovlig_opphold
     owner: Person
     domain_of:
     - Person
@@ -1766,7 +1754,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harFoedsel
-    alias: har_foedsel
     owner: Person
     domain_of:
     - Person
@@ -1780,7 +1767,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harForeldreansvarForelder
-    alias: har_foreldreansvar_forelder
     owner: Person
     domain_of:
     - Person
@@ -1794,7 +1780,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harForeldreansvarBarn
-    alias: har_foreldreansvar_barn
     owner: Person
     domain_of:
     - Person
@@ -1808,7 +1793,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harFamilierelasjonForelder
-    alias: har_familierelasjon_forelder
     owner: Person
     domain_of:
     - Person
@@ -1822,7 +1806,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harFamilierelasjonBarn
-    alias: har_familierelasjon_barn
     owner: Person
     domain_of:
     - Person
@@ -1836,7 +1819,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harFamilierelasjonEktefelle
-    alias: har_familierelasjon_ektefelle
     owner: Person
     domain_of:
     - Person
@@ -1849,7 +1831,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harDodsfall
-    alias: har_dodsfall
     owner: Person
     domain_of:
     - Person
@@ -1862,7 +1843,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harKontaktinformasjonDoedsbo
-    alias: har_kontaktinformasjon_doedsbo
     owner: Person
     domain_of:
     - Person
@@ -1875,7 +1855,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harInnflyttingTilNorge
-    alias: har_innflytting_til_norge
     owner: Person
     domain_of:
     - Person
@@ -1888,7 +1867,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harUtflyttingFraNorge
-    alias: har_utflytting_fra_norge
     owner: Person
     domain_of:
     - Person
@@ -1901,7 +1879,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harAdressebeskyttelse
-    alias: har_adressebeskyttelse
     owner: Person
     domain_of:
     - Person
@@ -1914,7 +1891,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harBostedPaa
-    alias: har_bosted_paa
     owner: Person
     domain_of:
     - Person
@@ -1927,7 +1903,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:mottarPostPaa
-    alias: mottar_post_paa
     owner: Person
     domain_of:
     - Person
@@ -1940,7 +1915,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:oppholderSegPaa
-    alias: oppholder_seg_paa
     owner: Person
     domain_of:
     - Person
@@ -1953,7 +1927,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harVerge
-    alias: har_verge
     owner: Person
     domain_of:
     - Person
@@ -1967,7 +1940,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harRettsligHandleevne
-    alias: har_rettslig_handleevne
     owner: Person
     domain_of:
     - Person
@@ -1980,7 +1952,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harReservasjonMotKommunikasjon
-    alias: har_reservasjon_mot_kommunikasjon
     owner: Person
     domain_of:
     - Person
@@ -1993,7 +1964,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harKontaktopplysninger
-    alias: har_kontaktopplysninger
     owner: Person
     domain_of:
     - Person
@@ -2006,7 +1976,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:harValgtSpraak
-    alias: har_valgt_spraak
     owner: Person
     domain_of:
     - Person

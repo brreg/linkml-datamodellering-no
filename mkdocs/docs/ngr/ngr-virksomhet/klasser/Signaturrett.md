@@ -231,7 +231,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Signaturrett
     domain_of:
     - Virksomhet
@@ -258,7 +257,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:signaturrettBestemmelse
-    alias: signaturrett_bestemmelse
     owner: Signaturrett
     domain_of:
     - Signaturrett

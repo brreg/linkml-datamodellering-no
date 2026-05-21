@@ -10,8 +10,6 @@ _Skulens interne elevnummer._
 
 
 URI: [fint:elevnummer](https://schema.fintlabs.no/elevnummer)
-Alias: elevnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: elevnummer
 description: Skulens interne elevnummer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:elevnummer
-alias: elevnummer
 domain_of:
 - Elev
 range: Identifikator

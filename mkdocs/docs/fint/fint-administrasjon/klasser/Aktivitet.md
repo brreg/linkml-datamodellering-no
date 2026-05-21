@@ -10,8 +10,6 @@ _Detaljering av funksjon._
 
 
 URI: [adm:aktivitet](https://schema.fintlabs.no/administrasjon/aktivitet)
-Alias: aktivitet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: aktivitet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Detaljering av funksjon.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:aktivitet
-alias: aktivitet
 domain_of:
 - Kontostreng
 - Fullmakt

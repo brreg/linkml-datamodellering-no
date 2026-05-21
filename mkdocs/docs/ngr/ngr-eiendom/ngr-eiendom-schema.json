@@ -618,6 +618,54 @@
             "title": "EiendomContainer",
             "type": "object"
         },
+        "Eierforhold": {
+            "additionalProperties": false,
+            "description": "Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarforhold gjeld \u00e9i matrikkelenheit og kan eventuelt gjelde ein burettslagsandel. Inneheld heimelsdokument som fastset kven som er eigar og p\u00e5 kva vilk\u00e5r.",
+            "properties": {
+                "gjelder_hjemmel_eiendomsrett": {
+                    "description": "Heimelsdokument for eigedomsrett knytt til dette eigarforholdet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gjelder_hjemmel_festerett": {
+                    "description": "Heimelsdokument for festerett knytt til dette eigarforholdet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gjelder_hjemmel_framfesterett": {
+                    "description": "Heimelsdokument for framfesterett knytt til dette eigarforholdet.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gjelder_matrikkelenhet": {
+                    "description": "Matrikkeleininga dette eigarforholdet gjeld.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kan_gjelde_borettslagsandel": {
+                    "description": "Burettslagsandelen dette eigarforholdet eventuelt gjeld.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "gjelder_matrikkelenhet"
+            ],
+            "title": "Eierforhold",
+            "type": "object"
+        },
         "Eierseksjon": {
             "additionalProperties": false,
             "description": "Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har einerett til \u00e5 bruke ein bestemt del av eigedommen, medan heile eigedommen er i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere grunneigendom, festegrunn eller anleggseigendom.",
@@ -759,10 +807,7 @@
                 },
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "identifiseres_av": {
                     "description": "Matrikkeleininga som identifiserer denne faste eigedommen.",
@@ -933,6 +978,30 @@
                 "ligger_innenfor_kommune"
             ],
             "title": "Grunneiendom",
+            "type": "object"
+        },
+        "Hjemmel": {
+            "additionalProperties": false,
+            "description": "Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset kven som har rett til eigedommen og i kva form, og best\u00e5r av ein eller fleire andeler med kvar sin rettigheitshavar.",
+            "properties": {
+                "har_andel": {
+                    "description": "Andel(ar) i heimelsdokumentet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "minItems": 1,
+                    "type": "array"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "har_andel"
+            ],
+            "title": "Hjemmel",
             "type": "object"
         },
         "HjemmelTilEiendomsrett": {
@@ -1167,6 +1236,58 @@
                 "kommunenummer_verdi"
             ],
             "title": "Kommunenummer",
+            "type": "object"
+        },
+        "Matrikkelenhet": {
+            "additionalProperties": false,
+            "description": "Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen. Ei matrikkelenheit er den grunnleggjande eininga for registrering av fast eigedom i Noreg.",
+            "properties": {
+                "er_del_av_teig": {
+                    "description": "Teigen(e) matrikkeleininga er del av.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_anleggsprojeksjonsflate": {
+                    "description": "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "har_teig": {
+                    "description": "Teigen(e) som tilh\u00f8yrer matrikkeleininga.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifiseres_med": {
+                    "description": "Matrikkelnummeret som identifiserer matrikkeleininga.",
+                    "type": "string"
+                },
+                "ligger_innenfor_kommune": {
+                    "description": "Kommunen matrikkeleininga ligg innanfor.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "identifiseres_med",
+                "ligger_innenfor_kommune"
+            ],
+            "title": "Matrikkelenhet",
             "type": "object"
         },
         "Matrikkelnummer": {
@@ -1477,7 +1598,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.",
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "properties": {
         "andeler": {
             "items": {

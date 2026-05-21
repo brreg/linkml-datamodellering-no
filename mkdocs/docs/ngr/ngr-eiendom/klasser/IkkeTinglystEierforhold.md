@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/ikkeTinglystEierforhold](https://data.norge.no/linkml/ngr-eiendom/ikkeTinglystEierforhold)
-Alias: ikkeTinglystEierforhold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: ikkeTinglystEierforhold
 name: ikkeTinglystEierforhold
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: ikkeTinglystEierforhold
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

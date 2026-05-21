@@ -10,8 +10,6 @@ _Beløp for gebyret._
 
 
 URI: [cv:hasValue](http://data.europa.eu/m8g/hasValue)
-Alias: belop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Beløp for gebyret.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: cv:hasValue
-alias: belop
 domain_of:
 - Gebyr
 range: string

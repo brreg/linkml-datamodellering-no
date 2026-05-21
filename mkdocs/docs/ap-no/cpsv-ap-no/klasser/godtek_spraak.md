@@ -10,8 +10,6 @@ _Språk dokumentasjonstypen er akseptert i._
 
 
 URI: [cccevno:acceptableLanguage](https://data.norge.no/vocabulary/cccevno#acceptableLanguage)
-Alias: godtek_spraak
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Språk dokumentasjonstypen er akseptert i.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:acceptableLanguage
-alias: godtek_spraak
 domain_of:
 - Dokumentasjonstype
 range: Spraak

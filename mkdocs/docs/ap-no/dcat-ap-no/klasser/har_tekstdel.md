@@ -10,8 +10,6 @@ _Tekstleg innhald i merknaden._
 
 
 URI: [oa:hasBody](http://www.w3.org/ns/oa#hasBody)
-Alias: har_tekstdel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: har_tekstdel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 | [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
 | [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
-| [Kvalitetsmerknad](kvalitetsmerknad.md) | Ein merknad om kvaliteten til eit datasett |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: har_tekstdel
 description: Tekstleg innhald i merknaden.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: oa:hasBody
-alias: har_tekstdel
 domain_of:
 - Kvalitetsmerknad
 range: Tekstdel

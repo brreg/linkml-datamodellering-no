@@ -10,8 +10,6 @@ _Kandidatnummer._
 
 
 URI: [utd:kandidatnummer](https://schema.fintlabs.no/utdanning/kandidatnummer)
-Alias: kandidatnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kandidatnummer.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:kandidatnummer
-alias: kandidatnummer
 domain_of:
 - Eksamensgruppemedlemskap
 range: string

@@ -10,8 +10,6 @@ _Basisgruppe kontaktlærer er tilknyttet_
 
 
 URI: [samtbuskole:tilknyttet_basisgruppe](https://example.no/ontology/skole#tilknyttet_basisgruppe)
-Alias: tilknyttet_basisgruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -89,7 +87,6 @@ close_mappings:
 - schema:teaches
 rank: 1000
 domain: Kontaktlaerer
-alias: tilknyttet_basisgruppe
 domain_of:
 - Kontaktlaerer
 range: Basisgruppe

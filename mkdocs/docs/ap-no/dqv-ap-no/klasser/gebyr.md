@@ -286,7 +286,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Gebyr
     domain_of:
     - Mediatype
@@ -318,7 +317,6 @@ attributes:
     description: Beløp for gebyret.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: cv:hasValue
-    alias: belop
     owner: Gebyr
     domain_of:
     - Gebyr
@@ -328,7 +326,6 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Gebyr
     domain_of:
     - RegulativRessurs
@@ -346,7 +343,6 @@ attributes:
     description: Lenke til dokumentasjon om ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: foaf:page
-    alias: dokumentasjon
     owner: Gebyr
     domain_of:
     - Gebyr
@@ -360,7 +356,6 @@ attributes:
     description: Valuta (cv:currency).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: cv:currency
-    alias: valuta
     owner: Gebyr
     domain_of:
     - Gebyr

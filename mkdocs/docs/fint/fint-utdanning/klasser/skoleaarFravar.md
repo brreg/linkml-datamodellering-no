@@ -10,8 +10,6 @@ _Fråværsprosent for heile skoleåret._
 
 
 URI: [utd:skoleaarFravar](https://schema.fintlabs.no/utdanning/skoleaarFravar)
-Alias: skoleaarFravar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fråværsprosent for heile skoleåret.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skoleaarFravar
-alias: skoleaarFravar
 domain_of:
 - Fravarsoversikt
 range: Fravarsprosent

@@ -10,8 +10,6 @@ _Antal fråværstimar._
 
 
 URI: [utd:fravaerstimer](https://schema.fintlabs.no/utdanning/fravaerstimer)
-Alias: fravaerstimer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Antal fråværstimar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fravaerstimer
-alias: fravaerstimer
 domain_of:
 - Fravarsprosent
 range: integer

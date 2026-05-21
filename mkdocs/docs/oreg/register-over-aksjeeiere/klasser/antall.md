@@ -10,8 +10,6 @@ _Numerisk verdi._
 
 
 URI: [aksje:antall](https://example.no/ontology/aksje#antall)
-Alias: antall
-
 <!-- no inheritance hierarchy -->
 
 
@@ -74,7 +72,6 @@ name: antall
 description: Numerisk verdi.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: antall
 range: integer
 inlined: true
 

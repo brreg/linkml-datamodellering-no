@@ -10,8 +10,6 @@ _Fysisk lokasjon der den tilsette har sitt arbeidsstad._
 
 
 URI: [adm:arbeidslokasjon](https://schema.fintlabs.no/administrasjon/arbeidslokasjon)
-Alias: arbeidslokasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fysisk lokasjon der den tilsette har sitt arbeidsstad.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:arbeidslokasjon
-alias: arbeidslokasjon
 domain_of:
 - Arbeidsforhold
 range: Arbeidslokasjon

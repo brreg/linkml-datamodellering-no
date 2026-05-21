@@ -10,8 +10,6 @@ _Dato for fødsel._
 
 
 URI: [fint:fodselsdato](https://schema.fintlabs.no/fodselsdato)
-Alias: fodselsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: fodselsdato
 description: Dato for fødsel.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fodselsdato
-alias: fodselsdato
 domain_of:
 - Person
 range: date

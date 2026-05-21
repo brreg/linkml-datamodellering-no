@@ -10,8 +10,6 @@ _Tidsrom._
 
 
 URI: [utd:tidsrom](https://schema.fintlabs.no/utdanning/tidsrom)
-Alias: tidsrom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: tidsrom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Time](time.md) | Ein time i timeplanen |  yes  |
 | [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  yes  |
+| [Time](time.md) | Ein time i timeplanen |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Tidsrom.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:tidsrom
-alias: tidsrom
 domain_of:
 - Eksamen
 - Time

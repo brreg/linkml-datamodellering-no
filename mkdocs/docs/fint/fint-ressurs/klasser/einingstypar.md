@@ -5,8 +5,6 @@
 
 
 URI: [res:einingstypar](https://schema.fintlabs.no/ressurs/einingstypar)
-Alias: einingstypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: einingstypar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:einingstypar
-alias: einingstypar
 domain_of:
 - RessursContainer
 range: Enhetstype

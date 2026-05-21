@@ -280,7 +280,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Varslingsadresse
     domain_of:
     - Virksomhet
@@ -307,7 +306,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:varslingstype
-    alias: varslingstype
     owner: Varslingsadresse
     domain_of:
     - Varslingsadresse
@@ -321,7 +319,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:varslingsverdi
-    alias: varslingsverdi
     owner: Varslingsadresse
     domain_of:
     - Varslingsadresse

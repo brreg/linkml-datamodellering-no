@@ -138,7 +138,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: generated-ap-no
-          path: generated/ap-no/
+          path: generated/
           retention-days: 1
 
   generate-fair:
@@ -201,7 +201,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: generated-fair
-          path: generated/fair/
+          path: generated/
           retention-days: 1
 
   generate-fint:
@@ -264,7 +264,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: generated-fint
-          path: generated/fint/
+          path: generated/
           retention-days: 1
 
   generate-ngr:
@@ -327,7 +327,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: generated-ngr
-          path: generated/ngr/
+          path: generated/
           retention-days: 1
 
   generate-oreg:
@@ -390,7 +390,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: generated-oreg
-          path: generated/oreg/
+          path: generated/
           retention-days: 1
 
   generate-samt:
@@ -453,7 +453,7 @@ jobs:
       - uses: actions/upload-artifact@v4
         with:
           name: generated-samt
-          path: generated/samt/
+          path: generated/
           retention-days: 1
 
   publish:

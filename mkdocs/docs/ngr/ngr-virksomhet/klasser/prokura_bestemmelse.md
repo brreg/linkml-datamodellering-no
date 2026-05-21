@@ -10,8 +10,6 @@ _Tekstleg bestemmelse om prokura og kven som er tildelt den._
 
 
 URI: [ngrv:prokurabEstemmelse](https://data.norge.no/vocabulary/ngr-virksomhet#prokurabEstemmelse)
-Alias: prokura_bestemmelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tekstleg bestemmelse om prokura og kven som er tildelt den.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:prokurabEstemmelse
-alias: prokura_bestemmelse
 domain_of:
 - Prokura
 range: string

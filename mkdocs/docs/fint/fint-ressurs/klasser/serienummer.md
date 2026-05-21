@@ -10,8 +10,6 @@ _Unikt serienummer frå einingsprodusentens._
 
 
 URI: [res:serienummer](https://schema.fintlabs.no/ressurs/serienummer)
-Alias: serienummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Unikt serienummer frå einingsprodusentens.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:serienummer
-alias: serienummer
 domain_of:
 - DigitalEnhet
 range: string

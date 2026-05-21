@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/rettsligHandleevne](https://data.norge.no/linkml/ngr-person/rettsligHandleevne)
-Alias: rettsligHandleevne
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: rettsligHandleevne
 name: rettsligHandleevne
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: rettsligHandleevne
 owner: PersonContainer
 domain_of:
 - PersonContainer

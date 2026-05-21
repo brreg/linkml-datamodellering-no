@@ -10,8 +10,6 @@ _Fylke._
 
 
 URI: [fint:fylke](https://schema.fintlabs.no/fylke)
-Alias: fylke
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: fylke
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 | [Kommune](kommune.md) | Liste over Norges kommunar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 
 
 
@@ -86,7 +84,6 @@ name: fylke
 description: Fylke.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fylke
-alias: fylke
 domain_of:
 - Kommune
 - AdministrasjonContainer

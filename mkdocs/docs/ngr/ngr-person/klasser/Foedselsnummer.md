@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/foedselsnummer](https://data.norge.no/linkml/ngr-person/foedselsnummer)
-Alias: foedselsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: foedselsnummer
 name: foedselsnummer
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: foedselsnummer
 owner: PersonContainer
 domain_of:
 - PersonContainer

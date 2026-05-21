@@ -5,8 +5,6 @@
 
 
 URI: [ark:saksmappetypar](https://schema.fintlabs.no/arkiv/saksmappetypar)
-Alias: saksmappetypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: saksmappetypar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:saksmappetypar
-alias: saksmappetypar
 domain_of:
 - ArkivContainer
 range: Saksmappetype

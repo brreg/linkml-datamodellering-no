@@ -10,8 +10,6 @@ _Arbeidsforhold der personalressursen har personalansvar._
 
 
 URI: [adm:personalansvar](https://schema.fintlabs.no/administrasjon/personalansvar)
-Alias: personalansvar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Arbeidsforhold der personalressursen har personalansvar.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:personalansvar
-alias: personalansvar
 domain_of:
 - Personalressurs
 range: Arbeidsforhold

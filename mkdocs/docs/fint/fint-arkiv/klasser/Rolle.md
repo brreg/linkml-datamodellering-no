@@ -10,8 +10,6 @@ _Rolle tilknytt tilgangen._
 
 
 URI: [ark:rolle](https://schema.fintlabs.no/arkiv/rolle)
-Alias: rolle
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Rolle tilknytt tilgangen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:rolle
-alias: rolle
 domain_of:
 - Tilgang
 range: Rolle

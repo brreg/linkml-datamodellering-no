@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/innflytting](https://data.norge.no/linkml/ngr-person/innflytting)
-Alias: innflytting
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: innflytting
 name: innflytting
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: innflytting
 owner: PersonContainer
 domain_of:
 - PersonContainer

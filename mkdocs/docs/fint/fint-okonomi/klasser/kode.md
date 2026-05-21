@@ -10,8 +10,6 @@ _Verdi som identifiserer omgrepet._
 
 
 URI: [fint:kode](https://schema.fintlabs.no/kode)
-Alias: kode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,15 +20,15 @@ Alias: kode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
 | [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
 | [Vare](vare.md) | Vare eller teneste som kan leverast og fakturerast |  yes  |
+| [Merverdiavgift](merverdiavgift.md) | Kodeverk for merverdiavgifter |  yes  |
+| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  yes  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
 | [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
 | [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [OkonomiValuta](okonomivaluta.md) | Valuta for transaksjonsbeløp |  yes  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -93,7 +91,6 @@ name: kode
 description: Verdi som identifiserer omgrepet.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kode
-alias: kode
 domain_of:
 - Begrep
 - Vare

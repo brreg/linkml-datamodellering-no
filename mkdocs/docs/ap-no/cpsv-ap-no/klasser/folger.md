@@ -10,8 +10,6 @@ _Regelverk tenesta følgjer._
 
 
 URI: [cpsv:follows](http://purl.org/vocab/cpsv#follows)
-Alias: folger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: folger
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Regelverk tenesta følgjer.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cpsv:follows
-alias: folger
 domain_of:
 - OffentligTjeneste
 - Tjeneste

@@ -10,8 +10,6 @@ _Tekstleg skildring av organisasjonsforma._
 
 
 URI: [ngrv:organisasjonsformBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#organisasjonsformBeskrivelse)
-Alias: organisasjonsform_beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tekstleg skildring av organisasjonsforma.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:organisasjonsformBeskrivelse
-alias: organisasjonsform_beskrivelse
 domain_of:
 - Organisasjonsform
 range: string

@@ -10,8 +10,6 @@ _BCP 47 språkkode for føretrekt kommunikasjonsspråk (t.d. nb, nn, en)._
 
 
 URI: [ngrp:spraakkode](https://data.norge.no/vocabulary/ngr-person#spraakkode)
-Alias: spraakkode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: BCP 47 språkkode for føretrekt kommunikasjonsspråk (t.d. nb, nn,
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:spraakkode
-alias: spraakkode
 domain_of:
 - SpraakForElektroniskKommunikasjon
 range: string

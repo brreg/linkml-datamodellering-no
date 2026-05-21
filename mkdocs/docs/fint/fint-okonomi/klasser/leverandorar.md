@@ -5,8 +5,6 @@
 
 
 URI: [okn:leverandorar](https://schema.fintlabs.no/okonomi/leverandorar)
-Alias: leverandorar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: leverandorar
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:leverandorar
-alias: leverandorar
 domain_of:
 - OkonomiContainer
 range: Leverandor

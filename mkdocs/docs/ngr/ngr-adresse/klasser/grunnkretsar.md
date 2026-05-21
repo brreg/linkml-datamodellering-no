@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/grunnkretsar](https://data.norge.no/linkml/ngr-adresse/grunnkretsar)
-Alias: grunnkretsar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: grunnkretsar
 name: grunnkretsar
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: grunnkretsar
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

@@ -10,8 +10,6 @@ _Dato og klokkeslett alle dokument knytt til registreringa vart arkivert._
 
 
 URI: [ark:arkivertDato](https://schema.fintlabs.no/arkiv/arkivertDato)
-Alias: arkivertDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Dato og klokkeslett alle dokument knytt til registreringa vart arki
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:arkivertDato
-alias: arkivertDato
 domain_of:
 - Registrering
 range: datetime

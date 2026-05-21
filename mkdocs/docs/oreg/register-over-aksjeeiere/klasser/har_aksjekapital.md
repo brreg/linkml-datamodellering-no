@@ -10,8 +10,6 @@ _Aksjekapital som høyrer til selskapet._
 
 
 URI: [aksje:har_aksjekapital](https://example.no/ontology/aksje#har_aksjekapital)
-Alias: har_aksjekapital
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aksjekapital som høyrer til selskapet.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Aksjeselskap
-alias: har_aksjekapital
 domain_of:
 - Aksjeselskap
 range: Aksjekapital

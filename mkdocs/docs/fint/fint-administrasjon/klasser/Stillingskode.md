@@ -10,8 +10,6 @@ _Firesifra stillingskode frå KS, eventuelt utvida med to siffer._
 
 
 URI: [adm:stillingskode](https://schema.fintlabs.no/administrasjon/stillingskode)
-Alias: stillingskode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Firesifra stillingskode frå KS, eventuelt utvida med to siffer.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:stillingskode
-alias: stillingskode
 domain_of:
 - Arbeidsforhold
 range: Stillingskode

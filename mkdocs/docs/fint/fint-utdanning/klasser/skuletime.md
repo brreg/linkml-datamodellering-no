@@ -10,8 +10,6 @@ _Ein skuletime i timeplanen._
 
 
 URI: [utd:skuletime](https://schema.fintlabs.no/utdanning/skuletime)
-Alias: skuletime
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: skuletime
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
-| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
 | [Rom](rom.md) | Eit rom eller lokale ved ein skule |  yes  |
+| [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Ein skuletime i timeplanen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skuletime
-alias: skuletime
 domain_of:
 - Rom
 - Undervisningsforhold

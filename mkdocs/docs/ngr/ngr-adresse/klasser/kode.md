@@ -10,8 +10,6 @@ _Numerisk kode for adressekoden (kommunal firesifra kode)._
 
 
 URI: [ngr:kode](https://data.norge.no/vocabulary/ngr-adresse#kode)
-Alias: kode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Numerisk kode for adressekoden (kommunal firesifra kode).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:kode
-alias: kode
 domain_of:
 - Adressekode
 range: integer

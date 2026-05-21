@@ -10,8 +10,6 @@ _Angir om eininga er eigd av organisasjonen eller privatperson._
 
 
 URI: [res:privateid](https://schema.fintlabs.no/ressurs/privateid)
-Alias: privateid
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om eininga er eigd av organisasjonen eller privatperson.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:privateid
-alias: privateid
 domain_of:
 - DigitalEnhet
 range: boolean

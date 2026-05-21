@@ -10,8 +10,6 @@ _Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote)._
 
 
 URI: [xkos:inclusionNote](http://rdf-vocabulary.ddialliance.org/xkos#inclusionNote)
-Alias: inklusjonsnotat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Notat om kva som er inkludert i kodeelementet (xkos:inclusionNote).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xkos:inclusionNote
-alias: inklusjonsnotat
 domain_of:
 - Kodeelement
 range: LangString

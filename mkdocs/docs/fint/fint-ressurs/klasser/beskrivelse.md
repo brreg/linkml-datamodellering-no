@@ -10,8 +10,6 @@ _Beskriven namn eller omtale._
 
 
 URI: [fint:beskrivelse](https://schema.fintlabs.no/beskrivelse)
-Alias: beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: beskrivelse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
+| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
 | [Applikasjon](applikasjon.md) | Ein applikasjon med tilhøyrande ressursar |  yes  |
 | [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
-| [Periode](periode.md) | Tidsperiode med obligatorisk start og valfri slutt |  no  |
+| [Rettighet](rettighet.md) | Ei namngitt rettighet |  yes  |
 
 
 
@@ -88,7 +86,6 @@ name: beskrivelse
 description: Beskriven namn eller omtale.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:beskrivelse
-alias: beskrivelse
 domain_of:
 - Periode
 - Applikasjon

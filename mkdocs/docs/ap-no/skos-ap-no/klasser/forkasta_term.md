@@ -10,8 +10,6 @@ _Tidlegare brukt, no forkasta term (skos:hiddenLabel)._
 
 
 URI: [skos:hiddenLabel](http://www.w3.org/2004/02/skos/core#hiddenLabel)
-Alias: forkasta_term
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Tidlegare brukt, no forkasta term (skos:hiddenLabel).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:hiddenLabel
-alias: forkasta_term
 domain_of:
 - Begrep
 range: LangString

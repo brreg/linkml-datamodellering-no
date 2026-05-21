@@ -10,8 +10,6 @@ _Kode for fullførtresultatet._
 
 
 URI: [utd:fullfortkode](https://schema.fintlabs.no/utdanning/fullfortkode)
-Alias: fullfortkode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kode for fullførtresultatet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fullfortkode
-alias: fullfortkode
 domain_of:
 - AvlagtProve
 range: Fullfortkode

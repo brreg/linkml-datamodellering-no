@@ -10,8 +10,6 @@ _Samling av aksjeoverdragingar._
 
 
 URI: [aksje:aksjeoverdragelser](https://example.no/ontology/aksje#aksjeoverdragelser)
-Alias: aksjeoverdragelser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av aksjeoverdragingar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: aksjeoverdragelser
 domain_of:
 - Containerklasse
 range: Aksjeoverdragelse

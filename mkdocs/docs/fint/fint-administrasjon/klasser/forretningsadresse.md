@@ -10,8 +10,6 @@ _Besøksadresse til ein organisasjonseining._
 
 
 URI: [fint:forretningsadresse](https://schema.fintlabs.no/forretningsadresse)
-Alias: forretningsadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: forretningsadresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
-| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
-| [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  yes  |
 | [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  yes  |
+| [Arbeidslokasjon](arbeidslokasjon.md) | Fysisk lokasjon der ein tilsett har sitt arbeidsstad |  yes  |
+| [Organisasjonselement](organisasjonselement.md) | Eit element i organisasjonsstrukturen |  yes  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -88,7 +86,6 @@ name: forretningsadresse
 description: Besøksadresse til ein organisasjonseining.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:forretningsadresse
-alias: forretningsadresse
 domain_of:
 - Enhet
 - Arbeidslokasjon

@@ -10,8 +10,6 @@ _Referanse til bedrifta lærlingen er i._
 
 
 URI: [utd:bedrift](https://schema.fintlabs.no/utdanning/bedrift)
-Alias: bedrift
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til bedrifta lærlingen er i.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:bedrift
-alias: bedrift
 domain_of:
 - Laerling
 range: uriorcurie

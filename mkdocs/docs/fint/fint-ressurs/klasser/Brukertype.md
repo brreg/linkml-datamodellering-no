@@ -10,8 +10,6 @@ _For kva brukertypar lisensen er gyldig._
 
 
 URI: [res:brukertype](https://schema.fintlabs.no/ressurs/brukertype)
-Alias: brukertype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: For kva brukertypar lisensen er gyldig.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:brukertype
-alias: brukertype
 domain_of:
 - Applikasjonsressurs
 range: Brukertype

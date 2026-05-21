@@ -10,8 +10,6 @@ _URI-identifikator for ressursen._
 
 
 URI: [https://schema.fintlabs.no/:id](https://schema.fintlabs.no/:id)
-Alias: id
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,22 +20,22 @@ Alias: id
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
+| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
+| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
+| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
 | [Person](person.md) | Fysiske private personar |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 | [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  no  |
 | [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  no  |
 | [Samtykke](samtykke.md) | Tillating til behandling av personopplysning |  no  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
-| [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  no  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Valuta](valuta.md) | Valutakodar for offisielle valutaer |  no  |
 | [Tjeneste](tjeneste.md) | Teneste eller system som behandlar personopplysningar |  no  |
-| [Elev](elev.md) | Ein elev registrert i skulesystemet |  no  |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  no  |
+| [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  no  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -107,7 +105,6 @@ name: id
 description: URI-identifikator for ressursen.
 from_schema: https://data.norge.no/linkml/fint-common
 identifier: true
-alias: id
 domain_of:
 - Begrep
 - Elev

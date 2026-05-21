@@ -10,8 +10,6 @@ _Eksamen._
 
 
 URI: [utd:eksamen](https://schema.fintlabs.no/utdanning/eksamen)
-Alias: eksamen
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: eksamen
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Rom](rom.md) | Eit rom eller lokale ved ein skule |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Rom](rom.md) | Eit rom eller lokale ved ein skule |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
 
 
@@ -88,7 +86,6 @@ description: Eksamen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:eksamen
-alias: eksamen
 domain_of:
 - UtdanningContainer
 - Rom

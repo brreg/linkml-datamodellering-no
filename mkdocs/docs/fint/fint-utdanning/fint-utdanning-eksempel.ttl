@@ -1,6 +1,5 @@
 @prefix fint: <https://schema.fintlabs.no/> .
 @prefix utd: <https://schema.fintlabs.no/utdanning/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://example.no/fint/elevforhold/ef-elev-1-2024> a utd:Elevforhold ;
     fint:beskrivelse "Elevforhold for Ola Nordmann ved Bakkehaugen skole, 2024–2025" ;
@@ -22,7 +21,7 @@
 <https://example.no/fint/skoleressurs/sr-p23456> a utd:Skoleressurs ;
     utd:feidenavn [ a fint:Identifikator ;
             fint:identifikatorverdi "kari.olsen@bakkehaugen.skole.no" ] ;
-    utd:personalressurs "finta:personalressurs/p23456"^^xsd:anyURI ;
+    utd:personalressurs <https://example.no/fint/personalressurs/p23456> ;
     utd:skole <https://example.no/fint/skole/bakkehaugen-skole> .
 
 <https://example.no/fint/elev/elev-1> a fint:Elev ;

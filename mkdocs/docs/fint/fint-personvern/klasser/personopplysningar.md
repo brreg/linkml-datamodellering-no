@@ -5,8 +5,6 @@
 
 
 URI: [pvn:personopplysningar](https://schema.fintlabs.no/personvern/personopplysningar)
-Alias: personopplysningar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: personopplysningar
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:personopplysningar
-alias: personopplysningar
 domain_of:
 - PersonvernContainer
 range: Personopplysning

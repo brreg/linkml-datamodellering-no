@@ -10,8 +10,6 @@ _Postboksen denne postboksadressa tilhøyrer._
 
 
 URI: [ngr:harPostboks](https://data.norge.no/vocabulary/ngr-adresse#harPostboks)
-Alias: postboks_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Postboksen denne postboksadressa tilhøyrer.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harPostboks
-alias: postboks_ref
 domain_of:
 - Postboksadresse
 range: Postboks

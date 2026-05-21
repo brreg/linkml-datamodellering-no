@@ -10,8 +10,6 @@ _Roller registrert i hovudeininga (minimum 1)._
 
 
 URI: [ngrv:harRolleIVirksomhet](https://data.norge.no/vocabulary/ngr-virksomhet#harRolleIVirksomhet)
-Alias: har_rolle_i_virksomhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Roller registrert i hovudeininga (minimum 1).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harRolleIVirksomhet
-alias: har_rolle_i_virksomhet
 domain_of:
 - Hovedenhet
 range: RolleIVirksomhet

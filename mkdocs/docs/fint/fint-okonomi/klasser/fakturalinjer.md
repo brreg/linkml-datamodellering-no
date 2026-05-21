@@ -10,8 +10,6 @@ _Linjer av varer eller tenester som skal fakturerast._
 
 
 URI: [okn:fakturalinjer](https://schema.fintlabs.no/okonomi/fakturalinjer)
-Alias: fakturalinjer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Linjer av varer eller tenester som skal fakturerast.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fakturalinjer
-alias: fakturalinjer
 domain_of:
 - Fakturagrunnlag
 range: Fakturalinje

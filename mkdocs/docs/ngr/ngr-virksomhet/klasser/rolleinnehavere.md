@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/rolleinnehavere](https://data.norge.no/linkml/ngr-virksomhet/rolleinnehavere)
-Alias: rolleinnehavere
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: rolleinnehavere
 name: rolleinnehavere
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: rolleinnehavere
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

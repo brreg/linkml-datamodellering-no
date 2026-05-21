@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/postboksadresser](https://data.norge.no/linkml/ngr-adresse/postboksadresser)
-Alias: postboksadresser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: postboksadresser
 name: postboksadresser
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: postboksadresser
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/tettstadar](https://data.norge.no/linkml/ngr-adresse/tettstadar)
-Alias: tettstadar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: tettstadar
 name: tettstadar
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: tettstadar
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

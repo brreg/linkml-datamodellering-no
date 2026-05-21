@@ -10,8 +10,6 @@ _Verje(r) oppnemnd for personen._
 
 
 URI: [ngrp:harVerge](https://data.norge.no/vocabulary/ngr-person#harVerge)
-Alias: har_verge
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Verje(r) oppnemnd for personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harVerge
-alias: har_verge
 domain_of:
 - Person
 range: Verge

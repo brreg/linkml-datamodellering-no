@@ -1,5 +1,5 @@
 # Auto generated from ngr-eiendom-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-18T09:10:49
+# Generation date: 2026-05-21T17:57:47
 # Schema: ngr-eiendom
 #
 # id: https://data.norge.no/linkml/ngr-eiendom
@@ -59,7 +59,7 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Float, Integer, String, Uriorcurie
 from linkml_runtime.utils.metamodelcore import URIorCURIE
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.11.0"
 version = None
 
 # Namespaces

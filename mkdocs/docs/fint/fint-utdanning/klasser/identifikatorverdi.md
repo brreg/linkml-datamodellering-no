@@ -10,8 +10,6 @@ _Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt iden
 
 
 URI: [fint:identifikatorverdi](https://schema.fintlabs.no/identifikatorverdi)
-Alias: identifikatorverdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein 
   identifikator.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:identifikatorverdi
-alias: identifikatorverdi
 domain_of:
 - Identifikator
 range: string

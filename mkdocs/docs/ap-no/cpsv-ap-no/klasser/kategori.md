@@ -10,8 +10,6 @@ _Kategori for kontaktpunktet._
 
 
 URI: [vcard:category](http://www.w3.org/2006/vcard/ns#category)
-Alias: kategori
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kategori for kontaktpunktet.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: vcard:category
-alias: kategori
 domain_of:
 - Kontaktpunkt
 range: string

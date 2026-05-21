@@ -10,8 +10,6 @@ _Maks tal på desimalsiffer (xsd:fractionDigits)._
 
 
 URI: [xsd:fractionDigits](http://www.w3.org/2001/XMLSchema#fractionDigits)
-Alias: fraksjonssifre
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Maks tal på desimalsiffer (xsd:fractionDigits).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:fractionDigits
-alias: fraksjonssifre
 domain_of:
 - EnkelType
 range: NonNegativeInteger

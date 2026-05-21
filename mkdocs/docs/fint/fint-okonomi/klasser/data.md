@@ -10,8 +10,6 @@ _Bilagets fil, koda som Base64._
 
 
 URI: [okn:data](https://schema.fintlabs.no/okonomi/data)
-Alias: data
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Bilagets fil, koda som Base64.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:data
-alias: data
 domain_of:
 - Bilag
 range: string

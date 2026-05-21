@@ -10,8 +10,6 @@ _Informasjonsmodellar i modelkatalogen (modelldcatno:model)._
 
 
 URI: [modelldcatno:model](https://data.norge.no/vocabulary/modelldcatno#model)
-Alias: modell
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Informasjonsmodellar i modelkatalogen (modelldcatno:model).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:model
-alias: modell
 domain_of:
 - Modelkatalog
 range: Informasjonsmodell

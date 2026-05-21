@@ -10,8 +10,6 @@ _Referanse til Skoleressurs (Utdanning)._
 
 
 URI: [adm:skoleressurs](https://schema.fintlabs.no/administrasjon/skoleressurs)
-Alias: skoleressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Skoleressurs (Utdanning).
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:skoleressurs
-alias: skoleressurs
 domain_of:
 - Personalressurs
 range: uriorcurie

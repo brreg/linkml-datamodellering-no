@@ -10,8 +10,6 @@ _Underordna kategori (skos:narrower)._
 
 
 URI: [skos:narrower](http://www.w3.org/2004/02/skos/core#narrower)
-Alias: underordna_kategori
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Underordna kategori (skos:narrower).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: skos:narrower
-alias: underordna_kategori
 domain_of:
 - Kategori
 range: Kategori

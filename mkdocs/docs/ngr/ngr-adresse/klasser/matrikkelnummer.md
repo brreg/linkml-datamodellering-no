@@ -10,8 +10,6 @@ _Matrikkelnummer for adresser utan vegadresse (t.d. 28/2-2)._
 
 
 URI: [ngr:matrikkelnummer](https://data.norge.no/vocabulary/ngr-adresse#matrikkelnummer)
-Alias: matrikkelnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Matrikkelnummer for adresser utan vegadresse (t.d. 28/2-2).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:matrikkelnummer
-alias: matrikkelnummer
 domain_of:
 - OffisiellAdresse
 range: string

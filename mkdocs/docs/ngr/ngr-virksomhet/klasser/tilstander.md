@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/tilstander](https://data.norge.no/linkml/ngr-virksomhet/tilstander)
-Alias: tilstander
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: tilstander
 name: tilstander
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: tilstander
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

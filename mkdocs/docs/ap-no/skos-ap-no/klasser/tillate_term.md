@@ -10,8 +10,6 @@ _Tillaten alternativ term for omgrepet (skos:altLabel)._
 
 
 URI: [skos:altLabel](http://www.w3.org/2004/02/skos/core#altLabel)
-Alias: tillate_term
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Tillaten alternativ term for omgrepet (skos:altLabel).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:altLabel
-alias: tillate_term
 domain_of:
 - Begrep
 range: LangString

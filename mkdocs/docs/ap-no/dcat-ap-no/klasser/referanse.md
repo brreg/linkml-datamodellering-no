@@ -10,8 +10,6 @@ _Referanse til ekstern ressurs._
 
 
 URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
-Alias: referanse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -77,7 +75,6 @@ description: Referanse til ekstern ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: rdfs:seeAlso
-alias: referanse
 range: uri
 multivalued: true
 

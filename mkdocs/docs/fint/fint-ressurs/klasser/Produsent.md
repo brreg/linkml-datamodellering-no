@@ -10,8 +10,6 @@ _Namn på produsenten av eininga._
 
 
 URI: [res:produsent](https://schema.fintlabs.no/ressurs/produsent)
-Alias: produsent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på produsenten av eininga.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:produsent
-alias: produsent
 domain_of:
 - DigitalEnhet
 range: Produsent

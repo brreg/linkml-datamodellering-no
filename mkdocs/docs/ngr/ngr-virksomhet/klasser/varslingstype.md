@@ -10,8 +10,6 @@ _Kanaltype for varsling (EPOST eller MOBILTELEFON)._
 
 
 URI: [ngrv:varslingstype](https://data.norge.no/vocabulary/ngr-virksomhet#varslingstype)
-Alias: varslingstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kanaltype for varsling (EPOST eller MOBILTELEFON).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:varslingstype
-alias: varslingstype
 domain_of:
 - Varslingsadresse
 range: VarslingType

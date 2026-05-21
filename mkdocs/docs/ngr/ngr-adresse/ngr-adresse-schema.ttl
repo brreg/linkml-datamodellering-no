@@ -8,20 +8,20 @@
 <https://data.norge.no/linkml/ngr-adresse/ngr-adresse> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Nasjonale grunndata – Adresse" ;
-    sh:declare [ sh:namespace "http://www.w3.org/ns/locn#"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            sh:prefix "rdf" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
+        [ sh:namespace "http://www.w3.org/ns/locn#"^^xsd:anyURI ;
             sh:prefix "locn" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
         [ sh:namespace "https://data.norge.no/vocabulary/ngr-adresse#"^^xsd:anyURI ;
             sh:prefix "ngr" ],
-        [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
-            sh:prefix "geo" ],
-        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-            sh:prefix "rdf" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ] ;
+        [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
+            sh:prefix "geo" ] ;
     linkml:classes <https://data.norge.no/linkml/ngr-adresse/AdresseContainer>,
         <https://data.norge.no/linkml/ngr-adresse/Adressekode>,
         <https://data.norge.no/linkml/ngr-adresse/Adressenavn>,
@@ -49,10 +49,10 @@
     linkml:default_range <https://data.norge.no/linkml/ngr-adresse/string> ;
     linkml:description "Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse" ;
     linkml:enums <https://data.norge.no/linkml/ngr-adresse/Etasjeplan> ;
-    linkml:generation_date "2026-05-18T09:12:23"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:03"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/ngr-adresse"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/linkml/ngr-adresse/Adressekode_kode>,
         <https://data.norge.no/linkml/ngr-adresse/Adressenavn_adressenavn_tekst>,
         <https://data.norge.no/linkml/ngr-adresse/Adressenavn_adresseomrade_ref>,
@@ -1867,7 +1867,7 @@
     linkml:slot_uri "https://data.norge.no/linkml/ngr-adresse/id"^^xsd:anyURI .
 
 <https://data.norge.no/linkml/ngr-adresse/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

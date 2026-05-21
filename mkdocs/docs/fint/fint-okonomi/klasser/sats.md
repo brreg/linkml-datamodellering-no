@@ -10,8 +10,6 @@ _Sats for merverdiavgift._
 
 
 URI: [okn:sats](https://schema.fintlabs.no/okonomi/sats)
-Alias: sats
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sats for merverdiavgift.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:sats
-alias: sats
 domain_of:
 - Merverdiavgift
 range: integer

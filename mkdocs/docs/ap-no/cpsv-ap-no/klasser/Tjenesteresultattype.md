@@ -557,7 +557,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Tjenesteresultattype
     domain_of:
     - Mediatype
@@ -587,7 +586,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Tjenesteresultattype
     domain_of:
     - OffentligTjeneste
@@ -610,7 +608,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Tjenesteresultattype
     domain_of:
     - OffentligTjeneste
@@ -633,7 +630,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Tjenesteresultattype
     domain_of:
     - OffentligTjeneste
@@ -656,7 +652,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:possibleLanguage
-    alias: mogleg_spraak
     owner: Tjenesteresultattype
     domain_of:
     - Tjenesteresultattype
@@ -670,7 +665,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
-    alias: er_beskrive_av
     owner: Tjenesteresultattype
     domain_of:
     - OffentligTjeneste
@@ -688,7 +682,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isSpecifiedIn
-    alias: er_spesifisert_i
     owner: Tjenesteresultattype
     domain_of:
     - Dokumentasjonstype
@@ -702,7 +695,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: xkos:causes
-    alias: kan_skape_hending
     owner: Tjenesteresultattype
     domain_of:
     - Tjenesteresultattype
@@ -715,7 +707,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Tjenesteresultattype
     domain_of:
     - OffentligTjeneste

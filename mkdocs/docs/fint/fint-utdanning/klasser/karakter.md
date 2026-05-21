@@ -10,8 +10,6 @@ _Karakterverdi._
 
 
 URI: [utd:karakter](https://schema.fintlabs.no/utdanning/karakter)
-Alias: karakter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: karakter
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
 | [FagvurderingAbstrakt](fagvurderingabstrakt.md) | Abstrakt basisklasse for fagvurderingar |  yes  |
-| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
 | [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  no  |
 | [Halvaarsfagvurdering](halvaarsfagvurdering.md) | Halvårsvurdering i eit fag |  no  |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  no  |
+| [Underveisfagvurdering](underveisfagvurdering.md) | Underveisfagvurdering for ein elev |  no  |
 
 
 
@@ -90,7 +88,6 @@ description: Karakterverdi.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:karakter
-alias: karakter
 domain_of:
 - FagvurderingAbstrakt
 range: Karakterverdi

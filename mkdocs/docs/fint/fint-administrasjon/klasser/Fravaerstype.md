@@ -10,8 +10,6 @@ _Type fråvær._
 
 
 URI: [adm:fravaerstype](https://schema.fintlabs.no/administrasjon/fravaerstype)
-Alias: fravaerstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type fråvær.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fravaerstype
-alias: fravaerstype
 domain_of:
 - Fravaer
 range: Fravaerstype

@@ -10,8 +10,6 @@ _Referanse til Person i Administrasjon-domenet._
 
 
 URI: [fint:person](https://schema.fintlabs.no/person)
-Alias: person
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  yes  |
 | [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
+| [Personalressurs](personalressurs.md) | Arbeidstakar eller oppdragstakar i organisasjonen |  yes  |
 
 
 
@@ -86,7 +84,6 @@ name: person
 description: Referanse til Person i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:person
-alias: person
 domain_of:
 - Elev
 - Personalressurs

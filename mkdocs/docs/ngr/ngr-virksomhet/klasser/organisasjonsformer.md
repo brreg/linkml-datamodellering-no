@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/organisasjonsformer](https://data.norge.no/linkml/ngr-virksomhet/organisasjonsformer)
-Alias: organisasjonsformer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: organisasjonsformer
 name: organisasjonsformer
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: organisasjonsformer
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

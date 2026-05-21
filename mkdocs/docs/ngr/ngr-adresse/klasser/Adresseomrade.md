@@ -206,7 +206,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: Adresseomrade
     domain_of:
     - GeografiskAdresse
@@ -228,7 +227,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:namn
-    alias: namn
     owner: Adresseomrade
     domain_of:
     - Adresseomrade

@@ -10,8 +10,6 @@ _Samling av aksjeinnskot._
 
 
 URI: [aksje:aksjeinnskudder](https://example.no/ontology/aksje#aksjeinnskudder)
-Alias: aksjeinnskudder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av aksjeinnskot.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: aksjeinnskudder
 domain_of:
 - Containerklasse
 range: Aksjeinnskudd

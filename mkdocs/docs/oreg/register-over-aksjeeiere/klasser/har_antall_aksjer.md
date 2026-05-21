@@ -10,8 +10,6 @@ _Tal aksjar._
 
 
 URI: [aksje:har_antall_aksjer](https://example.no/ontology/aksje#har_antall_aksjer)
-Alias: har_antall_aksjer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: har_antall_aksjer
 description: Tal aksjar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: har_antall_aksjer
 domain_of:
 - Aksjekapital
 - Aksjepost

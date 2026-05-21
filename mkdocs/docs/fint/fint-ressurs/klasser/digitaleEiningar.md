@@ -5,8 +5,6 @@
 
 
 URI: [res:digitaleEiningar](https://schema.fintlabs.no/ressurs/digitaleEiningar)
-Alias: digitaleEiningar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: digitaleEiningar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:digitaleEiningar
-alias: digitaleEiningar
 domain_of:
 - RessursContainer
 range: DigitalEnhet

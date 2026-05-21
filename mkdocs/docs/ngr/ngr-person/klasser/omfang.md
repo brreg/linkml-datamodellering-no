@@ -10,8 +10,6 @@ _Omfanget av vergemålet eller avgrensinga i rettsleg handleevne._
 
 
 URI: [ngrp:omfang](https://data.norge.no/vocabulary/ngr-person#omfang)
-Alias: omfang
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Omfanget av vergemålet eller avgrensinga i rettsleg handleevne.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:omfang
-alias: omfang
 domain_of:
 - RettsligHandleevne
 range: string

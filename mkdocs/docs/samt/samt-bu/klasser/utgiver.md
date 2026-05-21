@@ -10,8 +10,6 @@ _Aktøren som er ansvarleg for å tilgjengeleggjere ressursen._
 
 
 URI: [dct:publisher](http://purl.org/dc/terms/publisher)
-Alias: utgiver
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: utgiver
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 
 
@@ -88,7 +86,6 @@ name: utgiver
 description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:publisher
-alias: utgiver
 domain_of:
 - Datasett
 - Datasettserie

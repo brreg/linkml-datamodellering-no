@@ -10,8 +10,6 @@ _Bruksenhetsnummer for leilegheit eller lokale._
 
 
 URI: [ngr:harBruksenhetsnummer](https://data.norge.no/vocabulary/ngr-adresse#harBruksenhetsnummer)
-Alias: bruksenhetsnummer_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Bruksenhetsnummer for leilegheit eller lokale.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harBruksenhetsnummer
-alias: bruksenhetsnummer_ref
 domain_of:
 - OffisiellAdresse
 range: Bruksenhetsnummer

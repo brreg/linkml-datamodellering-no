@@ -10,8 +10,6 @@ _Elev kontaktlæreren har særlig ansvar for_
 
 
 URI: [samtbuskole:har_saerlig_ansvar_for](https://example.no/ontology/skole#har_saerlig_ansvar_for)
-Alias: har_saerlig_ansvar_for
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Elev kontaktlæreren har særlig ansvar for
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
 domain: Kontaktlaerer
-alias: har_saerlig_ansvar_for
 domain_of:
 - Kontaktlaerer
 range: Elev

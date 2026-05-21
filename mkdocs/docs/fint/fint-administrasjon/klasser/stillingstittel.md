@@ -10,8 +10,6 @@ _Arbeidstakarens stillingstittel i gjeldande stilling._
 
 
 URI: [adm:stillingstittel](https://schema.fintlabs.no/administrasjon/stillingstittel)
-Alias: stillingstittel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Arbeidstakarens stillingstittel i gjeldande stilling.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:stillingstittel
-alias: stillingstittel
 domain_of:
 - Arbeidsforhold
 range: string

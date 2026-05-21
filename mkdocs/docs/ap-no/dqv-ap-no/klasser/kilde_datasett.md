@@ -10,8 +10,6 @@ _Datasett dette datasettet er avleidd frå._
 
 
 URI: [dct:source](http://purl.org/dc/terms/source)
-Alias: kilde_datasett
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: kilde_datasett
 description: Datasett dette datasettet er avleidd frå.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:source
-alias: kilde_datasett
 domain_of:
 - Datasett
 range: Datasett

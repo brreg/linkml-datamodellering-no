@@ -10,8 +10,6 @@ _Status for ressursen frå eit kontrollert vokabular (adms:status)._
 
 
 URI: [adms:status](http://www.w3.org/ns/adms#status)
-Alias: status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: status
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -86,7 +84,6 @@ name: status
 description: Status for ressursen frå eit kontrollert vokabular (adms:status).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: adms:status
-alias: status
 domain_of:
 - OffentligTjeneste
 - Tjeneste

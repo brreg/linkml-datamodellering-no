@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/teiger](https://data.norge.no/linkml/ngr-eiendom/teiger)
-Alias: teiger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: teiger
 name: teiger
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: teiger
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

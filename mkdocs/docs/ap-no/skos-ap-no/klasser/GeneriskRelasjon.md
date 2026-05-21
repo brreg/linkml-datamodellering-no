@@ -321,7 +321,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: GeneriskRelasjon
     domain_of:
     - Mediatype
@@ -345,7 +344,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:hasGenericConcept
-    alias: har_generisk_omgrep
     owner: GeneriskRelasjon
     domain_of:
     - GeneriskRelasjon
@@ -359,7 +357,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:hasSpecificConcept
-    alias: har_spesifikt_omgrep
     owner: GeneriskRelasjon
     domain_of:
     - GeneriskRelasjon
@@ -373,7 +370,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:description
-    alias: inndelingskriterium
     owner: GeneriskRelasjon
     domain_of:
     - GeneriskRelasjon

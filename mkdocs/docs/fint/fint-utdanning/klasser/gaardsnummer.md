@@ -10,8 +10,6 @@ _Nummerering av gårdseiging i matrikkelen, unik innanfor kommune._
 
 
 URI: [fint:gaardsnummer](https://schema.fintlabs.no/gaardsnummer)
-Alias: gaardsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: gaardsnummer
 description: Nummerering av gårdseiging i matrikkelen, unik innanfor kommune.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:gaardsnummer
-alias: gaardsnummer
 domain_of:
 - Matrikkelnummer
 range: string

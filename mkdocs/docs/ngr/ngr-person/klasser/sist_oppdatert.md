@@ -10,8 +10,6 @@ _Dato kontaktopplysningane sist vart oppdatert._
 
 
 URI: [ngrp:sistOppdatert](https://data.norge.no/vocabulary/ngr-person#sistOppdatert)
-Alias: sist_oppdatert
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato kontaktopplysningane sist vart oppdatert.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:sistOppdatert
-alias: sist_oppdatert
 domain_of:
 - Kontaktopplysninger
 range: date

@@ -10,8 +10,6 @@ _Termin._
 
 
 URI: [utd:termin](https://schema.fintlabs.no/utdanning/termin)
-Alias: termin
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: termin
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
 | [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  yes  |
 | [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
-| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
 
 
 
@@ -90,7 +88,6 @@ description: Termin.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:termin
-alias: termin
 domain_of:
 - Klasse
 - Kontaktlaerergruppe

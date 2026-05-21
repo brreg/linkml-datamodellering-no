@@ -10,8 +10,6 @@ _Rettar som er nødvendige for å benytte eigedommen._
 
 
 URI: [ngre:bestarAvRettighet](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvRettighet)
-Alias: bestar_av_rettighet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Rettar som er nødvendige for å benytte eigedommen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvRettighet
-alias: bestar_av_rettighet
 domain_of:
 - FastEiendom
 range: RettighetForAaBenytteEiendom

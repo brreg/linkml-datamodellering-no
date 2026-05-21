@@ -10,8 +10,6 @@ _Alle karakterskalaer i containeren._
 
 
 URI: [utd:karakterskalaer](https://schema.fintlabs.no/utdanning/karakterskalaer)
-Alias: karakterskalaer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle karakterskalaer i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:karakterskalaer
-alias: karakterskalaer
 domain_of:
 - UtdanningContainer
 range: Karakterskala

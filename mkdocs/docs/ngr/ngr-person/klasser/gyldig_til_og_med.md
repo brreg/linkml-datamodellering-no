@@ -10,8 +10,6 @@ _Dato opplysinga er gyldig til og med._
 
 
 URI: [ngrp:gyldigTilOgMed](https://data.norge.no/vocabulary/ngr-person#gyldigTilOgMed)
-Alias: gyldig_til_og_med
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: gyldig_til_og_med
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Oppholdsadresse](oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |  yes  |
-| [Bostedsadresse](bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |  yes  |
 | [Statsborgerskap](statsborgerskap.md) | Statsborgerskap registrert på ein person i Folkeregisteret |  yes  |
-| [Postadresse](postadresse.md) | Adressa der personen mottar post |  yes  |
 | [Opphold](opphold.md) | Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregis... |  yes  |
+| [Bostedsadresse](bostedsadresse.md) | Adressa personen er registrert busett på i Folkeregisteret |  yes  |
+| [Postadresse](postadresse.md) | Adressa der personen mottar post |  yes  |
+| [Oppholdsadresse](oppholdsadresse.md) | Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa) |  yes  |
 
 
 
@@ -90,7 +88,6 @@ description: Dato opplysinga er gyldig til og med.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:gyldigTilOgMed
-alias: gyldig_til_og_med
 domain_of:
 - Statsborgerskap
 - Opphold

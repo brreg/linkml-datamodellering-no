@@ -10,8 +10,6 @@ _Generisk relasjon til ein annan ressurs._
 
 
 URI: [dct:relation](http://purl.org/dc/terms/relation)
-Alias: relatert_ressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: relatert_ressurs
 description: Generisk relasjon til ein annan ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:relation
-alias: relatert_ressurs
 domain_of:
 - Datasett
 range: uri

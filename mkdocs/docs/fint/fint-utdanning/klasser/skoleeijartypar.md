@@ -10,8 +10,6 @@ _Alle skuleeigarstypar i containeren._
 
 
 URI: [utd:skoleeijartypar](https://schema.fintlabs.no/utdanning/skoleeijartypar)
-Alias: skoleeijartypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle skuleeigarstypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skoleeijartypar
-alias: skoleeijartypar
 domain_of:
 - UtdanningContainer
 range: Skoleeiertype

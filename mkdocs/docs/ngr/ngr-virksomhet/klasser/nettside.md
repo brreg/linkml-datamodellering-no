@@ -10,8 +10,6 @@ _URL til nettsida til verksemda._
 
 
 URI: [ngrv:nettside](https://data.norge.no/vocabulary/ngr-virksomhet#nettside)
-Alias: nettside
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: URL til nettsida til verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:nettside
-alias: nettside
 domain_of:
 - Kontaktinformasjon
 range: string

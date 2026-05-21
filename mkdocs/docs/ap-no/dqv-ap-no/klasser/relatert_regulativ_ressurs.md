@@ -10,8 +10,6 @@ _Relatert regulativ ressurs._
 
 
 URI: [dct:relation](http://purl.org/dc/terms/relation)
-Alias: relatert_regulativ_ressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: relatert_regulativ_ressurs
 description: Relatert regulativ ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:relation
-alias: relatert_regulativ_ressurs
 domain_of:
 - RegulativRessurs
 range: RegulativRessurs

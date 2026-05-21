@@ -461,7 +461,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Karakterskala
     domain_of:
     - Begrep
@@ -524,7 +523,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
-    alias: kode
     owner: Karakterskala
     domain_of:
     - Begrep
@@ -559,7 +557,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
-    alias: navn
     owner: Karakterskala
     domain_of:
     - Begrep
@@ -599,7 +596,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
-    alias: gyldighetsperiode
     owner: Karakterskala
     domain_of:
     - Begrep
@@ -636,7 +632,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
-    alias: passiv
     owner: Karakterskala
     domain_of:
     - Begrep
@@ -671,7 +666,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:verdi
-    alias: verdi
     owner: Karakterskala
     domain_of:
     - Karakterskala
@@ -685,7 +679,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:vigoreferanse
-    alias: vigoreferanse
     owner: Karakterskala
     domain_of:
     - Skole

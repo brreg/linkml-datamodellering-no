@@ -10,8 +10,6 @@ _Datoen dokumentet vart utstedt._
 
 
 URI: [ngrp:utstedtdato](https://data.norge.no/vocabulary/ngr-person#utstedtdato)
-Alias: utstedtdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen dokumentet vart utstedt.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:utstedtdato
-alias: utstedtdato
 domain_of:
 - Identifikasjonsdokument
 range: date

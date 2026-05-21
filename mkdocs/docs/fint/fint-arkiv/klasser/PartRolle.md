@@ -10,8 +10,6 @@ _Rolla til parten._
 
 
 URI: [ark:partRolle](https://schema.fintlabs.no/arkiv/partRolle)
-Alias: partRolle
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Rolla til parten.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:partRolle
-alias: partRolle
 domain_of:
 - Part
 range: PartRolle

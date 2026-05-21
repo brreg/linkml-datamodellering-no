@@ -10,8 +10,6 @@ _Verdien av gebyret._
 
 
 URI: [cv:value](http://data.europa.eu/m8g/value)
-Alias: verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Verdien av gebyret.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:value
-alias: verdi
 domain_of:
 - Gebyr
 range: float

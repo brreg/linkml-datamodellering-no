@@ -10,8 +10,6 @@ _Angir om sensoren er aktiv._
 
 
 URI: [utd:aktiv](https://schema.fintlabs.no/utdanning/aktiv)
-Alias: aktiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om sensoren er aktiv.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:aktiv
-alias: aktiv
 domain_of:
 - Sensor
 range: boolean

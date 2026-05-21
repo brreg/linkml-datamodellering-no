@@ -10,8 +10,6 @@ _Personalressurs som har godkjent fråværsmeldinga._
 
 
 URI: [adm:godkjenner](https://schema.fintlabs.no/administrasjon/godkjenner)
-Alias: godkjenner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Personalressurs som har godkjent fråværsmeldinga.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:godkjenner
-alias: godkjenner
 domain_of:
 - Fravaer
 range: Personalressurs

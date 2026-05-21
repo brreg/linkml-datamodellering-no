@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/reservasjonar](https://data.norge.no/linkml/ngr-person/reservasjonar)
-Alias: reservasjonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: reservasjonar
 name: reservasjonar
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: reservasjonar
 owner: PersonContainer
 domain_of:
 - PersonContainer

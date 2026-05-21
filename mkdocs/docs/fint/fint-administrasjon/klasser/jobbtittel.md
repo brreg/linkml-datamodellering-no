@@ -10,8 +10,6 @@ _Namn som beskriv jobben eller stillinga._
 
 
 URI: [adm:jobbtittel](https://schema.fintlabs.no/administrasjon/jobbtittel)
-Alias: jobbtittel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn som beskriv jobben eller stillinga.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:jobbtittel
-alias: jobbtittel
 domain_of:
 - Personalressurs
 range: string

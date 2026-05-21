@@ -10,8 +10,6 @@ _Inngår i M004 journalpostID._
 
 
 URI: [ark:registreringsId](https://schema.fintlabs.no/arkiv/registreringsId)
-Alias: registreringsId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Inngår i M004 journalpostID.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:registreringsId
-alias: registreringsId
 domain_of:
 - Registrering
 range: string

@@ -10,8 +10,6 @@ _Alle arbeidsforholdstypar i containeren._
 
 
 URI: [adm:arbeidsforholdstypar](https://schema.fintlabs.no/administrasjon/arbeidsforholdstypar)
-Alias: arbeidsforholdstypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle arbeidsforholdstypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:arbeidsforholdstypar
-alias: arbeidsforholdstypar
 domain_of:
 - AdministrasjonContainer
 range: Arbeidsforholdstype

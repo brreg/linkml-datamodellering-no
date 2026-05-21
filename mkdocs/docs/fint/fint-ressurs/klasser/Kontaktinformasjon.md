@@ -10,8 +10,6 @@ _Den føretrekte måten å kome i kontakt med ein aktør._
 
 
 URI: [fint:kontaktinformasjon](https://schema.fintlabs.no/kontaktinformasjon)
-Alias: kontaktinformasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: kontaktinformasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Person](person.md) | Fysiske private personar |  no  |
-| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
-| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 | [Aktoer](aktoer.md) | Abstrakt base for person eller eining vi samhandlar med |  yes  |
+| [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
 | [Enhet](enhet.md) | Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd iden... |  no  |
+| [Person](person.md) | Fysiske private personar |  no  |
+| [Virksomhet](virksomhet.md) | Ein juridisk organisasjon som produserer varer eller tenester |  no  |
 
 
 
@@ -89,7 +87,6 @@ name: kontaktinformasjon
 description: Den føretrekte måten å kome i kontakt med ein aktør.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kontaktinformasjon
-alias: kontaktinformasjon
 domain_of:
 - Aktoer
 - Kontaktperson

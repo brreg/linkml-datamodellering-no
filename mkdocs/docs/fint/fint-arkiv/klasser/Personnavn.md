@@ -10,8 +10,6 @@ _Namn på person (Personnavn-objekt)._
 
 
 URI: [ark:personnavn](https://schema.fintlabs.no/arkiv/personnavn)
-Alias: personnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på person (Personnavn-objekt).
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:personnavn
-alias: personnavn
 domain_of:
 - Personalmappe
 range: Personnavn

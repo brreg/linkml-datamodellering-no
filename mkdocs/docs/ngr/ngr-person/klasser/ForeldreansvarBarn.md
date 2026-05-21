@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/foreldreansvarBarn](https://data.norge.no/linkml/ngr-person/foreldreansvarBarn)
-Alias: foreldreansvarBarn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: foreldreansvarBarn
 name: foreldreansvarBarn
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: foreldreansvarBarn
 owner: PersonContainer
 domain_of:
 - PersonContainer

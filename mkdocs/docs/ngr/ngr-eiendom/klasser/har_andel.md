@@ -10,8 +10,6 @@ _Andel(ar) i heimelsdokumentet._
 
 
 URI: [ngre:harAndel](https://data.norge.no/vocabulary/ngr-eiendom#harAndel)
-Alias: har_andel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: har_andel
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |  no  |
 | [Hjemmel](hjemmel.md) | Abstrakt klasse for heimelsdokument |  yes  |
-| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
 | [HjemmelTilEiendomsrett](hjemmeltileiendomsrett.md) | Heimelsdokument for eigedomsrett (full eigarrett) |  no  |
+| [HjemmelTilFesterett](hjemmeltilfesterett.md) | Heimelsdokument for festerett (langvarig bruksrett til festegrunn) |  no  |
+| [HjemmelTilFramfesterett](hjemmeltilframfesterett.md) | Heimelsdokument for framfesterett (vidarefestekontrakt) |  no  |
 
 
 
@@ -90,7 +88,6 @@ description: Andel(ar) i heimelsdokumentet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harAndel
-alias: har_andel
 domain_of:
 - Hjemmel
 range: Andel

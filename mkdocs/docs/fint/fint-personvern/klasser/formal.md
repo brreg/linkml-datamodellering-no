@@ -10,8 +10,6 @@ _Grunngjeving for behandling av personopplysning._
 
 
 URI: [pvn:formal](https://schema.fintlabs.no/personvern/formal)
-Alias: formal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Grunngjeving for behandling av personopplysning.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:formal
-alias: formal
 domain_of:
 - Behandling
 range: string

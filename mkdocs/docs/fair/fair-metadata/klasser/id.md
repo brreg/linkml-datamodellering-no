@@ -10,8 +10,6 @@ _Persistent URI-identifikator for metadata-posten (FAIR F1)._
 
 
 URI: [dct:identifier](http://purl.org/dc/terms/identifier)
-Alias: id
-
 <!-- no inheritance hierarchy -->
 
 
@@ -95,7 +93,6 @@ from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:identifier
 identifier: true
-alias: id
 domain_of:
 - FAIRMetadata
 range: uriorcurie

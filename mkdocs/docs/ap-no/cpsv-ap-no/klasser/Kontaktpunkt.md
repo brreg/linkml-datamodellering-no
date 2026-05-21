@@ -455,7 +455,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kontaktpunkt
     domain_of:
     - Mediatype
@@ -486,7 +485,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:email
-    alias: epost
     owner: Kontaktpunkt
     domain_of:
     - Kontaktpunkt
@@ -500,7 +498,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:telephone
-    alias: telefon
     owner: Kontaktpunkt
     domain_of:
     - Kontaktpunkt
@@ -514,7 +511,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPage
-    alias: kontaktside
     owner: Kontaktpunkt
     domain_of:
     - Kontaktpunkt
@@ -528,7 +524,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:openingHours
-    alias: opningstider
     owner: Kontaktpunkt
     domain_of:
     - Kontaktpunkt
@@ -542,7 +537,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Kontaktpunkt
     domain_of:
     - OffentligTjeneste
@@ -560,7 +554,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: vcard:category
-    alias: kategori
     owner: Kontaktpunkt
     domain_of:
     - Kontaktpunkt

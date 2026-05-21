@@ -1,5 +1,5 @@
 # Auto generated from xkos-ap-no-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-18T09:10:40
+# Generation date: 2026-05-21T17:57:39
 # Schema: xkos-ap-no
 #
 # id: https://data.norge.no/linkml/xkos-ap-no
@@ -59,7 +59,7 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Date, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import URI, URIorCURIE, XSDDate
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.11.0"
 version = None
 
 # Namespaces

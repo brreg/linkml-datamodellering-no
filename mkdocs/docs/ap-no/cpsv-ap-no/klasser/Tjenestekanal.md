@@ -465,7 +465,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Tjenestekanal
     domain_of:
     - Mediatype
@@ -495,7 +494,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Tjenestekanal
     domain_of:
     - OffentligTjeneste
@@ -518,7 +516,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Tjenestekanal
     domain_of:
     - OffentligTjeneste
@@ -538,7 +535,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:processingTime
-    alias: behandlingstid
     owner: Tjenestekanal
     domain_of:
     - OffentligTjeneste
@@ -553,7 +549,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:openingHours
-    alias: opningstider
     owner: Tjenestekanal
     domain_of:
     - Kontaktpunkt
@@ -567,7 +562,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Tjenestekanal
     domain_of:
     - OffentligTjeneste
@@ -590,7 +584,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: vcard:hasURL
-    alias: nettside
     owner: Tjenestekanal
     domain_of:
     - Tjenestekanal

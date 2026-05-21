@@ -378,7 +378,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Klassifikasjonsnivaa
     domain_of:
     - Mediatype
@@ -400,7 +399,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Klassifikasjonsnivaa
     domain_of:
     - Klassifikasjon
@@ -416,7 +414,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:depth
-    alias: nivaa_djupn
     owner: Klassifikasjonsnivaa
     domain_of:
     - Klassifikasjonsnivaa
@@ -430,7 +427,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: skos:member
-    alias: har_medlem
     owner: Klassifikasjonsnivaa
     domain_of:
     - Klassifikasjonsnivaa
@@ -445,7 +441,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:nextLevel
-    alias: underordna_klassifikasjonsnivaa
     owner: Klassifikasjonsnivaa
     domain_of:
     - Klassifikasjonsnivaa

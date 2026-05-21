@@ -10,8 +10,6 @@ _Eksempel på bruk av omgrepet (skos:example)._
 
 
 URI: [skos:example](http://www.w3.org/2004/02/skos/core#example)
-Alias: eksempel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Eksempel på bruk av omgrepet (skos:example).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:example
-alias: eksempel
 domain_of:
 - Begrep
 range: LangString

@@ -10,8 +10,6 @@ _Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConceptOf)._
 
 
 URI: [skos:topConceptOf](http://www.w3.org/2004/02/skos/core#topConceptOf)
-Alias: topp_begrep_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kodeliste dette kodeelementet er eit toppomgrep av (skos:topConcept
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: skos:topConceptOf
-alias: topp_begrep_av
 domain_of:
 - Kodeelement
 range: Kodeliste

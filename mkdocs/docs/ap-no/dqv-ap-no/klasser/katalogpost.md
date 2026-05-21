@@ -10,8 +10,6 @@ _Katalogpostar i katalogen._
 
 
 URI: [dcat:record](http://www.w3.org/ns/dcat#record)
-Alias: katalogpost
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: katalogpost
 description: Katalogpostar i katalogen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:record
-alias: katalogpost
 domain_of:
 - Katalog
 range: Katalogpost

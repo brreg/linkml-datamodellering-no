@@ -10,8 +10,6 @@ _Kvalitetsmerknader for datasettet._
 
 
 URI: [samtbuskole:kvalitetsmerknader](https://example.no/ontology/skole#kvalitetsmerknader)
-Alias: kvalitetsmerknader
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: kvalitetsmerknader
 description: Kvalitetsmerknader for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: kvalitetsmerknader
 domain_of:
 - Containerklasse
 range: Kvalitetsmerknad

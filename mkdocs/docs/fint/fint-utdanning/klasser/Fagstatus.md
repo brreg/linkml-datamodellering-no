@@ -10,8 +10,6 @@ _Fagstatus._
 
 
 URI: [utd:fagstatus](https://schema.fintlabs.no/utdanning/fagstatus)
-Alias: fagstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Fagstatus.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fagstatus
-alias: fagstatus
 domain_of:
 - UtdanningContainer
 - Faggruppemedlemskap

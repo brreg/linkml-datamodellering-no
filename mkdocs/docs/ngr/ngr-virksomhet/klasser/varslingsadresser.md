@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/varslingsadresser](https://data.norge.no/linkml/ngr-virksomhet/varslingsadresser)
-Alias: varslingsadresser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: varslingsadresser
 name: varslingsadresser
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: varslingsadresser
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

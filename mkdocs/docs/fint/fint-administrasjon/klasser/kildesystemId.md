@@ -10,8 +10,6 @@ _Kjeldesystemets unike identifikator._
 
 
 URI: [adm:kildesystemId](https://schema.fintlabs.no/administrasjon/kildesystemId)
-Alias: kildesystemId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: kildesystemId
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
-| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
-| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  yes  |
 | [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  yes  |
+| [Fravaer](fravaer.md) | Fråvær frå eit arbeidsforhold |  yes  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
 
 
 
@@ -90,7 +88,6 @@ description: Kjeldesystemets unike identifikator.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:kildesystemId
-alias: kildesystemId
 domain_of:
 - Lonn
 - Fravaer

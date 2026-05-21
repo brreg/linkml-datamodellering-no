@@ -10,8 +10,6 @@ _Fagområde omgrepet høyrer til (dct:subject)._
 
 
 URI: [dct:subject](http://purl.org/dc/terms/subject)
-Alias: fagomrade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Fagområde omgrepet høyrer til (dct:subject).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:subject
-alias: fagomrade
 domain_of:
 - Begrep
 range: Begrep

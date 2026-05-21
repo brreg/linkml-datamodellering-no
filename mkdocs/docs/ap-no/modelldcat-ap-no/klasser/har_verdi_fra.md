@@ -10,8 +10,6 @@ _Kodeliste for tillate verdiar til attributten (modelldcatno:hasValueFrom)._
 
 
 URI: [modelldcatno:hasValueFrom](https://data.norge.no/vocabulary/modelldcatno#hasValueFrom)
-Alias: har_verdi_fra
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kodeliste for tillate verdiar til attributten (modelldcatno:hasValu
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:hasValueFrom
-alias: har_verdi_fra
 domain_of:
 - Attributt
 range: Kodeliste

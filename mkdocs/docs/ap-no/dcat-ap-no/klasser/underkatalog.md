@@ -10,8 +10,6 @@ _Katalog som er ein del av denne katalogen._
 
 
 URI: [dcat:catalog](http://www.w3.org/ns/dcat#catalog)
-Alias: underkatalog
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Katalog som er ein del av denne katalogen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:catalog
-alias: underkatalog
 domain_of:
 - Katalog
 range: Katalog

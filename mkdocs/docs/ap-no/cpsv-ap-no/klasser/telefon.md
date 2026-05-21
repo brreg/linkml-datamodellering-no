@@ -10,8 +10,6 @@ _Telefonnummer._
 
 
 URI: [cv:telephone](http://data.europa.eu/m8g/telephone)
-Alias: telefon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Telefonnummer.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:telephone
-alias: telefon
 domain_of:
 - Kontaktpunkt
 range: string

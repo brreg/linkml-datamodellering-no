@@ -10,8 +10,6 @@ _Einingsgruppen dette medlemskapet tilhøyrer._
 
 
 URI: [res:enhetsgruppe](https://schema.fintlabs.no/ressurs/enhetsgruppe)
-Alias: enhetsgruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Einingsgruppen dette medlemskapet tilhøyrer.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:enhetsgruppe
-alias: enhetsgruppe
 domain_of:
 - Enhetsgruppemedlemskap
 range: Enhetsgruppe

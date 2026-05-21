@@ -10,8 +10,6 @@ _Vare i vareregisteret._
 
 
 URI: [okn:vare](https://schema.fintlabs.no/okonomi/vare)
-Alias: vare
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: vare
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  yes  |
 | [Fakturautsteder](fakturautsteder.md) | Eining som utformar og oversender faktura og mottar betaling |  yes  |
+| [Fakturalinje](fakturalinje.md) | Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype) |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Vare i vareregisteret.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:vare
-alias: vare
 domain_of:
 - Fakturautsteder
 - Fakturalinje

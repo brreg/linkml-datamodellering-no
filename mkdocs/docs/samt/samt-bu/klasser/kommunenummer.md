@@ -10,8 +10,6 @@ _Kommunenummer er en nummerrekke som identifiserer kommuner eller kommunefrie om
 
 
 URI: [dcat:identifier](http://www.w3.org/ns/dcat#identifier)
-Alias: kommunenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -90,7 +88,6 @@ close_mappings:
 - skos:notation
 rank: 1000
 slot_uri: dcat:identifier
-alias: kommunenummer
 domain_of:
 - Kommune
 range: string

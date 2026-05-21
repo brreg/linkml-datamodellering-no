@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/kommunar](https://data.norge.no/linkml/ngr-adresse/kommunar)
-Alias: kommunar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: kommunar
 name: kommunar
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: kommunar
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

@@ -10,8 +10,6 @@ _Namngitt elektronisk adresse for mottak av e-post._
 
 
 URI: [fint:epostadresse](https://schema.fintlabs.no/epostadresse)
-Alias: epostadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: epostadresse
 description: Namngitt elektronisk adresse for mottak av e-post.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:epostadresse
-alias: epostadresse
 domain_of:
 - Kontaktinformasjon
 range: string

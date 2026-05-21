@@ -10,8 +10,6 @@ _Overordna modelkatalog (dct:isPartOf)._
 
 
 URI: [dct:isPartOf](http://purl.org/dc/terms/isPartOf)
-Alias: er_del_av_katalog
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Overordna modelkatalog (dct:isPartOf).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:isPartOf
-alias: er_del_av_katalog
 domain_of:
 - Modelkatalog
 range: Modelkatalog

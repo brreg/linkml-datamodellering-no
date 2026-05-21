@@ -10,8 +10,6 @@ _Folkeregistrert adresse til personen._
 
 
 URI: [fint:bostedsadresse](https://schema.fintlabs.no/bostedsadresse)
-Alias: bostedsadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: bostedsadresse
 description: Folkeregistrert adresse til personen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:bostedsadresse
-alias: bostedsadresse
 domain_of:
 - Person
 range: Adresse

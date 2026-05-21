@@ -284,7 +284,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:kanVaerePa
-    alias: kan_vaere_pa
     owner: Jordsameie
     domain_of:
     - Grunneiendom
@@ -298,7 +297,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Jordsameie
     domain_of:
     - FastEiendom
@@ -341,7 +339,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:identifiseresMed
-    alias: identifiseres_med
     owner: Jordsameie
     domain_of:
     - Matrikkelenhet
@@ -355,7 +352,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:liggerInnenforKommune
-    alias: ligger_innenfor_kommune
     owner: Jordsameie
     domain_of:
     - Matrikkelenhet
@@ -369,7 +365,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:erDelAvTeig
-    alias: er_del_av_teig
     owner: Jordsameie
     domain_of:
     - Matrikkelenhet
@@ -383,7 +378,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harTeig
-    alias: har_teig
     owner: Jordsameie
     domain_of:
     - Matrikkelenhet
@@ -397,7 +391,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harAnleggsprojeksjonsflate
-    alias: har_anleggsprojeksjonsflate
     owner: Jordsameie
     domain_of:
     - Matrikkelenhet

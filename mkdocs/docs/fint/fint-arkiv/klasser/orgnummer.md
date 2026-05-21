@@ -10,8 +10,6 @@ _Organisasjonsnummer._
 
 
 URI: [ark:organisasjonsnummer](https://schema.fintlabs.no/arkiv/organisasjonsnummer)
-Alias: orgnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: orgnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
 | [SoeknadDrosjeloeyve](soeknaddrosjeloeyve.md) | Sak om søknad om løyve til å køyre drosje |  yes  |
+| [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
 | [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  yes  |
 
 
@@ -88,7 +86,6 @@ description: Organisasjonsnummer.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:organisasjonsnummer
-alias: orgnummer
 domain_of:
 - SoeknadDrosjeloeyve
 - Korrespondansepart

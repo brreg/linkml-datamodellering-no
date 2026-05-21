@@ -10,8 +10,6 @@ _Aktøren som primært har skapt ressursen (dct:creator)._
 
 
 URI: [dct:creator](http://purl.org/dc/terms/creator)
-Alias: skapar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aktøren som primært har skapt ressursen (dct:creator).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:creator
-alias: skapar
 domain_of:
 - Informasjonsmodell
 range: Aktor

@@ -10,8 +10,6 @@ _Etternamn til personen._
 
 
 URI: [ngrp:etternavn](https://data.norge.no/vocabulary/ngr-person#etternavn)
-Alias: etternavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Etternamn til personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:etternavn
-alias: etternavn
 domain_of:
 - Personnavn
 range: string

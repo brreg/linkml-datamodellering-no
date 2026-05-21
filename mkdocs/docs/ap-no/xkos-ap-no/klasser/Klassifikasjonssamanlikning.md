@@ -408,7 +408,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Klassifikasjonssamanlikning
     domain_of:
     - Mediatype
@@ -430,7 +429,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Klassifikasjonssamanlikning
     domain_of:
     - Klassifikasjon
@@ -444,7 +442,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Klassifikasjonssamanlikning
     domain_of:
     - Klassifikasjon
@@ -461,7 +458,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: dct:publisher
-    alias: utgjevar
     owner: Klassifikasjonssamanlikning
     domain_of:
     - Klassifikasjon
@@ -476,7 +472,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:compares
-    alias: samanliknar
     owner: Klassifikasjonssamanlikning
     domain_of:
     - Klassifikasjonssamanlikning
@@ -492,7 +487,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/xkos-ap-no
     rank: 1000
     slot_uri: xkos:madeOf
-    alias: bestar_av
     owner: Klassifikasjonssamanlikning
     domain_of:
     - Klassifikasjonssamanlikning

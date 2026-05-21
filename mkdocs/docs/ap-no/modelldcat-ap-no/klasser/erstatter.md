@@ -10,8 +10,6 @@ _Informasjonsmodell som denne erstattar (dct:replaces)._
 
 
 URI: [dct:replaces](http://purl.org/dc/terms/replaces)
-Alias: erstatter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Informasjonsmodell som denne erstattar (dct:replaces).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:replaces
-alias: erstatter
 domain_of:
 - Informasjonsmodell
 range: Informasjonsmodell

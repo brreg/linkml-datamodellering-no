@@ -10,8 +10,6 @@ _Omgrep dette omgrepet spesifiserer (xkos:specializes)._
 
 
 URI: [xkos:specializes](http://rdf-vocabulary.ddialliance.org/xkos#specializes)
-Alias: spesifiserer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep dette omgrepet spesifiserer (xkos:specializes).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: xkos:specializes
-alias: spesifiserer
 domain_of:
 - Begrep
 range: Begrep

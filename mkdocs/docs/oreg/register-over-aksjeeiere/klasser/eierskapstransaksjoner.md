@@ -10,8 +10,6 @@ _Samling av eigarskapstransaksjonar._
 
 
 URI: [aksje:eierskapstransaksjoner](https://example.no/ontology/aksje#eierskapstransaksjoner)
-Alias: eierskapstransaksjoner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av eigarskapstransaksjonar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: eierskapstransaksjoner
 domain_of:
 - Containerklasse
 range: Eierskapstransaksjon

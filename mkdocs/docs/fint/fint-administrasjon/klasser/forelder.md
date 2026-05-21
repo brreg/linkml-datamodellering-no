@@ -10,8 +10,6 @@ _Foreldreelement i hierarki._
 
 
 URI: [adm:forelder](https://schema.fintlabs.no/administrasjon/forelder)
-Alias: forelder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: forelder
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Stillingskode](stillingskode.md) | Felles kodeverk for stillingar |  yes  |
 | [Arbeidsforholdstype](arbeidsforholdstype.md) | Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer |  yes  |
+| [Stillingskode](stillingskode.md) | Felles kodeverk for stillingar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Foreldreelement i hierarki.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:forelder
-alias: forelder
 domain_of:
 - Arbeidsforholdstype
 - Stillingskode

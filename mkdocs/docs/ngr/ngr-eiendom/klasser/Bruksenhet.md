@@ -383,7 +383,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Bruksenhet
     domain_of:
     - FastEiendom
@@ -426,7 +425,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harBruksenhetsnummer
-    alias: har_bruksenhetsnummer
     owner: Bruksenhet
     domain_of:
     - Bruksenhet
@@ -440,7 +438,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:erTilknyttetMatrikkelenhet
-    alias: er_tilknyttet_matrikkelenhet
     owner: Bruksenhet
     domain_of:
     - Bruksenhet
@@ -453,7 +450,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harOffisiellAdresse
-    alias: har_offisiell_adresse
     owner: Bruksenhet
     domain_of:
     - YtreInngang
@@ -467,7 +463,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:liggerIEtasje
-    alias: ligger_i_etasje
     owner: Bruksenhet
     domain_of:
     - Bruksenhet

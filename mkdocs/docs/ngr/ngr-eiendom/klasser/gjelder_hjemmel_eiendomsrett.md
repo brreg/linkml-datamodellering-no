@@ -10,8 +10,6 @@ _Heimelsdokument for eigedomsrett knytt til dette eigarforholdet._
 
 
 URI: [ngre:gjelderHjemmelEiendomsrett](https://data.norge.no/vocabulary/ngr-eiendom#gjelderHjemmelEiendomsrett)
-Alias: gjelder_hjemmel_eiendomsrett
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: gjelder_hjemmel_eiendomsrett
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
-| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
 | [Eierforhold](eierforhold.md) | Abstrakt klasse for eigarforhold forvalta av Grunnboka |  yes  |
+| [TinglystEierforhold](tinglysteierforhold.md) | Eigarforhold registrert (tinglyst) i Grunnboka |  no  |
+| [IkkeTinglystEierforhold](ikketinglysteierforhold.md) | Eigarforhold som ikkje er registrert i Grunnboka |  no  |
 
 
 
@@ -88,7 +86,6 @@ description: Heimelsdokument for eigedomsrett knytt til dette eigarforholdet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:gjelderHjemmelEiendomsrett
-alias: gjelder_hjemmel_eiendomsrett
 domain_of:
 - Eierforhold
 range: HjemmelTilEiendomsrett

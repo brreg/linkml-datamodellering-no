@@ -1,5 +1,5 @@
 # Auto generated from dqv-ap-no-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-18T09:10:53
+# Generation date: 2026-05-21T17:57:48
 # Schema: dqv-ap-no
 #
 # id: https://data.norge.no/linkml/dqv-ap-no
@@ -59,7 +59,7 @@ from rdflib import (
 from linkml_runtime.linkml_model.types import Date, Datetime, String, Uri, Uriorcurie
 from linkml_runtime.utils.metamodelcore import URI, URIorCURIE, XSDDate, XSDDateTime
 
-metamodel_version = "1.7.0"
+metamodel_version = "1.11.0"
 version = "1.0"
 
 # Namespaces

@@ -686,7 +686,6 @@ attributes:
     - AdresseContainer
     range: OffisiellAdresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   postboksadresser:
     name: postboksadresser
@@ -696,7 +695,6 @@ attributes:
     - AdresseContainer
     range: Postboksadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   adressenavn:
     name: adressenavn
@@ -706,7 +704,6 @@ attributes:
     - AdresseContainer
     range: Adressenavn
     multivalued: true
-    inlined: true
     inlined_as_list: true
   adresseomrader:
     name: adresseomrader
@@ -716,7 +713,6 @@ attributes:
     - AdresseContainer
     range: Adresseomrade
     multivalued: true
-    inlined: true
     inlined_as_list: true
   adressekoder:
     name: adressekoder
@@ -726,7 +722,6 @@ attributes:
     - AdresseContainer
     range: Adressekode
     multivalued: true
-    inlined: true
     inlined_as_list: true
   husnummer:
     name: husnummer
@@ -736,7 +731,6 @@ attributes:
     - AdresseContainer
     range: Husnummer
     multivalued: true
-    inlined: true
     inlined_as_list: true
   bruksenhetsnummer:
     name: bruksenhetsnummer
@@ -746,7 +740,6 @@ attributes:
     - AdresseContainer
     range: Bruksenhetsnummer
     multivalued: true
-    inlined: true
     inlined_as_list: true
   kommunar:
     name: kommunar
@@ -756,7 +749,6 @@ attributes:
     - AdresseContainer
     range: Kommune
     multivalued: true
-    inlined: true
     inlined_as_list: true
   fylke:
     name: fylke
@@ -766,7 +758,6 @@ attributes:
     - AdresseContainer
     range: Fylke
     multivalued: true
-    inlined: true
     inlined_as_list: true
   poststeder:
     name: poststeder
@@ -776,7 +767,6 @@ attributes:
     - AdresseContainer
     range: Poststed
     multivalued: true
-    inlined: true
     inlined_as_list: true
   grunnkretsar:
     name: grunnkretsar
@@ -786,7 +776,6 @@ attributes:
     - AdresseContainer
     range: Grunnkrets
     multivalued: true
-    inlined: true
     inlined_as_list: true
   tettstadar:
     name: tettstadar
@@ -796,7 +785,6 @@ attributes:
     - AdresseContainer
     range: Tettsted
     multivalued: true
-    inlined: true
     inlined_as_list: true
   kirkesokn:
     name: kirkesokn
@@ -806,7 +794,6 @@ attributes:
     - AdresseContainer
     range: Kirkesokn
     multivalued: true
-    inlined: true
     inlined_as_list: true
   stemmekretsar:
     name: stemmekretsar
@@ -816,7 +803,6 @@ attributes:
     - AdresseContainer
     range: Stemmekrets
     multivalued: true
-    inlined: true
     inlined_as_list: true
   kommunaleKretsar:
     name: kommunaleKretsar
@@ -826,7 +812,6 @@ attributes:
     - AdresseContainer
     range: KommunalKrets
     multivalued: true
-    inlined: true
     inlined_as_list: true
   svalbardOmrader:
     name: svalbardOmrader
@@ -836,7 +821,6 @@ attributes:
     - AdresseContainer
     range: Svalbard
     multivalued: true
-    inlined: true
     inlined_as_list: true
   postboksar:
     name: postboksar
@@ -846,7 +830,6 @@ attributes:
     - AdresseContainer
     range: Postboks
     multivalued: true
-    inlined: true
     inlined_as_list: true
   representasjonspunkt:
     name: representasjonspunkt
@@ -856,7 +839,6 @@ attributes:
     - AdresseContainer
     range: Representasjonspunkt
     multivalued: true
-    inlined: true
     inlined_as_list: true
   bygningar:
     name: bygningar
@@ -866,7 +848,6 @@ attributes:
     - AdresseContainer
     range: Bygning
     multivalued: true
-    inlined: true
     inlined_as_list: true
   bruksenheter:
     name: bruksenheter
@@ -876,7 +857,6 @@ attributes:
     - AdresseContainer
     range: Bruksenhet
     multivalued: true
-    inlined: true
     inlined_as_list: true
 tree_root: true
 
@@ -897,221 +877,221 @@ attributes:
     name: offisielleAdresser
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: offisielleAdresser
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: OffisiellAdresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   postboksadresser:
     name: postboksadresser
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: postboksadresser
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Postboksadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   adressenavn:
     name: adressenavn
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: adressenavn
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Adressenavn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   adresseomrader:
     name: adresseomrader
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: adresseomrader
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Adresseomrade
     multivalued: true
+    inlined: true
     inlined_as_list: true
   adressekoder:
     name: adressekoder
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: adressekoder
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Adressekode
     multivalued: true
+    inlined: true
     inlined_as_list: true
   husnummer:
     name: husnummer
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: husnummer
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Husnummer
     multivalued: true
+    inlined: true
     inlined_as_list: true
   bruksenhetsnummer:
     name: bruksenhetsnummer
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: bruksenhetsnummer
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Bruksenhetsnummer
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kommunar:
     name: kommunar
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: kommunar
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Kommune
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fylke:
     name: fylke
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: fylke
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Fylke
     multivalued: true
+    inlined: true
     inlined_as_list: true
   poststeder:
     name: poststeder
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: poststeder
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Poststed
     multivalued: true
+    inlined: true
     inlined_as_list: true
   grunnkretsar:
     name: grunnkretsar
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: grunnkretsar
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Grunnkrets
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tettstadar:
     name: tettstadar
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: tettstadar
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Tettsted
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kirkesokn:
     name: kirkesokn
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: kirkesokn
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Kirkesokn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   stemmekretsar:
     name: stemmekretsar
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: stemmekretsar
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Stemmekrets
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kommunaleKretsar:
     name: kommunaleKretsar
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: kommunaleKretsar
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: KommunalKrets
     multivalued: true
+    inlined: true
     inlined_as_list: true
   svalbardOmrader:
     name: svalbardOmrader
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: svalbardOmrader
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Svalbard
     multivalued: true
+    inlined: true
     inlined_as_list: true
   postboksar:
     name: postboksar
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: postboksar
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Postboks
     multivalued: true
+    inlined: true
     inlined_as_list: true
   representasjonspunkt:
     name: representasjonspunkt
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: representasjonspunkt
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Representasjonspunkt
     multivalued: true
+    inlined: true
     inlined_as_list: true
   bygningar:
     name: bygningar
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: bygningar
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Bygning
     multivalued: true
+    inlined: true
     inlined_as_list: true
   bruksenheter:
     name: bruksenheter
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
-    alias: bruksenheter
     owner: AdresseContainer
     domain_of:
     - AdresseContainer
     range: Bruksenhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

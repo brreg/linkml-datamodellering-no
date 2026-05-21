@@ -10,8 +10,6 @@ _Målform personen føretrekkjer._
 
 
 URI: [fint:maalform](https://schema.fintlabs.no/maalform)
-Alias: maalform
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: maalform
 description: Målform personen føretrekkjer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:maalform
-alias: maalform
 domain_of:
 - Person
 range: Spraak

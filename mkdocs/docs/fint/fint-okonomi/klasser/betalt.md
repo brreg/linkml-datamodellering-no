@@ -10,8 +10,6 @@ _Status på betaling._
 
 
 URI: [okn:betalt](https://schema.fintlabs.no/okonomi/betalt)
-Alias: betalt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status på betaling.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:betalt
-alias: betalt
 domain_of:
 - Faktura
 range: boolean

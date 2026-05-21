@@ -231,7 +231,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: SpraakForElektroniskKommunikasjon
     domain_of:
     - Person
@@ -274,7 +273,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:spraakkode
-    alias: spraakkode
     owner: SpraakForElektroniskKommunikasjon
     domain_of:
     - SpraakForElektroniskKommunikasjon

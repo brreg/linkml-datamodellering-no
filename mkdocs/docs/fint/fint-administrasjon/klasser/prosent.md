@@ -10,8 +10,6 @@ _Prosent._
 
 
 URI: [adm:prosent](https://schema.fintlabs.no/administrasjon/prosent)
-Alias: prosent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Prosent.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:prosent
-alias: prosent
 domain_of:
 - Fastlonn
 - Fravaer

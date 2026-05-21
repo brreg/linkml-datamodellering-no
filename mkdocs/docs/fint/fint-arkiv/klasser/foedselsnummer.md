@@ -10,8 +10,6 @@ _Fødselsnummer._
 
 
 URI: [ark:foedselsnummer](https://schema.fintlabs.no/arkiv/foedselsnummer)
-Alias: foedselsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Fødselsnummer.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:foedselsnummer
-alias: foedselsnummer
 domain_of:
 - Korrespondansepart
 - Part

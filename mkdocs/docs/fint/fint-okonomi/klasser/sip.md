@@ -10,8 +10,6 @@ _SIP-protokoll for VoIP (IP-telefoni)._
 
 
 URI: [fint:sip](https://schema.fintlabs.no/sip)
-Alias: sip
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: sip
 description: SIP-protokoll for VoIP (IP-telefoni).
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:sip
-alias: sip
 domain_of:
 - Kontaktinformasjon
 range: string

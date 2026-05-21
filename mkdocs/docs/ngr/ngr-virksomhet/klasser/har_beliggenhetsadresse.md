@@ -10,8 +10,6 @@ _Beliggenheitsadressa til underleininga._
 
 
 URI: [ngrv:harBeliggenhetsadresse](https://data.norge.no/vocabulary/ngr-virksomhet#harBeliggenhetsadresse)
-Alias: har_beliggenhetsadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Beliggenheitsadressa til underleininga.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harBeliggenhetsadresse
-alias: har_beliggenhetsadresse
 domain_of:
 - Underenhet
 range: Beliggenhetsadresse

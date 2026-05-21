@@ -279,7 +279,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kvalitetsdimensjon
     domain_of:
     - Mediatype
@@ -313,7 +312,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:prefLabel
-    alias: har_anbefalt_term
     owner: Kvalitetsdimensjon
     domain_of:
     - Kvalitetsdimensjon
@@ -327,7 +325,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: skos:definition
-    alias: har_definisjon
     owner: Kvalitetsdimensjon
     domain_of:
     - Kvalitetsdimensjon

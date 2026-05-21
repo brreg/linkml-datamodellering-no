@@ -10,8 +10,6 @@ _Måleomgrep i ein kategorisamanlikning (xkos:targetConcept)._
 
 
 URI: [xkos:targetConcept](http://rdf-vocabulary.ddialliance.org/xkos#targetConcept)
-Alias: maalomgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Måleomgrep i ein kategorisamanlikning (xkos:targetConcept).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:targetConcept
-alias: maalomgrep
 domain_of:
 - Kategorisamanlikning
 range: Kategori

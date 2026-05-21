@@ -10,8 +10,6 @@ _Standardar datasettet følgjer._
 
 
 URI: [samtbuskole:standarder](https://example.no/ontology/skole#standarder)
-Alias: standarder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: standarder
 description: Standardar datasettet følgjer.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: standarder
 domain_of:
 - Containerklasse
 range: Standard

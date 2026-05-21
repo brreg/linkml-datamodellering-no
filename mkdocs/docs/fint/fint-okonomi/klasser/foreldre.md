@@ -10,8 +10,6 @@ _Den/dei som har foreldreansvar til personen._
 
 
 URI: [fint:foreldre](https://schema.fintlabs.no/foreldre)
-Alias: foreldre
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: foreldre
 description: Den/dei som har foreldreansvar til personen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:foreldre
-alias: foreldre
 domain_of:
 - Person
 range: Person

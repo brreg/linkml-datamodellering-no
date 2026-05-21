@@ -10,8 +10,6 @@ _Adressekode tilknytt dette adressenamnet._
 
 
 URI: [ngr:harAdressekode](https://data.norge.no/vocabulary/ngr-adresse#harAdressekode)
-Alias: har_adressekode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Adressekode tilknytt dette adressenamnet.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harAdressekode
-alias: har_adressekode
 domain_of:
 - Adressenavn
 range: Adressekode

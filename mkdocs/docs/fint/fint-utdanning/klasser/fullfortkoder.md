@@ -10,8 +10,6 @@ _Alle fullfortkoder i containeren._
 
 
 URI: [utd:fullfortkoder](https://schema.fintlabs.no/utdanning/fullfortkoder)
-Alias: fullfortkoder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle fullfortkoder i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fullfortkoder
-alias: fullfortkoder
 domain_of:
 - UtdanningContainer
 range: Fullfortkode

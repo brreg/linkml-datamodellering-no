@@ -10,8 +10,6 @@ _Tilgangar gjevne til arkivressursen._
 
 
 URI: [ark:tilgang](https://schema.fintlabs.no/arkiv/tilgang)
-Alias: tilgang
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Tilgangar gjevne til arkivressursen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilgang
-alias: tilgang
 domain_of:
 - Arkivressurs
 range: Tilgang

@@ -316,7 +316,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: RegulativRessurs
     domain_of:
     - Mediatype
@@ -346,7 +345,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: RegulativRessurs
     domain_of:
     - OffentligTjeneste
@@ -368,7 +366,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: RegulativRessurs
     domain_of:
     - OffentligTjeneste
@@ -390,7 +387,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: RegulativRessurs
     domain_of:
     - OffentligTjeneste
