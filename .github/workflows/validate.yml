@@ -13,7 +13,7 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Cache mcp-linkml-validator image
         id: cache
         uses: actions/cache@v4
@@ -51,7 +51,7 @@ jobs:
     needs: build-validator
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
       - uses: ./.github/actions/validate-bronze
         with:
@@ -64,7 +64,7 @@ jobs:
     needs: build-validator
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
       - uses: ./.github/actions/validate-bronze
         with:
@@ -77,7 +77,7 @@ jobs:
     needs: build-validator
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
       - uses: ./.github/actions/validate-bronze
         with:
@@ -90,7 +90,7 @@ jobs:
     needs: build-validator
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
       - uses: ./.github/actions/validate-bronze
         with:
@@ -103,7 +103,7 @@ jobs:
     needs: build-validator
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
       - uses: ./.github/actions/validate-bronze
         with:
@@ -116,7 +116,7 @@ jobs:
     needs: build-validator
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
       - uses: ./.github/actions/validate-bronze
         with:
