@@ -18,6 +18,7 @@ theme:
 
 plugins:
   - search
+  - build-cache
 
 extra_css:
   - stylesheets/aktivt-menypunkt.css
