@@ -1,22 +1,42 @@
-# Sikkerheitspipeline og SBOM
+# Sikkerhetspipeline og SBOM
 
-## Situasjon
+## Status
 
-Repoet er no offentleg og inneheld:
-
-- Python-kode i `src/mcp-linkml-validator/` og `src/mcp-linkml-generator/` med `requirements.txt`
-- Fire Docker-images bygde frå `Dockerfile.linkml`, `Dockerfile.python`, `Dockerfile.mcp-linkml-validator` og `Dockerfile.mkdocs`
-- GitHub Actions-workflows med pinned action-versjonar
-
-Det finst per no ingen automatisk skanning av avhengigheiter, containersårbarheiter, kodekvalitet eller generering av programvareinnhaldsliste (SBOM).
+| Tiltak | Status |
+|--------|--------|
+| CodeQL statisk analyse | ✅ Aktivert i GitHub |
+| Dependency Graph | ✅ Aktivert i GitHub |
+| Dependabot automatiske PR-er | ⬜ Gjenstår — krever `.github/dependabot.yml` |
+| Trivy requirements-skanning | ⬜ Gjenstår |
+| SBOM-generering | ⬜ Delvis — Dependency Graph gir grunnleggende SBOM, Trivy gir mer detaljert dekning |
 
 ---
 
-## Tiltak
+## Hva er allerede på plass
 
-### Tiltak 1 — Dependabot (Lav innsats, høg verdi)
+### CodeQL
+Aktivert via GitHub UI. Skanner Python-koden i `src/mcp-linkml-validator/` og `src/mcp-linkml-generator/` automatisk ved push og PR. Funn vises under **Security → Code scanning alerts**.
 
-Dependabot sender automatiske PR-ar når Python-pakkar eller GitHub Actions-versjonar har kjende CVE-ar eller nye versjonar.
+Ingen ytterligere konfigurasjon er nødvendig med mindre du ønsker egendefinerte regler eller scanner-innstillinger.
+
+### Dependency Graph
+Aktivert via GitHub UI. GitHub oppdager avhengigheter fra `requirements.txt`-filer automatisk og viser dem under **Insights → Dependency graph**.
+
+Dette gir også:
+- **Dependabot alerts** — varsler om kjente CVE-er i registrerte avhengigheter (vises under Security-fanen)
+- **SBOM-eksport** — GitHub kan eksportere en SPDX-SBOM direkte fra dependency graph via **Insights → Dependency graph → Export SBOM**
+
+---
+
+## Gjenstående tiltak
+
+### Tiltak 1 — Dependabot automatiske PR-er (Svært lav innsats, høy verdi)
+
+Dependency Graph gir varsler, men sender ikke automatiske PR-er. Det krever en `dependabot.yml`-konfigurasjonsfil.
+
+Med filen nedenfor sender Dependabot automatiske PR-er når:
+- Python-pakker i requirements.txt har kjente CVE-er eller nye versjoner
+- GitHub Actions-versjoner i workflows er utdaterte
 
 **Konfigurasjon:** `.github/dependabot.yml`
 
@@ -43,56 +63,16 @@ updates:
     open-pull-requests-limit: 10
 ```
 
-**Merknad:** Dependabot dekkar ikkje `requirements.txt` for assets-containerar (`requirements-python-test.txt`). Desse vert fanga av Trivy (tiltak 3).
+**Merk:** Dependabot dekker ikke `src/assets/containers/requirements-python-test.txt` siden den ikke er i en standardplassering. Denne fanges av Trivy (tiltak 2).
 
 ---
 
-### Tiltak 2 — CodeQL statisk analyse (Lav innsats, medium verdi)
+### Tiltak 2 — Trivy requirements-skanning (Lav innsats, høy verdi)
 
-CodeQL skannar Python-koden i dei to MCP-serverane for kjende sårbarheitsmønster (injeksjon, usikker deserialisering, o.l.). Gratis for public repos.
-
-**Konfigurasjon:** `.github/workflows/codeql.yml`
-
-```yaml
-name: CodeQL
-
-on:
-  push:
-    branches: [main]
-  pull_request:
-  schedule:
-    - cron: '0 6 * * 1'   # måndag morgon
-
-jobs:
-  analyze:
-    runs-on: ubuntu-22.04
-    permissions:
-      security-events: write
-      contents: read
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Initialiser CodeQL
-        uses: github/codeql-action/init@v3
-        with:
-          languages: python
-
-      - name: Køyr CodeQL-analyse
-        uses: github/codeql-action/analyze@v3
-```
-
-Funn dukkar opp under **Security → Code scanning alerts** i GitHub.
-
----
-
-### Tiltak 3 — Trivy container- og avhengigheitsskanning (Medium innsats, høg verdi)
-
-Trivy skannar:
-- Bygde container-images for CVE-ar i OS-pakkar og Python-pakkar
-- `requirements.txt`-filer direkte (utan å bygge image)
-
-Trivy kan generere SBOM i SPDX- eller CycloneDX-format — same verktøy løyser både skanning og SBOM (tiltak 4).
+Dependency Graph oppdager avhengigheter fra kjente manifestfiler, men Trivy gjør en dypere skanning:
+- Fanger `requirements-python-test.txt` som Dependabot ikke dekker
+- Rapporterer CVE-er med SARIF-format direkte i **Security → Code scanning alerts** — samme sted som CodeQL
+- Grunnlag for mer detaljert SBOM (tiltak 3)
 
 **Konfigurasjon:** `.github/workflows/trivy.yml`
 
@@ -104,7 +84,7 @@ on:
     branches: [main]
   pull_request:
   schedule:
-    - cron: '0 6 * * 2'   # tysdag morgon
+    - cron: '0 6 * * 2'   # tirsdag morgen
 
 jobs:
 
@@ -132,7 +112,15 @@ jobs:
           format: sarif
           output: trivy-generator.sarif
 
-      - name: Last opp resultat til GitHub Security
+      - name: Skann assets/requirements-python-test.txt
+        uses: aquasecurity/trivy-action@0.31.0
+        with:
+          scan-type: fs
+          scan-ref: src/assets/containers/requirements-python-test.txt
+          format: sarif
+          output: trivy-assets.sarif
+
+      - name: Last opp resultater til GitHub Security
         uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
@@ -140,17 +128,13 @@ jobs:
           category: trivy-requirements
 ```
 
-SARIF-formatet gjer at funn dukkar opp i **Security → Code scanning alerts** saman med CodeQL.
-
-**Merknad om image-skanning:** Image-skanning av dei bygde Podman-images krev at `build-*`-jobbane eksporterer images og sender dei vidare. Dette aukar kompleksiteten og bør vurderast som eit separat steg etter at requirements-skanningen er på plass.
-
 ---
 
-### Tiltak 4 — SBOM-generering (Medium innsats, god transparens)
+### Tiltak 3 — SBOM-generering med Trivy (Lav innsats, god transparens)
 
-Ein SBOM (Software Bill of Materials) dokumenterer alle komponentar og avhengigheiter. Trivy genererer SBOM i SPDX-format direkte frå `requirements.txt` og Dockerfiles.
+GitHub sin Dependency Graph-SBOM dekker kun avhengigheter fra kjente manifestfiler. Trivy genererer en mer komplett SBOM som også inkluderer OS-pakker, transitive avhengigheter og Dockerfile-innhold.
 
-**Konfigurasjon:** Legg til ein eigen jobb i `trivy.yml`:
+Legg til en egen jobb i `trivy.yml`:
 
 ```yaml
   generate-sbom:
@@ -160,7 +144,7 @@ Ein SBOM (Software Bill of Materials) dokumenterer alle komponentar og avhengigh
     steps:
       - uses: actions/checkout@v4
 
-      - name: Generer SBOM for heile repoet
+      - name: Generer SBOM for hele repoet
         uses: aquasecurity/trivy-action@0.31.0
         with:
           scan-type: fs
@@ -176,40 +160,25 @@ Ein SBOM (Software Bill of Materials) dokumenterer alle komponentar og avhengigh
           retention-days: 90
 ```
 
-For å gjere SBOM tilgjengeleg ved release kan det leggast ved som release-asset via `softprops/action-gh-release`.
+For å gjøre SBOM tilgjengelig ved release kan den legges ved som release-asset via `softprops/action-gh-release`.
 
 ---
 
-## Prioritering og innsats
+## Prioritering
 
-| Tiltak | Innsats | Verdi | Prioritet |
-|--------|---------|-------|-----------|
-| Dependabot | Svært lav — éin YAML-fil | Høg — automatiske CVE-PR-ar | 1 |
-| CodeQL | Lav — éin workflow-fil | Medium — skannar Python-kode | 2 |
-| Trivy requirements-skanning | Lav — éin workflow-fil | Høg — skannar avhengigheiter | 3 |
-| SBOM-generering | Lav (reusar Trivy) | Medium — transparens og compliance | 4 |
-| Trivy image-skanning | Medium — krev image-eksport | Høg — fanger OS-sårbarheiter | 5 |
+| Tiltak | Innsats | Verdi | Anbefalt rekkefølge |
+|--------|---------|-------|---------------------|
+| Dependabot `.yml` | Svært lav — én YAML-fil | Høy — automatiske CVE-PR-er | 1 |
+| Trivy requirements-skanning | Lav — én workflow-fil | Høy — dekker filer Dependabot ikke fanger | 2 |
+| SBOM med Trivy | Lav (gjenbruker Trivy) | Medium — mer komplett enn Dependency Graph-SBOM | 3 |
 
 ---
 
-## Kva som ikkje er inkludert
+## Ikke inkludert
 
 | Verktøy | Årsak |
 |---------|-------|
-| OSSF Scorecard | Relevant, men gir mest verdi for biblioteksrepo som andre prosjekt bygger på |
-| GitHub secret scanning push protection | Allereie aktivt automatisk på public repos |
-| Snyk | Overlapper med Dependabot + Trivy, krev ekstern konto |
-| Dockerfile-lint (Hadolint) | Nyttig, men lav sikkerheitsverdi — meir kodekvalitet |
-
----
-
-## Samandrag
-
-```
-Tiltak 1: .github/dependabot.yml         → PR-ar ved CVE-ar i pip og Actions
-Tiltak 2: .github/workflows/codeql.yml   → statisk analyse av Python
-Tiltak 3: .github/workflows/trivy.yml    → CVE-skanning av requirements.txt
-Tiltak 4: SBOM-jobb i trivy.yml          → SPDX-fil som workflow-artefakt
-```
-
-Tiltak 1–4 saman utgjer ein fullverdig basissikkerheit med minimal driftsoverhead. Alle funn samlast i **Security**-fana i GitHub utan ekstra verktøy.
+| Trivy image-skanning | Krever at build-jobber eksporterer images videre — øker kompleksiteten, vurder separat |
+| OSSF Scorecard | Mest relevant for biblioteksrepo som andre prosjekter bygger på |
+| Snyk | Overlapper med Dependabot + Trivy, krever ekstern konto |
+| Hadolint (Dockerfile-lint) | Lav sikkerhetsverdi — mer kodekvalitet enn sikkerhet |

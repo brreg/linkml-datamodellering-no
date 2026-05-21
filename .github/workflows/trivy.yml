@@ -1,0 +1,71 @@
+name: Trivy
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: '0 6 * * 2'   # tirsdag morgen
+
+jobs:
+
+  scan-requirements:
+    runs-on: ubuntu-22.04
+    permissions:
+      security-events: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Skann mcp-linkml-validator/requirements.txt
+        uses: aquasecurity/trivy-action@0.31.0
+        with:
+          scan-type: fs
+          scan-ref: src/mcp-linkml-validator/requirements.txt
+          format: sarif
+          output: trivy-validator.sarif
+
+      - name: Skann mcp-linkml-generator/requirements.txt
+        uses: aquasecurity/trivy-action@0.31.0
+        with:
+          scan-type: fs
+          scan-ref: src/mcp-linkml-generator/requirements.txt
+          format: sarif
+          output: trivy-generator.sarif
+
+      - name: Skann assets/requirements-python-test.txt
+        uses: aquasecurity/trivy-action@0.31.0
+        with:
+          scan-type: fs
+          scan-ref: src/assets/containers/requirements-python-test.txt
+          format: sarif
+          output: trivy-assets.sarif
+
+      - name: Last opp resultater til GitHub Security
+        uses: github/codeql-action/upload-sarif@v3
+        if: always()
+        with:
+          sarif_file: .
+          category: trivy-requirements
+
+  generate-sbom:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generer SBOM for hele repoet
+        uses: aquasecurity/trivy-action@0.31.0
+        with:
+          scan-type: fs
+          scan-ref: .
+          format: spdx-json
+          output: sbom.spdx.json
+
+      - name: Last opp SBOM som artefakt
+        uses: actions/upload-artifact@v4
+        with:
+          name: sbom
+          path: sbom.spdx.json
+          retention-days: 90
