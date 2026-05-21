@@ -51,7 +51,7 @@ Etterpå: force-push til remote (`git push --force-with-lease`). Alle som har kl
 
 Noverande verdi:
 ```yaml
-site_url: https://example.org/linkml-w3c-no-profiles
+site_url: https://example.org/linkml-datamodellering-no
 ```
 
 Bør oppdaterast til faktisk GitHub Pages-URL:

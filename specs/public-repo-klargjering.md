@@ -10,7 +10,7 @@ Repoet inneheld inga hardkoda nøklar, passord eller ekte persondata. Eksempelda
 
 ### 1. Gjer `.mcp.json` portabel med dynamisk repo-rot
 
-**Problem:** `.mcp.json` inneheld absolutte lokale stiar (`/mnt/c/dev/github/linkml-w3c-no-profiles/...`) som er maskin-spesifikke for utviklaren og ikkje fungerer for andre.
+**Problem:** `.mcp.json` inneheld absolutte lokale stiar (`/mnt/c/dev/github/linkml-datamodellering-no/...`) som er maskin-spesifikke for utviklaren og ikkje fungerer for andre.
 
 **Løysing:** Bytt `command` frå `podman` til `bash -c` og la skallet finne repo-rota dynamisk med `git rev-parse --show-toplevel`. Krev null konfigurasjon frå brukaren og fungerer uansett kor repoet er sjekka ut.
 

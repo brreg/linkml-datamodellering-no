@@ -1,10 +1,10 @@
-# linkml-w3c-no-profiles
+# linkml-datamodellering-no
 
 Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](https://linkml.io/).
 
 > LinkML er et åpen-kildekode modelleringsspråk der du skriver skjema i YAML som beskriver datastrukturen din, og som du kan bruke til å generere skjema, data, diagram og dokumentasjon i andre formater ([LinkML generators](https://linkml.io/linkml/generators/index.html)).
 
-Dette [koderepositoryet](https://github.com/brreg/linkml-w3c-no-profiles) inneholder:
+Dette [koderepositoryet](https://github.com/brreg/linkml-datamodellering-no) inneholder:
 * LinkML modeller for Norske W3C-applikasjonsprofiler og offentlige domenemodeller for gjenbruk.
 * mcp-linkml-generator og mcp-linkml-validator for å generere og validere LinkML-skjemaer (med mulighet for KI-integrasjon).
 * LinkML-generatorer for å produsere artefakter i andre formater fra LinkML-skjemaer.
@@ -47,7 +47,7 @@ make domene && make publish && make docs-serve   # → http://localhost:8000
 
 Nye skjemaer under `src/linkml/<domene>/<modellnavn>/` blir oppdaget automatisk.
 
-For full veiledning om modellering, validering og importer: se [Ny domenemodell](https://brreg.github.io/linkml-w3c-no-profiles/ny-domenemodell/) i dokumentasjonsportalen.
+For full veiledning om modellering, validering og importer: se [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/) i dokumentasjonsportalen.
 
 Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.md) for alle tilgjengelige kommandoer.
 
@@ -97,7 +97,7 @@ Skjemaer ligger under `src/linkml/<domene>/<skjema>/`.
 ## Katalogstruktur
 
 ```
-linkml-w3c-no-profiles/
+linkml-datamodellering-no/
 ├──src/
 │   ├── assets/                 # Containere, skript og maler
 │   ├── linkml/                 # LinkML-skjemaer

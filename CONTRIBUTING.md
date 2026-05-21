@@ -1,4 +1,4 @@
-# Bidra til linkml-w3c-no-profiles
+# Bidra til linkml-datamodellering-no
 
 ## Føresetnader
 
@@ -11,8 +11,8 @@ Ingen avhengigheiter skal installerast lokalt — alt køyrer som containere.
 ## Kjem i gang
 
 ```bash
-git clone git@github.com:brreg/linkml-w3c-no-profiles.git
-cd linkml-w3c-no-profiles
+git clone git@github.com:brreg/linkml-datamodellering-no.git
+cd linkml-datamodellering-no
 
 # Bygg container-images (éin gong)
 make linkml-build-docker

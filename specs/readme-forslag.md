@@ -30,7 +30,7 @@ I tillegg er det utdatert innhald (`json2linkml-*`-kommandoar, `mcp-json2linkml/
 ## Foreslått README.md
 
 ```markdown
-# linkml-w3c-no-profiles
+# linkml-datamodellering-no
 
 Norske W3C-applikasjonsprofiler og domenemodeller i [LinkML-format](https://linkml.io/).
 

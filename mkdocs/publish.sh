@@ -239,7 +239,7 @@ log_step "Steg 4: Generer mkdocs.yml"
 cat << 'STATIC'
 site_name:  Norske W3C-profiler og offentlige domenemodeller i LinkML-format
 site_description: Norske W3C-applikasjonsprofiler og offentlige domenemodeller i LinkML-format
-site_url: https://brreg.github.io/linkml-w3c-no-profiles
+site_url: https://brreg.github.io/linkml-datamodellering-no
 docs_dir: docs
 
 theme:
