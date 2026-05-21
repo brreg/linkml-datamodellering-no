@@ -3,7 +3,13 @@ name: Validate
 on:
   push:
     branches: [main]
+    paths:
+      - 'src/linkml/**'
+      - 'src/mcp-linkml-validator/**'
   pull_request:
+    paths:
+      - 'src/linkml/**'
+      - 'src/mcp-linkml-validator/**'
 
 jobs:
 
