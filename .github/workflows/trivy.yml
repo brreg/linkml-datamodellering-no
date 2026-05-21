@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Skann mcp-linkml-validator/requirements.txt
-        uses: aquasecurity/trivy-action@0.31.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: fs
           scan-ref: src/mcp-linkml-validator/requirements.txt
@@ -26,7 +26,7 @@ jobs:
           output: trivy-validator.sarif
 
       - name: Skann mcp-linkml-generator/requirements.txt
-        uses: aquasecurity/trivy-action@0.31.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: fs
           scan-ref: src/mcp-linkml-generator/requirements.txt
@@ -34,7 +34,7 @@ jobs:
           output: trivy-generator.sarif
 
       - name: Skann assets/requirements-python-test.txt
-        uses: aquasecurity/trivy-action@0.31.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: fs
           scan-ref: src/assets/containers/requirements-python-test.txt
@@ -56,7 +56,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Generer SBOM for hele repoet
-        uses: aquasecurity/trivy-action@0.31.0
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: fs
           scan-ref: .
