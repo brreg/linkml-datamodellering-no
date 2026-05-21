@@ -10,8 +10,6 @@ _Tidsperiode ressursen dekkar._
 
 
 URI: [dct:temporal](http://purl.org/dc/terms/temporal)
-Alias: tidsrom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: tidsrom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
@@ -88,7 +86,6 @@ name: tidsrom
 description: Tidsperiode ressursen dekkar.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:temporal
-alias: tidsrom
 domain_of:
 - Datasett
 - Datasettserie

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/samlinger](https://data.norge.no/linkml/ngr-eiendom/samlinger)
-Alias: samlinger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: samlinger
 name: samlinger
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: samlinger
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/fasteEiendommer](https://data.norge.no/linkml/ngr-eiendom/fasteEiendommer)
-Alias: fasteEiendommer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: fasteEiendommer
 name: fasteEiendommer
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: fasteEiendommer
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

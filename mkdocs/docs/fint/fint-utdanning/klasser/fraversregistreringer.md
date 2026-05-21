@@ -10,8 +10,6 @@ _Fråværsregistreringar knytt til elevforholdet._
 
 
 URI: [utd:fraversregistreringer](https://schema.fintlabs.no/utdanning/fraversregistreringer)
-Alias: fraversregistreringer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Fråværsregistreringar knytt til elevforholdet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fraversregistreringer
-alias: fraversregistreringer
 domain_of:
 - Elevforhold
 range: Elevfravar

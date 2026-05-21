@@ -10,8 +10,6 @@ _Deltenester som inngår i denne tenesta._
 
 
 URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
-Alias: har_del
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_del
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Deltenester som inngår i denne tenesta.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: dct:hasPart
-alias: har_del
 domain_of:
 - OffentligTjeneste
 - Tjeneste

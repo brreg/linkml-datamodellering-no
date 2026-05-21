@@ -10,8 +10,6 @@ _Ekstern referanse, t.d. fakturanummer._
 
 
 URI: [okn:referanse](https://schema.fintlabs.no/okonomi/referanse)
-Alias: referanse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Ekstern referanse, t.d. fakturanummer.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:referanse
-alias: referanse
 domain_of:
 - Bilag
 range: string

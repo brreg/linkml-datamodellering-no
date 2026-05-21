@@ -14,10 +14,9 @@ dct:MediaTypeOrExtent a sh:NodeShape ;
     rdfs:comment "Ein medietype eller filformat (dct:MediaTypeOrExtent)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
+            sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass dct:MediaTypeOrExtent .
@@ -26,7 +25,12 @@ xkos:Correspondence a sh:NodeShape ;
     rdfs:comment "Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class xkos:ConceptAssociation ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class xkos:ConceptAssociation ;
             sh:description "Kategorisamanlikningar som inngår i klassifikasjonssamanlikninga (xkos:madeOf)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -38,13 +42,6 @@ xkos:Correspondence a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path xkos:compares ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
         [ sh:class foaf:Agent ;
             sh:description "Organisasjon som er ansvarleg utgjevar (dct:publisher)." ;
             sh:maxCount 1 ;
@@ -72,24 +69,22 @@ dct:PeriodOfTime a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:date ;
+            sh:description "Startdato for tidsromet (dct:startDate)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:startDate ],
+        [ sh:datatype xsd:date ;
             sh:description "Sluttdato for tidsromet (dct:endDate)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path dct:endDate ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
+            sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Startdato for tidsromet (dct:startDate)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:startDate ] ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass dct:PeriodOfTime .
 
 xkos:ConceptAssociation a sh:NodeShape ;
@@ -108,11 +103,9 @@ xkos:ConceptAssociation a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path xkos:targetConcept ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
+            sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass xkos:ConceptAssociation .
@@ -121,11 +114,9 @@ foaf:Agent a sh:NodeShape ;
     rdfs:comment "Ein organisasjon eller aktør (foaf:Agent)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
+            sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass foaf:Agent .
@@ -134,36 +125,34 @@ xkos:ClassificationLevel a sh:NodeShape ;
     rdfs:comment "Eit nivå i ein klassifikasjon (xkos:ClassificationLevel)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class xkos:ClassificationLevel ;
-            sh:description "Underordna klassifikasjonsnivå (xkos:nextLevel)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path xkos:nextLevel ],
-        [ sh:datatype xsd:nonNegativeInteger ;
+    sh:property [ sh:datatype xsd:nonNegativeInteger ;
             sh:description "Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path xkos:depth ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:title ],
+        [ sh:class xkos:ClassificationLevel ;
+            sh:description "Underordna klassifikasjonsnivå (xkos:nextLevel)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path xkos:nextLevel ],
         [ sh:class skos:Concept ;
             sh:description "Kategoriar som høyrer til dette nivået (skos:member)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path skos:member ] ;
+            sh:path skos:member ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:title ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass xkos:ClassificationLevel .
 
 skos:ConceptScheme a sh:NodeShape ;
@@ -172,9 +161,85 @@ skos:ConceptScheme a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ),
         ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:anyURI ;
-            sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path dct:modified ],
+        [ sh:datatype dct:language ;
+            sh:description "Språk brukt i ressursen (dct:language)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path dct:language ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path dct:issued ],
+        [ sh:class skos:ConceptScheme ;
+            sh:description "Klassifikasjonar som er samanlikna (xkos:compares)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path xkos:compares ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:identifier ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:title ],
+        [ sh:class skos:Concept ;
+            sh:description "Fagleg tema klassifikasjonen dekkjer (dct:subject)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dct:subject ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:description ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path dcat:keyword ],
+        [ sh:class xkos:ClassificationLevel ;
+            sh:description "Toppnivå i klassifikasjonen (xkos:levels)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path xkos:levels ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:class dct:PeriodOfTime ;
+            sh:description "Tidsrom klassifikasjonen er gyldig for (dct:temporal)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path dct:temporal ],
+        [ sh:datatype xsd:nonNegativeInteger ;
+            sh:description "Antal nivå i klassifikasjonen (xkos:numberOfLevels)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path xkos:numberOfLevels ],
+        [ sh:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+            sh:nodeKind sh:IRI ;
             sh:order 11 ;
             sh:path foaf:homepage ],
         [ sh:class foaf:Agent ;
@@ -184,93 +249,12 @@ skos:ConceptScheme a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path dct:publisher ],
-        [ sh:datatype xsd:nonNegativeInteger ;
-            sh:description "Antal nivå i klassifikasjonen (xkos:numberOfLevels)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path xkos:numberOfLevels ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype dct:language ;
-            sh:description "Språk brukt i ressursen (dct:language)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path dct:language ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato for siste endring av ressursen (dct:modified)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path dct:modified ],
-        [ sh:class skos:ConceptScheme ;
-            sh:description "Klassifikasjonar som er samanlikna (xkos:compares)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path xkos:compares ],
         [ sh:datatype xsd:string ;
             sh:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
-            sh:path owl:versionInfo ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class dct:PeriodOfTime ;
-            sh:description "Tidsrom klassifikasjonen er gyldig for (dct:temporal)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path dct:temporal ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:description ],
-        [ sh:class xkos:ClassificationLevel ;
-            sh:description "Toppnivå i klassifikasjonen (xkos:levels)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path xkos:levels ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path dcat:keyword ],
-        [ sh:class skos:Concept ;
-            sh:description "Fagleg tema klassifikasjonen dekkjer (dct:subject)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dct:subject ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato ressursen vart første gong publisert (dct:issued)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path dct:issued ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path dct:title ] ;
+            sh:path owl:versionInfo ] ;
     sh:targetClass skos:ConceptScheme .
 
 skos:Concept a sh:NodeShape ;
@@ -279,7 +263,24 @@ skos:Concept a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ),
         ( rdf:type ) ;
-    sh:property [ sh:datatype rdf:langString ;
+    sh:property [ sh:class skos:Concept ;
+            sh:description "Breid ekvivalens til kategori i annan klassifikasjon (uneskos:broadMatch)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path uneskos:broadMatch ],
+        [ sh:class skos:ConceptScheme ;
+            sh:description "Klassifikasjonen kategorien tilhøyrer (skos:inScheme)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path skos:inScheme ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
             sh:description "Fritekstnotat om kategorien (skos:note)." ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
@@ -289,59 +290,38 @@ skos:Concept a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path xkos:exclusivelyBroadMatch ],
-        [ sh:class xkos:ClassificationLevel ;
-            sh:description "Klassifikasjonsnivå kategorien høyrer til (xkos:belongsTo)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path xkos:belongsTo ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype xsd:anyURI ;
-            sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Underordna kategori (skos:narrower)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path skos:narrower ],
         [ sh:class skos:Concept ;
             sh:description "Overordna kategori (skos:broader)." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path skos:broader ],
         [ sh:class skos:Concept ;
+            sh:description "Underordna kategori (skos:narrower)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path skos:narrower ],
+        [ sh:class skos:Concept ;
             sh:description "Klar ikkje-ekvivalens til kategori i annan klassifikasjon (xkos:disjointMatch)." ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path xkos:disjointMatch ],
-        [ sh:class skos:ConceptScheme ;
-            sh:description "Klassifikasjonen kategorien tilhøyrer (skos:inScheme)." ;
+        [ sh:class xkos:ClassificationLevel ;
+            sh:description "Klassifikasjonsnivå kategorien høyrer til (xkos:belongsTo)." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path skos:inScheme ],
+            sh:order 3 ;
+            sh:path xkos:belongsTo ],
         [ sh:datatype rdf:langString ;
             sh:description "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path skos:prefLabel ],
-        [ sh:class skos:Concept ;
-            sh:description "Breid ekvivalens til kategori i annan klassifikasjon (uneskos:broadMatch)." ;
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path uneskos:broadMatch ] ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
     sh:targetClass skos:Concept .
 
 

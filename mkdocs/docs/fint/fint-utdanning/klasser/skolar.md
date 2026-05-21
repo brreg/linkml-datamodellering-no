@@ -10,8 +10,6 @@ _Alle skular i containeren._
 
 
 URI: [utd:skolar](https://schema.fintlabs.no/utdanning/skolar)
-Alias: skolar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle skular i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skolar
-alias: skolar
 domain_of:
 - UtdanningContainer
 range: Skole

@@ -10,8 +10,6 @@ _Alle karakterverdiar i containeren._
 
 
 URI: [utd:karakterverdiar](https://schema.fintlabs.no/utdanning/karakterverdiar)
-Alias: karakterverdiar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle karakterverdiar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:karakterverdiar
-alias: karakterverdiar
 domain_of:
 - UtdanningContainer
 range: Karakterverdi

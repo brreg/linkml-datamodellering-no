@@ -312,7 +312,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Valuta
     domain_of:
     - Begrep
@@ -375,7 +374,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:bokstavkode
-    alias: bokstavkode
     owner: Valuta
     domain_of:
     - Valuta
@@ -389,7 +387,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:valutaNavn
-    alias: valuta_navn
     owner: Valuta
     domain_of:
     - Valuta
@@ -402,7 +399,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:nummerkode
-    alias: nummerkode
     owner: Valuta
     domain_of:
     - Valuta

@@ -10,8 +10,6 @@ _Status for ressursen frå eit kontrollert vokabular (adms:status)._
 
 
 URI: [adms:status](http://www.w3.org/ns/adms#status)
-Alias: status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -23,8 +21,8 @@ Alias: status
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
-| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: status
 description: Status for ressursen frå eit kontrollert vokabular (adms:status).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: adms:status
-alias: status
 domain_of:
 - Distribusjon
 - Datatjeneste

@@ -496,11 +496,11 @@ attributes:
     rank: 1000
     slot_uri: dct:identifier
     identifier: true
-    alias: id
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata
     range: uriorcurie
+    required: true
   ressursIdentifikator:
     name: ressursIdentifikator
     description: 'Global og persistent identifikator for ressursen (FAIR F1). Skal
@@ -512,7 +512,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fair-metadata
     rank: 1000
     slot_uri: dct:identifier
-    alias: ressursIdentifikator
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata
@@ -529,7 +528,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fair-metadata
     rank: 1000
     slot_uri: dct:type
-    alias: ressurstype
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata
@@ -543,7 +541,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fair-metadata
     rank: 1000
     slot_uri: dct:subject
-    alias: beskrivelse
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata
@@ -556,7 +553,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fair-metadata
     rank: 1000
     slot_uri: fair:tilgangsmetadata
-    alias: tilgangsmetadata
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata
@@ -570,7 +566,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fair-metadata
     rank: 1000
     slot_uri: fair:gjenbruksmetadata
-    alias: gjenbruksmetadata
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata
@@ -584,7 +579,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fair-metadata
     rank: 1000
     slot_uri: fair:proveniensmetadata
-    alias: proveniensmetadata
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata
@@ -598,7 +592,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fair-metadata
     rank: 1000
     slot_uri: fair:katalogregistrering
-    alias: katalogregistrering
     owner: FAIRMetadata
     domain_of:
     - FAIRMetadata

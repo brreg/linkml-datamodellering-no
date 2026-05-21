@@ -322,7 +322,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:forretningsadresse
-    alias: forretningsadresse
     owner: Enhet
     domain_of:
     - Enhet
@@ -335,7 +334,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnavn
-    alias: organisasjonsnavn
     owner: Enhet
     domain_of:
     - Enhet
@@ -348,7 +346,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:organisasjonsnummer
-    alias: organisasjonsnummer
     owner: Enhet
     domain_of:
     - Enhet
@@ -361,7 +358,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kontaktinformasjon
-    alias: kontaktinformasjon
     owner: Enhet
     domain_of:
     - Aktoer
@@ -377,7 +373,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:postadresse
-    alias: postadresse
     owner: Enhet
     domain_of:
     - Aktoer

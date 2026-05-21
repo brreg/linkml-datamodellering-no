@@ -10,8 +10,6 @@ _Klassifikasjonssystem._
 
 
 URI: [ark:klassifikasjonssystem](https://schema.fintlabs.no/arkiv/klassifikasjonssystem)
-Alias: klassifikasjonssystem
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Klassifikasjonssystem.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:klassifikasjonssystem
-alias: klassifikasjonssystem
 domain_of:
 - ArkivContainer
 - Arkivdel

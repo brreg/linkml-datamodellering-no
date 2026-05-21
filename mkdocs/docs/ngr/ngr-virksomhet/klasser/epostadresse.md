@@ -10,8 +10,6 @@ _E-postadresse for verksemda._
 
 
 URI: [ngrv:epostadresse](https://data.norge.no/vocabulary/ngr-virksomhet#epostadresse)
-Alias: epostadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: E-postadresse for verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:epostadresse
-alias: epostadresse
 domain_of:
 - Kontaktinformasjon
 range: string

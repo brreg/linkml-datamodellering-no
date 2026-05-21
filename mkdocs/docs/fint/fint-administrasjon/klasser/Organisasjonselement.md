@@ -10,8 +10,6 @@ _Organisasjonselement ressursen er knytt til._
 
 
 URI: [adm:organisasjonselement](https://schema.fintlabs.no/administrasjon/organisasjonselement)
-Alias: organisasjonselement
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: organisasjonselement
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 | [Ansvar](ansvar.md) | Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller in... |  yes  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Organisasjonselement ressursen er knytt til.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:organisasjonselement
-alias: organisasjonselement
 domain_of:
 - AdministrasjonContainer
 - Ansvar

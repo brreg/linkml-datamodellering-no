@@ -10,8 +10,6 @@ _Sluttdato for tidsromet (dct:endDate)._
 
 
 URI: [dct:endDate](http://purl.org/dc/terms/endDate)
-Alias: tidsrom_slutt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sluttdato for tidsromet (dct:endDate).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: dct:endDate
-alias: tidsrom_slutt
 domain_of:
 - Tidsrom
 range: date

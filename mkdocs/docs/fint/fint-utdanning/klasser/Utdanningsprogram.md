@@ -10,8 +10,6 @@ _Utdanningsprogram._
 
 
 URI: [utd:utdanningsprogram](https://schema.fintlabs.no/utdanning/utdanningsprogram)
-Alias: utdanningsprogram
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: utdanningsprogram
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Utdanningsprogram.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:utdanningsprogram
-alias: utdanningsprogram
 domain_of:
 - UtdanningContainer
 - Skole

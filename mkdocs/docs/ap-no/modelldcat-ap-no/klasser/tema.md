@@ -10,8 +10,6 @@ _Tema frå eit kontrollert vokabular (dcat:theme)._
 
 
 URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
-Alias: tema
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: tema
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Tema frå eit kontrollert vokabular (dcat:theme).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dcat:theme
-alias: tema
 domain_of:
 - Modelkatalog
 - Informasjonsmodell

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/oppholdsadresser](https://data.norge.no/linkml/ngr-person/oppholdsadresser)
-Alias: oppholdsadresser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: oppholdsadresser
 name: oppholdsadresser
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: oppholdsadresser
 owner: PersonContainer
 domain_of:
 - PersonContainer

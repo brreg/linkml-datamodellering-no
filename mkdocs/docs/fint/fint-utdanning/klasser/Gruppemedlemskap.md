@@ -10,8 +10,6 @@ _Gruppemedlemskap._
 
 
 URI: [utd:gruppemedlemskap](https://schema.fintlabs.no/utdanning/gruppemedlemskap)
-Alias: gruppemedlemskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: gruppemedlemskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
-| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 | [Kontaktlaerergruppe](kontaktlaerergruppe.md) | Gruppe av elevar med felles kontaktlærar |  yes  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
+| [Undervisningsgruppe](undervisningsgruppe.md) | Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag |  yes  |
 | [Eksamensgruppe](eksamensgruppe.md) | Ei gruppe elevar som avlegg same eksamen |  yes  |
 
 
@@ -90,7 +88,6 @@ description: Gruppemedlemskap.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:gruppemedlemskap
-alias: gruppemedlemskap
 domain_of:
 - Kontaktlaerergruppe
 - Programomrade

@@ -10,8 +10,6 @@ _Tema frå eit kontrollert vokabular._
 
 
 URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
-Alias: tema
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: tema
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -88,7 +86,6 @@ name: tema
 description: Tema frå eit kontrollert vokabular.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:theme
-alias: tema
 domain_of:
 - Datasett
 - Datasettserie

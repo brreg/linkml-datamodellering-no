@@ -10,8 +10,6 @@ _Transaksjonen posteringa tilhøyrer._
 
 
 URI: [okn:transaksjon](https://schema.fintlabs.no/okonomi/transaksjon)
-Alias: transaksjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Transaksjonen posteringa tilhøyrer.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:transaksjon
-alias: transaksjon
 domain_of:
 - Postering
 range: Transaksjon

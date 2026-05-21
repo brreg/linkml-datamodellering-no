@@ -10,8 +10,6 @@ _Karakterverdi._
 
 
 URI: [utd:karakterverdi](https://schema.fintlabs.no/utdanning/karakterverdi)
-Alias: karakterverdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Karakterverdi.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:karakterverdi
-alias: karakterverdi
 domain_of:
 - Karakterhistorie
 range: Karakterverdi

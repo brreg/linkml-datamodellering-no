@@ -10,8 +10,6 @@ _Einingsgruppemelemskap._
 
 
 URI: [res:enhetsgruppemedlemskap](https://schema.fintlabs.no/ressurs/enhetsgruppemedlemskap)
-Alias: enhetsgruppemedlemskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: enhetsgruppemedlemskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Einingsgruppemelemskap.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:enhetsgruppemedlemskap
-alias: enhetsgruppemedlemskap
 domain_of:
 - DigitalEnhet
 - Enhetsgruppe

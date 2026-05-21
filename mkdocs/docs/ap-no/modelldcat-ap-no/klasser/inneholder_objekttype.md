@@ -10,8 +10,6 @@ _Objekttype som attributten inneheld (modelldcatno:containsObjectType)._
 
 
 URI: [modelldcatno:containsObjectType](https://data.norge.no/vocabulary/modelldcatno#containsObjectType)
-Alias: inneholder_objekttype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Objekttype som attributten inneheld (modelldcatno:containsObjectTyp
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:containsObjectType
-alias: inneholder_objekttype
 domain_of:
 - Attributt
 range: Objekttype

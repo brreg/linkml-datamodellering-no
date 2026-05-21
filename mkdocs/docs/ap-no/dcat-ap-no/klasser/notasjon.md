@@ -10,8 +10,6 @@ _Notasjon/kode for identifikatoren._
 
 
 URI: [skos:notation](http://www.w3.org/2004/02/skos/core#notation)
-Alias: notasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Notasjon/kode for identifikatoren.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: skos:notation
-alias: notasjon
 domain_of:
 - Identifikator
 range: string

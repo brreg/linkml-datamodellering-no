@@ -10,8 +10,6 @@ _Festenummerdelen av matrikkelnummeret (berre for festegrunn)._
 
 
 URI: [ngre:bestarAvFestenummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvFestenummer)
-Alias: bestar_av_festenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Festenummerdelen av matrikkelnummeret (berre for festegrunn).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvFestenummer
-alias: bestar_av_festenummer
 domain_of:
 - Matrikkelnummer
 range: Festenummer

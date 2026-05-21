@@ -5,8 +5,6 @@
 
 
 URI: [okn:valutaer](https://schema.fintlabs.no/okonomi/valutaer)
-Alias: valutaer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: valutaer
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:valutaer
-alias: valutaer
 domain_of:
 - OkonomiContainer
 range: OkonomiValuta

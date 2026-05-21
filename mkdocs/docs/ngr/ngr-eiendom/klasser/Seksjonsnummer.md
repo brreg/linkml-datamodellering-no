@@ -228,7 +228,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Seksjonsnummer
     domain_of:
     - FastEiendom
@@ -271,7 +270,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:seksjonsnummer
-    alias: seksjonsnummer_verdi
     owner: Seksjonsnummer
     domain_of:
     - Seksjonsnummer

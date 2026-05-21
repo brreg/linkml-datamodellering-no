@@ -333,7 +333,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: Verge
     domain_of:
     - Person
@@ -375,7 +374,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:erAvTypePerson
-    alias: er_av_type_person
     owner: Verge
     domain_of:
     - ForeldreansvarForelder
@@ -394,7 +392,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:vergetype
-    alias: vergetype
     owner: Verge
     domain_of:
     - Verge
@@ -407,7 +404,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:embete
-    alias: embete
     owner: Verge
     domain_of:
     - Verge

@@ -10,8 +10,6 @@ _Maks totalt tal på siffer (xsd:totalDigits)._
 
 
 URI: [xsd:totalDigits](http://www.w3.org/2001/XMLSchema#totalDigits)
-Alias: totalt_sifre
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Maks totalt tal på siffer (xsd:totalDigits).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:totalDigits
-alias: totalt_sifre
 domain_of:
 - EnkelType
 range: NonNegativeInteger

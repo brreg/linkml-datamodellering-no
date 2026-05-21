@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/andreMatrikkelenheter](https://data.norge.no/linkml/ngr-eiendom/andreMatrikkelenheter)
-Alias: andreMatrikkelenheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: andreMatrikkelenheter
 name: andreMatrikkelenheter
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: andreMatrikkelenheter
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

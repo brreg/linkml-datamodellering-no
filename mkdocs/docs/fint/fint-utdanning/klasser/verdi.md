@@ -10,8 +10,6 @@ _Karakterverdiar i skalaen._
 
 
 URI: [utd:verdi](https://schema.fintlabs.no/utdanning/verdi)
-Alias: verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Karakterverdiar i skalaen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:verdi
-alias: verdi
 domain_of:
 - Karakterskala
 range: Karakterverdi

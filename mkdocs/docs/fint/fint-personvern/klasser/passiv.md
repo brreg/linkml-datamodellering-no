@@ -10,8 +10,6 @@ _Angir at koden er passiv og ikkje kan veljast._
 
 
 URI: [fint:passiv](https://schema.fintlabs.no/passiv)
-Alias: passiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,14 +20,14 @@ Alias: passiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  yes  |
 | [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Behandlingsgrunnlag](behandlingsgrunnlag.md) | Rettsleg grunnlag for behandling av personopplysningar |  yes  |
 | [Personopplysning](personopplysning.md) | Opplysningar og vurderingar som kan knytast til enkeltpersonar |  yes  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -92,7 +90,6 @@ name: passiv
 description: Angir at koden er passiv og ikkje kan veljast.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:passiv
-alias: passiv
 domain_of:
 - Begrep
 - Behandlingsgrunnlag

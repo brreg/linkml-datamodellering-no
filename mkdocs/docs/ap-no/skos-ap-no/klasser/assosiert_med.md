@@ -10,8 +10,6 @@ _Omgrep dette omgrepet er assosiert med (skos:related)._
 
 
 URI: [skos:related](http://www.w3.org/2004/02/skos/core#related)
-Alias: assosiert_med
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep dette omgrepet er assosiert med (skos:related).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:related
-alias: assosiert_med
 domain_of:
 - Begrep
 range: Begrep

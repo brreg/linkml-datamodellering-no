@@ -10,8 +10,6 @@ _Kontering av lønn._
 
 
 URI: [adm:kontostreng](https://schema.fintlabs.no/administrasjon/kontostreng)
-Alias: kontostreng
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: kontostreng
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
-| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
 | [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  yes  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
 
 
 
@@ -89,7 +87,6 @@ description: Kontering av lønn.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:kontostreng
-alias: kontostreng
 domain_of:
 - Lonn
 range: Kontostreng

@@ -10,8 +10,6 @@ _Alle timar i containeren._
 
 
 URI: [utd:timar](https://schema.fintlabs.no/utdanning/timar)
-Alias: timar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle timar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:timar
-alias: timar
 domain_of:
 - UtdanningContainer
 range: Time

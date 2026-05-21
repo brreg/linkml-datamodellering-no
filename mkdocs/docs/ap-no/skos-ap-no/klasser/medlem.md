@@ -10,8 +10,6 @@ _Omgrep som er medlem av samlinga (skos:member)._
 
 
 URI: [skos:member](http://www.w3.org/2004/02/skos/core#member)
-Alias: medlem
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep som er medlem av samlinga (skos:member).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:member
-alias: medlem
 domain_of:
 - Samling
 range: Begrep

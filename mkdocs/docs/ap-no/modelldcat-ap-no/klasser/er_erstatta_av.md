@@ -10,8 +10,6 @@ _Informasjonsmodell som erstattar denne (dct:isReplacedBy)._
 
 
 URI: [dct:isReplacedBy](http://purl.org/dc/terms/isReplacedBy)
-Alias: er_erstatta_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Informasjonsmodell som erstattar denne (dct:isReplacedBy).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:isReplacedBy
-alias: er_erstatta_av
 domain_of:
 - Informasjonsmodell
 range: Informasjonsmodell

@@ -10,8 +10,6 @@ _Innhald i varselet._
 
 
 URI: [utd:tekst](https://schema.fintlabs.no/utdanning/tekst)
-Alias: tekst
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Innhald i varselet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:tekst
-alias: tekst
 domain_of:
 - Varsel
 range: string

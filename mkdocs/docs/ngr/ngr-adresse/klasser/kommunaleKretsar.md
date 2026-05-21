@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/kommunaleKretsar](https://data.norge.no/linkml/ngr-adresse/kommunaleKretsar)
-Alias: kommunaleKretsar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: kommunaleKretsar
 name: kommunaleKretsar
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: kommunaleKretsar
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

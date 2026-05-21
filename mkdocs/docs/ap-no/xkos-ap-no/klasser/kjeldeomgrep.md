@@ -10,8 +10,6 @@ _Kjeldeomgrep i ein kategorisamanlikning (xkos:sourceConcept)._
 
 
 URI: [xkos:sourceConcept](http://rdf-vocabulary.ddialliance.org/xkos#sourceConcept)
-Alias: kjeldeomgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kjeldeomgrep i ein kategorisamanlikning (xkos:sourceConcept).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:sourceConcept
-alias: kjeldeomgrep
 domain_of:
 - Kategorisamanlikning
 range: Kategori

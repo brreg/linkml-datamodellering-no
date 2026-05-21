@@ -5,8 +5,6 @@
 
 
 URI: [ark:dokumenttypar](https://schema.fintlabs.no/arkiv/dokumenttypar)
-Alias: dokumenttypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: dokumenttypar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumenttypar
-alias: dokumenttypar
 domain_of:
 - ArkivContainer
 range: DokumentType

@@ -10,8 +10,6 @@ _Dato for eksamenen._
 
 
 URI: [utd:eksamensdato](https://schema.fintlabs.no/utdanning/eksamensdato)
-Alias: eksamensdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato for eksamenen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:eksamensdato
-alias: eksamensdato
 domain_of:
 - Eksamensgruppe
 range: datetime

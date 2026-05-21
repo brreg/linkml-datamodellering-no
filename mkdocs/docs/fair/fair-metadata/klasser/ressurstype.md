@@ -12,8 +12,6 @@ __
 
 
 URI: [dct:type](http://purl.org/dc/terms/type)
-Alias: ressurstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ description: 'Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ei
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:type
-alias: ressurstype
 domain_of:
 - FAIRMetadata
 range: uriorcurie

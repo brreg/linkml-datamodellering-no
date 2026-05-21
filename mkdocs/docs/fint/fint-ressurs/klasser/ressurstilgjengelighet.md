@@ -10,8 +10,6 @@ _Angir kva organisasjonseining og kor mange ressursar som skal tilordnast._
 
 
 URI: [res:ressurstilgjengelighet](https://schema.fintlabs.no/ressurs/ressurstilgjengelighet)
-Alias: ressurstilgjengelighet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Angir kva organisasjonseining og kor mange ressursar som skal tilor
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:ressurstilgjengelighet
-alias: ressurstilgjengelighet
 domain_of:
 - Applikasjonsressurs
 range: Applikasjonsressurstilgjengelighet

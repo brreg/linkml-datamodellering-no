@@ -10,8 +10,6 @@ _Kode/notasjon for kodeelementet (skos:notation)._
 
 
 URI: [skos:notation](http://www.w3.org/2004/02/skos/core#notation)
-Alias: notasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kode/notasjon for kodeelementet (skos:notation).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: skos:notation
-alias: notasjon
 domain_of:
 - Kodeelement
 range: string

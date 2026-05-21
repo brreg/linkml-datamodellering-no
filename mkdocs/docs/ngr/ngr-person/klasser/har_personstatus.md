@@ -10,8 +10,6 @@ _Status for personen i Folkeregisteret._
 
 
 URI: [ngrp:harPersonstatus](https://data.norge.no/vocabulary/ngr-person#harPersonstatus)
-Alias: har_personstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status for personen i Folkeregisteret.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harPersonstatus
-alias: har_personstatus
 domain_of:
 - Person
 range: Personstatus

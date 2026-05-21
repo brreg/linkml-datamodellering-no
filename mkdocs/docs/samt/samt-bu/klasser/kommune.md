@@ -220,7 +220,6 @@ attributes:
     - skos:notation
     rank: 1000
     slot_uri: dcat:identifier
-    alias: kommunenummer
     owner: Kommune
     domain_of:
     - Kommune
@@ -230,7 +229,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kommune
     domain_of:
     - KatalogisertRessurs
@@ -267,7 +265,6 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: navn
     owner: Kommune
     domain_of:
     - Skole

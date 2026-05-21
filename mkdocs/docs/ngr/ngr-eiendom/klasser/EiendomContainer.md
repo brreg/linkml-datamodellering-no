@@ -854,7 +854,6 @@ attributes:
     - EiendomContainer
     range: FastEiendom
     multivalued: true
-    inlined: true
     inlined_as_list: true
   samlinger:
     name: samlinger
@@ -864,7 +863,6 @@ attributes:
     - EiendomContainer
     range: SamletFastEiendom
     multivalued: true
-    inlined: true
     inlined_as_list: true
   borettslagsandeler:
     name: borettslagsandeler
@@ -874,7 +872,6 @@ attributes:
     - EiendomContainer
     range: Borettslagsandel
     multivalued: true
-    inlined: true
     inlined_as_list: true
   grunneiendommer:
     name: grunneiendommer
@@ -884,7 +881,6 @@ attributes:
     - EiendomContainer
     range: Grunneiendom
     multivalued: true
-    inlined: true
     inlined_as_list: true
   festegrunn:
     name: festegrunn
@@ -894,7 +890,6 @@ attributes:
     - EiendomContainer
     range: Festegrunn
     multivalued: true
-    inlined: true
     inlined_as_list: true
   jordsameier:
     name: jordsameier
@@ -904,7 +899,6 @@ attributes:
     - EiendomContainer
     range: Jordsameie
     multivalued: true
-    inlined: true
     inlined_as_list: true
   eierseksjoner:
     name: eierseksjoner
@@ -914,7 +908,6 @@ attributes:
     - EiendomContainer
     range: Eierseksjon
     multivalued: true
-    inlined: true
     inlined_as_list: true
   anleggseiendommer:
     name: anleggseiendommer
@@ -924,7 +917,6 @@ attributes:
     - EiendomContainer
     range: Anleggseiendom
     multivalued: true
-    inlined: true
     inlined_as_list: true
   andreMatrikkelenheter:
     name: andreMatrikkelenheter
@@ -934,7 +926,6 @@ attributes:
     - EiendomContainer
     range: AnnenMatrikkelenhet
     multivalued: true
-    inlined: true
     inlined_as_list: true
   matrikkelnumre:
     name: matrikkelnumre
@@ -944,7 +935,6 @@ attributes:
     - EiendomContainer
     range: Matrikkelnummer
     multivalued: true
-    inlined: true
     inlined_as_list: true
   bygninger:
     name: bygninger
@@ -954,7 +944,6 @@ attributes:
     - EiendomContainer
     range: Bygning
     multivalued: true
-    inlined: true
     inlined_as_list: true
   ytreInnganger:
     name: ytreInnganger
@@ -964,7 +953,6 @@ attributes:
     - EiendomContainer
     range: YtreInngang
     multivalued: true
-    inlined: true
     inlined_as_list: true
   bruksenheter:
     name: bruksenheter
@@ -974,7 +962,6 @@ attributes:
     - EiendomContainer
     range: Bruksenhet
     multivalued: true
-    inlined: true
     inlined_as_list: true
   etasjer:
     name: etasjer
@@ -984,7 +971,6 @@ attributes:
     - EiendomContainer
     range: Etasje
     multivalued: true
-    inlined: true
     inlined_as_list: true
   teiger:
     name: teiger
@@ -994,7 +980,6 @@ attributes:
     - EiendomContainer
     range: Teig
     multivalued: true
-    inlined: true
     inlined_as_list: true
   tinglystEierforhold:
     name: tinglystEierforhold
@@ -1004,7 +989,6 @@ attributes:
     - EiendomContainer
     range: TinglystEierforhold
     multivalued: true
-    inlined: true
     inlined_as_list: true
   ikkeTinglystEierforhold:
     name: ikkeTinglystEierforhold
@@ -1014,7 +998,6 @@ attributes:
     - EiendomContainer
     range: IkkeTinglystEierforhold
     multivalued: true
-    inlined: true
     inlined_as_list: true
   hjemmelEiendomsrett:
     name: hjemmelEiendomsrett
@@ -1024,7 +1007,6 @@ attributes:
     - EiendomContainer
     range: HjemmelTilEiendomsrett
     multivalued: true
-    inlined: true
     inlined_as_list: true
   hjemmelFesterett:
     name: hjemmelFesterett
@@ -1034,7 +1016,6 @@ attributes:
     - EiendomContainer
     range: HjemmelTilFesterett
     multivalued: true
-    inlined: true
     inlined_as_list: true
   hjemmelFramfesterett:
     name: hjemmelFramfesterett
@@ -1044,7 +1025,6 @@ attributes:
     - EiendomContainer
     range: HjemmelTilFramfesterett
     multivalued: true
-    inlined: true
     inlined_as_list: true
   andeler:
     name: andeler
@@ -1054,7 +1034,6 @@ attributes:
     - EiendomContainer
     range: Andel
     multivalued: true
-    inlined: true
     inlined_as_list: true
   rettighetshavere:
     name: rettighetshavere
@@ -1064,7 +1043,6 @@ attributes:
     - EiendomContainer
     range: Rettighetshaver
     multivalued: true
-    inlined: true
     inlined_as_list: true
   tinglystHeftelser:
     name: tinglystHeftelser
@@ -1074,7 +1052,6 @@ attributes:
     - EiendomContainer
     range: TinglystHeftelse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   rettigheter:
     name: rettigheter
@@ -1084,7 +1061,6 @@ attributes:
     - EiendomContainer
     range: RettighetForAaBenytteEiendom
     multivalued: true
-    inlined: true
     inlined_as_list: true
   borettslag:
     name: borettslag
@@ -1094,7 +1070,6 @@ attributes:
     - EiendomContainer
     range: Borettslag
     multivalued: true
-    inlined: true
     inlined_as_list: true
   representasjonspunkt:
     name: representasjonspunkt
@@ -1104,7 +1079,6 @@ attributes:
     - EiendomContainer
     range: Representasjonspunkt
     multivalued: true
-    inlined: true
     inlined_as_list: true
 tree_root: true
 
@@ -1125,287 +1099,287 @@ attributes:
     name: fasteEiendommer
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: fasteEiendommer
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: FastEiendom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   samlinger:
     name: samlinger
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: samlinger
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: SamletFastEiendom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   borettslagsandeler:
     name: borettslagsandeler
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: borettslagsandeler
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Borettslagsandel
     multivalued: true
+    inlined: true
     inlined_as_list: true
   grunneiendommer:
     name: grunneiendommer
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: grunneiendommer
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Grunneiendom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   festegrunn:
     name: festegrunn
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: festegrunn
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Festegrunn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   jordsameier:
     name: jordsameier
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: jordsameier
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Jordsameie
     multivalued: true
+    inlined: true
     inlined_as_list: true
   eierseksjoner:
     name: eierseksjoner
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: eierseksjoner
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Eierseksjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   anleggseiendommer:
     name: anleggseiendommer
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: anleggseiendommer
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Anleggseiendom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   andreMatrikkelenheter:
     name: andreMatrikkelenheter
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: andreMatrikkelenheter
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: AnnenMatrikkelenhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   matrikkelnumre:
     name: matrikkelnumre
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: matrikkelnumre
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Matrikkelnummer
     multivalued: true
+    inlined: true
     inlined_as_list: true
   bygninger:
     name: bygninger
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: bygninger
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Bygning
     multivalued: true
+    inlined: true
     inlined_as_list: true
   ytreInnganger:
     name: ytreInnganger
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: ytreInnganger
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: YtreInngang
     multivalued: true
+    inlined: true
     inlined_as_list: true
   bruksenheter:
     name: bruksenheter
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: bruksenheter
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Bruksenhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   etasjer:
     name: etasjer
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: etasjer
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Etasje
     multivalued: true
+    inlined: true
     inlined_as_list: true
   teiger:
     name: teiger
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: teiger
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Teig
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tinglystEierforhold:
     name: tinglystEierforhold
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: tinglystEierforhold
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: TinglystEierforhold
     multivalued: true
+    inlined: true
     inlined_as_list: true
   ikkeTinglystEierforhold:
     name: ikkeTinglystEierforhold
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: ikkeTinglystEierforhold
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: IkkeTinglystEierforhold
     multivalued: true
+    inlined: true
     inlined_as_list: true
   hjemmelEiendomsrett:
     name: hjemmelEiendomsrett
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: hjemmelEiendomsrett
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: HjemmelTilEiendomsrett
     multivalued: true
+    inlined: true
     inlined_as_list: true
   hjemmelFesterett:
     name: hjemmelFesterett
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: hjemmelFesterett
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: HjemmelTilFesterett
     multivalued: true
+    inlined: true
     inlined_as_list: true
   hjemmelFramfesterett:
     name: hjemmelFramfesterett
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: hjemmelFramfesterett
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: HjemmelTilFramfesterett
     multivalued: true
+    inlined: true
     inlined_as_list: true
   andeler:
     name: andeler
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: andeler
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Andel
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rettighetshavere:
     name: rettighetshavere
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: rettighetshavere
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Rettighetshaver
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tinglystHeftelser:
     name: tinglystHeftelser
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: tinglystHeftelser
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: TinglystHeftelse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rettigheter:
     name: rettigheter
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: rettigheter
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: RettighetForAaBenytteEiendom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   borettslag:
     name: borettslag
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: borettslag
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Borettslag
     multivalued: true
+    inlined: true
     inlined_as_list: true
   representasjonspunkt:
     name: representasjonspunkt
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
-    alias: representasjonspunkt
     owner: EiendomContainer
     domain_of:
     - EiendomContainer
     range: Representasjonspunkt
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

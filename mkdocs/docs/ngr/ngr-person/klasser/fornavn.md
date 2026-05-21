@@ -10,8 +10,6 @@ _Fornamn(et/a) til personen._
 
 
 URI: [ngrp:fornavn](https://data.norge.no/vocabulary/ngr-person#fornavn)
-Alias: fornavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fornamn(et/a) til personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:fornavn
-alias: fornavn
 domain_of:
 - Personnavn
 range: string

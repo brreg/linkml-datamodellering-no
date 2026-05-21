@@ -24,10 +24,7 @@
                 },
                 "id": {
                     "description": "Persistent URI-identifikator for metadata-posten (FAIR F1).",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "katalogregistrering": {
                     "anyOf": [
@@ -236,7 +233,7 @@
     "$id": "https://data.norge.no/linkml/fair-metadata",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "title": "fair-metadata",
     "type": "object",
     "version": "1.0.0"

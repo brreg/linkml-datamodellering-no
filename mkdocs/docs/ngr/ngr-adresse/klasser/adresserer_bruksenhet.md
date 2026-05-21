@@ -10,8 +10,6 @@ _Brukseining denne adressa er tildelt (forvaltar: Matrikkelen)._
 
 
 URI: [ngr:adressererBruksenhet](https://data.norge.no/vocabulary/ngr-adresse#adressererBruksenhet)
-Alias: adresserer_bruksenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: 'Brukseining denne adressa er tildelt (forvaltar: Matrikkelen).'
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:adressererBruksenhet
-alias: adresserer_bruksenhet
 domain_of:
 - OffisiellAdresse
 range: Bruksenhet

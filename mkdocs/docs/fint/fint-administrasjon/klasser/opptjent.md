@@ -10,8 +10,6 @@ _Periode der lønn vart opptent._
 
 
 URI: [adm:opptjent](https://schema.fintlabs.no/administrasjon/opptjent)
-Alias: opptjent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: opptjent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
-| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
-| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
 | [Lonn](lonn.md) | Informasjon om lønn for eit arbeidsforhold (abstrakt base) |  yes  |
+| [Fastlonn](fastlonn.md) | Informasjon om fast lønnsbeordring |  no  |
+| [Fasttillegg](fasttillegg.md) | Faste tillegg til utbetaling |  no  |
+| [Variabellonn](variabellonn.md) | Informasjon om variabel lønn |  no  |
 
 
 
@@ -89,7 +87,6 @@ description: Periode der lønn vart opptent.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:opptjent
-alias: opptjent
 domain_of:
 - Lonn
 range: Periode

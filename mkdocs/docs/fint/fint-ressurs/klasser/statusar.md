@@ -5,8 +5,6 @@
 
 
 URI: [res:statusar](https://schema.fintlabs.no/ressurs/statusar)
-Alias: statusar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: statusar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:statusar
-alias: statusar
 domain_of:
 - RessursContainer
 range: Status

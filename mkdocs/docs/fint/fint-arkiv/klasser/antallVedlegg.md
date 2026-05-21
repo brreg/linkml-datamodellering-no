@@ -10,8 +10,6 @@ _Antal fysiske vedlegg til eit fysisk hoveddokument._
 
 
 URI: [ark:antallVedlegg](https://schema.fintlabs.no/arkiv/antallVedlegg)
-Alias: antallVedlegg
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Antal fysiske vedlegg til eit fysisk hoveddokument.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:antallVedlegg
-alias: antallVedlegg
 domain_of:
 - Journalpost
 range: integer

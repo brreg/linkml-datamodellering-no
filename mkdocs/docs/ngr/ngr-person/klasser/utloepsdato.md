@@ -10,8 +10,6 @@ _Datoen dokumentet går ut på dato._
 
 
 URI: [ngrp:utloepsdato](https://data.norge.no/vocabulary/ngr-person#utloepsdato)
-Alias: utloepsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen dokumentet går ut på dato.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:utloepsdato
-alias: utloepsdato
 domain_of:
 - Identifikasjonsdokument
 range: date

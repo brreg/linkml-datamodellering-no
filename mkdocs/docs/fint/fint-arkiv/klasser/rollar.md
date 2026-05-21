@@ -5,8 +5,6 @@
 
 
 URI: [ark:rollar](https://schema.fintlabs.no/arkiv/rollar)
-Alias: rollar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: rollar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:rollar
-alias: rollar
 domain_of:
 - ArkivContainer
 range: Rolle

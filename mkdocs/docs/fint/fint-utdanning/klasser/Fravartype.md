@@ -10,8 +10,6 @@ _Type fråvær._
 
 
 URI: [utd:fravartype](https://schema.fintlabs.no/utdanning/fravartype)
-Alias: fravartype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type fråvær.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fravartype
-alias: fravartype
 domain_of:
 - Fraversregistrering
 range: Fravartype

@@ -325,7 +325,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Tekstdel
     domain_of:
     - Mediatype
@@ -360,7 +359,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     rank: 1000
     slot_uri: rdfs:value
-    alias: har_verdi_tekstdel
     owner: Tekstdel
     domain_of:
     - Tekstdel
@@ -373,7 +371,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
-    alias: format
     owner: Tekstdel
     domain_of:
     - Distribusjon
@@ -387,7 +384,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Tekstdel
     domain_of:
     - RegulativRessurs

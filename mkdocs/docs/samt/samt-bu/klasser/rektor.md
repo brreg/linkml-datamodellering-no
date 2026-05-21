@@ -205,7 +205,6 @@ attributes:
     - org:headOf
     rank: 1000
     domain: Rektor
-    alias: enhetsleder_for
     owner: Rektor
     domain_of:
     - Rektor
@@ -215,7 +214,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Rektor
     domain_of:
     - KatalogisertRessurs
@@ -252,7 +250,6 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: navn
     owner: Rektor
     domain_of:
     - Skole

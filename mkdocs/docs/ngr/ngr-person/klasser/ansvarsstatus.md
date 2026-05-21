@@ -10,8 +10,6 @@ _Status for foreldreansvaret (t.d. FELLES, ALENE)._
 
 
 URI: [ngrp:ansvarsstatus](https://data.norge.no/vocabulary/ngr-person#ansvarsstatus)
-Alias: ansvarsstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status for foreldreansvaret (t.d. FELLES, ALENE).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:ansvarsstatus
-alias: ansvarsstatus
 domain_of:
 - ForeldreansvarForelder
 range: string

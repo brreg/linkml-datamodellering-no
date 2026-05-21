@@ -10,8 +10,6 @@ _Dato ressursen blei oppretta (FAIR R1.2)._
 
 
 URI: [dct:created](http://purl.org/dc/terms/created)
-Alias: opprettingsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato ressursen blei oppretta (FAIR R1.2).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:created
-alias: opprettingsdato
 domain_of:
 - Proveniensmetadata
 range: date

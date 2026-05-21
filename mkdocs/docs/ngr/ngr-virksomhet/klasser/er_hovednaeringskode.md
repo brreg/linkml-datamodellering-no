@@ -10,8 +10,6 @@ _Om dette er hovudnæringskoden til verksemda._
 
 
 URI: [ngrv:erHovednaeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#erHovednaeringskode)
-Alias: er_hovednaeringskode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Om dette er hovudnæringskoden til verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:erHovednaeringskode
-alias: er_hovednaeringskode
 domain_of:
 - Naeringskode
 range: boolean

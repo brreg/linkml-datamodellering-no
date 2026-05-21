@@ -10,8 +10,6 @@ _Hovudnamn for ressursen._
 
 
 URI: [fint:navn](https://schema.fintlabs.no/navn)
-Alias: navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,30 +20,30 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |  yes  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [JournalStatus](journalstatus.md) | Status til journalposten |  yes  |
-| [Format](format.md) | Dokumentets filformat |  yes  |
-| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  yes  |
-| [DokumentType](dokumenttype.md) | Type dokument |  yes  |
-| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  yes  |
-| [PartRolle](partrolle.md) | Rolla til ein part |  yes  |
-| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  yes  |
-| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
-| [Merknadstype](merknadstype.md) | Namn på type merknad |  yes  |
-| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  yes  |
-| [Rolle](rolle.md) | Rolla til ein arkivressurs |  yes  |
-| [Saksstatus](saksstatus.md) | Status til saksmappa |  yes  |
-| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  yes  |
-| [Klassifikasjonstype](klassifikasjonstype.md) | Type klassifikasjonssystem |  yes  |
 | [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
 | [AdministrativEnhet](administrativenhet.md) | Administrativ eining med ansvar for saksbehandling |  yes  |
-| [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
+| [DokumentStatus](dokumentstatus.md) | Status til eit dokument |  yes  |
+| [DokumentType](dokumenttype.md) | Type dokument |  yes  |
+| [Format](format.md) | Dokumentets filformat |  yes  |
 | [JournalpostType](journalposttype.md) | Namn på type journalpost |  yes  |
+| [JournalStatus](journalstatus.md) | Status til journalposten |  yes  |
+| [Klassifikasjonstype](klassifikasjonstype.md) | Type klassifikasjonssystem |  yes  |
+| [KorrespondansepartType](korrespondanseparttype.md) | Type korrespondansepart |  yes  |
+| [Merknadstype](merknadstype.md) | Namn på type merknad |  yes  |
+| [PartRolle](partrolle.md) | Rolla til ein part |  yes  |
+| [Rolle](rolle.md) | Rolla til ein arkivressurs |  yes  |
+| [Saksmappetype](saksmappetype.md) | Type saksmappe — differensierer innhald og behandlingsrutine |  yes  |
+| [Saksstatus](saksstatus.md) | Status til saksmappa |  yes  |
+| [Skjermingshjemmel](skjermingshjemmel.md) | Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen |  yes  |
+| [Tilgangsgruppe](tilgangsgruppe.md) | Tilgangsgruppe for intern skjerming av innhald |  yes  |
+| [Tilgangsrestriksjon](tilgangsrestriksjon.md) | Angiving av at dokumenta ikkje er offentleg tilgjengelege |  yes  |
+| [TilknyttetRegistreringSom](tilknyttetregistreringsom.md) | Kva rolle dokumentet har i høve registreringa (t |  yes  |
+| [Variantformat](variantformat.md) | Angiving av kva variant eit dokument førekjem i |  yes  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
+| [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -108,7 +106,6 @@ name: navn
 description: Hovudnamn for ressursen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:navn
-alias: navn
 domain_of:
 - Begrep
 - AdministrativEnhet

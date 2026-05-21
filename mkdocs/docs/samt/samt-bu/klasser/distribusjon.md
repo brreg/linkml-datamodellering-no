@@ -951,7 +951,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Distribusjon
     domain_of:
     - KatalogisertRessurs
@@ -990,7 +989,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:accessURL
-    alias: tilgangs_url
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1004,7 +1002,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Distribusjon
     domain_of:
     - RegulativRessurs
@@ -1024,7 +1021,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
-    alias: format
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1038,7 +1034,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:license
-    alias: lisens
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1052,7 +1047,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
-    alias: status
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1066,7 +1060,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcatap:availability
-    alias: tilgjengelighet
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1077,7 +1070,6 @@ attributes:
     description: Lenke til dokumentasjon om ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: foaf:page
-    alias: dokumentasjon
     owner: Distribusjon
     domain_of:
     - Gebyr
@@ -1091,7 +1083,6 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1105,7 +1096,6 @@ attributes:
     description: Filstørrelse i bytes.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:byteSize
-    alias: filstorrelse
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1115,7 +1105,6 @@ attributes:
     description: Lovgjeving som gjeld for ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcatap:applicableLegislation
-    alias: gjeldende_lovgivning
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1130,7 +1119,6 @@ attributes:
     description: Standard ressursen er i samsvar med.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:conformsTo
-    alias: i_samsvar_med
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1144,7 +1132,6 @@ attributes:
     description: Komprimeringsformat brukt i distribusjonen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:compressFormat
-    alias: komprimeringsformat
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1154,7 +1141,6 @@ attributes:
     description: Medietype i samsvar med IANA-registeret.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:mediaType
-    alias: medietype
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1164,7 +1150,6 @@ attributes:
     description: Direkte nedlastingslenke for distribusjonsfila.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:downloadURL
-    alias: nedlastningslenke
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1175,7 +1160,6 @@ attributes:
     description: Pakkeformat brukt i distribusjonen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:packageFormat
-    alias: pakkeformat
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1189,7 +1173,6 @@ attributes:
     description: ODRL-policy som regulerer bruk av ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: odrl:hasPolicy
-    alias: policy
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1199,7 +1182,6 @@ attributes:
     description: Rettar knytte til ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:rights
-    alias: rettigheter
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1211,7 +1193,6 @@ attributes:
     description: Sjekksum for distribusjonsfila.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: spdx:checksum
-    alias: sjekksum
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1221,7 +1202,6 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Distribusjon
     domain_of:
     - RegulativRessurs
@@ -1237,7 +1217,6 @@ attributes:
     description: Minste tidsoppløysing i datasettet.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:temporalResolution
-    alias: tidsopplosning
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1247,7 +1226,6 @@ attributes:
     description: Datatjeneste som gjev tilgang til distribusjonen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:accessService
-    alias: tilgangstjeneste
     owner: Distribusjon
     domain_of:
     - Distribusjon
@@ -1258,7 +1236,6 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Distribusjon
     domain_of:
     - RegulativRessurs
@@ -1276,7 +1253,6 @@ attributes:
     description: Dato ressursen vart første gong publisert (dct:issued).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
-    alias: utgivelsesdato
     owner: Distribusjon
     domain_of:
     - Distribusjon

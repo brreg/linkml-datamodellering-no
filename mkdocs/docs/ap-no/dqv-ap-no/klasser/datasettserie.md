@@ -713,7 +713,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Datasettserie
     domain_of:
     - RegulativRessurs
@@ -734,7 +733,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:contactPoint
-    alias: kontaktpunkt
     owner: Datasettserie
     domain_of:
     - Datasett
@@ -751,7 +749,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:theme
-    alias: tema
     owner: Datasettserie
     domain_of:
     - Datasett
@@ -767,7 +764,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Datasettserie
     domain_of:
     - RegulativRessurs
@@ -788,7 +784,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:publisher
-    alias: utgiver
     owner: Datasettserie
     domain_of:
     - Datasett
@@ -804,7 +799,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
-    alias: dekningsomraade
     owner: Datasettserie
     domain_of:
     - Datasett
@@ -819,7 +813,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcatap:applicableLegislation
-    alias: gjeldende_lovgivning
     owner: Datasettserie
     domain_of:
     - Distribusjon
@@ -836,7 +829,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:last
-    alias: siste
     owner: Datasettserie
     domain_of:
     - Datasettserie
@@ -848,7 +840,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:temporal
-    alias: tidsrom
     owner: Datasettserie
     domain_of:
     - Datasett
@@ -861,7 +852,6 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Datasettserie
     domain_of:
     - Distribusjon
@@ -879,7 +869,6 @@ attributes:
     description: Oppdateringsfrekvens for datasettet.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:accrualPeriodicity
-    alias: frekvens
     owner: Datasettserie
     domain_of:
     - Datasettserie
@@ -889,7 +878,6 @@ attributes:
     description: Første datasett i ei datasettserie.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:first
-    alias: forste
     owner: Datasettserie
     domain_of:
     - Datasettserie
@@ -899,7 +887,6 @@ attributes:
     description: Dato ressursen vart første gong publisert (dct:issued).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
-    alias: utgivelsesdato
     owner: Datasettserie
     domain_of:
     - Distribusjon
@@ -913,7 +900,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Datasettserie
     domain_of:
     - Mediatype

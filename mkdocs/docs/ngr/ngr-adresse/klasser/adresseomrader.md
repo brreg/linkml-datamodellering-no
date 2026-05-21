@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/adresseomrader](https://data.norge.no/linkml/ngr-adresse/adresseomrader)
-Alias: adresseomrader
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: adresseomrader
 name: adresseomrader
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: adresseomrader
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

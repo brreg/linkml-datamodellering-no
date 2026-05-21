@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/kirkesokn](https://data.norge.no/linkml/ngr-adresse/kirkesokn)
-Alias: kirkesokn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: kirkesokn
 name: kirkesokn
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: kirkesokn
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

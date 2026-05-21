@@ -10,8 +10,6 @@ _Alle eksamensgrupper i containeren._
 
 
 URI: [utd:eksamensgrupper](https://schema.fintlabs.no/utdanning/eksamensgrupper)
-Alias: eksamensgrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle eksamensgrupper i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:eksamensgrupper
-alias: eksamensgrupper
 domain_of:
 - UtdanningContainer
 range: Eksamensgruppe

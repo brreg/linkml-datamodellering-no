@@ -10,8 +10,6 @@ _Alle kontaktpersonar i containeren._
 
 
 URI: [adm:kontaktpersonar](https://schema.fintlabs.no/administrasjon/kontaktpersonar)
-Alias: kontaktpersonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle kontaktpersonar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:kontaktpersonar
-alias: kontaktpersonar
 domain_of:
 - AdministrasjonContainer
 range: Kontaktperson

@@ -10,8 +10,6 @@ _Tekstdel for kvalitetsmerknad._
 
 
 URI: [samtbuskole:tekstdeler](https://example.no/ontology/skole#tekstdeler)
-Alias: tekstdeler
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: tekstdeler
 description: Tekstdel for kvalitetsmerknad.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: tekstdeler
 domain_of:
 - Containerklasse
 range: Tekstdel

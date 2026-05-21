@@ -10,8 +10,6 @@ _Angir om fråværet vert ført på vitnemålet._
 
 
 URI: [utd:forersPaaVitnemaal](https://schema.fintlabs.no/utdanning/forersPaaVitnemaal)
-Alias: forersPaaVitnemaal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om fråværet vert ført på vitnemålet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:forersPaaVitnemaal
-alias: forersPaaVitnemaal
 domain_of:
 - Fraversregistrering
 range: boolean

@@ -10,8 +10,6 @@ _Kildesystemets identifikator for arkivressursen._
 
 
 URI: [ark:kildesystemId](https://schema.fintlabs.no/arkiv/kildesystemId)
-Alias: kildesystemId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kildesystemets identifikator for arkivressursen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:kildesystemId
-alias: kildesystemId
 domain_of:
 - Arkivressurs
 range: Identifikator

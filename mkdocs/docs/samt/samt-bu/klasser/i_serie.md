@@ -10,8 +10,6 @@ _Datasettserie dette datasettet er ein del av._
 
 
 URI: [dcat:inSeries](http://www.w3.org/ns/dcat#inSeries)
-Alias: i_serie
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: i_serie
 description: Datasettserie dette datasettet er ein del av.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:inSeries
-alias: i_serie
 domain_of:
 - Datasett
 range: Datasettserie

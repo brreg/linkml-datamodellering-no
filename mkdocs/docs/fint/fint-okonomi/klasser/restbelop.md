@@ -10,8 +10,6 @@ _Gjenståande beløp å betale, i øre._
 
 
 URI: [okn:restbelop](https://schema.fintlabs.no/okonomi/restbelop)
-Alias: restbelop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Gjenståande beløp å betale, i øre.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:restbelop
-alias: restbelop
 domain_of:
 - Faktura
 range: integer

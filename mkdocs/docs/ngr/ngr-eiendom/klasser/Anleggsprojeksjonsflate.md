@@ -181,7 +181,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Anleggsprojeksjonsflate
     domain_of:
     - FastEiendom

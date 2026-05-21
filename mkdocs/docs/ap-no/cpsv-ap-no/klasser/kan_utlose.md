@@ -10,8 +10,6 @@ _Offentlege tenester hendinga kan utløyse._
 
 
 URI: [cpsvno:mayTrigger](https://data.norge.no/vocabulary/cpsvno#mayTrigger)
-Alias: kan_utlose
-
 <!-- no inheritance hierarchy -->
 
 
@@ -23,8 +21,8 @@ Alias: kan_utlose
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Hendelse](hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |  yes  |
-| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
 | [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  no  |
+| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
 
 
 
@@ -89,7 +87,6 @@ description: Offentlege tenester hendinga kan utløyse.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:mayTrigger
-alias: kan_utlose
 domain_of:
 - Hendelse
 range: OffentligTjeneste

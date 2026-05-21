@@ -10,8 +10,6 @@ _Fødselsdato (kan vere ukjent for eldre registreringar)._
 
 
 URI: [ngrp:foedselsdato](https://data.norge.no/vocabulary/ngr-person#foedselsdato)
-Alias: foedselsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fødselsdato (kan vere ukjent for eldre registreringar).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:foedselsdato
-alias: foedselsdato
 domain_of:
 - Foedsel
 range: date

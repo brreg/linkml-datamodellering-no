@@ -10,8 +10,6 @@ _Underveisfagvurderingar._
 
 
 URI: [utd:underveisfagvurdering](https://schema.fintlabs.no/utdanning/underveisfagvurdering)
-Alias: underveisfagvurdering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: underveisfagvurdering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Underveisfagvurderingar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:underveisfagvurdering
-alias: underveisfagvurdering
 domain_of:
 - UtdanningContainer
 - Elevvurdering

@@ -467,7 +467,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Time
     domain_of:
     - Begrep
@@ -530,7 +529,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
-    alias: navn
     owner: Time
     domain_of:
     - Begrep
@@ -569,7 +567,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: Time
     domain_of:
     - Periode
@@ -588,7 +585,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:tidsrom
-    alias: tidsrom
     owner: Time
     domain_of:
     - Eksamen
@@ -603,7 +599,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:undervisningsforhold
-    alias: undervisningsforhold
     owner: Time
     domain_of:
     - UtdanningContainer
@@ -624,7 +619,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:rom
-    alias: rom
     owner: Time
     domain_of:
     - UtdanningContainer
@@ -640,7 +634,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:undervisningsgruppe
-    alias: undervisningsgruppe
     owner: Time
     domain_of:
     - Fag

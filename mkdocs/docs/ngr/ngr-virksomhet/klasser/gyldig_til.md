@@ -10,8 +10,6 @@ _Datoen tilstanden vart gyldig til._
 
 
 URI: [ngrv:gyldigTil](https://data.norge.no/vocabulary/ngr-virksomhet#gyldigTil)
-Alias: gyldig_til
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen tilstanden vart gyldig til.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:gyldigTil
-alias: gyldig_til
 domain_of:
 - Tilstand
 range: date

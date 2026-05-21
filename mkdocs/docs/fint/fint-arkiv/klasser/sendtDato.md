@@ -10,8 +10,6 @@ _Dato eit internt produsert dokument vart sendt/ekspedert._
 
 
 URI: [ark:sendtDato](https://schema.fintlabs.no/arkiv/sendtDato)
-Alias: sendtDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato eit internt produsert dokument vart sendt/ekspedert.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:sendtDato
-alias: sendtDato
 domain_of:
 - Journalpost
 range: datetime

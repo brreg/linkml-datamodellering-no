@@ -10,8 +10,6 @@ _Ansiennitet for personalressurs hos arbeidsgjevar._
 
 
 URI: [adm:ansiennitet](https://schema.fintlabs.no/administrasjon/ansiennitet)
-Alias: ansiennitet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Ansiennitet for personalressurs hos arbeidsgjevar.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:ansiennitet
-alias: ansiennitet
 domain_of:
 - Personalressurs
 range: date

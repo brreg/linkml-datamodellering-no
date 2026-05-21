@@ -10,8 +10,6 @@ _Telefonnummer._
 
 
 URI: [ngrp:telefonnummer](https://data.norge.no/vocabulary/ngr-person#telefonnummer)
-Alias: telefonnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Telefonnummer.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:telefonnummer
-alias: telefonnummer
 domain_of:
 - KontaktinformasjonDoedsbo
 range: string

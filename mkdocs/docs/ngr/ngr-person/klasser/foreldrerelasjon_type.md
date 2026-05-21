@@ -10,8 +10,6 @@ _Type foreldrerelasjon (MOR, FAR, MEDMOR o.l.)._
 
 
 URI: [ngrp:foreldrerelasjonType](https://data.norge.no/vocabulary/ngr-person#foreldrerelasjonType)
-Alias: foreldrerelasjon_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type foreldrerelasjon (MOR, FAR, MEDMOR o.l.).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:foreldrerelasjonType
-alias: foreldrerelasjon_type
 domain_of:
 - FamilierelasjonForelder
 range: string

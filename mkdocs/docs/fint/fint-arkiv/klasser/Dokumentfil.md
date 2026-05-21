@@ -326,7 +326,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Dokumentfil
     domain_of:
     - Begrep
@@ -372,7 +371,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:data
-    alias: data
     owner: Dokumentfil
     domain_of:
     - Dokumentfil
@@ -386,7 +384,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:filnavn
-    alias: filnavn
     owner: Dokumentfil
     domain_of:
     - Dokumentfil
@@ -399,7 +396,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:format
-    alias: format
     owner: Dokumentfil
     domain_of:
     - Dokumentfil

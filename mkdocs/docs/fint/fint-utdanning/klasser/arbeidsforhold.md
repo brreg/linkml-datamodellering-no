@@ -10,8 +10,6 @@ _Referanse til Arbeidsforhold i Administrasjon-domenet._
 
 
 URI: [utd:arbeidsforhold](https://schema.fintlabs.no/utdanning/arbeidsforhold)
-Alias: arbeidsforhold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Arbeidsforhold i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:arbeidsforhold
-alias: arbeidsforhold
 domain_of:
 - Undervisningsforhold
 range: uriorcurie

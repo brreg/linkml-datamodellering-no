@@ -474,7 +474,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Bygning
     domain_of:
     - FastEiendom
@@ -517,7 +516,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harBygningsnummer
-    alias: har_bygningsnummer
     owner: Bygning
     domain_of:
     - Bygning
@@ -531,7 +529,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harRepresentasjonspunkt
-    alias: har_representasjonspunkt
     owner: Bygning
     domain_of:
     - Bygning
@@ -545,7 +542,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:erKnyttetTilMatrikkelenhet
-    alias: er_knyttet_til_matrikkelenhet
     owner: Bygning
     domain_of:
     - Bygning
@@ -559,7 +555,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harYtreInngang
-    alias: har_ytre_inngang
     owner: Bygning
     domain_of:
     - Bygning
@@ -573,7 +568,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harBruksenhet
-    alias: har_bruksenhet
     owner: Bygning
     domain_of:
     - Bygning
@@ -587,7 +581,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harEtasje
-    alias: har_etasje
     owner: Bygning
     domain_of:
     - Bygning

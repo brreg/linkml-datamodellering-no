@@ -10,8 +10,6 @@ _Samling av aksjeeierrettigheiter._
 
 
 URI: [aksje:aksjeeierrettigheter](https://example.no/ontology/aksje#aksjeeierrettigheter)
-Alias: aksjeeierrettigheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av aksjeeierrettigheiter.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: aksjeeierrettigheter
 domain_of:
 - Containerklasse
 range: Aksjeeierrettighet

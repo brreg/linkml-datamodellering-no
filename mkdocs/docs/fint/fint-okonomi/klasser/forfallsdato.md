@@ -10,8 +10,6 @@ _Frist for betaling eller forfallsdato for transaksjon._
 
 
 URI: [okn:forfallsdato](https://schema.fintlabs.no/okonomi/forfallsdato)
-Alias: forfallsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: forfallsdato
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
 | [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Frist for betaling eller forfallsdato for transaksjon.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:forfallsdato
-alias: forfallsdato
 domain_of:
 - Faktura
 - Transaksjon

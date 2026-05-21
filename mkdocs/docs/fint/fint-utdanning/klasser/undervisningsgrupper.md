@@ -10,8 +10,6 @@ _Alle undervisningsgrupper i containeren._
 
 
 URI: [utd:undervisningsgrupper](https://schema.fintlabs.no/utdanning/undervisningsgrupper)
-Alias: undervisningsgrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle undervisningsgrupper i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:undervisningsgrupper
-alias: undervisningsgrupper
 domain_of:
 - UtdanningContainer
 range: Undervisningsgruppe

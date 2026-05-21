@@ -10,8 +10,6 @@ _Burettslagsandelen tilhøyrer dette burettslaget._
 
 
 URI: [ngre:tilhoererBorettslag](https://data.norge.no/vocabulary/ngr-eiendom#tilhoererBorettslag)
-Alias: tilhoerer_borettslag
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Burettslagsandelen tilhøyrer dette burettslaget.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:tilhoererBorettslag
-alias: tilhoerer_borettslag
 domain_of:
 - Borettslagsandel
 range: Borettslag

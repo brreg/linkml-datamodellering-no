@@ -266,6 +266,28 @@
             "title": "Foedselsnummer",
             "type": "object"
         },
+        "Folkeregisteridentifikator": {
+            "additionalProperties": false,
+            "description": "Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete underklassar er F\u00f8dselsnummer og D-nummer.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikatornummer": {
+                    "description": "Sj\u00f8lve identifikatoren som tekststreng (11 siffer for f\u00f8dselsnummer/D-nummer).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Folkeregisteridentifikator",
+            "type": "object"
+        },
         "ForeldreansvarBarn": {
             "additionalProperties": false,
             "description": "Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein person.",
@@ -311,6 +333,21 @@
                 "er_av_type_person"
             ],
             "title": "ForeldreansvarForelder",
+            "type": "object"
+        },
+        "GeografiskAdresse": {
+            "additionalProperties": false,
+            "description": "Abstrakt klasse for geografiske adresser. Tilh\u00f8yrer Domene adresse og forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeografiskAdresse",
             "type": "object"
         },
         "Identifikasjonsdokument": {
@@ -822,10 +859,7 @@
                 },
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "mottar_post_paa": {
                     "description": "Adressa personen mottar post p\u00e5.",
@@ -1544,7 +1578,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.",
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "properties": {
         "adressebeskyttelse": {
             "items": {

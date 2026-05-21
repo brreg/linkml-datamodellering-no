@@ -10,8 +10,6 @@ _Alle personalressurskategoriar i containeren._
 
 
 URI: [adm:personalressurskategoriar](https://schema.fintlabs.no/administrasjon/personalressurskategoriar)
-Alias: personalressurskategoriar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle personalressurskategoriar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:personalressurskategoriar
-alias: personalressurskategoriar
 domain_of:
 - AdministrasjonContainer
 range: Personalressurskategori

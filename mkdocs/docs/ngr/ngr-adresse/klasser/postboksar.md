@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/postboksar](https://data.norge.no/linkml/ngr-adresse/postboksar)
-Alias: postboksar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: postboksar
 name: postboksar
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: postboksar
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

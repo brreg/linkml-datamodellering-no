@@ -10,8 +10,6 @@ _Rettigheiter knytt til aksjeklassen._
 
 
 URI: [aksje:gjelder_aksjer_i_aksjeklasse](https://example.no/ontology/aksje#gjelder_aksjer_i_aksjeklasse)
-Alias: gjelder_aksjer_i_aksjeklasse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: gjelder_aksjer_i_aksjeklasse
 description: Rettigheiter knytt til aksjeklassen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: gjelder_aksjer_i_aksjeklasse
 domain_of:
 - Aksjeeierrettighet
 - Aksjepost

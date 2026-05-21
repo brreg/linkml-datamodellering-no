@@ -10,8 +10,6 @@ _Geografisk dekningsområde (dct:spatial)._
 
 
 URI: [dct:spatial](http://purl.org/dc/terms/spatial)
-Alias: dekningsomraade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: dekningsomraade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
-| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligOrganisasjon](offentligorganisasjon.md) | Ein offentleg organisasjon som er ansvarleg for ei teneste |  yes  |
+| [Katalog](katalog.md) | Ein katalog over offentlege tenester og hendingar |  yes  |
 
 
 
@@ -89,7 +87,6 @@ name: dekningsomraade
 description: Geografisk dekningsområde (dct:spatial).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:spatial
-alias: dekningsomraade
 domain_of:
 - OffentligTjeneste
 - Tjeneste

@@ -10,8 +10,6 @@ _Aksjeinnskot i selskapshending._
 
 
 URI: [aksje:kan_ha_aksjeinnskudd](https://example.no/ontology/aksje#kan_ha_aksjeinnskudd)
-Alias: kan_ha_aksjeinnskudd
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aksjeinnskot i selskapshending.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Selskapshendelse
-alias: kan_ha_aksjeinnskudd
 domain_of:
 - Selskapshendelse
 range: Aksjeinnskudd

@@ -10,8 +10,6 @@ _Samling av utdelingar._
 
 
 URI: [aksje:utdelinger](https://example.no/ontology/aksje#utdelinger)
-Alias: utdelinger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av utdelingar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: utdelinger
 domain_of:
 - Containerklasse
 range: Utdeling

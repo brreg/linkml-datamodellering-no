@@ -5,8 +5,6 @@
 
 
 URI: [res:applikasjonskategoriar](https://schema.fintlabs.no/ressurs/applikasjonskategoriar)
-Alias: applikasjonskategoriar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: applikasjonskategoriar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:applikasjonskategoriar
-alias: applikasjonskategoriar
 domain_of:
 - RessursContainer
 range: Applikasjonskategori

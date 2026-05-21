@@ -10,8 +10,6 @@ _Alle OT-einingar i containeren._
 
 
 URI: [utd:otEnheter](https://schema.fintlabs.no/utdanning/otEnheter)
-Alias: otEnheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle OT-einingar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:otEnheter
-alias: otEnheter
 domain_of:
 - UtdanningContainer
 range: OtEnhet

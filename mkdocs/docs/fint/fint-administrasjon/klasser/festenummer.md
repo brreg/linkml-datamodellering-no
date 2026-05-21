@@ -10,8 +10,6 @@ _Fortløpande nummerering av festar under gårdsnummer/bruksnummer._
 
 
 URI: [fint:festenummer](https://schema.fintlabs.no/festenummer)
-Alias: festenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: festenummer
 description: Fortløpande nummerering av festar under gårdsnummer/bruksnummer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:festenummer
-alias: festenummer
 domain_of:
 - Matrikkelnummer
 range: string

@@ -10,8 +10,6 @@ _Nettside for kontakt._
 
 
 URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
-Alias: har_kontaktside
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: har_kontaktside
 description: Nettside for kontakt.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: vcard:hasURL
-alias: har_kontaktside
 domain_of:
 - Kontaktopplysning
 range: string

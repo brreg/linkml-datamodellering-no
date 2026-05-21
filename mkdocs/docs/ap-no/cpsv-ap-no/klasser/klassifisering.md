@@ -10,8 +10,6 @@ _Klassifisering av dokumentasjonstypen._
 
 
 URI: [cv:evidenceTypeClassification](http://data.europa.eu/m8g/evidenceTypeClassification)
-Alias: klassifisering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Klassifisering av dokumentasjonstypen.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:evidenceTypeClassification
-alias: klassifisering
 domain_of:
 - Dokumentasjonstype
 range: Konsept

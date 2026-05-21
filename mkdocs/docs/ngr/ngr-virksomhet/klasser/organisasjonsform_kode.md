@@ -10,8 +10,6 @@ _Kode for organisasjonsform (t.d. AS, ENK, BA, NUF)._
 
 
 URI: [ngrv:organisasjonsformKode](https://data.norge.no/vocabulary/ngr-virksomhet#organisasjonsformKode)
-Alias: organisasjonsform_kode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kode for organisasjonsform (t.d. AS, ENK, BA, NUF).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:organisasjonsformKode
-alias: organisasjonsform_kode
 domain_of:
 - Organisasjonsform
 range: string

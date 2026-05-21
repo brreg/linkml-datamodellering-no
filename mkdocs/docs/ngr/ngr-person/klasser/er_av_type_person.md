@@ -10,8 +10,6 @@ _Personen som denne relasjonen peikar til._
 
 
 URI: [ngrp:erAvTypePerson](https://data.norge.no/vocabulary/ngr-person#erAvTypePerson)
-Alias: er_av_type_person
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,12 +20,12 @@ Alias: er_av_type_person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [ForeldreansvarBarn](foreldreansvarbarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |  yes  |
-| [Verge](verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
-| [FamilierelasjonEktefelle](familierelasjonektefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |  yes  |
-| [FamilierelasjonBarn](familierelasjonbarn.md) | Familierelasjon der den relaterte personen er barn |  yes  |
 | [ForeldreansvarForelder](foreldreansvarforelder.md) | Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret f... |  yes  |
+| [ForeldreansvarBarn](foreldreansvarbarn.md) | Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein... |  yes  |
 | [FamilierelasjonForelder](familierelasjonforelder.md) | Familierelasjon der den relaterte personen er forelder |  yes  |
+| [FamilierelasjonBarn](familierelasjonbarn.md) | Familierelasjon der den relaterte personen er barn |  yes  |
+| [FamilierelasjonEktefelle](familierelasjonektefelle.md) | Familierelasjon der den relaterte personen er ektefelle eller registrert part... |  yes  |
+| [Verge](verge.md) | Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta inte... |  yes  |
 
 
 
@@ -91,7 +89,6 @@ description: Personen som denne relasjonen peikar til.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:erAvTypePerson
-alias: er_av_type_person
 domain_of:
 - ForeldreansvarForelder
 - ForeldreansvarBarn

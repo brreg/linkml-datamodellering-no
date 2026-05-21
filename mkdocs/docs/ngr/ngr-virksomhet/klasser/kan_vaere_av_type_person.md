@@ -10,8 +10,6 @@ _Personen som er rolleinnehavar (frå Folkeregisteret)._
 
 
 URI: [ngrv:kanVaereAvTypePerson](https://data.norge.no/vocabulary/ngr-virksomhet#kanVaereAvTypePerson)
-Alias: kan_vaere_av_type_person
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Personen som er rolleinnehavar (frå Folkeregisteret).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:kanVaereAvTypePerson
-alias: kan_vaere_av_type_person
 domain_of:
 - Rolleinnehaver
 range: Person

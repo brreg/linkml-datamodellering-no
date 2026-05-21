@@ -10,8 +10,6 @@ _Unik identifikator i Folkeregisteret (fødselsnummer eller D-nummer)._
 
 
 URI: [ngrp:harFolkeregisteridentifikator](https://data.norge.no/vocabulary/ngr-person#harFolkeregisteridentifikator)
-Alias: har_folkeregisteridentifikator
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Unik identifikator i Folkeregisteret (fødselsnummer eller D-nummer
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harFolkeregisteridentifikator
-alias: har_folkeregisteridentifikator
 domain_of:
 - Person
 range: Folkeregisteridentifikator

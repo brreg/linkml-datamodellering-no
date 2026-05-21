@@ -5,8 +5,6 @@
 
 
 URI: [pvn:tenester](https://schema.fintlabs.no/personvern/tenester)
-Alias: tenester
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: tenester
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:tenester
-alias: tenester
 domain_of:
 - PersonvernContainer
 range: Tjeneste

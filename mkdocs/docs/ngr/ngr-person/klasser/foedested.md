@@ -10,8 +10,6 @@ _Fødested (kommune eller land)._
 
 
 URI: [ngrp:foedested](https://data.norge.no/vocabulary/ngr-person#foedested)
-Alias: foedested
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fødested (kommune eller land).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:foedested
-alias: foedested
 domain_of:
 - Foedsel
 range: string

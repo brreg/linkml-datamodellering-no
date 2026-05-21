@@ -10,8 +10,6 @@ _Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar)._
 
 
 URI: [ngrp:foedselsaar](https://data.norge.no/vocabulary/ngr-person#foedselsaar)
-Alias: foedselsaar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato mangla
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:foedselsaar
-alias: foedselsaar
 domain_of:
 - Foedsel
 range: integer

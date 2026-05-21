@@ -10,8 +10,6 @@ _Alle eksamensformer i containeren._
 
 
 URI: [utd:eksamensformer](https://schema.fintlabs.no/utdanning/eksamensformer)
-Alias: eksamensformer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle eksamensformer i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:eksamensformer
-alias: eksamensformer
 domain_of:
 - UtdanningContainer
 range: Eksamensform

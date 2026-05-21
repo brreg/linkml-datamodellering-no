@@ -5,8 +5,6 @@
 
 
 URI: [res:einingsgruppedmedlemskap](https://schema.fintlabs.no/ressurs/einingsgruppedmedlemskap)
-Alias: einingsgruppedmedlemskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: einingsgruppedmedlemskap
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:einingsgruppedmedlemskap
-alias: einingsgruppedmedlemskap
 domain_of:
 - RessursContainer
 range: Enhetsgruppemedlemskap

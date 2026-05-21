@@ -10,8 +10,6 @@ _Personen som er rettigheitshavar (fysisk person)._
 
 
 URI: [ngre:erAvTypePerson](https://data.norge.no/vocabulary/ngr-eiendom#erAvTypePerson)
-Alias: er_av_type_person
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Personen som er rettigheitshavar (fysisk person).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:erAvTypePerson
-alias: er_av_type_person
 domain_of:
 - Rettighetshaver
 range: Person

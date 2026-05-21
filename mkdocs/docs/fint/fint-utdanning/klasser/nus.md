@@ -10,8 +10,6 @@ _NUS-kode._
 
 
 URI: [utd:nus](https://schema.fintlabs.no/utdanning/nus)
-Alias: nus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: NUS-kode.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:nus
-alias: nus
 domain_of:
 - Eksamensgruppemedlemskap
 range: Karakterstatus

@@ -223,7 +223,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Skoleeier
     domain_of:
     - KatalogisertRessurs
@@ -260,7 +259,6 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: navn
     owner: Skoleeier
     domain_of:
     - Skole

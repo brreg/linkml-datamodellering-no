@@ -10,8 +10,6 @@ _Basisgruppe elev tilhører_
 
 
 URI: [samtbuskole:horer_til_basisgruppe](https://example.no/ontology/skole#horer_til_basisgruppe)
-Alias: horer_til_basisgruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -89,7 +87,6 @@ close_mappings:
 - schema:memberOf
 rank: 1000
 domain: Elev
-alias: horer_til_basisgruppe
 domain_of:
 - Elev
 range: Basisgruppe

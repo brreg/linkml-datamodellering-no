@@ -195,7 +195,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Aksjekapital
     domain_of:
     - Containerklasse
@@ -221,7 +220,6 @@ attributes:
     description: Tal aksjar.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: har_antall_aksjer
     owner: Aksjekapital
     domain_of:
     - Aksjekapital

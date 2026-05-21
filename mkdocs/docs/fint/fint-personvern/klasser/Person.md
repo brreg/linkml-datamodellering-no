@@ -10,8 +10,6 @@ _Referanse til Person i Administrasjon-domenet._
 
 
 URI: [fint:person](https://schema.fintlabs.no/person)
-Alias: person
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: person
 description: Referanse til Person i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:person
-alias: person
 domain_of:
 - Elev
 - Samtykke

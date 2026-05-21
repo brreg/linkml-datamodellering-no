@@ -10,8 +10,6 @@ _Adressebeskyttelse registrert på personen._
 
 
 URI: [ngrp:harAdressebeskyttelse](https://data.norge.no/vocabulary/ngr-person#harAdressebeskyttelse)
-Alias: har_adressebeskyttelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Adressebeskyttelse registrert på personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harAdressebeskyttelse
-alias: har_adressebeskyttelse
 domain_of:
 - Person
 range: Adressebeskyttelse

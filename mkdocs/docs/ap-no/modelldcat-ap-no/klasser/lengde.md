@@ -10,8 +10,6 @@ _Nøyaktig lengd av strengen (xsd:length)._
 
 
 URI: [xsd:length](http://www.w3.org/2001/XMLSchema#length)
-Alias: lengde
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Nøyaktig lengd av strengen (xsd:length).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:length
-alias: lengde
 domain_of:
 - EnkelType
 range: NonNegativeInteger

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/dnummer](https://data.norge.no/linkml/ngr-person/dnummer)
-Alias: dnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: dnummer
 name: dnummer
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: dnummer
 owner: PersonContainer
 domain_of:
 - PersonContainer

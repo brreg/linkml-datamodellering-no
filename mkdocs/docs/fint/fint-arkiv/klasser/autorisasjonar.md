@@ -5,8 +5,6 @@
 
 
 URI: [ark:autorisasjonar](https://schema.fintlabs.no/arkiv/autorisasjonar)
-Alias: autorisasjonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: autorisasjonar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:autorisasjonar
-alias: autorisasjonar
 domain_of:
 - ArkivContainer
 range: Autorisasjon

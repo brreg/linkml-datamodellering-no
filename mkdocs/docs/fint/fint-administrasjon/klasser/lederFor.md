@@ -10,8 +10,6 @@ _Organisasjonselement personalressursen er leiar for._
 
 
 URI: [adm:lederFor](https://schema.fintlabs.no/administrasjon/lederFor)
-Alias: lederFor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Organisasjonselement personalressursen er leiar for.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:lederFor
-alias: lederFor
 domain_of:
 - Personalressurs
 range: Organisasjonselement

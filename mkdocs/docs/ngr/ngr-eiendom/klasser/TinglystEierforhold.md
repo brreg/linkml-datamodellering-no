@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/tinglystEierforhold](https://data.norge.no/linkml/ngr-eiendom/tinglystEierforhold)
-Alias: tinglystEierforhold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: tinglystEierforhold
 name: tinglystEierforhold
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: tinglystEierforhold
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

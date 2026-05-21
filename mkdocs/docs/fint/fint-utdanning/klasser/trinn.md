@@ -10,8 +10,6 @@ _Årstrinnet._
 
 
 URI: [utd:trinn](https://schema.fintlabs.no/utdanning/trinn)
-Alias: trinn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: trinn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 | [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
+| [Programomrade](programomrade.md) | Eit programområde innanfor eit utdanningsprogram (t |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Årstrinnet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:trinn
-alias: trinn
 domain_of:
 - Klasse
 - Programomrade

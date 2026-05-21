@@ -10,8 +10,6 @@ _Løpenummer for stillinga._
 
 
 URI: [adm:stillingsnummer](https://schema.fintlabs.no/administrasjon/stillingsnummer)
-Alias: stillingsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Løpenummer for stillinga.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:stillingsnummer
-alias: stillingsnummer
 domain_of:
 - Arbeidsforhold
 range: string

@@ -10,8 +10,6 @@ _Namn på person som avslutta/lukka arkivenheten._
 
 
 URI: [ark:avsluttetAvNavn](https://schema.fintlabs.no/arkiv/avsluttetAvNavn)
-Alias: avsluttetAvNavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på person som avslutta/lukka arkivenheten.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:avsluttetAvNavn
-alias: avsluttetAvNavn
 domain_of:
 - Klassifikasjonssystem
 range: string

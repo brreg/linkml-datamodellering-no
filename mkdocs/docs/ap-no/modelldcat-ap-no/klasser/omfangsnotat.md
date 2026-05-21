@@ -10,8 +10,6 @@ _Notat om omfanget til kodeelementet (skos:scopeNote)._
 
 
 URI: [skos:scopeNote](http://www.w3.org/2004/02/skos/core#scopeNote)
-Alias: omfangsnotat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Notat om omfanget til kodeelementet (skos:scopeNote).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: skos:scopeNote
-alias: omfangsnotat
 domain_of:
 - Kodeelement
 range: LangString

@@ -10,8 +10,6 @@ _Startdato for tidsrommet._
 
 
 URI: [dcat:startDate](http://www.w3.org/ns/dcat#startDate)
-Alias: startdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Startdato for tidsrommet.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:startDate
-alias: startdato
 domain_of:
 - Tidsrom
 range: date

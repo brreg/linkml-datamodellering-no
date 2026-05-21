@@ -10,8 +10,6 @@ _Del-informasjonsmodell av denne modellen (dct:hasPart)._
 
 
 URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
-Alias: har_del_modell
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Del-informasjonsmodell av denne modellen (dct:hasPart).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:hasPart
-alias: har_del_modell
 domain_of:
 - Informasjonsmodell
 range: Informasjonsmodell

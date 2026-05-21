@@ -284,7 +284,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Organisasjonsform
     domain_of:
     - Virksomhet
@@ -311,7 +310,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:organisasjonsformKode
-    alias: organisasjonsform_kode
     owner: Organisasjonsform
     domain_of:
     - Organisasjonsform
@@ -325,7 +323,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:organisasjonsformBeskrivelse
-    alias: organisasjonsform_beskrivelse
     owner: Organisasjonsform
     domain_of:
     - Organisasjonsform

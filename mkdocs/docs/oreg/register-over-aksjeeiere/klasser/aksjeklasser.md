@@ -10,8 +10,6 @@ _Samling av aksjeklasser._
 
 
 URI: [aksje:aksjeklasser](https://example.no/ontology/aksje#aksjeklasser)
-Alias: aksjeklasser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av aksjeklasser.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: aksjeklasser
 domain_of:
 - Containerklasse
 range: Aksjeklasse

@@ -10,8 +10,6 @@ _Søknadsnummer frå Digisak._
 
 
 URI: [ark:soeknadsnummer](https://schema.fintlabs.no/arkiv/soeknadsnummer)
-Alias: soeknadsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Søknadsnummer frå Digisak.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:soeknadsnummer
-alias: soeknadsnummer
 domain_of:
 - DispensasjonAutomatiskFredaKulturminne
 - TilskuddFartoy

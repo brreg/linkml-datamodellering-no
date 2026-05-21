@@ -233,7 +233,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Identifikator
     domain_of:
     - Mediatype
@@ -267,7 +266,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: skos:notation
-    alias: notasjon
     owner: Identifikator
     domain_of:
     - Identifikator

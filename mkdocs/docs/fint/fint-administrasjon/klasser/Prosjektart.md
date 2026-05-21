@@ -10,8 +10,6 @@ _Deloppgåve eller delprosjekt._
 
 
 URI: [adm:prosjektart](https://schema.fintlabs.no/administrasjon/prosjektart)
-Alias: prosjektart
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Deloppgåve eller delprosjekt.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:prosjektart
-alias: prosjektart
 domain_of:
 - Kontostreng
 - Prosjekt

@@ -12,8 +12,6 @@ __
 
 
 URI: [fair:vokabular](https://data.norge.no/fair#vokabular)
-Alias: vokabular
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ description: 'Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:vokabular
-alias: vokabular
 domain_of:
 - Gjenbruksmetadata
 range: uriorcurie

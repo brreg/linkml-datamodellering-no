@@ -10,8 +10,6 @@ _Bokstavkode for aktuell valuta._
 
 
 URI: [fint:bokstavkode](https://schema.fintlabs.no/bokstavkode)
-Alias: bokstavkode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: bokstavkode
 description: Bokstavkode for aktuell valuta.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:bokstavkode
-alias: bokstavkode
 domain_of:
 - Valuta
 range: Identifikator

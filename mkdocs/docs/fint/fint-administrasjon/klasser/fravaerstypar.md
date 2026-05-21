@@ -10,8 +10,6 @@ _Alle fråværstypar i containeren._
 
 
 URI: [adm:fravaerstypar](https://schema.fintlabs.no/administrasjon/fravaerstypar)
-Alias: fravaerstypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle fråværstypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fravaerstypar
-alias: fravaerstypar
 domain_of:
 - AdministrasjonContainer
 range: Fravaerstype

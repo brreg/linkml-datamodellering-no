@@ -10,8 +10,6 @@ _Utdeling knytt til utbyttet._
 
 
 URI: [aksje:har_utdeling](https://example.no/ontology/aksje#har_utdeling)
-Alias: har_utdeling
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Utdeling knytt til utbyttet.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Utbytte
-alias: har_utdeling
 domain_of:
 - Utbytte
 range: Utdeling

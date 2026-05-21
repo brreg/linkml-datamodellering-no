@@ -10,8 +10,6 @@ _Tidspunkt ressursen er sletta._
 
 
 URI: [pvn:slettet](https://schema.fintlabs.no/personvern/slettet)
-Alias: slettet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Tidspunkt ressursen er sletta.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:slettet
-alias: slettet
 domain_of:
 - Behandling
 - Tjeneste

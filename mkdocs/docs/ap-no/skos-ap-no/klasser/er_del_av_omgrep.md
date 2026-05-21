@@ -10,8 +10,6 @@ _Omgrep dette omgrepet er ein del av (xkos:isPartOf)._
 
 
 URI: [xkos:isPartOf](http://rdf-vocabulary.ddialliance.org/xkos#isPartOf)
-Alias: er_del_av_omgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep dette omgrepet er ein del av (xkos:isPartOf).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: xkos:isPartOf
-alias: er_del_av_omgrep
 domain_of:
 - Begrep
 range: Begrep

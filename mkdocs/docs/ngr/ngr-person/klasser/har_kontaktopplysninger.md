@@ -10,8 +10,6 @@ _Kontaktopplysningar registrert i KRR._
 
 
 URI: [ngrp:harKontaktopplysninger](https://data.norge.no/vocabulary/ngr-person#harKontaktopplysninger)
-Alias: har_kontaktopplysninger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kontaktopplysningar registrert i KRR.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harKontaktopplysninger
-alias: har_kontaktopplysninger
 domain_of:
 - Person
 range: Kontaktopplysninger

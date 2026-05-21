@@ -228,7 +228,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Bygningsnummer
     domain_of:
     - FastEiendom
@@ -271,7 +270,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bygningsnummer
-    alias: bygningsnummer_verdi
     owner: Bygningsnummer
     domain_of:
     - Bygningsnummer

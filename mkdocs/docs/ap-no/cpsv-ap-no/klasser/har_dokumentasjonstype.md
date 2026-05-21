@@ -10,8 +10,6 @@ _Dokumentasjon som krevst for tenesta._
 
 
 URI: [cv:hasInputType](http://data.europa.eu/m8g/hasInputType)
-Alias: har_dokumentasjonstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_dokumentasjonstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Dokumentasjon som krevst for tenesta.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasInputType
-alias: har_dokumentasjonstype
 domain_of:
 - OffentligTjeneste
 - Tjeneste

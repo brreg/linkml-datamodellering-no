@@ -223,7 +223,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Tjenesteresultattypeliste
     domain_of:
     - Mediatype
@@ -251,7 +250,6 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Tjenesteresultattypeliste
     domain_of:
     - OffentligTjeneste
@@ -271,7 +269,6 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Tjenesteresultattypeliste
     domain_of:
     - OffentligTjeneste

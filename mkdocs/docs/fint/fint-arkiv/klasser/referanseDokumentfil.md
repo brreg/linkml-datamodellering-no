@@ -10,8 +10,6 @@ _Referanse til fila som inneheld det elektroniske dokumentet._
 
 
 URI: [ark:referanseDokumentfil](https://schema.fintlabs.no/arkiv/referanseDokumentfil)
-Alias: referanseDokumentfil
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til fila som inneheld det elektroniske dokumentet.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:referanseDokumentfil
-alias: referanseDokumentfil
 domain_of:
 - Dokumentobjekt
 range: Dokumentfil

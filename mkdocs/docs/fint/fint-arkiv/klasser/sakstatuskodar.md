@@ -5,8 +5,6 @@
 
 
 URI: [ark:sakstatuskodar](https://schema.fintlabs.no/arkiv/sakstatuskodar)
-Alias: sakstatuskodar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: sakstatuskodar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:sakstatuskodar
-alias: sakstatuskodar
 domain_of:
 - ArkivContainer
 range: Saksstatus

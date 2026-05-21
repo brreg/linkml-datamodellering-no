@@ -10,8 +10,6 @@ _Retningslinjer for gjenbruk av data._
 
 
 URI: [odrs:reuserGuidelines](http://schema.theodi.org/odrs#reuserGuidelines)
-Alias: anvendelsesretningslinjer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Retningslinjer for gjenbruk av data.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: odrs:reuserGuidelines
-alias: anvendelsesretningslinjer
 domain_of:
 - Rettighetserklaring
 range: string

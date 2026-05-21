@@ -10,8 +10,6 @@ _Nøkkelord som beskriv ressursen (dcat:keyword)._
 
 
 URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
-Alias: nokkelord
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: nokkelord
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: nokkelord
 description: Nøkkelord som beskriv ressursen (dcat:keyword).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dcat:keyword
-alias: nokkelord
 domain_of:
 - OffentligTjeneste
 - Tjeneste

@@ -12,8 +12,6 @@ __
 
 
 URI: [dct:conformsTo](http://purl.org/dc/terms/conformsTo)
-Alias: standardoverensstemming
-
 <!-- no inheritance hierarchy -->
 
 
@@ -92,7 +90,6 @@ description: 'Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO elle
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:conformsTo
-alias: standardoverensstemming
 domain_of:
 - Gjenbruksmetadata
 range: uriorcurie

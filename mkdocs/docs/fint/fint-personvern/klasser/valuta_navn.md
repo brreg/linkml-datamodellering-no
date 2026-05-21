@@ -10,8 +10,6 @@ _Namn på valuta._
 
 
 URI: [fint:valutaNavn](https://schema.fintlabs.no/valutaNavn)
-Alias: valuta_navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: valuta_navn
 description: Namn på valuta.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:valutaNavn
-alias: valuta_navn
 domain_of:
 - Valuta
 range: string

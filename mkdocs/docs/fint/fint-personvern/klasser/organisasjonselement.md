@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement (Administrasjon)._
 
 
 URI: [pvn:organisasjonselement](https://schema.fintlabs.no/personvern/organisasjonselement)
-Alias: organisasjonselement
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement (Administrasjon).
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:organisasjonselement
-alias: organisasjonselement
 domain_of:
 - Samtykke
 range: uriorcurie

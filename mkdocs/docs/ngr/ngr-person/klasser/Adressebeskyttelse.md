@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/adressebeskyttelse](https://data.norge.no/linkml/ngr-person/adressebeskyttelse)
-Alias: adressebeskyttelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: adressebeskyttelse
 name: adressebeskyttelse
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: adressebeskyttelse
 owner: PersonContainer
 domain_of:
 - PersonContainer

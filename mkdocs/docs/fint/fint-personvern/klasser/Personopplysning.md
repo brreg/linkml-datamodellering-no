@@ -10,8 +10,6 @@ _Opplysning eller vurdering som kan knytast til ein enkeltperson._
 
 
 URI: [pvn:personopplysning](https://schema.fintlabs.no/personvern/personopplysning)
-Alias: personopplysning
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Opplysning eller vurdering som kan knytast til ein enkeltperson.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:personopplysning
-alias: personopplysning
 domain_of:
 - Behandling
 range: Personopplysning

@@ -10,8 +10,6 @@ _Format på dokumentfil, som IANA Media Type._
 
 
 URI: [ark:format](https://schema.fintlabs.no/arkiv/format)
-Alias: format
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Format på dokumentfil, som IANA Media Type.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:format
-alias: format
 domain_of:
 - Dokumentfil
 range: string

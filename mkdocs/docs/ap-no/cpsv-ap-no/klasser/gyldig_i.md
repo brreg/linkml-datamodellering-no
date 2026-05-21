@@ -10,8 +10,6 @@ _Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit)._
 
 
 URI: [cccevno:acceptableValidityDuration](https://data.norge.no/vocabulary/cccevno#acceptableValidityDuration)
-Alias: gyldig_i
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:acceptableValidityDuration
-alias: gyldig_i
 domain_of:
 - Dokumentasjonstype
 range: Duration

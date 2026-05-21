@@ -318,7 +318,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harPostboks
-    alias: postboks_ref
     owner: Postboksadresse
     domain_of:
     - Postboksadresse
@@ -332,7 +331,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:referererTilPoststed
-    alias: poststed_ref
     owner: Postboksadresse
     domain_of:
     - Postboksadresse
@@ -346,7 +344,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:postboksanleggsnavn
-    alias: postboksanleggsnavn
     owner: Postboksadresse
     domain_of:
     - Postboksadresse
@@ -357,7 +354,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: Postboksadresse
     domain_of:
     - GeografiskAdresse

@@ -10,8 +10,6 @@ _ISO 3166-1 alfa-2 landkode (t.d. NO for Noreg)._
 
 
 URI: [ngrp:landkode](https://data.norge.no/vocabulary/ngr-person#landkode)
-Alias: landkode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: ISO 3166-1 alfa-2 landkode (t.d. NO for Noreg).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:landkode
-alias: landkode
 domain_of:
 - Statsborgerskap
 range: string

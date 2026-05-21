@@ -10,8 +10,6 @@ _Prosent av årslønn den tilsette skal ha utbetalt._
 
 
 URI: [adm:lonnsprosent](https://schema.fintlabs.no/administrasjon/lonnsprosent)
-Alias: lonnsprosent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Prosent av årslønn den tilsette skal ha utbetalt.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:lonnsprosent
-alias: lonnsprosent
 domain_of:
 - Arbeidsforhold
 range: integer

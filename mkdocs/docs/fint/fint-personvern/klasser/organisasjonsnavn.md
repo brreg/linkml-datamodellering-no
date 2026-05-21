@@ -10,8 +10,6 @@ _Namn på eining registrert i Einingsregisteret._
 
 
 URI: [fint:organisasjonsnavn](https://schema.fintlabs.no/organisasjonsnavn)
-Alias: organisasjonsnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: organisasjonsnavn
 description: Namn på eining registrert i Einingsregisteret.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:organisasjonsnavn
-alias: organisasjonsnavn
 domain_of:
 - Enhet
 range: string

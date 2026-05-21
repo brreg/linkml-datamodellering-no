@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement i Administrasjon-domenet._
 
 
 URI: [utd:organisasjon](https://schema.fintlabs.no/utdanning/organisasjon)
-Alias: organisasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:organisasjon
-alias: organisasjon
 domain_of:
 - Skole
 range: uriorcurie

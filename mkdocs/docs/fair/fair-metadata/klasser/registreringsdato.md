@@ -10,8 +10,6 @@ _Dato for katalogregistrering (FAIR F4)._
 
 
 URI: [fair:registreringsdato](https://data.norge.no/fair#registreringsdato)
-Alias: registreringsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato for katalogregistrering (FAIR F4).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:registreringsdato
-alias: registreringsdato
 domain_of:
 - Katalogregistrering
 range: date

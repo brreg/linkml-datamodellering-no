@@ -10,8 +10,6 @@ _Rettsleg grunnlag for behandling av personopplysning._
 
 
 URI: [pvn:behandlingsgrunnlag](https://schema.fintlabs.no/personvern/behandlingsgrunnlag)
-Alias: behandlingsgrunnlag
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: behandlingsgrunnlag
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  yes  |
 | [PersonvernContainer](personverncontainer.md) | Rotcontainer for FINT Personvern-instansar |  yes  |
+| [Behandling](behandling.md) | All bruk av personopplysningar (behandlingsaktivitet) |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Rettsleg grunnlag for behandling av personopplysning.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:behandlingsgrunnlag
-alias: behandlingsgrunnlag
 domain_of:
 - PersonvernContainer
 - Behandling

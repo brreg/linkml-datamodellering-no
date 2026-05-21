@@ -10,8 +10,6 @@ _Alle fråværsgrunnar i containeren._
 
 
 URI: [adm:fravaersgrunnar](https://schema.fintlabs.no/administrasjon/fravaersgrunnar)
-Alias: fravaersgrunnar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle fråværsgrunnar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fravaersgrunnar
-alias: fravaersgrunnar
 domain_of:
 - AdministrasjonContainer
 range: Fravaersgrunn

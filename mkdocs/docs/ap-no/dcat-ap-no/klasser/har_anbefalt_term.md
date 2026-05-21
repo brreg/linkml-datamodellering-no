@@ -10,8 +10,6 @@ _Føretrekt term/namn for dimensjonen eller målet._
 
 
 URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
-Alias: har_anbefalt_term
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_anbefalt_term
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 | [Kvalitetsdimensjon](kvalitetsdimensjon.md) | Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål |  yes  |
+| [Kvalitetsmaal](kvalitetsmaal.md) | Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon |  yes  |
 | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  yes  |
 
 
@@ -88,7 +86,6 @@ name: har_anbefalt_term
 description: Føretrekt term/namn for dimensjonen eller målet.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: skos:prefLabel
-alias: har_anbefalt_term
 domain_of:
 - Kvalitetsdimensjon
 - Kvalitetsmaal

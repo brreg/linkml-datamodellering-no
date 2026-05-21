@@ -10,8 +10,6 @@ _Tidspunkt for siste endring i transaksjonen._
 
 
 URI: [okn:oppdateringstidspunkt](https://schema.fintlabs.no/okonomi/oppdateringstidspunkt)
-Alias: oppdateringstidspunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tidspunkt for siste endring i transaksjonen.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:oppdateringstidspunkt
-alias: oppdateringstidspunkt
 domain_of:
 - Transaksjon
 range: datetime

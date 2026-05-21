@@ -10,8 +10,6 @@ _Kalenderdato._
 
 
 URI: [aksje:dato](https://example.no/ontology/aksje#dato)
-Alias: dato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -84,7 +82,6 @@ name: dato
 description: Kalenderdato.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: dato
 domain_of:
 - Tidspunkt
 range: date

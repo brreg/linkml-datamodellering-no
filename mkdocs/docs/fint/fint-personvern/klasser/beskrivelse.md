@@ -10,8 +10,6 @@ _Beskriven namn eller omtale._
 
 
 URI: [fint:beskrivelse](https://schema.fintlabs.no/beskrivelse)
-Alias: beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: beskrivelse
 description: Beskriven namn eller omtale.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:beskrivelse
-alias: beskrivelse
 domain_of:
 - Periode
 range: string

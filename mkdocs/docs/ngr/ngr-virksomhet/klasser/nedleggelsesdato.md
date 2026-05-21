@@ -10,8 +10,6 @@ _Datoen underleininga vart lagt ned._
 
 
 URI: [ngrv:nedleggelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#nedleggelsesdato)
-Alias: nedleggelsesdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen underleininga vart lagt ned.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:nedleggelsesdato
-alias: nedleggelsesdato
 domain_of:
 - Underenhet
 range: date

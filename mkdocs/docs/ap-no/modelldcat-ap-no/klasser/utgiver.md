@@ -10,8 +10,6 @@ _Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publisher)._
 
 
 URI: [dct:publisher](http://purl.org/dc/terms/publisher)
-Alias: utgiver
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: utgiver
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Aktøren ansvarleg for å tilgjengeleggjere ressursen (dct:publishe
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:publisher
-alias: utgiver
 domain_of:
 - Modelkatalog
 - Informasjonsmodell

@@ -10,8 +10,6 @@ _Kontaktside (nettadresse)._
 
 
 URI: [cv:contactPage](http://data.europa.eu/m8g/contactPage)
-Alias: kontaktside
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kontaktside (nettadresse).
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:contactPage
-alias: kontaktside
 domain_of:
 - Kontaktpunkt
 range: uri

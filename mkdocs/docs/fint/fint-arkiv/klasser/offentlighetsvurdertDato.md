@@ -10,8 +10,6 @@ _Datoen offentlegheitsvurdering vart gjennomført._
 
 
 URI: [ark:offentlighetsvurdertDato](https://schema.fintlabs.no/arkiv/offentlighetsvurdertDato)
-Alias: offentlighetsvurdertDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen offentlegheitsvurdering vart gjennomført.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:offentlighetsvurdertDato
-alias: offentlighetsvurdertDato
 domain_of:
 - Journalpost
 range: datetime

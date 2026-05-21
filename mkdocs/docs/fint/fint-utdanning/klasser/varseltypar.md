@@ -10,8 +10,6 @@ _Alle varseltypar i containeren._
 
 
 URI: [utd:varseltypar](https://schema.fintlabs.no/utdanning/varseltypar)
-Alias: varseltypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle varseltypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:varseltypar
-alias: varseltypar
 domain_of:
 - UtdanningContainer
 range: Varseltype

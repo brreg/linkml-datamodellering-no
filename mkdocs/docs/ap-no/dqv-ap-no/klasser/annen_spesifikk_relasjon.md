@@ -10,8 +10,6 @@ _Kvalifisert relasjon til ein annan ressurs._
 
 
 URI: [dcat:qualifiedRelation](http://www.w3.org/ns/dcat#qualifiedRelation)
-Alias: annen_spesifikk_relasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: annen_spesifikk_relasjon
 description: Kvalifisert relasjon til ein annan ressurs.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:qualifiedRelation
-alias: annen_spesifikk_relasjon
 domain_of:
 - Datasett
 range: Relasjon

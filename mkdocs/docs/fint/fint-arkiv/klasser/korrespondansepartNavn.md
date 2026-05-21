@@ -10,8 +10,6 @@ _Namn på person eller organisasjon som er avsender eller mottakar._
 
 
 URI: [ark:korrespondansepartNavn](https://schema.fintlabs.no/arkiv/korrespondansepartNavn)
-Alias: korrespondansepartNavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på person eller organisasjon som er avsender eller mottakar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:korrespondansepartNavn
-alias: korrespondansepartNavn
 domain_of:
 - Korrespondansepart
 range: string

@@ -10,8 +10,6 @@ _Tekstleg skildring av sektorkoden._
 
 
 URI: [ngrv:sektorkodeBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#sektorkodeBeskrivelse)
-Alias: sektorkode_beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tekstleg skildring av sektorkoden.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:sektorkodeBeskrivelse
-alias: sektorkode_beskrivelse
 domain_of:
 - Sektorkode
 range: string

@@ -10,8 +10,6 @@ _Referanse til Person i Administrasjon-domenet._
 
 
 URI: [fint:person](https://schema.fintlabs.no/person)
-Alias: person
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: person
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  yes  |
-| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  yes  |
 | [Elev](elev.md) | Ein elev registrert i skulesystemet |  yes  |
 | [Skoleressurs](skoleressurs.md) | Ein lærar eller anna tilsett ved ein skule |  yes  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  yes  |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  yes  |
 
 
 
@@ -88,7 +86,6 @@ name: person
 description: Referanse til Person i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:person
-alias: person
 domain_of:
 - Elev
 - Skoleressurs

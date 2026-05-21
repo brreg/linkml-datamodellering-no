@@ -5,8 +5,6 @@
 
 
 URI: [pvn:behandlingar](https://schema.fintlabs.no/personvern/behandlingar)
-Alias: behandlingar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: behandlingar
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:behandlingar
-alias: behandlingar
 domain_of:
 - PersonvernContainer
 range: Behandling

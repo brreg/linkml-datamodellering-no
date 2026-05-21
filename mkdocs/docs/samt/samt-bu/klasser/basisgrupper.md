@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av basisg
 
 
 URI: [samtbuskole:basisgrupper](https://example.no/ontology/skole#basisgrupper)
-Alias: basisgrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   basisgruppe i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: basisgrupper
 domain_of:
 - Containerklasse
 range: Basisgruppe

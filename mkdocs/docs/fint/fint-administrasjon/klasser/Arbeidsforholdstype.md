@@ -10,8 +10,6 @@ _Beskriven kode som kategoriserer kva funksjon stillinga er gruppert til._
 
 
 URI: [adm:arbeidsforholdstype](https://schema.fintlabs.no/administrasjon/arbeidsforholdstype)
-Alias: arbeidsforholdstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Beskriven kode som kategoriserer kva funksjon stillinga er gruppert
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:arbeidsforholdstype
-alias: arbeidsforholdstype
 domain_of:
 - Arbeidsforhold
 range: Arbeidsforholdstype

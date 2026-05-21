@@ -10,8 +10,6 @@ _Sensornummer._
 
 
 URI: [utd:sensornummer](https://schema.fintlabs.no/utdanning/sensornummer)
-Alias: sensornummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sensornummer.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:sensornummer
-alias: sensornummer
 domain_of:
 - Sensor
 range: integer

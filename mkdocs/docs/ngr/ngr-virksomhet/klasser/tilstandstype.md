@@ -10,8 +10,6 @@ _Type tilstand (AKTIV, UNDER_KONKURS o.l.)._
 
 
 URI: [ngrv:tilstandstype](https://data.norge.no/vocabulary/ngr-virksomhet#tilstandstype)
-Alias: tilstandstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type tilstand (AKTIV, UNDER_KONKURS o.l.).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:tilstandstype
-alias: tilstandstype
 domain_of:
 - Tilstand
 range: TilstandType

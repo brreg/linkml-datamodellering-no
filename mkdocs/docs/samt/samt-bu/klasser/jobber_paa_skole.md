@@ -10,8 +10,6 @@ _Skolen kontaktlæreren jobber på_
 
 
 URI: [samtbuskole:jobber_paa_skole](https://example.no/ontology/skole#jobber_paa_skole)
-Alias: jobber_paa_skole
-
 <!-- no inheritance hierarchy -->
 
 
@@ -90,7 +88,6 @@ close_mappings:
 - org:memberOf
 rank: 1000
 domain: Kontaktlaerer
-alias: jobber_paa_skole
 domain_of:
 - Kontaktlaerer
 range: Skole

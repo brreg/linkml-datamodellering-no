@@ -10,8 +10,6 @@ _Type merknad._
 
 
 URI: [ark:merknadstype](https://schema.fintlabs.no/arkiv/merknadstype)
-Alias: merknadstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type merknad.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:merknadstype
-alias: merknadstype
 domain_of:
 - Merknad
 range: Merknadstype

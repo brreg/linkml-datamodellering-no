@@ -10,8 +10,6 @@ _Regulært uttrykk for tillate strengverdiar (xsd:pattern)._
 
 
 URI: [xsd:pattern](http://www.w3.org/2001/XMLSchema#pattern)
-Alias: monster
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Regulært uttrykk for tillate strengverdiar (xsd:pattern).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xsd:pattern
-alias: monster
 domain_of:
 - EnkelType
 range: string

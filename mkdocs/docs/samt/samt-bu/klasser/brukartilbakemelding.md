@@ -219,7 +219,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Brukartilbakemelding
     domain_of:
     - KatalogisertRessurs
@@ -258,7 +257,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: oa:motivatedBy
-    alias: er_motivert_av
     owner: Brukartilbakemelding
     domain_of:
     - Kvalitetsmerknad
@@ -273,7 +271,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:inDimension
-    alias: er_i_kvalitetsdimensjon
     owner: Brukartilbakemelding
     domain_of:
     - Kvalitetsmerknad
@@ -288,7 +285,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: oa:hasBody
-    alias: har_tekstdel
     owner: Brukartilbakemelding
     domain_of:
     - Kvalitetsmerknad
@@ -300,7 +296,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
-    alias: har_merknad
     owner: Brukartilbakemelding
     domain_of:
     - Kvalitetsmerknad
@@ -319,7 +314,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: oa:hasTarget
-    alias: har_maal
     owner: Brukartilbakemelding
     domain_of:
     - Kvalitetsmerknad

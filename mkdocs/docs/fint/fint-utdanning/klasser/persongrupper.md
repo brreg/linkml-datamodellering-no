@@ -10,8 +10,6 @@ _Alle persongrupper i containeren._
 
 
 URI: [utd:persongrupper](https://schema.fintlabs.no/utdanning/persongrupper)
-Alias: persongrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle persongrupper i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:persongrupper
-alias: persongrupper
 domain_of:
 - UtdanningContainer
 range: Persongruppe

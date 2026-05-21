@@ -10,8 +10,6 @@ _Kategorisamanlikningar som inngår i klassifikasjonssamanlikninga (xkos:madeOf)
 
 
 URI: [xkos:madeOf](http://rdf-vocabulary.ddialliance.org/xkos#madeOf)
-Alias: bestar_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kategorisamanlikningar som inngår i klassifikasjonssamanlikninga (
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:madeOf
-alias: bestar_av
 domain_of:
 - Klassifikasjonssamanlikning
 range: Kategorisamanlikning

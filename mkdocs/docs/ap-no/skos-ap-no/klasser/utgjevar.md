@@ -10,8 +10,6 @@ _Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)._
 
 
 URI: [dct:publisher](http://purl.org/dc/terms/publisher)
-Alias: utgjevar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: utgjevar
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 | [Begrep](begrep.md) | Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept) |  yes  |
+| [Samling](samling.md) | Ei namngitt samling av omgrep (skos:Collection) |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Organisasjon ansvarleg for å publisere omgrepet (dct:publisher).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:publisher
-alias: utgjevar
 domain_of:
 - Begrep
 - Samling

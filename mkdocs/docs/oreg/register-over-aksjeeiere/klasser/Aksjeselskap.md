@@ -254,7 +254,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Aksjeselskap
     domain_of:
     - Containerklasse
@@ -280,7 +279,6 @@ attributes:
     description: Namn på instansen.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: navn
     owner: Aksjeselskap
     domain_of:
     - Aksjeselskap
@@ -294,7 +292,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Aksjeselskap
-    alias: har_aksjekapital
     owner: Aksjeselskap
     domain_of:
     - Aksjeselskap
@@ -305,7 +302,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Aksjeselskap
-    alias: utsteder_aksje
     owner: Aksjeselskap
     domain_of:
     - Aksjeselskap

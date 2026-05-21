@@ -40,10 +40,10 @@
     linkml:enums <https://data.norge.no/linkml/ngr-virksomhet/RolleType>,
         <https://data.norge.no/linkml/ngr-virksomhet/TilstandType>,
         <https://data.norge.no/linkml/ngr-virksomhet/VarslingType> ;
-    linkml:generation_date "2026-05-18T09:12:33"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:02"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/ngr-virksomhet"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/linkml/ngr-virksomhet/Aktivitet_aktivitet_beskrivelse>,
         <https://data.norge.no/linkml/ngr-virksomhet/Hovedenhet_er_klassifisert_i_sektorkode>,
         <https://data.norge.no/linkml/ngr-virksomhet/Hovedenhet_har_bestemmelser_om_prokura>,
@@ -2123,7 +2123,7 @@
     linkml:tree_root true .
 
 <https://data.norge.no/linkml/ngr-virksomhet/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

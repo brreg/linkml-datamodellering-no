@@ -10,8 +10,6 @@ _Kjelde til definisjonen (dct:source)._
 
 
 URI: [dct:source](http://purl.org/dc/terms/source)
-Alias: kjelde
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kjelde til definisjonen (dct:source).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:source
-alias: kjelde
 domain_of:
 - Definisjon
 range: uri

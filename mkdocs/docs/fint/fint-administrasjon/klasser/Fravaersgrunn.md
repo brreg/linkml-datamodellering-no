@@ -10,8 +10,6 @@ _Grunn til fråværet._
 
 
 URI: [adm:fravaersgrunn](https://schema.fintlabs.no/administrasjon/fravaersgrunn)
-Alias: fravaersgrunn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Grunn til fråværet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fravaersgrunn
-alias: fravaersgrunn
 domain_of:
 - Fravaer
 range: Fravaersgrunn

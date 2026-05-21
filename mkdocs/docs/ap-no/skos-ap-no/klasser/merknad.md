@@ -10,8 +10,6 @@ _Merknad om bruksomfanget for omgrepet (skos:scopeNote)._
 
 
 URI: [skos:scopeNote](http://www.w3.org/2004/02/skos/core#scopeNote)
-Alias: merknad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Merknad om bruksomfanget for omgrepet (skos:scopeNote).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:scopeNote
-alias: merknad
 domain_of:
 - Begrep
 range: LangString

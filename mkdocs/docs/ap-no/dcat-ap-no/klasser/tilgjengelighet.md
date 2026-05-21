@@ -10,8 +10,6 @@ _Planlagt tilgjengelegheit for ressursen._
 
 
 URI: [dcatap:availability](http://data.europa.eu/r5r/availability)
-Alias: tilgjengelighet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: tilgjengelighet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
+| [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Planlagt tilgjengelegheit for ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcatap:availability
-alias: tilgjengelighet
 domain_of:
 - Distribusjon
 - Datatjeneste

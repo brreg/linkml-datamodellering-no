@@ -10,8 +10,6 @@ _Type klassifikasjonssystem._
 
 
 URI: [ark:klassifikasjonstype](https://schema.fintlabs.no/arkiv/klassifikasjonstype)
-Alias: klassifikasjonstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type klassifikasjonssystem.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:klassifikasjonstype
-alias: klassifikasjonstype
 domain_of:
 - Klassifikasjonssystem
 range: Klassifikasjonstype

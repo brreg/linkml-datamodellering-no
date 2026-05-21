@@ -10,8 +10,6 @@ _Kodeliste dette kodeelementet tilhøyrer (skos:inScheme)._
 
 
 URI: [skos:inScheme](http://www.w3.org/2004/02/skos/core#inScheme)
-Alias: i_skjema
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kodeliste dette kodeelementet tilhøyrer (skos:inScheme).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: skos:inScheme
-alias: i_skjema
 domain_of:
 - Kodeelement
 range: Kodeliste

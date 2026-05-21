@@ -10,8 +10,6 @@ _Kontaktperson hos ein organisasjon som er avsender, mottakar eller sakspart._
 
 
 URI: [ark:kontaktperson](https://schema.fintlabs.no/arkiv/kontaktperson)
-Alias: kontaktperson_str
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kontaktperson hos ein organisasjon som er avsender, mottakar eller 
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:kontaktperson
-alias: kontaktperson_str
 domain_of:
 - Korrespondansepart
 - Part

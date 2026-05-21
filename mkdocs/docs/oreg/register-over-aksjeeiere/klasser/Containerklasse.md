@@ -692,7 +692,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -712,13 +711,13 @@ attributes:
     - Selskapshendelse
     - Aksjeinnskudd
     range: uriorcurie
+    required: true
   aksjeselskaper:
     name: aksjeselskaper
     description: Samling av aksjeselskap.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjeselskaper
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -732,7 +731,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjekapitaler
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -746,7 +744,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjer
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -760,7 +757,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjeklasser
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -774,7 +770,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjeeierrettigheter
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -788,7 +783,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjeeiere
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -802,7 +796,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjeposter
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -816,7 +809,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: eierposisjoner
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -830,7 +822,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: eierskapstransaksjoner
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -844,7 +835,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjeoverdragelser
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -858,7 +848,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: vederlager
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -872,7 +861,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: selskapshendelser
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -886,7 +874,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: aksjeinnskudder
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -900,7 +887,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: utbytter
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -914,7 +900,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: utdelinger
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -928,7 +913,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: innbetalt_aksjekapitaler
     owner: Containerklasse
     domain_of:
     - Containerklasse
@@ -942,7 +926,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Containerklasse
-    alias: innbetalt_overkurser
     owner: Containerklasse
     domain_of:
     - Containerklasse

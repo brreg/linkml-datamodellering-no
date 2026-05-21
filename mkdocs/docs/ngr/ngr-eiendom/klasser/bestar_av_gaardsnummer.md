@@ -10,8 +10,6 @@ _Gårdsnummerdelen av matrikkelnummeret._
 
 
 URI: [ngre:bestarAvGaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvGaardsnummer)
-Alias: bestar_av_gaardsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Gårdsnummerdelen av matrikkelnummeret.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvGaardsnummer
-alias: bestar_av_gaardsnummer
 domain_of:
 - Matrikkelnummer
 range: Gaardsnummer

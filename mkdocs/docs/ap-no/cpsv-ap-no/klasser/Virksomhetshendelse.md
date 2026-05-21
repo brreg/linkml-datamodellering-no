@@ -309,7 +309,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:mayTriggerNeedFor
-    alias: kan_utlose_behov_for
     owner: Virksomhetshendelse
     domain_of:
     - Livshendelse
@@ -321,7 +320,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Virksomhetshendelse
     domain_of:
     - Mediatype
@@ -351,7 +349,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Virksomhetshendelse
     domain_of:
     - OffentligTjeneste
@@ -374,7 +371,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Virksomhetshendelse
     domain_of:
     - OffentligTjeneste
@@ -398,7 +394,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
-    alias: har_kontaktpunkt
     owner: Virksomhetshendelse
     domain_of:
     - OffentligTjeneste
@@ -415,7 +410,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Virksomhetshendelse
     domain_of:
     - OffentligTjeneste
@@ -438,7 +432,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:mayTrigger
-    alias: kan_utlose
     owner: Virksomhetshendelse
     domain_of:
     - Hendelse
@@ -452,7 +445,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: tema
     owner: Virksomhetshendelse
     domain_of:
     - OffentligTjeneste
@@ -468,7 +460,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
-    alias: er_beskrive_av
     owner: Virksomhetshendelse
     domain_of:
     - OffentligTjeneste
@@ -485,7 +476,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Virksomhetshendelse
     domain_of:
     - OffentligTjeneste

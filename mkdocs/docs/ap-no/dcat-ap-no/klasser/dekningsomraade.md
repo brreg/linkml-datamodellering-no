@@ -10,8 +10,6 @@ _Geografisk dekningsområde (dct:spatial)._
 
 
 URI: [dct:spatial](http://purl.org/dc/terms/spatial)
-Alias: dekningsomraade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: dekningsomraade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 | [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
-| [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ name: dekningsomraade
 description: Geografisk dekningsområde (dct:spatial).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:spatial
-alias: dekningsomraade
 domain_of:
 - Datasett
 - Datasettserie

@@ -10,8 +10,6 @@ _True dersom tildeling av ressursen krev godkjenning._
 
 
 URI: [res:kreverGodkjenning](https://schema.fintlabs.no/ressurs/kreverGodkjenning)
-Alias: kreverGodkjenning
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: True dersom tildeling av ressursen krev godkjenning.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:kreverGodkjenning
-alias: kreverGodkjenning
 domain_of:
 - Applikasjonsressurs
 range: boolean

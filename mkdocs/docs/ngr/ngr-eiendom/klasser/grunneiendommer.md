@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/grunneiendommer](https://data.norge.no/linkml/ngr-eiendom/grunneiendommer)
-Alias: grunneiendommer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: grunneiendommer
 name: grunneiendommer
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: grunneiendommer
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

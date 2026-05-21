@@ -10,8 +10,6 @@ _Innbetalt aksjekapital._
 
 
 URI: [aksje:gjelder_innbetalt_aksjekapital](https://example.no/ontology/aksje#gjelder_innbetalt_aksjekapital)
-Alias: gjelder_innbetalt_aksjekapital
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Innbetalt aksjekapital.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Aksjeinnskudd
-alias: gjelder_innbetalt_aksjekapital
 domain_of:
 - Aksjeinnskudd
 range: decimal

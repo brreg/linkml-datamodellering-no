@@ -10,8 +10,6 @@ _Føretrekt språk for elektronisk kommunikasjon valt av personen._
 
 
 URI: [ngrp:harValgtSpraak](https://data.norge.no/vocabulary/ngr-person#harValgtSpraak)
-Alias: har_valgt_spraak
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Føretrekt språk for elektronisk kommunikasjon valt av personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harValgtSpraak
-alias: har_valgt_spraak
 domain_of:
 - Person
 range: SpraakForElektroniskKommunikasjon

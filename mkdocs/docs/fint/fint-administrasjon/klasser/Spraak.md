@@ -10,8 +10,6 @@ _Alle språkverdiar i containeren._
 
 
 URI: [adm:spraak](https://schema.fintlabs.no/administrasjon/spraak)
-Alias: spraak
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle språkverdiar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:spraak
-alias: spraak
 domain_of:
 - AdministrasjonContainer
 range: Spraak

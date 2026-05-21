@@ -5,8 +5,6 @@
 
 
 URI: [ark:klassifikasjonstypar](https://schema.fintlabs.no/arkiv/klassifikasjonstypar)
-Alias: klassifikasjonstypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: klassifikasjonstypar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:klassifikasjonstypar
-alias: klassifikasjonstypar
 domain_of:
 - ArkivContainer
 range: Klassifikasjonstype

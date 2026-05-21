@@ -10,8 +10,6 @@ _Faste tillegg for arbeidsforholdet._
 
 
 URI: [adm:fasttillegg](https://schema.fintlabs.no/administrasjon/fasttillegg)
-Alias: fasttillegg
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: fasttillegg
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 | [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Faste tillegg for arbeidsforholdet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fasttillegg
-alias: fasttillegg
 domain_of:
 - AdministrasjonContainer
 - Arbeidsforhold

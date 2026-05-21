@@ -10,8 +10,6 @@ _Alle personar i containeren._
 
 
 URI: [adm:personar](https://schema.fintlabs.no/administrasjon/personar)
-Alias: personar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle personar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:personar
-alias: personar
 domain_of:
 - AdministrasjonContainer
 range: Person

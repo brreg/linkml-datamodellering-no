@@ -10,8 +10,6 @@ _Nummer på bilaget._
 
 
 URI: [okn:bilagsnummer](https://schema.fintlabs.no/okonomi/bilagsnummer)
-Alias: bilagsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Nummer på bilaget.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:bilagsnummer
-alias: bilagsnummer
 domain_of:
 - Bilag
 range: string

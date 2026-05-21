@@ -10,8 +10,6 @@ _Datasett som beskriv ressursen._
 
 
 URI: [cccevno:isDescribedBy](https://data.norge.no/vocabulary/cccevno#isDescribedBy)
-Alias: er_beskrive_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,13 +20,13 @@ Alias: er_beskrive_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Hendelse](hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |  yes  |
-| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
-| [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
+| [Hendelse](hendelse.md) | Ei hending som kan utløyse behov for ei offentleg teneste |  yes  |
 | [Dokumentasjonstype](dokumentasjonstype.md) | Ein type dokumentasjon som krevst for å levere ei teneste |  yes  |
+| [Tjenesteresultattype](tjenesteresultattype.md) | Typen resultat som ei teneste produserer |  yes  |
 | [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  no  |
+| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  no  |
 
 
 
@@ -93,7 +91,6 @@ description: Datasett som beskriv ressursen.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:isDescribedBy
-alias: er_beskrive_av
 domain_of:
 - OffentligTjeneste
 - Tjeneste

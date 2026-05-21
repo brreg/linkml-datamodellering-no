@@ -10,8 +10,6 @@ _Stemmekretsnummer._
 
 
 URI: [ngr:stemmekretsnummer](https://data.norge.no/vocabulary/ngr-adresse#stemmekretsnummer)
-Alias: stemmekretsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Stemmekretsnummer.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:stemmekretsnummer
-alias: stemmekretsnummer
 domain_of:
 - Stemmekrets
 range: string

@@ -10,8 +10,6 @@ _Type utanlandsk identifikasjon (t.d. DUF-nummer, tax identification)._
 
 
 URI: [ngrp:identifikasjonstype](https://data.norge.no/vocabulary/ngr-person#identifikasjonstype)
-Alias: identifikasjonstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type utanlandsk identifikasjon (t.d. DUF-nummer, tax identification
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:identifikasjonstype
-alias: identifikasjonstype
 domain_of:
 - Personidentifikasjon
 range: string

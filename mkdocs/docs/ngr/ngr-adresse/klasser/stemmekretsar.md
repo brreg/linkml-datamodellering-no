@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/stemmekretsar](https://data.norge.no/linkml/ngr-adresse/stemmekretsar)
-Alias: stemmekretsar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: stemmekretsar
 name: stemmekretsar
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: stemmekretsar
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

@@ -10,8 +10,6 @@ _Dato omgrepet er gyldig frå (euvoc:startDate)._
 
 
 URI: [euvoc:startDate](http://publications.europa.eu/ontology/euvoc#startDate)
-Alias: gyldig_fra
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato omgrepet er gyldig frå (euvoc:startDate).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: euvoc:startDate
-alias: gyldig_fra
 domain_of:
 - Begrep
 range: date

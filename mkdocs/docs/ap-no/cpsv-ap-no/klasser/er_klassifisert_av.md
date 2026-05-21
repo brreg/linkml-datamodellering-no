@@ -10,8 +10,6 @@ _Omgrep tenesta er klassifisert med._
 
 
 URI: [cv:isClassifiedBy](http://data.europa.eu/m8g/isClassifiedBy)
-Alias: er_klassifisert_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: er_klassifisert_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Omgrep tenesta er klassifisert med.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:isClassifiedBy
-alias: er_klassifisert_av
 domain_of:
 - OffentligTjeneste
 - Tjeneste

@@ -10,8 +10,6 @@ _Angir om sensor er føretrekt._
 
 
 URI: [utd:foretrukketSensor](https://schema.fintlabs.no/utdanning/foretrukketSensor)
-Alias: foretrukketSensor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Angir om sensor er føretrekt.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:foretrukketSensor
-alias: foretrukketSensor
 domain_of:
 - Eksamensgruppemedlemskap
 range: boolean

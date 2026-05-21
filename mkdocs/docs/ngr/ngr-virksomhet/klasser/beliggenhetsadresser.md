@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/beliggenhetsadresser](https://data.norge.no/linkml/ngr-virksomhet/beliggenhetsadresser)
-Alias: beliggenhetsadresser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: beliggenhetsadresser
 name: beliggenhetsadresser
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: beliggenhetsadresser
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

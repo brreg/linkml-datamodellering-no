@@ -10,8 +10,6 @@ _Samling av selskapshendingar._
 
 
 URI: [aksje:selskapshendelser](https://example.no/ontology/aksje#selskapshendelser)
-Alias: selskapshendelser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av selskapshendingar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: selskapshendelser
 domain_of:
 - Containerklasse
 range: Selskapshendelse

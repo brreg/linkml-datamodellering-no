@@ -2525,7 +2525,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:elevar
-    alias: elevar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2539,7 +2538,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:skolar
-    alias: skolar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2553,7 +2551,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:skoleressursar
-    alias: skoleressursar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2567,7 +2564,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:elevforhold
-    alias: elevforhold
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2583,6 +2579,7 @@ attributes:
     - Fravarsoversikt
     range: Elevforhold
     multivalued: true
+    inlined: true
     inlined_as_list: true
   elevtilrettelegging:
     name: elevtilrettelegging
@@ -2590,7 +2587,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:elevtilrettelegging
-    alias: elevtilrettelegging
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2604,7 +2600,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:klasser
-    alias: klasser
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2618,7 +2613,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:klassemedlemskap
-    alias: klassemedlemskap
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2626,6 +2620,7 @@ attributes:
     - Klasse
     range: Klassemedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kontaktlaerergrupper:
     name: kontaktlaerergrupper
@@ -2633,7 +2628,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:kontaktlaerergrupper
-    alias: kontaktlaerergrupper
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2647,13 +2641,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:kontaktlaerergruppemedlemskap
-    alias: kontaktlaerergruppemedlemskap
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevforhold
     range: Kontaktlaerergruppemedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   persongrupper:
     name: persongrupper
@@ -2661,7 +2655,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:persongrupper
-    alias: persongrupper
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2675,7 +2668,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:persongruppemedlemskap
-    alias: persongruppemedlemskap
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2683,6 +2675,7 @@ attributes:
     - Persongruppe
     range: Persongruppemedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   varsel:
     name: varsel
@@ -2690,13 +2683,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:varsel
-    alias: varsel
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Faggruppemedlemskap
     range: Varsel
     multivalued: true
+    inlined: true
     inlined_as_list: true
   arstrinn:
     name: arstrinn
@@ -2704,7 +2697,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:arstrinn
-    alias: arstrinn
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2718,7 +2710,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:programomrader
-    alias: programomrader
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2732,13 +2723,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:programomrademedlemskap
-    alias: programomrademedlemskap
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevforhold
     range: Programomrademedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   utdanningsprogram:
     name: utdanningsprogram
@@ -2746,13 +2737,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:utdanningsprogram
-    alias: utdanningsprogram
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Skole
     range: Utdanningsprogram
     multivalued: true
+    inlined: true
     inlined_as_list: true
   eksamen:
     name: eksamen
@@ -2760,7 +2751,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:eksamen
-    alias: eksamen
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2768,6 +2758,7 @@ attributes:
     - Eksamensgruppe
     range: Eksamen
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fag:
     name: fag
@@ -2775,7 +2766,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fag
-    alias: fag
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2787,6 +2777,7 @@ attributes:
     - Fravarsoversikt
     range: Fag
     multivalued: true
+    inlined: true
     inlined_as_list: true
   faggrupper:
     name: faggrupper
@@ -2794,7 +2785,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:faggrupper
-    alias: faggrupper
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2808,7 +2798,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:faggruppemedlemskap
-    alias: faggruppemedlemskap
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2817,6 +2806,7 @@ attributes:
     - Faggruppe
     range: Faggruppemedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rom:
     name: rom
@@ -2824,7 +2814,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:rom
-    alias: rom
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2832,6 +2821,7 @@ attributes:
     - Time
     range: Rom
     multivalued: true
+    inlined: true
     inlined_as_list: true
   timar:
     name: timar
@@ -2839,7 +2829,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:timar
-    alias: timar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2853,7 +2842,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:undervisningsforhold
-    alias: undervisningsforhold
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2865,6 +2853,7 @@ attributes:
     - Eksamensgruppe
     range: Undervisningsforhold
     multivalued: true
+    inlined: true
     inlined_as_list: true
   undervisningsgrupper:
     name: undervisningsgrupper
@@ -2872,7 +2861,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:undervisningsgrupper
-    alias: undervisningsgrupper
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2886,13 +2874,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:undervisningsgruppemedlemskap
-    alias: undervisningsgruppemedlemskap
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevforhold
     range: Undervisningsgruppemedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   anmerkningar:
     name: anmerkningar
@@ -2900,7 +2888,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:anmerkningar
-    alias: anmerkningar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2914,7 +2901,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:eksamensgrupper
-    alias: eksamensgrupper
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2928,13 +2914,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:eksamensgruppemedlemskap
-    alias: eksamensgruppemedlemskap
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevforhold
     range: Eksamensgruppemedlemskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   eksamensvurdering:
     name: eksamensvurdering
@@ -2942,13 +2928,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:eksamensvurdering
-    alias: eksamensvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Eksamensvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   elevfravar:
     name: elevfravar
@@ -2956,7 +2942,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:elevfravar
-    alias: elevfravar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2964,6 +2949,7 @@ attributes:
     - Fraversregistrering
     range: Elevfravar
     multivalued: true
+    inlined: true
     inlined_as_list: true
   elevvurdering:
     name: elevvurdering
@@ -2971,7 +2957,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:elevvurdering
-    alias: elevvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -2985,6 +2970,7 @@ attributes:
     - Underveisordensvurdering
     range: Elevvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fravarsoversikt:
     name: fravarsoversikt
@@ -2992,7 +2978,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fravarsoversikt
-    alias: fravarsoversikt
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3006,13 +2991,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fraversregistrering
-    alias: fraversregistrering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevfravar
     range: Fraversregistrering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   halvaarsfagvurdering:
     name: halvaarsfagvurdering
@@ -3020,13 +3005,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:halvaarsfagvurdering
-    alias: halvaarsfagvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Halvaarsfagvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   halvaarsordensvurdering:
     name: halvaarsordensvurdering
@@ -3034,13 +3019,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:halvaarsordensvurdering
-    alias: halvaarsordensvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Halvaarsordensvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   karakterhistorie:
     name: karakterhistorie
@@ -3048,7 +3033,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:karakterhistorie
-    alias: karakterhistorie
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3056,6 +3040,7 @@ attributes:
     - Sluttfagvurdering
     range: Karakterhistorie
     multivalued: true
+    inlined: true
     inlined_as_list: true
   sensor:
     name: sensor
@@ -3063,7 +3048,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:sensor
-    alias: sensor
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3071,6 +3055,7 @@ attributes:
     - Eksamensgruppe
     range: Sensor
     multivalued: true
+    inlined: true
     inlined_as_list: true
   sluttfagvurdering:
     name: sluttfagvurdering
@@ -3078,13 +3063,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:sluttfagvurdering
-    alias: sluttfagvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Sluttfagvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   sluttordensvurdering:
     name: sluttordensvurdering
@@ -3092,13 +3077,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:sluttordensvurdering
-    alias: sluttordensvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Sluttordensvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   underveisfagvurdering:
     name: underveisfagvurdering
@@ -3106,13 +3091,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:underveisfagvurdering
-    alias: underveisfagvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Underveisfagvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   underveisordensvurdering:
     name: underveisordensvurdering
@@ -3120,13 +3105,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:underveisordensvurdering
-    alias: underveisordensvurdering
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Underveisordensvurdering
     multivalued: true
+    inlined: true
     inlined_as_list: true
   vitnemalsmerknad:
     name: vitnemalsmerknad
@@ -3134,13 +3119,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:vitnemalsmerknad
-    alias: vitnemalsmerknad
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Elevvurdering
     range: Vitnemalsmerknad
     multivalued: true
+    inlined: true
     inlined_as_list: true
   betalingsstatus:
     name: betalingsstatus
@@ -3148,13 +3133,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:betalingsstatus
-    alias: betalingsstatus
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Eksamensgruppemedlemskap
     range: Betalingsstatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   fagstatus:
     name: fagstatus
@@ -3162,13 +3147,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fagstatus
-    alias: fagstatus
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Faggruppemedlemskap
     range: Fagstatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   karakterstatus:
     name: karakterstatus
@@ -3176,13 +3161,13 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:karakterstatus
-    alias: karakterstatus
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
     - Karakterhistorie
     range: Karakterstatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   skoleaar:
     name: skoleaar
@@ -3190,7 +3175,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:skoleaar
-    alias: skoleaar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3206,6 +3190,7 @@ attributes:
     - Eksamensgruppe
     range: Skoleaar
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilrettelegging:
     name: tilrettelegging
@@ -3213,7 +3198,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:tilrettelegging
-    alias: tilrettelegging
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3222,6 +3206,7 @@ attributes:
     - Fag
     range: Tilrettelegging
     multivalued: true
+    inlined: true
     inlined_as_list: true
   avlagteprover:
     name: avlagteprover
@@ -3229,7 +3214,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:avlagteprover
-    alias: avlagteprover
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3243,7 +3227,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:laerlingar
-    alias: laerlingar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3257,7 +3240,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:otUngdom
-    alias: otUngdom
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3271,7 +3253,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:avbruddsaarsaker
-    alias: avbruddsaarsaker
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3285,7 +3266,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:bevistypar
-    alias: bevistypar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3299,7 +3279,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:brevtypar
-    alias: brevtypar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3313,7 +3292,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:eksamensformer
-    alias: eksamensformer
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3327,7 +3305,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:elevkategoriar
-    alias: elevkategoriar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3341,7 +3318,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fagmerknader
-    alias: fagmerknader
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3355,7 +3331,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fravartypar
-    alias: fravartypar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3369,7 +3344,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fullfortkoder
-    alias: fullfortkoder
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3383,7 +3357,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:karakterskalaer
-    alias: karakterskalaer
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3397,7 +3370,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:karakterverdiar
-    alias: karakterverdiar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3411,7 +3383,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:otEnheter
-    alias: otEnheter
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3425,7 +3396,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:otStatus
-    alias: otStatus
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3439,7 +3409,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:provestatuser
-    alias: provestatuser
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3453,7 +3422,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:skoleeijartypar
-    alias: skoleeijartypar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3467,7 +3435,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:terminar
-    alias: terminar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer
@@ -3481,7 +3448,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:varseltypar
-    alias: varseltypar
     owner: UtdanningContainer
     domain_of:
     - UtdanningContainer

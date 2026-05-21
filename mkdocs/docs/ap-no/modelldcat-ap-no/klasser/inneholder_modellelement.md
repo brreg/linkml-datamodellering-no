@@ -10,8 +10,6 @@ _Modellelement som er del av informasjonsmodellen (modelldcatno:containsModelEle
 
 
 URI: [modelldcatno:containsModelElement](https://data.norge.no/vocabulary/modelldcatno#containsModelElement)
-Alias: inneholder_modellelement
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Modellelement som er del av informasjonsmodellen (modelldcatno:cont
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:containsModelElement
-alias: inneholder_modellelement
 domain_of:
 - Informasjonsmodell
 range: Modellelement

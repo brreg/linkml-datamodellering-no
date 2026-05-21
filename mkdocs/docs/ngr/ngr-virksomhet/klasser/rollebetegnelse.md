@@ -10,8 +10,6 @@ _Kva type rolle dette er (dagleg leiar, styreleiar o.l.)._
 
 
 URI: [ngrv:rollebetegnelse](https://data.norge.no/vocabulary/ngr-virksomhet#rollebetegnelse)
-Alias: rollebetegnelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kva type rolle dette er (dagleg leiar, styreleiar o.l.).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:rollebetegnelse
-alias: rollebetegnelse
 domain_of:
 - RolleIVirksomhet
 range: RolleType

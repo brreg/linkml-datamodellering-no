@@ -10,8 +10,6 @@ _Rolla aktøren har i ei deltaking._
 
 
 URI: [cv:role](http://data.europa.eu/m8g/role)
-Alias: har_rolle
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Rolla aktøren har i ei deltaking.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:role
-alias: har_rolle
 domain_of:
 - Deltagelse
 range: Konsept

@@ -258,7 +258,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Modul
     domain_of:
     - Mediatype
@@ -287,7 +286,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Modul
     domain_of:
     - Standard
@@ -308,7 +306,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: Modul
     domain_of:
     - Informasjonsmodell
@@ -324,7 +321,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Modul
     domain_of:
     - Aktor
@@ -343,7 +339,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasProperty
-    alias: har_eigenskap
     owner: Modul
     domain_of:
     - Modellelement
@@ -356,7 +351,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Modul
     domain_of:
     - Modelkatalog
@@ -373,7 +367,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:belongsToModule
-    alias: tilhorer_modul
     owner: Modul
     domain_of:
     - Modellelement

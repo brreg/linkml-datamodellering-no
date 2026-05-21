@@ -10,8 +10,6 @@ _Undervisningsgruppe._
 
 
 URI: [utd:undervisningsgruppe](https://schema.fintlabs.no/utdanning/undervisningsgruppe)
-Alias: undervisningsgruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: undervisningsgruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
-| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  yes  |
 | [Fag](fag.md) | Eit skulefag |  yes  |
 | [Time](time.md) | Ein time i timeplanen |  yes  |
+| [Undervisningsgruppemedlemskap](undervisningsgruppemedlemskap.md) | Eit elevs medlemskap i ei undervisningsgruppe |  yes  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Undervisningsgruppe.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:undervisningsgruppe
-alias: undervisningsgruppe
 domain_of:
 - Fag
 - Time

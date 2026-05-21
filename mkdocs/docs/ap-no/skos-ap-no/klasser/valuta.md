@@ -10,8 +10,6 @@ _Valuta (cv:currency)._
 
 
 URI: [cv:currency](http://data.europa.eu/m8g/currency)
-Alias: valuta
-
 <!-- no inheritance hierarchy -->
 
 
@@ -75,7 +73,6 @@ name: valuta
 description: Valuta (cv:currency).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: cv:currency
-alias: valuta
 range: Konsept
 
 ```

@@ -10,8 +10,6 @@ _Adressenavn (vegnamn o.l.) for adressa._
 
 
 URI: [ngr:harAdressenavn](https://data.norge.no/vocabulary/ngr-adresse#harAdressenavn)
-Alias: adressenavn_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Adressenavn (vegnamn o.l.) for adressa.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harAdressenavn
-alias: adressenavn_ref
 domain_of:
 - OffisiellAdresse
 range: Adressenavn

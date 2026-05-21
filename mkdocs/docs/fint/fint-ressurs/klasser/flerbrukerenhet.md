@@ -10,8 +10,6 @@ _Kvifor eininga er ein- eller flerbrukarenheit._
 
 
 URI: [res:flerbrukerenhet](https://schema.fintlabs.no/ressurs/flerbrukerenhet)
-Alias: flerbrukerenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kvifor eininga er ein- eller flerbrukarenheit.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:flerbrukerenhet
-alias: flerbrukerenhet
 domain_of:
 - DigitalEnhet
 range: boolean

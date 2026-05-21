@@ -10,8 +10,6 @@ _Kommunal adressekode for adressa._
 
 
 URI: [ngr:harAdressekode](https://data.norge.no/vocabulary/ngr-adresse#harAdressekode)
-Alias: adressekode_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kommunal adressekode for adressa.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harAdressekode
-alias: adressekode_ref
 domain_of:
 - OffisiellAdresse
 range: Adressekode

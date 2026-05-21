@@ -10,8 +10,6 @@ _Datatjeneste som gjev tilgang til distribusjonen._
 
 
 URI: [dcat:accessService](http://www.w3.org/ns/dcat#accessService)
-Alias: tilgangstjeneste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: tilgangstjeneste
 description: Datatjeneste som gjev tilgang til distribusjonen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:accessService
-alias: tilgangstjeneste
 domain_of:
 - Distribusjon
 range: Datatjeneste

@@ -10,8 +10,6 @@ _Opphavleg karakterstatus._
 
 
 URI: [utd:opprinneligKarakterstatus](https://schema.fintlabs.no/utdanning/opprinneligKarakterstatus)
-Alias: opprinneligKarakterstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Opphavleg karakterstatus.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:opprinneligKarakterstatus
-alias: opprinneligKarakterstatus
 domain_of:
 - Karakterhistorie
 range: Karakterstatus

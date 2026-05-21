@@ -10,8 +10,6 @@ _Utanlandske identifikasjonsdokument knytt til personen._
 
 
 URI: [ngrp:harUtenlandskIdentifikasjonsdokument](https://data.norge.no/vocabulary/ngr-person#harUtenlandskIdentifikasjonsdokument)
-Alias: har_utenlandsk_identifikasjonsdokument
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Utanlandske identifikasjonsdokument knytt til personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harUtenlandskIdentifikasjonsdokument
-alias: har_utenlandsk_identifikasjonsdokument
 domain_of:
 - Person
 range: Identifikasjonsdokument

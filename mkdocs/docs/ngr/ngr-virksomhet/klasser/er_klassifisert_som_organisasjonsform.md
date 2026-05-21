@@ -10,8 +10,6 @@ _Organisasjonsform (juridisk form) for verksemda._
 
 
 URI: [ngrv:erKlassifisertSomOrganisasjonsform](https://data.norge.no/vocabulary/ngr-virksomhet#erKlassifisertSomOrganisasjonsform)
-Alias: er_klassifisert_som_organisasjonsform
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: er_klassifisert_som_organisasjonsform
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -88,7 +86,6 @@ description: Organisasjonsform (juridisk form) for verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:erKlassifisertSomOrganisasjonsform
-alias: er_klassifisert_som_organisasjonsform
 domain_of:
 - Virksomhet
 range: Organisasjonsform

@@ -10,8 +10,6 @@ _Referanse til Virksomhet som er leverandør._
 
 
 URI: [okn:virksomhet](https://schema.fintlabs.no/okonomi/virksomhet)
-Alias: virksomhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Virksomhet som er leverandør.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:virksomhet
-alias: virksomhet
 domain_of:
 - Leverandor
 range: uriorcurie

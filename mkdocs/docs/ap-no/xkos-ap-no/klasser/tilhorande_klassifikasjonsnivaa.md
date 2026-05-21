@@ -10,8 +10,6 @@ _Klassifikasjonsnivå kategorien høyrer til (xkos:belongsTo)._
 
 
 URI: [xkos:belongsTo](http://rdf-vocabulary.ddialliance.org/xkos#belongsTo)
-Alias: tilhorande_klassifikasjonsnivaa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Klassifikasjonsnivå kategorien høyrer til (xkos:belongsTo).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:belongsTo
-alias: tilhorande_klassifikasjonsnivaa
 domain_of:
 - Kategori
 range: Klassifikasjonsnivaa

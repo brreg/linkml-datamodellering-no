@@ -10,8 +10,6 @@ _Karakterstatus._
 
 
 URI: [utd:karakterstatus](https://schema.fintlabs.no/utdanning/karakterstatus)
-Alias: karakterstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: karakterstatus
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Karakterhistorie](karakterhistorie.md) | Historikk over endringar i ein karakter |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Karakterstatus.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:karakterstatus
-alias: karakterstatus
 domain_of:
 - UtdanningContainer
 - Karakterhistorie

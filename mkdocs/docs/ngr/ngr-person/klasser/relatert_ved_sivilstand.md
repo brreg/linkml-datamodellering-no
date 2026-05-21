@@ -10,8 +10,6 @@ _Person ein er gift/partnar med (utfyller sivilstand GIFT, REGISTRERT_PARTNER o.
 
 
 URI: [ngrp:relatertVedSivilstand](https://data.norge.no/vocabulary/ngr-person#relatertVedSivilstand)
-Alias: relatert_ved_sivilstand
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Person ein er gift/partnar med (utfyller sivilstand GIFT, REGISTRER
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:relatertVedSivilstand
-alias: relatert_ved_sivilstand
 domain_of:
 - Sivilstand
 range: Person

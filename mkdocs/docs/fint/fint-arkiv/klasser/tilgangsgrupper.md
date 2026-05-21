@@ -5,8 +5,6 @@
 
 
 URI: [ark:tilgangsgrupper](https://schema.fintlabs.no/arkiv/tilgangsgrupper)
-Alias: tilgangsgrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: tilgangsgrupper
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilgangsgrupper
-alias: tilgangsgrupper
 domain_of:
 - ArkivContainer
 range: Tilgangsgruppe

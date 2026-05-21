@@ -10,8 +10,6 @@ _Unik identifikator for ordren det skal utferdigast faktura på._
 
 
 URI: [okn:ordrenummer](https://schema.fintlabs.no/okonomi/ordrenummer)
-Alias: ordrenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Unik identifikator for ordren det skal utferdigast faktura på.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:ordrenummer
-alias: ordrenummer
 domain_of:
 - Fakturagrunnlag
 range: Identifikator

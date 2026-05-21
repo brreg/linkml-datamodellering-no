@@ -10,8 +10,6 @@ _Hendingar i katalogen._
 
 
 URI: [dcatno:containsEvent](https://data.norge.no/vocabulary/dcatno#containsEvent)
-Alias: inneheld_hending
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Hendingar i katalogen.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: dcatno:containsEvent
-alias: inneheld_hending
 domain_of:
 - Katalog
 range: Hendelse

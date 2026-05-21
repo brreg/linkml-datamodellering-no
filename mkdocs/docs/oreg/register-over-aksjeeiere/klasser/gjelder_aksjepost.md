@@ -10,8 +10,6 @@ _Aksjepost som inngår i eigarposisjonen._
 
 
 URI: [aksje:gjelder_aksjepost](https://example.no/ontology/aksje#gjelder_aksjepost)
-Alias: gjelder_aksjepost
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aksjepost som inngår i eigarposisjonen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Eierposisjon
-alias: gjelder_aksjepost
 domain_of:
 - Eierposisjon
 range: Aksjepost

@@ -10,8 +10,6 @@ _Alle artar i containeren._
 
 
 URI: [adm:artar](https://schema.fintlabs.no/administrasjon/artar)
-Alias: artar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle artar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:artar
-alias: artar
 domain_of:
 - AdministrasjonContainer
 range: Art

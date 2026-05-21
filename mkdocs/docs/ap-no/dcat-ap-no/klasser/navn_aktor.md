@@ -10,8 +10,6 @@ _Namn på aktøren._
 
 
 URI: [foaf:name](http://xmlns.com/foaf/0.1/name)
-Alias: navn_aktor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Namn på aktøren.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: foaf:name
-alias: navn_aktor
 domain_of:
 - Aktor
 range: LangString

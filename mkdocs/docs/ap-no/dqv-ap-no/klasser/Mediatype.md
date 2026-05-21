@@ -172,7 +172,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Mediatype
     domain_of:
     - Mediatype
@@ -198,6 +197,7 @@ attributes:
     - Standard
     - Tekstdel
     range: uriorcurie
+    required: true
 class_uri: dct:MediaTypeOrExtent
 
 ```

@@ -10,8 +10,6 @@ _Namn på kontaktpersonen._
 
 
 URI: [fint:kontaktpersonNavn](https://schema.fintlabs.no/kontaktpersonNavn)
-Alias: kontaktperson_navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: kontaktperson_navn
 description: Namn på kontaktpersonen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kontaktpersonNavn
-alias: kontaktperson_navn
 domain_of:
 - Kontaktperson
 range: Personnavn

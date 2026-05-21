@@ -10,8 +10,6 @@ _Årslønn/grunnlønn i 100 % stilling._
 
 
 URI: [adm:aarslonn](https://schema.fintlabs.no/administrasjon/aarslonn)
-Alias: aarslonn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Årslønn/grunnlønn i 100 % stilling.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:aarslonn
-alias: aarslonn
 domain_of:
 - Arbeidsforhold
 range: integer

@@ -10,8 +10,6 @@ _Verdiområde for omgrepet (skosno:valueRange)._
 
 
 URI: [skosno:valueRange](https://data.norge.no/vocabulary/skosno#valueRange)
-Alias: verdiomrade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Verdiområde for omgrepet (skosno:valueRange).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:valueRange
-alias: verdiomrade
 domain_of:
 - Begrep
 range: LangString

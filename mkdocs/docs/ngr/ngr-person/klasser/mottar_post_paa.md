@@ -10,8 +10,6 @@ _Adressa personen mottar post på._
 
 
 URI: [ngrp:mottarPostPaa](https://data.norge.no/vocabulary/ngr-person#mottarPostPaa)
-Alias: mottar_post_paa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Adressa personen mottar post på.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:mottarPostPaa
-alias: mottar_post_paa
 domain_of:
 - Person
 range: Postadresse

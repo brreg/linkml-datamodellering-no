@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/kontaktinformasjon](https://data.norge.no/linkml/ngr-virksomhet/kontaktinformasjon)
-Alias: kontaktinformasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: kontaktinformasjon
 name: kontaktinformasjon
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: kontaktinformasjon
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

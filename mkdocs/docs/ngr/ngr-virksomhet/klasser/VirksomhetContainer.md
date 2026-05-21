@@ -574,7 +574,6 @@ attributes:
     - VirksomhetContainer
     range: Underenhet
     multivalued: true
-    inlined: true
     inlined_as_list: true
   hovedenheter:
     name: hovedenheter
@@ -584,7 +583,6 @@ attributes:
     - VirksomhetContainer
     range: Hovedenhet
     multivalued: true
-    inlined: true
     inlined_as_list: true
   tilstander:
     name: tilstander
@@ -594,7 +592,6 @@ attributes:
     - VirksomhetContainer
     range: Tilstand
     multivalued: true
-    inlined: true
     inlined_as_list: true
   organisasjonsformer:
     name: organisasjonsformer
@@ -604,7 +601,6 @@ attributes:
     - VirksomhetContainer
     range: Organisasjonsform
     multivalued: true
-    inlined: true
     inlined_as_list: true
   naeringskoder:
     name: naeringskoder
@@ -614,7 +610,6 @@ attributes:
     - VirksomhetContainer
     range: Naeringskode
     multivalued: true
-    inlined: true
     inlined_as_list: true
   kontaktinformasjon:
     name: kontaktinformasjon
@@ -624,7 +619,6 @@ attributes:
     - VirksomhetContainer
     range: Kontaktinformasjon
     multivalued: true
-    inlined: true
     inlined_as_list: true
   varslingsadresser:
     name: varslingsadresser
@@ -634,7 +628,6 @@ attributes:
     - VirksomhetContainer
     range: Varslingsadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   aktivitetar:
     name: aktivitetar
@@ -644,7 +637,6 @@ attributes:
     - VirksomhetContainer
     range: Aktivitet
     multivalued: true
-    inlined: true
     inlined_as_list: true
   sektorkoder:
     name: sektorkoder
@@ -654,7 +646,6 @@ attributes:
     - VirksomhetContainer
     range: Sektorkode
     multivalued: true
-    inlined: true
     inlined_as_list: true
   rollerIVirksomhet:
     name: rollerIVirksomhet
@@ -664,7 +655,6 @@ attributes:
     - VirksomhetContainer
     range: RolleIVirksomhet
     multivalued: true
-    inlined: true
     inlined_as_list: true
   rolleinnehavere:
     name: rolleinnehavere
@@ -674,7 +664,6 @@ attributes:
     - VirksomhetContainer
     range: Rolleinnehaver
     multivalued: true
-    inlined: true
     inlined_as_list: true
   signaturrettar:
     name: signaturrettar
@@ -684,7 +673,6 @@ attributes:
     - VirksomhetContainer
     range: Signaturrett
     multivalued: true
-    inlined: true
     inlined_as_list: true
   prokuraer:
     name: prokuraer
@@ -694,7 +682,6 @@ attributes:
     - VirksomhetContainer
     range: Prokura
     multivalued: true
-    inlined: true
     inlined_as_list: true
   postadresser:
     name: postadresser
@@ -704,7 +691,6 @@ attributes:
     - VirksomhetContainer
     range: Postadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   forretningsadresser:
     name: forretningsadresser
@@ -714,7 +700,6 @@ attributes:
     - VirksomhetContainer
     range: Forretningsadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   beliggenhetsadresser:
     name: beliggenhetsadresser
@@ -724,7 +709,6 @@ attributes:
     - VirksomhetContainer
     range: Beliggenhetsadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
 tree_root: true
 
@@ -745,177 +729,177 @@ attributes:
     name: underenheter
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: underenheter
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Underenhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   hovedenheter:
     name: hovedenheter
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: hovedenheter
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Hovedenhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   tilstander:
     name: tilstander
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: tilstander
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Tilstand
     multivalued: true
+    inlined: true
     inlined_as_list: true
   organisasjonsformer:
     name: organisasjonsformer
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: organisasjonsformer
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Organisasjonsform
     multivalued: true
+    inlined: true
     inlined_as_list: true
   naeringskoder:
     name: naeringskoder
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: naeringskoder
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Naeringskode
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kontaktinformasjon:
     name: kontaktinformasjon
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: kontaktinformasjon
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Kontaktinformasjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   varslingsadresser:
     name: varslingsadresser
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: varslingsadresser
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Varslingsadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   aktivitetar:
     name: aktivitetar
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: aktivitetar
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Aktivitet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   sektorkoder:
     name: sektorkoder
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: sektorkoder
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Sektorkode
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rollerIVirksomhet:
     name: rollerIVirksomhet
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: rollerIVirksomhet
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: RolleIVirksomhet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rolleinnehavere:
     name: rolleinnehavere
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: rolleinnehavere
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Rolleinnehaver
     multivalued: true
+    inlined: true
     inlined_as_list: true
   signaturrettar:
     name: signaturrettar
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: signaturrettar
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Signaturrett
     multivalued: true
+    inlined: true
     inlined_as_list: true
   prokuraer:
     name: prokuraer
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: prokuraer
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Prokura
     multivalued: true
+    inlined: true
     inlined_as_list: true
   postadresser:
     name: postadresser
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: postadresser
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Postadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   forretningsadresser:
     name: forretningsadresser
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: forretningsadresser
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Forretningsadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   beliggenhetsadresser:
     name: beliggenhetsadresser
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
-    alias: beliggenhetsadresser
     owner: VirksomhetContainer
     domain_of:
     - VirksomhetContainer
     range: Beliggenhetsadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

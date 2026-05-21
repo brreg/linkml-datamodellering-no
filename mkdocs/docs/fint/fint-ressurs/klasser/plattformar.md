@@ -5,8 +5,6 @@
 
 
 URI: [res:plattformar](https://schema.fintlabs.no/ressurs/plattformar)
-Alias: plattformar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: plattformar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:plattformar
-alias: plattformar
 domain_of:
 - RessursContainer
 range: Plattform

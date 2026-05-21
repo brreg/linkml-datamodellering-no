@@ -364,7 +364,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasSome
-    alias: har_noe
     owner: Valg
     domain_of:
     - Valg
@@ -375,7 +374,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Valg
     domain_of:
     - Mediatype
@@ -405,7 +403,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: Valg
     domain_of:
     - Informasjonsmodell
@@ -421,7 +418,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Valg
     domain_of:
     - Aktor
@@ -440,7 +436,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:navigable
-    alias: navigerbar
     owner: Valg
     domain_of:
     - Eigenskap
@@ -453,7 +448,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:minOccurs
-    alias: min_multiplisitet
     owner: Valg
     domain_of:
     - Eigenskap
@@ -465,7 +459,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Valg
     domain_of:
     - Standard
@@ -485,7 +478,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:maxOccurs
-    alias: maks_multiplisitet
     owner: Valg
     domain_of:
     - Eigenskap
@@ -497,7 +489,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Valg
     domain_of:
     - Modelkatalog
@@ -514,7 +505,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasType
-    alias: har_type
     owner: Valg
     domain_of:
     - Eigenskap
@@ -528,7 +518,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:relationPropertyLabel
-    alias: relasjonsegenskapetikett
     owner: Valg
     domain_of:
     - Eigenskap
@@ -542,7 +531,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:sequenceNumber
-    alias: sekvensnummer
     owner: Valg
     domain_of:
     - Eigenskap
@@ -555,7 +543,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:belongsToModule
-    alias: tilhorer_modul
     owner: Valg
     domain_of:
     - Modellelement
@@ -571,7 +558,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:formsSymmetryWith
-    alias: danner_symmetri_med
     owner: Valg
     domain_of:
     - Eigenskap

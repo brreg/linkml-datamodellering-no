@@ -10,8 +10,6 @@ _Ressursen merknaden gjeld._
 
 
 URI: [oa:hasTarget](http://www.w3.org/ns/oa#hasTarget)
-Alias: har_maal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -99,7 +97,6 @@ description: Ressursen merknaden gjeld.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 rank: 1000
 slot_uri: oa:hasTarget
-alias: har_maal
 domain_of:
 - Kvalitetsmerknad
 range: uri

@@ -10,8 +10,6 @@ _Prosjektkode._
 
 
 URI: [okn:prosjekt](https://schema.fintlabs.no/okonomi/prosjekt)
-Alias: prosjekt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Prosjektkode.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:prosjekt
-alias: prosjekt
 domain_of:
 - Kontostreng
 range: string

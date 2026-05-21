@@ -10,8 +10,6 @@ _Geografisk dekningsområde (dct:spatial)._
 
 
 URI: [dct:spatial](http://purl.org/dc/terms/spatial)
-Alias: dekningsomraade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: dekningsomraade
 description: Geografisk dekningsområde (dct:spatial).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:spatial
-alias: dekningsomraade
 domain_of:
 - Informasjonsmodell
 range: Konsept

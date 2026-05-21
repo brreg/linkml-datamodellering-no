@@ -10,8 +10,6 @@ _Alle OT-statuser i containeren._
 
 
 URI: [utd:otStatus](https://schema.fintlabs.no/utdanning/otStatus)
-Alias: otStatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle OT-statuser i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:otStatus
-alias: otStatus
 domain_of:
 - UtdanningContainer
 range: OtStatus

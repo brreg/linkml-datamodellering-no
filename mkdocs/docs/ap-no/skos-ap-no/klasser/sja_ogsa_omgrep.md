@@ -10,8 +10,6 @@ _Relatert omgrep (rdfs:seeAlso)._
 
 
 URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
-Alias: sja_ogsa_omgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Relatert omgrep (rdfs:seeAlso).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: rdfs:seeAlso
-alias: sja_ogsa_omgrep
 domain_of:
 - Begrep
 range: Begrep

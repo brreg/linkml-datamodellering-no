@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/poststeder](https://data.norge.no/linkml/ngr-adresse/poststeder)
-Alias: poststeder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: poststeder
 name: poststeder
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: poststeder
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

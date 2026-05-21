@@ -10,8 +10,6 @@ _Firesifra postnummer (locn:postCode)._
 
 
 URI: [locn:postCode](http://www.w3.org/ns/locn#postCode)
-Alias: postnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Firesifra postnummer (locn:postCode).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: locn:postCode
-alias: postnummer
 domain_of:
 - Poststed
 range: string

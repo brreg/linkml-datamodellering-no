@@ -10,8 +10,6 @@ _Det generelle modellelementet i ei spesialisering (modelldcatno:hasGeneralConce
 
 
 URI: [modelldcatno:hasGeneralConcept](https://data.norge.no/vocabulary/modelldcatno#hasGeneralConcept)
-Alias: har_generelt_begrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Det generelle modellelementet i ei spesialisering (modelldcatno:has
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:hasGeneralConcept
-alias: har_generelt_begrep
 domain_of:
 - Spesialisering
 range: Modellelement

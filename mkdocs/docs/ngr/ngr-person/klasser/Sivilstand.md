@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/sivilstand](https://data.norge.no/linkml/ngr-person/sivilstand)
-Alias: sivilstand
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: sivilstand
 name: sivilstand
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: sivilstand
 owner: PersonContainer
 domain_of:
 - PersonContainer

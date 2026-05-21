@@ -10,8 +10,6 @@ _Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn)._
 
 
 URI: [ngr:adressetilleggsnavn](https://data.norge.no/vocabulary/ngr-adresse#adressetilleggsnavn)
-Alias: adressetilleggsnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:adressetilleggsnavn
-alias: adressetilleggsnavn
 domain_of:
 - OffisiellAdresse
 range: string

@@ -10,8 +10,6 @@ _Person som registrerte merknaden._
 
 
 URI: [ark:merknadRegistrertAv](https://schema.fintlabs.no/arkiv/merknadRegistrertAv)
-Alias: merknadRegistrertAv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Person som registrerte merknaden.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:merknadRegistrertAv
-alias: merknadRegistrertAv
 domain_of:
 - Merknad
 range: Arkivressurs

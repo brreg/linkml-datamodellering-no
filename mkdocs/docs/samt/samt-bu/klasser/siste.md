@@ -10,8 +10,6 @@ _Siste datasett i ei datasettserie._
 
 
 URI: [dcat:last](http://www.w3.org/ns/dcat#last)
-Alias: siste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: siste
 description: Siste datasett i ei datasettserie.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:last
-alias: siste
 domain_of:
 - Datasettserie
 range: Datasett

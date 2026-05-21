@@ -10,8 +10,6 @@ _Tekstleg skildring av næringskoden._
 
 
 URI: [ngrv:naeringskodeBeskrivelse](https://data.norge.no/vocabulary/ngr-virksomhet#naeringskodeBeskrivelse)
-Alias: naeringskode_beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tekstleg skildring av næringskoden.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:naeringskodeBeskrivelse
-alias: naeringskode_beskrivelse
 domain_of:
 - Naeringskode
 range: string

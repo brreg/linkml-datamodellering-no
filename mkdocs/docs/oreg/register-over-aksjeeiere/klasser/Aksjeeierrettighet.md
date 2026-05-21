@@ -223,7 +223,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Aksjeeierrettighet
     domain_of:
     - Containerklasse
@@ -249,7 +248,6 @@ attributes:
     description: Tekstleg forklaring av instansen.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: beskrivelse
     owner: Aksjeeierrettighet
     domain_of:
     - Aksjeeierrettighet
@@ -260,7 +258,6 @@ attributes:
     description: Rettigheiter knytt til aksjeklassen.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: gjelder_aksjer_i_aksjeklasse
     owner: Aksjeeierrettighet
     domain_of:
     - Aksjeeierrettighet

@@ -10,8 +10,6 @@ _Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation)._
 
 
 URI: [skosno:hasGenericConceptRelation](https://data.norge.no/vocabulary/skosno#hasGenericConceptRelation)
-Alias: har_generisk_relasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Generisk relasjon dette omgrepet er del av (skosno:hasGenericConcep
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:hasGenericConceptRelation
-alias: har_generisk_relasjon
 domain_of:
 - Begrep
 range: GeneriskRelasjon

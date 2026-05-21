@@ -309,7 +309,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Gruppe
     domain_of:
     - Begrep
@@ -372,7 +371,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
-    alias: navn
     owner: Gruppe
     domain_of:
     - Begrep
@@ -412,7 +410,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: Gruppe
     domain_of:
     - Periode

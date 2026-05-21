@@ -10,8 +10,6 @@ _Offisiell bygningsnummer for bygningen._
 
 
 URI: [ngre:harBygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#harBygningsnummer)
-Alias: har_bygningsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Offisiell bygningsnummer for bygningen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harBygningsnummer
-alias: har_bygningsnummer
 domain_of:
 - Bygning
 range: Bygningsnummer

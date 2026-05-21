@@ -10,8 +10,6 @@ _Beskriven kode for organisasjonselementet._
 
 
 URI: [adm:organisasjonsKode](https://schema.fintlabs.no/administrasjon/organisasjonsKode)
-Alias: organisasjonsKode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Beskriven kode for organisasjonselementet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:organisasjonsKode
-alias: organisasjonsKode
 domain_of:
 - Organisasjonselement
 range: Identifikator

@@ -284,7 +284,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: YtreInngang
     domain_of:
     - FastEiendom
@@ -327,7 +326,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:gjelderBruksenhet
-    alias: gjelder_bruksenhet
     owner: YtreInngang
     domain_of:
     - YtreInngang
@@ -343,7 +341,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harOffisiellAdresse
-    alias: har_offisiell_adresse
     owner: YtreInngang
     domain_of:
     - YtreInngang

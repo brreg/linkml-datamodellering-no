@@ -10,8 +10,6 @@ _Den digitale eininga dette medlemskapet tilhøyrer._
 
 
 URI: [res:digitalEnhet](https://schema.fintlabs.no/ressurs/digitalEnhet)
-Alias: digitalEnhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Den digitale eininga dette medlemskapet tilhøyrer.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:digitalEnhet
-alias: digitalEnhet
 domain_of:
 - Enhetsgruppemedlemskap
 range: DigitalEnhet

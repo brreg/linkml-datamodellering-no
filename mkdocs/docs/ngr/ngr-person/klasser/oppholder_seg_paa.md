@@ -10,8 +10,6 @@ _Adressa personen faktisk oppheld seg på._
 
 
 URI: [ngrp:oppholderSegPaa](https://data.norge.no/vocabulary/ngr-person#oppholderSegPaa)
-Alias: oppholder_seg_paa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Adressa personen faktisk oppheld seg på.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:oppholderSegPaa
-alias: oppholder_seg_paa
 domain_of:
 - Person
 range: Oppholdsadresse

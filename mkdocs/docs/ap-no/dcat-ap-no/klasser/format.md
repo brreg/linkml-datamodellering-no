@@ -10,8 +10,6 @@ _Filformat eller medietype (dct:format)._
 
 
 URI: [dct:format](http://purl.org/dc/terms/format)
-Alias: format
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ name: format
 description: Filformat eller medietype (dct:format).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:format
-alias: format
 domain_of:
 - Tekstdel
 - Distribusjon

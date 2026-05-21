@@ -10,8 +10,6 @@ _Nummer som identifiserer ein leverandør._
 
 
 URI: [okn:leverandornummer](https://schema.fintlabs.no/okonomi/leverandornummer)
-Alias: leverandornummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Nummer som identifiserer ein leverandør.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:leverandornummer
-alias: leverandornummer
 domain_of:
 - Leverandor
 range: Identifikator

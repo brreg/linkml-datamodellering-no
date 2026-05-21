@@ -10,8 +10,6 @@ _Namn på det geografiske området eller adressekomponenten._
 
 
 URI: [ngr:namn](https://data.norge.no/vocabulary/ngr-adresse#namn)
-Alias: namn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,17 +20,17 @@ Alias: namn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
-| [Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
-| [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  no  |
-| [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |  no  |
-| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |  no  |
-| [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |  no  |
 | [Adresseomrade](adresseomrade.md) | Geografisk område eit adressenavn høyrer til, t |  no  |
+| [GeografiskOmrade](geografiskomrade.md) | Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer... |  no  |
 | [Fylke](fylke.md) | Eit norsk fylke |  no  |
+| [Kommune](kommune.md) | Ein norsk kommune |  no  |
+| [Poststed](poststed.md) | Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret |  no  |
 | [Grunnkrets](grunnkrets.md) | Ei grunnkrets – minste geografiske eining i statistisk inndeling |  no  |
 | [Tettsted](tettsted.md) | Eit tettbygd område definert av SSB |  no  |
-| [Kommune](kommune.md) | Ein norsk kommune |  no  |
+| [Kirkesokn](kirkesokn.md) | Eit kyrkjesokn |  no  |
+| [Stemmekrets](stemmekrets.md) | Ei stemmekrets brukt ved val |  no  |
+| [KommunalKrets](kommunalkrets.md) | Ein kommunal krets (administrativ inndeling definert av kommunen) |  no  |
+| [Svalbard](svalbard.md) | Svalbard som særskild geografisk område |  no  |
 
 
 
@@ -96,7 +94,6 @@ description: Namn på det geografiske området eller adressekomponenten.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:namn
-alias: namn
 domain_of:
 - Adresseomrade
 - GeografiskOmrade

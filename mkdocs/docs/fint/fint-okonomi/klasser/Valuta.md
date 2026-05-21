@@ -10,8 +10,6 @@ _Valuta for oppgjeve beløp._
 
 
 URI: [okn:valuta](https://schema.fintlabs.no/okonomi/valuta)
-Alias: valuta
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Valuta for oppgjeve beløp.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:valuta
-alias: valuta
 domain_of:
 - Transaksjon
 range: OkonomiValuta

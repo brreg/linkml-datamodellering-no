@@ -10,8 +10,6 @@ _Føretrekt namn/term for organisasjonen._
 
 
 URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
-Alias: foretrekt_namn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Føretrekt namn/term for organisasjonen.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: skos:prefLabel
-alias: foretrekt_namn
 domain_of:
 - OffentligOrganisasjon
 range: LangString

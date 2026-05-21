@@ -10,8 +10,6 @@ _Objekttype knytt til rolla (modelldcatno:hasObjectType)._
 
 
 URI: [modelldcatno:hasObjectType](https://data.norge.no/vocabulary/modelldcatno#hasObjectType)
-Alias: har_objekttype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Objekttype knytt til rolla (modelldcatno:hasObjectType).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:hasObjectType
-alias: har_objekttype
 domain_of:
 - Rolle
 range: Objekttype

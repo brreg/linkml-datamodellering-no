@@ -10,8 +10,6 @@ _Identifikator oppretta i fakturaprogrammet._
 
 
 URI: [okn:fakturanummer](https://schema.fintlabs.no/okonomi/fakturanummer)
-Alias: fakturanummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Identifikator oppretta i fakturaprogrammet.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fakturanummer
-alias: fakturanummer
 domain_of:
 - Faktura
 range: Identifikator

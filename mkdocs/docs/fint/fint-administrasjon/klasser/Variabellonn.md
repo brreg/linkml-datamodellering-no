@@ -10,8 +10,6 @@ _Variabel lønn for arbeidsforholdet._
 
 
 URI: [adm:variabellonn](https://schema.fintlabs.no/administrasjon/variabellonn)
-Alias: variabellonn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: variabellonn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 | [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
+| [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Variabel lønn for arbeidsforholdet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:variabellonn
-alias: variabellonn
 domain_of:
 - AdministrasjonContainer
 - Arbeidsforhold

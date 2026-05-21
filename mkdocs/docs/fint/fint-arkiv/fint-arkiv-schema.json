@@ -77,6 +77,36 @@
             "title": "Adresse",
             "type": "object"
         },
+        "Aktoer": {
+            "additionalProperties": false,
+            "description": "Abstrakt base for person eller eining vi samhandlar med.",
+            "properties": {
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Den f\u00f8retrekte m\u00e5ten \u00e5 kome i kontakt med ein akt\u00f8r."
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Informasjon om postadresse til ein akt\u00f8r."
+                }
+            },
+            "title": "Aktoer",
+            "type": "object"
+        },
         "ArkivContainer": {
             "additionalProperties": false,
             "description": "Rotcontainer for FINT Arkiv-instansar.",
@@ -522,6 +552,49 @@
                 "avskrivningsmate"
             ],
             "title": "Avskrivning",
+            "type": "object"
+        },
+        "Begrep": {
+            "additionalProperties": false,
+            "description": "Abstrakt fellesbase for alle FINT-kodeverk.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Periode ressursen er gyldig for."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for ressursen.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Begrep",
             "type": "object"
         },
         "DispensasjonAutomatiskFredaKulturminne": {
@@ -1088,10 +1161,7 @@
                 },
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "person": {
                     "description": "Referanse til Person i Administrasjon-domenet.",
@@ -1105,6 +1175,65 @@
                 "id"
             ],
             "title": "Elev",
+            "type": "object"
+        },
+        "Enhet": {
+            "additionalProperties": false,
+            "description": "Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.",
+            "properties": {
+                "forretningsadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Bes\u00f8ksadresse til ein organisasjonseining."
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Den f\u00f8retrekte m\u00e5ten \u00e5 kome i kontakt med ein akt\u00f8r."
+                },
+                "organisasjonsnavn": {
+                    "description": "Namn p\u00e5 eining registrert i Einingsregisteret.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsnummer": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret."
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Informasjon om postadresse til ein akt\u00f8r."
+                }
+            },
+            "title": "Enhet",
             "type": "object"
         },
         "Format": {
@@ -2116,6 +2245,139 @@
             "title": "Landkode",
             "type": "object"
         },
+        "Mappe": {
+            "additionalProperties": false,
+            "description": "Abstrakt basisklasse for alle mappetypar. Grupperer dokument som h\u00f8yrer saman.",
+            "properties": {
+                "arkivdel": {
+                    "description": "Arkivdel arkivenheten tilh\u00f8yrer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "avsluttetAv": {
+                    "description": "Person som avslutta/lukka arkivenheten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "avsluttetDato": {
+                    "description": "Dato og klokkeslett n\u00e5r arkivenheten vart avslutta/lukka.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "beskrivelse": {
+                    "description": "Beskriven namn eller omtale.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "klasse": {
+                    "description": "Klassifisering av arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Klasse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "mappeId": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Eintydig identifikasjon av mappa innanfor arkivet."
+                },
+                "merknad": {
+                    "description": "Merknader knytt til arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Merknad"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "noekkelord": {
+                    "description": "N\u00f8kkelord som skildrar innhaldet (Mappe).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "offentligTittel": {
+                    "description": "Offentleg tittel der skjerma ord er fjerna.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "opprettetAv": {
+                    "description": "Person som oppretta/registrerte arkivenheten.",
+                    "type": "string"
+                },
+                "opprettetDato": {
+                    "description": "Dato og klokkeslett arkivenheten vart oppretta/registrert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "part": {
+                    "description": "Partar til arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Part"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "skjerming": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Skjerming"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Skjerming av arkivenhet."
+                },
+                "tittel": {
+                    "description": "Tittel eller namn p\u00e5 arkivenheten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "opprettetAv"
+            ],
+            "title": "Mappe",
+            "type": "object"
+        },
         "Matrikkelnummer": {
             "additionalProperties": false,
             "description": "Eintydleg identifisering av matrikkeleining innanfor kommune.",
@@ -2816,6 +3078,193 @@
             "title": "Personnavn",
             "type": "object"
         },
+        "Registrering": {
+            "additionalProperties": false,
+            "description": "Abstrakt basisklasse \u2014 arkivets prim\u00e6re byggeklossar.",
+            "properties": {
+                "administrativEnhet": {
+                    "description": "Administrativ eining som har ansvar for saksbehandlinga.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arkivdel": {
+                    "description": "Arkivdel arkivenheten tilh\u00f8yrer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "arkivertAv": {
+                    "description": "Person som arkiverte arkivenheten.",
+                    "type": "string"
+                },
+                "arkivertDato": {
+                    "description": "Dato og klokkeslett alle dokument knytt til registreringa vart arkivert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "beskrivelse": {
+                    "description": "Beskriven namn eller omtale.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "dokumentbeskrivelse": {
+                    "description": "Dokumentbeskrivelsar til ei registrering.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "forfatter": {
+                    "description": "Namn p\u00e5 person eller organisasjon som skapte dokumentet.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "klasse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Klasse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Klassifisering av arkivenhet."
+                },
+                "korrespondansepart": {
+                    "description": "Mottakar eller sendar av arkivdokument.",
+                    "items": {
+                        "$ref": "#/$defs/Korrespondansepart"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "merknad": {
+                    "description": "Merknader knytt til arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Merknad"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "nokkelord": {
+                    "description": "N\u00f8kkelord som skildrar innhaldet (Registrering).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "offentligTittel": {
+                    "description": "Offentleg tittel der skjerma ord er fjerna.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "opprettetAv": {
+                    "description": "Person som oppretta/registrerte arkivenheten.",
+                    "type": "string"
+                },
+                "opprettetDato": {
+                    "description": "Dato og klokkeslett arkivenheten vart oppretta/registrert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "part": {
+                    "description": "Partar til arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Part"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "referanseArkivDel": {
+                    "description": "Referanse til arkivdelen denne arkivenheten er tilknytt.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "registreringsId": {
+                    "description": "Inng\u00e5r i M004 journalpostID.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "saksbehandler": {
+                    "description": "Person som er saksbehandlar.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "skjerming": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Skjerming"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Skjerming av arkivenhet."
+                },
+                "tilgangsgruppe": {
+                    "description": "Tilgangsgruppe som har tilgang til arkivenheten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tittel": {
+                    "description": "Tittel eller namn p\u00e5 arkivenheten.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "tittel",
+                "arkivertAv",
+                "opprettetAv"
+            ],
+            "title": "Registrering",
+            "type": "object"
+        },
         "Rolle": {
             "additionalProperties": false,
             "description": "Rolla til ein arkivressurs.",
@@ -3066,6 +3515,215 @@
                 "opprettetAv"
             ],
             "title": "Sak",
+            "type": "object"
+        },
+        "Saksmappe": {
+            "additionalProperties": false,
+            "description": "Abstrakt spesialisering av Mappe som svarar til ei \"sak\" i Noark.",
+            "properties": {
+                "administrativEnhet": {
+                    "description": "Administrativ eining som har ansvar for saksbehandlinga.",
+                    "type": "string"
+                },
+                "arkivdel": {
+                    "description": "Arkivdel arkivenheten tilh\u00f8yrer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "avsluttetAv": {
+                    "description": "Person som avslutta/lukka arkivenheten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "avsluttetDato": {
+                    "description": "Dato og klokkeslett n\u00e5r arkivenheten vart avslutta/lukka.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "beskrivelse": {
+                    "description": "Beskriven namn eller omtale.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "journalenhet": {
+                    "description": "Eining med arkivmessig ansvar.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "journalpost": {
+                    "description": "Journalpostar knytt til saksmappa.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "klasse": {
+                    "description": "Klassifisering av arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Klasse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "mappeId": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Eintydig identifikasjon av mappa innanfor arkivet."
+                },
+                "merknad": {
+                    "description": "Merknader knytt til arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Merknad"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "noekkelord": {
+                    "description": "N\u00f8kkelord som skildrar innhaldet (Mappe).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "offentligTittel": {
+                    "description": "Offentleg tittel der skjerma ord er fjerna.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "opprettetAv": {
+                    "description": "Person som oppretta/registrerte arkivenheten.",
+                    "type": "string"
+                },
+                "opprettetDato": {
+                    "description": "Dato og klokkeslett arkivenheten vart oppretta/registrert.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "part": {
+                    "description": "Partar til arkivenhet.",
+                    "items": {
+                        "$ref": "#/$defs/Part"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "saksaar": {
+                    "description": "Inng\u00e5r i M003 mappeID \u2014 viser \u00e5ret saksmappa vart oppretta.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "saksansvarlig": {
+                    "description": "Person som er saksansvarleg.",
+                    "type": "string"
+                },
+                "saksdato": {
+                    "description": "Datoen saka er oppretta.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "saksmappetype": {
+                    "description": "Type saksmappe.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "sakssekvensnummer": {
+                    "description": "Inng\u00e5r i M003 mappeID \u2014 viser rekkjef\u00f8lgja saksmappene vart oppretta.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "saksstatus": {
+                    "description": "Status til saksmappa.",
+                    "type": "string"
+                },
+                "skjerming": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Skjerming"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Skjerming av arkivenhet."
+                },
+                "tilgangsgruppe": {
+                    "description": "Tilgangsgruppe som har tilgang til arkivenheten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tittel": {
+                    "description": "Tittel eller namn p\u00e5 arkivenheten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "utlaantDato": {
+                    "description": "Dato ein fysisk saksmappe eller journalpost vart utl\u00e5nt.",
+                    "format": "date-time",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "saksstatus",
+                "administrativEnhet",
+                "saksansvarlig",
+                "id",
+                "opprettetAv"
+            ],
+            "title": "Saksmappe",
             "type": "object"
         },
         "Saksmappetype": {
@@ -4288,7 +4946,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Rotcontainer for FINT Arkiv-instansar.",
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "properties": {
         "administrativeEiningar": {
             "items": {

@@ -10,8 +10,6 @@ _Skoleressurs som er ansvarleg for karakteren._
 
 
 URI: [utd:karakteransvarlig](https://schema.fintlabs.no/utdanning/karakteransvarlig)
-Alias: karakteransvarlig
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Skoleressurs som er ansvarleg for karakteren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:karakteransvarlig
-alias: karakteransvarlig
 domain_of:
 - Varsel
 range: Skoleressurs

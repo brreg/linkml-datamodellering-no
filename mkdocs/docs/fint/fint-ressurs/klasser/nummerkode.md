@@ -10,8 +10,6 @@ _Nummerkode for aktuell valuta._
 
 
 URI: [fint:nummerkode](https://schema.fintlabs.no/nummerkode)
-Alias: nummerkode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: nummerkode
 description: Nummerkode for aktuell valuta.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:nummerkode
-alias: nummerkode
 domain_of:
 - Valuta
 range: Identifikator

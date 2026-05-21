@@ -10,8 +10,6 @@ _Registrering av at personen har opptrådt med falsk identitet._
 
 
 URI: [ngrp:harFalskIdentitet](https://data.norge.no/vocabulary/ngr-person#harFalskIdentitet)
-Alias: har_falsk_identitet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Registrering av at personen har opptrådt med falsk identitet.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harFalskIdentitet
-alias: har_falsk_identitet
 domain_of:
 - Person
 range: FalskIdentitet

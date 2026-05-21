@@ -10,8 +10,6 @@ _Organisasjonar knytt til datasettet._
 
 
 URI: [samtbuskole:organisasjoner](https://example.no/ontology/skole#organisasjoner)
-Alias: organisasjoner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: organisasjoner
 description: Organisasjonar knytt til datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: organisasjoner
 domain_of:
 - Containerklasse
 range: Aktor

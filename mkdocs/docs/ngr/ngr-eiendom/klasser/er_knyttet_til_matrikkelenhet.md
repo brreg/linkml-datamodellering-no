@@ -10,8 +10,6 @@ _Matrikkeleininga bygningen er knytt til._
 
 
 URI: [ngre:erKnyttetTilMatrikkelenhet](https://data.norge.no/vocabulary/ngr-eiendom#erKnyttetTilMatrikkelenhet)
-Alias: er_knyttet_til_matrikkelenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Matrikkeleininga bygningen er knytt til.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:erKnyttetTilMatrikkelenhet
-alias: er_knyttet_til_matrikkelenhet
 domain_of:
 - Bygning
 range: Matrikkelenhet

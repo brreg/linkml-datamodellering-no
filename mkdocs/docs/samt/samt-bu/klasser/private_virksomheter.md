@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av privat
 
 
 URI: [samtbuskole:private_virksomheter](https://example.no/ontology/skole#private_virksomheter)
-Alias: private_virksomheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   private_virksomheter i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: private_virksomheter
 domain_of:
 - Containerklasse
 range: PrivatVirksomhet

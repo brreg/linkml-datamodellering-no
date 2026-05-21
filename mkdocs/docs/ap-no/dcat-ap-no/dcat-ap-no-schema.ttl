@@ -2,6 +2,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix linkml: <https://w3id.org/linkml/> .
 @prefix pav: <http://purl.org/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -10,40 +11,40 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "DCAT-AP-NO" ;
     pav:version "2.0" ;
-    sh:declare [ sh:namespace "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ;
-            sh:prefix "odrl" ],
+    sh:declare [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
         [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
             sh:prefix "rdfs" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ],
         [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
             sh:prefix "linkml" ],
-        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
-        [ sh:namespace "http://data.europa.eu/r5r/"^^xsd:anyURI ;
-            sh:prefix "dcatap" ],
-        [ sh:namespace "http://spdx.org/rdf/terms#"^^xsd:anyURI ;
-            sh:prefix "spdx" ],
+        [ sh:namespace "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ;
+            sh:prefix "odrl" ],
         [ sh:namespace "http://schema.theodi.org/odrs#"^^xsd:anyURI ;
             sh:prefix "odrs" ],
-        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
-            sh:prefix "skos" ],
-        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
-            sh:prefix "xsd" ],
-        [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
-            sh:prefix "foaf" ],
-        [ sh:namespace "http://data.europa.eu/eli/ontology#"^^xsd:anyURI ;
-            sh:prefix "eli" ],
-        [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
-            sh:prefix "adms" ],
         [ sh:namespace "http://data.europa.eu/m8g/"^^xsd:anyURI ;
             sh:prefix "cv" ],
+        [ sh:namespace "http://data.europa.eu/eli/ontology#"^^xsd:anyURI ;
+            sh:prefix "eli" ],
+        [ sh:namespace "http://data.europa.eu/r5r/"^^xsd:anyURI ;
+            sh:prefix "dcatap" ],
+        [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
+            sh:prefix "adms" ],
         [ sh:namespace "http://www.w3.org/6006/time#"^^xsd:anyURI ;
             sh:prefix "time" ],
-        [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
-            sh:prefix "vcard" ],
         [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
             sh:prefix "rdf" ],
+        [ sh:namespace "http://spdx.org/rdf/terms#"^^xsd:anyURI ;
+            sh:prefix "spdx" ],
+        [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
+            sh:prefix "foaf" ],
+        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+            sh:prefix "xsd" ],
+        [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
+            sh:prefix "skos" ],
+        [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
+            sh:prefix "vcard" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
         [ sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ;
             sh:prefix "prov" ] ;
     linkml:classes <https://data.norge.no/linkml/dcat-ap-no/Aktor>,
@@ -77,13 +78,13 @@
     linkml:default_prefix "https://data.norge.no/linkml/dcat-ap-no/" ;
     linkml:default_range <https://data.norge.no/linkml/dcat-ap-no/string> ;
     linkml:description "Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/" ;
-    linkml:generation_date "2026-05-18T09:12:49"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:09"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     linkml:imports "../common/common-ap-no-schema"^^xsd:anyURI,
         "../dcat-ap-no/dcat-ap-no-schema"^^xsd:anyURI,
         "../dqv-ap-no/dqv-ap-no-schema"^^xsd:anyURI,
         "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/linkml/dcat-ap-no/Aktor_navn_aktor>,
         <https://data.norge.no/linkml/dcat-ap-no/Datasett_begrep>,
         <https://data.norge.no/linkml/dcat-ap-no/Datasett_beskrivelse>,
@@ -285,8 +286,8 @@
         <https://data.norge.no/linkml/dcat-ap-no/versjon>,
         <https://data.norge.no/linkml/dcat-ap-no/versjonsmerknad> ;
     linkml:source_file "dcat-ap-no-schema.yaml" ;
-    linkml:source_file_date "2026-05-09T13:11:43"^^xsd:dateTime ;
-    linkml:source_file_size 23523 ;
+    linkml:source_file_date "2026-05-18T14:06:55"^^xsd:dateTime ;
+    linkml:source_file_size 23883 ;
     linkml:subsets <https://data.norge.no/linkml/dcat-ap-no/Anbefalt>,
         <https://data.norge.no/linkml/dcat-ap-no/Obligatorisk>,
         <https://data.norge.no/linkml/dcat-ap-no/Valgfri> ;
@@ -3319,6 +3320,7 @@
     linkml:slot_uri "http://purl.org/dc/terms/language"^^xsd:anyURI .
 
 <https://data.norge.no/linkml/dcat-ap-no/Identifikator> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "adms:Identifier"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/ns/adms#Identifier"^^xsd:anyURI ;
@@ -3400,6 +3402,7 @@
     linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI .
 
 <https://data.norge.no/linkml/dcat-ap-no/Konsept> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "skos:Concept"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/2004/02/skos/core#Concept"^^xsd:anyURI ;
@@ -3431,6 +3434,7 @@
         <https://data.norge.no/linkml/dcat-ap-no/id> .
 
 <https://data.norge.no/linkml/dcat-ap-no/Tidsrom> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/67a58f0e-2e39-33dc-bca9-1ef29a001b2f"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "dct:PeriodOfTime"^^xsd:anyURI ;
     linkml:class_uri "http://purl.org/dc/terms/PeriodOfTime"^^xsd:anyURI ;
@@ -3457,6 +3461,7 @@
         <https://data.norge.no/linkml/dcat-ap-no/id> .
 
 <https://data.norge.no/linkml/dcat-ap-no/Aktor> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "foaf:Agent"^^xsd:anyURI ;
     linkml:class_uri "http://xmlns.com/foaf/0.1/Agent"^^xsd:anyURI ;
@@ -3485,6 +3490,7 @@
         <https://data.norge.no/linkml/dcat-ap-no/type_concept> .
 
 <https://data.norge.no/linkml/dcat-ap-no/Kontaktopplysning> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc"^^xsd:anyURI ;
     skos:inScheme "https://data.norge.no/linkml/dcat-ap-no"^^xsd:anyURI ;
     skos:mappingRelation "vcard:Kind"^^xsd:anyURI ;
     linkml:class_uri "http://www.w3.org/2006/vcard/ns#Kind"^^xsd:anyURI ;
@@ -3688,7 +3694,7 @@
         <https://data.norge.no/linkml/dcat-ap-no/utgivelsesdato> .
 
 <https://data.norge.no/linkml/dcat-ap-no/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

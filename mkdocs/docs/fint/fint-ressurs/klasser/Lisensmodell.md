@@ -10,8 +10,6 @@ _Lisensmodellen applikasjonsressursen har._
 
 
 URI: [res:lisensmodell](https://schema.fintlabs.no/ressurs/lisensmodell)
-Alias: lisensmodell
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Lisensmodellen applikasjonsressursen har.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:lisensmodell
-alias: lisensmodell
 domain_of:
 - Applikasjonsressurs
 range: Lisensmodell

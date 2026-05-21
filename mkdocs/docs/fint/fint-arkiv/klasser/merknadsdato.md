@@ -10,8 +10,6 @@ _Dato og klokkeslett merknaden vart registrert._
 
 
 URI: [ark:merknadsdato](https://schema.fintlabs.no/arkiv/merknadsdato)
-Alias: merknadsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato og klokkeslett merknaden vart registrert.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:merknadsdato
-alias: merknadsdato
 domain_of:
 - Merknad
 range: datetime

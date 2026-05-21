@@ -10,8 +10,6 @@ _Bruksnummer innanfor gardsnamnet._
 
 
 URI: [ngre:bruksnummer](https://data.norge.no/vocabulary/ngr-eiendom#bruksnummer)
-Alias: bruksnummer_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Bruksnummer innanfor gardsnamnet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bruksnummer
-alias: bruksnummer_verdi
 domain_of:
 - Bruksnummer
 range: integer

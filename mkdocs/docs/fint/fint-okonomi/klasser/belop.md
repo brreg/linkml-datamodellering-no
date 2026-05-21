@@ -10,8 +10,6 @@ _Beløp, i øre._
 
 
 URI: [okn:belop](https://schema.fintlabs.no/okonomi/belop)
-Alias: belop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: belop
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Postering](postering.md) | Føring på ein konto i rekneskapet |  yes  |
-| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
 | [Faktura](faktura.md) | Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar |  yes  |
+| [Transaksjon](transaksjon.md) | Overføring av pengar til eller frå eksterne partar |  yes  |
+| [Postering](postering.md) | Føring på ein konto i rekneskapet |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Beløp, i øre.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:belop
-alias: belop
 domain_of:
 - Faktura
 - Transaksjon

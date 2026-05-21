@@ -10,8 +10,6 @@ _Mobiltelefonnummer._
 
 
 URI: [fint:mobiltelefonnummer](https://schema.fintlabs.no/mobiltelefonnummer)
-Alias: mobiltelefonnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: mobiltelefonnummer
 description: Mobiltelefonnummer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:mobiltelefonnummer
-alias: mobiltelefonnummer
 domain_of:
 - Kontaktinformasjon
 range: string

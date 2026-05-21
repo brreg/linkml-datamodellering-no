@@ -10,8 +10,6 @@ _Ansvarsomrade._
 
 
 URI: [okn:ansvar](https://schema.fintlabs.no/okonomi/ansvar)
-Alias: ansvar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Ansvarsomrade.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:ansvar
-alias: ansvar
 domain_of:
 - Kontostreng
 range: string

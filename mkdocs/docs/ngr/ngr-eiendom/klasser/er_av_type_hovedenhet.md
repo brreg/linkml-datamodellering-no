@@ -10,8 +10,6 @@ _Hovudeininga (juridisk person) som er rettigheitshavar._
 
 
 URI: [ngre:erAvTypeHovedenhet](https://data.norge.no/vocabulary/ngr-eiendom#erAvTypeHovedenhet)
-Alias: er_av_type_hovedenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: er_av_type_hovedenhet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Borettslag](borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |  yes  |
 | [Rettighetshaver](rettighetshaver.md) | Den som har ein rett knytt til ein eigedom |  yes  |
+| [Borettslag](borettslag.md) | Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsb... |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Hovudeininga (juridisk person) som er rettigheitshavar.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:erAvTypeHovedenhet
-alias: er_av_type_hovedenhet
 domain_of:
 - Rettighetshaver
 - Borettslag

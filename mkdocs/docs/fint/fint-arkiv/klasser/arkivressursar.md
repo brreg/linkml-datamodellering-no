@@ -5,8 +5,6 @@
 
 
 URI: [ark:arkivressursar](https://schema.fintlabs.no/arkiv/arkivressursar)
-Alias: arkivressursar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: arkivressursar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:arkivressursar
-alias: arkivressursar
 domain_of:
 - ArkivContainer
 range: Arkivressurs

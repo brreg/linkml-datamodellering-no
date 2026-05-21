@@ -296,7 +296,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kontaktopplysning
     domain_of:
     - Mediatype
@@ -331,7 +330,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: vcard:fn
-    alias: navn_vcard
     owner: Kontaktopplysning
     domain_of:
     - Kontaktopplysning
@@ -344,7 +342,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: vcard:hasEmail
-    alias: har_epost
     owner: Kontaktopplysning
     domain_of:
     - Kontaktopplysning
@@ -355,7 +352,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     rank: 1000
     slot_uri: vcard:hasURL
-    alias: har_kontaktside
     owner: Kontaktopplysning
     domain_of:
     - Kontaktopplysning

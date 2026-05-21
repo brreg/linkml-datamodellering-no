@@ -5,8 +5,6 @@
 
 
 URI: [pvn:samtykker](https://schema.fintlabs.no/personvern/samtykker)
-Alias: samtykker
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: samtykker
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:samtykker
-alias: samtykker
 domain_of:
 - PersonvernContainer
 range: Samtykke

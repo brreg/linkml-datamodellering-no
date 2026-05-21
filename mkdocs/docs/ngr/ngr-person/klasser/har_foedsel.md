@@ -10,8 +10,6 @@ _Fødselsinformasjon om personen._
 
 
 URI: [ngrp:harFoedsel](https://data.norge.no/vocabulary/ngr-person#harFoedsel)
-Alias: har_foedsel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fødselsinformasjon om personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harFoedsel
-alias: har_foedsel
 domain_of:
 - Person
 range: Foedsel

@@ -10,8 +10,6 @@ _Karakterhistorikk._
 
 
 URI: [utd:karakterhistorie](https://schema.fintlabs.no/utdanning/karakterhistorie)
-Alias: karakterhistorie
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: karakterhistorie
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
 | [Eksamensvurdering](eksamensvurdering.md) | Vurdering gjeven i samband med ein eksamen |  yes  |
+| [Sluttfagvurdering](sluttfagvurdering.md) | Sluttkarakter i eit fag |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Karakterhistorikk.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:karakterhistorie
-alias: karakterhistorie
 domain_of:
 - UtdanningContainer
 - Eksamensvurdering

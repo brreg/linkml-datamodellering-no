@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/fylke](https://data.norge.no/linkml/ngr-adresse/fylke)
-Alias: fylke
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: fylke
 name: fylke
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: fylke
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

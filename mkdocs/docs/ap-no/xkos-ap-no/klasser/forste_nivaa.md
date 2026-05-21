@@ -10,8 +10,6 @@ _Toppnivå i klassifikasjonen (xkos:levels)._
 
 
 URI: [xkos:levels](http://rdf-vocabulary.ddialliance.org/xkos#levels)
-Alias: forste_nivaa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Toppnivå i klassifikasjonen (xkos:levels).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:levels
-alias: forste_nivaa
 domain_of:
 - Klassifikasjon
 range: Klassifikasjonsnivaa

@@ -5,8 +5,6 @@
 
 
 URI: [okn:transaksjonar](https://schema.fintlabs.no/okonomi/transaksjonar)
-Alias: transaksjonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: transaksjonar
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:transaksjonar
-alias: transaksjonar
 domain_of:
 - OkonomiContainer
 range: Transaksjon

@@ -10,8 +10,6 @@ _Personalressurs som har fått fullmakt til ei gjeven rolle._
 
 
 URI: [adm:fullmektig](https://schema.fintlabs.no/administrasjon/fullmektig)
-Alias: fullmektig
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Personalressurs som har fått fullmakt til ei gjeven rolle.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:fullmektig
-alias: fullmektig
 domain_of:
 - Fullmakt
 range: Personalressurs

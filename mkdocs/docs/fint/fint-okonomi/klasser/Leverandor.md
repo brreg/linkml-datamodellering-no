@@ -10,8 +10,6 @@ _Leverandør._
 
 
 URI: [okn:leverandor](https://schema.fintlabs.no/okonomi/leverandor)
-Alias: leverandor
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Leverandør.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:leverandor
-alias: leverandor
 domain_of:
 - Transaksjon
 - Leverandorgruppe

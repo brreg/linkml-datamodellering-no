@@ -196,7 +196,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Aksjeoverdragelse
     domain_of:
     - Containerklasse
@@ -223,7 +222,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Aksjeoverdragelse
-    alias: kan_ha_vederlag
     owner: Aksjeoverdragelse
     domain_of:
     - Aksjeoverdragelse

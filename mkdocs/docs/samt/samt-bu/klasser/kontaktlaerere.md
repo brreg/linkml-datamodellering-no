@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av kontak
 
 
 URI: [samtbuskole:kontaktlaerere](https://example.no/ontology/skole#kontaktlaerere)
-Alias: kontaktlaerere
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   kontaktlaerer i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: kontaktlaerere
 domain_of:
 - Containerklasse
 range: Kontaktlaerer

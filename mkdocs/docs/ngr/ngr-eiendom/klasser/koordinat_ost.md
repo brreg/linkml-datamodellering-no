@@ -10,8 +10,6 @@ _Austleg koordinat (X) i det angitte koordinatsystemet._
 
 
 URI: [ngre:koordinatOst](https://data.norge.no/vocabulary/ngr-eiendom#koordinatOst)
-Alias: koordinat_ost
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Austleg koordinat (X) i det angitte koordinatsystemet.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:koordinatOst
-alias: koordinat_ost
 domain_of:
 - Representasjonspunkt
 range: float

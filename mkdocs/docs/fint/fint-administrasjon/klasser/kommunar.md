@@ -10,8 +10,6 @@ _Alle kommuneverdiar i containeren._
 
 
 URI: [adm:kommunar](https://schema.fintlabs.no/administrasjon/kommunar)
-Alias: kommunar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle kommuneverdiar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:kommunar
-alias: kommunar
 domain_of:
 - AdministrasjonContainer
 range: Kommune

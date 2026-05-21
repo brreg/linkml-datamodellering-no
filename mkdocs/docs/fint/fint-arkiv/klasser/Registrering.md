@@ -1143,7 +1143,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Registrering
     domain_of:
     - Begrep
@@ -1189,7 +1188,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivertDato
-    alias: arkivertDato
     owner: Registrering
     domain_of:
     - Registrering
@@ -1201,7 +1199,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: Registrering
     domain_of:
     - Periode
@@ -1218,7 +1215,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:dokumentbeskrivelse
-    alias: dokumentbeskrivelse
     owner: Registrering
     domain_of:
     - Registrering
@@ -1232,7 +1228,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:forfatter
-    alias: forfatter
     owner: Registrering
     domain_of:
     - Registrering
@@ -1247,7 +1242,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:klasse
-    alias: klasse
     owner: Registrering
     domain_of:
     - Mappe
@@ -1263,7 +1257,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:korrespondansepart
-    alias: korrespondansepart
     owner: Registrering
     domain_of:
     - Registrering
@@ -1279,7 +1272,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:merknad
-    alias: merknad
     owner: Registrering
     domain_of:
     - Mappe
@@ -1296,7 +1288,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:nokkelord
-    alias: nokkelord
     owner: Registrering
     domain_of:
     - Registrering
@@ -1310,7 +1301,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:offentligTittel
-    alias: offentligTittel
     owner: Registrering
     domain_of:
     - Mappe
@@ -1324,7 +1314,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetDato
-    alias: opprettetDato
     owner: Registrering
     domain_of:
     - Mappe
@@ -1340,7 +1329,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:part
-    alias: part
     owner: Registrering
     domain_of:
     - Mappe
@@ -1358,7 +1346,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:referanseArkivDel
-    alias: referanseArkivDel
     owner: Registrering
     domain_of:
     - Registrering
@@ -1372,7 +1359,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:registreringsId
-    alias: registreringsId
     owner: Registrering
     domain_of:
     - Registrering
@@ -1385,7 +1371,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:skjerming
-    alias: skjerming
     owner: Registrering
     domain_of:
     - Mappe
@@ -1403,7 +1388,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tittel
-    alias: tittel
     owner: Registrering
     domain_of:
     - Mappe
@@ -1423,7 +1407,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangsgruppe
-    alias: tilgangsgruppe
     owner: Registrering
     domain_of:
     - Saksmappe
@@ -1437,7 +1420,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:administrativEnhet
-    alias: administrativEnhet
     owner: Registrering
     domain_of:
     - Saksmappe
@@ -1452,7 +1434,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivdel
-    alias: arkivdel
     owner: Registrering
     domain_of:
     - Mappe
@@ -1468,7 +1449,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksbehandler
-    alias: saksbehandler
     owner: Registrering
     domain_of:
     - Registrering
@@ -1481,7 +1461,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivertAv
-    alias: arkivertAv
     owner: Registrering
     domain_of:
     - Registrering
@@ -1495,7 +1474,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetAv
-    alias: opprettetAv
     owner: Registrering
     domain_of:
     - Mappe

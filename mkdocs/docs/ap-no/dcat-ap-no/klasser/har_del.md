@@ -10,8 +10,6 @@ _Delkatalog inkludert i denne katalogen._
 
 
 URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
-Alias: har_del
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Delkatalog inkludert i denne katalogen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dct:hasPart
-alias: har_del
 domain_of:
 - Katalog
 range: Katalog

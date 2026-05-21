@@ -10,8 +10,6 @@ _Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpression)._
 
 
 URI: [modelldcatno:constraintExpression](https://data.norge.no/vocabulary/modelldcatno#constraintExpression)
-Alias: betingelsesuttrykk
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,11 +20,11 @@ Alias: betingelsesuttrykk
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Betingelsesregel](betingelsesregel.md) | Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskap... |  yes  |
 | [Og](og.md) | Og — logisk OG-betingelse; alle deltakande modellelement må gjelde |  no  |
+| [Eller](eller.md) | Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde |  no  |
 | [XEllerY](xellery.md) | Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde |  no  |
 | [Ikke](ikke.md) | Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde |  no  |
-| [Betingelsesregel](betingelsesregel.md) | Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskap... |  yes  |
-| [Eller](eller.md) | Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde |  no  |
 
 
 
@@ -91,7 +89,6 @@ description: Formelt uttrykk for betingelsesregelen (modelldcatno:constraintExpr
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:constraintExpression
-alias: betingelsesuttrykk
 domain_of:
 - Betingelsesregel
 range: LangString

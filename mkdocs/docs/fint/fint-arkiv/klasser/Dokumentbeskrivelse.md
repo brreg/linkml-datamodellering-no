@@ -10,8 +10,6 @@ _Dokumentbeskrivelsar til ei registrering._
 
 
 URI: [ark:dokumentbeskrivelse](https://schema.fintlabs.no/arkiv/dokumentbeskrivelse)
-Alias: dokumentbeskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Dokumentbeskrivelsar til ei registrering.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumentbeskrivelse
-alias: dokumentbeskrivelse
 domain_of:
 - Registrering
 range: Dokumentbeskrivelse

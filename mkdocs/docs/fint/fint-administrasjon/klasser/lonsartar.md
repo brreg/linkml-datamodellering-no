@@ -10,8 +10,6 @@ _Alle lønnsartar i containeren._
 
 
 URI: [adm:lonsartar](https://schema.fintlabs.no/administrasjon/lonsartar)
-Alias: lonsartar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle lønnsartar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:lonsartar
-alias: lonsartar
 domain_of:
 - AdministrasjonContainer
 range: Lonsart

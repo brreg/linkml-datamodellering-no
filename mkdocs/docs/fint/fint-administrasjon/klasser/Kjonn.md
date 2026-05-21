@@ -10,8 +10,6 @@ _Kjønn._
 
 
 URI: [fint:kjonn](https://schema.fintlabs.no/kjonn)
-Alias: kjonn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: kjonn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 | [Person](person.md) | Fysiske private personar |  yes  |
+| [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 
 
 
@@ -86,7 +84,6 @@ name: kjonn
 description: Kjønn.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kjonn
-alias: kjonn
 domain_of:
 - Person
 - AdministrasjonContainer

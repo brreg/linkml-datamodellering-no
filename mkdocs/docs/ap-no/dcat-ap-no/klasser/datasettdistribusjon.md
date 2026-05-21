@@ -10,8 +10,6 @@ _Tilgjengelege distribusjonar av datasettet._
 
 
 URI: [dcat:distribution](http://www.w3.org/ns/dcat#distribution)
-Alias: datasettdistribusjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Tilgjengelege distribusjonar av datasettet.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:distribution
-alias: datasettdistribusjon
 domain_of:
 - Datasett
 range: Distribusjon

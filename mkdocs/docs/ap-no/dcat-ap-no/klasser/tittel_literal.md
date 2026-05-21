@@ -10,8 +10,6 @@ _Namn/tittel utan språktag._
 
 
 URI: [dct:title](http://purl.org/dc/terms/title)
-Alias: tittel_literal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -77,7 +75,6 @@ description: Namn/tittel utan språktag.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dct:title
-alias: tittel_literal
 range: string
 multivalued: true
 

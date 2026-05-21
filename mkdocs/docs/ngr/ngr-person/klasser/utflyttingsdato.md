@@ -10,8 +10,6 @@ _Dato personen vart registrert utflytta frå Noreg._
 
 
 URI: [ngrp:utflyttingsdato](https://data.norge.no/vocabulary/ngr-person#utflyttingsdato)
-Alias: utflyttingsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato personen vart registrert utflytta frå Noreg.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:utflyttingsdato
-alias: utflyttingsdato
 domain_of:
 - UtflyttingFraNorge
 range: date

@@ -10,8 +10,6 @@ _Kommunen denne adressa ligg i._
 
 
 URI: [ngr:harKommunenummer](https://data.norge.no/vocabulary/ngr-adresse#harKommunenummer)
-Alias: kommunenummer_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kommunen denne adressa ligg i.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harKommunenummer
-alias: kommunenummer_ref
 domain_of:
 - OffisiellAdresse
 range: Kommune

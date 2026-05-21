@@ -10,8 +10,6 @@ _Datoen hovudeininga vart stifta._
 
 
 URI: [ngrv:stiftelsesdato](https://data.norge.no/vocabulary/ngr-virksomhet#stiftelsesdato)
-Alias: stiftelsesdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen hovudeininga vart stifta.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:stiftelsesdato
-alias: stiftelsesdato
 domain_of:
 - Hovedenhet
 range: date

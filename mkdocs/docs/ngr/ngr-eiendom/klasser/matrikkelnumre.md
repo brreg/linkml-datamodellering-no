@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/matrikkelnumre](https://data.norge.no/linkml/ngr-eiendom/matrikkelnumre)
-Alias: matrikkelnumre
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: matrikkelnumre
 name: matrikkelnumre
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: matrikkelnumre
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

@@ -10,8 +10,6 @@ _Omgrep dette omgrepet generaliserer (xkos:generalizes)._
 
 
 URI: [xkos:generalizes](http://rdf-vocabulary.ddialliance.org/xkos#generalizes)
-Alias: generaliserer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep dette omgrepet generaliserer (xkos:generalizes).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: xkos:generalizes
-alias: generaliserer
 domain_of:
 - Begrep
 range: Begrep

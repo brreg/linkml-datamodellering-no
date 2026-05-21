@@ -5,8 +5,6 @@
 
 
 URI: [ark:journalposttypar](https://schema.fintlabs.no/arkiv/journalposttypar)
-Alias: journalposttypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: journalposttypar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:journalposttypar
-alias: journalposttypar
 domain_of:
 - ArkivContainer
 range: JournalpostType

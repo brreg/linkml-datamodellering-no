@@ -10,8 +10,6 @@ _Referanse til Skole (Utdanning)._
 
 
 URI: [adm:skole](https://schema.fintlabs.no/administrasjon/skole)
-Alias: skole
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Skole (Utdanning).
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:skole
-alias: skole
 domain_of:
 - Organisasjonselement
 range: uriorcurie

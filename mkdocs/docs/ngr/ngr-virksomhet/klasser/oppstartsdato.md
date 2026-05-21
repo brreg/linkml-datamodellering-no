@@ -10,8 +10,6 @@ _Datoen underleininga vart oppretta/starta._
 
 
 URI: [ngrv:oppstartsdato](https://data.norge.no/vocabulary/ngr-virksomhet#oppstartsdato)
-Alias: oppstartsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen underleininga vart oppretta/starta.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:oppstartsdato
-alias: oppstartsdato
 domain_of:
 - Underenhet
 range: date

@@ -10,8 +10,6 @@ _Registrert namn på verksemda i Enhetsregisteret._
 
 
 URI: [ngrv:navn](https://data.norge.no/vocabulary/ngr-virksomhet#navn)
-Alias: navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: navn
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -88,7 +86,6 @@ description: Registrert namn på verksemda i Enhetsregisteret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:navn
-alias: navn
 domain_of:
 - Virksomhet
 range: string

@@ -10,8 +10,6 @@ _Fritekstmerknad (rdfs:comment)._
 
 
 URI: [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)
-Alias: har_merknad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -76,7 +74,6 @@ name: har_merknad
 description: Fritekstmerknad (rdfs:comment).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: rdfs:comment
-alias: har_merknad
 range: LangString
 multivalued: true
 

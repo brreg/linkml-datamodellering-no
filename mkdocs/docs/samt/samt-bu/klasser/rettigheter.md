@@ -10,8 +10,6 @@ _Rettar knytte til ressursen._
 
 
 URI: [dct:rights](http://purl.org/dc/terms/rights)
-Alias: rettigheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ name: rettigheter
 description: Rettar knytte til ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:rights
-alias: rettigheter
 domain_of:
 - Distribusjon
 - Datatjeneste

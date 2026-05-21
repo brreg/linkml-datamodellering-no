@@ -10,8 +10,6 @@ _Tenesta som behandlinga tilhøyrer._
 
 
 URI: [pvn:tjeneste](https://schema.fintlabs.no/personvern/tjeneste)
-Alias: tjeneste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tenesta som behandlinga tilhøyrer.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:tjeneste
-alias: tjeneste
 domain_of:
 - Behandling
 range: Tjeneste

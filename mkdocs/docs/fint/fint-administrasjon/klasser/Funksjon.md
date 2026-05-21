@@ -10,8 +10,6 @@ _Det som vert produsert eller tenesta som vert levert._
 
 
 URI: [adm:funksjon](https://schema.fintlabs.no/administrasjon/funksjon)
-Alias: funksjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: funksjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Det som vert produsert eller tenesta som vert levert.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:funksjon
-alias: funksjon
 domain_of:
 - Kontostreng
 - Fullmakt

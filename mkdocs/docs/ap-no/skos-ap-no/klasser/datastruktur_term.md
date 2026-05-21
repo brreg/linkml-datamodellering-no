@@ -10,8 +10,6 @@ _Term brukt i datastrukturar (skosno:dataStructureLabel)._
 
 
 URI: [skosno:dataStructureLabel](https://data.norge.no/vocabulary/skosno#dataStructureLabel)
-Alias: datastruktur_term
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Term brukt i datastrukturar (skosno:dataStructureLabel).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:dataStructureLabel
-alias: datastruktur_term
 domain_of:
 - Begrep
 range: string

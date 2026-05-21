@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/bruksenheter](https://data.norge.no/linkml/ngr-adresse/bruksenheter)
-Alias: bruksenheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: bruksenheter
 name: bruksenheter
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: bruksenheter
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

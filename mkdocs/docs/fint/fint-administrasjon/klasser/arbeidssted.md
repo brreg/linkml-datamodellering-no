@@ -10,8 +10,6 @@ _Tilhøyrsle til organisasjonsstrukturen._
 
 
 URI: [adm:arbeidssted](https://schema.fintlabs.no/administrasjon/arbeidssted)
-Alias: arbeidssted
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tilhøyrsle til organisasjonsstrukturen.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:arbeidssted
-alias: arbeidssted
 domain_of:
 - Arbeidsforhold
 range: Organisasjonselement

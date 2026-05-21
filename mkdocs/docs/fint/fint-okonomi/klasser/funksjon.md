@@ -10,8 +10,6 @@ _Funksjonskode (KOSTRA)._
 
 
 URI: [okn:funksjon](https://schema.fintlabs.no/okonomi/funksjon)
-Alias: funksjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Funksjonskode (KOSTRA).
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:funksjon
-alias: funksjon
 domain_of:
 - Kontostreng
 range: string

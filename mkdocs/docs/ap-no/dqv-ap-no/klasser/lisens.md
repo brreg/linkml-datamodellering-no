@@ -10,8 +10,6 @@ _Lisens for bruk av ressursen._
 
 
 URI: [dct:license](http://purl.org/dc/terms/license)
-Alias: lisens
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: lisens
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  no  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
-| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: lisens
 description: Lisens for bruk av ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:license
-alias: lisens
 domain_of:
 - Distribusjon
 - Datatjeneste

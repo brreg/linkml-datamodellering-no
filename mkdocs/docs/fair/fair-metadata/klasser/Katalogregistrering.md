@@ -10,8 +10,6 @@ _Dokumenterer registrering i søkbar katalog (FAIR F4)._
 
 
 URI: [fair:katalogregistrering](https://data.norge.no/fair#katalogregistrering)
-Alias: katalogregistrering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dokumenterer registrering i søkbar katalog (FAIR F4).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:katalogregistrering
-alias: katalogregistrering
 domain_of:
 - FAIRMetadata
 range: Katalogregistrering

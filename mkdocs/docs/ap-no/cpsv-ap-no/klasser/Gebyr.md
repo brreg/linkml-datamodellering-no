@@ -361,7 +361,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Gebyr
     domain_of:
     - Mediatype
@@ -391,7 +390,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Gebyr
     domain_of:
     - OffentligTjeneste
@@ -413,7 +411,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Gebyr
     domain_of:
     - OffentligTjeneste
@@ -436,7 +433,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:value
-    alias: verdi
     owner: Gebyr
     domain_of:
     - Gebyr
@@ -448,7 +444,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: cv:currency
-    alias: valuta
     owner: Gebyr
     domain_of:
     - Gebyr

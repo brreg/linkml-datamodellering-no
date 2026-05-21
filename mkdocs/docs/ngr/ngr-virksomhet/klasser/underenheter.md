@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/underenheter](https://data.norge.no/linkml/ngr-virksomhet/underenheter)
-Alias: underenheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: underenheter
 name: underenheter
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: underenheter
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

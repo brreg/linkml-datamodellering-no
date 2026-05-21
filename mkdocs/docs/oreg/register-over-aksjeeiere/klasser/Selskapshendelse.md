@@ -196,7 +196,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Selskapshendelse
     domain_of:
     - Containerklasse
@@ -223,7 +222,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Selskapshendelse
-    alias: kan_ha_aksjeinnskudd
     owner: Selskapshendelse
     domain_of:
     - Selskapshendelse

@@ -10,8 +10,6 @@ _Totalt beløp på faktura inkl. avgifter, i øre._
 
 
 URI: [okn:totalbelop](https://schema.fintlabs.no/okonomi/totalbelop)
-Alias: totalbelop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Totalt beløp på faktura inkl. avgifter, i øre.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:totalbelop
-alias: totalbelop
 domain_of:
 - Fakturagrunnlag
 range: integer

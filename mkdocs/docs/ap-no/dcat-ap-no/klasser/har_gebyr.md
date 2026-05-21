@@ -10,8 +10,6 @@ _Gebyr knytt til bruk av datatjenesten._
 
 
 URI: [cv:hasCost](http://data.europa.eu/m8g/hasCost)
-Alias: har_gebyr
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Gebyr knytt til bruk av datatjenesten.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: cv:hasCost
-alias: har_gebyr
 domain_of:
 - Datatjeneste
 range: Gebyr

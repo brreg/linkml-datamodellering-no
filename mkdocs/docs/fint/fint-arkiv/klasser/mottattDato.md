@@ -10,8 +10,6 @@ _Dato eit eksternt dokument vart motteke._
 
 
 URI: [ark:mottattDato](https://schema.fintlabs.no/arkiv/mottattDato)
-Alias: mottattDato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato eit eksternt dokument vart motteke.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:mottattDato
-alias: mottattDato
 domain_of:
 - Journalpost
 range: datetime

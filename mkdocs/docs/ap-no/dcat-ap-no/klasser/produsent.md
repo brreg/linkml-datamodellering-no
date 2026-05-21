@@ -10,8 +10,6 @@ _Aktøren som primært har skapt ressursen._
 
 
 URI: [dct:creator](http://purl.org/dc/terms/creator)
-Alias: produsent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: produsent
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  no  |
 
 
 
@@ -87,7 +85,6 @@ description: Aktøren som primært har skapt ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dct:creator
-alias: produsent
 domain_of:
 - Datasett
 - Katalog

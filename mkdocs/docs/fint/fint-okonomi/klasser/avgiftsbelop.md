@@ -10,8 +10,6 @@ _Del av totalbeløp som er avgifter, i øre._
 
 
 URI: [okn:avgiftsbelop](https://schema.fintlabs.no/okonomi/avgiftsbelop)
-Alias: avgiftsbelop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Del av totalbeløp som er avgifter, i øre.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:avgiftsbelop
-alias: avgiftsbelop
 domain_of:
 - Fakturagrunnlag
 range: integer

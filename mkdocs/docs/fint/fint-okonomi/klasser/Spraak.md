@@ -208,7 +208,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Spraak
     domain_of:
     - Begrep
@@ -236,7 +235,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kode
-    alias: kode
     owner: Spraak
     domain_of:
     - Begrep
@@ -252,7 +250,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:navn
-    alias: navn
     owner: Spraak
     domain_of:
     - Begrep
@@ -270,7 +267,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gyldighetsperiode
-    alias: gyldighetsperiode
     owner: Spraak
     domain_of:
     - Begrep
@@ -287,7 +283,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:passiv
-    alias: passiv
     owner: Spraak
     domain_of:
     - Begrep

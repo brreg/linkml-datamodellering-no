@@ -10,8 +10,6 @@ _Rekkjefølgja journalposten vart oppretta under året._
 
 
 URI: [ark:journalSekvensnummer](https://schema.fintlabs.no/arkiv/journalSekvensnummer)
-Alias: journalSekvensnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Rekkjefølgja journalposten vart oppretta under året.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:journalSekvensnummer
-alias: journalSekvensnummer
 domain_of:
 - Journalpost
 range: integer

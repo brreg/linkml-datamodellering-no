@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/signaturrettar](https://data.norge.no/linkml/ngr-virksomhet/signaturrettar)
-Alias: signaturrettar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: signaturrettar
 name: signaturrettar
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: signaturrettar
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

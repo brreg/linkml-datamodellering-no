@@ -10,8 +10,6 @@ _Poststad._
 
 
 URI: [fint:poststed](https://schema.fintlabs.no/poststed)
-Alias: poststed
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: poststed
 description: Poststad.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:poststed
-alias: poststed
 domain_of:
 - Adresse
 range: string

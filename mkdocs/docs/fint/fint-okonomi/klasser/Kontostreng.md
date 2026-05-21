@@ -335,7 +335,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:art
-    alias: art
     owner: Kontostreng
     domain_of:
     - Kontostreng
@@ -348,7 +347,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:funksjon
-    alias: funksjon
     owner: Kontostreng
     domain_of:
     - Kontostreng
@@ -361,7 +359,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:ansvar
-    alias: ansvar
     owner: Kontostreng
     domain_of:
     - Kontostreng
@@ -374,7 +371,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-okonomi
     rank: 1000
     slot_uri: okn:prosjekt
-    alias: prosjekt
     owner: Kontostreng
     domain_of:
     - Kontostreng

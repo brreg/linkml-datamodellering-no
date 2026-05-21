@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/bygningar](https://data.norge.no/linkml/ngr-adresse/bygningar)
-Alias: bygningar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: bygningar
 name: bygningar
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: bygningar
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

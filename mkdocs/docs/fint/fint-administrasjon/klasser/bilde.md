@@ -10,8 +10,6 @@ _HTTP(S)-lenkje til eit bilete av personen._
 
 
 URI: [fint:bilde](https://schema.fintlabs.no/bilde)
-Alias: bilde
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: bilde
 description: HTTP(S)-lenkje til eit bilete av personen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:bilde
-alias: bilde
 domain_of:
 - Person
 range: string

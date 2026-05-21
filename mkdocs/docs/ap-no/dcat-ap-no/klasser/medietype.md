@@ -10,8 +10,6 @@ _Medietype i samsvar med IANA-registeret._
 
 
 URI: [dcat:mediaType](http://www.w3.org/ns/dcat#mediaType)
-Alias: medietype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Medietype i samsvar med IANA-registeret.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:mediaType
-alias: medietype
 domain_of:
 - Distribusjon
 range: Mediatype

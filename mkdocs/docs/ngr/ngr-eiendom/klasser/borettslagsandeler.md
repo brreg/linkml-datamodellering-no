@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/borettslagsandeler](https://data.norge.no/linkml/ngr-eiendom/borettslagsandeler)
-Alias: borettslagsandeler
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: borettslagsandeler
 name: borettslagsandeler
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: borettslagsandeler
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

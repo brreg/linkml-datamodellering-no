@@ -10,8 +10,6 @@ _Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar)._
 
 
 URI: [ngrv:rolleinnehaverNavn](https://data.norge.no/vocabulary/ngr-virksomhet#rolleinnehaverNavn)
-Alias: rolleinnehaver_navn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på rolleinnehavar (nyttes for institusjonelle rollehavarar).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:rolleinnehaverNavn
-alias: rolleinnehaver_navn
 domain_of:
 - Rolleinnehaver
 range: string

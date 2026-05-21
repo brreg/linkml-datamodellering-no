@@ -10,8 +10,6 @@ _Spesifikasjon som ikkje kjem fram i øvrige dimensjonar._
 
 
 URI: [adm:diverse](https://schema.fintlabs.no/administrasjon/diverse)
-Alias: diverse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: diverse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [AdministrasjonContainer](administrasjoncontainer.md) | Rotcontainer for FINT Administrasjon-instansar |  yes  |
 | [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
+| [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
 
 
@@ -89,7 +87,6 @@ description: Spesifikasjon som ikkje kjem fram i øvrige dimensjonar.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:diverse
-alias: diverse
 domain_of:
 - AdministrasjonContainer
 - Kontostreng

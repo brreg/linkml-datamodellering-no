@@ -10,8 +10,6 @@ _Registrert tilstand (status) for verksemda, inkl. historikk._
 
 
 URI: [ngrv:harTilstand](https://data.norge.no/vocabulary/ngr-virksomhet#harTilstand)
-Alias: har_tilstand
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_tilstand
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -89,7 +87,6 @@ description: Registrert tilstand (status) for verksemda, inkl. historikk.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harTilstand
-alias: har_tilstand
 domain_of:
 - Virksomhet
 range: Tilstand

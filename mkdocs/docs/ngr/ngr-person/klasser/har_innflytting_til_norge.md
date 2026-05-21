@@ -10,8 +10,6 @@ _Siste innflyttingsregistrering til Noreg._
 
 
 URI: [ngrp:harInnflyttingTilNorge](https://data.norge.no/vocabulary/ngr-person#harInnflyttingTilNorge)
-Alias: har_innflytting_til_norge
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Siste innflyttingsregistrering til Noreg.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harInnflyttingTilNorge
-alias: har_innflytting_til_norge
 domain_of:
 - Person
 range: InnflyttingTilNorge

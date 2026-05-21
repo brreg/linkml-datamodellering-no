@@ -10,8 +10,6 @@ _Kysokn-nummer frå Kyrkja._
 
 
 URI: [ngr:kirkesoknnummer](https://data.norge.no/vocabulary/ngr-adresse#kirkesoknnummer)
-Alias: kirkesoknnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kysokn-nummer frå Kyrkja.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:kirkesoknnummer
-alias: kirkesoknnummer
 domain_of:
 - Kirkesokn
 range: string

@@ -10,8 +10,6 @@ _Beskriv kva slags type._
 
 
 URI: [fint:type](https://schema.fintlabs.no/type)
-Alias: type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: type
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  yes  |
 | [Kontaktperson](kontaktperson.md) | Kontaktperson (pårørande) til ein person |  yes  |
 | [Varsel](varsel.md) | Eit varsel knytt til ein elev i ei faggruppe |  yes  |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: type
 description: Beskriv kva slags type.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:type
-alias: type
 domain_of:
 - Kontaktperson
 - Varsel

@@ -10,8 +10,6 @@ _Status på behandling._
 
 
 URI: [pvn:aktiv](https://schema.fintlabs.no/personvern/aktiv)
-Alias: aktiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status på behandling.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:aktiv
-alias: aktiv
 domain_of:
 - Behandling
 range: boolean

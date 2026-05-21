@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/husnummer](https://data.norge.no/linkml/ngr-adresse/husnummer)
-Alias: husnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: husnummer
 name: husnummer
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: husnummer
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

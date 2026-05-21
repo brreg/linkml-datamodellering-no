@@ -10,8 +10,6 @@ _Fagomgrep som datasettet handlar om._
 
 
 URI: [dct:subject](http://purl.org/dc/terms/subject)
-Alias: begrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Fagomgrep som datasettet handlar om.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dct:subject
-alias: begrep
 domain_of:
 - Datasett
 range: string

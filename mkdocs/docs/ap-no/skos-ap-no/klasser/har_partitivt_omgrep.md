@@ -10,8 +10,6 @@ _Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept)._
 
 
 URI: [skosno:hasPartitiveConcept](https://data.norge.no/vocabulary/skosno#hasPartitiveConcept)
-Alias: har_partitivt_omgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:hasPartitiveConcept
-alias: har_partitivt_omgrep
 domain_of:
 - PartitivRelasjon
 range: Begrep

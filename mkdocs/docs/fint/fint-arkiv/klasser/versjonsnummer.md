@@ -10,8 +10,6 @@ _Identifikasjon av versjonar innanfor same dokument._
 
 
 URI: [ark:versjonsnummer](https://schema.fintlabs.no/arkiv/versjonsnummer)
-Alias: versjonsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Identifikasjon av versjonar innanfor same dokument.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:versjonsnummer
-alias: versjonsnummer
 domain_of:
 - Dokumentobjekt
 range: integer

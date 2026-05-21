@@ -879,7 +879,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Modelkatalog
     domain_of:
     - Mediatype
@@ -908,7 +907,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Modelkatalog
     domain_of:
     - Standard
@@ -928,7 +926,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -946,7 +943,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:hasPart
-    alias: har_del
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -960,7 +956,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Modelkatalog
     domain_of:
     - Aktor
@@ -980,7 +975,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dcat:contactPoint
-    alias: kontaktpunkt
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -996,7 +990,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:publisher
-    alias: utgiver
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1010,7 +1003,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1023,7 +1015,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
-    alias: heimeside
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1038,7 +1029,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:license
-    alias: lisens
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1052,7 +1042,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:model
-    alias: modell
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1065,7 +1054,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Modelkatalog
     domain_of:
     - Dokument
@@ -1081,7 +1069,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dcat:theme
-    alias: tema
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1096,7 +1083,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dcat:themeTaxonomy
-    alias: temaer
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1109,7 +1095,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
-    alias: utgivelsesdato
     owner: Modelkatalog
     domain_of:
     - Modelkatalog
@@ -1123,7 +1108,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:isPartOf
-    alias: er_del_av_katalog
     owner: Modelkatalog
     domain_of:
     - Modelkatalog

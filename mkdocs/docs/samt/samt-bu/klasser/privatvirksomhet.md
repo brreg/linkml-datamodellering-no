@@ -215,7 +215,6 @@ attributes:
     - adms:identifier
     rank: 1000
     slot_uri: dct:identifier
-    alias: organisasjonsnummer
     owner: PrivatVirksomhet
     domain_of:
     - PrivatVirksomhet
@@ -225,7 +224,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: PrivatVirksomhet
     domain_of:
     - KatalogisertRessurs
@@ -262,7 +260,6 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: navn
     owner: PrivatVirksomhet
     domain_of:
     - Skole

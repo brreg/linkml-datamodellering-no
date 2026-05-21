@@ -10,8 +10,6 @@ _Referanse til Laerling (Utdanning)._
 
 
 URI: [fint:laerling](https://schema.fintlabs.no/laerling)
-Alias: laerling
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ name: laerling
 description: Referanse til Laerling (Utdanning).
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:laerling
-alias: laerling
 domain_of:
 - Person
 - Virksomhet

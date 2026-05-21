@@ -10,8 +10,6 @@ _Kontrakt ressursen er knytt til._
 
 
 URI: [adm:kontrakt](https://schema.fintlabs.no/administrasjon/kontrakt)
-Alias: kontrakt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: kontrakt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 | [Fullmakt](fullmakt.md) | Fullmakt til å gjere handlingar i høve til ei gjeven Rolle |  yes  |
 | [Arbeidsforhold](arbeidsforhold.md) | Eit avtaleforhold mellom personalressurs og arbeidsgjevar |  yes  |
-| [Kontostreng](kontostreng.md) | Sammensetning av kontodimensjonar for bokføring |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Kontrakt ressursen er knytt til.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:kontrakt
-alias: kontrakt
 domain_of:
 - Kontostreng
 - Fullmakt

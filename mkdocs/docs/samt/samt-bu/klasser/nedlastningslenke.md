@@ -10,8 +10,6 @@ _Direkte nedlastingslenke for distribusjonsfila._
 
 
 URI: [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)
-Alias: nedlastningslenke
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: nedlastningslenke
 description: Direkte nedlastingslenke for distribusjonsfila.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:downloadURL
-alias: nedlastningslenke
 domain_of:
 - Distribusjon
 range: uri

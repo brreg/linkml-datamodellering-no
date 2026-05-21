@@ -10,8 +10,6 @@ _Person som arkiverte arkivenheten._
 
 
 URI: [ark:arkivertAv](https://schema.fintlabs.no/arkiv/arkivertAv)
-Alias: arkivertAv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Person som arkiverte arkivenheten.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:arkivertAv
-alias: arkivertAv
 domain_of:
 - Registrering
 range: Arkivressurs

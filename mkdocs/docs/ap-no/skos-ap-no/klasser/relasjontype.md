@@ -10,8 +10,6 @@ _Rolle eller type av den assosiative relasjonen (skosno:relationRole)._
 
 
 URI: [skosno:relationRole](https://data.norge.no/vocabulary/skosno#relationRole)
-Alias: relasjontype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Rolle eller type av den assosiative relasjonen (skosno:relationRole
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:relationRole
-alias: relasjontype
 domain_of:
 - AssosiativRelasjon
 range: LangString

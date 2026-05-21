@@ -10,8 +10,6 @@ _Korleis lisensmodellen skal handhevast._
 
 
 URI: [res:handhevingstype](https://schema.fintlabs.no/ressurs/handhevingstype)
-Alias: handhevingstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Korleis lisensmodellen skal handhevast.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:handhevingstype
-alias: handhevingstype
 domain_of:
 - Applikasjonsressurs
 range: Handhevingstype

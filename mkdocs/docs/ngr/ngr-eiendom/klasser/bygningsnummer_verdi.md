@@ -10,8 +10,6 @@ _Unikt bygningsnummer i Matrikkelen._
 
 
 URI: [ngre:bygningsnummer](https://data.norge.no/vocabulary/ngr-eiendom#bygningsnummer)
-Alias: bygningsnummer_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Unikt bygningsnummer i Matrikkelen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bygningsnummer
-alias: bygningsnummer_verdi
 domain_of:
 - Bygningsnummer
 range: integer

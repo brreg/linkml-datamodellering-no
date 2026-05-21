@@ -10,8 +10,6 @@ _Tidspunkt då fråværet vart godkjent._
 
 
 URI: [adm:godkjent](https://schema.fintlabs.no/administrasjon/godkjent)
-Alias: godkjent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tidspunkt då fråværet vart godkjent.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:godkjent
-alias: godkjent
 domain_of:
 - Fravaer
 range: datetime

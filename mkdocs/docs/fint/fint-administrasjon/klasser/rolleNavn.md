@@ -10,8 +10,6 @@ _Namn på rolla; unik identifikator._
 
 
 URI: [adm:rolleNavn](https://schema.fintlabs.no/administrasjon/rolleNavn)
-Alias: rolleNavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på rolla; unik identifikator.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:rolleNavn
-alias: rolleNavn
 domain_of:
 - Rolle
 range: Identifikator

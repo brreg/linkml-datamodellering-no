@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/personidentifikasjonar](https://data.norge.no/linkml/ngr-person/personidentifikasjonar)
-Alias: personidentifikasjonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: personidentifikasjonar
 name: personidentifikasjonar
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: personidentifikasjonar
 owner: PersonContainer
 domain_of:
 - PersonContainer

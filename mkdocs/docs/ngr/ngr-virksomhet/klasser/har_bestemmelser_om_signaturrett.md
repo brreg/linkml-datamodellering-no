@@ -10,8 +10,6 @@ _Bestemmelse om signaturrett for hovudeininga._
 
 
 URI: [ngrv:harBestemmelserOmSignaturrett](https://data.norge.no/vocabulary/ngr-virksomhet#harBestemmelserOmSignaturrett)
-Alias: har_bestemmelser_om_signaturrett
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Bestemmelse om signaturrett for hovudeininga.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harBestemmelserOmSignaturrett
-alias: har_bestemmelser_om_signaturrett
 domain_of:
 - Hovedenhet
 range: Signaturrett

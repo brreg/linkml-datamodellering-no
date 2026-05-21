@@ -10,8 +10,6 @@ _Alle funksjonar i containeren._
 
 
 URI: [adm:funksjonar](https://schema.fintlabs.no/administrasjon/funksjonar)
-Alias: funksjonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle funksjonar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:funksjonar
-alias: funksjonar
 domain_of:
 - AdministrasjonContainer
 range: Funksjon

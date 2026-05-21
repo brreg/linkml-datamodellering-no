@@ -10,8 +10,6 @@ _Enkel type for attributten (modelldcatno:hasSimpleType)._
 
 
 URI: [modelldcatno:hasSimpleType](https://data.norge.no/vocabulary/modelldcatno#hasSimpleType)
-Alias: har_enkel_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Enkel type for attributten (modelldcatno:hasSimpleType).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:hasSimpleType
-alias: har_enkel_type
 domain_of:
 - Attributt
 range: EnkelType

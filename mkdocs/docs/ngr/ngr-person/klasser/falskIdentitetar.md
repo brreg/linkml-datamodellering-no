@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/falskIdentitetar](https://data.norge.no/linkml/ngr-person/falskIdentitetar)
-Alias: falskIdentitetar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: falskIdentitetar
 name: falskIdentitetar
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: falskIdentitetar
 owner: PersonContainer
 domain_of:
 - PersonContainer

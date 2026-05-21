@@ -327,7 +327,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kvalitetsmaaling
     domain_of:
     - Mediatype
@@ -361,7 +360,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:isMeasurementOf
-    alias: er_kvalitetsmaaling_av
     owner: Kvalitetsmaaling
     domain_of:
     - Kvalitetsmaaling
@@ -375,7 +373,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dqv-ap-no
     slot_uri: dqv:value
-    alias: har_verdi
     owner: Kvalitetsmaaling
     domain_of:
     - Kvalitetsmaaling
@@ -387,7 +384,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:comment
-    alias: har_merknad
     owner: Kvalitetsmaaling
     domain_of:
     - Kvalitetsmerknad

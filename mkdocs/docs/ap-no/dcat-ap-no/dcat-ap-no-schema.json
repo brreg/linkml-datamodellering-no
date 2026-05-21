@@ -72,6 +72,7 @@
                 },
                 "har_maal": {
                     "description": "Ressursen merknaden gjeld.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -160,6 +161,7 @@
                 "ble_generert_ved": {
                     "description": "Brukes til \u00e5 referere til en aktivitet som genererte datasettet, eller som gir forretningskontekst for oppretting av det.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -190,6 +192,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -306,6 +309,7 @@
                 "landingsside": {
                     "description": "Nettside med informasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -333,6 +337,7 @@
                 "relatert_ressurs": {
                     "description": "Generisk relasjon til ein annan ressurs.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -370,6 +375,7 @@
                 "tilgangsrettigheter": {
                     "description": "Egenskapen brukes til \u00e5 angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -568,6 +574,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -578,6 +585,7 @@
                 "endepunkts_url": {
                     "description": "URL til datatjenestens endepunkt.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": "array"
@@ -585,6 +593,7 @@
                 "endepunktsbeskrivelse": {
                     "description": "URL til beskriving av endepunktet (t.d. OpenAPI-dokument).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -650,6 +659,7 @@
                 "landingsside": {
                     "description": "Nettside med informasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -701,6 +711,7 @@
                 "tilgangsrettigheter": {
                     "description": "Egenskapen brukes til \u00e5 angi om det er allmenn tilgang, betinget tilgang eller ikke-allmenn tilgang til datasettet.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -781,6 +792,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -859,6 +871,7 @@
                 "nedlastningslenke": {
                     "description": "Direkte nedlastingslenke for distribusjonsfila.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -921,6 +934,7 @@
                 "tilgangs_url": {
                     "description": "URL for tilgang til distribusjonen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": "array"
@@ -992,6 +1006,7 @@
                 "dokumentasjon": {
                     "description": "Lenke til dokumentasjon om ressursen.",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1109,6 +1124,7 @@
                 "heimeside": {
                     "description": "Heimeside for ressursen eller organisasjonen (foaf:homepage).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1235,6 +1251,21 @@
             "title": "Katalog",
             "type": "object"
         },
+        "KatalogisertRessurs": {
+            "additionalProperties": false,
+            "description": "Basisklasse for ressursar som kan katalogiserast.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "KatalogisertRessurs",
+            "type": "object"
+        },
         "Katalogpost": {
             "additionalProperties": false,
             "description": "Ein katalogpost som beskriv ein ressurs i katalogen.",
@@ -1270,6 +1301,7 @@
                 },
                 "kilde_post": {
                     "description": "Kjelde for katalogposten (ekstern oppf\u00f8ring).",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -1554,6 +1586,7 @@
                 },
                 "har_maal": {
                     "description": "Ressursen merknaden gjeld.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -1608,6 +1641,7 @@
                 },
                 "har_maal": {
                     "description": "Ressursen merknaden gjeld.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -1648,10 +1682,7 @@
             "properties": {
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 }
             },
             "required": [
@@ -1677,6 +1708,7 @@
                 "har_referanse": {
                     "description": "Referanse til ekstern ressurs (rdfs:seeAlso).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -1753,6 +1785,7 @@
                 },
                 "relasjon_til": {
                     "description": "Den relaterte ressursen i ein kvalifisert relasjon.",
+                    "format": "uri",
                     "type": "string"
                 }
             },
@@ -1795,6 +1828,7 @@
                 },
                 "krediteringsurl": {
                     "description": "URL for kreditering av rettshavar.",
+                    "format": "uri",
                     "type": [
                         "string",
                         "null"
@@ -1887,6 +1921,7 @@
                 "har_referanse": {
                     "description": "Referanse til ekstern ressurs (rdfs:seeAlso).",
                     "items": {
+                        "format": "uri",
                         "type": "string"
                     },
                     "type": [
@@ -2008,7 +2043,7 @@
     "$id": "https://data.norge.no/linkml/dcat-ap-no",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "title": "dcat-ap-no",
     "type": "object",
     "version": "2.0"

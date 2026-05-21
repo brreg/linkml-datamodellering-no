@@ -10,8 +10,6 @@ _ODRL-policy som regulerer bruk av ressursen._
 
 
 URI: [odrl:hasPolicy](http://www.w3.org/ns/odrl/2/hasPolicy)
-Alias: policy
-
 <!-- no inheritance hierarchy -->
 
 
@@ -96,7 +94,6 @@ annotations:
 description: ODRL-policy som regulerer bruk av ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrl:hasPolicy
-alias: policy
 domain_of:
 - Distribusjon
 range: string

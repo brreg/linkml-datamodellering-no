@@ -10,8 +10,6 @@ _Skjermingsheimelen._
 
 
 URI: [ark:skjermingshjemmel](https://schema.fintlabs.no/arkiv/skjermingshjemmel)
-Alias: skjermingshjemmel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Skjermingsheimelen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:skjermingshjemmel
-alias: skjermingshjemmel
 domain_of:
 - Skjerming
 range: Skjermingshjemmel

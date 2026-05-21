@@ -10,8 +10,6 @@ _Nordleg koordinat (Y) i det angitte koordinatsystemet._
 
 
 URI: [ngr:koordinatNord](https://data.norge.no/vocabulary/ngr-adresse#koordinatNord)
-Alias: koordinat_nord
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Nordleg koordinat (Y) i det angitte koordinatsystemet.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:koordinatNord
-alias: koordinat_nord
 domain_of:
 - Representasjonspunkt
 range: float

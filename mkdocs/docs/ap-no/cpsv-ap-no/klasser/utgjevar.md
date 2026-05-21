@@ -10,8 +10,6 @@ _Utgjevar av katalogen._
 
 
 URI: [dct:publisher](http://purl.org/dc/terms/publisher)
-Alias: utgjevar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Utgjevar av katalogen.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: dct:publisher
-alias: utgjevar
 domain_of:
 - Katalog
 range: Aktor

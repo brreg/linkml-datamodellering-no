@@ -10,8 +10,6 @@ _Person som avskriva journalposten._
 
 
 URI: [ark:avskrevetAv](https://schema.fintlabs.no/arkiv/avskrevetAv)
-Alias: avskrevetAv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Person som avskriva journalposten.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:avskrevetAv
-alias: avskrevetAv
 domain_of:
 - Avskrivning
 range: string

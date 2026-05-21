@@ -5,8 +5,6 @@
 
 
 URI: [res:identitetar](https://schema.fintlabs.no/ressurs/identitetar)
-Alias: identitetar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: identitetar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:identitetar
-alias: identitetar
 domain_of:
 - RessursContainer
 range: Identitet

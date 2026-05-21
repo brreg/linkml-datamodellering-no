@@ -10,8 +10,6 @@ _Alle organisasjonstypar i containeren._
 
 
 URI: [adm:organisasjonstypar](https://schema.fintlabs.no/administrasjon/organisasjonstypar)
-Alias: organisasjonstypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle organisasjonstypar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:organisasjonstypar
-alias: organisasjonstypar
 domain_of:
 - AdministrasjonContainer
 range: Organisasjonstype

@@ -10,8 +10,6 @@ _Dato for siste endring av ressursen (dct:modified)._
 
 
 URI: [dct:modified](http://purl.org/dc/terms/modified)
-Alias: endringsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -23,9 +21,9 @@ Alias: endringsdato
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
 | [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  no  |
-| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
-| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
 | [Datasett](datasett.md) | Ei samling av data utgjeven eller kuratert av éin aktør |  no  |
+| [Datasettserie](datasettserie.md) | Ei serie av relaterte datasett publisert separat men med felles metadata |  no  |
+| [Katalogpost](katalogpost.md) | Ein katalogpost som beskriv ein ressurs i katalogen |  yes  |
 | [Katalog](katalog.md) | Ei kuratert samling av metadata om datasett, datatenestar og/eller andre kata... |  yes  |
 
 
@@ -89,7 +87,6 @@ name: endringsdato
 description: Dato for siste endring av ressursen (dct:modified).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:modified
-alias: endringsdato
 domain_of:
 - Distribusjon
 - Datasett

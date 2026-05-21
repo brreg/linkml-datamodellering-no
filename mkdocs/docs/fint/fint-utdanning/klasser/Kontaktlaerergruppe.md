@@ -10,8 +10,6 @@ _Kontaktlærargruppe._
 
 
 URI: [utd:kontaktlaerergruppe](https://schema.fintlabs.no/utdanning/kontaktlaerergruppe)
-Alias: kontaktlaerergruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: kontaktlaerergruppe
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
+| [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  yes  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
-| [Kontaktlaerergruppemedlemskap](kontaktlaerergruppemedlemskap.md) | Eit elevs medlemskap i ei kontaktlærargruppe |  yes  |
-| [Klasse](klasse.md) | Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe) |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Kontaktlærargruppe.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:kontaktlaerergruppe
-alias: kontaktlaerergruppe
 domain_of:
 - Klasse
 - Kontaktlaerergruppemedlemskap

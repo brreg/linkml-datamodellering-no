@@ -10,8 +10,6 @@ _Nettside for tenestekanalane._
 
 
 URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
-Alias: nettside
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Nettside for tenestekanalane.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: vcard:hasURL
-alias: nettside
 domain_of:
 - Tjenestekanal
 range: uri

@@ -10,8 +10,6 @@ _Minste tidsoppløysing i datasettet._
 
 
 URI: [dcat:temporalResolution](http://www.w3.org/ns/dcat#temporalResolution)
-Alias: tidsopplosning
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Minste tidsoppløysing i datasettet.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:temporalResolution
-alias: tidsopplosning
 domain_of:
 - Distribusjon
 range: Duration

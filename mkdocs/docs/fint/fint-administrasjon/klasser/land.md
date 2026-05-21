@@ -10,8 +10,6 @@ _Land der adressa befinn seg._
 
 
 URI: [fint:land](https://schema.fintlabs.no/land)
-Alias: land
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: land
 description: Land der adressa befinn seg.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:land
-alias: land
 domain_of:
 - Adresse
 range: Landkode

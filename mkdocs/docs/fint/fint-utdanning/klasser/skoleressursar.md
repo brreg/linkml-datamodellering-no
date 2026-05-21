@@ -10,8 +10,6 @@ _Alle skoleressursar i containeren._
 
 
 URI: [utd:skoleressursar](https://schema.fintlabs.no/utdanning/skoleressursar)
-Alias: skoleressursar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle skoleressursar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skoleressursar
-alias: skoleressursar
 domain_of:
 - UtdanningContainer
 range: Skoleressurs

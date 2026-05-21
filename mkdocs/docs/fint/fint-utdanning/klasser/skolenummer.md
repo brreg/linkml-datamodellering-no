@@ -10,8 +10,6 @@ _Nasjonal skulenummer-identifikator._
 
 
 URI: [utd:skolenummer](https://schema.fintlabs.no/utdanning/skolenummer)
-Alias: skolenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Nasjonal skulenummer-identifikator.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skolenummer
-alias: skolenummer
 domain_of:
 - Skole
 range: Identifikator

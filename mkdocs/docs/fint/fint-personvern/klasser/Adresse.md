@@ -10,8 +10,6 @@ _Adresse til matrikkeleining._
 
 
 URI: [fint:adresse](https://schema.fintlabs.no/adresse)
-Alias: adresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: adresse
 description: Adresse til matrikkeleining.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:adresse
-alias: adresse
 domain_of:
 - Matrikkelnummer
 range: Adresse

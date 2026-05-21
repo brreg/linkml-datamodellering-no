@@ -10,8 +10,6 @@ _Alternativ identifikator frå eit anna system._
 
 
 URI: [adms:identifier](http://www.w3.org/ns/adms#identifier)
-Alias: annen_identifikator
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alternativ identifikator frå eit anna system.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: adms:identifier
-alias: annen_identifikator
 domain_of:
 - Datasett
 range: Identifikator

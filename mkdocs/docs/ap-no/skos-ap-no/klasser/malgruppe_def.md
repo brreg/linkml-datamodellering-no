@@ -10,8 +10,6 @@ _Målgruppe definisjonen er retta mot (dct:audience)._
 
 
 URI: [dct:audience](http://purl.org/dc/terms/audience)
-Alias: malgruppe_def
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Målgruppe definisjonen er retta mot (dct:audience).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:audience
-alias: malgruppe_def
 domain_of:
 - Definisjon
 range: Begrep

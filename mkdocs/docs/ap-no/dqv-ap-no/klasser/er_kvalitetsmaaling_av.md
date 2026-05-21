@@ -10,8 +10,6 @@ _Kvalitetsmålet denne målinga er ei måling av._
 
 
 URI: [dqv:isMeasurementOf](http://www.w3.org/ns/dqv#isMeasurementOf)
-Alias: er_kvalitetsmaaling_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kvalitetsmålet denne målinga er ei måling av.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 rank: 1000
 slot_uri: dqv:isMeasurementOf
-alias: er_kvalitetsmaaling_av
 domain_of:
 - Kvalitetsmaaling
 range: Kvalitetsmaal

@@ -10,8 +10,6 @@ _Samtykker tilknytt ei behandling._
 
 
 URI: [pvn:samtykke](https://schema.fintlabs.no/personvern/samtykke)
-Alias: samtykke
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samtykker tilknytt ei behandling.
 from_schema: https://data.norge.no/linkml/fint-personvern
 rank: 1000
 slot_uri: pvn:samtykke
-alias: samtykke
 domain_of:
 - Behandling
 range: Samtykke

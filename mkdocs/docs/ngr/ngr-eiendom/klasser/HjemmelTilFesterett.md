@@ -177,7 +177,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: HjemmelTilFesterett
     domain_of:
     - FastEiendom
@@ -220,7 +219,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harAndel
-    alias: har_andel
     owner: HjemmelTilFesterett
     domain_of:
     - Hjemmel

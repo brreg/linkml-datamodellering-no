@@ -286,7 +286,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Standard
     domain_of:
     - Mediatype
@@ -315,7 +314,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Standard
     domain_of:
     - Standard
@@ -333,7 +331,6 @@ attributes:
     description: Referanse til ekstern ressurs (rdfs:seeAlso).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: rdfs:seeAlso
-    alias: har_referanse
     owner: Standard
     domain_of:
     - Standard
@@ -345,7 +342,6 @@ attributes:
     description: Versjonsnummer for ressursen (owl:versionInfo).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
-    alias: har_versjonsnummer
     owner: Standard
     domain_of:
     - Standard

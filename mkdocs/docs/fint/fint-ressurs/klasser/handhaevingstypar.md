@@ -5,8 +5,6 @@
 
 
 URI: [res:handhaevingstypar](https://schema.fintlabs.no/ressurs/handhaevingstypar)
-Alias: handhaevingstypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: handhaevingstypar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:handhaevingstypar
-alias: handhaevingstypar
 domain_of:
 - RessursContainer
 range: Handhevingstype

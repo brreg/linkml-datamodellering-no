@@ -10,8 +10,6 @@ _Føretrekt term/namn for dimensjonen eller målet._
 
 
 URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
-Alias: har_anbefalt_term
-
 <!-- no inheritance hierarchy -->
 
 
@@ -89,7 +87,6 @@ description: Føretrekt term/namn for dimensjonen eller målet.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 rank: 1000
 slot_uri: skos:prefLabel
-alias: har_anbefalt_term
 domain_of:
 - Kvalitetsdimensjon
 - Kvalitetsmaal

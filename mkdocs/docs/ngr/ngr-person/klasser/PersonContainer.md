@@ -1022,7 +1022,6 @@ attributes:
     - PersonContainer
     range: Person
     multivalued: true
-    inlined: true
     inlined_as_list: true
   personnavn:
     name: personnavn
@@ -1032,7 +1031,6 @@ attributes:
     - PersonContainer
     range: Personnavn
     multivalued: true
-    inlined: true
     inlined_as_list: true
   foedselsnummer:
     name: foedselsnummer
@@ -1042,7 +1040,6 @@ attributes:
     - PersonContainer
     range: Foedselsnummer
     multivalued: true
-    inlined: true
     inlined_as_list: true
   dnummer:
     name: dnummer
@@ -1052,7 +1049,6 @@ attributes:
     - PersonContainer
     range: DNummer
     multivalued: true
-    inlined: true
     inlined_as_list: true
   personidentifikasjonar:
     name: personidentifikasjonar
@@ -1062,7 +1058,6 @@ attributes:
     - PersonContainer
     range: Personidentifikasjon
     multivalued: true
-    inlined: true
     inlined_as_list: true
   falskIdentitetar:
     name: falskIdentitetar
@@ -1072,7 +1067,6 @@ attributes:
     - PersonContainer
     range: FalskIdentitet
     multivalued: true
-    inlined: true
     inlined_as_list: true
   identifikasjonsdokument:
     name: identifikasjonsdokument
@@ -1082,7 +1076,6 @@ attributes:
     - PersonContainer
     range: Identifikasjonsdokument
     multivalued: true
-    inlined: true
     inlined_as_list: true
   identitetsgrunnlag:
     name: identitetsgrunnlag
@@ -1092,7 +1085,6 @@ attributes:
     - PersonContainer
     range: Identitetsgrunnlag
     multivalued: true
-    inlined: true
     inlined_as_list: true
   kjoenn:
     name: kjoenn
@@ -1102,7 +1094,6 @@ attributes:
     - PersonContainer
     range: Kjoenn
     multivalued: true
-    inlined: true
     inlined_as_list: true
   sivilstand:
     name: sivilstand
@@ -1112,7 +1103,6 @@ attributes:
     - PersonContainer
     range: Sivilstand
     multivalued: true
-    inlined: true
     inlined_as_list: true
   personstatus:
     name: personstatus
@@ -1122,7 +1112,6 @@ attributes:
     - PersonContainer
     range: Personstatus
     multivalued: true
-    inlined: true
     inlined_as_list: true
   statsborgerskap:
     name: statsborgerskap
@@ -1132,7 +1121,6 @@ attributes:
     - PersonContainer
     range: Statsborgerskap
     multivalued: true
-    inlined: true
     inlined_as_list: true
   opphold:
     name: opphold
@@ -1142,7 +1130,6 @@ attributes:
     - PersonContainer
     range: Opphold
     multivalued: true
-    inlined: true
     inlined_as_list: true
   foedslar:
     name: foedslar
@@ -1152,7 +1139,6 @@ attributes:
     - PersonContainer
     range: Foedsel
     multivalued: true
-    inlined: true
     inlined_as_list: true
   foreldreansvarForelder:
     name: foreldreansvarForelder
@@ -1162,7 +1148,6 @@ attributes:
     - PersonContainer
     range: ForeldreansvarForelder
     multivalued: true
-    inlined: true
     inlined_as_list: true
   foreldreansvarBarn:
     name: foreldreansvarBarn
@@ -1172,7 +1157,6 @@ attributes:
     - PersonContainer
     range: ForeldreansvarBarn
     multivalued: true
-    inlined: true
     inlined_as_list: true
   familierelasjonForelder:
     name: familierelasjonForelder
@@ -1182,7 +1166,6 @@ attributes:
     - PersonContainer
     range: FamilierelasjonForelder
     multivalued: true
-    inlined: true
     inlined_as_list: true
   familierelasjonBarn:
     name: familierelasjonBarn
@@ -1192,7 +1175,6 @@ attributes:
     - PersonContainer
     range: FamilierelasjonBarn
     multivalued: true
-    inlined: true
     inlined_as_list: true
   familierelasjonEktefelle:
     name: familierelasjonEktefelle
@@ -1202,7 +1184,6 @@ attributes:
     - PersonContainer
     range: FamilierelasjonEktefelle
     multivalued: true
-    inlined: true
     inlined_as_list: true
   dodsfall:
     name: dodsfall
@@ -1212,7 +1193,6 @@ attributes:
     - PersonContainer
     range: Dodsfall
     multivalued: true
-    inlined: true
     inlined_as_list: true
   kontaktinformasjonDoedsbo:
     name: kontaktinformasjonDoedsbo
@@ -1222,7 +1202,6 @@ attributes:
     - PersonContainer
     range: KontaktinformasjonDoedsbo
     multivalued: true
-    inlined: true
     inlined_as_list: true
   innflytting:
     name: innflytting
@@ -1232,7 +1211,6 @@ attributes:
     - PersonContainer
     range: InnflyttingTilNorge
     multivalued: true
-    inlined: true
     inlined_as_list: true
   utflytting:
     name: utflytting
@@ -1242,7 +1220,6 @@ attributes:
     - PersonContainer
     range: UtflyttingFraNorge
     multivalued: true
-    inlined: true
     inlined_as_list: true
   adressebeskyttelse:
     name: adressebeskyttelse
@@ -1252,7 +1229,6 @@ attributes:
     - PersonContainer
     range: Adressebeskyttelse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   bostedsadresser:
     name: bostedsadresser
@@ -1262,7 +1238,6 @@ attributes:
     - PersonContainer
     range: Bostedsadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   postadresser:
     name: postadresser
@@ -1272,7 +1247,6 @@ attributes:
     - PersonContainer
     range: Postadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   oppholdsadresser:
     name: oppholdsadresser
@@ -1282,7 +1256,6 @@ attributes:
     - PersonContainer
     range: Oppholdsadresse
     multivalued: true
-    inlined: true
     inlined_as_list: true
   verger:
     name: verger
@@ -1292,7 +1265,6 @@ attributes:
     - PersonContainer
     range: Verge
     multivalued: true
-    inlined: true
     inlined_as_list: true
   rettsligHandleevne:
     name: rettsligHandleevne
@@ -1302,7 +1274,6 @@ attributes:
     - PersonContainer
     range: RettsligHandleevne
     multivalued: true
-    inlined: true
     inlined_as_list: true
   reservasjonar:
     name: reservasjonar
@@ -1312,7 +1283,6 @@ attributes:
     - PersonContainer
     range: ReservasjonMotKommunikasjonPaaNett
     multivalued: true
-    inlined: true
     inlined_as_list: true
   kontaktopplysningar:
     name: kontaktopplysningar
@@ -1322,7 +1292,6 @@ attributes:
     - PersonContainer
     range: Kontaktopplysninger
     multivalued: true
-    inlined: true
     inlined_as_list: true
   spraak:
     name: spraak
@@ -1332,7 +1301,6 @@ attributes:
     - PersonContainer
     range: SpraakForElektroniskKommunikasjon
     multivalued: true
-    inlined: true
     inlined_as_list: true
 tree_root: true
 
@@ -1353,353 +1321,353 @@ attributes:
     name: personar
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: personar
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Person
     multivalued: true
+    inlined: true
     inlined_as_list: true
   personnavn:
     name: personnavn
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: personnavn
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Personnavn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   foedselsnummer:
     name: foedselsnummer
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: foedselsnummer
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Foedselsnummer
     multivalued: true
+    inlined: true
     inlined_as_list: true
   dnummer:
     name: dnummer
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: dnummer
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: DNummer
     multivalued: true
+    inlined: true
     inlined_as_list: true
   personidentifikasjonar:
     name: personidentifikasjonar
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: personidentifikasjonar
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Personidentifikasjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
   falskIdentitetar:
     name: falskIdentitetar
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: falskIdentitetar
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: FalskIdentitet
     multivalued: true
+    inlined: true
     inlined_as_list: true
   identifikasjonsdokument:
     name: identifikasjonsdokument
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: identifikasjonsdokument
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Identifikasjonsdokument
     multivalued: true
+    inlined: true
     inlined_as_list: true
   identitetsgrunnlag:
     name: identitetsgrunnlag
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: identitetsgrunnlag
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Identitetsgrunnlag
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kjoenn:
     name: kjoenn
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: kjoenn
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Kjoenn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   sivilstand:
     name: sivilstand
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: sivilstand
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Sivilstand
     multivalued: true
+    inlined: true
     inlined_as_list: true
   personstatus:
     name: personstatus
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: personstatus
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Personstatus
     multivalued: true
+    inlined: true
     inlined_as_list: true
   statsborgerskap:
     name: statsborgerskap
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: statsborgerskap
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Statsborgerskap
     multivalued: true
+    inlined: true
     inlined_as_list: true
   opphold:
     name: opphold
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: opphold
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Opphold
     multivalued: true
+    inlined: true
     inlined_as_list: true
   foedslar:
     name: foedslar
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: foedslar
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Foedsel
     multivalued: true
+    inlined: true
     inlined_as_list: true
   foreldreansvarForelder:
     name: foreldreansvarForelder
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: foreldreansvarForelder
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: ForeldreansvarForelder
     multivalued: true
+    inlined: true
     inlined_as_list: true
   foreldreansvarBarn:
     name: foreldreansvarBarn
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: foreldreansvarBarn
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: ForeldreansvarBarn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   familierelasjonForelder:
     name: familierelasjonForelder
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: familierelasjonForelder
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: FamilierelasjonForelder
     multivalued: true
+    inlined: true
     inlined_as_list: true
   familierelasjonBarn:
     name: familierelasjonBarn
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: familierelasjonBarn
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: FamilierelasjonBarn
     multivalued: true
+    inlined: true
     inlined_as_list: true
   familierelasjonEktefelle:
     name: familierelasjonEktefelle
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: familierelasjonEktefelle
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: FamilierelasjonEktefelle
     multivalued: true
+    inlined: true
     inlined_as_list: true
   dodsfall:
     name: dodsfall
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: dodsfall
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Dodsfall
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kontaktinformasjonDoedsbo:
     name: kontaktinformasjonDoedsbo
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: kontaktinformasjonDoedsbo
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: KontaktinformasjonDoedsbo
     multivalued: true
+    inlined: true
     inlined_as_list: true
   innflytting:
     name: innflytting
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: innflytting
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: InnflyttingTilNorge
     multivalued: true
+    inlined: true
     inlined_as_list: true
   utflytting:
     name: utflytting
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: utflytting
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: UtflyttingFraNorge
     multivalued: true
+    inlined: true
     inlined_as_list: true
   adressebeskyttelse:
     name: adressebeskyttelse
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: adressebeskyttelse
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Adressebeskyttelse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   bostedsadresser:
     name: bostedsadresser
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: bostedsadresser
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Bostedsadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   postadresser:
     name: postadresser
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: postadresser
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Postadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   oppholdsadresser:
     name: oppholdsadresser
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: oppholdsadresser
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Oppholdsadresse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   verger:
     name: verger
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: verger
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Verge
     multivalued: true
+    inlined: true
     inlined_as_list: true
   rettsligHandleevne:
     name: rettsligHandleevne
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: rettsligHandleevne
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: RettsligHandleevne
     multivalued: true
+    inlined: true
     inlined_as_list: true
   reservasjonar:
     name: reservasjonar
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: reservasjonar
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: ReservasjonMotKommunikasjonPaaNett
     multivalued: true
+    inlined: true
     inlined_as_list: true
   kontaktopplysningar:
     name: kontaktopplysningar
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: kontaktopplysningar
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: Kontaktopplysninger
     multivalued: true
+    inlined: true
     inlined_as_list: true
   spraak:
     name: spraak
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
-    alias: spraak
     owner: PersonContainer
     domain_of:
     - PersonContainer
     range: SpraakForElektroniskKommunikasjon
     multivalued: true
+    inlined: true
     inlined_as_list: true
 tree_root: true
 

@@ -10,8 +10,6 @@ _Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth)._
 
 
 URI: [xkos:depth](http://rdf-vocabulary.ddialliance.org/xkos#depth)
-Alias: nivaa_djupn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:depth
-alias: nivaa_djupn
 domain_of:
 - Klassifikasjonsnivaa
 range: NonNegativeInteger

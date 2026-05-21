@@ -10,8 +10,6 @@ _Planlagt tilgjengelegheit for ressursen._
 
 
 URI: [dcatap:availability](http://data.europa.eu/r5r/availability)
-Alias: tilgjengelighet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: tilgjengelighet
 description: Planlagt tilgjengelegheit for ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcatap:availability
-alias: tilgjengelighet
 domain_of:
 - Distribusjon
 - Datatjeneste

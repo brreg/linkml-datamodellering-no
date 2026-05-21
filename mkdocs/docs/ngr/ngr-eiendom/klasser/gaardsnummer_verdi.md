@@ -10,8 +10,6 @@ _Gårdsnummer innanfor kommunen._
 
 
 URI: [ngre:gaardsnummer](https://data.norge.no/vocabulary/ngr-eiendom#gaardsnummer)
-Alias: gaardsnummer_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Gårdsnummer innanfor kommunen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:gaardsnummer
-alias: gaardsnummer_verdi
 domain_of:
 - Gaardsnummer
 range: integer

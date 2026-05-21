@@ -10,8 +10,6 @@ _Sist endra dato (FAIR R1.2)._
 
 
 URI: [dct:modified](http://purl.org/dc/terms/modified)
-Alias: endringsdato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sist endra dato (FAIR R1.2).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: dct:modified
-alias: endringsdato
 domain_of:
 - Proveniensmetadata
 range: date

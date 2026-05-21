@@ -1794,7 +1794,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Begrep
     domain_of:
     - Mediatype
@@ -1817,7 +1816,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: skos:prefLabel
-    alias: anbefalt_term
     owner: Begrep
     domain_of:
     - Begrep
@@ -1832,7 +1830,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:definition
-    alias: definisjon
     owner: Begrep
     domain_of:
     - Begrep
@@ -1846,7 +1843,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: euvoc:xlDefinition
-    alias: har_definisjon
     owner: Begrep
     domain_of:
     - Begrep
@@ -1859,7 +1855,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Begrep
     domain_of:
     - Begrep
@@ -1874,7 +1869,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dcat:contactPoint
-    alias: kontaktpunkt_vcard
     owner: Begrep
     domain_of:
     - Begrep
@@ -1890,7 +1884,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:publisher
-    alias: utgjevar
     owner: Begrep
     domain_of:
     - Begrep
@@ -1905,7 +1898,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:creator
-    alias: ansvarleg_verksemd
     owner: Begrep
     domain_of:
     - Begrep
@@ -1918,7 +1910,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: euvoc:startDate
-    alias: gyldig_fra
     owner: Begrep
     domain_of:
     - Begrep
@@ -1931,7 +1922,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: euvoc:endDate
-    alias: gyldig_til
     owner: Begrep
     domain_of:
     - Begrep
@@ -1944,7 +1934,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:created
-    alias: opprettingsdato
     owner: Begrep
     domain_of:
     - Begrep
@@ -1956,7 +1945,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Begrep
     domain_of:
     - Begrep
@@ -1969,7 +1957,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: fagomrade
     owner: Begrep
     domain_of:
     - Begrep
@@ -1983,7 +1970,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:scopeNote
-    alias: merknad
     owner: Begrep
     domain_of:
     - Begrep
@@ -1997,7 +1983,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:altLabel
-    alias: tillate_term
     owner: Begrep
     domain_of:
     - Begrep
@@ -2011,7 +1996,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:dataStructureLabel
-    alias: datastruktur_term
     owner: Begrep
     domain_of:
     - Begrep
@@ -2025,7 +2009,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:example
-    alias: eksempel
     owner: Begrep
     domain_of:
     - Begrep
@@ -2039,7 +2022,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: xkos:isPartOf
-    alias: er_del_av_omgrep
     owner: Begrep
     domain_of:
     - Begrep
@@ -2053,7 +2035,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:isReplacedBy
-    alias: er_erstatta_av
     owner: Begrep
     domain_of:
     - Begrep
@@ -2067,7 +2048,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:isFromConceptIn
-    alias: er_fra_omgrep_i
     owner: Begrep
     domain_of:
     - Begrep
@@ -2081,7 +2061,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:related
-    alias: assosiert_med
     owner: Begrep
     domain_of:
     - Begrep
@@ -2095,7 +2074,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:replaces
-    alias: erstattar
     owner: Begrep
     domain_of:
     - Begrep
@@ -2109,7 +2087,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:hiddenLabel
-    alias: forkasta_term
     owner: Begrep
     domain_of:
     - Begrep
@@ -2123,7 +2100,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: xkos:generalizes
-    alias: generaliserer
     owner: Begrep
     domain_of:
     - Begrep
@@ -2137,7 +2113,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:exactMatch
-    alias: noyaktig_samsvar
     owner: Begrep
     domain_of:
     - Begrep
@@ -2151,7 +2126,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:hasGenericConceptRelation
-    alias: har_generisk_relasjon
     owner: Begrep
     domain_of:
     - Begrep
@@ -2165,7 +2139,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:closeMatch
-    alias: naert_samsvar
     owner: Begrep
     domain_of:
     - Begrep
@@ -2179,7 +2152,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:hasPartitiveConceptRelation
-    alias: har_partitiv_relasjon
     owner: Begrep
     domain_of:
     - Begrep
@@ -2193,7 +2165,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: xkos:hasPart
-    alias: har_del_omgrep
     owner: Begrep
     domain_of:
     - Begrep
@@ -2207,7 +2178,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: uneskos:memberOf
-    alias: er_medlem_av
     owner: Begrep
     domain_of:
     - Begrep
@@ -2221,7 +2191,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: rdfs:seeAlso
-    alias: sja_ogsa_omgrep
     owner: Begrep
     domain_of:
     - Begrep
@@ -2235,7 +2204,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: xkos:specializes
-    alias: spesifiserer
     owner: Begrep
     domain_of:
     - Begrep
@@ -2249,7 +2217,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: euvoc:status
-    alias: euvoc_status
     owner: Begrep
     domain_of:
     - Begrep
@@ -2262,7 +2229,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skosno:valueRange
-    alias: verdiomrade
     owner: Begrep
     domain_of:
     - Begrep
@@ -2275,7 +2241,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: owl:versionInfo
-    alias: har_versjonsnummer
     owner: Begrep
     domain_of:
     - Begrep
@@ -2287,7 +2252,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:versionNotes
-    alias: versjonsmerknad
     owner: Begrep
     domain_of:
     - Begrep

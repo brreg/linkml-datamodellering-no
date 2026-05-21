@@ -10,8 +10,6 @@ _Institusjonell sektorkode for hovudeininga._
 
 
 URI: [ngrv:erKlassifisertISektorkode](https://data.norge.no/vocabulary/ngr-virksomhet#erKlassifisertISektorkode)
-Alias: er_klassifisert_i_sektorkode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Institusjonell sektorkode for hovudeininga.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:erKlassifisertISektorkode
-alias: er_klassifisert_i_sektorkode
 domain_of:
 - Hovedenhet
 range: Sektorkode

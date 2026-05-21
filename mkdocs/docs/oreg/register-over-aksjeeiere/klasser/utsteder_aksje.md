@@ -10,8 +10,6 @@ _Aksje utstedt av selskapet_
 
 
 URI: [aksje:utsteder_aksje](https://example.no/ontology/aksje#utsteder_aksje)
-Alias: utsteder_aksje
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aksje utstedt av selskapet
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Aksjeselskap
-alias: utsteder_aksje
 domain_of:
 - Aksjeselskap
 range: Aksje

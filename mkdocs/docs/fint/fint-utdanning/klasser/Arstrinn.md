@@ -10,8 +10,6 @@ _Alle årstrinns-objekt i containeren._
 
 
 URI: [utd:arstrinn](https://schema.fintlabs.no/utdanning/arstrinn)
-Alias: arstrinn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle årstrinns-objekt i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:arstrinn
-alias: arstrinn
 domain_of:
 - UtdanningContainer
 range: Arstrinn

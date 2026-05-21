@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/rettigheter](https://data.norge.no/linkml/ngr-eiendom/rettigheter)
-Alias: rettigheter
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: rettigheter
 name: rettigheter
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: rettigheter
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

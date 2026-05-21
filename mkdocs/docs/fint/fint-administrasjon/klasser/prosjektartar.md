@@ -10,8 +10,6 @@ _Alle prosjektartar i containeren._
 
 
 URI: [adm:prosjektartar](https://schema.fintlabs.no/administrasjon/prosjektartar)
-Alias: prosjektartar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle prosjektartar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:prosjektartar
-alias: prosjektartar
 domain_of:
 - AdministrasjonContainer
 range: Prosjektart

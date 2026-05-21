@@ -361,7 +361,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Adresse
     domain_of:
     - Mediatype
@@ -392,7 +391,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: locn:fullAddress
-    alias: full_adresse
     owner: Adresse
     domain_of:
     - Adresse
@@ -406,7 +404,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: locn:postCode
-    alias: postnummer
     owner: Adresse
     domain_of:
     - Adresse
@@ -419,7 +416,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: locn:postName
-    alias: poststad
     owner: Adresse
     domain_of:
     - Adresse
@@ -433,7 +429,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: locn:adminUnitL1
-    alias: land
     owner: Adresse
     domain_of:
     - Adresse

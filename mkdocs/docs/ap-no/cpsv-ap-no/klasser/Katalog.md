@@ -776,7 +776,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Katalog
     domain_of:
     - Mediatype
@@ -806,7 +805,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Katalog
     domain_of:
     - OffentligTjeneste
@@ -829,7 +827,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Katalog
     domain_of:
     - OffentligTjeneste
@@ -852,7 +849,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Katalog
     domain_of:
     - OffentligTjeneste
@@ -876,7 +872,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dcatno:containsService
-    alias: inneheld_teneste
     owner: Katalog
     domain_of:
     - Katalog
@@ -891,7 +886,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
-    alias: har_kontaktpunkt
     owner: Katalog
     domain_of:
     - OffentligTjeneste
@@ -909,7 +903,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:publisher
-    alias: utgjevar
     owner: Katalog
     domain_of:
     - Katalog
@@ -922,7 +915,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
-    alias: dekningsomraade
     owner: Katalog
     domain_of:
     - OffentligTjeneste
@@ -938,7 +930,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Katalog
     domain_of:
     - Katalog
@@ -951,7 +942,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:accrualPeriodicity
-    alias: oppdateringsfrekvens
     owner: Katalog
     domain_of:
     - Katalog
@@ -963,7 +953,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
-    alias: heimeside
     owner: Katalog
     domain_of:
     - OffentligTjeneste
@@ -980,7 +969,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dcatno:containsEvent
-    alias: inneheld_hending
     owner: Katalog
     domain_of:
     - Katalog
@@ -994,7 +982,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:license
-    alias: lisens
     owner: Katalog
     domain_of:
     - Katalog
@@ -1006,7 +993,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Katalog
     domain_of:
     - OffentligTjeneste

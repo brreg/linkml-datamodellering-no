@@ -10,8 +10,6 @@ _Tekstleg innhald i merknaden._
 
 
 URI: [oa:hasBody](http://www.w3.org/ns/oa#hasBody)
-Alias: har_tekstdel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ name: har_tekstdel
 description: Tekstleg innhald i merknaden.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: oa:hasBody
-alias: har_tekstdel
 domain_of:
 - Kvalitetsmerknad
 range: Tekstdel

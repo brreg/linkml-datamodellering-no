@@ -10,8 +10,6 @@ _Fråværsprosent for halvåret._
 
 
 URI: [utd:halvaar](https://schema.fintlabs.no/utdanning/halvaar)
-Alias: halvaar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fråværsprosent for halvåret.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:halvaar
-alias: halvaar
 domain_of:
 - Fravarsoversikt
 range: Fravarsprosent

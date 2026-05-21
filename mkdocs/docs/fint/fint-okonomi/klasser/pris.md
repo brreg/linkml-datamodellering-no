@@ -10,8 +10,6 @@ _Pris per eining, i øre._
 
 
 URI: [okn:pris](https://schema.fintlabs.no/okonomi/pris)
-Alias: pris
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Pris per eining, i øre.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:pris
-alias: pris
 domain_of:
 - Fakturalinje
 - Vare

@@ -10,8 +10,6 @@ _Alle valutaverdiar i containeren._
 
 
 URI: [adm:valuta](https://schema.fintlabs.no/administrasjon/valuta)
-Alias: valuta
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle valutaverdiar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:valuta
-alias: valuta
 domain_of:
 - AdministrasjonContainer
 range: Valuta

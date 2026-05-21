@@ -10,8 +10,6 @@ _Beskriv kva slags type._
 
 
 URI: [fint:type](https://schema.fintlabs.no/type)
-Alias: type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: type
 description: Beskriv kva slags type.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:type
-alias: type
 domain_of:
 - Kontaktperson
 range: string

@@ -5,8 +5,6 @@
 
 
 URI: [ark:merknadstypar](https://schema.fintlabs.no/arkiv/merknadstypar)
-Alias: merknadstypar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: merknadstypar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:merknadstypar
-alias: merknadstypar
 domain_of:
 - ArkivContainer
 range: Merknadstype

@@ -357,7 +357,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:dependentOn
-    alias: avhengig_av
     owner: Avhengighet
     domain_of:
     - Avhengighet
@@ -367,7 +366,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Avhengighet
     domain_of:
     - Mediatype
@@ -397,7 +395,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: Avhengighet
     domain_of:
     - Informasjonsmodell
@@ -413,7 +410,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Avhengighet
     domain_of:
     - Aktor
@@ -432,7 +428,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:navigable
-    alias: navigerbar
     owner: Avhengighet
     domain_of:
     - Eigenskap
@@ -445,7 +440,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:minOccurs
-    alias: min_multiplisitet
     owner: Avhengighet
     domain_of:
     - Eigenskap
@@ -457,7 +451,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Avhengighet
     domain_of:
     - Standard
@@ -477,7 +470,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:maxOccurs
-    alias: maks_multiplisitet
     owner: Avhengighet
     domain_of:
     - Eigenskap
@@ -489,7 +481,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Avhengighet
     domain_of:
     - Modelkatalog
@@ -506,7 +497,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasType
-    alias: har_type
     owner: Avhengighet
     domain_of:
     - Eigenskap
@@ -520,7 +510,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:relationPropertyLabel
-    alias: relasjonsegenskapetikett
     owner: Avhengighet
     domain_of:
     - Eigenskap
@@ -534,7 +523,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:sequenceNumber
-    alias: sekvensnummer
     owner: Avhengighet
     domain_of:
     - Eigenskap
@@ -547,7 +535,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:belongsToModule
-    alias: tilhorer_modul
     owner: Avhengighet
     domain_of:
     - Modellelement
@@ -563,7 +550,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:formsSymmetryWith
-    alias: danner_symmetri_med
     owner: Avhengighet
     domain_of:
     - Eigenskap

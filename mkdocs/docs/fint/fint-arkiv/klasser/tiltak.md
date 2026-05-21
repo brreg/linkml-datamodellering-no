@@ -10,8 +10,6 @@ _Skildrar kva tiltak som skal utførast på eigedommen._
 
 
 URI: [ark:tiltak](https://schema.fintlabs.no/arkiv/tiltak)
-Alias: tiltak
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Skildrar kva tiltak som skal utførast på eigedommen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tiltak
-alias: tiltak
 domain_of:
 - DispensasjonAutomatiskFredaKulturminne
 range: string

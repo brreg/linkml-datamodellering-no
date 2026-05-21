@@ -5,8 +5,6 @@
 
 
 URI: [ark:journalpostar](https://schema.fintlabs.no/arkiv/journalpostar)
-Alias: journalpostar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: journalpostar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:journalpostar
-alias: journalpostar
 domain_of:
 - ArkivContainer
 range: Journalpost

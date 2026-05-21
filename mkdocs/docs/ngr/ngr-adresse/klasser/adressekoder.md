@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/adressekoder](https://data.norge.no/linkml/ngr-adresse/adressekoder)
-Alias: adressekoder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: adressekoder
 name: adressekoder
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: adressekoder
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

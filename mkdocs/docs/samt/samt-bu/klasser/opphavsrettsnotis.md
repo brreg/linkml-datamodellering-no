@@ -10,8 +10,6 @@ _Opphavsrettsnotis._
 
 
 URI: [odrs:copyrightNotice](http://schema.theodi.org/odrs#copyrightNotice)
-Alias: opphavsrettsnotis
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: opphavsrettsnotis
 description: Opphavsrettsnotis.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:copyrightNotice
-alias: opphavsrettsnotis
 domain_of:
 - Rettighetserklaring
 range: string

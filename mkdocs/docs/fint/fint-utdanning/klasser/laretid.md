@@ -10,8 +10,6 @@ _Læringstidsperiode for lærlingen._
 
 
 URI: [utd:laretid](https://schema.fintlabs.no/utdanning/laretid)
-Alias: laretid
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Læringstidsperiode for lærlingen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:laretid
-alias: laretid
 domain_of:
 - Laerling
 range: Periode

@@ -230,7 +230,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Etasje
     domain_of:
     - FastEiendom
@@ -273,7 +272,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:etasjenummer
-    alias: etasjenummer
     owner: Etasje
     domain_of:
     - Bruksenhetsnummer

@@ -10,8 +10,6 @@ _Morsmål til personen._
 
 
 URI: [fint:morsmaal](https://schema.fintlabs.no/morsmaal)
-Alias: morsmaal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: morsmaal
 description: Morsmål til personen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:morsmaal
-alias: morsmaal
 domain_of:
 - Person
 range: Spraak

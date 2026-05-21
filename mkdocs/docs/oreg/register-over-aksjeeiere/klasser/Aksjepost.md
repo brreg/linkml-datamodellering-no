@@ -224,7 +224,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Aksjepost
     domain_of:
     - Containerklasse
@@ -250,7 +249,6 @@ attributes:
     description: Tal aksjar.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: har_antall_aksjer
     owner: Aksjepost
     domain_of:
     - Aksjekapital
@@ -262,7 +260,6 @@ attributes:
     description: Rettigheiter knytt til aksjeklassen.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: gjelder_aksjer_i_aksjeklasse
     owner: Aksjepost
     domain_of:
     - Aksjeeierrettighet

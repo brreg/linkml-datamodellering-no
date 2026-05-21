@@ -10,8 +10,6 @@ _Heimeside for ressursen eller organisasjonen (foaf:homepage)._
 
 
 URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
-Alias: heimeside
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: heimeside
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: heimeside
 description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: foaf:homepage
-alias: heimeside
 domain_of:
 - Modelkatalog
 - Informasjonsmodell

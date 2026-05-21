@@ -10,8 +10,6 @@ _Namn som beskriv ein arbeidslokasjon._
 
 
 URI: [adm:lokasjonsnavn](https://schema.fintlabs.no/administrasjon/lokasjonsnavn)
-Alias: lokasjonsnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn som beskriv ein arbeidslokasjon.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:lokasjonsnavn
-alias: lokasjonsnavn
 domain_of:
 - Arbeidslokasjon
 range: string

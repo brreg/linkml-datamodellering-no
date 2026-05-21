@@ -10,8 +10,6 @@ _Klassen aksja høyrer til._
 
 
 URI: [aksje:tilhorer_aksjeklasse](https://example.no/ontology/aksje#tilhorer_aksjeklasse)
-Alias: tilhorer_aksjeklasse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Klassen aksja høyrer til.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Aksje
-alias: tilhorer_aksjeklasse
 domain_of:
 - Aksje
 range: Aksjeklasse

@@ -10,8 +10,6 @@ _Kommune._
 
 
 URI: [fint:kommune](https://schema.fintlabs.no/kommune)
-Alias: kommune
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: kommune
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  yes  |
-| [Person](person.md) | Fysiske private personar |  yes  |
 | [Fylke](fylke.md) | Liste over Norges fylker |  yes  |
+| [Person](person.md) | Fysiske private personar |  yes  |
+| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: kommune
 description: Kommune.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kommune
-alias: kommune
 domain_of:
 - Fylke
 - Person

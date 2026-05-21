@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement grupperinga er tilknytt._
 
 
 URI: [res:organisasjonsenhet](https://schema.fintlabs.no/ressurs/organisasjonsenhet)
-Alias: organisasjonsenhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement grupperinga er tilknytt.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:organisasjonsenhet
-alias: organisasjonsenhet
 domain_of:
 - Enhetsgruppe
 range: uriorcurie

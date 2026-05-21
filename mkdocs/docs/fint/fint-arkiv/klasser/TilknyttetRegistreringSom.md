@@ -10,8 +10,6 @@ _Rolle dokumentet har i høve registreringa._
 
 
 URI: [ark:tilknyttetRegistreringSom](https://schema.fintlabs.no/arkiv/tilknyttetRegistreringSom)
-Alias: tilknyttetRegistreringSom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Rolle dokumentet har i høve registreringa.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilknyttetRegistreringSom
-alias: tilknyttetRegistreringSom
 domain_of:
 - Dokumentbeskrivelse
 range: TilknyttetRegistreringSom

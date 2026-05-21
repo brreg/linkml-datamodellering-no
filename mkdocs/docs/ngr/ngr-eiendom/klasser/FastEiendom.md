@@ -472,7 +472,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: FastEiendom
     domain_of:
     - FastEiendom
@@ -515,7 +514,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:identifiseresAv
-    alias: identifiseres_av
     owner: FastEiendom
     domain_of:
     - FastEiendom
@@ -529,7 +527,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvMatrikkelenhet
-    alias: bestar_av_matrikkelenhet
     owner: FastEiendom
     domain_of:
     - FastEiendom
@@ -543,7 +540,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvBygning
-    alias: bestar_av_bygning
     owner: FastEiendom
     domain_of:
     - FastEiendom
@@ -557,7 +553,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvRettighet
-    alias: bestar_av_rettighet
     owner: FastEiendom
     domain_of:
     - FastEiendom
@@ -571,7 +566,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harEierforhold
-    alias: har_eierforhold
     owner: FastEiendom
     domain_of:
     - FastEiendom
@@ -586,7 +580,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harTinglystHeftelse
-    alias: har_tinglyst_heftelse
     owner: FastEiendom
     domain_of:
     - FastEiendom

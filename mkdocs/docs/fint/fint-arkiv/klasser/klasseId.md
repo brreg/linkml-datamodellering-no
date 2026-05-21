@@ -10,8 +10,6 @@ _Eintydig identifikasjon av klassen innanfor klassifikasjonssystemet._
 
 
 URI: [ark:klasseId](https://schema.fintlabs.no/arkiv/klasseId)
-Alias: klasseId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Eintydig identifikasjon av klassen innanfor klassifikasjonssystemet
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:klasseId
-alias: klasseId
 domain_of:
 - Klasse
 range: string

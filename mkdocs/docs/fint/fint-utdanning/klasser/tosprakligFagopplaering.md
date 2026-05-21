@@ -10,8 +10,6 @@ _Indikerer om eleven har tospråkleg fagopplæring._
 
 
 URI: [utd:tosprakligFagopplaering](https://schema.fintlabs.no/utdanning/tosprakligFagopplaering)
-Alias: tosprakligFagopplaering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Indikerer om eleven har tospråkleg fagopplæring.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:tosprakligFagopplaering
-alias: tosprakligFagopplaering
 domain_of:
 - Elevforhold
 range: boolean

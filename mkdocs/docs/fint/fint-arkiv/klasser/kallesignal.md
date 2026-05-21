@@ -10,8 +10,6 @@ _Fartøyets kallesignal._
 
 
 URI: [ark:kallesignal](https://schema.fintlabs.no/arkiv/kallesignal)
-Alias: kallesignal
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fartøyets kallesignal.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:kallesignal
-alias: kallesignal
 domain_of:
 - TilskuddFartoy
 range: string

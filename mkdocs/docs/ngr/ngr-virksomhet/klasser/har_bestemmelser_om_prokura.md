@@ -10,8 +10,6 @@ _Prokurabestemmelse(r) for hovudeininga._
 
 
 URI: [ngrv:harBestemmelserOmProkura](https://data.norge.no/vocabulary/ngr-virksomhet#harBestemmelserOmProkura)
-Alias: har_bestemmelser_om_prokura
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Prokurabestemmelse(r) for hovudeininga.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harBestemmelserOmProkura
-alias: har_bestemmelser_om_prokura
 domain_of:
 - Hovedenhet
 range: Prokura

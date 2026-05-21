@@ -10,8 +10,6 @@ _Stedfortredar i fullmaktssamanheng._
 
 
 URI: [adm:stedfortreder](https://schema.fintlabs.no/administrasjon/stedfortreder)
-Alias: stedfortreder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Stedfortredar i fullmaktssamanheng.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:stedfortreder
-alias: stedfortreder
 domain_of:
 - Fullmakt
 - Personalressurs

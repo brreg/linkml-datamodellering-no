@@ -195,7 +195,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Vederlag
     domain_of:
     - Containerklasse
@@ -221,7 +220,6 @@ attributes:
     description: Monetært beløp.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: belop
     owner: Vederlag
     domain_of:
     - Utdeling

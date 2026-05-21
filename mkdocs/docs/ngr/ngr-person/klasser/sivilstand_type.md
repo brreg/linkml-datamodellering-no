@@ -10,8 +10,6 @@ _Sivilstandstype (UGIFT, GIFT, SKILT o.l.)._
 
 
 URI: [ngrp:sivilstandType](https://data.norge.no/vocabulary/ngr-person#sivilstandType)
-Alias: sivilstand_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sivilstandstype (UGIFT, GIFT, SKILT o.l.).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:sivilstandType
-alias: sivilstand_type
 domain_of:
 - Sivilstand
 range: SivilstandType

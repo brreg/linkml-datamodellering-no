@@ -10,8 +10,6 @@ _Definissjonstekst (rdf:value)._
 
 
 URI: [rdf:value](http://www.w3.org/1999/02/22-rdf-syntax-ns#value)
-Alias: tekst
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Definissjonstekst (rdf:value).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: rdf:value
-alias: tekst
 domain_of:
 - Definisjon
 range: LangString

@@ -10,8 +10,6 @@ _Adressa personen er registrert busett på._
 
 
 URI: [ngrp:harBostedPaa](https://data.norge.no/vocabulary/ngr-person#harBostedPaa)
-Alias: har_bosted_paa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Adressa personen er registrert busett på.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harBostedPaa
-alias: har_bosted_paa
 domain_of:
 - Person
 range: Bostedsadresse

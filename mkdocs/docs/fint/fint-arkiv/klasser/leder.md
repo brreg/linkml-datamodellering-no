@@ -10,8 +10,6 @@ _Referanse til Personalressurs som er arbeidstakarens leiar._
 
 
 URI: [ark:leder](https://schema.fintlabs.no/arkiv/leder)
-Alias: leder
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Personalressurs som er arbeidstakarens leiar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:leder
-alias: leder
 domain_of:
 - Personalmappe
 range: uriorcurie

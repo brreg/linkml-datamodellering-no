@@ -490,7 +490,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasDataType
-    alias: har_datatype
     owner: Attributt
     domain_of:
     - Attributt
@@ -504,7 +503,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasSimpleType
-    alias: har_enkel_type
     owner: Attributt
     domain_of:
     - Attributt
@@ -518,7 +516,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasValueFrom
-    alias: har_verdi_fra
     owner: Attributt
     domain_of:
     - Attributt
@@ -532,7 +529,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:containsObjectType
-    alias: inneholder_objekttype
     owner: Attributt
     domain_of:
     - Attributt
@@ -543,7 +539,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Attributt
     domain_of:
     - Mediatype
@@ -573,7 +568,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: Attributt
     domain_of:
     - Informasjonsmodell
@@ -589,7 +583,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Attributt
     domain_of:
     - Aktor
@@ -608,7 +601,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:navigable
-    alias: navigerbar
     owner: Attributt
     domain_of:
     - Eigenskap
@@ -621,7 +613,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:minOccurs
-    alias: min_multiplisitet
     owner: Attributt
     domain_of:
     - Eigenskap
@@ -633,7 +624,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Attributt
     domain_of:
     - Standard
@@ -653,7 +643,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:maxOccurs
-    alias: maks_multiplisitet
     owner: Attributt
     domain_of:
     - Eigenskap
@@ -665,7 +654,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Attributt
     domain_of:
     - Modelkatalog
@@ -682,7 +670,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:hasType
-    alias: har_type
     owner: Attributt
     domain_of:
     - Eigenskap
@@ -696,7 +683,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:relationPropertyLabel
-    alias: relasjonsegenskapetikett
     owner: Attributt
     domain_of:
     - Eigenskap
@@ -710,7 +696,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:sequenceNumber
-    alias: sekvensnummer
     owner: Attributt
     domain_of:
     - Eigenskap
@@ -723,7 +708,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:belongsToModule
-    alias: tilhorer_modul
     owner: Attributt
     domain_of:
     - Modellelement
@@ -739,7 +723,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:formsSymmetryWith
-    alias: danner_symmetri_med
     owner: Attributt
     domain_of:
     - Eigenskap

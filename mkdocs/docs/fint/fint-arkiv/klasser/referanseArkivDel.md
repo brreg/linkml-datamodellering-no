@@ -10,8 +10,6 @@ _Referanse til arkivdelen denne arkivenheten er tilknytt._
 
 
 URI: [ark:referanseArkivdel](https://schema.fintlabs.no/arkiv/referanseArkivdel)
-Alias: referanseArkivdel
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Referanse til arkivdelen denne arkivenheten er tilknytt.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:referanseArkivdel
-alias: referanseArkivdel
 domain_of:
 - Dokumentbeskrivelse
 range: string

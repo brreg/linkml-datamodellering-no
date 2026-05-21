@@ -242,7 +242,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:constrains
-    alias: betinger
     owner: XEllerY
     domain_of:
     - Betingelsesregel
@@ -257,7 +256,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:constraintExpression
-    alias: betingelsesuttrykk
     owner: XEllerY
     domain_of:
     - Betingelsesregel
@@ -268,7 +266,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: XEllerY
     domain_of:
     - Mediatype
@@ -298,7 +295,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:annotates
-    alias: annoterer
     owner: XEllerY
     domain_of:
     - Merknad
@@ -312,7 +308,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:propertyNote
-    alias: eigenskapsmerknad
     owner: XEllerY
     domain_of:
     - Merknad
@@ -325,7 +320,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: XEllerY
     domain_of:
     - Aktor
@@ -343,7 +337,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: XEllerY
     domain_of:
     - Standard
@@ -363,7 +356,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: modelldcatno:belongsToModule
-    alias: tilhorer_modul
     owner: XEllerY
     domain_of:
     - Modellelement

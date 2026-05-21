@@ -10,8 +10,6 @@ _Alle programområde i containeren._
 
 
 URI: [utd:programomrader](https://schema.fintlabs.no/utdanning/programomrader)
-Alias: programomrader
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle programområde i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:programomrader
-alias: programomrader
 domain_of:
 - UtdanningContainer
 range: Programomrade

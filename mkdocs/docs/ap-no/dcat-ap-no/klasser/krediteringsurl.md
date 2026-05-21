@@ -10,8 +10,6 @@ _URL for kreditering av rettshavar._
 
 
 URI: [odrs:attributionURL](http://schema.theodi.org/odrs#attributionURL)
-Alias: krediteringsurl
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: URL for kreditering av rettshavar.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: odrs:attributionURL
-alias: krediteringsurl
 domain_of:
 - Rettighetserklaring
 range: uri

@@ -10,8 +10,6 @@ _Referanse til OtUngdom (Utdanning)._
 
 
 URI: [fint:otungdom](https://schema.fintlabs.no/otungdom)
-Alias: otungdom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: otungdom
 description: Referanse til OtUngdom (Utdanning).
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:otungdom
-alias: otungdom
 domain_of:
 - Person
 range: uriorcurie

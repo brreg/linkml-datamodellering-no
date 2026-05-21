@@ -10,8 +10,6 @@ _Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNote)._
 
 
 URI: [xkos:exclusionNote](http://rdf-vocabulary.ddialliance.org/xkos#exclusionNote)
-Alias: eksklusjonsnotat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Notat om kva som er ekskludert frå kodeelementet (xkos:exclusionNo
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xkos:exclusionNote
-alias: eksklusjonsnotat
 domain_of:
 - Kodeelement
 range: LangString

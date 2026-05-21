@@ -10,8 +10,6 @@ _Status til journalposten._
 
 
 URI: [ark:journalstatus](https://schema.fintlabs.no/arkiv/journalstatus)
-Alias: journalstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status til journalposten.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:journalstatus
-alias: journalstatus
 domain_of:
 - Journalpost
 range: JournalStatus

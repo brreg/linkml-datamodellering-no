@@ -10,8 +10,6 @@ _Lisens for katalogen._
 
 
 URI: [dct:license](http://purl.org/dc/terms/license)
-Alias: lisens
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Lisens for katalogen.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: dct:license
-alias: lisens
 domain_of:
 - Katalog
 range: uri

@@ -10,16 +10,16 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "FAIR Metadata Overbygning" ;
     pav:version "1.0.0" ;
-    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
-        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
-        [ sh:namespace "https://data.norge.no/fair#"^^xsd:anyURI ;
-            sh:prefix "fair" ],
-        [ sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ;
             sh:prefix "prov" ],
         [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ] ;
+            sh:prefix "dct" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
+        [ sh:namespace "https://data.norge.no/fair#"^^xsd:anyURI ;
+            sh:prefix "fair" ] ;
     linkml:classes <https://data.norge.no/FAIRMetadata>,
         <https://data.norge.no/Gjenbruksmetadata>,
         <https://data.norge.no/Katalogregistrering>,
@@ -29,10 +29,10 @@
     linkml:default_range <https://data.norge.no/string> ;
     linkml:description """FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
 """ ;
-    linkml:generation_date "2026-05-18T09:12:24"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-21T17:58:00"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/linkml/fair-metadata"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
-    linkml:metamodel_version "1.7.0" ;
+    linkml:metamodel_version "1.11.0" ;
     linkml:slots <https://data.norge.no/FAIRMetadata_beskrivelse>,
         <https://data.norge.no/FAIRMetadata_gjenbruksmetadata>,
         <https://data.norge.no/FAIRMetadata_katalogregistrering>,
@@ -933,7 +933,7 @@
     linkml:uri "http://www.w3.org/2001/XMLSchema#boolean"^^xsd:anyURI .
 
 <https://data.norge.no/string> a linkml:TypeDefinition ;
-    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string.   If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;

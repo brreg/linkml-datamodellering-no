@@ -10,8 +10,6 @@ _Eksklusiv breid ekvivalens (xkos:exclusivelyBroadMatch)._
 
 
 URI: [xkos:exclusivelyBroadMatch](http://rdf-vocabulary.ddialliance.org/xkos#exclusivelyBroadMatch)
-Alias: er_eksklusivt_ekvivalent_med
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Eksklusiv breid ekvivalens (xkos:exclusivelyBroadMatch).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: xkos:exclusivelyBroadMatch
-alias: er_eksklusivt_ekvivalent_med
 domain_of:
 - Kategori
 range: Kategori

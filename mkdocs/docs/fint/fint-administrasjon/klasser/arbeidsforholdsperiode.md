@@ -10,8 +10,6 @@ _Periode for ei gjeven stilling._
 
 
 URI: [adm:arbeidsforholdsperiode](https://schema.fintlabs.no/administrasjon/arbeidsforholdsperiode)
-Alias: arbeidsforholdsperiode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Periode for ei gjeven stilling.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:arbeidsforholdsperiode
-alias: arbeidsforholdsperiode
 domain_of:
 - Arbeidsforhold
 range: Periode

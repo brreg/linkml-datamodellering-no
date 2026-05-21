@@ -10,8 +10,6 @@ _Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer)._
 
 
 URI: [ngr:grunnkretsnummer](https://data.norge.no/vocabulary/ngr-adresse#grunnkretsnummer)
-Alias: grunnkretsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Åttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer)
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:grunnkretsnummer
-alias: grunnkretsnummer
 domain_of:
 - Grunnkrets
 range: string

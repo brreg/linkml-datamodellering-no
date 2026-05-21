@@ -10,8 +10,6 @@ _Adresse til matrikkeleining._
 
 
 URI: [fint:adresse](https://schema.fintlabs.no/adresse)
-Alias: adresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: adresse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
 | [Korrespondansepart](korrespondansepart.md) | Verksemd eller person som arkivskapar mottek eller sender arkivdokument til |  yes  |
 | [Part](part.md) | Part til Mappe, Registrering eller Dokumentbeskrivelse |  yes  |
-| [Matrikkelnummer](matrikkelnummer.md) | Eintydleg identifisering av matrikkeleining innanfor kommune |  no  |
 
 
 
@@ -87,7 +85,6 @@ name: adresse
 description: Adresse til matrikkeleining.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:adresse
-alias: adresse
 domain_of:
 - Matrikkelnummer
 - Korrespondansepart

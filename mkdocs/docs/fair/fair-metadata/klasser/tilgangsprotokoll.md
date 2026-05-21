@@ -10,8 +10,6 @@ _Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1)._
 
 
 URI: [fair:tilgangsprotokoll](https://data.norge.no/fair#tilgangsprotokoll)
-Alias: tilgangsprotokoll
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:tilgangsprotokoll
-alias: tilgangsprotokoll
 domain_of:
 - Tilgangsmetadata
 range: string

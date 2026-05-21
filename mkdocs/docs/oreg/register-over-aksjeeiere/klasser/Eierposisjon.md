@@ -198,7 +198,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Eierposisjon
     domain_of:
     - Containerklasse
@@ -225,7 +224,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Eierposisjon
-    alias: gjelder_aksjepost
     owner: Eierposisjon
     domain_of:
     - Eierposisjon

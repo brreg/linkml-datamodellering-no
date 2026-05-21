@@ -10,8 +10,6 @@ _Faggruppe._
 
 
 URI: [utd:faggruppe](https://schema.fintlabs.no/utdanning/faggruppe)
-Alias: faggruppe
-
 <!-- no inheritance hierarchy -->
 
 
@@ -24,8 +22,8 @@ Alias: faggruppe
 | --- | --- | --- |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [Fag](fag.md) | Eit skulefag |  yes  |
-| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
 | [Faggruppemedlemskap](faggruppemedlemskap.md) | Eit elevs medlemskap i ei faggruppe |  yes  |
+| [Fraversregistrering](fraversregistrering.md) | Ei enkelt fråversregistrering for ein elev |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Faggruppe.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:faggruppe
-alias: faggruppe
 domain_of:
 - Skole
 - Fag

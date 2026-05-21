@@ -10,8 +10,6 @@ _Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).
 
 
 URI: [dct:description](http://purl.org/dc/terms/description)
-Alias: inndelingskriterium
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: inndelingskriterium
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
 | [GeneriskRelasjon](generiskrelasjon.md) | Ein generisk relasjon mellom eit overomgrep og eit underomgrep |  yes  |
+| [PartitivRelasjon](partitivrelasjon.md) | Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Inndelingskriterium for ein generisk eller partitiv relasjon (dct:d
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:description
-alias: inndelingskriterium
 domain_of:
 - GeneriskRelasjon
 - PartitivRelasjon

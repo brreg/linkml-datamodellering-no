@@ -182,7 +182,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: GeografiskAdresse
     domain_of:
     - GeografiskAdresse

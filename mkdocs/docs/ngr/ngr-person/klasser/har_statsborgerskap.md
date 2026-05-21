@@ -10,8 +10,6 @@ _Statsborgerskap registrert på personen (minimum 1)._
 
 
 URI: [ngrp:harStatsborgerskap](https://data.norge.no/vocabulary/ngr-person#harStatsborgerskap)
-Alias: har_statsborgerskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Statsborgerskap registrert på personen (minimum 1).
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harStatsborgerskap
-alias: har_statsborgerskap
 domain_of:
 - Person
 range: Statsborgerskap

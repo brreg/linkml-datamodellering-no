@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/etasjer](https://data.norge.no/linkml/ngr-eiendom/etasjer)
-Alias: etasjer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: etasjer
 name: etasjer
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: etasjer
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

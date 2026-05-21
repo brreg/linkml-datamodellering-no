@@ -10,8 +10,6 @@ _Identifikator for informasjonsmodellen i domenet (modelldcatno:informationModel
 
 
 URI: [modelldcatno:informationModelIdentifier](https://data.norge.no/vocabulary/modelldcatno#informationModelIdentifier)
-Alias: informasjonsmodellidentifikator
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Identifikator for informasjonsmodellen i domenet (modelldcatno:info
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:informationModelIdentifier
-alias: informasjonsmodellidentifikator
 domain_of:
 - Informasjonsmodell
 range: string

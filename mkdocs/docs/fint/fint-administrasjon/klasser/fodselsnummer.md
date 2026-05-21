@@ -10,8 +10,6 @@ _Fødselsnummer eller ein av dei fiktive variantane._
 
 
 URI: [fint:fodselsnummer](https://schema.fintlabs.no/fodselsnummer)
-Alias: fodselsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: fodselsnummer
 description: Fødselsnummer eller ein av dei fiktive variantane.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:fodselsnummer
-alias: fodselsnummer
 domain_of:
 - Person
 range: Identifikator

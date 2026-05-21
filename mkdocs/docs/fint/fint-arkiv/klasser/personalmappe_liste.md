@@ -5,8 +5,6 @@
 
 
 URI: [ark:personalmappe](https://schema.fintlabs.no/arkiv/personalmappe)
-Alias: personalmappe_liste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: personalmappe_liste
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:personalmappe
-alias: personalmappe_liste
 domain_of:
 - ArkivContainer
 range: Personalmappe

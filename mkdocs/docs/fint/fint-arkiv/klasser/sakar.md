@@ -5,8 +5,6 @@
 
 
 URI: [ark:sakar](https://schema.fintlabs.no/arkiv/sakar)
-Alias: sakar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: sakar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:sakar
-alias: sakar
 domain_of:
 - ArkivContainer
 range: Sak

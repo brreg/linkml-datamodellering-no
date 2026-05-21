@@ -10,8 +10,6 @@ _Husbokstav (A–Å) som skil einingar med same husnummer._
 
 
 URI: [ngr:bokstav](https://data.norge.no/vocabulary/ngr-adresse#bokstav)
-Alias: bokstav
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Husbokstav (A–Å) som skil einingar med same husnummer.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:bokstav
-alias: bokstav
 domain_of:
 - Husnummer
 range: string

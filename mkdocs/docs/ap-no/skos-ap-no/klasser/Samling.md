@@ -466,7 +466,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Samling
     domain_of:
     - Mediatype
@@ -489,7 +488,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Samling
     domain_of:
     - Begrep
@@ -504,7 +502,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: skos:member
-    alias: medlem
     owner: Samling
     domain_of:
     - Samling
@@ -519,7 +516,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dcat:contactPoint
-    alias: kontaktpunkt_vcard
     owner: Samling
     domain_of:
     - Begrep
@@ -534,7 +530,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Samling
     domain_of:
     - Samling
@@ -549,7 +544,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/skos-ap-no
     rank: 1000
     slot_uri: dct:publisher
-    alias: utgjevar
     owner: Samling
     domain_of:
     - Begrep
@@ -563,7 +557,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Samling
     domain_of:
     - Samling

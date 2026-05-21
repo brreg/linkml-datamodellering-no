@@ -10,8 +10,6 @@ _Container slot for å legge tilrette for å kunne ha fleire instanser av fylke 
 
 
 URI: [samtbuskole:fylker](https://example.no/ontology/skole#fylker)
-Alias: fylker
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Container slot for å legge tilrette for å kunne ha fleire instans
   fylke i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
-alias: fylker
 domain_of:
 - Containerklasse
 range: Fylke

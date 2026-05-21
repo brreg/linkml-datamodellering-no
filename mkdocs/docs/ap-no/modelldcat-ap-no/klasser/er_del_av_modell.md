@@ -10,8 +10,6 @@ _Overordna informasjonsmodell (dct:isPartOf)._
 
 
 URI: [dct:isPartOf](http://purl.org/dc/terms/isPartOf)
-Alias: er_del_av_modell
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Overordna informasjonsmodell (dct:isPartOf).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dct:isPartOf
-alias: er_del_av_modell
 domain_of:
 - Informasjonsmodell
 range: Informasjonsmodell

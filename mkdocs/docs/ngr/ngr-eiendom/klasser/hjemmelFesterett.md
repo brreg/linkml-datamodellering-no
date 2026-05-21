@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/hjemmelFesterett](https://data.norge.no/linkml/ngr-eiendom/hjemmelFesterett)
-Alias: hjemmelFesterett
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: hjemmelFesterett
 name: hjemmelFesterett
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: hjemmelFesterett
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

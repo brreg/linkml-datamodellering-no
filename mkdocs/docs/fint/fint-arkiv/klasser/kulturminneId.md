@@ -10,8 +10,6 @@ _Kulturminnets ID i Askeladden._
 
 
 URI: [ark:kulturminneId](https://schema.fintlabs.no/arkiv/kulturminneId)
-Alias: kulturminneId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Kulturminnets ID i Askeladden.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:kulturminneId
-alias: kulturminneId
 domain_of:
 - DispensasjonAutomatiskFredaKulturminne
 - TilskuddFartoy

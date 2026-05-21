@@ -10,8 +10,6 @@ _Skoleressurs._
 
 
 URI: [utd:skoleressurs](https://schema.fintlabs.no/utdanning/skoleressurs)
-Alias: skoleressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: skoleressurs
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
 | [Skole](skole.md) | Ein skule eller opplæringsinstitusjon |  yes  |
 | [Undervisningsforhold](undervisningsforhold.md) | Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar |  yes  |
-| [Persongruppe](persongruppe.md) | Ei gruppe elevar definert for personlege føremål |  yes  |
 | [Sensor](sensor.md) | Ein sensor for ein eksamen |  yes  |
 
 
@@ -89,7 +87,6 @@ description: Skoleressurs.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:skoleressurs
-alias: skoleressurs
 domain_of:
 - Persongruppe
 - Skole

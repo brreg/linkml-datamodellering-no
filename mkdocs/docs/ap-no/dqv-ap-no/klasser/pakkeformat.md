@@ -10,8 +10,6 @@ _Pakkeformat brukt i distribusjonen._
 
 
 URI: [dcat:packageFormat](http://www.w3.org/ns/dcat#packageFormat)
-Alias: pakkeformat
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: pakkeformat
 description: Pakkeformat brukt i distribusjonen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:packageFormat
-alias: pakkeformat
 domain_of:
 - Distribusjon
 range: Mediatype

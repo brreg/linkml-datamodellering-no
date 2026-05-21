@@ -261,7 +261,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Basisgruppe
     domain_of:
     - KatalogisertRessurs
@@ -298,7 +297,6 @@ attributes:
     description: Namn på ressursen.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: navn
     owner: Basisgruppe
     domain_of:
     - Skole
@@ -311,7 +309,6 @@ attributes:
     description: Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år.
     from_schema: https://example.no/ontology/samt-bu-skole
     rank: 1000
-    alias: trinniva
     owner: Basisgruppe
     domain_of:
     - Basisgruppe
@@ -325,7 +322,6 @@ attributes:
     rank: 1000
     domain: Basisgruppe
     slot_uri: org:unitOf
-    alias: del_av_skole
     owner: Basisgruppe
     domain_of:
     - Basisgruppe

@@ -10,8 +10,6 @@ _Opphav og eigarskapshistorikk for ressursen._
 
 
 URI: [dct:provenance](http://purl.org/dc/terms/provenance)
-Alias: eierskapshistorikk
-
 <!-- no inheritance hierarchy -->
 
 
@@ -97,7 +95,6 @@ annotations:
 description: Opphav og eigarskapshistorikk for ressursen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dct:provenance
-alias: eierskapshistorikk
 domain_of:
 - Datasett
 range: string

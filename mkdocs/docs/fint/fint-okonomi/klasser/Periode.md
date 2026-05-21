@@ -253,7 +253,6 @@ attributes:
     description: Beskriven namn eller omtale.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: Periode
     domain_of:
     - Periode
@@ -264,7 +263,6 @@ attributes:
     description: Frå tidspunkt.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:start
-    alias: start
     owner: Periode
     domain_of:
     - Periode
@@ -275,7 +273,6 @@ attributes:
     description: Til tidspunkt.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:slutt
-    alias: slutt
     owner: Periode
     domain_of:
     - Periode

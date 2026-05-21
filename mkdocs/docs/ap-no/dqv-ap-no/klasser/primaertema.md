@@ -10,8 +10,6 @@ _Ressursen katalogposten primært beskriv._
 
 
 URI: [foaf:primaryTopic](http://xmlns.com/foaf/0.1/primaryTopic)
-Alias: primaertema
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: primaertema
 description: Ressursen katalogposten primært beskriv.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: foaf:primaryTopic
-alias: primaertema
 domain_of:
 - Katalogpost
 range: KatalogisertRessurs

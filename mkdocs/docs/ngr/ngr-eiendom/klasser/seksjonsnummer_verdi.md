@@ -10,8 +10,6 @@ _Seksjonsnummer (0..1 – berre for eigarseksjonar)._
 
 
 URI: [ngre:seksjonsnummer](https://data.norge.no/vocabulary/ngr-eiendom#seksjonsnummer)
-Alias: seksjonsnummer_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Seksjonsnummer (0..1 – berre for eigarseksjonar).
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:seksjonsnummer
-alias: seksjonsnummer_verdi
 domain_of:
 - Seksjonsnummer
 range: integer

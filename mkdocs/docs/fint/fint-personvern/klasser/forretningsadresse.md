@@ -10,8 +10,6 @@ _Besøksadresse til ein organisasjonseining._
 
 
 URI: [fint:forretningsadresse](https://schema.fintlabs.no/forretningsadresse)
-Alias: forretningsadresse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: forretningsadresse
 description: Besøksadresse til ein organisasjonseining.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:forretningsadresse
-alias: forretningsadresse
 domain_of:
 - Enhet
 range: Adresse

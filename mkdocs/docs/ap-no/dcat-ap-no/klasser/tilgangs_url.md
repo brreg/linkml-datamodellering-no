@@ -10,8 +10,6 @@ _URL for tilgang til distribusjonen._
 
 
 URI: [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL)
-Alias: tilgangs_url
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: URL for tilgang til distribusjonen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: dcat:accessURL
-alias: tilgangs_url
 domain_of:
 - Distribusjon
 range: uri

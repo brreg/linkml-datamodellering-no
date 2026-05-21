@@ -10,8 +10,6 @@ _Samling av eigarposisjonar._
 
 
 URI: [aksje:eierposisjoner](https://example.no/ontology/aksje#eierposisjoner)
-Alias: eierposisjoner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av eigarposisjonar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: eierposisjoner
 domain_of:
 - Containerklasse
 range: Eierposisjon

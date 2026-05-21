@@ -10,8 +10,6 @@ _Kategori for personalressursen._
 
 
 URI: [adm:personalressurskategori](https://schema.fintlabs.no/administrasjon/personalressurskategori)
-Alias: personalressurskategori
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kategori for personalressursen.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:personalressurskategori
-alias: personalressurskategori
 domain_of:
 - Personalressurs
 range: Personalressurskategori

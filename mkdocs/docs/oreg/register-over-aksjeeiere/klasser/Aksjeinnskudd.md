@@ -226,7 +226,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Aksjeinnskudd
     domain_of:
     - Containerklasse
@@ -253,7 +252,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Aksjeinnskudd
-    alias: gjelder_innbetalt_aksjekapital
     owner: Aksjeinnskudd
     domain_of:
     - Aksjeinnskudd
@@ -264,7 +262,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Aksjeinnskudd
-    alias: gjelder_innbetalt_overkurs
     owner: Aksjeinnskudd
     domain_of:
     - Aksjeinnskudd

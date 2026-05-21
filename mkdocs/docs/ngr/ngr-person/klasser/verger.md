@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/verger](https://data.norge.no/linkml/ngr-person/verger)
-Alias: verger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: verger
 name: verger
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: verger
 owner: PersonContainer
 domain_of:
 - PersonContainer

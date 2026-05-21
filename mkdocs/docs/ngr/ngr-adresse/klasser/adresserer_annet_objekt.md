@@ -10,8 +10,6 @@ _Anna objekt (t.d. badeplass, monument) denne adressa er tildelt._
 
 
 URI: [ngr:adressererAnnetObjekt](https://data.norge.no/vocabulary/ngr-adresse#adressererAnnetObjekt)
-Alias: adresserer_annet_objekt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Anna objekt (t.d. badeplass, monument) denne adressa er tildelt.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:adressererAnnetObjekt
-alias: adresserer_annet_objekt
 domain_of:
 - OffisiellAdresse
 range: uriorcurie

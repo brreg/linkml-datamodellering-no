@@ -10,8 +10,6 @@ _Samling av innbetalt aksjekapital._
 
 
 URI: [aksje:innbetalt_aksjekapitaler](https://example.no/ontology/aksje#innbetalt_aksjekapitaler)
-Alias: innbetalt_aksjekapitaler
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av innbetalt aksjekapital.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: innbetalt_aksjekapitaler
 domain_of:
 - Containerklasse
 range: InnbetaltAksjekapital

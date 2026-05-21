@@ -10,8 +10,6 @@ _Neste kodeelement i ein ordna kodeliste (xkos:next)._
 
 
 URI: [xkos:next](http://rdf-vocabulary.ddialliance.org/xkos#next)
-Alias: neste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Neste kodeelement i ein ordna kodeliste (xkos:next).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: xkos:next
-alias: neste
 domain_of:
 - Kodeelement
 range: Kodeelement

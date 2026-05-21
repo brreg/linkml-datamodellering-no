@@ -10,8 +10,6 @@ _Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan ligg
 
 
 URI: [ngre:kanVaerePa](https://data.norge.no/vocabulary/ngr-eiendom#kanVaerePa)
-Alias: kan_vaere_pa
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: kan_vaere_pa
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  yes  |
-| [Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  yes  |
 | [Grunneiendom](grunneiendom.md) | Den vanlegaste typen matrikkelenheit |  yes  |
 | [Festegrunn](festegrunn.md) | Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til |  yes  |
+| [Jordsameie](jordsameie.md) | Eit fellesareal som vert eigd av fleire eigedommar |  yes  |
+| [Eierseksjon](eierseksjon.md) | Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom |  yes  |
 
 
 
@@ -91,7 +89,6 @@ description: Matrikkeleininga denne eininga ligg på eller er knytt til. Festegr
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:kanVaerePa
-alias: kan_vaere_pa
 domain_of:
 - Grunneiendom
 - Festegrunn

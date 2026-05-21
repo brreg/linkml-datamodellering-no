@@ -10,8 +10,6 @@ _Kommunalt kretsnummer._
 
 
 URI: [ngr:kretsnummer](https://data.norge.no/vocabulary/ngr-adresse#kretsnummer)
-Alias: kretsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kommunalt kretsnummer.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:kretsnummer
-alias: kretsnummer
 domain_of:
 - KommunalKrets
 range: string

@@ -10,8 +10,6 @@ _Mogleg språk for tenesteresultatet._
 
 
 URI: [cpsvno:possibleLanguage](https://data.norge.no/vocabulary/cpsvno#possibleLanguage)
-Alias: mogleg_spraak
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Mogleg språk for tenesteresultatet.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:possibleLanguage
-alias: mogleg_spraak
 domain_of:
 - Tjenesteresultattype
 range: Spraak

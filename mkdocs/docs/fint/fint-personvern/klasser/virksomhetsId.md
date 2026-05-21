@@ -10,8 +10,6 @@ _Intern unik identifikator i økonomisystemet._
 
 
 URI: [fint:virksomhetsId](https://schema.fintlabs.no/virksomhetsId)
-Alias: virksomhetsId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: virksomhetsId
 description: Intern unik identifikator i økonomisystemet.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:virksomhetsId
-alias: virksomhetsId
 domain_of:
 - Virksomhet
 range: Identifikator

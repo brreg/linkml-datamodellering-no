@@ -10,8 +10,6 @@ _Skolen basisgruppa tilhører_
 
 
 URI: [org:unitOf](http://www.w3.org/ns/org#unitOf)
-Alias: del_av_skole
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ close_mappings:
 rank: 1000
 domain: Basisgruppe
 slot_uri: org:unitOf
-alias: del_av_skole
 domain_of:
 - Basisgruppe
 range: Skole

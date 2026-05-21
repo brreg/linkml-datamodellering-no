@@ -331,7 +331,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: Foedsel
     domain_of:
     - Person
@@ -373,7 +372,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:foedselsdato
-    alias: foedselsdato
     owner: Foedsel
     domain_of:
     - Foedsel
@@ -386,7 +384,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:foedested
-    alias: foedested
     owner: Foedsel
     domain_of:
     - Foedsel
@@ -399,7 +396,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:foedselsaar
-    alias: foedselsaar
     owner: Foedsel
     domain_of:
     - Foedsel

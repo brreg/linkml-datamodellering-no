@@ -74,9 +74,9 @@ samtbuskole:rektor-1 a samtbuskole:Rektor ;
 
 samtbuskole:samt-bu-skole-metadata a dcat:Dataset ;
     dcatap:applicableLegislation samtbuskole:lov-2019-123 ;
-    dct:accessRights "http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC"^^xsd:anyURI,
-        "http://publications.europa.eu/resource/authority/access-right/PUBLIC"^^xsd:anyURI,
-        "http://publications.europa.eu/resource/authority/access-right/RESTRICTED"^^xsd:anyURI ;
+    dct:accessRights <http://publications.europa.eu/resource/authority/access-right/NON_PUBLIC>,
+        <http://publications.europa.eu/resource/authority/access-right/PUBLIC>,
+        <http://publications.europa.eu/resource/authority/access-right/RESTRICTED> ;
     dct:conformsTo dqv:dcat-ap-no ;
     dct:description "demodatasett for å teste samt-bu-skole modellen"^^rdf:langString ;
     dct:publisher samtbuskole:org-udir ;
@@ -103,18 +103,18 @@ samtbuskole:samt-bu-skole-metadata a dcat:Dataset ;
     dqv:hasQualityAnnotation dqv:brukerfeedback-1,
         dqv:merknad-1 ;
     dqv:hasQualityMeasurement dqv:maaling-1 ;
-    prov:wasGeneratedBy "https://data.norge.no/vocabulary/provenance-activity-type#administrative-decision"^^xsd:anyURI,
-        "https://data.norge.no/vocabulary/provenance-activity-type#collecting-from-third-party"^^xsd:anyURI,
-        "https://data.norge.no/vocabulary/provenance-activity-type#collecting-from-user"^^xsd:anyURI .
+    prov:wasGeneratedBy <https://data.norge.no/vocabulary/provenance-activity-type#administrative-decision>,
+        <https://data.norge.no/vocabulary/provenance-activity-type#collecting-from-third-party>,
+        <https://data.norge.no/vocabulary/provenance-activity-type#collecting-from-user> .
 
 dqv:brukerfeedback-1 a dqv:UserQualityFeedback ;
     dqv:inDimension dqv:kvalitetsdim-completeness ;
     oa:hasBody dqv:tekstdel-1 ;
-    oa:motivatedBy "dqv:qualityAssessment"^^xsd:anyURI .
+    oa:motivatedBy dqv:qualityAssessment .
 
 dqv:dcat-ap-no a dct:Standard ;
     dct:title "DCAT-AP-NO"^^rdf:langString ;
-    rdfs:seeAlso "https://data.norge.no/specification/dcat-ap-no#"^^xsd:anyURI ;
+    rdfs:seeAlso <https://data.norge.no/specification/dcat-ap-no#> ;
     dqv:inDimension dqv:kvalitetsdim-completeness .
 
 dqv:maaling-1 a dqv:QualityMeasurement ;
@@ -124,7 +124,7 @@ dqv:maaling-1 a dqv:QualityMeasurement ;
 dqv:merknad-1 a dqv:QualityAnnotation ;
     dqv:inDimension dqv:kvalitetsdim-completeness ;
     oa:hasBody dqv:tekstdel-2 ;
-    oa:motivatedBy "dqv:qualityAssessment"^^xsd:anyURI .
+    oa:motivatedBy dqv:qualityAssessment .
 
 dqv:tekstdel-1 a oa:TextualBody ;
     dct:format "tekstformat" ;
@@ -153,7 +153,7 @@ samtbuskole:dist-human-readable a dcat:Distribution ;
     dct:format "http://publications.europa.eu/resource/authority/file-type/CSV" ;
     dct:license "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0" ;
     adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
-    dcat:accessURL "https://example.no/data/skole.rdf"^^xsd:anyURI .
+    dcat:accessURL <https://example.no/data/skole.rdf> .
 
 samtbuskole:dist-rdf a dcat:Distribution ;
     dcatap:availability "http://publications.europa.eu/resource/authority/planned-availability/STABLE" ;
@@ -161,7 +161,7 @@ samtbuskole:dist-rdf a dcat:Distribution ;
     dct:format "http://publications.europa.eu/resource/authority/file-type/RDF" ;
     dct:license "http://publications.europa.eu/resource/authority/licence/CC_BY_4_0" ;
     adms:status <http://publications.europa.eu/resource/authority/distribution-status/COMPLETED> ;
-    dcat:accessURL "https://example.no/data/skole.rdf"^^xsd:anyURI .
+    dcat:accessURL <https://example.no/data/skole.rdf> .
 
 samtbuskole:elev-1 a samtbuskole:Elev ;
     samtbuskole:horer_til_basisgruppe samtbuskole:basisgruppe-5A ;
@@ -186,7 +186,7 @@ samtbuskole:lov-2019-123 a eli:LegalResource ;
     dct:language "samtbuskole:no"^^dct:language ;
     dct:title "Lov om grunnskolen"^^rdf:langString ;
     dct:type samtbuskole:Lov ;
-    rdfs:seeAlso "https://lovdata.no/lov/2019-123"^^xsd:anyURI .
+    rdfs:seeAlso <https://lovdata.no/lov/2019-123> .
 
 samtbuskole:org-udir a foaf:Agent ;
     dct:type <http://purl.org/adms/publishertype/NationalAuthority> ;

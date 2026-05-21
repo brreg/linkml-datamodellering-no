@@ -10,8 +10,6 @@ _Kjønn registrert på personen._
 
 
 URI: [ngrp:harKjoenn](https://data.norge.no/vocabulary/ngr-person#harKjoenn)
-Alias: har_kjoenn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kjønn registrert på personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harKjoenn
-alias: har_kjoenn
 domain_of:
 - Person
 range: Kjoenn

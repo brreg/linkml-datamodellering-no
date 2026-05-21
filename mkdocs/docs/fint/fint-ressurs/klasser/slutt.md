@@ -10,8 +10,6 @@ _Til tidspunkt._
 
 
 URI: [fint:slutt](https://schema.fintlabs.no/slutt)
-Alias: slutt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: slutt
 description: Til tidspunkt.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:slutt
-alias: slutt
 domain_of:
 - Periode
 range: datetime

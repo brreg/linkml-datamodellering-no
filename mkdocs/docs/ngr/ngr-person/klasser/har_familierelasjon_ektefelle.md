@@ -10,8 +10,6 @@ _Familierelasjon til ektefelle eller registrert partnar._
 
 
 URI: [ngrp:harFamilierelasjonEktefelle](https://data.norge.no/vocabulary/ngr-person#harFamilierelasjonEktefelle)
-Alias: har_familierelasjon_ektefelle
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Familierelasjon til ektefelle eller registrert partnar.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harFamilierelasjonEktefelle
-alias: har_familierelasjon_ektefelle
 domain_of:
 - Person
 range: FamilierelasjonEktefelle

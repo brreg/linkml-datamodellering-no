@@ -10,8 +10,6 @@ _Status til dokumentet._
 
 
 URI: [ark:dokumentstatus](https://schema.fintlabs.no/arkiv/dokumentstatus)
-Alias: dokumentstatus
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status til dokumentet.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:dokumentstatus
-alias: dokumentstatus
 domain_of:
 - Dokumentbeskrivelse
 range: DokumentStatus

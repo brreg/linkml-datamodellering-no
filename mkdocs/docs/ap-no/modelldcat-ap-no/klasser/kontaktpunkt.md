@@ -10,8 +10,6 @@ _Kontaktinformasjon for ressursen (dcat:contactPoint)._
 
 
 URI: [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint)
-Alias: kontaktpunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: kontaktpunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 | [Modelkatalog](modelkatalog.md) | Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog) |  yes  |
+| [Informasjonsmodell](informasjonsmodell.md) | Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:I... |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Kontaktinformasjon for ressursen (dcat:contactPoint).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: dcat:contactPoint
-alias: kontaktpunkt
 domain_of:
 - Modelkatalog
 - Informasjonsmodell

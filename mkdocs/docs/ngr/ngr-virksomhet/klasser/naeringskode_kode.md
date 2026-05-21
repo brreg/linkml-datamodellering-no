@@ -10,8 +10,6 @@ _NACE-kode for næringsgruppering (t.d. 62.010)._
 
 
 URI: [ngrv:naeringskodeKode](https://data.norge.no/vocabulary/ngr-virksomhet#naeringskodeKode)
-Alias: naeringskode_kode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: NACE-kode for næringsgruppering (t.d. 62.010).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:naeringskodeKode
-alias: naeringskode_kode
 domain_of:
 - Naeringskode
 range: string

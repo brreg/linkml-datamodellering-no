@@ -10,8 +10,6 @@ _Kontaktinformasjon for personens dødsbu._
 
 
 URI: [ngrp:harKontaktinformasjonDoedsbo](https://data.norge.no/vocabulary/ngr-person#harKontaktinformasjonDoedsbo)
-Alias: har_kontaktinformasjon_doedsbo
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kontaktinformasjon for personens dødsbu.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harKontaktinformasjonDoedsbo
-alias: har_kontaktinformasjon_doedsbo
 domain_of:
 - Person
 range: KontaktinformasjonDoedsbo

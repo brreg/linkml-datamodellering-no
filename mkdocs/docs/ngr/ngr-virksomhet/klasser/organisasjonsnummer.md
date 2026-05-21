@@ -10,8 +10,6 @@ _Niesifra organisasjonsnummer tildelt av Enhetsregisteret._
 
 
 URI: [ngrv:organisasjonsnummer](https://data.norge.no/vocabulary/ngr-virksomhet#organisasjonsnummer)
-Alias: organisasjonsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: organisasjonsnummer
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -88,7 +86,6 @@ description: Niesifra organisasjonsnummer tildelt av Enhetsregisteret.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:organisasjonsnummer
-alias: organisasjonsnummer
 domain_of:
 - Virksomhet
 range: string

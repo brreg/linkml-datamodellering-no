@@ -10,8 +10,6 @@ _Korleis journalposten er avskriven._
 
 
 URI: [ark:avskrivningsmate](https://schema.fintlabs.no/arkiv/avskrivningsmate)
-Alias: avskrivningsmate
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Korleis journalposten er avskriven.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:avskrivningsmate
-alias: avskrivningsmate
 domain_of:
 - Avskrivning
 range: string

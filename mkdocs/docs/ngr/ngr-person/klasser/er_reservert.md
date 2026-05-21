@@ -10,8 +10,6 @@ _Om personen er reservert mot digital kommunikasjon frå det offentlege._
 
 
 URI: [ngrp:erReservert](https://data.norge.no/vocabulary/ngr-person#erReservert)
-Alias: er_reservert
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Om personen er reservert mot digital kommunikasjon frå det offentl
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:erReservert
-alias: er_reservert
 domain_of:
 - ReservasjonMotKommunikasjonPaaNett
 range: boolean

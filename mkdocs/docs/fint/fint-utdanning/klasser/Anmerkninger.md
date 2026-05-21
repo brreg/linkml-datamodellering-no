@@ -329,7 +329,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Anmerkninger
     domain_of:
     - Begrep
@@ -393,7 +392,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:atferd
-    alias: atferd
     owner: Anmerkninger
     domain_of:
     - OrdensvurderingAbstrakt
@@ -408,7 +406,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:orden
-    alias: orden
     owner: Anmerkninger
     domain_of:
     - OrdensvurderingAbstrakt
@@ -423,7 +420,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:skoleaar
-    alias: skoleaar
     owner: Anmerkninger
     domain_of:
     - UtdanningContainer

@@ -10,8 +10,6 @@ _Datoen tilstanden vart gyldig frå._
 
 
 URI: [ngrv:gyldigFra](https://data.norge.no/vocabulary/ngr-virksomhet#gyldigFra)
-Alias: gyldig_fra
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Datoen tilstanden vart gyldig frå.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:gyldigFra
-alias: gyldig_fra
 domain_of:
 - Tilstand
 range: date

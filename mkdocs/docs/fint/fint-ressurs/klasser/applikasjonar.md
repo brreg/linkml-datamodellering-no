@@ -5,8 +5,6 @@
 
 
 URI: [res:applikasjonar](https://schema.fintlabs.no/ressurs/applikasjonar)
-Alias: applikasjonar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: applikasjonar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:applikasjonar
-alias: applikasjonar
 domain_of:
 - RessursContainer
 range: Applikasjon

@@ -10,8 +10,6 @@ _Avgrensing i rettsleg handleevne registrert for personen._
 
 
 URI: [ngrp:harRettsligHandleevne](https://data.norge.no/vocabulary/ngr-person#harRettsligHandleevne)
-Alias: har_rettslig_handleevne
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Avgrensing i rettsleg handleevne registrert for personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harRettsligHandleevne
-alias: har_rettslig_handleevne
 domain_of:
 - Person
 range: RettsligHandleevne

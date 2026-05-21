@@ -10,8 +10,6 @@ _Tidsrom klassifikasjonen er gyldig for (dct:temporal)._
 
 
 URI: [dct:temporal](http://purl.org/dc/terms/temporal)
-Alias: gjeld_for_tidsrom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tidsrom klassifikasjonen er gyldig for (dct:temporal).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: dct:temporal
-alias: gjeld_for_tidsrom
 domain_of:
 - Klassifikasjon
 range: Tidsrom

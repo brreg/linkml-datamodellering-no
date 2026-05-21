@@ -10,8 +10,6 @@ _Dato for utferding av faktura._
 
 
 URI: [okn:dato](https://schema.fintlabs.no/okonomi/dato)
-Alias: dato
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato for utferding av faktura.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:dato
-alias: dato
 domain_of:
 - Faktura
 range: date

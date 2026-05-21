@@ -229,7 +229,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: Postboks
     domain_of:
     - GeografiskAdresse
@@ -253,7 +252,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:postboksnummer
-    alias: postboksnummer
     owner: Postboks
     domain_of:
     - Postboks

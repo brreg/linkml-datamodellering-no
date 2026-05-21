@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement som har eigarskap._
 
 
 URI: [res:eier](https://schema.fintlabs.no/ressurs/eier)
-Alias: eier
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: eier
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 | [Applikasjonsressurs](applikasjonsressurs.md) | Informasjon om kor ein applikasjon kan nyttast (lisensressurs) |  yes  |
+| [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Referanse til Organisasjonselement som har eigarskap.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:eier
-alias: eier
 domain_of:
 - Applikasjonsressurs
 - DigitalEnhet

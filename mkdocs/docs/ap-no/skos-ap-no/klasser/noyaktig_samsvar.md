@@ -10,8 +10,6 @@ _Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch)._
 
 
 URI: [skos:exactMatch](http://www.w3.org/2004/02/skos/core#exactMatch)
-Alias: noyaktig_samsvar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:exactMatch
-alias: noyaktig_samsvar
 domain_of:
 - Begrep
 range: Begrep

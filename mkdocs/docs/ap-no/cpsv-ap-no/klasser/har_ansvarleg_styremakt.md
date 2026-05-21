@@ -10,8 +10,6 @@ _Offentleg organisasjon ansvarleg for tenesta._
 
 
 URI: [cv:hasCompetentAuthority](http://data.europa.eu/m8g/hasCompetentAuthority)
-Alias: har_ansvarleg_styremakt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Offentleg organisasjon ansvarleg for tenesta.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasCompetentAuthority
-alias: har_ansvarleg_styremakt
 domain_of:
 - OffentligTjeneste
 range: OffentligOrganisasjon

@@ -10,8 +10,6 @@ _Namn på postboksanlegget (t.d. bedriftsnamn, institusjon)._
 
 
 URI: [ngr:postboksanleggsnavn](https://data.norge.no/vocabulary/ngr-adresse#postboksanleggsnavn)
-Alias: postboksanleggsnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på postboksanlegget (t.d. bedriftsnamn, institusjon).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:postboksanleggsnavn
-alias: postboksanleggsnavn
 domain_of:
 - Postboksadresse
 range: string

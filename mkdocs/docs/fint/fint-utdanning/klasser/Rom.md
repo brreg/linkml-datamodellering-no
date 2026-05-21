@@ -10,8 +10,6 @@ _Rom._
 
 
 URI: [utd:rom](https://schema.fintlabs.no/utdanning/rom)
-Alias: rom
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: rom
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Time](time.md) | Ein time i timeplanen |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
 | [Eksamen](eksamen.md) | Ein eksamen knytt til ei eksamensgruppe |  yes  |
+| [Time](time.md) | Ein time i timeplanen |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Rom.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:rom
-alias: rom
 domain_of:
 - UtdanningContainer
 - Eksamen

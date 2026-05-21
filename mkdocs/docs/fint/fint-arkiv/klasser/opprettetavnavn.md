@@ -10,8 +10,6 @@ _Namn på person som oppretta/registrerte arkivenheten._
 
 
 URI: [ark:opprettetAvNavn](https://schema.fintlabs.no/arkiv/opprettetAvNavn)
-Alias: opprettetAvNavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på person som oppretta/registrerte arkivenheten.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:opprettetAvNavn
-alias: opprettetAvNavn
 domain_of:
 - Klassifikasjonssystem
 range: string

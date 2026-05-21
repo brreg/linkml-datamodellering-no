@@ -286,7 +286,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:kanVaerePa
-    alias: kan_vaere_pa
     owner: Eierseksjon
     domain_of:
     - Grunneiendom
@@ -300,7 +299,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: Eierseksjon
     domain_of:
     - FastEiendom
@@ -343,7 +341,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:identifiseresMed
-    alias: identifiseres_med
     owner: Eierseksjon
     domain_of:
     - Matrikkelenhet
@@ -357,7 +354,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:liggerInnenforKommune
-    alias: ligger_innenfor_kommune
     owner: Eierseksjon
     domain_of:
     - Matrikkelenhet
@@ -371,7 +367,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:erDelAvTeig
-    alias: er_del_av_teig
     owner: Eierseksjon
     domain_of:
     - Matrikkelenhet
@@ -385,7 +380,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harTeig
-    alias: har_teig
     owner: Eierseksjon
     domain_of:
     - Matrikkelenhet
@@ -399,7 +393,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:harAnleggsprojeksjonsflate
-    alias: har_anleggsprojeksjonsflate
     owner: Eierseksjon
     domain_of:
     - Matrikkelenhet

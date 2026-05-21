@@ -5,8 +5,6 @@
 
 
 URI: [res:produsentar](https://schema.fintlabs.no/ressurs/produsentar)
-Alias: produsentar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: produsentar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:produsentar
-alias: produsentar
 domain_of:
 - RessursContainer
 range: Produsent

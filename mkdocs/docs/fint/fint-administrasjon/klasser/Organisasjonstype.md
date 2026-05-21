@@ -10,8 +10,6 @@ _Kva type organisasjonselement dette er._
 
 
 URI: [adm:organisasjonstype](https://schema.fintlabs.no/administrasjon/organisasjonstype)
-Alias: organisasjonstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kva type organisasjonselement dette er.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:organisasjonstype
-alias: organisasjonstype
 domain_of:
 - Organisasjonselement
 range: Organisasjonstype

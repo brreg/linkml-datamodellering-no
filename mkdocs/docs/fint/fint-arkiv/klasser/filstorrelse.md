@@ -10,8 +10,6 @@ _Storleiken på fila i antal bytes._
 
 
 URI: [ark:filstorrelse](https://schema.fintlabs.no/arkiv/filstorrelse)
-Alias: filstorrelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Storleiken på fila i antal bytes.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:filstorrelse
-alias: filstorrelse
 domain_of:
 - Dokumentobjekt
 range: string

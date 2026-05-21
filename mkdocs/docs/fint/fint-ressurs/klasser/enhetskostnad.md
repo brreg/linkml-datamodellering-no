@@ -10,8 +10,6 @@ _Kostnad per ressurs._
 
 
 URI: [res:enhetskostnad](https://schema.fintlabs.no/ressurs/enhetskostnad)
-Alias: enhetskostnad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kostnad per ressurs.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:enhetskostnad
-alias: enhetskostnad
 domain_of:
 - Applikasjonsressurs
 range: integer

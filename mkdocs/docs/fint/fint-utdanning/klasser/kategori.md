@@ -10,8 +10,6 @@ _Kategori for elevforholdet._
 
 
 URI: [utd:kategori](https://schema.fintlabs.no/utdanning/kategori)
-Alias: kategori
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kategori for elevforholdet.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:kategori
-alias: kategori
 domain_of:
 - Elevforhold
 range: Elevkategori

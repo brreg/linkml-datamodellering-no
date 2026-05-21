@@ -10,8 +10,6 @@ _Del av totalbeløp som utgjer summen av fakturalinjene, i øre._
 
 
 URI: [okn:nettobelop](https://schema.fintlabs.no/okonomi/nettobelop)
-Alias: nettobelop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Del av totalbeløp som utgjer summen av fakturalinjene, i øre.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:nettobelop
-alias: nettobelop
 domain_of:
 - Fakturagrunnlag
 range: integer

@@ -10,8 +10,6 @@ _Eksempel på bruk av kodeelementet (skos:example)._
 
 
 URI: [skos:example](http://www.w3.org/2004/02/skos/core#example)
-Alias: eksempel_kode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Eksempel på bruk av kodeelementet (skos:example).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: skos:example
-alias: eksempel_kode
 domain_of:
 - Kodeelement
 range: LangString

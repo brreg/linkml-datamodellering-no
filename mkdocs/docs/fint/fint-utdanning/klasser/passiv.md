@@ -10,8 +10,6 @@ _Angir at koden er passiv og ikkje kan veljast._
 
 
 URI: [fint:passiv](https://schema.fintlabs.no/passiv)
-Alias: passiv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,34 +20,34 @@ Alias: passiv
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |  yes  |
-| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
-| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  yes  |
-| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |  yes  |
-| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |  yes  |
-| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
-| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  yes  |
-| [Termin](termin.md) | Ein skuleterm (t |  yes  |
-| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |  yes  |
-| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  yes  |
 | [Begrep](begrep.md) | Abstrakt fellesbase for alle FINT-kodeverk |  yes  |
-| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  yes  |
-| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  yes  |
-| [Betalingsstatus](betalingsstatus.md) | Betalingsstatus for eksamensavgift |  yes  |
-| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
-| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  yes  |
-| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |  yes  |
-| [Fravartype](fravartype.md) | Type fråvær (t |  yes  |
-| [Provestatus](provestatus.md) | Status for ei lærlingprøve |  yes  |
-| [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |  yes  |
-| [Skoleaar](skoleaar.md) | Eit skoleår (t |  yes  |
-| [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |  yes  |
-| [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |  yes  |
-| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |  yes  |
-| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
-| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |  yes  |
 | [Avbruddsaarsak](avbruddsaarsak.md) | Årsak til avbrot frå opplæring |  yes  |
+| [Betalingsstatus](betalingsstatus.md) | Betalingsstatus for eksamensavgift |  yes  |
+| [Bevistype](bevistype.md) | Type kompetansebevis for lærling |  yes  |
+| [Brevtype](brevtype.md) | Type brev knytt til lærlingprøve |  yes  |
+| [Eksamensform](eksamensform.md) | Form for gjennomføring av eksamen |  yes  |
+| [Elevkategori](elevkategori.md) | Kategori for eit elevforhold (t |  yes  |
+| [Fagmerknad](fagmerknad.md) | Merknad knytt til eit fag i ei faggruppe |  yes  |
+| [Fagstatus](fagstatus.md) | Status for eit fag i eit faggruppemedlemskap |  yes  |
+| [Fravartype](fravartype.md) | Type fråvær (t |  yes  |
+| [Fullfortkode](fullfortkode.md) | Kode for fullførtresultat av lærling |  yes  |
+| [Karakterskala](karakterskala.md) | Skala for karaktersetjing (t |  yes  |
+| [Karakterstatus](karakterstatus.md) | Status for ein karakter (t |  yes  |
+| [Karakterverdi](karakterverdi.md) | Ein konkret karakterverdi i ei karakterskala |  yes  |
+| [OtEnhet](otenhet.md) | Eining i oppfølgingstenesta (OT) |  yes  |
+| [OtStatus](otstatus.md) | Status for ein ungdom i oppfølgingstenesta |  yes  |
+| [Provestatus](provestatus.md) | Status for ei lærlingprøve |  yes  |
+| [Skoleaar](skoleaar.md) | Eit skoleår (t |  yes  |
+| [Skoleeiertype](skoleeiertype.md) | Type skuleeigartilknyting |  yes  |
+| [Termin](termin.md) | Ein skuleterm (t |  yes  |
+| [Tilrettelegging](tilrettelegging.md) | Type tilrettelegging for elevar (t |  yes  |
+| [Varseltype](varseltype.md) | Type varsel knytt til ein elev |  yes  |
+| [Vitnemalsmerknad](vitnemalsmerknad.md) | Merknad på vitnemål |  yes  |
+| [Landkode](landkode.md) | Landskode i ISO 3166-1 alpha-2 format |  no  |
 | [Kjonn](kjonn.md) | Verdiar for kjønn basert på ISO/IEC 5218 |  no  |
+| [Fylke](fylke.md) | Liste over Norges fylker |  no  |
+| [Kommune](kommune.md) | Liste over Norges kommunar |  no  |
+| [Spraak](spraak.md) | Verdiar for språk (2 bokstavar) |  no  |
 
 
 
@@ -112,7 +110,6 @@ name: passiv
 description: Angir at koden er passiv og ikkje kan veljast.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:passiv
-alias: passiv
 domain_of:
 - Begrep
 - Avbruddsaarsak

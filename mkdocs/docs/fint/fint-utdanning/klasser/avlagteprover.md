@@ -10,8 +10,6 @@ _Alle avlagde prøver i containeren._
 
 
 URI: [utd:avlagteprover](https://schema.fintlabs.no/utdanning/avlagteprover)
-Alias: avlagteprover
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle avlagde prøver i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:avlagteprover
-alias: avlagteprover
 domain_of:
 - UtdanningContainer
 range: AvlagtProve

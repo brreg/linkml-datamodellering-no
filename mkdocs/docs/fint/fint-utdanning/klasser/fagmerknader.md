@@ -10,8 +10,6 @@ _Alle fagmerknadar i containeren._
 
 
 URI: [utd:fagmerknader](https://schema.fintlabs.no/utdanning/fagmerknader)
-Alias: fagmerknader
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle fagmerknadar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fagmerknader
-alias: fagmerknader
 domain_of:
 - UtdanningContainer
 range: Fagmerknad

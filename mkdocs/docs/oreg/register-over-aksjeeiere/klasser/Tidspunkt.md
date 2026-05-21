@@ -10,8 +10,6 @@ _Tidspunkt for utbytte/eierskapstransaksjon._
 
 
 URI: [aksje:tidspunkt](https://example.no/ontology/aksje#tidspunkt)
-Alias: tidspunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: tidspunkt
 description: Tidspunkt for utbytte/eierskapstransaksjon.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: tidspunkt
 domain_of:
 - Utbytte
 - Eierskapstransaksjon

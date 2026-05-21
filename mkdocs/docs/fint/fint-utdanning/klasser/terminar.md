@@ -10,8 +10,6 @@ _Alle terminar i containeren._
 
 
 URI: [utd:terminar](https://schema.fintlabs.no/utdanning/terminar)
-Alias: terminar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle terminar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:terminar
-alias: terminar
 domain_of:
 - UtdanningContainer
 range: Termin

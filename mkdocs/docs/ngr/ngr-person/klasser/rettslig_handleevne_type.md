@@ -10,8 +10,6 @@ _Type avgrensing i rettsleg handleevne._
 
 
 URI: [ngrp:rettsligHandleevneType](https://data.norge.no/vocabulary/ngr-person#rettsligHandleevneType)
-Alias: rettslig_handleevne_type
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type avgrensing i rettsleg handleevne.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:rettsligHandleevneType
-alias: rettslig_handleevne_type
 domain_of:
 - RettsligHandleevne
 range: RettsligHandleevneType

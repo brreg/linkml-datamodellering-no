@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/postadresser](https://data.norge.no/linkml/ngr-person/postadresser)
-Alias: postadresser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: postadresser
 name: postadresser
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: postadresser
 owner: PersonContainer
 domain_of:
 - PersonContainer

@@ -10,8 +10,6 @@ _Type korrespondansepart._
 
 
 URI: [ark:korrespondanseparttype](https://schema.fintlabs.no/arkiv/korrespondanseparttype)
-Alias: korrespondanseparttype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type korrespondansepart.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:korrespondanseparttype
-alias: korrespondanseparttype
 domain_of:
 - Korrespondansepart
 range: KorrespondansepartType

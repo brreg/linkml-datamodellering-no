@@ -10,8 +10,6 @@ _Sivilstand registrert på personen._
 
 
 URI: [ngrp:harSivilstand](https://data.norge.no/vocabulary/ngr-person#harSivilstand)
-Alias: har_sivilstand
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sivilstand registrert på personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harSivilstand
-alias: har_sivilstand
 domain_of:
 - Person
 range: Sivilstand

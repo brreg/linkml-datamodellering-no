@@ -10,8 +10,6 @@ _Organisasjon som er ansvarleg utgjevar (dct:publisher)._
 
 
 URI: [dct:publisher](http://purl.org/dc/terms/publisher)
-Alias: utgjevar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Organisasjon som er ansvarleg utgjevar (dct:publisher).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: dct:publisher
-alias: utgjevar
 domain_of:
 - Klassifikasjon
 - Klassifikasjonssamanlikning

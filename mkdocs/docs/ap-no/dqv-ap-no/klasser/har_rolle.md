@@ -10,8 +10,6 @@ _Rolle ein aktør eller ressurs har i ein relasjon._
 
 
 URI: [dcat:hadRole](http://www.w3.org/ns/dcat#hadRole)
-Alias: har_rolle
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: har_rolle
 description: Rolle ein aktør eller ressurs har i ein relasjon.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:hadRole
-alias: har_rolle
 domain_of:
 - Relasjon
 range: string

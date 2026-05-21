@@ -10,8 +10,6 @@ _Stad for dødsfallet._
 
 
 URI: [ngrp:doedssted](https://data.norge.no/vocabulary/ngr-person#doedssted)
-Alias: doedssted
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Stad for dødsfallet.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:doedssted
-alias: doedssted
 domain_of:
 - Dodsfall
 range: string

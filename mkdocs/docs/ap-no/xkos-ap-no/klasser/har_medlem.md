@@ -10,8 +10,6 @@ _Kategoriar som høyrer til dette nivået (skos:member)._
 
 
 URI: [skos:member](http://www.w3.org/2004/02/skos/core#member)
-Alias: har_medlem
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Kategoriar som høyrer til dette nivået (skos:member).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: skos:member
-alias: har_medlem
 domain_of:
 - Klassifikasjonsnivaa
 range: Kategori

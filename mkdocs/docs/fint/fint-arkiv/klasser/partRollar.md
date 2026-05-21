@@ -5,8 +5,6 @@
 
 
 URI: [ark:partRollar](https://schema.fintlabs.no/arkiv/partRollar)
-Alias: partRollar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: partRollar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:partRollar
-alias: partRollar
 domain_of:
 - ArkivContainer
 range: PartRolle

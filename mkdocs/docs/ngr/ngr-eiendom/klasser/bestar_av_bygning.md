@@ -10,8 +10,6 @@ _Bygning(ar) som inngår i denne faste eigedommen._
 
 
 URI: [ngre:bestarAvBygning](https://data.norge.no/vocabulary/ngr-eiendom#bestarAvBygning)
-Alias: bestar_av_bygning
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Bygning(ar) som inngår i denne faste eigedommen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:bestarAvBygning
-alias: bestar_av_bygning
 domain_of:
 - FastEiendom
 range: Bygning

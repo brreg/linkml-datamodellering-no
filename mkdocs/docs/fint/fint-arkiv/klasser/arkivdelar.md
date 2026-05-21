@@ -5,8 +5,6 @@
 
 
 URI: [ark:arkivdelar](https://schema.fintlabs.no/arkiv/arkivdelar)
-Alias: arkivdelar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: arkivdelar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:arkivdelar
-alias: arkivdelar
 domain_of:
 - ArkivContainer
 range: Arkivdel

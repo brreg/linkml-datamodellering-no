@@ -10,8 +10,6 @@ _Breid ekvivalens til kategori i annan klassifikasjon (uneskos:broadMatch)._
 
 
 URI: [uneskos:broadMatch](http://purl.org/umu/uneskos#broadMatch)
-Alias: er_ekvivalent_med
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Breid ekvivalens til kategori i annan klassifikasjon (uneskos:broad
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: uneskos:broadMatch
-alias: er_ekvivalent_med
 domain_of:
 - Kategori
 range: Kategori

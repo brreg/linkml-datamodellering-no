@@ -10,8 +10,6 @@ _Referanse til Undervisningsforhold (Utdanning)._
 
 
 URI: [adm:undervisningsforhold](https://schema.fintlabs.no/administrasjon/undervisningsforhold)
-Alias: undervisningsforhold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Undervisningsforhold (Utdanning).
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:undervisningsforhold
-alias: undervisningsforhold
 domain_of:
 - Arbeidsforhold
 range: uriorcurie

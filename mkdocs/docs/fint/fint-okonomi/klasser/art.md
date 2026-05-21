@@ -10,8 +10,6 @@ _Artskonto (type utgift/inntekt)._
 
 
 URI: [okn:art](https://schema.fintlabs.no/okonomi/art)
-Alias: art
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Artskonto (type utgift/inntekt).
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:art
-alias: art
 domain_of:
 - Kontostreng
 range: string

@@ -10,8 +10,6 @@ _Kvalitetsmåling knytt til datasettet._
 
 
 URI: [dqv:hasQualityMeasurement](http://www.w3.org/ns/dqv#hasQualityMeasurement)
-Alias: har_kvalitetsmaaling
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: har_kvalitetsmaaling
 description: Kvalitetsmåling knytt til datasettet.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqv:hasQualityMeasurement
-alias: har_kvalitetsmaaling
 domain_of:
 - Datasett
 range: Kvalitetsmaaling

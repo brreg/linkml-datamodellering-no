@@ -10,8 +10,6 @@ _Kvalitetsdeldimensjonen dette målet operasjonaliserer._
 
 
 URI: [dqvno:inSubDimension](https://data.norge.no/vocabulary/dqvno#inSubDimension)
-Alias: er_i_kvalitetsdeldimensjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: er_i_kvalitetsdeldimensjon
 description: Kvalitetsdeldimensjonen dette målet operasjonaliserer.
 from_schema: https://data.norge.no/linkml/dqv-ap-no
 slot_uri: dqvno:inSubDimension
-alias: er_i_kvalitetsdeldimensjon
 domain_of:
 - Kvalitetsmaal
 range: Kvalitetsdeldimensjon

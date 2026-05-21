@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/tinglystHeftelser](https://data.norge.no/linkml/ngr-eiendom/tinglystHeftelser)
-Alias: tinglystHeftelser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: tinglystHeftelser
 name: tinglystHeftelser
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: tinglystHeftelser
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

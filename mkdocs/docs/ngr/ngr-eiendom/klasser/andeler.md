@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/andeler](https://data.norge.no/linkml/ngr-eiendom/andeler)
-Alias: andeler
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: andeler
 name: andeler
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: andeler
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

@@ -10,8 +10,6 @@ _Geografisk representasjonspunkt for bygningen._
 
 
 URI: [ngre:harRepresentasjonspunkt](https://data.norge.no/vocabulary/ngr-eiendom#harRepresentasjonspunkt)
-Alias: har_representasjonspunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Geografisk representasjonspunkt for bygningen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harRepresentasjonspunkt
-alias: har_representasjonspunkt
 domain_of:
 - Bygning
 range: Representasjonspunkt

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/offisielleAdresser](https://data.norge.no/linkml/ngr-adresse/offisielleAdresser)
-Alias: offisielleAdresser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: offisielleAdresser
 name: offisielleAdresser
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: offisielleAdresser
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

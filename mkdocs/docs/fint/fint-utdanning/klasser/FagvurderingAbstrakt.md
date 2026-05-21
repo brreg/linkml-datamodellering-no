@@ -428,7 +428,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: FagvurderingAbstrakt
     domain_of:
     - Begrep
@@ -492,7 +491,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:kommentar
-    alias: kommentar
     owner: FagvurderingAbstrakt
     domain_of:
     - FagvurderingAbstrakt
@@ -508,7 +506,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:vurderingsdato
-    alias: vurderingsdato
     owner: FagvurderingAbstrakt
     domain_of:
     - FagvurderingAbstrakt
@@ -523,7 +520,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:fag
-    alias: fag
     owner: FagvurderingAbstrakt
     domain_of:
     - UtdanningContainer
@@ -542,7 +538,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:skoleaar
-    alias: skoleaar
     owner: FagvurderingAbstrakt
     domain_of:
     - UtdanningContainer
@@ -565,7 +560,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-utdanning
     rank: 1000
     slot_uri: utd:karakter
-    alias: karakter
     owner: FagvurderingAbstrakt
     domain_of:
     - FagvurderingAbstrakt

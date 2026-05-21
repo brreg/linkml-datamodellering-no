@@ -10,8 +10,6 @@ _Referanse til Personalressurs (Administrasjon) som er ansvarleg._
 
 
 URI: [okn:ansvarlig](https://schema.fintlabs.no/okonomi/ansvarlig)
-Alias: ansvarlig
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Personalressurs (Administrasjon) som er ansvarleg.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:ansvarlig
-alias: ansvarlig
 domain_of:
 - Transaksjon
 range: uriorcurie

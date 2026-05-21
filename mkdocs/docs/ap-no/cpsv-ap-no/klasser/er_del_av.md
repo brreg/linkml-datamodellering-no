@@ -10,8 +10,6 @@ _Tenesta er del av ei anna teneste._
 
 
 URI: [dct:isPartOf](http://purl.org/dc/terms/isPartOf)
-Alias: er_del_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: er_del_av
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Tenesta er del av ei anna teneste.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: dct:isPartOf
-alias: er_del_av
 domain_of:
 - OffentligTjeneste
 - Tjeneste

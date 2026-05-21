@@ -10,8 +10,6 @@ _ISO 3166-1 landkode for landet som utsteda dokumentet._
 
 
 URI: [ngrp:utstederland](https://data.norge.no/vocabulary/ngr-person#utstederland)
-Alias: utstederland
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: ISO 3166-1 landkode for landet som utsteda dokumentet.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:utstederland
-alias: utstederland
 domain_of:
 - Identifikasjonsdokument
 range: string

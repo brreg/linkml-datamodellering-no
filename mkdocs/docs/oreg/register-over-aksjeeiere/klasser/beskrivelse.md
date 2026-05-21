@@ -10,8 +10,6 @@ _Tekstleg forklaring av instansen._
 
 
 URI: [aksje:beskrivelse](https://example.no/ontology/aksje#beskrivelse)
-Alias: beskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -84,7 +82,6 @@ name: beskrivelse
 description: Tekstleg forklaring av instansen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-alias: beskrivelse
 domain_of:
 - Aksjeeierrettighet
 range: string

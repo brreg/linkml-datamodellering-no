@@ -12,8 +12,6 @@ __
 
 
 URI: [fair:metadataPersistens](https://data.norge.no/fair#metadataPersistens)
-Alias: metadataPersistens
-
 <!-- no inheritance hierarchy -->
 
 
@@ -91,7 +89,6 @@ description: 'Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger 
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: fair:metadataPersistens
-alias: metadataPersistens
 domain_of:
 - Tilgangsmetadata
 range: boolean

@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-adresse/adressenavn](https://data.norge.no/linkml/ngr-adresse/adressenavn)
-Alias: adressenavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: adressenavn
 name: adressenavn
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
-alias: adressenavn
 owner: AdresseContainer
 domain_of:
 - AdresseContainer

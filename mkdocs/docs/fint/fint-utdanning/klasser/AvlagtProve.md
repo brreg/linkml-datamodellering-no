@@ -10,8 +10,6 @@ _Avlagde prøver._
 
 
 URI: [utd:avlagtprove](https://schema.fintlabs.no/utdanning/avlagtprove)
-Alias: avlagtprove
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Avlagde prøver.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:avlagtprove
-alias: avlagtprove
 domain_of:
 - Laerling
 range: AvlagtProve

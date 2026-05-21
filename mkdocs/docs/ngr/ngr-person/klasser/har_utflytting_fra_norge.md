@@ -10,8 +10,6 @@ _Siste utflyttingsregistrering frå Noreg._
 
 
 URI: [ngrp:harUtflyttingFraNorge](https://data.norge.no/vocabulary/ngr-person#harUtflyttingFraNorge)
-Alias: har_utflytting_fra_norge
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Siste utflyttingsregistrering frå Noreg.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harUtflyttingFraNorge
-alias: har_utflytting_fra_norge
 domain_of:
 - Person
 range: UtflyttingFraNorge

@@ -10,8 +10,6 @@ _Type digital eining._
 
 
 URI: [res:enhetstype](https://schema.fintlabs.no/ressurs/enhetstype)
-Alias: enhetstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: enhetstype
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 | [DigitalEnhet](digitalenhet.md) | Ei digital eining som t |  yes  |
+| [Enhetsgruppe](enhetsgruppe.md) | Ei gruppering av einsarta digitale einingar |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Type digital eining.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:enhetstype
-alias: enhetstype
 domain_of:
 - DigitalEnhet
 - Enhetsgruppe

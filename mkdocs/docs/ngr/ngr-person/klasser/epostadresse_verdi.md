@@ -10,8 +10,6 @@ _E-postadresse._
 
 
 URI: [ngrp:epostadresse](https://data.norge.no/vocabulary/ngr-person#epostadresse)
-Alias: epostadresse_verdi
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: E-postadresse.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:epostadresse
-alias: epostadresse_verdi
 domain_of:
 - KontaktinformasjonDoedsbo
 - Kontaktopplysninger

@@ -10,8 +10,6 @@ _Status på eininga i fagsystemet._
 
 
 URI: [res:status](https://schema.fintlabs.no/ressurs/status)
-Alias: status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status på eininga i fagsystemet.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:status
-alias: status
 domain_of:
 - DigitalEnhet
 range: Status

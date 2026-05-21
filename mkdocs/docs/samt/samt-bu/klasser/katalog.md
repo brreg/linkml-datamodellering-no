@@ -1010,7 +1010,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Katalog
     domain_of:
     - RegulativRessurs
@@ -1031,7 +1030,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:contactPoint
-    alias: kontaktpunkt
     owner: Katalog
     domain_of:
     - Datasett
@@ -1048,7 +1046,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Katalog
     domain_of:
     - RegulativRessurs
@@ -1069,7 +1066,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:publisher
-    alias: utgiver
     owner: Katalog
     domain_of:
     - Datasett
@@ -1085,7 +1081,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:dataset
-    alias: datasett
     owner: Katalog
     domain_of:
     - Katalog
@@ -1098,7 +1093,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:service
-    alias: datatjeneste
     owner: Katalog
     domain_of:
     - Katalog
@@ -1111,7 +1105,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
-    alias: dekningsomraade
     owner: Katalog
     domain_of:
     - Datasett
@@ -1126,7 +1119,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:modified
-    alias: endringsdato
     owner: Katalog
     domain_of:
     - Distribusjon
@@ -1142,7 +1134,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
-    alias: heimeside
     owner: Katalog
     domain_of:
     - Katalog
@@ -1155,7 +1146,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:license
-    alias: lisens
     owner: Katalog
     domain_of:
     - Distribusjon
@@ -1169,7 +1159,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Katalog
     domain_of:
     - RegulativRessurs
@@ -1187,7 +1176,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:themeTaxonomy
-    alias: temaer
     owner: Katalog
     domain_of:
     - Katalog
@@ -1200,7 +1188,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:issued
-    alias: utgivelsesdato
     owner: Katalog
     domain_of:
     - Distribusjon
@@ -1214,7 +1201,6 @@ attributes:
     description: Lovgjeving som gjeld for ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcatap:applicableLegislation
-    alias: gjeldende_lovgivning
     owner: Katalog
     domain_of:
     - Distribusjon
@@ -1229,7 +1215,6 @@ attributes:
     description: Delkatalog inkludert i denne katalogen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:hasPart
-    alias: har_del
     owner: Katalog
     domain_of:
     - Katalog
@@ -1240,7 +1225,6 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Katalog
     domain_of:
     - Aktor
@@ -1254,7 +1238,6 @@ attributes:
     description: Katalog som er ein del av denne katalogen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:catalog
-    alias: underkatalog
     owner: Katalog
     domain_of:
     - Katalog
@@ -1265,7 +1248,6 @@ attributes:
     description: Katalogpostar i katalogen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dcat:record
-    alias: katalogpost
     owner: Katalog
     domain_of:
     - Katalog
@@ -1276,7 +1258,6 @@ attributes:
     description: Aktøren som primært har skapt ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:creator
-    alias: produsent
     owner: Katalog
     domain_of:
     - Datasett
@@ -1287,7 +1268,6 @@ attributes:
     description: Rettar knytte til ressursen.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:rights
-    alias: rettigheter
     owner: Katalog
     domain_of:
     - Distribusjon
@@ -1299,7 +1279,6 @@ attributes:
     description: Tidsperiode ressursen dekkar.
     from_schema: https://data.norge.no/linkml/dcat-ap-no
     slot_uri: dct:temporal
-    alias: tidsrom
     owner: Katalog
     domain_of:
     - Datasett
@@ -1312,7 +1291,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Katalog
     domain_of:
     - KatalogisertRessurs

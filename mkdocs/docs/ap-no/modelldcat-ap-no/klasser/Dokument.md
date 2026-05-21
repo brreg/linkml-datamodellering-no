@@ -259,7 +259,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Dokument
     domain_of:
     - Mediatype
@@ -286,7 +285,6 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Dokument
     domain_of:
     - Standard
@@ -303,7 +301,6 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Dokument
     domain_of:
     - Dokument
@@ -316,7 +313,6 @@ attributes:
     description: Filformat eller medietype (dct:format).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:format
-    alias: format
     owner: Dokument
     domain_of:
     - Dokument

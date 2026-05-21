@@ -751,7 +751,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Kodeelement
     domain_of:
     - Mediatype
@@ -781,7 +780,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:inScheme
-    alias: i_skjema
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -796,7 +794,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:notation
-    alias: notasjon
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -809,7 +806,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: skos:prefLabel
-    alias: anbefalt_term
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -823,7 +819,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: begrep
     owner: Kodeelement
     domain_of:
     - Informasjonsmodell
@@ -839,7 +834,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Kodeelement
     domain_of:
     - Aktor
@@ -858,7 +852,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:topConceptOf
-    alias: topp_begrep_av
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -870,7 +863,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:definition
-    alias: definisjon
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -882,7 +874,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:example
-    alias: eksempel_kode
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -894,7 +885,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xkos:exclusionNote
-    alias: eksklusjonsnotat
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -906,7 +896,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xkos:previous
-    alias: forrige
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -917,7 +906,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:hiddenLabel
-    alias: skjult_term
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -929,7 +917,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xkos:inclusionNote
-    alias: inklusjonsnotat
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -941,7 +928,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:note
-    alias: notat
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -953,7 +939,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: xkos:next
-    alias: neste
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -964,7 +949,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:scopeNote
-    alias: omfangsnotat
     owner: Kodeelement
     domain_of:
     - Kodeelement
@@ -976,7 +960,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/modelldcat-ap-no
     rank: 1000
     slot_uri: skos:altLabel
-    alias: alternativ_term
     owner: Kodeelement
     domain_of:
     - Kodeelement

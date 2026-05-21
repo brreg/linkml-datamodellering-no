@@ -10,8 +10,6 @@ _Eigenskapar modellelementet har (modelldcatno:hasProperty)._
 
 
 URI: [modelldcatno:hasProperty](https://data.norge.no/vocabulary/modelldcatno#hasProperty)
-Alias: har_eigenskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,13 +20,13 @@ Alias: har_eigenskap
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
 | [Modellelement](modellelement.md) | Abstrakt basisklasse for alle modellelement i ein informasjonsmodell |  yes  |
-| [RootObjekttype](rootobjekttype.md) | Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen |  no  |
-| [Kodeliste](kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
-| [Datatype](datatype.md) | Ein datatype — ein strukturert samansett type |  no  |
-| [Modul](modul.md) | Ein modul som grupperer modellelement i informasjonsmodellen |  no  |
 | [Objekttype](objekttype.md) | Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen |  no  |
+| [RootObjekttype](rootobjekttype.md) | Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen |  no  |
+| [Datatype](datatype.md) | Ein datatype — ein strukturert samansett type |  no  |
+| [EnkelType](enkeltype.md) | Ein enkel type med restriksjonar (xsd-fasettar) |  no  |
+| [Kodeliste](kodeliste.md) | Ei kodeliste — eit kontrollert vokabular av tillate verdiar |  no  |
+| [Modul](modul.md) | Ein modul som grupperer modellelement i informasjonsmodellen |  no  |
 
 
 
@@ -93,7 +91,6 @@ description: Eigenskapar modellelementet har (modelldcatno:hasProperty).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:hasProperty
-alias: har_eigenskap
 domain_of:
 - Modellelement
 range: Eigenskap

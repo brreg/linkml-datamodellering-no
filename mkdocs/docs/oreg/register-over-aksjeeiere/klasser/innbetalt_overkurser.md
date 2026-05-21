@@ -10,8 +10,6 @@ _Samling av innbetalt overkurs._
 
 
 URI: [aksje:innbetalt_overkurser](https://example.no/ontology/aksje#innbetalt_overkurser)
-Alias: innbetalt_overkurser
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Samling av innbetalt overkurs.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Containerklasse
-alias: innbetalt_overkurser
 domain_of:
 - Containerklasse
 range: InnbetaltOverkurs

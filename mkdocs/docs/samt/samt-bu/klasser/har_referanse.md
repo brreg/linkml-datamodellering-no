@@ -10,8 +10,6 @@ _Referanse til ekstern ressurs (rdfs:seeAlso)._
 
 
 URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
-Alias: har_referanse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_referanse
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
 | [RegulativRessurs](regulativressurs.md) | Ein regulativ ressurs (lov, forskrift o |  no  |
+| [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: har_referanse
 description: Referanse til ekstern ressurs (rdfs:seeAlso).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: rdfs:seeAlso
-alias: har_referanse
 domain_of:
 - RegulativRessurs
 - Standard

@@ -308,7 +308,6 @@ attributes:
     description: Adresse til matrikkeleining.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:adresse
-    alias: adresse
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -319,7 +318,6 @@ attributes:
     description: Fortløpande nummerering av bruk under gårdsnummer.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:bruksnummer
-    alias: bruksnummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -329,7 +327,6 @@ attributes:
     description: Fortløpande nummerering av festar under gårdsnummer/bruksnummer.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:festenummer
-    alias: festenummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -339,7 +336,6 @@ attributes:
     description: Nummerering av gårdseiging i matrikkelen, unik innanfor kommune.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:gaardsnummer
-    alias: gaardsnummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -349,7 +345,6 @@ attributes:
     description: Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:seksjonsnummer
-    alias: seksjonsnummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer
@@ -359,7 +354,6 @@ attributes:
     description: Nummerering av kommunen i høve til SSB si offisielle liste.
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:kommunenummer
-    alias: kommunenummer
     owner: Matrikkelnummer
     domain_of:
     - Matrikkelnummer

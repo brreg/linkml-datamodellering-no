@@ -10,8 +10,6 @@ _Person som er saksbehandlar._
 
 
 URI: [ark:saksbehandler](https://schema.fintlabs.no/arkiv/saksbehandler)
-Alias: saksbehandler
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Person som er saksbehandlar.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:saksbehandler
-alias: saksbehandler
 domain_of:
 - Registrering
 range: Arkivressurs

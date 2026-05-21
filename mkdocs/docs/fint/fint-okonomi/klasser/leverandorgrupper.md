@@ -5,8 +5,6 @@
 
 
 URI: [okn:leverandorgrupper](https://schema.fintlabs.no/okonomi/leverandorgrupper)
-Alias: leverandorgrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: leverandorgrupper
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:leverandorgrupper
-alias: leverandorgrupper
 domain_of:
 - OkonomiContainer
 range: Leverandorgruppe

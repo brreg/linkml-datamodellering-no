@@ -10,8 +10,6 @@ _Årsak til avbrot frå opplæring._
 
 
 URI: [utd:avbruddsarsak](https://schema.fintlabs.no/utdanning/avbruddsarsak)
-Alias: avbruddsarsak
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Årsak til avbrot frå opplæring.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:avbruddsarsak
-alias: avbruddsarsak
 domain_of:
 - Elevforhold
 range: Avbruddsaarsak

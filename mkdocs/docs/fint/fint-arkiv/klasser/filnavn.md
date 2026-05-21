@@ -10,8 +10,6 @@ _Dokumentfilens namn._
 
 
 URI: [ark:filnavn](https://schema.fintlabs.no/arkiv/filnavn)
-Alias: filnavn
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dokumentfilens namn.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:filnavn
-alias: filnavn
 domain_of:
 - Dokumentfil
 range: string

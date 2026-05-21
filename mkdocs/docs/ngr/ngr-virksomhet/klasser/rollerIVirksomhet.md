@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-virksomhet/rollerIVirksomhet](https://data.norge.no/linkml/ngr-virksomhet/rollerIVirksomhet)
-Alias: rollerIVirksomhet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: rollerIVirksomhet
 name: rollerIVirksomhet
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
-alias: rollerIVirksomhet
 owner: VirksomhetContainer
 domain_of:
 - VirksomhetContainer

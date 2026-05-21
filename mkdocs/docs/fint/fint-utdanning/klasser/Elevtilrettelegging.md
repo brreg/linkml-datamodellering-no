@@ -10,8 +10,6 @@ _Alle elevtilretteleggingar i containeren._
 
 
 URI: [utd:elevtilrettelegging](https://schema.fintlabs.no/utdanning/elevtilrettelegging)
-Alias: elevtilrettelegging
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle elevtilretteleggingar i containeren.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:elevtilrettelegging
-alias: elevtilrettelegging
 domain_of:
 - UtdanningContainer
 range: Elevtilrettelegging

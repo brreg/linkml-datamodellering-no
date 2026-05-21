@@ -10,8 +10,6 @@ _Tekst som skal brukast ved kreditering._
 
 
 URI: [odrs:attributionText](http://schema.theodi.org/odrs#attributionText)
-Alias: krediteringstekst
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: krediteringstekst
 description: Tekst som skal brukast ved kreditering.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:attributionText
-alias: krediteringstekst
 domain_of:
 - Rettighetserklaring
 range: string

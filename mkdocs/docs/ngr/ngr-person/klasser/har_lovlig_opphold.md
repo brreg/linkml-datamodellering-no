@@ -10,8 +10,6 @@ _Lovleg opphaldsgrunnlag for utanlandske statsborgarar._
 
 
 URI: [ngrp:harLovligOpphold](https://data.norge.no/vocabulary/ngr-person#harLovligOpphold)
-Alias: har_lovlig_opphold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Lovleg opphaldsgrunnlag for utanlandske statsborgarar.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harLovligOpphold
-alias: har_lovlig_opphold
 domain_of:
 - Person
 range: Opphold

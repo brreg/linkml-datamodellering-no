@@ -10,8 +10,6 @@ _Fagleg ansvarleg organisasjon for omgrepet (dct:creator)._
 
 
 URI: [dct:creator](http://purl.org/dc/terms/creator)
-Alias: ansvarleg_verksemd
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fagleg ansvarleg organisasjon for omgrepet (dct:creator).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: dct:creator
-alias: ansvarleg_verksemd
 domain_of:
 - Begrep
 range: Organisasjon

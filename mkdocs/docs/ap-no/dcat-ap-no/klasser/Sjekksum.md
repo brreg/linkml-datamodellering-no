@@ -10,8 +10,6 @@ _Sjekksum for distribusjonsfila._
 
 
 URI: [spdx:checksum](http://spdx.org/rdf/terms#checksum)
-Alias: sjekksum
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Sjekksum for distribusjonsfila.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: spdx:checksum
-alias: sjekksum
 domain_of:
 - Distribusjon
 range: Sjekksum

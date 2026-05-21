@@ -232,7 +232,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     identifier: true
-    alias: id
     owner: SamletFastEiendom
     domain_of:
     - FastEiendom
@@ -275,7 +274,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-eiendom
     rank: 1000
     slot_uri: ngre:bestarAvFastEiendom
-    alias: bestar_av_fast_eiendom
     owner: SamletFastEiendom
     domain_of:
     - SamletFastEiendom

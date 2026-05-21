@@ -10,8 +10,6 @@ _Pårørande kontaktperson til personen._
 
 
 URI: [fint:parorende](https://schema.fintlabs.no/parorende)
-Alias: parorende
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: parorende
 description: Pårørande kontaktperson til personen.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:parorende
-alias: parorende
 domain_of:
 - Person
 range: Kontaktperson

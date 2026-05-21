@@ -10,8 +10,6 @@ _Pålydande verdi for aksja._
 
 
 URI: [aksje:har_palydende_belop](https://example.no/ontology/aksje#har_palydende_belop)
-Alias: har_palydende_belop
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Pålydande verdi for aksja.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Aksje
-alias: har_palydende_belop
 domain_of:
 - Aksje
 range: decimal

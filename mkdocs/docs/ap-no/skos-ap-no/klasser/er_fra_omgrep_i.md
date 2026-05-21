@@ -10,8 +10,6 @@ _Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptIn
 
 
 URI: [skosno:isFromConceptIn](https://data.norge.no/vocabulary/skosno#isFromConceptIn)
-Alias: er_fra_omgrep_i
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isF
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:isFromConceptIn
-alias: er_fra_omgrep_i
 domain_of:
 - Begrep
 range: AssosiativRelasjon

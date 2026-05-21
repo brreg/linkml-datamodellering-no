@@ -1531,7 +1531,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/common-ap-no
     identifier: true
-    alias: id
     owner: Tjeneste
     domain_of:
     - Mediatype
@@ -1561,7 +1560,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:title
-    alias: tittel
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1584,7 +1582,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:description
-    alias: beskrivelse
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1607,7 +1604,6 @@ attributes:
     - Obligatorisk
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:identifier
-    alias: identifikator_literal
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1631,7 +1627,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
-    alias: har_kontaktpunkt
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1649,7 +1644,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:hasOutputType
-    alias: har_tenesteresultattype
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1665,7 +1659,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:ownedBy
-    alias: eigd_av
     owner: Tjeneste
     domain_of:
     - Tjeneste
@@ -1680,7 +1673,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:subject
-    alias: tema
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1695,7 +1687,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:spatial
-    alias: dekningsomraade
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1712,7 +1703,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasInputType
-    alias: har_dokumentasjonstype
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1726,7 +1716,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: foaf:homepage
-    alias: heimeside
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1740,7 +1729,6 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:type
-    alias: type_concept
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1759,7 +1747,6 @@ attributes:
     - Anbefalt
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: adms:status
-    alias: status
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1773,7 +1760,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:thematicArea
-    alias: temaomrade
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1788,7 +1774,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:processingTime
-    alias: behandlingstid
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1803,7 +1788,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
-    alias: er_beskrive_av
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1821,7 +1805,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:isPartOf
-    alias: er_del_av
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1835,7 +1818,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:hasPart
-    alias: har_del
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1850,7 +1832,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasChannel
-    alias: har_tenestekanal
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1865,7 +1846,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasParticipation
-    alias: har_deltaking
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1879,7 +1859,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dct:language
-    alias: spraak
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1897,7 +1876,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:relatedService
-    alias: relatert_teneste
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1912,7 +1890,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isGroupedBy
-    alias: er_gruppert_av
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1927,7 +1904,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isClassifiedBy
-    alias: er_klassifisert_av
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1942,7 +1918,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cpsv:follows
-    alias: folger
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1957,7 +1932,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasCost
-    alias: har_gebyr
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1972,7 +1946,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasLegalResource
-    alias: har_regulativ_ressurs
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -1987,7 +1960,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:requires
-    alias: krev
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -2002,7 +1974,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: dct:audience
-    alias: malgruppe
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -2016,7 +1987,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/common-ap-no
     slot_uri: dcat:keyword
-    alias: nokkelord
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste
@@ -2031,7 +2001,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/cpsv-ap-no
     rank: 1000
     slot_uri: cv:sector
-    alias: sektor
     owner: Tjeneste
     domain_of:
     - OffentligTjeneste

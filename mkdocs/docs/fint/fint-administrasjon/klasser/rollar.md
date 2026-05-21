@@ -10,8 +10,6 @@ _Alle rollar i containeren._
 
 
 URI: [adm:rollar](https://schema.fintlabs.no/administrasjon/rollar)
-Alias: rollar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle rollar i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:rollar
-alias: rollar
 domain_of:
 - AdministrasjonContainer
 range: Rolle

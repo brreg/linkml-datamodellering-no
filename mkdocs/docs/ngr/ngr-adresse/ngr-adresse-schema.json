@@ -366,6 +366,43 @@
             "title": "Fylke",
             "type": "object"
         },
+        "GeografiskAdresse": {
+            "additionalProperties": false,
+            "description": "Abstrakt basisklasse for norske adressar. Konkrete subklassar er OffisiellAdresse og Postboksadresse.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeografiskAdresse",
+            "type": "object"
+        },
+        "GeografiskOmrade": {
+            "additionalProperties": false,
+            "description": "Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer til.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeografiskOmrade",
+            "type": "object"
+        },
         "Grunnkrets": {
             "additionalProperties": false,
             "description": "Ei grunnkrets \u2013 minste geografiske eining i statistisk inndeling.",
@@ -570,10 +607,7 @@
                 },
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "kommunenummer_ref": {
                     "description": "Kommunen denne adressa ligg i.",
@@ -800,7 +834,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.",
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "properties": {
         "adressekoder": {
             "items": {

@@ -10,8 +10,6 @@ _Intern unik identifikator i økonomisystemet._
 
 
 URI: [okn:transaksjonsId](https://schema.fintlabs.no/okonomi/transaksjonsId)
-Alias: transaksjonsId
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Intern unik identifikator i økonomisystemet.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:transaksjonsId
-alias: transaksjonsId
 domain_of:
 - Transaksjon
 range: Identifikator

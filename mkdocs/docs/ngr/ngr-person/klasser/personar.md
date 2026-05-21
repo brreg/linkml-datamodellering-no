@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/personar](https://data.norge.no/linkml/ngr-person/personar)
-Alias: personar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: personar
 name: personar
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: personar
 owner: PersonContainer
 domain_of:
 - PersonContainer

@@ -10,8 +10,6 @@ _Grunnlag for fakturering._
 
 
 URI: [okn:fakturagrunnlag](https://schema.fintlabs.no/okonomi/fakturagrunnlag)
-Alias: fakturagrunnlag
-
 <!-- no inheritance hierarchy -->
 
 
@@ -88,7 +86,6 @@ description: Grunnlag for fakturering.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:fakturagrunnlag
-alias: fakturagrunnlag
 domain_of:
 - OkonomiContainer
 - Faktura

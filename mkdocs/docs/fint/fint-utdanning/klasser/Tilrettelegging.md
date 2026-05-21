@@ -10,8 +10,6 @@ _Tilretteleggingstype._
 
 
 URI: [utd:tilrettelegging](https://schema.fintlabs.no/utdanning/tilrettelegging)
-Alias: tilrettelegging
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,10 +20,10 @@ Alias: tilrettelegging
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Fag](fag.md) | Eit skulefag |  yes  |
-| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  yes  |
-| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Elevforhold](elevforhold.md) | Eit elevs tilknyting til ein skule og eit skoleår |  yes  |
+| [Elevtilrettelegging](elevtilrettelegging.md) | Tilrettelegging for ein elev i eit elevforhold |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
 
 
 
@@ -89,7 +87,6 @@ description: Tilretteleggingstype.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:tilrettelegging
-alias: tilrettelegging
 domain_of:
 - UtdanningContainer
 - Elevforhold

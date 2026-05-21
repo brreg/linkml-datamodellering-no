@@ -10,8 +10,6 @@ _Kode som identifiserer ein arbeidslokasjon._
 
 
 URI: [adm:lokasjonskode](https://schema.fintlabs.no/administrasjon/lokasjonskode)
-Alias: lokasjonskode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kode som identifiserer ein arbeidslokasjon.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:lokasjonskode
-alias: lokasjonskode
 domain_of:
 - Arbeidslokasjon
 range: Identifikator

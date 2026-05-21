@@ -39,6 +39,79 @@
             "title": "Adresse",
             "type": "object"
         },
+        "Aktoer": {
+            "additionalProperties": false,
+            "description": "Abstrakt base for person eller eining vi samhandlar med.",
+            "properties": {
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Den f\u00f8retrekte m\u00e5ten \u00e5 kome i kontakt med ein akt\u00f8r."
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Informasjon om postadresse til ein akt\u00f8r."
+                }
+            },
+            "title": "Aktoer",
+            "type": "object"
+        },
+        "Begrep": {
+            "additionalProperties": false,
+            "description": "Abstrakt fellesbase for alle FINT-kodeverk.",
+            "properties": {
+                "gyldighetsperiode": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Periode"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Periode ressursen er gyldig for."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Verdi som identifiserer omgrepet.",
+                    "type": "string"
+                },
+                "navn": {
+                    "description": "Hovudnamn for ressursen.",
+                    "type": "string"
+                },
+                "passiv": {
+                    "description": "Angir at koden er passiv og ikkje kan veljast.",
+                    "type": [
+                        "boolean",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "kode",
+                "navn"
+            ],
+            "title": "Begrep",
+            "type": "object"
+        },
         "Bilag": {
             "additionalProperties": false,
             "description": "Dokumentasjon til ein transaksjon (kompleks datatype).",
@@ -107,10 +180,7 @@
                 },
                 "id": {
                     "description": "URI-identifikator for ressursen.",
-                    "type": [
-                        "string",
-                        "null"
-                    ]
+                    "type": "string"
                 },
                 "person": {
                     "description": "Referanse til Person i Administrasjon-domenet.",
@@ -124,6 +194,65 @@
                 "id"
             ],
             "title": "Elev",
+            "type": "object"
+        },
+        "Enhet": {
+            "additionalProperties": false,
+            "description": "Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.",
+            "properties": {
+                "forretningsadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Bes\u00f8ksadresse til ein organisasjonseining."
+                },
+                "kontaktinformasjon": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Kontaktinformasjon"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Den f\u00f8retrekte m\u00e5ten \u00e5 kome i kontakt med ein akt\u00f8r."
+                },
+                "organisasjonsnavn": {
+                    "description": "Namn p\u00e5 eining registrert i Einingsregisteret.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "organisasjonsnummer": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Identifikator"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret."
+                },
+                "postadresse": {
+                    "anyOf": [
+                        {
+                            "$ref": "#/$defs/Adresse"
+                        },
+                        {
+                            "type": "null"
+                        }
+                    ],
+                    "description": "Informasjon om postadresse til ein akt\u00f8r."
+                }
+            },
+            "title": "Enhet",
             "type": "object"
         },
         "Faktura": {
@@ -1654,7 +1783,7 @@
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "description": "Rotcontainer for FINT \u00d8konomi-instansar.",
-    "metamodel_version": "1.7.0",
+    "metamodel_version": "1.11.0",
     "properties": {
         "fakturaer": {
             "items": {

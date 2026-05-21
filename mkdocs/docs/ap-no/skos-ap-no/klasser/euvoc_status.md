@@ -10,8 +10,6 @@ _Status for omgrepet frå eit kontrollert vokabular (euvoc:status)._
 
 
 URI: [euvoc:status](http://publications.europa.eu/ontology/euvoc#status)
-Alias: euvoc_status
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Status for omgrepet frå eit kontrollert vokabular (euvoc:status).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: euvoc:status
-alias: euvoc_status
 domain_of:
 - Begrep
 range: Begrep

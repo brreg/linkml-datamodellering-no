@@ -10,8 +10,6 @@ _Type brev._
 
 
 URI: [utd:brevtype](https://schema.fintlabs.no/utdanning/brevtype)
-Alias: brevtype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type brev.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:brevtype
-alias: brevtype
 domain_of:
 - AvlagtProve
 range: Brevtype

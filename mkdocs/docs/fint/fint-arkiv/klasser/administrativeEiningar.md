@@ -5,8 +5,6 @@
 
 
 URI: [ark:administrativeEiningar](https://schema.fintlabs.no/arkiv/administrativeEiningar)
-Alias: administrativeEiningar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: administrativeEiningar
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:administrativeEiningar
-alias: administrativeEiningar
 domain_of:
 - ArkivContainer
 range: AdministrativEnhet

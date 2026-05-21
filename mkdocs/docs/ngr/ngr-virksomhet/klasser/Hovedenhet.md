@@ -616,7 +616,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:utoevarAktivitet
-    alias: utoevar_aktivitet
     owner: Hovedenhet
     domain_of:
     - Hovedenhet
@@ -630,7 +629,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erKlassifisertISektorkode
-    alias: er_klassifisert_i_sektorkode
     owner: Hovedenhet
     domain_of:
     - Hovedenhet
@@ -643,7 +641,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harRolleIVirksomhet
-    alias: har_rolle_i_virksomhet
     owner: Hovedenhet
     domain_of:
     - Hovedenhet
@@ -659,7 +656,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harBestemmelserOmSignaturrett
-    alias: har_bestemmelser_om_signaturrett
     owner: Hovedenhet
     domain_of:
     - Hovedenhet
@@ -672,7 +668,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harBestemmelserOmProkura
-    alias: har_bestemmelser_om_prokura
     owner: Hovedenhet
     domain_of:
     - Hovedenhet
@@ -686,7 +681,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:stiftelsesdato
-    alias: stiftelsesdato
     owner: Hovedenhet
     domain_of:
     - Hovedenhet
@@ -699,7 +693,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harForretningsadresse
-    alias: har_forretningsadresse
     owner: Hovedenhet
     domain_of:
     - Hovedenhet
@@ -710,7 +703,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -737,7 +729,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:organisasjonsnummer
-    alias: organisasjonsnummer
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -751,7 +742,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:navn
-    alias: navn
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -765,7 +755,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harTilstand
-    alias: har_tilstand
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -779,7 +768,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:mottarPostPaa
-    alias: mottar_post_paa
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -792,7 +780,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erKlassifisertSomOrganisasjonsform
-    alias: er_klassifisert_som_organisasjonsform
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -806,7 +793,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harKontaktinformasjon
-    alias: har_kontaktinformasjon
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -819,7 +805,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:harVarslingsadresse
-    alias: har_varslingsadresse
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -833,7 +818,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:erKlassifisertINaeringskode
-    alias: er_klassifisert_i_naeringskode
     owner: Hovedenhet
     domain_of:
     - Virksomhet
@@ -849,7 +833,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     slot_uri: ngrv:antallAnsatte
-    alias: antall_ansatte
     owner: Hovedenhet
     domain_of:
     - Virksomhet

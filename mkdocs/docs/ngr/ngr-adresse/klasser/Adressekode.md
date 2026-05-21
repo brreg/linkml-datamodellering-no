@@ -259,7 +259,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     identifier: true
-    alias: id
     owner: Adressekode
     domain_of:
     - GeografiskAdresse
@@ -283,7 +282,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:kode
-    alias: kode
     owner: Adressekode
     domain_of:
     - Adressekode
@@ -295,7 +293,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-adresse
     rank: 1000
     slot_uri: ngr:harAdresseomrade
-    alias: adresseomrade_ref
     owner: Adressekode
     domain_of:
     - Adressenavn

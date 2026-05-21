@@ -10,8 +10,6 @@ _Løpenummer for brukseininga innanfor etasjen._
 
 
 URI: [ngre:nummereringIEtasjen](https://data.norge.no/vocabulary/ngr-eiendom#nummereringIEtasjen)
-Alias: nummerering_i_etasjen
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Løpenummer for brukseininga innanfor etasjen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:nummereringIEtasjen
-alias: nummerering_i_etasjen
 domain_of:
 - Bruksenhetsnummer
 range: integer

@@ -10,8 +10,6 @@ _Personalressurs til arbeidsforholdet._
 
 
 URI: [adm:personalressurs](https://schema.fintlabs.no/administrasjon/personalressurs)
-Alias: personalressurs
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Personalressurs til arbeidsforholdet.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:personalressurs
-alias: personalressurs
 domain_of:
 - Person
 - Arbeidsforhold

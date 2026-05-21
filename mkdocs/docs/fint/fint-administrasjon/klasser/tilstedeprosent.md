@@ -10,8 +10,6 @@ _Det personalressursen faktisk jobbar._
 
 
 URI: [adm:tilstedeprosent](https://schema.fintlabs.no/administrasjon/tilstedeprosent)
-Alias: tilstedeprosent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Det personalressursen faktisk jobbar.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:tilstedeprosent
-alias: tilstedeprosent
 domain_of:
 - Arbeidsforhold
 range: integer

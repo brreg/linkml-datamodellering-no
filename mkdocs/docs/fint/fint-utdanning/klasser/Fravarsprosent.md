@@ -10,8 +10,6 @@ _Fråværsprosent._
 
 
 URI: [utd:fravarsprosent](https://schema.fintlabs.no/utdanning/fravarsprosent)
-Alias: fravarsprosent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fråværsprosent.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:fravarsprosent
-alias: fravarsprosent
 domain_of:
 - Varsel
 range: integer

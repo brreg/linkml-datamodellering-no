@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/foedslar](https://data.norge.no/linkml/ngr-person/foedslar)
-Alias: foedslar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: foedslar
 name: foedslar
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: foedslar
 owner: PersonContainer
 domain_of:
 - PersonContainer

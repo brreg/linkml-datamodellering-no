@@ -10,8 +10,6 @@ _Husnummeret (heltalsverdi)._
 
 
 URI: [ngr:nummer](https://data.norge.no/vocabulary/ngr-adresse#nummer)
-Alias: nummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Husnummeret (heltalsverdi).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:nummer
-alias: nummer
 domain_of:
 - Husnummer
 range: integer

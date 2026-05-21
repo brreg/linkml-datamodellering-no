@@ -10,8 +10,6 @@ _URL til eksternt dokument._
 
 
 URI: [okn:url](https://schema.fintlabs.no/okonomi/url)
-Alias: url
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: URL til eksternt dokument.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:url
-alias: url
 domain_of:
 - Bilag
 range: string

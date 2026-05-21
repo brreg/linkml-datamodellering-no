@@ -10,8 +10,6 @@ _Tidspunkt for oppmøte._
 
 
 URI: [utd:oppmoetetidspunkt](https://schema.fintlabs.no/utdanning/oppmoetetidspunkt)
-Alias: oppmoetetidspunkt
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tidspunkt for oppmøte.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:oppmoetetidspunkt
-alias: oppmoetetidspunkt
 domain_of:
 - Eksamen
 range: datetime

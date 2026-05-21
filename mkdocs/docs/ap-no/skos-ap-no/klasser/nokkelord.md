@@ -10,8 +10,6 @@ _Nøkkelord som beskriv ressursen (dcat:keyword)._
 
 
 URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
-Alias: nokkelord
-
 <!-- no inheritance hierarchy -->
 
 
@@ -76,7 +74,6 @@ name: nokkelord
 description: Nøkkelord som beskriv ressursen (dcat:keyword).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dcat:keyword
-alias: nokkelord
 range: LangString
 multivalued: true
 

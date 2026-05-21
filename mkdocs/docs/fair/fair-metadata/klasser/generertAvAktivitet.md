@@ -10,8 +10,6 @@ _Aktivitet som har generert ressursen (FAIR R1.2)._
 
 
 URI: [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy)
-Alias: generertAvAktivitet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Aktivitet som har generert ressursen (FAIR R1.2).
 from_schema: https://data.norge.no/linkml/fair-metadata
 rank: 1000
 slot_uri: prov:wasGeneratedBy
-alias: generertAvAktivitet
 domain_of:
 - Proveniensmetadata
 range: uriorcurie

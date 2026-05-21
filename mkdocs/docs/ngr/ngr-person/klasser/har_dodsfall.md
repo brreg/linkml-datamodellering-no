@@ -10,8 +10,6 @@ _Dødsfallsinformasjon om personen._
 
 
 URI: [ngrp:harDodsfall](https://data.norge.no/vocabulary/ngr-person#harDodsfall)
-Alias: har_dodsfall
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dødsfallsinformasjon om personen.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:harDodsfall
-alias: har_dodsfall
 domain_of:
 - Person
 range: Dodsfall

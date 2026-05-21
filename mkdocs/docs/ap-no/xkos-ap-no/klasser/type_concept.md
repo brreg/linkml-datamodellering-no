@@ -10,8 +10,6 @@ _Type ressurs frå eit kontrollert vokabular (dct:type)._
 
 
 URI: [dct:type](http://purl.org/dc/terms/type)
-Alias: type_concept
-
 <!-- no inheritance hierarchy -->
 
 
@@ -75,7 +73,6 @@ name: type_concept
 description: Type ressurs frå eit kontrollert vokabular (dct:type).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:type
-alias: type_concept
 range: Konsept
 
 ```

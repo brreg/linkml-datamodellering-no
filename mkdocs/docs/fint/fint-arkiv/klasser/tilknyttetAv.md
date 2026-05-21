@@ -10,8 +10,6 @@ _Person som knytte dokumentet til registreringa._
 
 
 URI: [ark:tilknyttetAv](https://schema.fintlabs.no/arkiv/tilknyttetAv)
-Alias: tilknyttetAv
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Person som knytte dokumentet til registreringa.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:tilknyttetAv
-alias: tilknyttetAv
 domain_of:
 - Dokumentbeskrivelse
 range: Arkivressurs

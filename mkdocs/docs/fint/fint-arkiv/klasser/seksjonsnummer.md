@@ -10,8 +10,6 @@ _Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer._
 
 
 URI: [fint:seksjonsnummer](https://schema.fintlabs.no/seksjonsnummer)
-Alias: seksjonsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: seksjonsnummer
 description: Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:seksjonsnummer
-alias: seksjonsnummer
 domain_of:
 - Matrikkelnummer
 range: string

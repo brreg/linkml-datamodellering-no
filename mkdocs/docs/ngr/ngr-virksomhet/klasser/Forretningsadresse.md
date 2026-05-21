@@ -165,7 +165,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-virksomhet
     rank: 1000
     identifier: true
-    alias: id
     owner: Forretningsadresse
     domain_of:
     - Virksomhet

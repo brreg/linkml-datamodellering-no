@@ -10,8 +10,6 @@ _Alle arbeidslokasjoner i containeren._
 
 
 URI: [adm:arbeidslokasjoner](https://schema.fintlabs.no/administrasjon/arbeidslokasjoner)
-Alias: arbeidslokasjoner
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Alle arbeidslokasjoner i containeren.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:arbeidslokasjoner
-alias: arbeidslokasjoner
 domain_of:
 - AdministrasjonContainer
 range: Arbeidslokasjon

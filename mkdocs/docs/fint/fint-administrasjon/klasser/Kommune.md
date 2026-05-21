@@ -10,8 +10,6 @@ _Kommune._
 
 
 URI: [fint:kommune](https://schema.fintlabs.no/kommune)
-Alias: kommune
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: kommune
 description: Kommune.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:kommune
-alias: kommune
 domain_of:
 - Fylke
 - Person

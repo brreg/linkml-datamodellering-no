@@ -5,8 +5,6 @@
 
 
 URI: [res:lisensmodellar](https://schema.fintlabs.no/ressurs/lisensmodellar)
-Alias: lisensmodellar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: lisensmodellar
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:lisensmodellar
-alias: lisensmodellar
 domain_of:
 - RessursContainer
 range: Lisensmodell

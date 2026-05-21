@@ -10,8 +10,6 @@ _Næringskode(r) verksemda er klassifisert under (1–3)._
 
 
 URI: [ngrv:erKlassifisertINaeringskode](https://data.norge.no/vocabulary/ngr-virksomhet#erKlassifisertINaeringskode)
-Alias: er_klassifisert_i_naeringskode
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: er_klassifisert_i_naeringskode
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -89,7 +87,6 @@ description: Næringskode(r) verksemda er klassifisert under (1–3).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:erKlassifisertINaeringskode
-alias: er_klassifisert_i_naeringskode
 domain_of:
 - Virksomhet
 range: Naeringskode

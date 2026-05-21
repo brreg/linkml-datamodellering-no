@@ -10,8 +10,6 @@ _Kontonummer til leverandøren._
 
 
 URI: [okn:kontonummer](https://schema.fintlabs.no/okonomi/kontonummer)
-Alias: kontonummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Kontonummer til leverandøren.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:kontonummer
-alias: kontonummer
 domain_of:
 - Leverandor
 range: string

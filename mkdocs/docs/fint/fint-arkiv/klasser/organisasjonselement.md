@@ -10,8 +10,6 @@ _Referanse til Organisasjonselement i Administrasjon-domenet._
 
 
 URI: [ark:organisasjonselement](https://schema.fintlabs.no/arkiv/organisasjonselement)
-Alias: organisasjonselement
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Referanse til Organisasjonselement i Administrasjon-domenet.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:organisasjonselement
-alias: organisasjonselement
 domain_of:
 - AdministrativEnhet
 range: uriorcurie

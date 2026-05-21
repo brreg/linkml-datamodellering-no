@@ -10,8 +10,6 @@ _Kontaktinformasjon registrert på verksemda._
 
 
 URI: [ngrv:harKontaktinformasjon](https://data.norge.no/vocabulary/ngr-virksomhet#harKontaktinformasjon)
-Alias: har_kontaktinformasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_kontaktinformasjon
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -88,7 +86,6 @@ description: Kontaktinformasjon registrert på verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:harKontaktinformasjon
-alias: har_kontaktinformasjon
 domain_of:
 - Virksomhet
 range: Kontaktinformasjon

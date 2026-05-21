@@ -10,8 +10,6 @@ _Offentlege tenester i katalogen._
 
 
 URI: [dcatno:containsService](https://data.norge.no/vocabulary/dcatno#containsService)
-Alias: inneheld_teneste
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Offentlege tenester i katalogen.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: dcatno:containsService
-alias: inneheld_teneste
 domain_of:
 - Katalog
 range: OffentligTjeneste

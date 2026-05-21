@@ -10,8 +10,6 @@ _Telefonnummer for verksemda._
 
 
 URI: [ngrv:telefonnummer](https://data.norge.no/vocabulary/ngr-virksomhet#telefonnummer)
-Alias: telefonnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Telefonnummer for verksemda.
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:telefonnummer
-alias: telefonnummer
 domain_of:
 - Kontaktinformasjon
 range: string

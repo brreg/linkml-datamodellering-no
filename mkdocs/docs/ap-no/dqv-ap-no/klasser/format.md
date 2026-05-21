@@ -10,8 +10,6 @@ _Filformat eller medietype (dct:format)._
 
 
 URI: [dct:format](http://purl.org/dc/terms/format)
-Alias: format
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,9 +20,9 @@ Alias: format
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
+| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
 | [Datatjeneste](datatjeneste.md) | Ei samling operasjonar tilgjengeleg via eit API-grensesnitt |  yes  |
 | [Tekstdel](tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  yes  |
-| [Distribusjon](distribusjon.md) | Ein spesifikk representasjon/nedlastbar form av eit datasett |  yes  |
 
 
 
@@ -87,7 +85,6 @@ name: format
 description: Filformat eller medietype (dct:format).
 from_schema: https://data.norge.no/linkml/common-ap-no
 slot_uri: dct:format
-alias: format
 domain_of:
 - Distribusjon
 - Datatjeneste

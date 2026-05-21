@@ -10,8 +10,6 @@ _Eksamensvurderingar._
 
 
 URI: [utd:eksamensvurdering](https://schema.fintlabs.no/utdanning/eksamensvurdering)
-Alias: eksamensvurdering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: eksamensvurdering
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Eksamensvurderingar.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:eksamensvurdering
-alias: eksamensvurdering
 domain_of:
 - UtdanningContainer
 - Elevvurdering

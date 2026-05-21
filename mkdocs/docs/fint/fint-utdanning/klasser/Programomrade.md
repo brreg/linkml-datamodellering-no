@@ -10,8 +10,6 @@ _Programområde._
 
 
 URI: [utd:programomrade](https://schema.fintlabs.no/utdanning/programomrade)
-Alias: programomrade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,12 +20,12 @@ Alias: programomrade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  yes  |
 | [Arstrinn](arstrinn.md) | Eit årstrinn i skulen (t |  yes  |
-| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  yes  |
 | [Programomrademedlemskap](programomrademedlemskap.md) | Eit elevs tilknyting til eit programområde |  yes  |
-| [Fag](fag.md) | Eit skulefag |  yes  |
 | [Utdanningsprogram](utdanningsprogram.md) | Eit utdanningsprogram (t |  yes  |
+| [Fag](fag.md) | Eit skulefag |  yes  |
+| [Laerling](laerling.md) | Ein lærling i yrkesopplæring |  yes  |
+| [OtUngdom](otungdom.md) | Eit ungdomsobjekt i oppfølgingstenesta (OT) |  yes  |
 
 
 
@@ -91,7 +89,6 @@ description: Programområde.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:programomrade
-alias: programomrade
 domain_of:
 - Arstrinn
 - Programomrademedlemskap

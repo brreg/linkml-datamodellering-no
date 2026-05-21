@@ -10,8 +10,6 @@ _Mobiltelefonnummer registrert i KRR._
 
 
 URI: [ngrp:mobiltelefonnummer](https://data.norge.no/vocabulary/ngr-person#mobiltelefonnummer)
-Alias: mobiltelefonnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Mobiltelefonnummer registrert i KRR.
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:mobiltelefonnummer
-alias: mobiltelefonnummer
 domain_of:
 - Kontaktopplysninger
 range: string

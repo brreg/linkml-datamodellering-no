@@ -10,8 +10,6 @@ _Klassifikasjonen kategorien tilhøyrer (skos:inScheme)._
 
 
 URI: [skos:inScheme](http://www.w3.org/2004/02/skos/core#inScheme)
-Alias: er_i_klassifikasjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Klassifikasjonen kategorien tilhøyrer (skos:inScheme).
 from_schema: https://data.norge.no/linkml/xkos-ap-no
 rank: 1000
 slot_uri: skos:inScheme
-alias: er_i_klassifikasjon
 domain_of:
 - Kategori
 range: Klassifikasjon

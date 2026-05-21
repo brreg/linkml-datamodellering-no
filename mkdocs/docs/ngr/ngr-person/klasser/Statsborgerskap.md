@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-person/statsborgerskap](https://data.norge.no/linkml/ngr-person/statsborgerskap)
-Alias: statsborgerskap
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: statsborgerskap
 name: statsborgerskap
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
-alias: statsborgerskap
 owner: PersonContainer
 domain_of:
 - PersonContainer

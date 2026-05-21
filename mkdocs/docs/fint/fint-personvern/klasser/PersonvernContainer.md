@@ -299,7 +299,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-personvern
     rank: 1000
     slot_uri: pvn:behandlingar
-    alias: behandlingar
     owner: PersonvernContainer
     domain_of:
     - PersonvernContainer
@@ -312,7 +311,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-personvern
     rank: 1000
     slot_uri: pvn:samtykker
-    alias: samtykker
     owner: PersonvernContainer
     domain_of:
     - PersonvernContainer
@@ -325,7 +323,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-personvern
     rank: 1000
     slot_uri: pvn:tenester
-    alias: tenester
     owner: PersonvernContainer
     domain_of:
     - PersonvernContainer
@@ -339,20 +336,19 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-personvern
     rank: 1000
     slot_uri: pvn:behandlingsgrunnlag
-    alias: behandlingsgrunnlag
     owner: PersonvernContainer
     domain_of:
     - PersonvernContainer
     - Behandling
     range: Behandlingsgrunnlag
     multivalued: true
+    inlined: true
     inlined_as_list: true
   personopplysningar:
     name: personopplysningar
     from_schema: https://data.norge.no/linkml/fint-personvern
     rank: 1000
     slot_uri: pvn:personopplysningar
-    alias: personopplysningar
     owner: PersonvernContainer
     domain_of:
     - PersonvernContainer

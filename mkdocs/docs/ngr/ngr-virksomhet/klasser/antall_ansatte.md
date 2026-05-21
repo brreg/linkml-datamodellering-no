@@ -10,8 +10,6 @@ _Antal tilsette i verksemda (rapportert til a-ordninga)._
 
 
 URI: [ngrv:antallAnsatte](https://data.norge.no/vocabulary/ngr-virksomhet#antallAnsatte)
-Alias: antall_ansatte
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: antall_ansatte
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Virksomhet](virksomhet.md) | Abstrakt overklasse for alle einingar registrert i Enhetsregisteret |  yes  |
+| [Underenhet](underenhet.md) | Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining... |  no  |
 | [Hovedenhet](hovedenhet.md) | Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t |  no  |
 
 
@@ -88,7 +86,6 @@ description: Antal tilsette i verksemda (rapportert til a-ordninga).
 from_schema: https://data.norge.no/linkml/ngr-virksomhet
 rank: 1000
 slot_uri: ngrv:antallAnsatte
-alias: antall_ansatte
 domain_of:
 - Virksomhet
 range: integer

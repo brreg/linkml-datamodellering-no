@@ -5,8 +5,6 @@
 
 
 URI: [https://data.norge.no/linkml/ngr-eiendom/ytreInnganger](https://data.norge.no/linkml/ngr-eiendom/ytreInnganger)
-Alias: ytreInnganger
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ Alias: ytreInnganger
 name: ytreInnganger
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
-alias: ytreInnganger
 owner: EiendomContainer
 domain_of:
 - EiendomContainer

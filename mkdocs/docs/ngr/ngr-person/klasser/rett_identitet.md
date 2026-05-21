@@ -10,8 +10,6 @@ _Den rette identiteten til ein person som har opptrådt med falsk identitet._
 
 
 URI: [ngrp:rettIdentitet](https://data.norge.no/vocabulary/ngr-person#rettIdentitet)
-Alias: rett_identitet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Den rette identiteten til ein person som har opptrådt med falsk id
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:rettIdentitet
-alias: rett_identitet
 domain_of:
 - FalskIdentitet
 range: Person

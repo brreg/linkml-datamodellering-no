@@ -10,8 +10,6 @@ _Geografisk punkt som representerer adressas posisjon._
 
 
 URI: [ngr:harRepresentasjonspunkt](https://data.norge.no/vocabulary/ngr-adresse#harRepresentasjonspunkt)
-Alias: representasjonspunkt_ref
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Geografisk punkt som representerer adressas posisjon.
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:harRepresentasjonspunkt
-alias: representasjonspunkt_ref
 domain_of:
 - OffisiellAdresse
 range: Representasjonspunkt

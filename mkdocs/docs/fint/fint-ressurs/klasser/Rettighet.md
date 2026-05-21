@@ -10,8 +10,6 @@ _Rettigheiter knytt til identiteten._
 
 
 URI: [res:rettighet](https://schema.fintlabs.no/ressurs/rettighet)
-Alias: rettighet
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Rettigheiter knytt til identiteten.
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:rettighet
-alias: rettighet
 domain_of:
 - Identitet
 range: Rettighet

@@ -10,8 +10,6 @@ _Tenester det kan oppstå behov for som følgje av hendinga._
 
 
 URI: [cpsvno:mayTriggerNeedFor](https://data.norge.no/vocabulary/cpsvno#mayTriggerNeedFor)
-Alias: kan_utlose_behov_for
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: kan_utlose_behov_for
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  yes  |
 | [Livshendelse](livshendelse.md) | Ei livshending som kan utløyse behov for tenester (t |  yes  |
+| [Virksomhetshendelse](virksomhetshendelse.md) | Ei verksemdhending som kan utløyse behov for tenester (t |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Tenester det kan oppstå behov for som følgje av hendinga.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:mayTriggerNeedFor
-alias: kan_utlose_behov_for
 domain_of:
 - Livshendelse
 - Virksomhetshendelse

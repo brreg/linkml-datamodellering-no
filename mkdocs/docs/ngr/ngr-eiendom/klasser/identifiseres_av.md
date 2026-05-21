@@ -10,8 +10,6 @@ _Matrikkeleininga som identifiserer denne faste eigedommen._
 
 
 URI: [ngre:identifiseresAv](https://data.norge.no/vocabulary/ngr-eiendom#identifiseresAv)
-Alias: identifiseres_av
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Matrikkeleininga som identifiserer denne faste eigedommen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:identifiseresAv
-alias: identifiseres_av
 domain_of:
 - FastEiendom
 range: Matrikkelenhet

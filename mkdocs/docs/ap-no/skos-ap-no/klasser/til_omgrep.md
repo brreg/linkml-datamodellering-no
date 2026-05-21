@@ -10,8 +10,6 @@ _Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept)._
 
 
 URI: [skosno:hasToConcept](https://data.norge.no/vocabulary/skosno#hasToConcept)
-Alias: til_omgrep
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skosno:hasToConcept
-alias: til_omgrep
 domain_of:
 - AssosiativRelasjon
 range: Begrep

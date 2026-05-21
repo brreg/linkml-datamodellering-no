@@ -10,8 +10,6 @@ _Etasjenummer (t.d. 2 for 2. etasje)._
 
 
 URI: [ngr:etasjenummer](https://data.norge.no/vocabulary/ngr-adresse#etasjenummer)
-Alias: etasjenummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Etasjenummer (t.d. 2 for 2. etasje).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:etasjenummer
-alias: etasjenummer
 domain_of:
 - Bruksenhetsnummer
 range: integer

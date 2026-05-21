@@ -10,8 +10,6 @@ _Eksempeldata som distribusjon._
 
 
 URI: [adms:sample](http://www.w3.org/ns/adms#sample)
-Alias: eksempeldata
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: eksempeldata
 description: Eksempeldata som distribusjon.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: adms:sample
-alias: eksempeldata
 domain_of:
 - Datasett
 range: Distribusjon

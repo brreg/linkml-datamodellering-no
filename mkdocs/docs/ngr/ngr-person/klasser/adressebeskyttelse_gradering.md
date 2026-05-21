@@ -10,8 +10,6 @@ _Graderinga av adressebeskyttelsen (STRENGT_FORTROLIG, FORTROLIG o.l.)._
 
 
 URI: [ngrp:adressebeskyttelseGradering](https://data.norge.no/vocabulary/ngr-person#adressebeskyttelseGradering)
-Alias: adressebeskyttelse_gradering
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Graderinga av adressebeskyttelsen (STRENGT_FORTROLIG, FORTROLIG o.l
 from_schema: https://data.norge.no/linkml/ngr-person
 rank: 1000
 slot_uri: ngrp:adressebeskyttelseGradering
-alias: adressebeskyttelse_gradering
 domain_of:
 - Adressebeskyttelse
 range: AdressebeskyttelseGradering

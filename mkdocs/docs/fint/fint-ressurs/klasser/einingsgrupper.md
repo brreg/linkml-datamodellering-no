@@ -5,8 +5,6 @@
 
 
 URI: [res:einingsgrupper](https://schema.fintlabs.no/ressurs/einingsgrupper)
-Alias: einingsgrupper
-
 <!-- no inheritance hierarchy -->
 
 
@@ -81,7 +79,6 @@ name: einingsgrupper
 from_schema: https://data.norge.no/linkml/fint-ressurs
 rank: 1000
 slot_uri: res:einingsgrupper
-alias: einingsgrupper
 domain_of:
 - RessursContainer
 range: Enhetsgruppe

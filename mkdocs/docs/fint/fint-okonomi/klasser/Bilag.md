@@ -10,8 +10,6 @@ _Bilag til transaksjonen._
 
 
 URI: [okn:bilag](https://schema.fintlabs.no/okonomi/bilag)
-Alias: bilag
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Bilag til transaksjonen.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:bilag
-alias: bilag
 domain_of:
 - Transaksjon
 range: Bilag

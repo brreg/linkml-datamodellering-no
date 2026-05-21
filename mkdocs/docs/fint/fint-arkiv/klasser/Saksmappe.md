@@ -866,7 +866,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalpost
-    alias: journalpost
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -880,7 +879,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksaar
-    alias: saksaar
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -893,7 +891,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksdato
-    alias: saksdato
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -906,7 +903,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:sakssekvensnummer
-    alias: sakssekvensnummer
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -919,7 +915,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:utlaantDato
-    alias: utlaantDato
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -932,7 +927,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksmappetype
-    alias: saksmappetype
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -945,7 +939,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksstatus
-    alias: saksstatus
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -959,7 +952,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tilgangsgruppe
-    alias: tilgangsgruppe
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -973,7 +965,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:journalenhet
-    alias: journalenhet
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -987,7 +978,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:administrativEnhet
-    alias: administrativEnhet
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -1003,7 +993,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:saksansvarlig
-    alias: saksansvarlig
     owner: Saksmappe
     domain_of:
     - Saksmappe
@@ -1014,7 +1003,6 @@ attributes:
     description: URI-identifikator for ressursen.
     from_schema: https://data.norge.no/linkml/fint-common
     identifier: true
-    alias: id
     owner: Saksmappe
     domain_of:
     - Begrep
@@ -1060,7 +1048,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetDato
-    alias: avsluttetDato
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1073,7 +1060,6 @@ attributes:
     - Valgfri
     from_schema: https://data.norge.no/linkml/fint-common
     slot_uri: fint:beskrivelse
-    alias: beskrivelse
     owner: Saksmappe
     domain_of:
     - Periode
@@ -1090,7 +1076,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:klasse
-    alias: klasse
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1098,6 +1083,7 @@ attributes:
     - Klassifikasjonssystem
     range: Klasse
     multivalued: true
+    inlined: true
     inlined_as_list: true
   mappeId:
     name: mappeId
@@ -1107,7 +1093,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:mappeId
-    alias: mappeId
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1121,7 +1106,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:merknad
-    alias: merknad
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1138,7 +1122,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:noekkelord
-    alias: noekkelord
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1152,7 +1135,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:offentligTittel
-    alias: offentligTittel
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1166,7 +1148,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetDato
-    alias: opprettetDato
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1182,7 +1163,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:part
-    alias: part
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1200,7 +1180,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:skjerming
-    alias: skjerming
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1218,7 +1197,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:tittel
-    alias: tittel
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1237,7 +1215,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:arkivdel
-    alias: arkivdel
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1253,7 +1230,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:avsluttetAv
-    alias: avsluttetAv
     owner: Saksmappe
     domain_of:
     - Mappe
@@ -1266,7 +1242,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/fint-arkiv
     rank: 1000
     slot_uri: ark:opprettetAv
-    alias: opprettetAv
     owner: Saksmappe
     domain_of:
     - Mappe

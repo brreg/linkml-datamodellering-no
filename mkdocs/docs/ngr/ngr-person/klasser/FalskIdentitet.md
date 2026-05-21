@@ -327,7 +327,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     identifier: true
-    alias: id
     owner: FalskIdentitet
     domain_of:
     - Person
@@ -369,7 +368,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:erFalsk
-    alias: er_falsk
     owner: FalskIdentitet
     domain_of:
     - FalskIdentitet
@@ -383,7 +381,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:rettIdentitetErUkjent
-    alias: rett_identitet_er_ukjent
     owner: FalskIdentitet
     domain_of:
     - FalskIdentitet
@@ -396,7 +393,6 @@ attributes:
     from_schema: https://data.norge.no/linkml/ngr-person
     rank: 1000
     slot_uri: ngrp:rettIdentitet
-    alias: rett_identitet
     owner: FalskIdentitet
     domain_of:
     - FalskIdentitet

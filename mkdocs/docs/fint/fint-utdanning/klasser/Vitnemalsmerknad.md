@@ -10,8 +10,6 @@ _Vitnemålsmerknad._
 
 
 URI: [utd:vitnemalsmerknad](https://schema.fintlabs.no/utdanning/vitnemalsmerknad)
-Alias: vitnemalsmerknad
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: vitnemalsmerknad
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 | [UtdanningContainer](utdanningcontainer.md) | Rotcontainer for FINT Utdanning-instansar |  yes  |
+| [Elevvurdering](elevvurdering.md) | Samling av alle vurderingar for ein elev i eit elevforhold |  yes  |
 
 
 
@@ -87,7 +85,6 @@ description: Vitnemålsmerknad.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:vitnemalsmerknad
-alias: vitnemalsmerknad
 domain_of:
 - UtdanningContainer
 - Elevvurdering

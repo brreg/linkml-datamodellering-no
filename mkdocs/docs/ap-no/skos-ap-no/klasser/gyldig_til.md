@@ -10,8 +10,6 @@ _Dato omgrepet er gyldig til (euvoc:endDate)._
 
 
 URI: [euvoc:endDate](http://publications.europa.eu/ontology/euvoc#endDate)
-Alias: gyldig_til
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Dato omgrepet er gyldig til (euvoc:endDate).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: euvoc:endDate
-alias: gyldig_til
 domain_of:
 - Begrep
 range: date

@@ -10,8 +10,6 @@ _Type kontrakt for lærlingen._
 
 
 URI: [utd:kontraktstype](https://schema.fintlabs.no/utdanning/kontraktstype)
-Alias: kontraktstype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Type kontrakt for lærlingen.
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:kontraktstype
-alias: kontraktstype
 domain_of:
 - Laerling
 range: string

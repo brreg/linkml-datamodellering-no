@@ -10,8 +10,6 @@ _Bruksenheitsnummeret for brukseininga._
 
 
 URI: [ngre:harBruksenhetsnummer](https://data.norge.no/vocabulary/ngr-eiendom#harBruksenhetsnummer)
-Alias: har_bruksenhetsnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Bruksenheitsnummeret for brukseininga.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harBruksenhetsnummer
-alias: har_bruksenhetsnummer
 domain_of:
 - Bruksenhet
 range: Bruksenhetsnummer

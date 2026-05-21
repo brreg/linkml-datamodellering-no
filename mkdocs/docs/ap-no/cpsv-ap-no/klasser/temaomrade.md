@@ -10,8 +10,6 @@ _Tematisk område for tenesta._
 
 
 URI: [cv:thematicArea](http://data.europa.eu/m8g/thematicArea)
-Alias: temaomrade
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: temaomrade
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 | [OffentligTjeneste](offentligtjeneste.md) | Ei konkret offentleg teneste levert av ein offentleg organisasjon |  yes  |
+| [Tjeneste](tjeneste.md) | Ei teneste levert av ein ikkje-offentleg aktør |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Tematisk område for tenesta.
 from_schema: https://data.norge.no/linkml/cpsv-ap-no
 rank: 1000
 slot_uri: cv:thematicArea
-alias: temaomrade
 domain_of:
 - OffentligTjeneste
 - Tjeneste

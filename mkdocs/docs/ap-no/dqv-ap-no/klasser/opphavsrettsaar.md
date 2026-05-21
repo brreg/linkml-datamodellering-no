@@ -10,8 +10,6 @@ _Årstal for opphavsrett._
 
 
 URI: [odrs:copyrightYear](http://schema.theodi.org/odrs#copyrightYear)
-Alias: opphavsrettsaar
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: opphavsrettsaar
 description: Årstal for opphavsrett.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: odrs:copyrightYear
-alias: opphavsrettsaar
 domain_of:
 - Rettighetserklaring
 range: GYear

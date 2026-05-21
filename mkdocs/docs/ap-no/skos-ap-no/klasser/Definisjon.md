@@ -10,8 +10,6 @@ _Direkte definisjon som fritekst (skos:definition)._
 
 
 URI: [skos:definition](http://www.w3.org/2004/02/skos/core#definition)
-Alias: definisjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Direkte definisjon som fritekst (skos:definition).
 from_schema: https://data.norge.no/linkml/skos-ap-no
 rank: 1000
 slot_uri: skos:definition
-alias: definisjon
 domain_of:
 - Begrep
 range: LangString

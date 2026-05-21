@@ -10,8 +10,6 @@ _URL til beskriving av endepunktet (t.d. OpenAPI-dokument)._
 
 
 URI: [dcat:endpointDescription](http://www.w3.org/ns/dcat#endpointDescription)
-Alias: endepunktsbeskrivelse
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ name: endepunktsbeskrivelse
 description: URL til beskriving av endepunktet (t.d. OpenAPI-dokument).
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 slot_uri: dcat:endpointDescription
-alias: endepunktsbeskrivelse
 domain_of:
 - Datatjeneste
 range: uri

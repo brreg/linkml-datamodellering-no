@@ -10,8 +10,6 @@ _Hash-algoritme brukt for sjekksummen._
 
 
 URI: [spdx:algorithm](http://spdx.org/rdf/terms#algorithm)
-Alias: algoritme
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Hash-algoritme brukt for sjekksummen.
 from_schema: https://data.norge.no/linkml/dcat-ap-no
 rank: 1000
 slot_uri: spdx:algorithm
-alias: algoritme
 domain_of:
 - Sjekksum
 range: string

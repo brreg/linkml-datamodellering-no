@@ -10,8 +10,6 @@ _Mengde som vert beskriven av tillegget, i hundredeler._
 
 
 URI: [adm:antall](https://schema.fintlabs.no/administrasjon/antall)
-Alias: antall
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Mengde som vert beskriven av tillegget, i hundredeler.
 from_schema: https://data.norge.no/linkml/fint-administrasjon
 rank: 1000
 slot_uri: adm:antall
-alias: antall
 domain_of:
 - Variabellonn
 range: integer

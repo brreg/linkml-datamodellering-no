@@ -10,8 +10,6 @@ _Tosifra fylkesnummer (t.d. 03 for Oslo)._
 
 
 URI: [ngr:fylkesnummer](https://data.norge.no/vocabulary/ngr-adresse#fylkesnummer)
-Alias: fylkesnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Tosifra fylkesnummer (t.d. 03 for Oslo).
 from_schema: https://data.norge.no/linkml/ngr-adresse
 rank: 1000
 slot_uri: ngr:fylkesnummer
-alias: fylkesnummer
 domain_of:
 - Fylke
 range: string

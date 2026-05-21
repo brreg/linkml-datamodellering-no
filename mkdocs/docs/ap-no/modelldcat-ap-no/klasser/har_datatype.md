@@ -10,8 +10,6 @@ _Datatype for attributten (modelldcatno:hasDataType)._
 
 
 URI: [modelldcatno:hasDataType](https://data.norge.no/vocabulary/modelldcatno#hasDataType)
-Alias: har_datatype
-
 <!-- no inheritance hierarchy -->
 
 
@@ -87,7 +85,6 @@ description: Datatype for attributten (modelldcatno:hasDataType).
 from_schema: https://data.norge.no/linkml/modelldcat-ap-no
 rank: 1000
 slot_uri: modelldcatno:hasDataType
-alias: har_datatype
 domain_of:
 - Attributt
 range: Datatype

@@ -254,7 +254,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     identifier: true
-    alias: identifikator
     owner: Utbytte
     domain_of:
     - Containerklasse
@@ -280,7 +279,6 @@ attributes:
     description: Tidspunkt for utbytte/eierskapstransaksjon.
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
-    alias: tidspunkt
     owner: Utbytte
     domain_of:
     - Utbytte
@@ -293,7 +291,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Utbytte
-    alias: har_utdeling
     owner: Utbytte
     domain_of:
     - Utbytte
@@ -304,7 +301,6 @@ attributes:
     from_schema: https://example.no/ontology/aksje-eierskap
     rank: 1000
     domain: Utbytte
-    alias: er_basert_paa_eierposisjon
     owner: Utbytte
     domain_of:
     - Utbytte

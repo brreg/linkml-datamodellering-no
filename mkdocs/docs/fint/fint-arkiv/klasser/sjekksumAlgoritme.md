@@ -10,8 +10,6 @@ _Algoritme nytta for å berekne sjekksummen._
 
 
 URI: [ark:sjekksumAlgoritme](https://schema.fintlabs.no/arkiv/sjekksumAlgoritme)
-Alias: sjekksumAlgoritme
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Algoritme nytta for å berekne sjekksummen.
 from_schema: https://data.norge.no/linkml/fint-arkiv
 rank: 1000
 slot_uri: ark:sjekksumAlgoritme
-alias: sjekksumAlgoritme
 domain_of:
 - Dokumentobjekt
 range: string

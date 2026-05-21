@@ -10,8 +10,6 @@ _Utbytte knytt til eigarposisjonen._
 
 
 URI: [aksje:er_basert_paa_eierposisjon](https://example.no/ontology/aksje#er_basert_paa_eierposisjon)
-Alias: er_basert_paa_eierposisjon
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Utbytte knytt til eigarposisjonen.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 domain: Utbytte
-alias: er_basert_paa_eierposisjon
 domain_of:
 - Utbytte
 range: Eierposisjon

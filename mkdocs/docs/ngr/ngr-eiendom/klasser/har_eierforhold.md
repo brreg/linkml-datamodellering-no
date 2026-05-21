@@ -10,8 +10,6 @@ _Eigarforhold knytt til eigedommen eller burettslagsandelen._
 
 
 URI: [ngre:harEierforhold](https://data.norge.no/vocabulary/ngr-eiendom#harEierforhold)
-Alias: har_eierforhold
-
 <!-- no inheritance hierarchy -->
 
 
@@ -22,8 +20,8 @@ Alias: har_eierforhold
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
 | [FastEiendom](fasteiendom.md) | Fast eiendom er eit grunnomgrep i eigedomsdomenet |  yes  |
+| [Borettslagsandel](borettslagsandel.md) | Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad... |  yes  |
 
 
 
@@ -88,7 +86,6 @@ description: Eigarforhold knytt til eigedommen eller burettslagsandelen.
 from_schema: https://data.norge.no/linkml/ngr-eiendom
 rank: 1000
 slot_uri: ngre:harEierforhold
-alias: har_eierforhold
 domain_of:
 - FastEiendom
 - Borettslagsandel

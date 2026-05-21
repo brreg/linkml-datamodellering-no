@@ -10,8 +10,6 @@ _Fortløpande nummerering av bruk under gårdsnummer._
 
 
 URI: [fint:bruksnummer](https://schema.fintlabs.no/bruksnummer)
-Alias: bruksnummer
-
 <!-- no inheritance hierarchy -->
 
 
@@ -85,7 +83,6 @@ name: bruksnummer
 description: Fortløpande nummerering av bruk under gårdsnummer.
 from_schema: https://data.norge.no/linkml/fint-common
 slot_uri: fint:bruksnummer
-alias: bruksnummer
 domain_of:
 - Matrikkelnummer
 range: string

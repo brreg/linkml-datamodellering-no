@@ -10,8 +10,6 @@ _Fråværsprosent (heiltal)._
 
 
 URI: [utd:prosent](https://schema.fintlabs.no/utdanning/prosent)
-Alias: prosent
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Fråværsprosent (heiltal).
 from_schema: https://data.norge.no/linkml/fint-utdanning
 rank: 1000
 slot_uri: utd:prosent
-alias: prosent
 domain_of:
 - Fravarsprosent
 range: integer

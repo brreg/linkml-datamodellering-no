@@ -10,8 +10,6 @@ _Namn på mottakar._
 
 
 URI: [okn:mottaker](https://schema.fintlabs.no/okonomi/mottaker)
-Alias: mottaker
-
 <!-- no inheritance hierarchy -->
 
 
@@ -86,7 +84,6 @@ description: Namn på mottakar.
 from_schema: https://data.norge.no/linkml/fint-okonomi
 rank: 1000
 slot_uri: okn:mottaker
-alias: mottaker
 domain_of:
 - Faktura
 range: string
