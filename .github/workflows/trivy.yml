@@ -41,12 +41,26 @@ jobs:
           format: sarif
           output: trivy-assets.sarif
 
-      - name: Last opp resultater til GitHub Security
+      - name: Last opp trivy-validator.sarif til GitHub Security
         uses: github/codeql-action/upload-sarif@v4
         if: always()
         with:
-          sarif_file: .
-          category: trivy-requirements
+          sarif_file: trivy-validator.sarif
+          category: trivy-validator
+
+      - name: Last opp trivy-generator.sarif til GitHub Security
+        uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with:
+          sarif_file: trivy-generator.sarif
+          category: trivy-generator
+
+      - name: Last opp trivy-assets.sarif til GitHub Security
+        uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with:
+          sarif_file: trivy-assets.sarif
+          category: trivy-assets
 
   generate-sbom:
     runs-on: ubuntu-22.04

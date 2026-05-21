@@ -6,6 +6,7 @@ Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](h
 
 
 Dette [koderepositoryet](https://github.com/brreg/linkml-w3c-no-profiles) inneholder:
+* LinkML modeller for Norske W3C-applikasjonsprofiler og offentlige domenemodeller for gjenbruk.
 * mcp-linkml-generator og mcp-linkml-validator for å generere og validere LinkML-skjemaer (med mulighet for KI-integrasjon).
 * LinkML-generatorer for å produsere artefakter i andre formater fra LinkML-skjemaer.
 * Dokumentasjonsportal med oversikt over alle LinkML-skjemaer og genererte artefakter.
@@ -53,6 +54,8 @@ Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.m
 
 ## Skjemaer og struktur
 
+### Domener
+
 | Domene | Beskrivelse | Dokumentasjon |
 |---|---|---|
 | ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importeres av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
@@ -61,6 +64,8 @@ Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.m
 | oreg | Offentlige registre. |
 | fint | FINT felleskomponent — integrasjonsmodeller for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
 | samt | SAMT — integrasjonsmodeller for kommunesektoren. | [SAMT prosjektet](https://docs.samt-bu.no/om/)
+
+### Skjemaer
 
 | Domene | Skjema | Beskrivelse | Dokumentasjon
 |---|---|---|---|
@@ -89,7 +94,8 @@ Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.m
 **AP-NO-profilene** og **FAIR-metadata** er skjemaer uten `tree_root` — de er ikke selvstendige, men er ment å importeres av domenemodeller.
 
 Skjemaer ligger under `src/linkml/<domene>/<skjema>/`.  
-Øvrig struktur:
+
+## Katalogstruktur
 
 ```
 linkml-w3c-no-profiles/
