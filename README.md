@@ -2,8 +2,7 @@
 
 Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](https://linkml.io/).
 
-[LinkML](https://linkml.io/) er et åpent modelleringsspråk — én kildebeskrivelse genererer JSON Schema, SHACL, OWL, Python-klasser og mer.
-
+> LinkML er et åpen-kildekode modelleringsspråk der du skriver skjema i YAML som beskriver datastrukturen din, og som du kan bruke til å generere skjema, data, diagram og dokumentasjon i andre formater ([LinkML generators](https://linkml.io/linkml/generators/index.html)).
 
 Dette [koderepositoryet](https://github.com/brreg/linkml-w3c-no-profiles) inneholder:
 * LinkML modeller for Norske W3C-applikasjonsprofiler og offentlige domenemodeller for gjenbruk.
