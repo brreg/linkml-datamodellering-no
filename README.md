@@ -2,86 +2,107 @@
 
 Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](https://linkml.io/).
 
-* mcp-linkml-generator og mcp-linkml-validator for å jobbe med og validere LinkML skjema (med mulighet for KI integrasjon). 
-* generatorer for å generere artifakter på andre formater fra LinkML skjema
-* dokumentasjonsportal med oversikt over alle LinkML skjemaer og genererte artifakter
+[LinkML](https://linkml.io/) er et åpent modelleringsspråk — én kildebeskrivelse genererer JSON Schema, SHACL, OWL, Python-klasser og mer.
 
-[Koderepository](https://github.com/brreg/linkml-w3c-no-profiles)
+
+Dette [koderepositoryet](https://github.com/brreg/linkml-w3c-no-profiles) inneholder:
+* mcp-linkml-generator og mcp-linkml-validator for å generere og validere LinkML-skjemaer (med mulighet for KI-integrasjon).
+* LinkML-generatorer for å produsere artefakter i andre formater fra LinkML-skjemaer.
+* Dokumentasjonsportal med oversikt over alle LinkML-skjemaer og genererte artefakter.
+
+
 
 ## Kom i gang
 
-**Føresetnadar:** [Podman](https://podman.io/) (rootless), WSL2 og GNU make.
+**Forutsetninger:** [Podman](https://podman.io/) (rootless), WSL2 og GNU make.
 
 ```bash
 # 0. Sjekk at alt er på plass
 make check-prereqs
 ```
 ```bash
-# 1. Bygg container-images (éin gong)
-make linkml-build-docker && make python-build-docker && make mcp-val-build
+# 1. Bygg container-images (én gang)
+make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-gen-build
+```
+
+> Bytt ut `domene` og `modellnavn` i kommandoene nedenfor med dine egne verdier.
+
+```bash
+# 2. Lag et nytt tomt LinkML-skjema (med tilhørende filstruktur og eksempelfil)
+make new-model NAME=modellnavn DOMAIN=domene
+
+# 2b. (hvis ønskelig): generer LinkML-skjema fra eksisterende JSON Schema
+# Legg JSON Schema-filen i tmp/, f.eks. tmp/modellnavn.json
+make mcp-generate SCHEMA=tmp/modellnavn.json
+# → genererer tmp/modellnavn-schema.yaml. Flytt den til src/linkml/domene/modellnavn/
 ```
 ```bash
-# 2. Lag eit nytt schema
-make new-model NAME=mitt-register DOMAIN=oreg
+# 3. Valider LinkML-skjema mot minimumskrav
+make mcp-validate SCHEMA=src/linkml/domene/modellnavn/modellnavn-schema.yaml POLICY=bronze
 ```
 ```bash
-# 3. Valider mot minimumskrav
-make mcp-validate SCHEMA=src/linkml/oreg/mitt-register/mitt-register-schema.yaml POLICY=bronze
-```
-```bash
-# 4. Generer artefaktar og sjå resultatet
-make oreg && make publish && make docs-serve   # → http://localhost:8000
+# 4. Generer artefakter fra LinkML-skjema og se resultatet
+make domene && make publish && make docs-serve   # → http://localhost:8000
 ```
 
-Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk.
+Nye skjemaer under `src/linkml/<domene>/<modellnavn>/` blir oppdaget automatisk.
 
-For full rettleiing om modellering, validering og importar: sjå [Ny domenemodell](https://brreg.github.io/linkml-w3c-no-profiles/ny-domenemodell/) i dokumentasjonsportalen.
+For full veiledning om modellering, validering og importer: se [Ny domenemodell](https://brreg.github.io/linkml-w3c-no-profiles/ny-domenemodell/) i dokumentasjonsportalen.
 
-Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.md) for alle tilgjengelege kommandoar.
+Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.md) for alle tilgjengelige kommandoer.
 
-## Skjema og struktur
+## Skjemaer og struktur
 
-| Domene | Skjema | Beskriving | Dokumentasjon
+| Domene | Beskrivelse | Dokumentasjon |
+|---|---|---|
+| `ap-no` | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importeres av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
+| `fair` | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importeres av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
+| `ngr` | Nasjonale grunndata — adresse, eiendom, person og virksomhet. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
+| `oreg` | Offentlige registre. |
+| `fint` | FINT felleskomponent — integrasjonsmodeller for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
+| `samt` | SAMT — integrasjonsmodeller for kommunesektoren. | [SAMT prosjektet](https://docs.samt-bu.no/om/)
+
+| Domene | Skjema | Beskrivelse | Dokumentasjon
 |---|---|---|---|
-| ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjonar for alle AP-NO-profiler |
-| ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
-| ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
+| ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjoner for alle AP-NO-profiler |
+| ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlige tjenester og hendelser | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
+| ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakataloger og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
 | ap-no | [dqv-ap-no](src/linkml/ap-no/dqv-ap-no/) | Datakvalitet | [data.norge.no/specification/dqv-ap-no](https://data.norge.no/specification/dqv-ap-no)
-| ap-no | [modelldcat-ap-no](src/linkml/ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
-| ap-no | [skos-ap-no](src/linkml/ap-no/skos-ap-no/) | Begrepssamlingar | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| ap-no | [modelldcat-ap-no](src/linkml/ap-no/modelldcat-ap-no/) | Informasjonsmodeller | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
+| ap-no | [skos-ap-no](src/linkml/ap-no/skos-ap-no/) | Begrepssamlinger | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | [xkos-ap-no](src/linkml/ap-no/xkos-ap-no/) | Utvidet klassifikasjon | [data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)
-| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | FAIR-metadataoverbygning (F/A/I/R-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
-| fint | [fint-common](src/linkml/fint/fint-common/) | Felles klassar for FINT | 
+| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | FAIR-metadataoverbygning (F/A/I/R-prinsippene) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
+| fint | [fint-common](src/linkml/fint/fint-common/) | Felles klasser for FINT |
 | fint | [fint-administrasjon](src/linkml/fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
 | fint | [fint-arkiv](src/linkml/fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
-| fint | [fint-okonomi](src/linkml/fint/fint-okonomi/) | Økonomi og rekneskap | [informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
-| fint | [fint-personvern](src/linkml/fint/fint-personvern/) | Personvernmeldingar | [informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
-| fint | [fint-ressurs](src/linkml/fint/fint-ressurs/) | Ressursar | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
+| fint | [fint-okonomi](src/linkml/fint/fint-okonomi/) | Økonomi og regnskap | [informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_okonomi?v=v4.0.20)
+| fint | [fint-personvern](src/linkml/fint/fint-personvern/) | Personvernmeldinger | [informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_personvern?v=v4.0.20)
+| fint | [fint-ressurs](src/linkml/fint/fint-ressurs/) | Ressurser | [informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_ressurs?v=v4.0.20)
 | fint | [fint-utdanning](src/linkml/fint/fint-utdanning/) | Utdanning og skole | [informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_utdanning?v=v4.0.20)
 | ngr | [ngr-adresse](src/linkml/ngr/ngr-adresse/) | Adresse | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse)
 | ngr | [ngr-eiendom](src/linkml/ngr/ngr-eiendom/) | Fast eiendom, matrikkelenhet og bygning | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Temaomr%C3%A5deEiendom)
-| ngr | [ngr-person](src/linkml/ngr/ngr-person/) | Person, identifikasjon og familierelasjonar | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Person](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
-| ngr | [ngr-virksomhet](src/linkml/ngr/ngr-virksomhet/) | Verksemder, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
-| oreg | [register-over-aksjeeiere](src/linkml/oreg/register-over-aksjeeiere/) | Aksjeeigarar og eigendelar |
-| samt | [samt-bu](src/linkml/samt/samt-bu/) | Skolar og barnehagar | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
+| ngr | [ngr-person](src/linkml/ngr/ngr-person/) | Person, identifikasjon og familierelasjoner | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Person](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Person)
+| ngr | [ngr-virksomhet](src/linkml/ngr/ngr-virksomhet/) | Virksomheter, roller og organisasjonsstruktur | [informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Virksomhet)
+| oreg | [register-over-aksjeeiere](src/linkml/oreg/register-over-aksjeeiere/) | Aksjeeiere og eiendeler |
+| samt | [samt-bu](src/linkml/samt/samt-bu/) | Skoler og barnehager | [docs.samt-bu.no/om/](https://docs.samt-bu.no/om/)
 
-**AP-NO-profilane** og **FAIR-metadata** er schema utan `tree_root` — dei er meint å importerast av domenemodeller (som har `tree_root`).
+**AP-NO-profilene** og **FAIR-metadata** er skjemaer uten `tree_root` — de er ikke selvstendige, men er ment å importeres av domenemodeller.
 
-Skjema ligg under `src/linkml/<domene>/<skjema>/`.  
+Skjemaer ligger under `src/linkml/<domene>/<skjema>/`.  
 Øvrig struktur:
 
 ```
 linkml-w3c-no-profiles/
 ├──src/
-│   ├── assets/                 # Containerar, skript og malar
-│   ├── linkml/                 # LinkML skjemaer
+│   ├── assets/                 # Containere, skript og maler
+│   ├── linkml/                 # LinkML-skjemaer
 │   ├── mcp-linkml-validator/   # MCP-server: policy-basert validering
 │   ├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
-│   └── templates/              # Jinja2 templates for make gen-docs
+│   └── templates/              # Jinja2-maler for make gen-docs
 │
 ├──examples/    # Eksempeldata per domene
-├──tests/       # Testar og fixtures
-├──generated/   # Genererte artefaktar (ikkje innsjekka i git)
+├──tests/       # Tester og fixtures
+├──generated/   # Genererte artefakter (ikke sjekket inn i git)
 ├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)
-├──tmp/         # Midlertidige filer. F.eks json-schema som skal brukes i mcp-linkml-generator kan legges her.
+├──tmp/         # Midlertidige filer, f.eks. JSON Schema-filer til mcp-linkml-generator
 ```
