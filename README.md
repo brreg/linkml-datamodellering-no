@@ -4,7 +4,7 @@ Norske W3C-applikasjonsprofiler og offentlige domenemodeller i [LinkML-format](h
 
 > LinkML er et åpen-kildekode modelleringsspråk der du skriver skjema i YAML som beskriver datastrukturen din, og som du kan bruke til å generere skjema, data, diagram og dokumentasjon i andre formater ([LinkML generators](https://linkml.io/linkml/generators/index.html)).
 
-Dette [koderepositoryet](https://github.com/brreg/linkml-datamodellering-no) inneholder:
+Dette [kode-arkivet](https://github.com/brreg/linkml-datamodellering-no) inneholder:
 
 * LinkML modeller for Norske W3C-applikasjonsprofiler og offentlige domenemodeller for gjenbruk.
 * mcp-linkml-generator og mcp-linkml-validator for å generere og validere LinkML-skjemaer (med mulighet for KI-integrasjon).
