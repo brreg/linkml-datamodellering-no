@@ -11,6 +11,7 @@ on:
       - 'src/assets/containers/requirements-python-test.txt'
       - 'src/templates/**'
       - 'mkdocs/**'
+      - 'README.md'
 
 jobs:
 
