@@ -12,10 +12,10 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Cache linkml-local image
         id: cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: linkml-local.tar.zst
           key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
@@ -52,10 +52,10 @@ jobs:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Cache python-pytest image
         id: cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: python-pytest.tar.zst
           key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
@@ -90,7 +90,7 @@ jobs:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-images
       - uses: ./.github/actions/gen-linkml
         with:
@@ -132,7 +132,7 @@ jobs:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-images
       - uses: ./.github/actions/gen-linkml
         with:
@@ -174,7 +174,7 @@ jobs:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-images
       - uses: ./.github/actions/gen-linkml
         with:
@@ -216,7 +216,7 @@ jobs:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-images
       - uses: ./.github/actions/gen-linkml
         with:
@@ -258,7 +258,7 @@ jobs:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-images
       - uses: ./.github/actions/gen-linkml
         with:
@@ -300,7 +300,7 @@ jobs:
     needs: [build-linkml, build-python]
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - uses: ./.github/actions/load-images
       - uses: ./.github/actions/gen-linkml
         with:
@@ -349,7 +349,7 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
       - name: Last ned alle genererte artefaktar
         uses: actions/download-artifact@v4
@@ -360,7 +360,7 @@ jobs:
 
       - name: Cache mkdocs-local image
         id: cache-mkdocs
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           path: mkdocs-local.tar.zst
           key: mkdocs-local-${{ hashFiles('mkdocs/Dockerfile.mkdocs') }}
@@ -378,13 +378,13 @@ jobs:
           make docs-build
 
       - name: Konfigurer GitHub Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Last opp Pages-artefakt
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: mkdocs/site/
 
       - name: Deploy til GitHub Pages
         id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

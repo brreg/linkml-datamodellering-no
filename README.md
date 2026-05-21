@@ -55,12 +55,12 @@ Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.m
 
 | Domene | Beskrivelse | Dokumentasjon |
 |---|---|---|
-| `ap-no` | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importeres av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
-| `fair` | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importeres av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
-| `ngr` | Nasjonale grunndata — adresse, eiendom, person og virksomhet. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
-| `oreg` | Offentlige registre. |
-| `fint` | FINT felleskomponent — integrasjonsmodeller for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
-| `samt` | SAMT — integrasjonsmodeller for kommunesektoren. | [SAMT prosjektet](https://docs.samt-bu.no/om/)
+| ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importeres av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
+| fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importeres av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
+| ngr | Nasjonale grunndata — adresse, eiendom, person og virksomhet. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
+| oreg | Offentlige registre. |
+| fint | FINT felleskomponent — integrasjonsmodeller for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
+| samt | SAMT — integrasjonsmodeller for kommunesektoren. | [SAMT prosjektet](https://docs.samt-bu.no/om/)
 
 | Domene | Skjema | Beskrivelse | Dokumentasjon
 |---|---|---|---|
