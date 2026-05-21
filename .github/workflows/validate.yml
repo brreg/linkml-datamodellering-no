@@ -50,6 +50,9 @@ jobs:
   validate-ap-no:
     needs: build-validator
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
@@ -63,6 +66,9 @@ jobs:
   validate-fair:
     needs: build-validator
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
@@ -76,6 +82,9 @@ jobs:
   validate-fint:
     needs: build-validator
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
@@ -89,6 +98,9 @@ jobs:
   validate-ngr:
     needs: build-validator
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
@@ -102,6 +114,9 @@ jobs:
   validate-oreg:
     needs: build-validator
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator
@@ -115,6 +130,9 @@ jobs:
   validate-samt:
     needs: build-validator
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/load-validator

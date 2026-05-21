@@ -80,6 +80,10 @@ jobs:
   generate-ap-no:
     needs: ensure-images
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+      actions: write
     steps:
       - uses: actions/checkout@v6
       - name: Cache genererte artefaktar (ap-no)
@@ -139,6 +143,10 @@ jobs:
   generate-fair:
     needs: ensure-images
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+      actions: write
     steps:
       - uses: actions/checkout@v6
       - name: Cache genererte artefaktar (fair)
@@ -198,6 +206,10 @@ jobs:
   generate-fint:
     needs: ensure-images
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+      actions: write
     steps:
       - uses: actions/checkout@v6
       - name: Cache genererte artefaktar (fint)
@@ -257,6 +269,10 @@ jobs:
   generate-ngr:
     needs: ensure-images
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+      actions: write
     steps:
       - uses: actions/checkout@v6
       - name: Cache genererte artefaktar (ngr)
@@ -316,6 +332,10 @@ jobs:
   generate-oreg:
     needs: ensure-images
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+      actions: write
     steps:
       - uses: actions/checkout@v6
       - name: Cache genererte artefaktar (oreg)
@@ -375,6 +395,10 @@ jobs:
   generate-samt:
     needs: ensure-images
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: read
+      actions: write
     steps:
       - uses: actions/checkout@v6
       - name: Cache genererte artefaktar (samt)
