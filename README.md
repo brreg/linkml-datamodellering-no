@@ -52,9 +52,7 @@ For full veiledning om modellering, validering og importer: se [Ny domenemodell]
 
 Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.md) for alle tilgjengelige kommandoer.
 
-## Skjemaer og struktur
-
-### Domener
+## Domener
 
 | Domene | Beskrivelse | Dokumentasjon |
 |---|---|---|
@@ -65,7 +63,7 @@ Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.m
 | fint | FINT felleskomponent — integrasjonsmodeller for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
 | samt | SAMT — integrasjonsmodeller for kommunesektoren. | [SAMT prosjektet](https://docs.samt-bu.no/om/)
 
-### Skjemaer
+## Skjemaer
 
 | Domene | Skjema | Beskrivelse | Dokumentasjon
 |---|---|---|---|
@@ -95,7 +93,7 @@ Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.m
 
 Skjemaer ligger under `src/linkml/<domene>/<skjema>/`.
 
-### Genererte artefakter
+## Genererte artefakter
 
 Kjør `make <domene>` for å generere alle artefakter for et domene. Hver generator produserer én fil under `generated/<domene>/<skjema>/`:
 
