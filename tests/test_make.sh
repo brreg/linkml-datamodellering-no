@@ -7,6 +7,7 @@ REPO_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 cd "$REPO_ROOT"
 
 LINKML_IMAGE="localhost/linkml-local:latest"
+MCP_IMAGE="mcp-linkml-validator"
 GEN_DIR="generated"
 SCHEMA_DIR="src/linkml"
 LOGDIR="tests/testlogs"
@@ -109,6 +110,10 @@ run_schema_tests() {
                                                                "examples/$domain/$name-eksempel.yaml" "$domain"
         _run_one "linkml-lint ($name)"     test_linkml_lint    "$schema"
         _run_one "linkml-validate ($name)" test_linkml_validate "$schema" \
+                                                               "examples/$domain/$name-eksempel.yaml" "$domain" "$name"
+        _run_one "gen-proto ($name)"              test_gen_proto             "$schema" "$outdir/$name-schema.proto"
+        _run_one "gen-plantuml ($name)"           test_gen_plantuml          "$schema" "$outdir/diagrams/$name.puml" "$outdir/diagrams/$name.svg"
+        _run_one "mcp-validate-instance ($name)"  test_mcp_validate_instance "$schema" \
                                                                "examples/$domain/$name-eksempel.yaml" "$domain" "$name"
     } >> "$tmplog" 2>&1 &
 
@@ -327,6 +332,83 @@ test_convert_rdf() {
             "$example" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1
+}
+
+test_gen_proto() {
+    local schema="$1" outfile="$2"
+    make gen-proto SCHEMAS="$schema" || return 1
+    assert_file_nonempty "$outfile" || return 1
+    grep -qE 'syntax\s*=\s*"proto3"' "$outfile" || { echo "Manglar proto3-syntaksdeklarasjon i $outfile"; return 1; }
+}
+
+test_gen_plantuml() {
+    local schema="$1" pumlfile="$2" svgfile="$3"
+    make gen-plantuml SCHEMAS="$schema" || return 1
+    assert_file_nonempty "$pumlfile" || return 1
+    assert_file_nonempty "$svgfile" || return 1
+    grep -q '@startuml' "$pumlfile" || { echo "Manglar @startuml i $pumlfile"; return 1; }
+    grep -q '<svg' "$svgfile" || { echo "Manglar <svg> i $svgfile"; return 1; }
+}
+
+test_mcp_validate_instance() {
+    local schema="$1" example="$2" domain="$3" name="$4"
+    if [[ "$domain" == "ap-no" || "$domain" == "fair" ]]; then
+        echo "Hoppar over mcp-validate-instance for $domain (ingen tree_root)"
+        return 0
+    fi
+    if [ ! -f "$example" ]; then
+        echo "Ingen eksempelfil: $example (hoppar over)"
+        return 0
+    fi
+    local validate_schema="$schema"
+    [ -f "tests/fixtures/$name-fixture.yaml" ] && validate_schema="tests/fixtures/$name-fixture.yaml"
+    local tmpflat
+    tmpflat=$(mktemp /tmp/mcp_flat_XXXXXX.yaml)
+    podman run --rm \
+        -v "$REPO_ROOT:/work" \
+        -w /work \
+        -e PYTHONWARNINGS=ignore \
+        "$LINKML_IMAGE" \
+        gen-linkml --mergeimports --format yaml "$validate_schema" \
+        > "$tmpflat" 2>/dev/null || { echo "gen-linkml feila for $validate_schema"; rm -f "$tmpflat"; return 1; }
+    python3 - "$REPO_ROOT" "$tmpflat" "$example" << 'PYEOF'
+import json, sys, subprocess
+repo_root, schema_path, instance_path = sys.argv[1], sys.argv[2], sys.argv[3]
+schema_text = open(schema_path).read()
+instance_text = open(instance_path).read()
+msgs = [
+    {"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {}},
+    {"jsonrpc": "2.0", "id": 2, "method": "tools/call", "params": {
+        "name": "validate_linkml_instance",
+        "arguments": {"schemaText": schema_text, "instanceText": instance_text},
+    }},
+]
+proc = subprocess.run(
+    ["podman", "run", "-i", "--rm",
+     "-v", f"{repo_root}/src/mcp-linkml-validator/server.py:/app/server.py:ro",
+     "-v", f"{repo_root}/src/mcp-linkml-validator/policies:/app/policies:ro",
+     "mcp-linkml-validator"],
+    input="\n".join(json.dumps(m) for m in msgs),
+    capture_output=True, text=True,
+)
+for line in proc.stdout.splitlines():
+    try:
+        r = json.loads(line)
+    except json.JSONDecodeError:
+        continue
+    if r.get("id") == 2:
+        d = json.loads(r["result"]["content"][0]["text"])
+        errors = [i for i in d.get("issues", []) if i["severity"] == "error"]
+        if errors:
+            for e in errors:
+                print(f"[ERROR] {e['target']}: {e['message']}")
+            sys.exit(1)
+        sys.exit(0)
+sys.exit(1)
+PYEOF
+    local rc=$?
+    rm -f "$tmpflat"
+    return $rc
 }
 
 # ---------------------------------------------------------------------------

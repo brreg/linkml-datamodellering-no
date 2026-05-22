@@ -305,7 +305,7 @@ def _run_checks(sv, schema, policy: dict, issues: list) -> None:
 # Validering
 # ---------------------------------------------------------------------------
 
-def validate_schema(schema_text: str, policy_name: str = "bronze") -> dict:
+def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text: str | None = None) -> dict:
     policy = load_policy(policy_name)
     issues = []
 
@@ -325,11 +325,11 @@ def validate_schema(schema_text: str, policy_name: str = "bronze") -> dict:
                 "issues": [issue("error", "parse_error", "schema", str(exc))],
             }
 
-        # 2) LinkML linter — sender filstien (str), ikkje SchemaView
+        # 2) LinkML linter med validate_schema=True — tilsvarar `linkml lint --validate`
         try:
             from linkml.linter.linter import Linter
             linter = Linter()
-            for problem in linter.lint(schema_path):
+            for problem in linter.lint(schema_path, validate_schema=True):
                 level = getattr(problem.level, "value", str(problem.level)).lower()
                 rule = getattr(problem, "rule_name", None) or "linkml_lint"
                 target = str(getattr(problem, "source", None) or "schema")
@@ -337,9 +337,14 @@ def validate_schema(schema_text: str, policy_name: str = "bronze") -> dict:
         except Exception as exc:
             issues.append(issue("error", "linter_error", "schema", str(exc)))
 
+        # 3) Instansvalidering — tilsvarar `linkml validate --schema <schema> <instans>`
+        if instance_text is not None:
+            inst_result = validate_instance(schema_text, instance_text)
+            issues.extend(inst_result["issues"])
+
         schema = sv.schema
 
-        # 3) Policy-felt-sjekkar
+        # 4) Policy-felt-sjekkar
         def _check(obj, obj_label: str, required_fields: list, recommended_fields: list):
             for field in required_fields:
                 if not getattr(obj, field, None):
@@ -383,7 +388,7 @@ def validate_schema(schema_text: str, policy_name: str = "bronze") -> dict:
                     f"Påkravd fellesklasse manglar: {cc}",
                 ))
 
-        # 4) Policy-spesifikke struktursjekkar (checks + fair_checks)
+        # 5) Policy-spesifikke struktursjekkar (checks + fair_checks)
         _run_checks(sv, schema, policy, issues)
 
     errors = [i for i in issues if i["severity"] == "error"]
@@ -397,15 +402,78 @@ def validate_schema(schema_text: str, policy_name: str = "bronze") -> dict:
 
 
 # ---------------------------------------------------------------------------
+# Instansvalidering — tilsvarar `linkml validate --schema <schema> <instance>`
+# ---------------------------------------------------------------------------
+
+def validate_instance(schema_text: str, instance_text: str, target_class: str | None = None) -> dict:
+    issues = []
+
+    try:
+        instance = yaml.safe_load(instance_text)
+    except Exception as exc:
+        return {
+            "valid": False,
+            "errorCount": 1,
+            "warningCount": 0,
+            "issues": [issue("error", "parse_error", "instance", str(exc))],
+        }
+
+    try:
+        schema_dict = yaml.safe_load(schema_text)
+    except Exception as exc:
+        return {
+            "valid": False,
+            "errorCount": 1,
+            "warningCount": 0,
+            "issues": [issue("error", "parse_error", "schema", str(exc))],
+        }
+
+    if not target_class:
+        for cname, cls_def in (schema_dict.get("classes") or {}).items():
+            if isinstance(cls_def, dict) and cls_def.get("tree_root"):
+                target_class = cname
+                break
+
+    try:
+        from linkml.validator import validate as lm_validate
+        from linkml.validator.report import Severity
+        report = lm_validate(instance, schema_dict, target_class=target_class)
+        _severity_map = {
+            Severity.FATAL: "error",
+            Severity.ERROR: "error",
+            Severity.WARN:  "warning",
+            Severity.INFO:  "info",
+        }
+        for result in report.results:
+            sev = _severity_map.get(result.severity, "error")
+            target = result.instantiates or "instance"
+            if result.instance_index is not None:
+                target = f"{target}[{result.instance_index}]"
+            issues.append(issue(sev, result.type or "validation_error", target, result.message))
+    except Exception as exc:
+        issues.append(issue("error", "validation_error", "instance", str(exc)))
+
+    errors   = [i for i in issues if i["severity"] == "error"]
+    warnings = [i for i in issues if i["severity"] == "warning"]
+    return {
+        "valid":        len(errors) == 0,
+        "errorCount":   len(errors),
+        "warningCount": len(warnings),
+        "issues":       issues,
+    }
+
+
+# ---------------------------------------------------------------------------
 # MCP-protokoll
 # ---------------------------------------------------------------------------
 
 TOOL_DEF = {
     "name": "validate_linkml_schema",
     "description": (
-        "Validerer eit LinkML-skjema med standard LinkML-linting og "
-        "konfigurerbare policy-reglar. Medaljongnivå: "
-        "'bronze' (basis), 'silver' (AP-NO), 'gold' (FAIR)."
+        "Validerer eit LinkML-skjema i rekkjefølgja: (1) lint skjema, "
+        "(2) valider instans mot skjema (om instanceText er gjeven), "
+        "(3) valider mot policy-reglar. "
+        "Medaljongnivå: 'bronze' (basis), 'silver' (bronze + AP-NO), 'gold' (silver + FAIR)."
     ),
     "inputSchema": {
         "type": "object",
@@ -419,6 +487,41 @@ TOOL_DEF = {
                 "type": "string",
                 "description": "Policy-namn (default: 'bronze'). Tilgjengelege: 'bronze', 'silver', 'gold'.",
                 "default": "bronze",
+            },
+            "instanceText": {
+                "type": "string",
+                "description": (
+                    "Eksempeldata i YAML-format (valfri). "
+                    "Vert validert mot skjemaet etter linting og før policy-sjekkar. "
+                    "Tilsvarar `linkml validate --schema <schema> <instans>`."
+                ),
+            },
+        },
+    },
+}
+
+TOOL_DEF_INSTANCE = {
+    "name": "validate_linkml_instance",
+    "description": (
+        "Validerer eit datasett (instans) mot eit LinkML-skjema. "
+        "Tilsvarar `linkml validate --schema <schema> <instance>`. "
+        "Finn tree_root-klassen automatisk dersom targetClass ikkje er oppgjeven."
+    ),
+    "inputSchema": {
+        "type": "object",
+        "required": ["schemaText", "instanceText"],
+        "properties": {
+            "schemaText": {
+                "type": "string",
+                "description": "LinkML-skjema i YAML-format.",
+            },
+            "instanceText": {
+                "type": "string",
+                "description": "Datasett/instans i YAML-format.",
+            },
+            "targetClass": {
+                "type": "string",
+                "description": "Målklasse for validering. Valfri — tree_root-klassen nyttast som standard.",
             },
         },
     },
@@ -447,7 +550,7 @@ def handle(msg: dict) -> dict | None:
         return {
             "jsonrpc": "2.0",
             "id": msg_id,
-            "result": {"tools": [TOOL_DEF]},
+            "result": {"tools": [TOOL_DEF, TOOL_DEF_INSTANCE]},
         }
 
     if method == "tools/call":
@@ -456,7 +559,24 @@ def handle(msg: dict) -> dict | None:
 
         if tool_name == "validate_linkml_schema":
             policy_name = arguments.get("policy", "bronze")
-            result = validate_schema(arguments.get("schemaText", ""), policy_name)
+            instance_text = arguments.get("instanceText") or None
+            result = validate_schema(arguments.get("schemaText", ""), policy_name, instance_text)
+            return {
+                "jsonrpc": "2.0",
+                "id": msg_id,
+                "result": {
+                    "content": [
+                        {"type": "text", "text": json.dumps(result, ensure_ascii=False, indent=2)}
+                    ]
+                },
+            }
+
+        if tool_name == "validate_linkml_instance":
+            result = validate_instance(
+                arguments.get("schemaText", ""),
+                arguments.get("instanceText", ""),
+                arguments.get("targetClass") or None,
+            )
             return {
                 "jsonrpc": "2.0",
                 "id": msg_id,
