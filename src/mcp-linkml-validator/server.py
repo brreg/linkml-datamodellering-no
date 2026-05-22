@@ -61,6 +61,16 @@ def load_policy(name: str = "bronze") -> dict:
     return policy
 
 
+def _is_base_policy(name: str) -> bool:
+    """Returnerer True om policyen ikkje arvar frå ein annan (dvs. er rotpolicyen)."""
+    try:
+        with open(_POLICY_DIR / f"{name}.yaml", encoding="utf-8") as f:
+            raw = yaml.safe_load(f) or {}
+        return not bool(raw.get("extends"))
+    except FileNotFoundError:
+        return True
+
+
 def send(obj: dict) -> None:
     sys.stdout.write(json.dumps(obj, ensure_ascii=False) + "\n")
     sys.stdout.flush()
@@ -85,7 +95,13 @@ def _all_slot_uris(schema) -> set:
 
 
 def _fair_code(config: dict) -> str:
-    return "fair_" + config["principle"].lower().replace(".", "")
+    p = config.get("principle")
+    return ("fair_" + p.lower().replace(".", "")) if p else config.get("check", "check")
+
+
+def _principle_prefix(config: dict) -> str:
+    p = config.get("principle")
+    return f"FAIR {p}: " if p else ""
 
 
 def _check_schema_id_is_http_uri(sv, schema, config, issues):
@@ -93,7 +109,7 @@ def _check_schema_id_is_http_uri(sv, schema, config, issues):
     if not (sid.startswith("http://") or sid.startswith("https://")):
         issues.append(issue(
             config["severity"], _fair_code(config), "schema",
-            f"FAIR {config['principle']}: schema.id er ikkje ein HTTP(S)-URI — persistent identifikator manglar",
+            f"{_principle_prefix(config)}schema.id er ikkje ein HTTP(S)-URI — persistent identifikator manglar",
         ))
 
 
@@ -102,7 +118,7 @@ def _check_schema_field_present(sv, schema, config, issues):
     if not getattr(schema, field, None):
         issues.append(issue(
             config["severity"], _fair_code(config), "schema",
-            f"FAIR {config['principle']}: schema.{field} manglar",
+            f"{_principle_prefix(config)}schema.{field} manglar",
         ))
 
 
@@ -113,7 +129,7 @@ def _check_all_classes_have_class_uri(sv, schema, config, issues):
         if not cls.class_uri:
             issues.append(issue(
                 config["severity"], _fair_code(config), f"class:{cname}",
-                f"FAIR {config['principle']}: Klasse '{cname}' manglar class_uri (formal ressursbeskrivelse)",
+                f"{_principle_prefix(config)}Klasse '{cname}' manglar class_uri (formal ressursbeskrivelse)",
             ))
 
 
@@ -122,7 +138,7 @@ def _check_all_slots_have_slot_uri(sv, schema, config, issues):
         if not slot.slot_uri:
             issues.append(issue(
                 config["severity"], _fair_code(config), f"slot:{sname}",
-                f"FAIR {config['principle']}: Slot '{sname}' manglar slot_uri — formell RDF-semantikk er ikkje definert",
+                f"{_principle_prefix(config)}Slot '{sname}' manglar slot_uri — formell RDF-semantikk er ikkje definert",
             ))
 
 
@@ -132,7 +148,7 @@ def _check_schema_declares_standard_prefix(sv, schema, config, issues):
     if not (declared & standard_prefixes):
         issues.append(issue(
             config["severity"], _fair_code(config), "schema",
-            f"FAIR {config['principle']}: Ingen standard vokabularprefiks deklarert "
+            f"{_principle_prefix(config)}Ingen standard vokabularprefiks deklarert "
             f"({', '.join(sorted(standard_prefixes))})",
         ))
 
@@ -143,7 +159,7 @@ def _check_schema_has_slot_with_uri(sv, schema, config, issues):
         curie_forms = sorted(u for u in match_uris if "://" not in u)
         issues.append(issue(
             config["severity"], _fair_code(config), "schema",
-            f"FAIR {config['principle']}: Ingen slot med {' / '.join(curie_forms)} funnen",
+            f"{_principle_prefix(config)}Ingen slot med {' / '.join(curie_forms)} funnen",
         ))
 
 
@@ -307,6 +323,7 @@ def _run_checks(sv, schema, policy: dict, issues: list) -> None:
 
 def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text: str | None = None) -> dict:
     policy = load_policy(policy_name)
+    base = _is_base_policy(policy_name)
     issues = []
 
     with tempfile.TemporaryDirectory() as tmp_dir:
@@ -325,20 +342,22 @@ def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text
                 "issues": [issue("error", "parse_error", "schema", str(exc))],
             }
 
-        # 2) LinkML linter med validate_schema=True — tilsvarar `linkml lint --validate`
-        try:
-            from linkml.linter.linter import Linter
-            linter = Linter()
-            for problem in linter.lint(schema_path, validate_schema=True):
-                level = getattr(problem.level, "value", str(problem.level)).lower()
-                rule = getattr(problem, "rule_name", None) or "linkml_lint"
-                target = str(getattr(problem, "source", None) or "schema")
-                issues.append(issue(level, rule, target, str(problem.message)))
-        except Exception as exc:
-            issues.append(issue("error", "linter_error", "schema", str(exc)))
+        # 2) LinkML linter — berre for basispolicyen (ingen extends).
+        # Silver og gold arvar bronse; lint er allereie køyrt på bronsenivå.
+        if base:
+            try:
+                from linkml.linter.linter import Linter
+                linter = Linter()
+                for problem in linter.lint(schema_path, validate_schema=True):
+                    level = getattr(problem.level, "value", str(problem.level)).lower()
+                    rule = getattr(problem, "rule_name", None) or "linkml_lint"
+                    target = str(getattr(problem, "source", None) or "schema")
+                    issues.append(issue(level, rule, target, str(problem.message)))
+            except Exception as exc:
+                issues.append(issue("error", "linter_error", "schema", str(exc)))
 
-        # 3) Instansvalidering — tilsvarar `linkml validate --schema <schema> <instans>`
-        if instance_text is not None:
+        # 3) Instansvalidering — berre for basispolicyen, og berre om instans er gjeven.
+        if base and instance_text is not None:
             inst_result = validate_instance(schema_text, instance_text)
             issues.extend(inst_result["issues"])
 

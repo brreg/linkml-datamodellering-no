@@ -12,6 +12,8 @@ required:
 recommended:
   schema:
     - description
+    - title
+    - version
   class:
     - description
   slot:
@@ -23,6 +25,28 @@ common_classes:
 
 # Generelle modelleringskvalitets-sjekkar
 checks:
+
+  schema_id_is_http_uri:
+    severity: error
+    description: >
+      schema.id skal vere ein HTTP(S)-URI — persistent og globalt unik identifikator.
+      Gjer skjemaet adresserbart og søkbart i katalogtenester.
+    check: schema_id_is_http_uri
+
+  all_classes_have_class_uri:
+    severity: warning
+    description: >
+      Alle klasser (unntatt tree_root) bør ha class_uri som mappar klassen til
+      eit standard RDF-vokabular. Gjer klassane formelt beskriven og søkbare via URI.
+    check: all_classes_have_class_uri
+
+  all_slots_have_slot_uri:
+    severity: warning
+    description: >
+      Alle globale slots bør ha slot_uri som mappar eigenskapen til
+      eit standard RDF-vokabular (dct:, dcat:, foaf: o.l.).
+      Sikrar formal semantisk interoperabilitet.
+    check: all_slots_have_slot_uri
 
   all_classes_have_identifier:
     severity: warning
@@ -37,7 +61,7 @@ checks:
     description: >
       Alle klasser (unntatt tree_root) bør ha annotations.begrepsidentifikator
       som peikar på eit begrep i Felles begrepskatalog på forma
-      https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>. Sikrar omgrepsforankring og
-      semantisk interoperabilitet.
+      https://data.norge.no/concepts/<collection-id>/<concept-id>.
+      Sikrar omgrepsforankring og semantisk interoperabilitet.
     check: all_classes_have_concept_ref
     concept_catalog_uri: https://data.norge.no/concepts
