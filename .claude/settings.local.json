@@ -34,7 +34,8 @@
       "Bash(make mcp-gen-smoke *)",
       "Bash(make python-build-docker *)",
       "Bash(make mcp-val-smoke *)",
-      "Bash(make linkml-build-docker *)"
+      "Bash(make linkml-build-docker *)",
+      "Bash(make domain-gen-plantuml *)"
     ]
   },
   "enableAllProjectMcpServers": true,
