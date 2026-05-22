@@ -93,7 +93,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: generated/ap-no/
-          key: generated-ap-no-${{ hashFiles('src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**') }}
+          key: generated-ap-no-${{ hashFiles('src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/gen-linkml
@@ -164,7 +164,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: generated/fair/
-          key: generated-fair-${{ hashFiles('src/linkml/fair/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**') }}
+          key: generated-fair-${{ hashFiles('src/linkml/fair/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/gen-linkml
@@ -235,7 +235,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: generated/fint/
-          key: generated-fint-${{ hashFiles('src/linkml/fint/**', 'src/linkml/ap-no/**', 'src/linkml/fair/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**') }}
+          key: generated-fint-${{ hashFiles('src/linkml/fint/**', 'src/linkml/ap-no/**', 'src/linkml/fair/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/gen-linkml
@@ -306,7 +306,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: generated/ngr/
-          key: generated-ngr-${{ hashFiles('src/linkml/ngr/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**') }}
+          key: generated-ngr-${{ hashFiles('src/linkml/ngr/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/gen-linkml
@@ -377,7 +377,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: generated/oreg/
-          key: generated-oreg-${{ hashFiles('src/linkml/oreg/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**') }}
+          key: generated-oreg-${{ hashFiles('src/linkml/oreg/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/gen-linkml
@@ -448,7 +448,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: generated/samt/
-          key: generated-samt-${{ hashFiles('src/linkml/samt/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**') }}
+          key: generated-samt-${{ hashFiles('src/linkml/samt/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/gen-linkml
