@@ -144,21 +144,7 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=go
 
 ## Genererte artefaktar
 
-Kvar generator produserer ein artefakt under `generated/<domene>/<skjema>/`:
-
-| Artefakt | Fil | Brukstilfelle |
-|---|---|---|
-| JSON-LD kontekst | `context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar |
-| SHACL shapes | `shapes.ttl` | Validering av RDF-data mot skjema i triple stores |
-| Python-klasser | `model.py` | Direkte bruk i Python-applikasjonar via LinkML |
-| JSON Schema | `schema.json` | Validering av JSON-data i applikasjonar |
-| OWL ontologi | `ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy |
-| RDF/Turtle skjema | `schema.ttl` | Fullstendig RDF-representasjon av skjemaet |
-| ER-diagram | `erdiagram.md` | Visuell oversikt over klasser og relasjonar |
-| HTML-dokumentasjon | `docs/` | Menneskeleseleg referansedokumentasjon |
-| Eksempel-RDF | `eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon |
-
-**Unntak:** FINT-domenemodellane genererer ikkje `schema.ttl` (RDF/Turtle skjema) eller SHACL shapes med full import-kjede.
+Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#genererte-artefakter) i README for full oversikt over kva som vert generert per skjema.
 
 ---
 
