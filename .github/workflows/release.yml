@@ -5,7 +5,7 @@ on:
     tags: ['v*.*.*']
 
 jobs:
-  tag-images:
+  linkml-local:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -29,6 +29,17 @@ jobs:
           podman push "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.ref_name }}"
           podman push "ghcr.io/${{ github.repository_owner }}/linkml-local:latest"
 
+  mcp-linkml-validator:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Logg inn på GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+
       - name: Bygg og push mcp-linkml-validator
         run: |
           podman build \
@@ -39,6 +50,17 @@ jobs:
             "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}"
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
+
+  mcp-linkml-generator:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Logg inn på GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Bygg og push mcp-linkml-generator
         run: |
