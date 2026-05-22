@@ -93,7 +93,27 @@ Se [CLAUDE.md](CLAUDE.md) for modelleringsprinsipper og [COMMANDS.md](COMMANDS.m
 
 **AP-NO-profilene** og **FAIR-metadata** er skjemaer uten `tree_root` — de er ikke selvstendige, men er ment å importeres av domenemodeller.
 
-Skjemaer ligger under `src/linkml/<domene>/<skjema>/`.  
+Skjemaer ligger under `src/linkml/<domene>/<skjema>/`.
+
+### Genererte artefakter
+
+Kjør `make <domene>` for å generere alle artefakter for et domene. Hver generator produserer én fil under `generated/<domene>/<skjema>/`:
+
+| Artefakt | Fil | Brukstilfelle |
+|---|---|---|
+| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping fra JSON til RDF — brukes sammen med API-er |
+| SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores |
+| Python-klasser | `<skjema>-model.py` | Direkte bruk i Python-applikasjoner via LinkML |
+| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjoner |
+| OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy |
+| RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet |
+| Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon |
+| ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjoner (Mermaid) |
+| HTML-dokumentasjon | `docs/` | Menneskeleselig referansedokumentasjon |
+| PlantUML-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon |
+| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon |
+
+**Unntak:** FINT-domenemodellene genererer ikke `schema.ttl` eller SHACL shapes med full import-kjede.
 
 ## Katalogstruktur
 
