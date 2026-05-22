@@ -1,0 +1,52 @@
+name: Release
+
+on:
+  push:
+    tags: ['v*.*.*']
+
+jobs:
+  tag-images:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Logg inn på GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Hent eller bygg linkml-local
+        run: |
+          HASH_TAG="ghcr.io/${{ github.repository_owner }}/linkml-local:${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}"
+          if ! podman pull "$HASH_TAG" 2>/dev/null; then
+            podman build -f src/assets/containers/Dockerfile.linkml -t localhost/linkml-local:latest .
+            podman tag localhost/linkml-local:latest "$HASH_TAG"
+            podman push "$HASH_TAG"
+          fi
+          podman tag "$HASH_TAG" "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.ref_name }}"
+          podman tag "$HASH_TAG" "ghcr.io/${{ github.repository_owner }}/linkml-local:latest"
+          podman push "ghcr.io/${{ github.repository_owner }}/linkml-local:${{ github.ref_name }}"
+          podman push "ghcr.io/${{ github.repository_owner }}/linkml-local:latest"
+
+      - name: Bygg og push mcp-linkml-validator
+        run: |
+          podman build \
+            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}" \
+            src/mcp-linkml-validator
+          podman tag \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}" \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
+
+      - name: Bygg og push mcp-linkml-generator
+        run: |
+          podman build \
+            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:${{ github.ref_name }}" \
+            src/mcp-linkml-generator
+          podman tag \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:${{ github.ref_name }}" \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:latest"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:${{ github.ref_name }}"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:latest"
