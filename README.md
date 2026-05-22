@@ -128,5 +128,5 @@ linkml-datamodellering-no/
 ├──tests/       # Tester og fixtures
 ├──generated/   # Genererte artefakter (ikke sjekket inn i git)
 ├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)
-├──tmp/         # Midlertidige filer, f.eks. JSON Schema-filer til mcp-linkml-generator
+└──tmp/         # Midlertidige filer, f.eks. JSON Schema-filer til mcp-linkml-generator
 ```
