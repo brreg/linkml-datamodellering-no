@@ -61,13 +61,25 @@ jobs:
       packages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Cache validering (ap-no)
+        id: cache-validated
+        uses: actions/cache@v5
+        with:
+          path: .validated-ap-no
+          key: validated-ap-no-${{ hashFiles('src/linkml/ap-no/**', 'examples/ap-no/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-validator
+        if: steps.cache-validated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/validate-bronze
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: ap-no
       - uses: ./.github/actions/validate-examples
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: ap-no
+      - name: Merk validering som vellykka
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: touch .validated-ap-no
 
   validate-fair:
     needs: build-validator
@@ -77,13 +89,25 @@ jobs:
       packages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Cache validering (fair)
+        id: cache-validated
+        uses: actions/cache@v5
+        with:
+          path: .validated-fair
+          key: validated-fair-${{ hashFiles('src/linkml/fair/**', 'examples/fair/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-validator
+        if: steps.cache-validated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/validate-bronze
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: fair
       - uses: ./.github/actions/validate-examples
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: fair
+      - name: Merk validering som vellykka
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: touch .validated-fair
 
   validate-fint:
     needs: build-validator
@@ -93,13 +117,25 @@ jobs:
       packages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Cache validering (fint)
+        id: cache-validated
+        uses: actions/cache@v5
+        with:
+          path: .validated-fint
+          key: validated-fint-${{ hashFiles('src/linkml/fint/**', 'examples/fint/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-validator
+        if: steps.cache-validated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/validate-bronze
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: fint
       - uses: ./.github/actions/validate-examples
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: fint
+      - name: Merk validering som vellykka
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: touch .validated-fint
 
   validate-ngr:
     needs: build-validator
@@ -109,13 +145,25 @@ jobs:
       packages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Cache validering (ngr)
+        id: cache-validated
+        uses: actions/cache@v5
+        with:
+          path: .validated-ngr
+          key: validated-ngr-${{ hashFiles('src/linkml/ngr/**', 'examples/ngr/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-validator
+        if: steps.cache-validated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/validate-bronze
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: ngr
       - uses: ./.github/actions/validate-examples
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: ngr
+      - name: Merk validering som vellykka
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: touch .validated-ngr
 
   validate-oreg:
     needs: build-validator
@@ -125,13 +173,25 @@ jobs:
       packages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Cache validering (oreg)
+        id: cache-validated
+        uses: actions/cache@v5
+        with:
+          path: .validated-oreg
+          key: validated-oreg-${{ hashFiles('src/linkml/oreg/**', 'examples/oreg/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-validator
+        if: steps.cache-validated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/validate-bronze
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: oreg
       - uses: ./.github/actions/validate-examples
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: oreg
+      - name: Merk validering som vellykka
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: touch .validated-oreg
 
   validate-samt:
     needs: build-validator
@@ -141,10 +201,22 @@ jobs:
       packages: read
     steps:
       - uses: actions/checkout@v6
+      - name: Cache validering (samt)
+        id: cache-validated
+        uses: actions/cache@v5
+        with:
+          path: .validated-samt
+          key: validated-samt-${{ hashFiles('src/linkml/samt/**', 'examples/samt/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-validator
+        if: steps.cache-validated.outputs.cache-hit != 'true'
       - uses: ./.github/actions/validate-bronze
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: samt
       - uses: ./.github/actions/validate-examples
+        if: steps.cache-validated.outputs.cache-hit != 'true'
         with:
           domain: samt
+      - name: Merk validering som vellykka
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: touch .validated-samt
