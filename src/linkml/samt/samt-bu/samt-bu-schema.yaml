@@ -18,7 +18,7 @@ imports:
 
 classes:
 
-  Containerklasse:
+  SamtBuContainer:
     description: Containerklasse for alle klasser som kan inngå i datasettet.
     tree_root: true
     attributes:

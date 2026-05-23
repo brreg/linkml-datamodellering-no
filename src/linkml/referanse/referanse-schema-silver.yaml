@@ -37,7 +37,7 @@ classes:
   #         container_kvalitetsmaaling → error
   # silver: container_distribusjon, container_datatjeneste,
   #         container_kvalitetsdimensjon, container_kvalitetsmerknad → warning
-  Containerklasse:
+  ReferanseSølvContainer:
     description: Toppnivåobjekt for datafila — samlar alle AP-NO- og DQV-AP-NO-entitetar.
     tree_root: true
     attributes:

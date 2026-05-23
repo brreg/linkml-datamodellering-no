@@ -32,7 +32,7 @@ subsets:
 classes:
 
   # bronze: tree_root-containerklasse er unntatt frå class_uri-kravet (all_classes_have_class_uri)
-  Katalog:
+  ReferanseBronseContainer:
     description: Toppnivåobjekt for datafila.
     tree_root: true
     attributes:

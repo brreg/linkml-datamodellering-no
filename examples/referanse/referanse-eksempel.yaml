@@ -1,7 +1,7 @@
 # Eksempelinstans for referanse-schema.
 # Viser serialiseringsformat: LangString som liste, URI-referansar for lenker.
 
-Ressurskatalog:
+ReferanseContainer:
   ressursar:
     - id: https://example.org/ressursar/1
       tittel:

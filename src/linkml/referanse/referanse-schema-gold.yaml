@@ -46,7 +46,7 @@ subsets:
 
 classes:
 
-  Containerklasse:
+  ReferanseGullContainer:
     description: Toppnivåobjekt for datafila — samlar alle AP-NO- og DQV-AP-NO-entitetar.
     tree_root: true
     attributes:

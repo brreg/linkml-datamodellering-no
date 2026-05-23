@@ -40,7 +40,7 @@ classes:
   # Containerklassen er inngangspunktet for validering og serialisering.
   # tree_root: true — éin per skjema, treng ikkje class_uri.
   # Attributtane skrives alltid i fleirtal.
-  Ressurskatalog:
+  ReferanseContainer:
     description: Samling av ressursar — toppnivåobjekt for datafila.
     tree_root: true
     attributes:

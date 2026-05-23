@@ -120,6 +120,7 @@ Containerklasse:
       inlined_as_list: true
 ```
 
+- Klassenamnet følgjer mønsteret **`<Domene>Container`** i PascalCase (t.d. `AdresseContainer`, `AksjeeierContainer`) — aldri berre `Containerklasse`
 - Attributtnamna skrives alltid i **fleirtal** (t.d. `datasett`, `katalogar`, `aktørar`)
 - `range` må peike på ein klasse definert i skjemaet eller importerte skjema
 - Ingen `slot_uri` — containerattributtar er strukturelle, ikkje semantiske

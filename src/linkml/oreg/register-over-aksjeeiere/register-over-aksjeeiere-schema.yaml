@@ -17,12 +17,12 @@ imports:
   - linkml:types
 
 #################################
-# Containerklasse
+# AksjeeierContainer
 #################################
 
 classes:
 
-  Containerklasse:
+  AksjeeierContainer:
     description: >
       Containerklasse for alle forretningsobjekt i modellen.
       Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
