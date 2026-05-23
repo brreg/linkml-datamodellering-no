@@ -1,6 +1,6 @@
 # ./tmp
 
-Her har vi artefakter som ikkje er kildekode i prosjektet, men som kan benyttes i make kommandoer.
-F.eks `make json2linkml-generate SCHEMA=/tmp/person.json`.
+Her har vi artefaktar som ikkje er kjeldekode i prosjektet, men som kan nyttast i make-kommandoar.
+T.d. `make json2linkml-generate SCHEMA=/tmp/person.json`.
 
-Dersom en generert LinkML modell i ./tmp katalogen skal jobbes med og bli en offieisll modell, må den flyttes til ./src/linkml/..
+Dersom ein generert LinkML-modell i ./tmp-katalogen skal arbeidast vidare med og bli ein offisiell modell, må han flytjast til ./src/linkml/..

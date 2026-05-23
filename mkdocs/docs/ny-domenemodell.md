@@ -156,7 +156,7 @@ Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#g
 
 ## Modelleringsprinsipp
 
-**Norsk bokmål** — alle klassenamn, slotnamn og skildringer skrives på bokmål. Unntak: tekniske omgrep fastsett i ein spesifikasjon (t.d. `dcat:Dataset` → `Datasett`).
+**Norsk bokmål** — alle klassenamn, slotnamn og skildringar skrivast på bokmål. Unntak: tekniske omgrep fastsett i ein spesifikasjon (t.d. `dcat:Dataset` → `Datasett`).
 
 **Slots, ikkje attributes** — alle eigenskapar definerast som globale `slots:` på toppnivå, aldri som `attributes:` inne i ein klasse.
 
