@@ -36,9 +36,12 @@ SCHEMAS := $(shell find $(SCHEMA_DIR) -mindepth 3 -maxdepth 3 -name '*-schema.ya
 schema_domain = $(word 3,$(subst /, ,$(1)))
 schema_name   = $(word 4,$(subst /, ,$(1)))
 schema_outdir = $(GEN_DIR)/$(call schema_domain,$(1))/$(call schema_name,$(1))
+schema_key    = $(subst -,_,$(call schema_domain,$(1)))_$(subst -,_,$(call schema_name,$(1)))
 
 # Domains are derived automatically from the discovered schemas
 DOMAINS := $(sort $(foreach s,$(SCHEMAS),$(call schema_domain,$(s))))
+
+-include config.mk
 
 # ---------------------------------------------------------------------------
 # Generator macros
@@ -90,6 +93,21 @@ define run_gen_plantuml
 )
 endef
 
+# Per-schema SHACL generator: looks up SHACL_FLAGS_<schema_key> per schema.
+define run_gen_shacl
+@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-shacl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-shacl $(SHACL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-shacl $(SHACL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-shapes.ttl;)
+endef
+
+# Per-schema OWL generator: looks up OWL_FLAGS_<schema_key> per schema.
+define run_gen_owl
+@$(foreach s,$(1),echo "$(CLR_STEP)→ gen-owl  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-owl $(OWL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-owl $(OWL_FLAGS_$(call schema_key,$(s))) $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-ontology.ttl;)
+endef
+
+# Per-schema RDF generator: skips schemas with GEN_RDF_SKIP_<schema_key> := true.
+define run_gen_rdf
+@$(foreach s,$(1),$(if $(filter true,$(GEN_RDF_SKIP_$(call schema_key,$(s)))),echo "Hoppar over gen-rdf for $(call schema_name,$(s)) (GEN_RDF_SKIP_$(call schema_key,$(s)) er sett)";,echo "$(CLR_STEP)→ gen-rdf  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl" && mkdir -p $(call schema_outdir,$(s)) && $(LINKML_RUN) gen-rdf $(s) > $(call schema_outdir,$(s))/$(call schema_name,$(s))-schema.ttl;))
+endef
+
 # ---------------------------------------------------------------------------
 # Top-level targets
 # ---------------------------------------------------------------------------
@@ -101,7 +119,7 @@ LINKML_GEN_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_GEN_DIR)/validator.py:/app/validator.py:ro" \
   -v "$(CURDIR)/$(LINKML_GEN_DIR)/profiles:/app/profiles:ro"
 
-.PHONY: all test validate clean domains \
+.PHONY: all test validate clean domains gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
         linkml-build-docker python-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
@@ -145,8 +163,7 @@ gen-shacl:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gen-shacl$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-shacl,shapes.ttl)
-	$(call run_gen,$(filter $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-shacl --exclude-imports,shapes.ttl)
+	$(call run_gen_shacl,$(SCHEMAS))
 
 gen-python:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -164,14 +181,13 @@ gen-owl:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gen-owl$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-owl,ontology.ttl)
-	$(call run_gen,$(filter $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-owl --log_level ERROR,ontology.ttl)
+	$(call run_gen_owl,$(SCHEMAS))
 
 gen-rdf:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make gen-rdf$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(call run_gen,$(filter-out $(SCHEMA_DIR)/fint/%,$(SCHEMAS)),gen-rdf,schema.ttl)
+	$(call run_gen_rdf,$(SCHEMAS))
 
 
 linkml-build-docker:
@@ -247,13 +263,21 @@ clean:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	rm -rf $(GEN_DIR)
 
-# Kopier genererte artefaktar til mkdocs/docs/ og oppdater mkdocs.yml.
+# Kopier genererte artefakter til mkdocs/docs/ og oppdater mkdocs.yml.
 # Føresetnad: relevante make <domain>-targets er køyrde fyrst.
 publish:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make publish$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	bash mkdocs/publish.sh
+
+# ---------------------------------------------------------------------------
+# Per-model generator configuration — regenerated when any generate.yaml changes.
+# ---------------------------------------------------------------------------
+config.mk: $(shell find src/linkml -name 'generate.yaml')
+	bash src/assets/scripts/gen-config.sh > config.mk
+
+gen-config: config.mk
 
 # ---------------------------------------------------------------------------
 # Per-domain targets – generated automatically for every domain in DOMAINS.
@@ -266,25 +290,6 @@ publish:
 #   $$$$shell_var – becomes $$shell_var after call; shell receives $shell_var
 # ---------------------------------------------------------------------------
 
-# fint schemas use cross-schema class inheritance which triggers a bug in the
-# SHACL generator (KeyError on schema_map lookup). --exclude-imports avoids it.
-SHACL_FLAGS_fint := --exclude-imports
-
-# gen-owl emits "Ambiguous type" warnings for fint schemas because the same slot
-# name (e.g. navn) maps to both DatatypeProperty and ObjectProperty ranges across
-# different class contexts – an inherent property of the FINT model design.
-OWL_FLAGS_fint := --log_level ERROR
-
-# gen-rdf fails for fint schemas: the JSON-LD generator adds a relative
-# ../fint-common/fint-common-schema.context.jsonld context reference, which
-# rdflib resolves against the schema base URL (https://schema.fintlabs.no/...)
-# and fetches over HTTP → 404. Set GEN_RDF_SKIP_<domain> := true to skip.
-GEN_RDF_SKIP_fint := true
-
-# gen-rdf fails for samt schemas: same HTTP-fetch issue as fint (imports dcat-ap-no-schema
-# whose JSON-LD context reference is resolved against the schema base URL → 404).
-GEN_RDF_SKIP_samt := true
-
 define domain_target
 _schemas_$(1) := $(filter $(SCHEMA_DIR)/$(1)/%,$(SCHEMAS))
 
@@ -295,15 +300,19 @@ $(1):
 	@echo "$(CLR_SEP)$$(SEP)$(CLR_RST)"
 	@$$(foreach s,$$(_schemas_$(1)),echo "$(CLR_STEP)→ gen-linkml  $$(s)$(CLR_RST)" && echo "$$(LINKML_RUN) gen-linkml $$(s) > /dev/null" && $$(LINKML_RUN) gen-linkml $$(s) > /dev/null;)
 	$$(call run_gen,$$(_schemas_$(1)),gen-jsonld-context,context.jsonld)
-	$$(call run_gen,$$(_schemas_$(1)),gen-shacl $$(SHACL_FLAGS_$(1)),shapes.ttl)
+	$$(call run_gen_shacl,$$(_schemas_$(1)))
 	$$(call run_gen,$$(_schemas_$(1)),gen-python,model.py)
 	$$(call run_gen,$$(_schemas_$(1)),gen-json-schema,schema.json)
-	$$(call run_gen,$$(_schemas_$(1)),gen-owl $$(OWL_FLAGS_$(1)),ontology.ttl)
-	$(if $(GEN_RDF_SKIP_$(1)),,$$(call run_gen,$$(_schemas_$(1)),gen-rdf,schema.ttl))
+	$$(call run_gen_owl,$$(_schemas_$(1)))
+	$$(call run_gen_rdf,$$(_schemas_$(1)))
 	@for example in examples/$(1)/*-eksempel.yaml; do \
 		[ -f "$$$$example" ] || continue; \
 		name=$$$$(basename "$$$$example" .yaml); \
 		profil=$$$$(echo "$$$$name" | sed 's/-eksempel$$$$//'); \
+		if [ -f $(SCHEMA_DIR)/$(1)/$$$$profil/generate.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(1)/$$$$profil/generate.yaml; then \
+			echo "Hoppar over linkml-convert for $$$$example (example_rdf: false)"; \
+			continue; \
+		fi; \
 		mkdir -p $(GEN_DIR)/$(1)/$$$$profil; \
 		if [ -f tests/fixtures/$$$$profil-fixture.yaml ]; then \
 			schema=tests/fixtures/$$$$profil-fixture.yaml; \
@@ -338,7 +347,7 @@ domain-gen-context:
 	$(call run_gen,$(_schemas_$(DOMAIN)),gen-jsonld-context,context.jsonld)
 
 domain-gen-shapes:
-	$(call run_gen,$(_schemas_$(DOMAIN)),gen-shacl $(SHACL_FLAGS_$(DOMAIN)),shapes.ttl)
+	$(call run_gen_shacl,$(_schemas_$(DOMAIN)))
 
 domain-gen-python:
 	$(call run_gen,$(_schemas_$(DOMAIN)),gen-python,model.py)
@@ -347,16 +356,20 @@ domain-gen-json-schema:
 	$(call run_gen,$(_schemas_$(DOMAIN)),gen-json-schema,schema.json)
 
 domain-gen-owl:
-	$(call run_gen,$(_schemas_$(DOMAIN)),gen-owl $(OWL_FLAGS_$(DOMAIN)),ontology.ttl)
+	$(call run_gen_owl,$(_schemas_$(DOMAIN)))
 
 domain-gen-rdf:
-	$(if $(GEN_RDF_SKIP_$(DOMAIN)),@echo "Hoppar over gen-rdf for $(DOMAIN) (GEN_RDF_SKIP_$(DOMAIN) er sett)",$(call run_gen,$(_schemas_$(DOMAIN)),gen-rdf,schema.ttl))
+	$(call run_gen_rdf,$(_schemas_$(DOMAIN)))
 
 domain-gen-examples:
 	@for example in examples/$(DOMAIN)/*-eksempel.yaml; do \
 		[ -f "$$example" ] || continue; \
 		name=$$(basename "$$example" .yaml); \
 		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		if [ -f $(SCHEMA_DIR)/$(DOMAIN)/$$profil/generate.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(DOMAIN)/$$profil/generate.yaml; then \
+			echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; \
+			continue; \
+		fi; \
 		mkdir -p $(GEN_DIR)/$(DOMAIN)/$$profil; \
 		if [ -f tests/fixtures/$$profil-fixture.yaml ]; then \
 			schema=tests/fixtures/$$profil-fixture.yaml; \

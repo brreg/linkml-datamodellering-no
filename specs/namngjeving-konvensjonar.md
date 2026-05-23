@@ -187,7 +187,7 @@ Alle andre skjema (inkl. `referanse-schema-bronze.yaml`, `-silver.yaml`, `-gold.
 **Merk:** `see_also:`-feltet brukar legitimt `https://data.norge.no/concepts/<UUID>` — dette er eit
 anna felt enn `begrepsidentifikator` og er ikkje ein inkonsistens.
 
-### 11. Genererte artefaktar
+### 11. Genererte artefakter
 
 Alle genererte filer følgjer mønsteret `<modell>-<format>.<ext>` under
 `generated/<domene>/<modell>/`:

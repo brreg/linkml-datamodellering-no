@@ -39,7 +39,7 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLIC
 
 Sjå `specs/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
-## Generer artefaktar lokalt
+## Generer artefakter lokalt
 
 ```bash
 make <domene>          # t.d. make ngr, make ap-no, make fair

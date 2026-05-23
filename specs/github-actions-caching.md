@@ -13,7 +13,7 @@ Tre build-jobbar køyrer ved kvar push og PR — uansett om Dockerfile eller avh
 
 Desse Dockerfilane er svært stabile — dei fleste pushar rører ikkje avhengigheitene. Likevel byggast alle images på nytt kvar gong.
 
-Kvar image brukast av **6 nedstrøms-jobbar** (generate-* og validate-*), og vert allereie overført via `zstd`-komprimerte workflow-artefaktar. Caching påverkar berre **build-steget** — ikkje korleis images vert overført til nedstrøms-jobbar.
+Kvar image brukast av **6 nedstrøms-jobbar** (generate-* og validate-*), og vert allereie overført via `zstd`-komprimerte workflow-artefakter. Caching påverkar berre **build-steget** — ikkje korleis images vert overført til nedstrøms-jobbar.
 
 ---
 
@@ -154,7 +154,7 @@ Gevinsten er størst for `validate.yml` som køyrer på kvar PR — der er build
 
 | Kandidat | Årsak til å ikkje cache |
 |---------|------------------------|
-| Genererte artefaktar (`generated-*`) | Skal alltid regenererast frå kjeldekode |
+| Genererte artefakter (`generated-*`) | Skal alltid regenererast frå kjeldekode |
 | `mkdocs/.cache` (MkDocs build-cache) | Innhaldet er generert dynamisk, nøkkel vanskeleg å definere |
 | Podman layer-cache (`~/.local/share/containers`) | For stor og ustabil for `actions/cache` |
 

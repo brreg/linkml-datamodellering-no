@@ -10,7 +10,7 @@ AP-NO-profilene og verktøya herifrå utan å bu i dette monorepoet.
 
 Reusable workflows (GitHub Actions) køyrer på GitHub sine runnerar — dei har alltid nettverkstilgang.
 Det eliminerer behovet for lokal vendor-caching av AP-NO-skjema. På same måten kan den reusable
-workflowen sjølv hente genererte artefaktar frå dette repoet i staden for at det eksterne repoet
+workflowen sjølv hente genererte artefakter frå dette repoet i staden for at det eksterne repoet
 må kopiere eller lagre dei.
 
 ---

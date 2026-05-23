@@ -46,7 +46,7 @@ Målet er at alle README-filer og det eine mkdocs-dokumentet er konsekvent på n
 | `src/assets/README.md` | 2 liner | «kildekode» → «kjeldekode», «brukt» ok, «kommandoer» → «kommandoar» |
 | `src/templates/docgen/README.md` | 3 liner | «benyttes» → «brukast», «templates» ok (teknisk) |
 | `tests/README.md` | 2 liner | «testkode» ok, «hjelpemidler» → «hjelpemiddel» |
-| `tmp/README.md` | 4 liner | «artefakter» → «artefaktar», «flyttes» → «flytjast» |
+| `tmp/README.md` | 4 liner | «artefakter» → «artefakter», «flyttes» → «flytjast» |
 
 ### Gruppe C — Store filer, hovudarbeid (30–60 min kvar)
 
@@ -73,7 +73,7 @@ Desse bokmålsformene finst i filene og skal omsetjast konsekvent:
 | kommandoene | kommandoane |
 | kommandoer | kommandoar |
 | verdier | verdiar |
-| artefakter | artefaktar |
+| artefakter | artefakter |
 | generatorer | generatorar |
 | skjemaer | skjema (uendra fleirtal) |
 | forutsetninger | føresetnader |
@@ -114,7 +114,7 @@ Alle avsnitt er på bokmål. Omsetje heile fila. Hovudendringar:
   «tilgjengelige kommandoer» → «tilgjengelege kommandoar»
 - «Domener»-tabell: «Beskrivelse» → «Skildring» (kolonneoverskrift)
 - «Skjemaer»-tabell: «selvstendige» → «sjølvstendige»; overskrift → «Skjema»
-- «Genererte artefakter»-seksjonen: «artefakter» → «artefaktar» gjennomgåande;
+- «Genererte artefakter»-seksjonen: «artefakter» → «artefakter» gjennomgåande;
   «relasjoner» → «relasjonar»; «menneskelig» → «menneskeleg»
 - «Katalogstruktur»: «kildekode» → «kjeldekode»; «Midlertidige filer» → «Mellombelse filer»
 
@@ -173,13 +173,13 @@ Her har vi all testkode og hjelpemiddel for å kunne køyre testar.
 
 ```
 # ./tmp
-Her har vi artefaktar som ikkje er kjeldekode i prosjektet, men som kan nyttast i make-kommandoar.
+Her har vi artefakter som ikkje er kjeldekode i prosjektet, men som kan nyttast i make-kommandoar.
 T.d. `make json2linkml-generate SCHEMA=/tmp/person.json`.
 
 Dersom ein generert LinkML-modell i ./tmp-katalogen skal arbeidast vidare med og bli ein offisiell
 modell, må han flytjast til ./src/linkml/..
 ```
-(«artefakter» → «artefaktar»; «kildekode» → «kjeldekode»; «benyttes» → «nyttast»;
+(«artefakter» → «artefakter»; «kildekode» → «kjeldekode»; «benyttes» → «nyttast»;
 «flyttes» → «flytjast»; «offieisll» (stavefeil) → «offisiell»)
 
 ---

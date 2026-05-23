@@ -142,9 +142,26 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=go
 
 ---
 
-## Genererte artefaktar
+## Genererte artefakter
 
 Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#genererte-artefakter) i README for full oversikt over kva som vert generert per skjema.
+
+---
+
+## Tilpass generatorane
+
+Kvar modell har ei `generate.yaml` ved sida av skjemafila som styrer kva artefaktar
+som vert genererte. `make new-model` oppretter standardkonfigen automatisk — alle
+generatorar på, ingen ekstra flagg.
+
+For å slå av ein generator eller leggje til flagg, rediger `generate.yaml` og køyr:
+
+```bash
+make config.mk   # regenerer Makefile-konfig frå alle generate.yaml-filer
+```
+
+Sjå [Generatorkonfigurasjon](generate-config.md) for feltliste og eksempel per
+domenetype (standard, FINT, AP-NO/FAIR).
 
 ---
 

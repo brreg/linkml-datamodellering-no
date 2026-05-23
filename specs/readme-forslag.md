@@ -45,7 +45,7 @@ make new-model NAME=mitt-register DOMAIN=oreg
 # Valider eit skjema
 make mcp-validate SCHEMA=src/linkml/oreg/register-over-aksjeeiere/register-over-aksjeeiere-schema.yaml POLICY=bronze
 
-# Generer alle artefaktar for eit domene, publiser og start dev-server
+# Generer alle artefakter for eit domene, publiser og start dev-server
 make oreg && make publish && make docs-serve   # → http://localhost:8000
 ```
 

@@ -2,14 +2,14 @@
 
 Norske W3C-applikasjonsprofiler og offentlege domenemodeller i [LinkML-format](https://linkml.io/).
 
-> LinkML er eit open kjeldekode-modelleringsspråk der du skriv skjema i YAML som skildrar datastrukturen din, og som du kan nytte til å generere skjema, data, diagram og dokumentasjon i andre format ([LinkML generators](https://linkml.io/linkml/generators/index.html)). Generatorane konverterer mellom tradisjonelle format (JSON Schema, Python, Protobuf) og W3C-semantiske format (RDF/Turtle, OWL, SHACL, JSON-LD) utan behov for ekstra mapping.
+> LinkML er eit open kjeldekode-modelleringsspråk der du skriv skjema i YAML som skildrar datastrukturen din, og som du kan nytte til å generere skjema, data, diagram og dokumentasjon i andre format ([LinkML generators](https://linkml.io/linkml/generators/index.html)). Generatorane konverterer både til tradisjonelle format (JSON Schema, Python, Protobuf) og W3C-semantiske format (RDF/Turtle, OWL, SHACL, JSON-LD) utan behov for ekstra mapping.
 
 Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld:
 
 * LinkML-modellar for norske W3C-applikasjonsprofiler og offentlege domenemodeller for gjenbruk.
 * mcp-linkml-generator og mcp-linkml-validator for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
-* LinkML-generatorar for å produsere artefaktar i andre format frå LinkML-skjema.
-* Dokumentasjonsportal med oversikt over alle LinkML-skjema og genererte artefaktar.
+* LinkML-generatorar for å automatisk produsere artefakter i andre format frå LinkML-skjema.
+* Dokumentasjonsportal med oversikt over alle LinkML-skjema og genererte artefakter.
 
 
 
@@ -42,7 +42,7 @@ make mcp-generate SCHEMA=tmp/modellnavn.json
 make mcp-validate SCHEMA=src/linkml/domene/modellnavn/modellnavn-schema.yaml POLICY=bronze
 ```
 ```bash
-# 4. Generer artefaktar frå LinkML-skjema og sjå resultatet
+# 4. Generer artefakter frå LinkML-skjema og sjå resultatet
 make domene && make publish && make docs-serve   # → http://localhost:8000
 ```
 
@@ -64,6 +64,8 @@ Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.m
 | samt | SAMT — integrasjonsmodellar for kommunesektoren. | [SAMT-prosjektet](https://docs.samt-bu.no/om/)
 
 ## Skjema
+
+Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
@@ -91,27 +93,23 @@ Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.m
 
 **AP-NO-profilane** og **FAIR-metadata** er skjema utan `tree_root` — dei er ikkje sjølvstendige, men meinte å importerast av domenemodeller.
 
-Skjema ligg under `src/linkml/<domene>/<skjema>/`.
-
 ## Genererte artefakter
 
-Køyr `make <domene>` for å generere alle artefaktar for eit domene. Kvar generator produserer éin fil under `generated/<domene>/<skjema>/`:
+Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domene>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `generate.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/generate-config/) for detaljar.
 
-| Artefakt | Fil | Brukstilfelle | W3C semantisk |
-|---|---|---|---|
-| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar | ✓ |
-| SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ |
-| Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — |
-| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar | — |
-| OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ |
-| RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ |
-| Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — |
-| ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — |
-| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon | — |
-| PlantUML-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon | — |
-| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ |
-
-**Unntak:** FINT-domenemodellane genererer ikkje `schema.ttl` eller SHACL shapes med full import-kjede.
+| Artefakt | Fil | Brukstilfelle | W3C semantisk | generate.yaml flag |
+|---|---|---|---|---|
+| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar | ✓ | `jsonld_context` |
+| SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
+| Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
+| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar | — | `json_schema` |
+| OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
+| RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
+| Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
+| ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
+| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon | — | `docs` |
+| PlantUML-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon | — | `plantuml` |
+| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
 
 ## Katalogstruktur
 
@@ -126,7 +124,7 @@ linkml-datamodellering-no/
 │
 ├──examples/    # Eksempeldata per domene
 ├──tests/       # Testar og fixtures
-├──generated/   # Genererte artefaktar (ikkje sjekka inn i git)
+├──generated/   # Genererte artefakter (ikkje sjekka inn i git)
 ├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)
 └──tmp/         # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-generator
 ```

@@ -9,7 +9,7 @@
 | Scaffold nytt schema | Første kommando | Steg 1 (Scaffold) | Steg 3 |
 | Rediger schema | Ikkje nemnt | Steg 2 (Rediger) | Steg 4 |
 | Valider mot bronze | Éin kommando | Steg 3 (Valider) | Steg 5 |
-| Generer artefaktar | Éin kommando | Steg 4 (Full testsuite) | Steg 6 |
+| Generer artefakter | Éin kommando | Steg 4 (Full testsuite) | Steg 6 |
 | Sjå resultatet (`docs-serve`) | Éin kommando | Ikkje nemnt | Steg 7 |
 
 ---
@@ -59,7 +59,7 @@ make new-model NAME=mitt-register DOMAIN=oreg
 make mcp-validate SCHEMA=src/linkml/oreg/mitt-register/mitt-register-schema.yaml POLICY=bronze
 ```
 ```bash
-# 4. Generer artefaktar og sjå resultatet
+# 4. Generer artefakter og sjå resultatet
 make oreg && make publish && make docs-serve
 ```
 

@@ -1,4 +1,5 @@
 generated/
+config.mk
 mkdocs/site/
 tests/testlogs/
 __pycache__/
@@ -10,3 +11,4 @@ __pycache__/
 .vscode/
 .idea/
 /tmp/*mp4
+./specs

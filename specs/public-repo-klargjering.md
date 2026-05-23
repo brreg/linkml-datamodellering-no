@@ -82,7 +82,7 @@ Vi svarer innan 5 arbeidsdagar.
 
 ### 5. Suppler `.gitignore` og pin pip-avhengigheiter
 
-**Problem A — .gitignore:** Noverande `.gitignore` dekkjer genererte artefaktar og Python cache, men manglar:
+**Problem A — .gitignore:** Noverande `.gitignore` dekkjer genererte artefakter og Python cache, men manglar:
 - `.mcp.json` (jf. Tiltak 1)
 - `.env` og `.env.*` (førebygging av framtidige lekkasjar)
 - `.DS_Store` og IDE-mapper (`.vscode/`, `.idea/`)
