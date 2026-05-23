@@ -1,0 +1,329 @@
+##
+## Referanseskjema — gullnivå
+## Viser minstekrava for å bestå gullpolicyen (bronze + silver + FAIR).
+## Run: make mcp-validate SCHEMA=src/linkml/referanse/referanse-schema-gold.yaml POLICY=gold
+##
+## Gullnivå over sølv krev:
+##   F1 (arva frå bronze): schema.id er HTTP(S)-URI
+##   F2: schema.title er sett
+##   F4: schema.version er sett
+##   I2: minst eitt standard vokabularprefiks deklarert (dct, dcat, skos, ...)
+##   R1.1: ein slot med slot_uri dct:license
+##   R1.2: ein slot for proveniens (dct:publisher, dct:creator o.l.)
+## I tillegg oppgraderer gull bronze-åtvarslane til feil:
+##   all_classes_have_class_uri → error (var warning på bronze)
+##   all_slots_have_slot_uri    → error (var warning på bronze)
+##
+
+id: https://example.org/linkml/referanse-gold
+name: referanse-schema-gold
+title: Referanseskjema – gullnivå
+description: >-
+  Viser minstekrava for å bestå gullpolicyen: alle sølv-krav pluss
+  FAIR-metadata (title, version, prefiks, lisens, proveniens).
+version: "1.0.0"
+
+imports:
+  - linkml:types
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ex:    https://example.org/vocab/
+  dct:   http://purl.org/dc/terms/
+  dcat:  http://www.w3.org/ns/dcat#
+  foaf:  http://xmlns.com/foaf/0.1/
+  dqv:   http://www.w3.org/ns/dqv#
+  # gold I2: minst eitt av dct, dcat, skos, prov, rdf, rdfs, owl, foaf, xsd
+  # er deklarert — dct og dcat ovanfor tilfredsstiller kravet
+
+default_prefix: https://example.org/linkml/referanse-gold/
+default_range: string
+
+subsets:
+  Obligatorisk: {}
+  Anbefalt: {}
+  Valgfri: {}
+
+classes:
+
+  Containerklasse:
+    description: Toppnivåobjekt for datafila — samlar alle AP-NO- og DQV-AP-NO-entitetar.
+    tree_root: true
+    attributes:
+      katalogar:
+        range: Katalog
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      katalogpostar:
+        range: Katalogpost
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      datasett:
+        range: Datasett
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      distribusjoner:
+        range: Distribusjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      datatenestar:
+        range: Datatjeneste
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      aktørar:
+        range: Aktør
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmaal:
+        range: Kvalitetsmaal
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmaalingar:
+        range: Kvalitetsmaaling
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsdimensjonar:
+        range: Kvalitetsdimensjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmerknader:
+        range: Kvalitetsmerknad
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+
+  # gold: all_classes_have_class_uri → error (dcat:Catalog)
+  # gold: all_classes_have_concept_ref → warning (arva frå bronze)
+  Katalog:
+    description: Samling av datasett, datatenestar og distribusjonar.
+    class_uri: dcat:Catalog
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - skildring
+      - kontaktpunkt
+      - utgjevar
+      - lisens
+    slot_usage:
+      tittel:
+        required: true
+        in_subset: [Obligatorisk]
+      skildring:
+        required: true
+        in_subset: [Obligatorisk]
+      kontaktpunkt:
+        required: true
+        in_subset: [Obligatorisk]
+      utgjevar:
+        required: true
+        in_subset: [Obligatorisk]
+      lisens:
+        in_subset: [Anbefalt]
+
+  Katalogpost:
+    description: Oppføring i ein katalog som skildrar ein ressurs.
+    class_uri: dcat:CatalogRecord
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - endringsdato
+      - primaertema
+    slot_usage:
+      endringsdato:
+        required: true
+        in_subset: [Obligatorisk]
+      primaertema:
+        required: true
+        in_subset: [Obligatorisk]
+
+  Datasett:
+    description: Ei samling av data, utgitt eller kuratert av ei einskild kjelde.
+    class_uri: dcat:Dataset
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - skildring
+      - kontaktpunkt
+      - utgjevar
+      - tema
+      - lisens
+    slot_usage:
+      tittel:
+        required: true
+        in_subset: [Obligatorisk]
+      skildring:
+        required: true
+        in_subset: [Obligatorisk]
+      kontaktpunkt:
+        required: true
+        in_subset: [Obligatorisk]
+      utgjevar:
+        required: true
+        in_subset: [Obligatorisk]
+      tema:
+        required: true
+        in_subset: [Obligatorisk]
+      lisens:
+        in_subset: [Anbefalt]
+
+  Distribusjon:
+    description: Ei spesifikk representasjon av eit datasett.
+    class_uri: dcat:Distribution
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tilgangsurl
+    slot_usage:
+      tilgangsurl:
+        required: true
+        in_subset: [Obligatorisk]
+
+  Datatjeneste:
+    description: Ei samling av operasjonar som gir tilgang til data via eit grensesnitt.
+    class_uri: dcat:DataService
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - kontaktpunkt
+      - utgjevar
+      - endepunktsurl
+    slot_usage:
+      tittel:
+        required: true
+        in_subset: [Obligatorisk]
+      kontaktpunkt:
+        required: true
+        in_subset: [Obligatorisk]
+      utgjevar:
+        required: true
+        in_subset: [Obligatorisk]
+      endepunktsurl:
+        required: true
+        in_subset: [Obligatorisk]
+
+  Aktør:
+    description: Ein aktør (person, organisasjon eller programvaresystem).
+    class_uri: foaf:Agent
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - namn
+    slot_usage:
+      namn:
+        required: true
+        in_subset: [Obligatorisk]
+
+  Kvalitetsmaal:
+    description: Eit mål for å evaluere kvaliteten til ein ressurs.
+    class_uri: dqv:Metric
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+  Kvalitetsmaaling:
+    description: Resultat av å evaluere eit datasett mot eit kvalitetsmål.
+    class_uri: dqv:QualityMeasurement
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+  Kvalitetsdimensjon:
+    description: Ein kategori av kvalitetsegenskapar for data.
+    class_uri: dqv:Dimension
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+  Kvalitetsmerknad:
+    description: Ei kvalitetsvurdering av ein ressurs.
+    class_uri: dqv:QualityAnnotation
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+slots:
+
+  id:
+    description: Unik URI-identifikator.
+    identifier: true
+    range: uriorcurie
+    slot_uri: dct:identifier
+
+  tittel:
+    description: Namn eller tittel.
+    slot_uri: dct:title
+    range: string
+
+  skildring:
+    description: Kortfatta skildring.
+    slot_uri: dct:description
+    range: string
+
+  kontaktpunkt:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+
+  # gold R1.2: proveniens — dct:publisher tilfredsstiller r12_provenance-sjekken
+  utgjevar:
+    description: Organisasjon ansvarleg for ressursen.
+    slot_uri: dct:publisher
+    range: uriorcurie
+
+  endringsdato:
+    description: Dato for siste endring.
+    slot_uri: dct:modified
+    range: date
+
+  primaertema:
+    description: Ressursen som katalogposten omhandlar.
+    slot_uri: foaf:primaryTopic
+    range: uriorcurie
+
+  tema:
+    description: Hovudkategori for datasettet.
+    slot_uri: dcat:theme
+    range: uriorcurie
+
+  tilgangsurl:
+    description: URL for å få tilgang til datasettet.
+    slot_uri: dcat:accessURL
+    range: uriorcurie
+
+  endepunktsurl:
+    description: URL til rotplasseringa av endepunktet.
+    slot_uri: dcat:endpointURL
+    range: uriorcurie
+
+  namn:
+    description: Namn på aktøren.
+    slot_uri: foaf:name
+    range: string
+
+  # gold R1.1: slot med dct:license → r11_license-sjekken (error)
+  lisens:
+    description: Lisens som regulerer bruken av ressursen.
+    slot_uri: dct:license
+    range: uriorcurie

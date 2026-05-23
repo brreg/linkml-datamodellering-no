@@ -38,7 +38,7 @@ generation:
 
   # Legg til annotations.begrepsidentifikator-stubb som peikar på Felles begrepskatalog
   add_begrep_annotation: true
-  begrep_base_uri: "https://data.norge.no/concepts/"
+  begrep_base_uri: "https://concept-catalog.fellesdatakatalog.digdir.no/collections/"
 
 subsets:
   # JSON Schema required-felt → in_subset: [Obligatorisk]

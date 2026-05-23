@@ -185,7 +185,7 @@ def convert(
 
     add_id              = gen.get("add_id_slot", True)
     add_begrep_annotation = gen.get("add_begrep_annotation", True)
-    begrep_base_uri     = gen.get("begrep_base_uri", "https://concept-catalog.fellesdatakatalog.digdir.no/collections/")
+    begrep_base_uri     = gen.get("begrep_base_uri", "https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/")
     req_subset   = subsets_cfg.get("required_maps_to", "Obligatorisk")
     def_subset   = subsets_cfg.get("non_required_default", "Anbefalt")
 

@@ -41,7 +41,7 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 | warning | Alle klasser (unntatt `tree_root`) har `class_uri` | `all_classes_have_class_uri` |
 | warning | Alle globale slots har `slot_uri` | `all_slots_have_slot_uri` |
 | warning | Alle klasser (unntatt `tree_root`) har ein slot med `identifier: true` | `all_classes_have_identifier` |
-| warning | Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` som peikar på `https://data.norge.no/concepts/…` | `all_classes_have_concept_ref` |
+| warning | Alle klasser (unntatt `tree_root`) har `annotations.begrepsidentifikator` som peikar på `https://concept-catalog.fellesdatakatalog.digdir.no/collections/…` | `all_classes_have_concept_ref` |
 
 ---
 

@@ -43,8 +43,12 @@ classes:
   Ressurskatalog:
     description: Samling av ressursar — toppnivåobjekt for datafila.
     tree_root: true
-    slots:
-      - ressursar
+    attributes:
+      ressursar:
+        range: Ressurs
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
 
   # Domenemodellklassar skal alltid ha class_uri som peikar til riktig RDF-vokabular.
   # annotations.begrepsidentifikator kobler klassen til Felles begrepskatalog.
@@ -102,9 +106,3 @@ slots:
 
   # Container-slots skal alltid vere multivalued + inlined_as_list: true.
   # inlined: true + inlined_as_list: true → serialisert som YAML-liste, ikkje objekt.
-  ressursar:
-    description: Ressursane i katalogen.
-    range: Ressurs
-    multivalued: true
-    inlined: true
-    inlined_as_list: true

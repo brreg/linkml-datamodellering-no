@@ -21,32 +21,120 @@ classes:
   Containerklasse:
     description: Containerklasse for alle klasser som kan inngå i datasettet.
     tree_root: true
-    slots:
+    attributes:
 # metadata
-      - kontaktpunkter
-      - utgivere
-      - organisasjoner
-      - gjeldende_lovgivninger
-      - datasettdistribusjoner
-      - dataset_metadata
-      - kvalitetsmerknader
-      - brukertilbakemeldinger
-      - kvalitetsmaalinger
-      - grupper
-      - standarder
-      - kvalitetsdimensjoner
-      - tidsromer
-      - tekstdeler
+      kontaktpunkter:
+        range: Kontaktopplysning
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      utgivere:
+        range: Aktor
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      organisasjoner:
+        range: Aktor
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      gjeldende_lovgivninger:
+        range: RegulativRessurs
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      datasettdistribusjoner:
+        range: Distribusjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      dataset_metadata:
+        range: Datasett
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmerknader:
+        range: Kvalitetsmerknad
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      brukertilbakemeldinger:
+        range: Brukartilbakemelding
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmaalinger:
+        range: Kvalitetsmaaling
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      grupper:
+        range: Aktor
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      standarder:
+        range: Standard
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsdimensjoner:
+        range: Kvalitetsdimensjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      tidsromer:
+        range: Tidsrom
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      tekstdeler:
+        range: Tekstdel
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
 # data
-      - id
-      - skoler
-      - kommuner
-      - fylker
-      - private_virksomheter
-      - basisgrupper
-      - elever
-      - rektorer
-      - kontaktlaerere
+      id:
+      skoler:
+        range: Skole
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kommuner:
+        range: Kommune
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      fylker:
+        range: Fylke
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      private_virksomheter:
+        range: PrivatVirksomhet
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      basisgrupper:
+        range: Basisgruppe
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      elever:
+        range: Elev
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      rektorer:
+        range: Rektor
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kontaktlaerere:
+        range: Kontaktlaerer
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
 
   Skole:
     description: En skole er en privat eller offentlig institusjon eller et lærested hvor lærere underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.
@@ -160,163 +248,7 @@ slots:
     description: Namn på ressursen.
 
   # --- Metadata container slots (DCAT-AP-NO) ---
-  tidsromer:
-    range: Tidsrom
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Tidsrom for kvalitetsmerknad.     
-
-  tekstdeler:
-    range: Tekstdel
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Tekstdel for kvalitetsmerknad.   
-  
-  kvalitetsdimensjoner:
-    range: Kvalitetsdimensjon
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Kvalitetsdimensjoner for datasettet.  
-
-  kontaktpunkter:
-    range: Kontaktopplysning
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Kontaktpunkt for datasettet.
-
-  utgivere:
-    range: Aktor
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Utgjevarar av datasettet.
-
-  organisasjoner:
-    range: Aktor
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Organisasjonar knytt til datasettet.
-
-  grupper:
-    range: Aktor
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Grupper knytt til datasettet.
-
-  gjeldende_lovgivninger:
-    range: RegulativRessurs
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Gjeldande lovgiving for datasettet.
-
-  datasettdistribusjoner:
-    range: Distribusjon
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Distribusjonar av datasettet.
-
-  dataset_metadata:
-    range: Datasett
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Metadata om datasettet.
-
-  kvalitetsmerknader:
-    range: Kvalitetsmerknad
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Kvalitetsmerknader for datasettet.
-
-  brukertilbakemeldinger:
-    range: Brukartilbakemelding
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Brukartilbakemeldingar for datasettet.
-
-  kvalitetsmaalinger:
-    range: Kvalitetsmaaling
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Kvalitetsmålingar for datasettet.
-
-
-
-  standarder:
-    range: Standard
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-    description: Standardar datasettet følgjer.
-
   # --- Domene container slots ---
-  skoler:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av skole i ei datafil.
-    range: Skole
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
-  kommuner:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av kommune i ei datafil.
-    range: Kommune
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
-  fylker:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av fylke i ei datafil.
-    range: Fylke
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
-  private_virksomheter:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av private_virksomheter i ei datafil.
-    range: PrivatVirksomhet
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
-  basisgrupper:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av basisgruppe i ei datafil.
-    range: Basisgruppe
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
-  rektorer:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av rektor i ei datafil.
-    range: Rektor
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
-  elever:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av elev i ei datafil.
-    range: Elev
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
-  kontaktlaerere:
-    description: Container slot for å legge tilrette for å kunne ha fleire instanser av kontaktlaerer i ei datafil.
-    range: Kontaktlaerer
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-
   # --- Datatyper ---
   kommunenummer:
     description: Kommunenummer er en nummerrekke som identifiserer kommuner eller kommunefrie områder. 

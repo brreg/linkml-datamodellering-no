@@ -28,73 +28,227 @@ classes:
   UtdanningContainer:
     tree_root: true
     description: Rotcontainer for FINT Utdanning-instansar.
-    slots:
-      - elevar
-      - skolar
-      - skoleressursar
-      - elevforhold
-      - elevtilrettelegging
-      - klasser
-      - klassemedlemskap
-      - kontaktlaerergrupper
-      - kontaktlaerergruppemedlemskap
-      - persongrupper
-      - persongruppemedlemskap
-      - varsel
-      - arstrinn
-      - programomrader
-      - programomrademedlemskap
-      - utdanningsprogram
-      - eksamen
-      - fag
-      - faggrupper
-      - faggruppemedlemskap
-      - rom
-      - timar
-      - undervisningsforhold
-      - undervisningsgrupper
-      - undervisningsgruppemedlemskap
-      - anmerkningar
-      - eksamensgrupper
-      - eksamensgruppemedlemskap
-      - eksamensvurdering
-      - elevfravar
-      - elevvurdering
-      - fravarsoversikt
-      - fraversregistrering
-      - halvaarsfagvurdering
-      - halvaarsordensvurdering
-      - karakterhistorie
-      - sensor
-      - sluttfagvurdering
-      - sluttordensvurdering
-      - underveisfagvurdering
-      - underveisordensvurdering
-      - vitnemalsmerknad
-      - betalingsstatus
-      - fagstatus
-      - karakterstatus
-      - skoleaar
-      - tilrettelegging
-      - avlagteprover
-      - laerlingar
-      - otUngdom
-      - avbruddsaarsaker
-      - bevistypar
-      - brevtypar
-      - eksamensformer
-      - elevkategoriar
-      - fagmerknader
-      - fravartypar
-      - fullfortkoder
-      - karakterskalaer
-      - karakterverdiar
-      - otEnheter
-      - otStatus
-      - provestatuser
-      - skoleeijartypar
-      - terminar
-      - varseltypar
+    attributes:
+      elevar:
+        range: Elev
+        multivalued: true
+        inlined_as_list: true
+      skolar:
+        range: Skole
+        multivalued: true
+        inlined_as_list: true
+      skoleressursar:
+        range: Skoleressurs
+        multivalued: true
+        inlined_as_list: true
+      elevforhold:
+        range: Elevforhold
+      elevtilrettelegging:
+        range: Elevtilrettelegging
+        multivalued: true
+        inlined_as_list: true
+      klasser:
+        range: Klasse
+        multivalued: true
+        inlined_as_list: true
+      klassemedlemskap:
+        range: Klassemedlemskap
+        multivalued: true
+      kontaktlaerergrupper:
+        range: Kontaktlaerergruppe
+        multivalued: true
+        inlined_as_list: true
+      kontaktlaerergruppemedlemskap:
+        range: Kontaktlaerergruppemedlemskap
+        multivalued: true
+      persongrupper:
+        range: Persongruppe
+        multivalued: true
+        inlined_as_list: true
+      persongruppemedlemskap:
+        range: Persongruppemedlemskap
+        multivalued: true
+      varsel:
+        range: Varsel
+        multivalued: true
+      arstrinn:
+        range: Arstrinn
+        multivalued: true
+        inlined_as_list: true
+      programomrader:
+        range: Programomrade
+        multivalued: true
+        inlined_as_list: true
+      programomrademedlemskap:
+        range: Programomrademedlemskap
+        multivalued: true
+      utdanningsprogram:
+        range: Utdanningsprogram
+        multivalued: true
+      eksamen:
+        range: Eksamen
+      fag:
+        range: Fag
+      faggrupper:
+        range: Faggruppe
+        multivalued: true
+        inlined_as_list: true
+      faggruppemedlemskap:
+        range: Faggruppemedlemskap
+        multivalued: true
+      rom:
+        range: Rom
+      timar:
+        range: Time
+        multivalued: true
+        inlined_as_list: true
+      undervisningsforhold:
+        range: Undervisningsforhold
+        multivalued: true
+      undervisningsgrupper:
+        range: Undervisningsgruppe
+        multivalued: true
+        inlined_as_list: true
+      undervisningsgruppemedlemskap:
+        range: Undervisningsgruppemedlemskap
+        multivalued: true
+      anmerkningar:
+        range: Anmerkninger
+        multivalued: true
+        inlined_as_list: true
+      eksamensgrupper:
+        range: Eksamensgruppe
+        multivalued: true
+        inlined_as_list: true
+      eksamensgruppemedlemskap:
+        range: Eksamensgruppemedlemskap
+        multivalued: true
+      eksamensvurdering:
+        range: Eksamensvurdering
+        multivalued: true
+      elevfravar:
+        range: Elevfravar
+      elevvurdering:
+        range: Elevvurdering
+      fravarsoversikt:
+        range: Fravarsoversikt
+        multivalued: true
+        inlined_as_list: true
+      fraversregistrering:
+        range: Fraversregistrering
+        multivalued: true
+      halvaarsfagvurdering:
+        range: Halvaarsfagvurdering
+        multivalued: true
+      halvaarsordensvurdering:
+        range: Halvaarsordensvurdering
+        multivalued: true
+      karakterhistorie:
+        range: Karakterhistorie
+        multivalued: true
+      sensor:
+        range: Sensor
+        multivalued: true
+      sluttfagvurdering:
+        range: Sluttfagvurdering
+        multivalued: true
+      sluttordensvurdering:
+        range: Sluttordensvurdering
+        multivalued: true
+      underveisfagvurdering:
+        range: Underveisfagvurdering
+        multivalued: true
+      underveisordensvurdering:
+        range: Underveisordensvurdering
+        multivalued: true
+      vitnemalsmerknad:
+        range: Vitnemalsmerknad
+      betalingsstatus:
+        range: Betalingsstatus
+      fagstatus:
+        range: Fagstatus
+      karakterstatus:
+        range: Karakterstatus
+      skoleaar:
+        range: Skoleaar
+      tilrettelegging:
+        range: Tilrettelegging
+      avlagteprover:
+        range: AvlagtProve
+        multivalued: true
+        inlined_as_list: true
+      laerlingar:
+        range: Laerling
+        multivalued: true
+        inlined_as_list: true
+      otUngdom:
+        range: OtUngdom
+        multivalued: true
+        inlined_as_list: true
+      avbruddsaarsaker:
+        range: Avbruddsaarsak
+        multivalued: true
+        inlined_as_list: true
+      bevistypar:
+        range: Bevistype
+        multivalued: true
+        inlined_as_list: true
+      brevtypar:
+        range: Brevtype
+        multivalued: true
+        inlined_as_list: true
+      eksamensformer:
+        range: Eksamensform
+        multivalued: true
+        inlined_as_list: true
+      elevkategoriar:
+        range: Elevkategori
+        multivalued: true
+        inlined_as_list: true
+      fagmerknader:
+        range: Fagmerknad
+        multivalued: true
+        inlined_as_list: true
+      fravartypar:
+        range: Fravartype
+        multivalued: true
+        inlined_as_list: true
+      fullfortkoder:
+        range: Fullfortkode
+        multivalued: true
+        inlined_as_list: true
+      karakterskalaer:
+        range: Karakterskala
+        multivalued: true
+        inlined_as_list: true
+      karakterverdiar:
+        range: Karakterverdi
+        multivalued: true
+        inlined_as_list: true
+      otEnheter:
+        range: OtEnhet
+        multivalued: true
+        inlined_as_list: true
+      otStatus:
+        range: OtStatus
+        multivalued: true
+        inlined_as_list: true
+      provestatuser:
+        range: Provestatus
+        multivalued: true
+        inlined_as_list: true
+      skoleeijartypar:
+        range: Skoleeiertype
+        multivalued: true
+        inlined_as_list: true
+      terminar:
+        range: Termin
+        multivalued: true
+        inlined_as_list: true
+      varseltypar:
+        range: Varseltype
+        multivalued: true
+        inlined_as_list: true
     slot_usage:
       elevforhold:
         multivalued: true
@@ -2185,244 +2339,6 @@ slots:
 
   # === Container-eksklusive lister ===========================================
   # Desse er berre brukte i UtdanningContainer som samlingslister.
-
-  elevar:
-    slot_uri: utd:elevar
-    range: Elev
-    multivalued: true
-    inlined_as_list: true
-    description: Alle elevar i containeren.
-
-  skolar:
-    slot_uri: utd:skolar
-    range: Skole
-    multivalued: true
-    inlined_as_list: true
-    description: Alle skular i containeren.
-
-  skoleressursar:
-    slot_uri: utd:skoleressursar
-    range: Skoleressurs
-    multivalued: true
-    inlined_as_list: true
-    description: Alle skoleressursar i containeren.
-
-  elevtilrettelegging:
-    slot_uri: utd:elevtilrettelegging
-    range: Elevtilrettelegging
-    multivalued: true
-    inlined_as_list: true
-    description: Alle elevtilretteleggingar i containeren.
-
-  klasser:
-    slot_uri: utd:klasser
-    range: Klasse
-    multivalued: true
-    inlined_as_list: true
-    description: Alle klassar i containeren.
-
-  kontaktlaerergrupper:
-    slot_uri: utd:kontaktlaerergrupper
-    range: Kontaktlaerergruppe
-    multivalued: true
-    inlined_as_list: true
-    description: Alle kontaktlærargrupper i containeren.
-
-  persongrupper:
-    slot_uri: utd:persongrupper
-    range: Persongruppe
-    multivalued: true
-    inlined_as_list: true
-    description: Alle persongrupper i containeren.
-
-  arstrinn:
-    slot_uri: utd:arstrinn
-    range: Arstrinn
-    multivalued: true
-    inlined_as_list: true
-    description: Alle årstrinns-objekt i containeren.
-
-  programomrader:
-    slot_uri: utd:programomrader
-    range: Programomrade
-    multivalued: true
-    inlined_as_list: true
-    description: Alle programområde i containeren.
-
-  faggrupper:
-    slot_uri: utd:faggrupper
-    range: Faggruppe
-    multivalued: true
-    inlined_as_list: true
-    description: Alle faggrupper i containeren.
-
-  timar:
-    slot_uri: utd:timar
-    range: Time
-    multivalued: true
-    inlined_as_list: true
-    description: Alle timar i containeren.
-
-  undervisningsgrupper:
-    slot_uri: utd:undervisningsgrupper
-    range: Undervisningsgruppe
-    multivalued: true
-    inlined_as_list: true
-    description: Alle undervisningsgrupper i containeren.
-
-  anmerkningar:
-    slot_uri: utd:anmerkningar
-    range: Anmerkninger
-    multivalued: true
-    inlined_as_list: true
-    description: Alle anmerkningar i containeren.
-
-  eksamensgrupper:
-    slot_uri: utd:eksamensgrupper
-    range: Eksamensgruppe
-    multivalued: true
-    inlined_as_list: true
-    description: Alle eksamensgrupper i containeren.
-
-  fravarsoversikt:
-    slot_uri: utd:fravarsoversikt
-    range: Fravarsoversikt
-    multivalued: true
-    inlined_as_list: true
-    description: Alle fråværsoversikter i containeren.
-
-  avlagteprover:
-    slot_uri: utd:avlagteprover
-    range: AvlagtProve
-    multivalued: true
-    inlined_as_list: true
-    description: Alle avlagde prøver i containeren.
-
-  laerlingar:
-    slot_uri: utd:laerlingar
-    range: Laerling
-    multivalued: true
-    inlined_as_list: true
-    description: Alle lærlingar i containeren.
-
-  otUngdom:
-    slot_uri: utd:otUngdom
-    range: OtUngdom
-    multivalued: true
-    inlined_as_list: true
-    description: Alle OT-ungdom i containeren.
-
-  avbruddsaarsaker:
-    slot_uri: utd:avbruddsaarsaker
-    range: Avbruddsaarsak
-    multivalued: true
-    inlined_as_list: true
-    description: Alle avbruddsårsakar i containeren.
-
-  bevistypar:
-    slot_uri: utd:bevistypar
-    range: Bevistype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle bevistypar i containeren.
-
-  brevtypar:
-    slot_uri: utd:brevtypar
-    range: Brevtype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle brevtypar i containeren.
-
-  eksamensformer:
-    slot_uri: utd:eksamensformer
-    range: Eksamensform
-    multivalued: true
-    inlined_as_list: true
-    description: Alle eksamensformer i containeren.
-
-  elevkategoriar:
-    slot_uri: utd:elevkategoriar
-    range: Elevkategori
-    multivalued: true
-    inlined_as_list: true
-    description: Alle elevkategoriar i containeren.
-
-  fagmerknader:
-    slot_uri: utd:fagmerknader
-    range: Fagmerknad
-    multivalued: true
-    inlined_as_list: true
-    description: Alle fagmerknadar i containeren.
-
-  fravartypar:
-    slot_uri: utd:fravartypar
-    range: Fravartype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle fråværstypar i containeren.
-
-  fullfortkoder:
-    slot_uri: utd:fullfortkoder
-    range: Fullfortkode
-    multivalued: true
-    inlined_as_list: true
-    description: Alle fullfortkoder i containeren.
-
-  karakterskalaer:
-    slot_uri: utd:karakterskalaer
-    range: Karakterskala
-    multivalued: true
-    inlined_as_list: true
-    description: Alle karakterskalaer i containeren.
-
-  otEnheter:
-    slot_uri: utd:otEnheter
-    range: OtEnhet
-    multivalued: true
-    inlined_as_list: true
-    description: Alle OT-einingar i containeren.
-
-  karakterverdiar:
-    slot_uri: utd:karakterverdiar
-    range: Karakterverdi
-    multivalued: true
-    inlined_as_list: true
-    description: Alle karakterverdiar i containeren.
-
-  otStatus:
-    slot_uri: utd:otStatus
-    range: OtStatus
-    multivalued: true
-    inlined_as_list: true
-    description: Alle OT-statuser i containeren.
-
-  provestatuser:
-    slot_uri: utd:provestatuser
-    range: Provestatus
-    multivalued: true
-    inlined_as_list: true
-    description: Alle prøvestatuser i containeren.
-
-  skoleeijartypar:
-    slot_uri: utd:skoleeijartypar
-    range: Skoleeiertype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle skuleeigarstypar i containeren.
-
-  terminar:
-    slot_uri: utd:terminar
-    range: Termin
-    multivalued: true
-    inlined_as_list: true
-    description: Alle terminar i containeren.
-
-  varseltypar:
-    slot_uri: utd:varseltypar
-    range: Varseltype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle varseltypar i containeren.
 
   # === Felles slots (container + referanse) ==================================
   # Brukte både som samlingslister i UtdanningContainer og som referansar

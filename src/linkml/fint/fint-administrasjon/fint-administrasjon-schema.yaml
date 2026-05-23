@@ -27,181 +27,6 @@ slots:
 
   # --- Container-eksklusive lister (felles frå fint-common) ------------------
 
-  personar:
-    slot_uri: adm:personar
-    range: Person
-    multivalued: true
-    inlined_as_list: true
-    description: Alle personar i containeren.
-
-  kontaktpersonar:
-    slot_uri: adm:kontaktpersonar
-    range: Kontaktperson
-    multivalued: true
-    inlined_as_list: true
-    description: Alle kontaktpersonar i containeren.
-
-  virksomhetar:
-    slot_uri: adm:virksomhetar
-    range: Virksomhet
-    multivalued: true
-    inlined_as_list: true
-    description: Alle verksemder i containeren.
-
-  landkodar:
-    slot_uri: adm:landkodar
-    range: Landkode
-    multivalued: true
-    inlined_as_list: true
-    description: Alle landkodar i containeren.
-
-  kommunar:
-    slot_uri: adm:kommunar
-    range: Kommune
-    multivalued: true
-    inlined_as_list: true
-    description: Alle kommuneverdiar i containeren.
-
-  spraak:
-    slot_uri: adm:spraak
-    range: Spraak
-    multivalued: true
-    inlined_as_list: true
-    description: Alle språkverdiar i containeren.
-
-  valuta:
-    slot_uri: adm:valuta
-    range: Valuta
-    multivalued: true
-    inlined_as_list: true
-    description: Alle valutaverdiar i containeren.
-
-  personalressursar:
-    slot_uri: adm:personalressursar
-    range: Personalressurs
-    multivalued: true
-    inlined_as_list: true
-    description: Alle personalressursar i containeren.
-
-  arbeidslokasjoner:
-    slot_uri: adm:arbeidslokasjoner
-    range: Arbeidslokasjon
-    multivalued: true
-    inlined_as_list: true
-    description: Alle arbeidslokasjoner i containeren.
-
-  fullmakter:
-    slot_uri: adm:fullmakter
-    range: Fullmakt
-    multivalued: true
-    inlined_as_list: true
-    description: Alle fullmakter i containeren.
-
-  rollar:
-    slot_uri: adm:rollar
-    range: Rolle
-    multivalued: true
-    inlined_as_list: true
-    description: Alle rollar i containeren.
-
-  aktivitetar:
-    slot_uri: adm:aktivitetar
-    range: Aktivitet
-    multivalued: true
-    inlined_as_list: true
-    description: Alle aktivitetar i containeren.
-
-  artar:
-    slot_uri: adm:artar
-    range: Art
-    multivalued: true
-    inlined_as_list: true
-    description: Alle artar i containeren.
-
-  arbeidsforholdstypar:
-    slot_uri: adm:arbeidsforholdstypar
-    range: Arbeidsforholdstype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle arbeidsforholdstypar i containeren.
-
-  fravaersgrunnar:
-    slot_uri: adm:fravaersgrunnar
-    range: Fravaersgrunn
-    multivalued: true
-    inlined_as_list: true
-    description: Alle fråværsgrunnar i containeren.
-
-  fravaerstypar:
-    slot_uri: adm:fravaerstypar
-    range: Fravaerstype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle fråværstypar i containeren.
-
-  funksjonar:
-    slot_uri: adm:funksjonar
-    range: Funksjon
-    multivalued: true
-    inlined_as_list: true
-    description: Alle funksjonar i containeren.
-
-  kontrakter:
-    slot_uri: adm:kontrakter
-    range: Kontrakt
-    multivalued: true
-    inlined_as_list: true
-    description: Alle kontrakter i containeren.
-
-  lonsartar:
-    slot_uri: adm:lonsartar
-    range: Lonsart
-    multivalued: true
-    inlined_as_list: true
-    description: Alle lønnsartar i containeren.
-
-  organisasjonstypar:
-    slot_uri: adm:organisasjonstypar
-    range: Organisasjonstype
-    multivalued: true
-    inlined_as_list: true
-    description: Alle organisasjonstypar i containeren.
-
-  personalressurskategoriar:
-    slot_uri: adm:personalressurskategoriar
-    range: Personalressurskategori
-    multivalued: true
-    inlined_as_list: true
-    description: Alle personalressurskategoriar i containeren.
-
-  prosjektartar:
-    slot_uri: adm:prosjektartar
-    range: Prosjektart
-    multivalued: true
-    inlined_as_list: true
-    description: Alle prosjektartar i containeren.
-
-  rammer:
-    slot_uri: adm:rammer
-    range: Ramme
-    multivalued: true
-    inlined_as_list: true
-    description: Alle rammer i containeren.
-
-  stillingskoder:
-    slot_uri: adm:stillingskoder
-    range: Stillingskode
-    multivalued: true
-    inlined_as_list: true
-    description: Alle stillingskoder i containeren.
-
-  uketimetall:
-    slot_uri: adm:uketimetall
-    range: Uketimetall
-    multivalued: true
-    inlined_as_list: true
-    description: Alle uketimetallverdiar i containeren.
-
   # --- Lønn (Lonn og subklassar) ---------------------------------------------
 
   anvist:
@@ -661,51 +486,139 @@ classes:
   AdministrasjonContainer:
     tree_root: true
     description: Rotcontainer for FINT Administrasjon-instansar.
-    slots:
+    attributes:
       # Felles hovudklassar
-      - personar
-      - kontaktpersonar
-      - virksomhetar
+      personar:
+        range: Person
+        multivalued: true
+        inlined_as_list: true
+      kontaktpersonar:
+        range: Kontaktperson
+        multivalued: true
+        inlined_as_list: true
+      virksomhetar:
+        range: Virksomhet
+        multivalued: true
+        inlined_as_list: true
       # Felles kodeverk
-      - landkodar
-      - kjonn
-      - fylke
-      - kommunar
-      - spraak
-      - valuta
+      landkodar:
+        range: Landkode
+        multivalued: true
+        inlined_as_list: true
+      kjonn:
+      fylke:
+      kommunar:
+        range: Kommune
+        multivalued: true
+        inlined_as_list: true
+      spraak:
+        range: Spraak
+        multivalued: true
+        inlined_as_list: true
+      valuta:
+        range: Valuta
+        multivalued: true
+        inlined_as_list: true
       # Domenehovudklassar
-      - personalressursar
-      - arbeidsforhold
-      - arbeidslokasjoner
-      - fastlonn
-      - fasttillegg
-      - fravaer
-      - fullmakter
-      - organisasjonselement
-      - rollar
-      - variabellonn
+      personalressursar:
+        range: Personalressurs
+        multivalued: true
+        inlined_as_list: true
+      arbeidsforhold:
+        range: Arbeidsforhold
+      arbeidslokasjoner:
+        range: Arbeidslokasjon
+        multivalued: true
+        inlined_as_list: true
+      fastlonn:
+        range: Fastlonn
+      fasttillegg:
+        range: Fasttillegg
+      fravaer:
+        range: Fravaer
+      fullmakter:
+        range: Fullmakt
+        multivalued: true
+        inlined_as_list: true
+      organisasjonselement:
+        range: Organisasjonselement
+      rollar:
+        range: Rolle
+        multivalued: true
+        inlined_as_list: true
+      variabellonn:
+        range: Variabellonn
       # Domenekodeverk
-      - aktivitetar
-      - anlegg
-      - ansvar
-      - artar
-      - arbeidsforholdstypar
-      - diverse
-      - formaal
-      - fravaersgrunnar
-      - fravaerstypar
-      - funksjonar
-      - kontrakter
-      - lonsartar
-      - lopenummer
-      - objekt
-      - organisasjonstypar
-      - personalressurskategoriar
-      - prosjekt
-      - prosjektartar
-      - rammer
-      - stillingskoder
-      - uketimetall
+      aktivitetar:
+        range: Aktivitet
+        multivalued: true
+        inlined_as_list: true
+      anlegg:
+        range: Anlegg
+      ansvar:
+        range: Ansvar
+      artar:
+        range: Art
+        multivalued: true
+        inlined_as_list: true
+      arbeidsforholdstypar:
+        range: Arbeidsforholdstype
+        multivalued: true
+        inlined_as_list: true
+      diverse:
+        range: Diverse
+      formaal:
+        range: Formaal
+      fravaersgrunnar:
+        range: Fravaersgrunn
+        multivalued: true
+        inlined_as_list: true
+      fravaerstypar:
+        range: Fravaerstype
+        multivalued: true
+        inlined_as_list: true
+      funksjonar:
+        range: Funksjon
+        multivalued: true
+        inlined_as_list: true
+      kontrakter:
+        range: Kontrakt
+        multivalued: true
+        inlined_as_list: true
+      lonsartar:
+        range: Lonsart
+        multivalued: true
+        inlined_as_list: true
+      lopenummer:
+        range: Lopenummer
+      objekt:
+        range: Objekt
+      organisasjonstypar:
+        range: Organisasjonstype
+        multivalued: true
+        inlined_as_list: true
+      personalressurskategoriar:
+        range: Personalressurskategori
+        multivalued: true
+        inlined_as_list: true
+      prosjekt:
+        range: Prosjekt
+      prosjektartar:
+        range: Prosjektart
+        multivalued: true
+        inlined_as_list: true
+      rammer:
+        range: Ramme
+        multivalued: true
+        inlined_as_list: true
+      stillingskoder:
+        range: Stillingskode
+        multivalued: true
+        inlined_as_list: true
+      uketimetall:
+        range: Uketimetall
+        multivalued: true
+        inlined_as_list: true
     slot_usage:
       arbeidsforhold:
         multivalued: true
