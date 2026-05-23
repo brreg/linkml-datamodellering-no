@@ -18,13 +18,34 @@ env:
 
 jobs:
 
+  checkout-source:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/upload-artifact@v7
+        with:
+          name: source
+          path: |
+            src/
+            examples/
+            mkdocs/
+            .github/
+            Makefile
+            README.md
+          retention-days: 1
+
   ensure-images:
+    needs: [checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
@@ -94,7 +115,9 @@ jobs:
         domain: [ap-no, fair, fint, ngr, oreg, samt]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
 
       - name: Cache genererte artefaktar (${{ matrix.domain }})
         id: cache-generated
@@ -131,7 +154,9 @@ jobs:
       name: github-pages
       url: ${{ steps.deploy.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
 
       - name: Last ned alle genererte artefaktar
         uses: actions/download-artifact@v8

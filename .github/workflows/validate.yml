@@ -14,13 +14,32 @@ on:
 
 jobs:
 
+  checkout-source:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/upload-artifact@v7
+        with:
+          name: source
+          path: |
+            src/
+            examples/
+            .github/
+            Makefile
+          retention-days: 1
+
   build-validator:
+    needs: [checkout-source]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
       - name: Cache mcp-linkml-validator image
         id: cache
         uses: actions/cache@v5
@@ -66,7 +85,9 @@ jobs:
         domain: [ap-no, fair, fint, ngr, oreg, samt]
       fail-fast: false
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/download-artifact@v8
+        with:
+          name: source
 
       - name: Cache validering (${{ matrix.domain }})
         id: cache-validated

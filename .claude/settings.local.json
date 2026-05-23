@@ -35,7 +35,8 @@
       "Bash(make python-build-docker *)",
       "Bash(make mcp-val-smoke *)",
       "Bash(make linkml-build-docker *)",
-      "Bash(make domain-gen-plantuml *)"
+      "Bash(make domain-gen-plantuml *)",
+      "WebFetch(domain:data.norge.no)"
     ]
   },
   "enableAllProjectMcpServers": true,

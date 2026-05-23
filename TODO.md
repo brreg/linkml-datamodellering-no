@@ -14,3 +14,5 @@ lage flag for om modell/begrep skal automatisk publiseres til felles datakatalog
 modellere generiske kodelister/kodeverk
 
 generate workflow skal ha en matrix job pr domene
+
+legge til artifakter for protobuf og plantuml i mkdocs liste over genererte artifakter pr skjema
