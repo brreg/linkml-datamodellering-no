@@ -127,7 +127,7 @@ Opprett `.github/workflows/validate.yml`:
 Opprett `.github/workflows/generate.yml`:
 - Triggar på push til `main`
 - Køyrer `make gen-shacl gen-jsonschema gen-jsonld gen-python` for alle skjema
-- Lastar opp genererte artefaktar som workflow-artefaktar (og/eller commit tilbake til `generated/`-branch)
+- Lastar opp genererte artefakter som workflow-artefakter (og/eller commit tilbake til `generated/`-branch)
 
 ### 4.3 — Dokumentasjonspublisering
 Utvid `.github/workflows/generate.yml` med:

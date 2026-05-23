@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Kopier genererte artefaktar til mkdocs/docs/ og generer index-sider og mkdocs.yml.
+# Kopier genererte artefakter til mkdocs/docs/ og generer index-sider og mkdocs.yml.
 # Køyr etter make <domain> eller make validate.
 set -euo pipefail
 
@@ -52,7 +52,7 @@ artifact_label() {
     esac
 }
 
-# Rekkjefølgje på artefaktar i tabellen
+# Rekkjefølgje på artefakter i tabellen
 ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json ontology.ttl schema.ttl model.py erdiagram.md eksempel.ttl"
 
 # ---------------------------------------------------------------------------
@@ -148,7 +148,7 @@ process_schema() {
 log_step "Steg 1: Rens tidlegare genererte domene-katalogar frå docs/"
 
 if [ ! -d "$GEN" ] || [ -z "$(ls -A "$GEN" 2>/dev/null)" ]; then
-    echo "Ingen genererte artefaktar funne i $GEN. Køyr make <domain> fyrst." >&2
+    echo "Ingen genererte artefakter funne i $GEN. Køyr make <domain> fyrst." >&2
     exit 1
 fi
 

@@ -62,14 +62,14 @@ on:
 
 ---
 
-## Tiltak 2 (kritisk) — Per-domene cache av genererte artefaktar
+## Tiltak 2 (kritisk) — Per-domene cache av genererte artefakter
 
 ### Prinsipp
 
 Kvart generate-domene vert nøkla på hash av skjemafilene i det domenet + hash av `Dockerfile.linkml`. Viss nøkkelen treff, vert genereringa hoppa over og cacha output brukt direkte.
 
 ```yaml
-- name: Cache genererte artefaktar
+- name: Cache genererte artefakter
   id: cache-generated
   uses: actions/cache@v5
   with:
@@ -189,7 +189,7 @@ Kvar GitHub-hosted runner har uunngåeleg overhead:
 | Prioritet | Tiltak | Innsats | Effekt |
 |-----------|--------|---------|--------|
 | 1 | `paths`-filter på workflow-nivå | Svært låg (5 linjer) | Eliminerer ~70 % av køyringar |
-| 2 | Per-domene cache av genererte artefaktar | Medium | Typisk enkelt-domene-endring: frå 120 s → 5 s per uendra domene |
+| 2 | Per-domene cache av genererte artefakter | Medium | Typisk enkelt-domene-endring: frå 120 s → 5 s per uendra domene |
 | 3 | Slå saman build + generate (fjern build-barrier) | Medium | ~60 s frå kritisk veg |
 | 4 | mkdocs-build-cache i publish | Låg | ~30–40 s frå publish |
 | 5 | Sjølv-hosta runner | Høg (infrastruktur) | -20 s per jobb (~120 s totalt) |

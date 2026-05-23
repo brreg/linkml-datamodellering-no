@@ -51,20 +51,20 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 
 `mcp-validate` flattar automatisk ut relative importar med `gen-linkml --mergeimports` før validering, slik at domenemodeller med fleire schema-lag fungerer utan tilpassing.
 
-## Generering av artefaktar
+## Generering av artefakter
 
 ### Per domene (anbefalt)
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make ap-no` | Valider + generer alle artefaktar for alle AP-NO-profiler | `generated/ap-no/` |
-| `make fair` | Valider + generer alle artefaktar for FAIR-metadata | `generated/fair/` |
-| `make fint` | Valider + generer alle artefaktar for FINT-modellane | `generated/fint/` |
-| `make ngr` | Valider + generer alle artefaktar for NGR-modellane | `generated/ngr/` |
-| `make oreg` | Valider + generer alle artefaktar for OREG-registera | `generated/oreg/` |
-| `make samt` | Valider + generer alle artefaktar for SAMT-modellane | `generated/samt/` |
+| `make ap-no` | Valider + generer alle artefakter for alle AP-NO-profiler | `generated/ap-no/` |
+| `make fair` | Valider + generer alle artefakter for FAIR-metadata | `generated/fair/` |
+| `make fint` | Valider + generer alle artefakter for FINT-modellane | `generated/fint/` |
+| `make ngr` | Valider + generer alle artefakter for NGR-modellane | `generated/ngr/` |
+| `make oreg` | Valider + generer alle artefakter for OREG-registera | `generated/oreg/` |
+| `make samt` | Valider + generer alle artefakter for SAMT-modellane | `generated/samt/` |
 
-### Enkeltartefaktar (alle skjema)
+### Enkeltartefakter (alle skjema)
 
 | Kommando | Beskriving | Output |
 |---|---|---|
@@ -90,7 +90,7 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 | `make docs-build` | Bygg statisk HTML-site (produksjon) | `mkdocs/site/` |
 | `make docs-build-fast` | Same som `docs-build`, men hoppar over uendra sider | `mkdocs/site/` |
 
-`make publish` køyrer `mkdocs/publish.sh` som kopier artefaktar og dokumentasjon frå `generated/` til `mkdocs/docs/`, genererer `index.md` per skjema og domene, og oppdaterer navigasjonsstrukturen i `mkdocs.yml`. Nye domene og skjema dukkar opp automatisk neste gong `publish` vert køyrt.
+`make publish` køyrer `mkdocs/publish.sh` som kopier artefakter og dokumentasjon frå `generated/` til `mkdocs/docs/`, genererer `index.md` per skjema og domene, og oppdaterer navigasjonsstrukturen i `mkdocs.yml`. Nye domene og skjema dukkar opp automatisk neste gong `publish` vert køyrt.
 
 ## LinkML-generator mcp-server (mcp-linkml-generator)
 

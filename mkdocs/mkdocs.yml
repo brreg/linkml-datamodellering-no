@@ -53,6 +53,7 @@ nav:
   - Heim: index.md
   - Rettleiingar:
       - Ny domenemodell: ny-domenemodell.md
+      - Generatorkonfigurasjon: generate-config.md
   - 'AP-NO – Applikasjonsprofiler':
       - ap-no/index.md
       - 'cpsv-ap-no': ap-no/cpsv-ap-no/index.md

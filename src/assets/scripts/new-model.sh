@@ -100,10 +100,29 @@ Containerklasse:
     - id: $SCHEMA_ID/eksempel-1
 EOF
 
+GENERATE_FILE="$SCHEMA_DIR/generate.yaml"
+cat > "$GENERATE_FILE" << 'EOF'
+generators:
+  jsonld_context: true
+  shacl: true
+  shacl_flags: ""
+  python: true
+  json_schema: true
+  owl: true
+  owl_flags: ""
+  rdf: true
+  protobuf: true
+  erdiagram: true
+  docs: true
+  plantuml: true
+  example_rdf: true
+EOF
+
 echo ""
 echo "Oppretta:"
 echo "  $SCHEMA_FILE"
 echo "  $EXAMPLE_FILE"
+echo "  $GENERATE_FILE"
 echo ""
 echo "Neste steg:"
 echo "  1. Gi stub-klassen eit norsk namn og legg til eigenskapar"

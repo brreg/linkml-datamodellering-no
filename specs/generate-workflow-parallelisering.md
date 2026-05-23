@@ -38,7 +38,7 @@ publish ← needs: generate
 Kvart domene køyrer på ein **ny, tom runner** — images er ikkje tilgjengelege mellom jobbar. Å byggje images på nytt per domene ville koste 6× byggetid. Løysinga er å:
 
 1. Byggje kvart image i sin eigen parallell jobb (`build-linkml`, `build-python`)
-2. Lagre som `.tar`-filer og laste opp som workflow-artefaktar
+2. Lagre som `.tar`-filer og laste opp som workflow-artefakter
 3. Laste ned og `podman load` i kvar domene-jobb
 
 ---
@@ -68,7 +68,7 @@ Kvar `generate-<domene>`-jobb blir:
 
 ```yaml
 name: Generer domene
-description: Last inn images og generer artefaktar for eit domene
+description: Last inn images og generer artefakter for eit domene
 
 inputs:
   domain:
@@ -132,7 +132,7 @@ jobs:
           make python-build-docker &
           wait
 
-      - name: Lagre images som artefaktar
+      - name: Lagre images som artefakter
         run: |
           podman save localhost/linkml-local:latest  | gzip > linkml-local.tar.gz
           podman save localhost/python-pytest:latest | gzip > python-pytest.tar.gz
@@ -283,7 +283,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Last ned alle genererte artefaktar
+      - name: Last ned alle genererte artefakter
         uses: actions/download-artifact@v4
         with:
           pattern: generated-*

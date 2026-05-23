@@ -239,4 +239,4 @@ bash tests/test_make.sh
 ```
 
 Det er viktig å køyre `test_make.sh` etter alle endringane sidan fleire testar
-(gen-jsonschema, gen-python, gen-shacl o.a.) genererer artefaktar frå skjemaet.
+(gen-jsonschema, gen-python, gen-shacl o.a.) genererer artefakter frå skjemaet.

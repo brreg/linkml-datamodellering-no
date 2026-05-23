@@ -303,6 +303,13 @@ test_convert_rdf() {
         echo "Hoppar over convert-rdf for $domain (ingen tree_root)"
         return 0
     fi
+    # Respekter example_rdf: false i generate.yaml
+    local gen_yaml
+    gen_yaml="$(dirname "$schema")/generate.yaml"
+    if [ -f "$gen_yaml" ] && grep -q "^  example_rdf: false" "$gen_yaml"; then
+        echo "Hoppar over convert-rdf for $(schema_name "$schema") (example_rdf: false)"
+        return 0
+    fi
     # Desse skjemaa har id-only stub-klasser i inlined_as_list container-slots.
     # linkml-convert har ein bug der {id: curie}-dicts med berre id-feltet
     # vert feilaktig prosessert (JsonObj vert sendt som id-verdi).

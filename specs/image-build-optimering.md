@@ -23,7 +23,7 @@ Problemet er todelt:
 
 ### Prinsipp
 
-Publiser images til GHCR i staden for å sende dei som workflow-artefaktar. Kvar jobb køyrer `podman pull` i staden for download+load. GitHub Actions-runnerar har høghastigheitstilgang til GHCR, og registeret bruker lag-caching automatisk — berre endra lag vert overførd.
+Publiser images til GHCR i staden for å sende dei som workflow-artefakter. Kvar jobb køyrer `podman pull` i staden for download+load. GitHub Actions-runnerar har høghastigheitstilgang til GHCR, og registeret bruker lag-caching automatisk — berre endra lag vert overførd.
 
 ### Tagging-strategi
 

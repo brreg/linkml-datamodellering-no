@@ -20,7 +20,7 @@ Legg til ein dedikert seksjon **"Første schema på 10 minuttar"** i README som 
 3. Lag nytt schema: make new-model NAME=mitt-schema DOMAIN=ngr
 4. Rediger src/linkml/ngr/mitt-schema/mitt-schema-schema.yaml
 5. Valider: make mcp-validate SCHEMA=... POLICY=bronze
-6. Generer artefaktar: make ngr
+6. Generer artefakter: make ngr
 7. Sjå resultatet: make docs-serve
 ```
 
@@ -111,11 +111,11 @@ Ny katalog `src/linkml/referanse/` med schema og eksempel. Legg til referanse ti
 
 ### Problem
 
-Det finst 10 generatorar som produserer ulike artefaktar. Ein ny utviklar forstår ikkje kva `gen-shacl` gir dei eller kvifor dei bryr seg om `gen-owl`. Artefaktane er lista i COMMANDS.md men utan kontekst om brukstilfelle.
+Det finst 10 generatorar som produserer ulike artefakter. Ein ny utviklar forstår ikkje kva `gen-shacl` gir dei eller kvifor dei bryr seg om `gen-owl`. Artefaktane er lista i COMMANDS.md men utan kontekst om brukstilfelle.
 
 ### Endring
 
-Legg til ein tabell i `mkdocs/docs/ny-domenemodell.md` (eller eigen side `artefaktar.md`):
+Legg til ein tabell i `mkdocs/docs/ny-domenemodell.md` (eller eigen side `artefakter.md`):
 
 | Artefakt | Fil | Brukstilfelle |
 |----------|-----|---------------|
@@ -132,7 +132,7 @@ Legg til kva domenar som genererer kva (t.d. fint og samt hoppar over `schema.tt
 
 ### Implementasjon
 
-Oppdater `mkdocs/docs/ny-domenemodell.md` med artefakttabellen. Alternativt eigen side `mkdocs/docs/artefaktar.md` med lenke frå ny-domenemodell.
+Oppdater `mkdocs/docs/ny-domenemodell.md` med artefakttabellen. Alternativt eigen side `mkdocs/docs/artefakter.md` med lenke frå ny-domenemodell.
 
 ---
 

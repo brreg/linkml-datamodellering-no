@@ -88,7 +88,7 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefaktar (ap-no)
+      - name: Cache genererte artefakter (ap-no)
         id: cache-generated
         uses: actions/cache@v5
         with:
@@ -159,7 +159,7 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefaktar (fair)
+      - name: Cache genererte artefakter (fair)
         id: cache-generated
         uses: actions/cache@v5
         with:
@@ -230,7 +230,7 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefaktar (fint)
+      - name: Cache genererte artefakter (fint)
         id: cache-generated
         uses: actions/cache@v5
         with:
@@ -301,7 +301,7 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefaktar (ngr)
+      - name: Cache genererte artefakter (ngr)
         id: cache-generated
         uses: actions/cache@v5
         with:
@@ -372,7 +372,7 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefaktar (oreg)
+      - name: Cache genererte artefakter (oreg)
         id: cache-generated
         uses: actions/cache@v5
         with:
@@ -443,7 +443,7 @@ jobs:
       actions: write
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefaktar (samt)
+      - name: Cache genererte artefakter (samt)
         id: cache-generated
         uses: actions/cache@v5
         with:
@@ -518,7 +518,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Last ned alle genererte artefaktar
+      - name: Last ned alle genererte artefakter
         uses: actions/download-artifact@v4
         with:
           pattern: generated-*
