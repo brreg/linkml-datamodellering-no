@@ -26,30 +26,6 @@ slots:
 
   # --- PersonvernContainer-lister -------------------------------------------
 
-  behandlingar:
-    slot_uri: pvn:behandlingar
-    range: Behandling
-    multivalued: true
-    inlined_as_list: true
-
-  samtykker:
-    slot_uri: pvn:samtykker
-    range: Samtykke
-    multivalued: true
-    inlined_as_list: true
-
-  tenester:
-    slot_uri: pvn:tenester
-    range: Tjeneste
-    multivalued: true
-    inlined_as_list: true
-
-  personopplysningar:
-    slot_uri: pvn:personopplysningar
-    range: Personopplysning
-    multivalued: true
-    inlined_as_list: true
-
   # --- Felles pvn-slots (delt mellom fleire klasser) ------------------------
 
   # behandlingsgrunnlag: brukt i PersonvernContainer (liste) og Behandling (singular, req)
@@ -130,12 +106,25 @@ classes:
   PersonvernContainer:
     tree_root: true
     description: Rotcontainer for FINT Personvern-instansar.
-    slots:
-      - behandlingar
-      - samtykker
-      - tenester
-      - behandlingsgrunnlag
-      - personopplysningar
+    attributes:
+      behandlingar:
+        range: Behandling
+        multivalued: true
+        inlined_as_list: true
+      samtykker:
+        range: Samtykke
+        multivalued: true
+        inlined_as_list: true
+      tenester:
+        range: Tjeneste
+        multivalued: true
+        inlined_as_list: true
+      behandlingsgrunnlag:
+        range: Behandlingsgrunnlag
+      personopplysningar:
+        range: Personopplysning
+        multivalued: true
+        inlined_as_list: true
     slot_usage:
       behandlingsgrunnlag:
         multivalued: true

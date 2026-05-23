@@ -28,102 +28,6 @@ slots:
 
   # --- RessursContainer-lister ----------------------------------------------
 
-  applikasjonar:
-    slot_uri: res:applikasjonar
-    range: Applikasjon
-    multivalued: true
-    inlined_as_list: true
-
-  applikasjonsressursar:
-    slot_uri: res:applikasjonsressursar
-    range: Applikasjonsressurs
-    multivalued: true
-    inlined_as_list: true
-
-  applikasjonsressurstilgjengelegheit:
-    slot_uri: res:applikasjonsressurstilgjengelegheit
-    range: Applikasjonsressurstilgjengelighet
-    multivalued: true
-    inlined_as_list: true
-
-  digitaleEiningar:
-    slot_uri: res:digitaleEiningar
-    range: DigitalEnhet
-    multivalued: true
-    inlined_as_list: true
-
-  einingsgrupper:
-    slot_uri: res:einingsgrupper
-    range: Enhetsgruppe
-    multivalued: true
-    inlined_as_list: true
-
-  einingsgruppedmedlemskap:
-    slot_uri: res:einingsgruppedmedlemskap
-    range: Enhetsgruppemedlemskap
-    multivalued: true
-    inlined_as_list: true
-
-  identitetar:
-    slot_uri: res:identitetar
-    range: Identitet
-    multivalued: true
-    inlined_as_list: true
-
-  rettigheiter:
-    slot_uri: res:rettigheiter
-    range: Rettighet
-    multivalued: true
-    inlined_as_list: true
-
-  applikasjonskategoriar:
-    slot_uri: res:applikasjonskategoriar
-    range: Applikasjonskategori
-    multivalued: true
-    inlined_as_list: true
-
-  brukertypar:
-    slot_uri: res:brukertypar
-    range: Brukertype
-    multivalued: true
-    inlined_as_list: true
-
-  einingstypar:
-    slot_uri: res:einingstypar
-    range: Enhetstype
-    multivalued: true
-    inlined_as_list: true
-
-  handhaevingstypar:
-    slot_uri: res:handhaevingstypar
-    range: Handhevingstype
-    multivalued: true
-    inlined_as_list: true
-
-  lisensmodellar:
-    slot_uri: res:lisensmodellar
-    range: Lisensmodell
-    multivalued: true
-    inlined_as_list: true
-
-  plattformar:
-    slot_uri: res:plattformar
-    range: Plattform
-    multivalued: true
-    inlined_as_list: true
-
-  produsentar:
-    slot_uri: res:produsentar
-    range: Produsent
-    multivalued: true
-    inlined_as_list: true
-
-  statusar:
-    slot_uri: res:statusar
-    range: Status
-    multivalued: true
-    inlined_as_list: true
-
   # --- Felles res-slots (delt mellom fleire klasser) ------------------------
 
   # navn:
@@ -299,27 +203,75 @@ classes:
   RessursContainer:
     tree_root: true
     description: Rotcontainer for FINT Ressurs-instansar.
-    slots:
+    attributes:
       # ressurs.eiendel
-      - applikasjonar
-      - applikasjonsressursar
-      - applikasjonsressurstilgjengelegheit
+      applikasjonar:
+        range: Applikasjon
+        multivalued: true
+        inlined_as_list: true
+      applikasjonsressursar:
+        range: Applikasjonsressurs
+        multivalued: true
+        inlined_as_list: true
+      applikasjonsressurstilgjengelegheit:
+        range: Applikasjonsressurstilgjengelighet
+        multivalued: true
+        inlined_as_list: true
       # ressurs.datautstyr
-      - digitaleEiningar
-      - einingsgrupper
-      - einingsgruppedmedlemskap
+      digitaleEiningar:
+        range: DigitalEnhet
+        multivalued: true
+        inlined_as_list: true
+      einingsgrupper:
+        range: Enhetsgruppe
+        multivalued: true
+        inlined_as_list: true
+      einingsgruppedmedlemskap:
+        range: Enhetsgruppemedlemskap
+        multivalued: true
+        inlined_as_list: true
       # ressurs.tilgang
-      - identitetar
-      - rettigheiter
+      identitetar:
+        range: Identitet
+        multivalued: true
+        inlined_as_list: true
+      rettigheiter:
+        range: Rettighet
+        multivalued: true
+        inlined_as_list: true
       # ressurs.kodeverk
-      - applikasjonskategoriar
-      - brukertypar
-      - einingstypar
-      - handhaevingstypar
-      - lisensmodellar
-      - plattformar
-      - produsentar
-      - statusar
+      applikasjonskategoriar:
+        range: Applikasjonskategori
+        multivalued: true
+        inlined_as_list: true
+      brukertypar:
+        range: Brukertype
+        multivalued: true
+        inlined_as_list: true
+      einingstypar:
+        range: Enhetstype
+        multivalued: true
+        inlined_as_list: true
+      handhaevingstypar:
+        range: Handhevingstype
+        multivalued: true
+        inlined_as_list: true
+      lisensmodellar:
+        range: Lisensmodell
+        multivalued: true
+        inlined_as_list: true
+      plattformar:
+        range: Plattform
+        multivalued: true
+        inlined_as_list: true
+      produsentar:
+        range: Produsent
+        multivalued: true
+        inlined_as_list: true
+      statusar:
+        range: Status
+        multivalued: true
+        inlined_as_list: true
 
   # =========================================================================
   # ressurs.eiendel

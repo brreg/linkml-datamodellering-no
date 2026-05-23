@@ -1,0 +1,335 @@
+##
+## Referanseskjema — sølvnivå
+## Viser minstekrava for å bestå sølvpolicyen (bronze + DCAT-AP-NO + DQV-AP-NO).
+## Run: make mcp-validate SCHEMA=src/linkml/referanse/referanse-schema-silver.yaml POLICY=silver
+##
+
+id: https://example.org/linkml/referanse-silver
+name: referanse-schema-silver
+title: Referanseskjema – sølvnivå
+description: >-
+  Viser minstekrava for å bestå sølvpolicyen: alle bronse-krav pluss
+  DCAT-AP-NO og DQV-AP-NO-klassar med påkravde slots og containerklasse.
+version: "1.0.0"
+
+imports:
+  - linkml:types
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ex:    https://example.org/vocab/
+  dct:   http://purl.org/dc/terms/
+  dcat:  http://www.w3.org/ns/dcat#
+  foaf:  http://xmlns.com/foaf/0.1/
+  dqv:   http://www.w3.org/ns/dqv#
+
+default_prefix: https://example.org/linkml/referanse-silver/
+default_range: string
+
+subsets:
+  Obligatorisk: {}
+  Anbefalt: {}
+  Valgfri: {}
+
+classes:
+
+  # silver: container_katalog, container_datasett, container_kvalitetsmaal,
+  #         container_kvalitetsmaaling → error
+  # silver: container_distribusjon, container_datatjeneste,
+  #         container_kvalitetsdimensjon, container_kvalitetsmerknad → warning
+  Containerklasse:
+    description: Toppnivåobjekt for datafila — samlar alle AP-NO- og DQV-AP-NO-entitetar.
+    tree_root: true
+    attributes:
+      katalogar:
+        range: Katalog
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      katalogpostar:
+        range: Katalogpost
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      datasett:
+        range: Datasett
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      distribusjoner:
+        range: Distribusjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      datatenestar:
+        range: Datatjeneste
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      aktørar:
+        range: Aktør
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmaal:
+        range: Kvalitetsmaal
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmaalingar:
+        range: Kvalitetsmaaling
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsdimensjonar:
+        range: Kvalitetsdimensjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kvalitetsmerknader:
+        range: Kvalitetsmerknad
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+
+  # silver: katalog_tittel, katalog_beskrivelse, katalog_kontaktpunkt,
+  #         katalog_utgiver → error (class_has_slot_with_uri)
+  Katalog:
+    description: Samling av datasett, datatenestar og distribusjonar.
+    class_uri: dcat:Catalog
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - skildring
+      - kontaktpunkt
+      - utgjevar
+    slot_usage:
+      tittel:
+        required: true
+        in_subset: [Obligatorisk]
+      skildring:
+        required: true
+        in_subset: [Obligatorisk]
+      kontaktpunkt:
+        required: true
+        in_subset: [Obligatorisk]
+      utgjevar:
+        required: true
+        in_subset: [Obligatorisk]
+
+  # silver: katalogpost_endringsdato, katalogpost_primaertema → error
+  Katalogpost:
+    description: Oppføring i ein katalog som skildrar ein ressurs.
+    class_uri: dcat:CatalogRecord
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - endringsdato
+      - primaertema
+    slot_usage:
+      endringsdato:
+        required: true
+        in_subset: [Obligatorisk]
+      primaertema:
+        required: true
+        in_subset: [Obligatorisk]
+
+  # silver: datasett_tittel, datasett_beskrivelse, datasett_kontaktpunkt,
+  #         datasett_utgiver, datasett_tema → error
+  Datasett:
+    description: Ei samling av data, utgitt eller kuratert av ei einskild kjelde.
+    class_uri: dcat:Dataset
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - skildring
+      - kontaktpunkt
+      - utgjevar
+      - tema
+    slot_usage:
+      tittel:
+        required: true
+        in_subset: [Obligatorisk]
+      skildring:
+        required: true
+        in_subset: [Obligatorisk]
+      kontaktpunkt:
+        required: true
+        in_subset: [Obligatorisk]
+      utgjevar:
+        required: true
+        in_subset: [Obligatorisk]
+      tema:
+        required: true
+        in_subset: [Obligatorisk]
+
+  # silver: distribusjon_tilgangsurl → error
+  Distribusjon:
+    description: Ei spesifikk representasjon av eit datasett.
+    class_uri: dcat:Distribution
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tilgangsurl
+    slot_usage:
+      tilgangsurl:
+        required: true
+        in_subset: [Obligatorisk]
+
+  # silver: datatjeneste_endepunktsurl, datatjeneste_kontaktpunkt,
+  #         datatjeneste_tittel, datatjeneste_utgiver → error
+  Datatjeneste:
+    description: Ei samling av operasjonar som gir tilgang til data via eit grensesnitt.
+    class_uri: dcat:DataService
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - kontaktpunkt
+      - utgjevar
+      - endepunktsurl
+    slot_usage:
+      tittel:
+        required: true
+        in_subset: [Obligatorisk]
+      kontaktpunkt:
+        required: true
+        in_subset: [Obligatorisk]
+      utgjevar:
+        required: true
+        in_subset: [Obligatorisk]
+      endepunktsurl:
+        required: true
+        in_subset: [Obligatorisk]
+
+  # silver: aktor_namn → error
+  Aktør:
+    description: Ein aktør (person, organisasjon eller programvaresystem).
+    class_uri: foaf:Agent
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - namn
+    slot_usage:
+      namn:
+        required: true
+        in_subset: [Obligatorisk]
+
+  # silver: container_kvalitetsmaal → error
+  Kvalitetsmaal:
+    description: Eit mål for å evaluere kvaliteten til ein ressurs.
+    class_uri: dqv:Metric
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+  # silver: container_kvalitetsmaaling → error
+  Kvalitetsmaaling:
+    description: Resultat av å evaluere eit datasett mot eit kvalitetsmål.
+    class_uri: dqv:QualityMeasurement
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+  # silver: container_kvalitetsdimensjon → warning
+  Kvalitetsdimensjon:
+    description: Ein kategori av kvalitetsegenskapar for data.
+    class_uri: dqv:Dimension
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+  # silver: container_kvalitetsmerknad → warning
+  Kvalitetsmerknad:
+    description: Ei kvalitetsvurdering av ein ressurs.
+    class_uri: dqv:QualityAnnotation
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+
+slots:
+
+  # bronze: identifier: true → all_classes_have_identifier
+  id:
+    description: Unik URI-identifikator.
+    identifier: true
+    range: uriorcurie
+    slot_uri: dct:identifier
+
+  # Delt slot — Katalog, Datasett, Datatjeneste: silver katalog_tittel,
+  #   datasett_tittel, datatjeneste_tittel (dct:title)
+  tittel:
+    description: Namn eller tittel.
+    slot_uri: dct:title
+    range: string
+
+  # Delt slot — Katalog, Datasett: silver katalog_beskrivelse,
+  #   datasett_beskrivelse (dct:description)
+  skildring:
+    description: Kortfatta skildring.
+    slot_uri: dct:description
+    range: string
+
+  # Delt slot — Katalog, Datasett, Datatjeneste: silver katalog_kontaktpunkt,
+  #   datasett_kontaktpunkt, datatjeneste_kontaktpunkt (dcat:contactPoint)
+  kontaktpunkt:
+    description: Kontaktinformasjon for ressursen.
+    slot_uri: dcat:contactPoint
+    range: uriorcurie
+
+  # Delt slot — Katalog, Datasett, Datatjeneste: silver katalog_utgiver,
+  #   datasett_utgiver, datatjeneste_utgiver (dct:publisher)
+  utgjevar:
+    description: Organisasjon ansvarleg for ressursen.
+    slot_uri: dct:publisher
+    range: uriorcurie
+
+  # Katalogpost: silver katalogpost_endringsdato (dct:modified)
+  endringsdato:
+    description: Dato for siste endring.
+    slot_uri: dct:modified
+    range: date
+
+  # Katalogpost: silver katalogpost_primaertema (foaf:primaryTopic)
+  primaertema:
+    description: Ressursen som katalogposten omhandlar.
+    slot_uri: foaf:primaryTopic
+    range: uriorcurie
+
+  # Datasett: silver datasett_tema (dcat:theme)
+  tema:
+    description: Hovudkategori for datasettet.
+    slot_uri: dcat:theme
+    range: uriorcurie
+
+  # Distribusjon: silver distribusjon_tilgangsurl (dcat:accessURL)
+  tilgangsurl:
+    description: URL for å få tilgang til datasettet.
+    slot_uri: dcat:accessURL
+    range: uriorcurie
+
+  # Datatjeneste: silver datatjeneste_endepunktsurl (dcat:endpointURL)
+  endepunktsurl:
+    description: URL til rotplasseringa av endepunktet.
+    slot_uri: dcat:endpointURL
+    range: uriorcurie
+
+  # Aktør: silver aktor_namn (foaf:name)
+  namn:
+    description: Namn på aktøren.
+    slot_uri: foaf:name
+    range: string
+
+  # Containerslots — silver container_has_class-sjekkar (error/warning)

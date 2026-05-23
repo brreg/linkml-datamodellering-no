@@ -205,16 +205,20 @@ def _check_all_classes_have_identifier(sv, schema, config, issues):
 
 
 def _check_all_classes_have_concept_ref(sv, schema, config, issues):
-    catalog_uri = config.get("concept_catalog_uri", "https://data.norge.no/concepts")
+    catalog_uri = config.get("concept_catalog_uri",
+                             "https://concept-catalog.fellesdatakatalog.digdir.no/collections")
     code = "all_classes_have_concept_ref"
-    prefix = catalog_uri.rstrip("/") + "/"
+    # Primærformat + bakoverkompatibelt format (data.norge.no/concepts/ er eit alias som framleis er i bruk)
+    accepted_prefixes = [catalog_uri.rstrip("/") + "/"]
+    for extra in config.get("concept_catalog_uri_also_accept", []):
+        accepted_prefixes.append(extra.rstrip("/") + "/")
     for cname, cls in (schema.classes or {}).items():
         if cls.tree_root:
             continue
         ann = cls.annotations or {}
         begrep = ann.get("begrepsidentifikator")
         begrep_val = str(begrep.value if hasattr(begrep, "value") else begrep or "")
-        if begrep_val.startswith(prefix):
+        if any(begrep_val.startswith(p) for p in accepted_prefixes):
             continue
         issues.append(issue(
             config["severity"], code, f"class:{cname}",
@@ -286,6 +290,10 @@ def _check_container_has_class(sv, schema, config, issues):
         for attr in (container_cls.attributes or {}).values()
         if attr.range
     }
+    for slot_name in (container_cls.slots or []):
+        slot = sv.get_slot(slot_name)
+        if slot and slot.range:
+            container_ranges.add(str(slot.range))
     if target_class not in container_ranges:
         severity = config["severity"]
         code = "container_missing_required_class" if severity == "error" else "container_missing_recommended_class"

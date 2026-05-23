@@ -26,192 +26,6 @@ slots:
 
   # --- ArkivContainer-lister ------------------------------------------------
 
-  arkivdelar:
-    slot_uri: ark:arkivdelar
-    range: Arkivdel
-    multivalued: true
-    inlined_as_list: true
-
-  arkivressursar:
-    slot_uri: ark:arkivressursar
-    range: Arkivressurs
-    multivalued: true
-    inlined_as_list: true
-
-  autorisasjonar:
-    slot_uri: ark:autorisasjonar
-    range: Autorisasjon
-    multivalued: true
-    inlined_as_list: true
-
-  administrativeEiningar:
-    slot_uri: ark:administrativeEiningar
-    range: AdministrativEnhet
-    multivalued: true
-    inlined_as_list: true
-
-  dokumentfiler:
-    slot_uri: ark:dokumentfiler
-    range: Dokumentfil
-    multivalued: true
-    inlined_as_list: true
-
-  dokumentbeskrivelsar:
-    slot_uri: ark:dokumentbeskrivelsar
-    range: Dokumentbeskrivelse
-    multivalued: true
-    inlined_as_list: true
-
-  journalpostar:
-    slot_uri: ark:journalpostar
-    range: Journalpost
-    multivalued: true
-    inlined_as_list: true
-
-  tilgangar:
-    slot_uri: ark:tilgangar
-    range: Tilgang
-    multivalued: true
-    inlined_as_list: true
-
-  sakar:
-    slot_uri: ark:sakar
-    range: Sak
-    multivalued: true
-    inlined_as_list: true
-
-  personalmappe_liste:
-    slot_uri: ark:personalmappe
-    range: Personalmappe
-    multivalued: true
-    inlined_as_list: true
-
-  dispensasjonAutomatiskFredaKulturminne_liste:
-    slot_uri: ark:dispensasjonAutomatiskFredaKulturminne
-    range: DispensasjonAutomatiskFredaKulturminne
-    multivalued: true
-    inlined_as_list: true
-
-  tilskuddFartoy_liste:
-    slot_uri: ark:tilskuddFartoy
-    range: TilskuddFartoy
-    multivalued: true
-    inlined_as_list: true
-
-  tilskuddFredaBygningPrivatEie_liste:
-    slot_uri: ark:tilskuddFredaBygningPrivatEie
-    range: TilskuddFredaBygningPrivatEie
-    multivalued: true
-    inlined_as_list: true
-
-  soeknadDrosjeloeyve_liste:
-    slot_uri: ark:soeknadDrosjeloeyve
-    range: SoeknadDrosjeloeyve
-    multivalued: true
-    inlined_as_list: true
-
-  dokumentstatuskodar:
-    slot_uri: ark:dokumentstatuskodar
-    range: DokumentStatus
-    multivalued: true
-    inlined_as_list: true
-
-  dokumenttypar:
-    slot_uri: ark:dokumenttypar
-    range: DokumentType
-    multivalued: true
-    inlined_as_list: true
-
-  formatar:
-    slot_uri: ark:formatar
-    range: Format
-    multivalued: true
-    inlined_as_list: true
-
-  journalposttypar:
-    slot_uri: ark:journalposttypar
-    range: JournalpostType
-    multivalued: true
-    inlined_as_list: true
-
-  journalstatuskodar:
-    slot_uri: ark:journalstatuskodar
-    range: JournalStatus
-    multivalued: true
-    inlined_as_list: true
-
-  klassifikasjonstypar:
-    slot_uri: ark:klassifikasjonstypar
-    range: Klassifikasjonstype
-    multivalued: true
-    inlined_as_list: true
-
-  korrespondanseparttypar:
-    slot_uri: ark:korrespondanseparttypar
-    range: KorrespondansepartType
-    multivalued: true
-    inlined_as_list: true
-
-  merknadstypar:
-    slot_uri: ark:merknadstypar
-    range: Merknadstype
-    multivalued: true
-    inlined_as_list: true
-
-  partRollar:
-    slot_uri: ark:partRollar
-    range: PartRolle
-    multivalued: true
-    inlined_as_list: true
-
-  rollar:
-    slot_uri: ark:rollar
-    range: Rolle
-    multivalued: true
-    inlined_as_list: true
-
-  saksmappetypar:
-    slot_uri: ark:saksmappetypar
-    range: Saksmappetype
-    multivalued: true
-    inlined_as_list: true
-
-  sakstatuskodar:
-    slot_uri: ark:sakstatuskodar
-    range: Saksstatus
-    multivalued: true
-    inlined_as_list: true
-
-  skjermingsheimlar:
-    slot_uri: ark:skjermingsheimlar
-    range: Skjermingshjemmel
-    multivalued: true
-    inlined_as_list: true
-
-  tilgangsgrupper:
-    slot_uri: ark:tilgangsgrupper
-    range: Tilgangsgruppe
-    multivalued: true
-    inlined_as_list: true
-
-  tilgangsrestriksjonar:
-    slot_uri: ark:tilgangsrestriksjonar
-    range: Tilgangsrestriksjon
-    multivalued: true
-    inlined_as_list: true
-
-  tilknyttetRegistreringSomKodar:
-    slot_uri: ark:tilknyttetRegistreringSomKodar
-    range: TilknyttetRegistreringSom
-    multivalued: true
-    inlined_as_list: true
-
-  variantformatar:
-    slot_uri: ark:variantformatar
-    range: Variantformat
-    multivalued: true
-    inlined_as_list: true
-
   # --- Felles ark-slots (delt mellom fleire klasser) ------------------------
 
   tittel:
@@ -826,44 +640,138 @@ classes:
   ArkivContainer:
     tree_root: true
     description: Rotcontainer for FINT Arkiv-instansar.
-    slots:
+    attributes:
       # arkiv.noark - Hauptklassar
-      - arkivdelar
-      - arkivressursar
-      - autorisasjonar
-      - administrativeEiningar
-      - dokumentfiler
-      - dokumentbeskrivelsar
-      - journalpostar
-      - klassifikasjonssystem
-      - tilgangar
-      - sakar
+      arkivdelar:
+        range: Arkivdel
+        multivalued: true
+        inlined_as_list: true
+      arkivressursar:
+        range: Arkivressurs
+        multivalued: true
+        inlined_as_list: true
+      autorisasjonar:
+        range: Autorisasjon
+        multivalued: true
+        inlined_as_list: true
+      administrativeEiningar:
+        range: AdministrativEnhet
+        multivalued: true
+        inlined_as_list: true
+      dokumentfiler:
+        range: Dokumentfil
+        multivalued: true
+        inlined_as_list: true
+      dokumentbeskrivelsar:
+        range: Dokumentbeskrivelse
+        multivalued: true
+        inlined_as_list: true
+      journalpostar:
+        range: Journalpost
+        multivalued: true
+        inlined_as_list: true
+      klassifikasjonssystem:
+        range: Klassifikasjonssystem
+      tilgangar:
+        range: Tilgang
+        multivalued: true
+        inlined_as_list: true
+      sakar:
+        range: Sak
+        multivalued: true
+        inlined_as_list: true
       # arkiv.personal
-      - personalmappe_liste
+      personalmappe_liste:
+        range: Personalmappe
+        multivalued: true
+        inlined_as_list: true
       # arkiv.kulturminnevern
-      - dispensasjonAutomatiskFredaKulturminne_liste
-      - tilskuddFartoy_liste
-      - tilskuddFredaBygningPrivatEie_liste
+      dispensasjonAutomatiskFredaKulturminne_liste:
+        range: DispensasjonAutomatiskFredaKulturminne
+        multivalued: true
+        inlined_as_list: true
+      tilskuddFartoy_liste:
+        range: TilskuddFartoy
+        multivalued: true
+        inlined_as_list: true
+      tilskuddFredaBygningPrivatEie_liste:
+        range: TilskuddFredaBygningPrivatEie
+        multivalued: true
+        inlined_as_list: true
       # arkiv.samferdsel
-      - soeknadDrosjeloeyve_liste
+      soeknadDrosjeloeyve_liste:
+        range: SoeknadDrosjeloeyve
+        multivalued: true
+        inlined_as_list: true
       # arkiv.kodeverk
-      - dokumentstatuskodar
-      - dokumenttypar
-      - formatar
-      - journalposttypar
-      - journalstatuskodar
-      - klassifikasjonstypar
-      - korrespondanseparttypar
-      - merknadstypar
-      - partRollar
-      - rollar
-      - saksmappetypar
-      - sakstatuskodar
-      - skjermingsheimlar
-      - tilgangsgrupper
-      - tilgangsrestriksjonar
-      - tilknyttetRegistreringSomKodar
-      - variantformatar
+      dokumentstatuskodar:
+        range: DokumentStatus
+        multivalued: true
+        inlined_as_list: true
+      dokumenttypar:
+        range: DokumentType
+        multivalued: true
+        inlined_as_list: true
+      formatar:
+        range: Format
+        multivalued: true
+        inlined_as_list: true
+      journalposttypar:
+        range: JournalpostType
+        multivalued: true
+        inlined_as_list: true
+      journalstatuskodar:
+        range: JournalStatus
+        multivalued: true
+        inlined_as_list: true
+      klassifikasjonstypar:
+        range: Klassifikasjonstype
+        multivalued: true
+        inlined_as_list: true
+      korrespondanseparttypar:
+        range: KorrespondansepartType
+        multivalued: true
+        inlined_as_list: true
+      merknadstypar:
+        range: Merknadstype
+        multivalued: true
+        inlined_as_list: true
+      partRollar:
+        range: PartRolle
+        multivalued: true
+        inlined_as_list: true
+      rollar:
+        range: Rolle
+        multivalued: true
+        inlined_as_list: true
+      saksmappetypar:
+        range: Saksmappetype
+        multivalued: true
+        inlined_as_list: true
+      sakstatuskodar:
+        range: Saksstatus
+        multivalued: true
+        inlined_as_list: true
+      skjermingsheimlar:
+        range: Skjermingshjemmel
+        multivalued: true
+        inlined_as_list: true
+      tilgangsgrupper:
+        range: Tilgangsgruppe
+        multivalued: true
+        inlined_as_list: true
+      tilgangsrestriksjonar:
+        range: Tilgangsrestriksjon
+        multivalued: true
+        inlined_as_list: true
+      tilknyttetRegistreringSomKodar:
+        range: TilknyttetRegistreringSom
+        multivalued: true
+        inlined_as_list: true
+      variantformatar:
+        range: Variantformat
+        multivalued: true
+        inlined_as_list: true
     slot_usage:
       klassifikasjonssystem:
         multivalued: true

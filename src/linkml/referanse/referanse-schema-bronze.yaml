@@ -1,0 +1,87 @@
+##
+## Referanseskjema — bronsjenivå
+## Viser minstekrava for å bestå bronsepolicyen.
+## Run: make mcp-validate SCHEMA=src/linkml/referanse/referanse-schema-bronze.yaml POLICY=bronze
+##
+
+id: https://example.org/linkml/referanse-bronze
+name: referanse-schema-bronze
+title: Referanseskjema – bronsjenivå
+description: >-
+  Viser minstekrava for å bestå bronsepolicyen: HTTP(S)-id, schema-metadata
+  (title, version), class_uri, identifier-slot, slot_uri og begrepsidentifikator
+  på riktig format.
+version: "1.0.0"
+
+imports:
+  - linkml:types
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+  ex:    https://example.org/vocab/
+  dct:   http://purl.org/dc/terms/
+
+default_prefix: https://example.org/linkml/referanse-bronze/
+default_range: string
+
+subsets:
+  Obligatorisk: {}
+  Anbefalt: {}
+  Valgfri: {}
+
+classes:
+
+  # bronze: tree_root-containerklasse er unntatt frå class_uri-kravet (all_classes_have_class_uri)
+  Katalog:
+    description: Toppnivåobjekt for datafila.
+    tree_root: true
+    attributes:
+      ressursar:
+        range: Ressurs
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+
+  # bronze — alle fire krav for domenemodellklassar:
+  #   class_uri       → all_classes_have_class_uri (warning)
+  #   description     → missing_recommended_metadata (warning)
+  #   begrepsidentifikator → all_classes_have_concept_ref (warning)
+  #   id-slot         → all_classes_have_identifier (warning)
+  Ressurs:
+    description: Ein generisk ressurs med tittel og skildring.
+    class_uri: dct:BibliographicResource
+    annotations:
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
+    slots:
+      - id
+      - tittel
+      - skildring
+    slot_usage:
+      tittel:
+        required: true
+        in_subset: [Obligatorisk]
+      skildring:
+        in_subset: [Anbefalt]
+
+slots:
+
+  # bronze: identifier: true → all_classes_have_identifier (warning)
+  id:
+    description: Unik URI-identifikator for ressursen.
+    identifier: true
+    range: uriorcurie
+    slot_uri: dct:identifier
+
+  # bronze: slot_uri → all_slots_have_slot_uri (warning)
+  # bronze: description → missing_recommended_metadata (warning)
+  tittel:
+    description: Namn eller tittel på ressursen.
+    slot_uri: dct:title
+    range: string
+
+  skildring:
+    description: Kortfatta skildring av ressursen.
+    slot_uri: dct:description
+    range: string
+
+  # bronze: containerslot treng òg slot_uri (all_slots_have_slot_uri)

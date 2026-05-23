@@ -61,7 +61,7 @@ checks:
     description: >
       Alle klasser (unntatt tree_root) bør ha annotations.begrepsidentifikator
       som peikar på eit begrep i Felles begrepskatalog på forma
-      https://data.norge.no/concepts/<collection-id>/<concept-id>.
+      https://concept-catalog.fellesdatakatalog.digdir.no/collections/<collection-id>/concepts/<concept-id>.
       Sikrar omgrepsforankring og semantisk interoperabilitet.
     check: all_classes_have_concept_ref
-    concept_catalog_uri: https://data.norge.no/concepts
+    concept_catalog_uri: https://concept-catalog.fellesdatakatalog.digdir.no/collections
