@@ -115,10 +115,10 @@ jobs:
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
 
-      - uses: ./.github/actions/gen-${{ matrix.artifact }}
+      - name: Generer ${{ matrix.artifact }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          schema: ${{ matrix.schema }}
+        shell: bash
+        run: make schema-gen-${{ matrix.artifact }} SCHEMA=${{ matrix.schema }}
 
       - uses: actions/upload-artifact@v4
         with:
