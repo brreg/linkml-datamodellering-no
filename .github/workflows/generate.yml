@@ -126,8 +126,27 @@ jobs:
           path: generated/${{ matrix.domain }}/
           key: generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile') }}
 
-      - uses: ./.github/actions/load-images
+      - name: Gjenopprett linkml-local frå cache
         if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: actions/cache/restore@v5
+        with:
+          path: linkml-local.tar.zst
+          key: linkml-local-${{ hashFiles('src/assets/containers/Dockerfile.linkml') }}
+          fail-on-cache-miss: true
+
+      - name: Gjenopprett python-pytest frå cache
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        uses: actions/cache/restore@v5
+        with:
+          path: python-pytest.tar.zst
+          key: python-pytest-${{ hashFiles('src/assets/containers/Dockerfile.python', 'src/assets/containers/requirements-python-test.txt') }}
+          fail-on-cache-miss: true
+
+      - name: Last images inn i podman
+        if: steps.cache-generated.outputs.cache-hit != 'true'
+        run: |
+          podman load < <(zstd -d -c linkml-local.tar.zst)
+          podman load < <(zstd -d -c python-pytest.tar.zst)
 
       - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'

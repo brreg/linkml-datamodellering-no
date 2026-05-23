@@ -96,8 +96,16 @@ jobs:
           path: .validated-${{ matrix.domain }}
           key: validated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain), format('examples/{0}/**', matrix.domain), 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml') }}
 
-      - uses: ./.github/actions/load-validator
+      - name: Logg inn på GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Hent validator-image frå GHCR
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: |
+          IMAGE=ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ hashFiles('src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt') }}
+          podman pull "$IMAGE"
+          podman tag "$IMAGE" mcp-linkml-validator:latest
 
       - name: Valider mot bronze-policy
         if: steps.cache-validated.outputs.cache-hit != 'true'
