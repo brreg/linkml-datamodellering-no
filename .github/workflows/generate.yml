@@ -95,6 +95,15 @@ jobs:
         run: |
           matrix=$(python3 .github/scripts/build-generate-matrix.py)
           echo "matrix=$matrix" >> $GITHUB_OUTPUT
+      - name: Last opp kjeldekode som artefakt
+        uses: actions/upload-artifact@v7
+        with:
+          name: source-code
+          path: |
+            .
+            !.git/
+          retention-days: 1
+          include-hidden-files: true
 
   generate:
     name: "${{ matrix.artifact }} / ${{ matrix.domain }} / ${{ matrix.model }}"
@@ -109,7 +118,11 @@ jobs:
       fail-fast: false
       max-parallel: 10
     steps:
-      - uses: actions/checkout@v6
+      - name: Last ned kjeldekode
+        uses: actions/download-artifact@v8
+        with:
+          name: source-code
+          path: .
 
       - name: Cache genererte artefaktar (${{ matrix.model }}-${{ matrix.artifact }})
         id: cache-generated
@@ -127,6 +140,7 @@ jobs:
         run: make schema-gen-${{ matrix.artifact }} SCHEMA=${{ matrix.schema }}
 
       - uses: actions/upload-artifact@v7
+        if: matrix.artifact != 'linkml'
         with:
           name: generated-${{ matrix.domain }}-${{ matrix.model }}-${{ matrix.artifact }}
           path: generated/${{ matrix.domain }}/${{ matrix.model }}/
