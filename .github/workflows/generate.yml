@@ -13,6 +13,9 @@ on:
       - 'mkdocs/**'
       - 'README.md'
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
 
   ensure-images:
@@ -102,6 +105,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix) }}
       fail-fast: false
+      max-parallel: 30
     steps:
       - uses: actions/checkout@v6
 
@@ -120,7 +124,7 @@ jobs:
         shell: bash
         run: make schema-gen-${{ matrix.artifact }} SCHEMA=${{ matrix.schema }}
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: generated-${{ matrix.domain }}-${{ matrix.model }}-${{ matrix.artifact }}
           path: generated/${{ matrix.domain }}/${{ matrix.model }}/
@@ -140,7 +144,7 @@ jobs:
       - uses: actions/checkout@v6
 
       - name: Last ned alle genererte artefaktar
-        uses: actions/download-artifact@v4
+        uses: actions/download-artifact@v8
         with:
           pattern: generated-*
           path: generated/
