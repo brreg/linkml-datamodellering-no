@@ -41,10 +41,12 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLIC
 Standard modelleringsspråk er **norsk bokmål** — klasse- og slotnavn, beskrivelser og kommentarer skrives på bokmål. Unntaket er tekniske begreper som er fastsatt i en spesifikasjon (f.eks. `dcat:Dataset` → `Datasett`).
 
 ### Slots, ikke attributes
-Alle egenskaper modelleres som globale slots under `slots:` på toppnivå i skjemaet — aldri som `attributes:` inne i en klasse. Klasser refererer til slots via `slots:`-listen. Klassespesifikke innskrenkninger (`required`, `in_subset` o.l.) legges i `slot_usage` på klassen.
+Alle domenemodellklassar modellerer eigenskapane sine som globale slots under `slots:` på toppnivå i skjemaet. Klasser refererer til slots via `slots:`-lista. Klassespesifikke innskrenkingar (`required`, `in_subset` o.l.) ligg i `slot_usage`.
+
+**Unntaket er containerklassen** (`tree_root: true`): her skal kvar klasse-referanse modellerast som eit inline `attribute` direkte under containerklassen — ikkje som ein global slot. Containerklassen er eit serialiseringsankerpunkt, ikkje ein semantisk klasse, og attributtane hennar treng ikkje `slot_uri`.
 
 ```yaml
-# Riktig
+# Riktig — domeneklasse brukar globale slots
 slots:
   tittel:
     slot_uri: dct:title
@@ -58,14 +60,33 @@ classes:
       tittel:
         required: true
 
-# Feil
+# Riktig — containerklassen brukar attributes
+classes:
+  Containerklasse:
+    tree_root: true
+    attributes:
+      datasett:
+        range: Datasett
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+
+# Feil — domeneklasse brukar attributes
 classes:
   Datasett:
     attributes:
       tittel:
         slot_uri: dct:title
         range: string
-        required: true
+
+# Feil — containerklassen brukar globale slots
+slots:
+  datasett:
+    range: Datasett
+    slot_uri: ex:datasett
+    multivalued: true
+    inlined: true
+    inlined_as_list: true
 ```
 
 ### Lenking fremfor inlining
@@ -84,14 +105,26 @@ Alle klasser og slots har eksplisitt `class_uri` / `slot_uri` som mapper til de 
 `LangString` (type `rdf:langString`) brukes for alle egenskaper som er definert som `rdf:langString` i spesifikasjonen (tittel, beskrivelse, nøkkelord osv.).
 
 ### Containerklasse
-Alle toppnivå domenemodeller skal ha Containerklasse som har eit attributt for hver klasse som kan serialiseres i tilhørende datasettfil.
-Containerklassens attributter skrives alltid i flertallsform.
-Alle verdiområde/range for attributter må mappes til linkml klasser definert i skjema eller inkluderte skjema, eller linkml innebygde typar.
-Alle containerslots skal ha:
-    multivalued: true
-    inlined: true
-    inlined_as_list: true
-Alle ap-no modeller og fair modeller skal alltid inkluderes i en annen domenemodell, og skal derfor ikkje ha eigen Containerklasse.
+Alle toppnivå domenemodeller skal ha éin containerklasse med `tree_root: true`. Containerklassen er inngangspunktet for validering og serialisering.
+
+Containerklassen brukar **`attributes:`** (ikkje `slots:`) for å referere til kvar klasse som kan serialiserast i tilhøyrande datafil:
+
+```yaml
+Containerklasse:
+  tree_root: true
+  attributes:
+    datasett:          # attributtnamn i fleirtal
+      range: Datasett
+      multivalued: true
+      inlined: true
+      inlined_as_list: true
+```
+
+- Attributtnamna skrives alltid i **fleirtal** (t.d. `datasett`, `katalogar`, `aktørar`)
+- `range` må peike på ein klasse definert i skjemaet eller importerte skjema
+- Ingen `slot_uri` — containerattributtar er strukturelle, ikkje semantiske
+- Containerklassen treng ikkje `class_uri` (unntatt frå kravet per bronze-policy)
+- AP-NO-modellar og fair-modellar skal ikkje ha eigen containerklasse
 
 ### Endringer i koderepoet
 Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
