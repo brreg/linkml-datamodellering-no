@@ -70,6 +70,10 @@ for yaml_file in sorted(REPO.glob("src/linkml/*/*/generate.yaml")):
             val = cfg.get(field, True)
             if val is False:
                 continue
+        if artifact == "examples":
+            example_file = REPO / f"examples/{domain}/{model}-eksempel.yaml"
+            if not example_file.exists():
+                continue
         entries.append({
             "domain":    domain,
             "model":     model,

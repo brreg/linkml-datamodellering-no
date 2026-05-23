@@ -56,12 +56,18 @@ PYEOF
 # Policyar vert montert inn frå repoet slik at endringar tek effekt utan rebuild.
 echo "→ Validerer (policy: $POLICY) ..." >&2
 python3 -c "
-import json, sys, os
+import json, sys, os, yaml
 flat_path, policy, example_path = sys.argv[1], sys.argv[2], sys.argv[3]
 schema = open(flat_path).read()
 args = {'schemaText': schema, 'policy': policy}
 if os.path.isfile(example_path):
-    args['instanceText'] = open(example_path).read()
+    flat = yaml.safe_load(schema)
+    has_tree_root = any(
+        isinstance(cls, dict) and cls.get('tree_root')
+        for cls in (flat.get('classes') or {}).values()
+    )
+    if has_tree_root:
+        args['instanceText'] = open(example_path).read()
 msgs = [
     {'jsonrpc': '2.0', 'id': 1, 'method': 'initialize', 'params': {}},
     {'jsonrpc': '2.0', 'id': 2, 'method': 'tools/call', 'params': {

@@ -116,7 +116,7 @@ jobs:
     strategy:
       matrix: ${{ fromJson(needs.setup.outputs.matrix) }}
       fail-fast: false
-      max-parallel: 10
+      max-parallel: 30
     steps:
       - name: Last ned kjeldekode
         uses: actions/download-artifact@v8
@@ -143,7 +143,7 @@ jobs:
         if: matrix.artifact != 'linkml'
         with:
           name: generated-${{ matrix.domain }}-${{ matrix.model }}-${{ matrix.artifact }}
-          path: generated/${{ matrix.domain }}/${{ matrix.model }}/
+          path: generated/
           retention-days: 1
 
   publish:
