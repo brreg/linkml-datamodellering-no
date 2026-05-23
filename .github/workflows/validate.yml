@@ -53,170 +53,38 @@ jobs:
           podman tag mcp-linkml-validator "$IMAGE"
           podman push "$IMAGE"
 
-  validate-ap-no:
+  validate:
+    name: "validate / ${{ matrix.domain }}"
     needs: build-validator
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: read
+    strategy:
+      matrix:
+        domain: [ap-no, fair, fint, ngr, oreg, samt]
+      fail-fast: false
     steps:
       - uses: actions/checkout@v6
-      - name: Cache validering (ap-no)
-        id: cache-validated
-        uses: actions/cache@v5
-        with:
-          path: .validated-ap-no
-          key: validated-ap-no-${{ hashFiles('src/linkml/ap-no/**', 'examples/ap-no/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-validator
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/validate-bronze
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/validate-examples
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - name: Merk validering som vellykka
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: touch .validated-ap-no
 
-  validate-fair:
-    needs: build-validator
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache validering (fair)
+      - name: Cache validering (${{ matrix.domain }})
         id: cache-validated
         uses: actions/cache@v5
         with:
-          path: .validated-fair
-          key: validated-fair-${{ hashFiles('src/linkml/fair/**', 'examples/fair/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-validator
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/validate-bronze
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/validate-examples
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - name: Merk validering som vellykka
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: touch .validated-fair
+          path: .validated-${{ matrix.domain }}
+          key: validated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain), format('examples/{0}/**', matrix.domain), 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml') }}
 
-  validate-fint:
-    needs: build-validator
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache validering (fint)
-        id: cache-validated
-        uses: actions/cache@v5
-        with:
-          path: .validated-fint
-          key: validated-fint-${{ hashFiles('src/linkml/fint/**', 'examples/fint/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-validator
         if: steps.cache-validated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/validate-bronze
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/validate-examples
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - name: Merk validering som vellykka
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: touch .validated-fint
 
-  validate-ngr:
-    needs: build-validator
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache validering (ngr)
-        id: cache-validated
-        uses: actions/cache@v5
-        with:
-          path: .validated-ngr
-          key: validated-ngr-${{ hashFiles('src/linkml/ngr/**', 'examples/ngr/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-validator
+      - name: Valider mot bronze-policy
         if: steps.cache-validated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/validate-bronze
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/validate-examples
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - name: Merk validering som vellykka
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: touch .validated-ngr
+        run: make domain-validate-bronze DOMAIN=${{ matrix.domain }}
 
-  validate-oreg:
-    needs: build-validator
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache validering (oreg)
-        id: cache-validated
-        uses: actions/cache@v5
-        with:
-          path: .validated-oreg
-          key: validated-oreg-${{ hashFiles('src/linkml/oreg/**', 'examples/oreg/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-validator
+      - name: Valider eksempelfiler mot skjema
         if: steps.cache-validated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/validate-bronze
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/validate-examples
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - name: Merk validering som vellykka
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: touch .validated-oreg
+        run: make domain-validate-examples DOMAIN=${{ matrix.domain }}
 
-  validate-samt:
-    needs: build-validator
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache validering (samt)
-        id: cache-validated
-        uses: actions/cache@v5
-        with:
-          path: .validated-samt
-          key: validated-samt-${{ hashFiles('src/linkml/samt/**', 'examples/samt/**', 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-validator
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/validate-bronze
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/validate-examples
-        if: steps.cache-validated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
       - name: Merk validering som vellykka
         if: steps.cache-validated.outputs.cache-hit != 'true'
-        run: touch .validated-samt
+        run: touch .validated-${{ matrix.domain }}

@@ -82,67 +82,41 @@ jobs:
           podman tag localhost/python-pytest:latest "$IMAGE"
           podman push "$IMAGE"
 
-  setup:
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-    outputs:
-      matrix: ${{ steps.build.outputs.matrix }}
-    steps:
-      - uses: actions/checkout@v6
-      - name: Bygg genererings-matrise
-        id: build
-        run: |
-          matrix=$(python3 .github/scripts/build-generate-matrix.py)
-          echo "matrix=$matrix" >> $GITHUB_OUTPUT
-      - name: Last opp kjeldekode som artefakt
-        uses: actions/upload-artifact@v7
-        with:
-          name: source-code
-          path: |
-            .
-            !.git/
-          retention-days: 1
-          include-hidden-files: true
-
   generate:
-    name: "${{ matrix.artifact }} / ${{ matrix.domain }} / ${{ matrix.model }}"
-    needs: [ensure-images, setup]
+    name: "generate / ${{ matrix.domain }}"
+    needs: [ensure-images]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
-      packages: read
       actions: write
     strategy:
-      matrix: ${{ fromJson(needs.setup.outputs.matrix) }}
+      matrix:
+        domain: [ap-no, fair, fint, ngr, oreg, samt]
       fail-fast: false
-      max-parallel: 30
     steps:
-      - name: Last ned kjeldekode
-        uses: actions/download-artifact@v8
-        with:
-          name: source-code
-          path: .
+      - uses: actions/checkout@v6
 
-      - name: Cache genererte artefaktar (${{ matrix.model }}-${{ matrix.artifact }})
+      - name: Cache genererte artefaktar (${{ matrix.domain }})
         id: cache-generated
         uses: actions/cache@v5
         with:
-          path: generated/${{ matrix.domain }}/${{ matrix.model }}/
-          key: generated-${{ matrix.domain }}-${{ matrix.model }}-${{ matrix.artifact }}-${{ matrix.deps_hash }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
+          path: generated/${{ matrix.domain }}/
+          key: generated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain)) }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile') }}
 
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
 
-      - name: Generer ${{ matrix.artifact }}
+      - name: Generer alle artefaktar for ${{ matrix.domain }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
-        run: make schema-gen-${{ matrix.artifact }} SCHEMA=${{ matrix.schema }}
+        run: |
+          for artifact in linkml context shapes python json-schema owl rdf erdiagram doc proto plantuml examples; do
+            make domain-gen-$artifact DOMAIN=${{ matrix.domain }}
+          done
 
       - uses: actions/upload-artifact@v7
-        if: matrix.artifact != 'linkml'
         with:
-          name: generated-${{ matrix.domain }}-${{ matrix.model }}-${{ matrix.artifact }}
+          name: generated-${{ matrix.domain }}
           path: generated/
           retention-days: 1
 
