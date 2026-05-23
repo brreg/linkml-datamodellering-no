@@ -37,8 +37,16 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLIC
 
 ## Modelleringsprinsipper
 
-### Modelleringsspråk
-Standard modelleringsspråk er **norsk bokmål** — klasse- og slotnavn, beskrivelser og kommentarer skrives på bokmål. Unntaket er tekniske begreper som er fastsatt i en spesifikasjon (f.eks. `dcat:Dataset` → `Datasett`).
+### Skriftspråk
+
+Repoet nyttar to skriftspråk med klart skilde domene:
+
+| Domene | Språk | Gjeld |
+|---|---|---|
+| Modellering | **Norsk bokmål** | Klassenamn, slotnamn, skildringar og kommentarar i `.yaml`-skjema |
+| Dokumentasjon | **Nynorsk** | README-filer, mkdocs-sider, spesifikasjonar i `specs/` |
+
+Bokmål i modellering følgjer terminologien i norske offentlege standardar (DCAT-AP-NO, SKOS-AP-NO m.fl.) som er skrivne på bokmål. Unntaket er tekniske omgrep fastsette i ein spesifikasjon (t.d. `dcat:Dataset` → `Datasett`).
 
 ### Slots, ikke attributes
 Alle domenemodellklassar modellerer eigenskapane sine som globale slots under `slots:` på toppnivå i skjemaet. Klasser refererer til slots via `slots:`-lista. Klassespesifikke innskrenkingar (`required`, `in_subset` o.l.) ligg i `slot_usage`.
