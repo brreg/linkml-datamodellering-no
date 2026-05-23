@@ -56,7 +56,7 @@ classes:
     description: Ein generisk ressurs med tittel, skildring og utgjevar.
     class_uri: dct:BibliographicResource
     annotations:
-      begrepsidentifikator: https://data.norge.no/concepts/TODO
+      begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/TODO/concepts/TODO
     slots:
       - id
       - tittel

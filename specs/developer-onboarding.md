@@ -209,3 +209,24 @@ Legg til hook-mal i `src/assets/hooks/pre-commit` og skriv installasjonsinstruks
 | 3 | Visuell artefaktoversikt | Lav | Medium |
 | 4 | `make check-prereqs` | Medium | Medium |
 | 5 | Pre-commit hook | Medium | Medium |
+
+---
+
+## Namngjeving-checkliste
+
+Bruk denne checklista ved oppretting av ny domenemodell:
+
+```
+Ny domenemodell — namngjeving-checkliste
+  □ Filnamn:            src/linkml/<domene>/<modell>/<modell>-schema.yaml
+  □ name:               <modell>  (same som filnamnet utan -schema.yaml, kebab-case)
+  □ id:                 https://data.norge.no/linkml/<modell>
+  □ default_prefix:     https://data.norge.no/linkml/<modell>/
+  □ Containerklasse:    <Domene>Container  (PascalCase)
+  □ Klassenamn:         PascalCase + norsk bokmål
+  □ Slotnamn:           snake_case + norsk bokmål  (FINT-unntak: camelCase)
+  □ Subsett:            Obligatorisk / Anbefalt / Valgfri
+  □ begrepsidentifikator: https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/<UUID>
+```
+
+Sjå `specs/namngjeving-konvensjonar.md` for fullstendig referanse med grunngjevingar og unntak.

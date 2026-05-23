@@ -132,3 +132,62 @@ Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppga
 
 ### Ny profil eller domenemodell
 Sjå `specs/ny-domenemodell.md` for steg-for-steg-rettleiing.
+
+## Namngjeving
+
+### Fil- og mappenamn
+
+Alle filer nyttar **`kebab-case`**, alltid norsk eller domene-etablert forkortning:
+
+```
+src/linkml/<domene>/<modell>/<modell>-schema.yaml
+examples/<domene>/<modell>-eksempel.yaml
+```
+
+### Schema-metadata
+
+| Felt | Konvensjon | Eksempel |
+|---|---|---|
+| `name` | `kebab-case`, same som filnamnet utan `-schema.yaml` | `ngr-adresse` |
+| `id` | Absolutt HTTPS-URL | `https://data.norge.no/linkml/ngr-adresse` |
+| `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata – Adresse` |
+| `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/linkml/ngr-adresse/` |
+| `version` | Semantisk versjonering i hermeteikn | `"1.0.0"` |
+
+### Slotnamn
+
+Hovudregel: **`snake_case`**, norsk bokmål (t.d. `kommunenummer_ref`, `adressenavn_tekst`).
+
+**Unntak — FINT-skjema:** arvar namgjeving frå FINT API-spesifikasjonen og brukar `camelCase`
+(t.d. `kildesystemId`, `rolleNavn`). Dette er eit bevisst val, ikkje ein feil.
+
+**`_ref`-suffiks i NGR:** referanse-slots som held ein URI til ein annan ressurs nyttar `_ref`-suffiks
+(t.d. `kommune_ref`, `adressenavn_ref`).
+
+### Standardprefix
+
+Desse W3C-aliasa skal alltid brukast slik — aldri andre alias for same namespace:
+
+| Prefix | Namespace |
+|---|---|
+| `dcat:` | `http://www.w3.org/ns/dcat#` |
+| `dct:` | `http://purl.org/dc/terms/` |
+| `foaf:` | `http://xmlns.com/foaf/0.1/` |
+| `skos:` | `http://www.w3.org/2004/02/skos/core#` |
+| `vcard:` | `http://www.w3.org/2006/vcard/ns#` |
+| `rdf:` | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |
+| `rdfs:` | `http://www.w3.org/2000/01/rdf-schema#` |
+| `owl:` | `http://www.w3.org/2002/07/owl#` |
+| `xsd:` | `http://www.w3.org/2001/XMLSchema#` |
+| `prov:` | `http://www.w3.org/ns/prov#` |
+| `linkml:` | `https://w3id.org/linkml/` |
+
+### `annotations.begrepsidentifikator`
+
+URI til begrepsdefinisjon i Felles begrepskatalog:
+
+```
+https://concept-catalog.fellesdatakatalog.digdir.no/collections/<UUID>/concepts/<UUID>
+```
+
+(`see_also:` nyttar legitimt `https://data.norge.no/concepts/<UUID>` — det er eit anna felt.)

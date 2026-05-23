@@ -1,5 +1,5 @@
 id: https://example.no/ontology/aksje-eierskap
-name: aksje_eierskap
+name: register-over-aksjeeiere
 title: Aksje- og eigarskapsmodell
 description: >
   LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar.
@@ -10,7 +10,7 @@ prefixes:
   aksje: https://example.no/ontology/aksje#
   schema: http://schema.org/
 
-default_prefix: aksje
+default_prefix: https://data.norge.no/linkml/register-over-aksjeeiere/
 default_range: string
 
 imports:
