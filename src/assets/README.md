@@ -1,3 +1,3 @@
 # ./src/assets
 
-Her har vi diverse kildekode brukt ifbm LinkML kommandoer.
+Her har vi diverse kjeldekode brukt i samband med LinkML-kommandoar.

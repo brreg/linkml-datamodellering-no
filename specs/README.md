@@ -1,3 +1,3 @@
 # ./specs
 
-Her dokumenterer vi større endringer i repoet vha endringsplaner generert av KI.
+Her dokumenterer vi større endringar i repoet ved hjelp av endringsplanar genererte av KI.

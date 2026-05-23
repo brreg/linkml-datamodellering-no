@@ -1,3 +1,3 @@
 # ./tests
 
-Her har vi all testkode og hjelpemidler for å kunne kjøre tester.
+Her har vi all testkode og hjelpemiddel for å kunne køyre testar.
