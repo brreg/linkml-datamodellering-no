@@ -79,434 +79,55 @@ jobs:
           podman tag localhost/python-pytest:latest "$IMAGE"
           podman push "$IMAGE"
 
-  generate-ap-no:
-    needs: ensure-images
+  setup:
     runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-      actions: write
+    outputs:
+      matrix: ${{ steps.build.outputs.matrix }}
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefakter (ap-no)
-        id: cache-generated
-        uses: actions/cache@v5
-        with:
-          path: generated/ap-no/
-          key: generated-ap-no-${{ hashFiles('src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-images
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/gen-linkml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-context
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-shapes
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-python
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-json-schema
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-owl
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-rdf
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-examples
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-doc
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-erdiagram
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-proto
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: ./.github/actions/gen-plantuml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ap-no
-      - uses: actions/upload-artifact@v4
-        with:
-          name: generated-ap-no
-          path: generated/
-          retention-days: 1
+      - name: Bygg genererings-matrise
+        id: build
+        run: |
+          matrix=$(python3 .github/scripts/build-generate-matrix.py)
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
 
-  generate-fair:
-    needs: ensure-images
+  generate:
+    name: "${{ matrix.artifact }} / ${{ matrix.domain }} / ${{ matrix.model }}"
+    needs: [ensure-images, setup]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
       packages: read
       actions: write
+    strategy:
+      matrix: ${{ fromJson(needs.setup.outputs.matrix) }}
+      fail-fast: false
     steps:
       - uses: actions/checkout@v6
-      - name: Cache genererte artefakter (fair)
-        id: cache-generated
-        uses: actions/cache@v5
-        with:
-          path: generated/fair/
-          key: generated-fair-${{ hashFiles('src/linkml/fair/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-images
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/gen-linkml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-context
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-shapes
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-python
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-json-schema
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-owl
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-rdf
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-examples
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-doc
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-erdiagram
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-proto
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: ./.github/actions/gen-plantuml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fair
-      - uses: actions/upload-artifact@v4
-        with:
-          name: generated-fair
-          path: generated/
-          retention-days: 1
 
-  generate-fint:
-    needs: ensure-images
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-      actions: write
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache genererte artefakter (fint)
+      - name: Cache genererte artefaktar (${{ matrix.model }}-${{ matrix.artifact }})
         id: cache-generated
         uses: actions/cache@v5
         with:
-          path: generated/fint/
-          key: generated-fint-${{ hashFiles('src/linkml/fint/**', 'src/linkml/ap-no/**', 'src/linkml/fair/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-images
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/gen-linkml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-context
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-shapes
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-python
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-json-schema
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-owl
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-rdf
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-examples
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-doc
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-erdiagram
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-proto
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: ./.github/actions/gen-plantuml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: fint
-      - uses: actions/upload-artifact@v4
-        with:
-          name: generated-fint
-          path: generated/
-          retention-days: 1
+          path: generated/${{ matrix.domain }}/${{ matrix.model }}/
+          key: generated-${{ matrix.domain }}-${{ matrix.model }}-${{ matrix.artifact }}-${{ matrix.deps_hash }}-infra-${{ hashFiles('src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
 
-  generate-ngr:
-    needs: ensure-images
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-      actions: write
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache genererte artefakter (ngr)
-        id: cache-generated
-        uses: actions/cache@v5
-        with:
-          path: generated/ngr/
-          key: generated-ngr-${{ hashFiles('src/linkml/ngr/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
       - uses: ./.github/actions/load-images
         if: steps.cache-generated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/gen-linkml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-context
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-shapes
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-python
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-json-schema
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-owl
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-rdf
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-examples
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-doc
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-erdiagram
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-proto
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: ./.github/actions/gen-plantuml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: ngr
-      - uses: actions/upload-artifact@v4
-        with:
-          name: generated-ngr
-          path: generated/
-          retention-days: 1
 
-  generate-oreg:
-    needs: ensure-images
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-      actions: write
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache genererte artefakter (oreg)
-        id: cache-generated
-        uses: actions/cache@v5
-        with:
-          path: generated/oreg/
-          key: generated-oreg-${{ hashFiles('src/linkml/oreg/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-images
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/gen-linkml
+      - uses: ./.github/actions/gen-${{ matrix.artifact }}
         if: steps.cache-generated.outputs.cache-hit != 'true'
         with:
-          domain: oreg
-      - uses: ./.github/actions/gen-context
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-shapes
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-python
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-json-schema
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-owl
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-rdf
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-examples
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-doc
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-erdiagram
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-proto
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: ./.github/actions/gen-plantuml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: oreg
-      - uses: actions/upload-artifact@v4
-        with:
-          name: generated-oreg
-          path: generated/
-          retention-days: 1
+          schema: ${{ matrix.schema }}
 
-  generate-samt:
-    needs: ensure-images
-    runs-on: ubuntu-22.04
-    permissions:
-      contents: read
-      packages: read
-      actions: write
-    steps:
-      - uses: actions/checkout@v6
-      - name: Cache genererte artefakter (samt)
-        id: cache-generated
-        uses: actions/cache@v5
-        with:
-          path: generated/samt/
-          key: generated-samt-${{ hashFiles('src/linkml/samt/**', 'src/linkml/ap-no/**', 'src/assets/containers/Dockerfile.linkml', 'src/templates/**', 'Makefile', '.github/workflows/generate.yml', '.github/actions/**') }}
-      - uses: ./.github/actions/load-images
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-      - uses: ./.github/actions/gen-linkml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-context
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-shapes
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-python
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-json-schema
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-owl
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-rdf
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-examples
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-doc
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-erdiagram
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-proto
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
-      - uses: ./.github/actions/gen-plantuml
-        if: steps.cache-generated.outputs.cache-hit != 'true'
-        with:
-          domain: samt
       - uses: actions/upload-artifact@v4
         with:
-          name: generated-samt
-          path: generated/
+          name: generated-${{ matrix.domain }}-${{ matrix.model }}-${{ matrix.artifact }}
+          path: generated/${{ matrix.domain }}/${{ matrix.model }}/
           retention-days: 1
 
   publish:
-    needs: [generate-ap-no, generate-fair, generate-fint, generate-ngr, generate-oreg, generate-samt]
+    needs: [generate]
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -518,7 +139,7 @@ jobs:
     steps:
       - uses: actions/checkout@v6
 
-      - name: Last ned alle genererte artefakter
+      - name: Last ned alle genererte artefaktar
         uses: actions/download-artifact@v4
         with:
           pattern: generated-*

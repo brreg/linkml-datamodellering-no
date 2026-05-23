@@ -134,6 +134,9 @@ LINKML_GEN_RUN   := podman run -i --rm \
         gen-proto gen-plantuml \
         domain-gen-proto domain-gen-plantuml \
         domain-validate-bronze domain-validate-examples \
+        schema-gen-linkml schema-gen-context schema-gen-shapes schema-gen-python \
+        schema-gen-json-schema schema-gen-owl schema-gen-rdf schema-gen-erdiagram \
+        schema-gen-doc schema-gen-proto schema-gen-plantuml schema-gen-examples \
         check-prereqs \
         gource-build gource-preview gource-video _gource-render
 
@@ -396,6 +399,68 @@ domain-gen-proto:
 
 domain-gen-plantuml:
 	$(call run_gen_plantuml,$(_schemas_$(DOMAIN)))
+
+# ---------------------------------------------------------------------------
+# Per-skjema-mål for CI — krev SCHEMA=<sti-til-skjema>
+# Eksempel: make schema-gen-shapes SCHEMA=src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml
+# ---------------------------------------------------------------------------
+
+schema-gen-linkml:
+	@echo "$(CLR_STEP)→ gen-linkml  $(SCHEMA)$(CLR_RST)"
+	$(LINKML_RUN) gen-linkml $(SCHEMA) > /dev/null
+
+schema-gen-context:
+	$(call run_gen,$(SCHEMA),gen-jsonld-context,context.jsonld)
+
+schema-gen-shapes:
+	$(call run_gen_shacl,$(SCHEMA))
+
+schema-gen-python:
+	$(call run_gen,$(SCHEMA),gen-python,model.py)
+
+schema-gen-json-schema:
+	$(call run_gen,$(SCHEMA),gen-json-schema,schema.json)
+
+schema-gen-owl:
+	$(call run_gen_owl,$(SCHEMA))
+
+schema-gen-rdf:
+	$(call run_gen_rdf,$(SCHEMA))
+
+schema-gen-erdiagram:
+	$(call run_gen_erdiagram,$(SCHEMA))
+
+schema-gen-doc:
+	$(call run_gen_doc,$(SCHEMA))
+
+schema-gen-proto:
+	$(call run_gen,$(SCHEMA),gen-proto,schema.proto)
+
+schema-gen-plantuml:
+	$(call run_gen_plantuml,$(SCHEMA))
+
+schema-gen-examples:
+	@domain=$(call schema_domain,$(SCHEMA)); \
+	name=$(call schema_name,$(SCHEMA)); \
+	example=examples/$$domain/$$name-eksempel.yaml; \
+	[ -f "$$example" ] || { echo "Ingen eksempelfil: $$example (hoppar over)"; exit 0; }; \
+	generate_yaml=$(dir $(SCHEMA))generate.yaml; \
+	if [ -f "$$generate_yaml" ] && grep -q "^  example_rdf: false" "$$generate_yaml"; then \
+		echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; exit 0; \
+	fi; \
+	mkdir -p $(GEN_DIR)/$$domain/$$name; \
+	if [ -f tests/fixtures/$$name-fixture.yaml ]; then \
+		schema_arg=tests/fixtures/$$name-fixture.yaml; \
+	else \
+		schema_arg=$(SCHEMA); \
+	fi; \
+	echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
+	$(LINKML_RUN) linkml-convert \
+		--schema $$schema_arg \
+		--output-format ttl \
+		--no-validate \
+		--output $(GEN_DIR)/$$domain/$$name/$$name-eksempel.ttl \
+		$$example
 
 domain-validate-bronze:
 	@set +e; \

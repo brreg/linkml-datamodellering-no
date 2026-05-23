@@ -7,9 +7,10 @@ Norske W3C-applikasjonsprofiler og offentlege domenemodeller i [LinkML-format](h
 Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld:
 
 * LinkML-modellar for norske W3C-applikasjonsprofiler og offentlege domenemodeller for gjenbruk.
-* mcp-linkml-generator og mcp-linkml-validator for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
-* LinkML-generatorar for å automatisk produsere artefakter i andre format frå LinkML-skjema.
-* Dokumentasjonsportal med oversikt over alle LinkML-skjema og genererte artefakter.
+* mcp-linkml-generator og mcp-linkml-validator [mcp servere](https://modelcontextprotocol.io/docs/getting-started/intro) for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
+* LinkML-generatorar for å produsere artefakter i andre format frå LinkML-skjema.
+* Github Actions (pipelines) for å automatisk generere, validere og publisere artefakter frå LinkML-skjema.
+* Github Pages dokumentasjonsportal med oversikt over alle LinkML-skjema og genererte artefakter.
 
 
 
