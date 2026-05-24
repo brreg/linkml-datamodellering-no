@@ -128,7 +128,7 @@ URI: [samtbuskole:Fylke](https://example.no/ontology/skole#Fylke)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [fylker](fylker.md) | range | [Fylke](fylke.md) |
+| [SamtBuContainer](samtbucontainer.md) | [fylker](fylker.md) | range | [Fylke](fylke.md) |
 
 
 
@@ -245,7 +245,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

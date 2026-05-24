@@ -9,7 +9,7 @@ _Global identifikator for instansen._
 
 
 
-URI: [aksje:identifikator](https://example.no/ontology/aksje#identifikator)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator](https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +20,6 @@ URI: [aksje:identifikator](https://example.no/ontology/aksje#identifikator)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 | [Aksjeselskap](aksjeselskap.md) | Selskap som utsteder aksjar og har aksjekapital |  no  |
 | [Aksjekapital](aksjekapital.md) | Den registrerte aksjekapitalen i eit aksjeselskap |  no  |
 | [Aksje](aksje.md) | Ei enkelt aksje utstedt av eit aksjeselskap |  no  |
@@ -49,7 +48,7 @@ URI: [aksje:identifikator](https://example.no/ontology/aksje#identifikator)
 | Property | Value |
 | --- | --- |
 | Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
-| Domain Of | [Containerklasse](containerklasse.md), [Aksjeselskap](aksjeselskap.md), [Aksjekapital](aksjekapital.md), [Aksje](aksje.md), [Aksjeklasse](aksjeklasse.md), [Aksjeeierrettighet](aksjeeierrettighet.md), [Aksjeeier](aksjeeier.md), [Eierposisjon](eierposisjon.md), [Aksjepost](aksjepost.md), [Utbytte](utbytte.md), [Utdeling](utdeling.md), [Eierskapstransaksjon](eierskapstransaksjon.md), [Aksjeoverdragelse](aksjeoverdragelse.md), [Vederlag](vederlag.md), [Selskapshendelse](selskapshendelse.md), [Aksjeinnskudd](aksjeinnskudd.md) |
+| Domain Of | [Aksjeselskap](aksjeselskap.md), [Aksjekapital](aksjekapital.md), [Aksje](aksje.md), [Aksjeklasse](aksjeklasse.md), [Aksjeeierrettighet](aksjeeierrettighet.md), [Aksjeeier](aksjeeier.md), [Eierposisjon](eierposisjon.md), [Aksjepost](aksjepost.md), [Utbytte](utbytte.md), [Utdeling](utdeling.md), [Eierskapstransaksjon](eierskapstransaksjon.md), [Aksjeoverdragelse](aksjeoverdragelse.md), [Vederlag](vederlag.md), [Selskapshendelse](selskapshendelse.md), [Aksjeinnskudd](aksjeinnskudd.md) |
 
 ### Cardinality and Requirements
 
@@ -91,8 +90,8 @@ URI: [aksje:identifikator](https://example.no/ontology/aksje#identifikator)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:identifikator |
-| native | aksje:identifikator |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator |
 
 
 
@@ -107,7 +106,6 @@ from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
 identifier: true
 domain_of:
-- Containerklasse
 - Aksjeselskap
 - Aksjekapital
 - Aksje

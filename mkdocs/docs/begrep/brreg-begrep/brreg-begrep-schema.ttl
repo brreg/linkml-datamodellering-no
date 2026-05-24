@@ -1,0 +1,2301 @@
+@prefix OIO: <http://www.geneontology.org/formats/oboInOwl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix linkml: <https://w3id.org/linkml/> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.norge.no/linkml/brreg-begrep/brreg-begrep> a linkml:SchemaDefinition ;
+    dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
+    dcterms:title "Registerenheten i Brønnøysund – Begrepskatalog" ;
+    pav:version "1.0.0" ;
+    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ] ;
+    linkml:classes <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/BegrepContainer>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrepssamling>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Konsept>,
+        <https://data.norge.no/linkml/brreg-begrep/Mediatype>,
+        <https://data.norge.no/linkml/brreg-begrep/Organisasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling>,
+        <https://data.norge.no/linkml/brreg-begrep/VCardKontakt> ;
+    linkml:default_prefix "https://data.norge.no/linkml/brreg-begrep/" ;
+    linkml:default_range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:description "Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog." ;
+    linkml:generation_date "2026-05-24T08:20:25"^^xsd:dateTime ;
+    linkml:id "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    linkml:imports "../../ap-no/common/common-ap-no-schema"^^xsd:anyURI,
+        "../../ap-no/skos-ap-no/skos-ap-no-schema"^^xsd:anyURI,
+        "linkml:types"^^xsd:anyURI ;
+    linkml:metamodel_version "1.11.0" ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon_relasjontype>,
+        <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon_til_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_anbefalt_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_ansvarleg_verksemd>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_assosiert_med>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_datastruktur_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_eksempel>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_endringsdato>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_del_av_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_erstatta_av>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_fra_omgrep_i>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_medlem_av>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_erstattar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_euvoc_status>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_fagomrade>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_forkasta_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_generaliserer>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_gyldig_fra>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_gyldig_til>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_del_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_generisk_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_partitiv_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_versjonsnummer>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_identifikator_literal>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_kontaktpunkt_vcard>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_merknad>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_naert_samsvar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_noyaktig_samsvar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_opprettingsdato>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_sja_ogsa_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_spesifiserer>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_tillate_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_utgjevar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_verdiomrade>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_versjonsmerknad>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon_kjelde>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon_kjelde_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon_malgruppe_def>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon_tekst>,
+        <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_har_generisk_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_har_spesifikt_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_inndelingskriterium>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_har_heilskapleg_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_har_partitivt_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_inndelingskriterium>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_beskrivelse>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_identifikator_literal>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_kontaktpunkt_vcard>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_medlem>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_tittel>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_utgjevar>,
+        <https://data.norge.no/linkml/brreg-begrep/anbefalt_term>,
+        <https://data.norge.no/linkml/brreg-begrep/ansvarleg_verksemd>,
+        <https://data.norge.no/linkml/brreg-begrep/assosiert_med>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__assosiative_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__definisjoner>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__generiske_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__kontaktpunkt>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__organisasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__partitive_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__samlingar>,
+        <https://data.norge.no/linkml/brreg-begrep/beskrivelse>,
+        <https://data.norge.no/linkml/brreg-begrep/datastruktur_term>,
+        <https://data.norge.no/linkml/brreg-begrep/definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/dekningsomraade>,
+        <https://data.norge.no/linkml/brreg-begrep/eksempel>,
+        <https://data.norge.no/linkml/brreg-begrep/endringsdato>,
+        <https://data.norge.no/linkml/brreg-begrep/er_del_av_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/er_erstatta_av>,
+        <https://data.norge.no/linkml/brreg-begrep/er_fra_omgrep_i>,
+        <https://data.norge.no/linkml/brreg-begrep/er_medlem_av>,
+        <https://data.norge.no/linkml/brreg-begrep/erstattar>,
+        <https://data.norge.no/linkml/brreg-begrep/euvoc_status>,
+        <https://data.norge.no/linkml/brreg-begrep/fagomrade>,
+        <https://data.norge.no/linkml/brreg-begrep/forkasta_term>,
+        <https://data.norge.no/linkml/brreg-begrep/format>,
+        <https://data.norge.no/linkml/brreg-begrep/generaliserer>,
+        <https://data.norge.no/linkml/brreg-begrep/gyldig_fra>,
+        <https://data.norge.no/linkml/brreg-begrep/gyldig_til>,
+        <https://data.norge.no/linkml/brreg-begrep/har_definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/har_del_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/har_generisk_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/har_generisk_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/har_heilskapleg_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/har_merknad>,
+        <https://data.norge.no/linkml/brreg-begrep/har_partitiv_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/har_partitivt_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/har_referanse>,
+        <https://data.norge.no/linkml/brreg-begrep/har_spesifikt_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/har_versjonsnummer>,
+        <https://data.norge.no/linkml/brreg-begrep/heimeside>,
+        <https://data.norge.no/linkml/brreg-begrep/id>,
+        <https://data.norge.no/linkml/brreg-begrep/identifikator_literal>,
+        <https://data.norge.no/linkml/brreg-begrep/inndelingskriterium>,
+        <https://data.norge.no/linkml/brreg-begrep/kjelde>,
+        <https://data.norge.no/linkml/brreg-begrep/kjelde_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/kontaktpunkt_vcard>,
+        <https://data.norge.no/linkml/brreg-begrep/malgruppe_def>,
+        <https://data.norge.no/linkml/brreg-begrep/medlem>,
+        <https://data.norge.no/linkml/brreg-begrep/merknad>,
+        <https://data.norge.no/linkml/brreg-begrep/naert_samsvar>,
+        <https://data.norge.no/linkml/brreg-begrep/nokkelord>,
+        <https://data.norge.no/linkml/brreg-begrep/noyaktig_samsvar>,
+        <https://data.norge.no/linkml/brreg-begrep/opprettingsdato>,
+        <https://data.norge.no/linkml/brreg-begrep/relasjontype>,
+        <https://data.norge.no/linkml/brreg-begrep/sja_ogsa_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/spesifiserer>,
+        <https://data.norge.no/linkml/brreg-begrep/spraak>,
+        <https://data.norge.no/linkml/brreg-begrep/status>,
+        <https://data.norge.no/linkml/brreg-begrep/tekst>,
+        <https://data.norge.no/linkml/brreg-begrep/til_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/tillate_term>,
+        <https://data.norge.no/linkml/brreg-begrep/tittel>,
+        <https://data.norge.no/linkml/brreg-begrep/type_concept>,
+        <https://data.norge.no/linkml/brreg-begrep/utgivelsesdato>,
+        <https://data.norge.no/linkml/brreg-begrep/utgjevar>,
+        <https://data.norge.no/linkml/brreg-begrep/valuta>,
+        <https://data.norge.no/linkml/brreg-begrep/verdiomrade>,
+        <https://data.norge.no/linkml/brreg-begrep/versjonsmerknad> ;
+    linkml:source_file "brreg-begrep-schema.yaml" ;
+    linkml:source_file_date "2026-05-24T07:38:18"^^xsd:dateTime ;
+    linkml:source_file_size 1618 ;
+    linkml:subsets <https://data.norge.no/linkml/brreg-begrep/Anbefalt>,
+        <https://data.norge.no/linkml/brreg-begrep/Obligatorisk>,
+        <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    linkml:types <https://data.norge.no/linkml/brreg-begrep/Duration>,
+        <https://data.norge.no/linkml/brreg-begrep/GYear>,
+        <https://data.norge.no/linkml/brreg-begrep/LangString>,
+        <https://data.norge.no/linkml/brreg-begrep/NonNegativeInteger>,
+        <https://data.norge.no/linkml/brreg-begrep/Spraak>,
+        <https://data.norge.no/linkml/brreg-begrep/boolean>,
+        <https://data.norge.no/linkml/brreg-begrep/curie>,
+        <https://data.norge.no/linkml/brreg-begrep/date>,
+        <https://data.norge.no/linkml/brreg-begrep/date_or_datetime>,
+        <https://data.norge.no/linkml/brreg-begrep/datetime>,
+        <https://data.norge.no/linkml/brreg-begrep/decimal>,
+        <https://data.norge.no/linkml/brreg-begrep/double>,
+        <https://data.norge.no/linkml/brreg-begrep/float>,
+        <https://data.norge.no/linkml/brreg-begrep/integer>,
+        <https://data.norge.no/linkml/brreg-begrep/jsonpath>,
+        <https://data.norge.no/linkml/brreg-begrep/jsonpointer>,
+        <https://data.norge.no/linkml/brreg-begrep/ncname>,
+        <https://data.norge.no/linkml/brreg-begrep/nodeidentifier>,
+        <https://data.norge.no/linkml/brreg-begrep/objectidentifier>,
+        <https://data.norge.no/linkml/brreg-begrep/sparqlpath>,
+        <https://data.norge.no/linkml/brreg-begrep/string>,
+        <https://data.norge.no/linkml/brreg-begrep/time>,
+        <https://data.norge.no/linkml/brreg-begrep/uri>,
+        <https://data.norge.no/linkml/brreg-begrep/uriorcurie> .
+
+<https://data.norge.no/linkml/brreg-begrep/Duration> a linkml:TypeDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Duration"^^xsd:anyURI ;
+    linkml:description "ISO 8601-varigheit (xsd:duration), t.d. PT15M." ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#duration"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/GYear> a linkml:TypeDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/GYear"^^xsd:anyURI ;
+    linkml:description "Gregorisk årstal (xsd:gYear), t.d. 2024." ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#gYear"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/NonNegativeInteger> a linkml:TypeDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:base "int" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/NonNegativeInteger"^^xsd:anyURI ;
+    linkml:description "Ikkje-negativ heltalsverdi (xsd:nonNegativeInteger)." ;
+    linkml:minimum_value "0"^^<https://w3id.org/linkml/@id> ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#nonNegativeInteger"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/assosiative_relasjonar> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> .
+
+<https://data.norge.no/linkml/brreg-begrep/begrep> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/boolean> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"." ;
+    skos:exactMatch "schema:Boolean"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "Bool" ;
+    linkml:definition_uri "https://w3id.org/linkml/Boolean"^^xsd:anyURI ;
+    linkml:description "A binary (true or false) value" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "bool" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#boolean"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/curie> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.w3.org/TR/curie/" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    skos:note "in RDF serializations this MUST be expanded to a URI",
+        "in non-RDF serializations MAY be serialized as the compact representation" ;
+    linkml:base "Curie" ;
+    linkml:definition_uri "https://w3id.org/linkml/Curie"^^xsd:anyURI ;
+    linkml:description "a compact URI" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/date_or_datetime> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/DateOrDatetime"^^xsd:anyURI ;
+    linkml:description "Either a date or a datetime" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "https://w3id.org/linkml/DateOrDatetime"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/datetime> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"." ;
+    skos:exactMatch "schema:DateTime"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "XSDDateTime" ;
+    linkml:definition_uri "https://w3id.org/linkml/Datetime"^^xsd:anyURI ;
+    linkml:description "The combination of a date and time" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#dateTime"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/decimal> a linkml:TypeDefinition ;
+    skos:broadMatch "schema:Number"^^xsd:anyURI ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "Decimal" ;
+    linkml:definition_uri "https://w3id.org/linkml/Decimal"^^xsd:anyURI ;
+    linkml:description "A real number with arbitrary precision that conforms to the xsd:decimal specification" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#decimal"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/definisjoner> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Definisjon> .
+
+<https://data.norge.no/linkml/brreg-begrep/dekningsomraade> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/spatial"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/dekningsomraade"^^xsd:anyURI ;
+    linkml:description "Geografisk dekningsområde (dct:spatial)." ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Konsept> ;
+    linkml:slot_uri "http://purl.org/dc/terms/spatial"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/double> a linkml:TypeDefinition ;
+    skos:closeMatch "schema:Float"^^xsd:anyURI ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "float" ;
+    linkml:definition_uri "https://w3id.org/linkml/Double"^^xsd:anyURI ;
+    linkml:description "A real number that conforms to the xsd:double specification" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#double"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/float> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"." ;
+    skos:exactMatch "schema:Float"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "float" ;
+    linkml:definition_uri "https://w3id.org/linkml/Float"^^xsd:anyURI ;
+    linkml:description "A real number that conforms to the xsd:float specification" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#float"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/format> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/format"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/format"^^xsd:anyURI ;
+    linkml:description "Filformat eller medietype (dct:format)." ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:slot_uri "http://purl.org/dc/terms/format"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/generiske_relasjonar> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> .
+
+<https://data.norge.no/linkml/brreg-begrep/har_merknad> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2000/01/rdf-schema#comment"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/har_merknad"^^xsd:anyURI ;
+    linkml:description "Fritekstmerknad (rdfs:comment)." ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2000/01/rdf-schema#comment"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_referanse> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2000/01/rdf-schema#seeAlso"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/har_referanse"^^xsd:anyURI ;
+    linkml:description "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/uri> ;
+    linkml:slot_uri "http://www.w3.org/2000/01/rdf-schema#seeAlso"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/heimeside> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://xmlns.com/foaf/0.1/homepage"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/heimeside"^^xsd:anyURI ;
+    linkml:description "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/uri> ;
+    linkml:slot_uri "http://xmlns.com/foaf/0.1/homepage"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/integer> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"." ;
+    skos:exactMatch "schema:Integer"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "int" ;
+    linkml:definition_uri "https://w3id.org/linkml/Integer"^^xsd:anyURI ;
+    linkml:description "An integer" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#integer"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/jsonpath> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/Jsonpath"^^xsd:anyURI ;
+    linkml:description "A string encoding a JSON Path. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded in tree form." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/jsonpointer> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://datatracker.ietf.org/doc/html/rfc6901" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/Jsonpointer"^^xsd:anyURI ;
+    linkml:description "A string encoding a JSON Pointer. The value of the string MUST conform to JSON Point syntax and SHOULD dereference to a valid object within the current instance document when encoded in tree form." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/kontaktpunkt> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/VCardKontakt> .
+
+<https://data.norge.no/linkml/brreg-begrep/ncname> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "NCName" ;
+    linkml:definition_uri "https://w3id.org/linkml/Ncname"^^xsd:anyURI ;
+    linkml:description "Prefix part of CURIE" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/nodeidentifier> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "NodeIdentifier" ;
+    linkml:definition_uri "https://w3id.org/linkml/Nodeidentifier"^^xsd:anyURI ;
+    linkml:description "A URI, CURIE or BNODE that represents a node in a model." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/ns/shex#nonLiteral"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/nokkelord> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/dcat#keyword"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/nokkelord"^^xsd:anyURI ;
+    linkml:description "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/ns/dcat#keyword"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/objectidentifier> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    skos:note "Used for inheritance and type checking" ;
+    linkml:base "ElementIdentifier" ;
+    linkml:definition_uri "https://w3id.org/linkml/Objectidentifier"^^xsd:anyURI ;
+    linkml:description "A URI or CURIE that represents an object in the model." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/ns/shex#iri"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/organisasjonar> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Organisasjon> .
+
+<https://data.norge.no/linkml/brreg-begrep/partitive_relasjonar> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> .
+
+<https://data.norge.no/linkml/brreg-begrep/samlingar> a linkml:SlotDefinition ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Samling> .
+
+<https://data.norge.no/linkml/brreg-begrep/sparqlpath> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.w3.org/TR/sparql11-query/#propertypaths" ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/Sparqlpath"^^xsd:anyURI ;
+    linkml:description "A string encoding a SPARQL Property Path. The value of the string MUST conform to SPARQL syntax and SHOULD dereference to zero or more valid objects within the current instance document when encoded as RDF." ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/spraak> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/language"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/spraak"^^xsd:anyURI ;
+    linkml:description "Språk brukt i ressursen (dct:language)." ;
+    linkml:multivalued true ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Spraak> ;
+    linkml:slot_uri "http://purl.org/dc/terms/language"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/status> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/adms#status"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/status"^^xsd:anyURI ;
+    linkml:description "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Konsept> ;
+    linkml:slot_uri "http://www.w3.org/ns/adms#status"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/time> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\".",
+        "URI is dateTime because OWL reasoners do not work with straight date or time" ;
+    skos:exactMatch "schema:Time"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "XSDTime" ;
+    linkml:definition_uri "https://w3id.org/linkml/Time"^^xsd:anyURI ;
+    linkml:description "A time object represents a (local) time of day, independent of any particular day" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#time"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/type_concept> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/type"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/type_concept"^^xsd:anyURI ;
+    linkml:description "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Konsept> ;
+    linkml:slot_uri "http://purl.org/dc/terms/type"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/utgivelsesdato> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/issued"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/utgivelsesdato"^^xsd:anyURI ;
+    linkml:description "Dato ressursen vart første gong publisert (dct:issued)." ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/issued"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/valuta> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://data.europa.eu/m8g/currency"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/valuta"^^xsd:anyURI ;
+    linkml:description "Valuta (cv:currency)." ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Konsept> ;
+    linkml:slot_uri "http://data.europa.eu/m8g/currency"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon_relasjontype> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#relationRole"^^xsd:anyURI ;
+    skos:prefLabel "relasjontype" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/relasjontype"^^xsd:anyURI ;
+    linkml:description "Rolle eller type av den assosiative relasjonen (skosno:relationRole)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/relasjontype> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:required true ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#relationRole"^^xsd:anyURI ;
+    linkml:usage_slot_name "relasjontype" .
+
+<https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon_til_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasToConcept"^^xsd:anyURI ;
+    skos:prefLabel "til_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/til_omgrep"^^xsd:anyURI ;
+    linkml:description "Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/til_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:required true ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasToConcept"^^xsd:anyURI ;
+    linkml:usage_slot_name "til_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_anbefalt_term> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#prefLabel"^^xsd:anyURI ;
+    skos:prefLabel "anbefalt_term" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/anbefalt_term"^^xsd:anyURI ;
+    linkml:description "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/anbefalt_term> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:required true ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#prefLabel"^^xsd:anyURI ;
+    linkml:usage_slot_name "anbefalt_term" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_ansvarleg_verksemd> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/creator"^^xsd:anyURI ;
+    skos:prefLabel "ansvarleg_verksemd" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/ansvarleg_verksemd"^^xsd:anyURI ;
+    linkml:description "Fagleg ansvarleg organisasjon for omgrepet (dct:creator)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/ansvarleg_verksemd> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Organisasjon> ;
+    linkml:slot_uri "http://purl.org/dc/terms/creator"^^xsd:anyURI ;
+    linkml:usage_slot_name "ansvarleg_verksemd" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_assosiert_med> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#related"^^xsd:anyURI ;
+    skos:prefLabel "assosiert_med" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/assosiert_med"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet er assosiert med (skos:related)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/assosiert_med> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#related"^^xsd:anyURI ;
+    linkml:usage_slot_name "assosiert_med" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_datastruktur_term> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#dataStructureLabel"^^xsd:anyURI ;
+    skos:prefLabel "datastruktur_term" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/datastruktur_term"^^xsd:anyURI ;
+    linkml:description "Term brukt i datastrukturar (skosno:dataStructureLabel)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/datastruktur_term> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#dataStructureLabel"^^xsd:anyURI ;
+    linkml:usage_slot_name "datastruktur_term" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_definisjon> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#definition"^^xsd:anyURI ;
+    skos:prefLabel "definisjon" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/definisjon"^^xsd:anyURI ;
+    linkml:description "Direkte definisjon som fritekst (skos:definition)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/definisjon> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#definition"^^xsd:anyURI ;
+    linkml:usage_slot_name "definisjon" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_eksempel> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#example"^^xsd:anyURI ;
+    skos:prefLabel "eksempel" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/eksempel"^^xsd:anyURI ;
+    linkml:description "Eksempel på bruk av omgrepet (skos:example)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/eksempel> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#example"^^xsd:anyURI ;
+    linkml:usage_slot_name "eksempel" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_endringsdato> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
+    skos:prefLabel "endringsdato" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/endringsdato"^^xsd:anyURI ;
+    linkml:description "Dato for siste endring av ressursen (dct:modified)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/endringsdato> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
+    linkml:usage_slot_name "endringsdato" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_er_del_av_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#isPartOf"^^xsd:anyURI ;
+    skos:prefLabel "er_del_av_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_del_av_omgrep"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet er ein del av (xkos:isPartOf)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/er_del_av_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#isPartOf"^^xsd:anyURI ;
+    linkml:usage_slot_name "er_del_av_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_er_erstatta_av> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/isReplacedBy"^^xsd:anyURI ;
+    skos:prefLabel "er_erstatta_av" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_erstatta_av"^^xsd:anyURI ;
+    linkml:description "Omgrep som erstattar dette omgrepet (dct:isReplacedBy)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/er_erstatta_av> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/isReplacedBy"^^xsd:anyURI ;
+    linkml:usage_slot_name "er_erstatta_av" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_er_fra_omgrep_i> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#isFromConceptIn"^^xsd:anyURI ;
+    skos:prefLabel "er_fra_omgrep_i" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_fra_omgrep_i"^^xsd:anyURI ;
+    linkml:description "Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptIn)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/er_fra_omgrep_i> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#isFromConceptIn"^^xsd:anyURI ;
+    linkml:usage_slot_name "er_fra_omgrep_i" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_er_medlem_av> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/umu/uneskos#memberOf"^^xsd:anyURI ;
+    skos:prefLabel "er_medlem_av" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_medlem_av"^^xsd:anyURI ;
+    linkml:description "Samling dette omgrepet er medlem av (uneskos:memberOf)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/er_medlem_av> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:slot_uri "http://purl.org/umu/uneskos#memberOf"^^xsd:anyURI ;
+    linkml:usage_slot_name "er_medlem_av" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_erstattar> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/replaces"^^xsd:anyURI ;
+    skos:prefLabel "erstattar" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/erstattar"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet erstattar (dct:replaces)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/erstattar> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/replaces"^^xsd:anyURI ;
+    linkml:usage_slot_name "erstattar" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_euvoc_status> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#status"^^xsd:anyURI ;
+    skos:prefLabel "euvoc_status" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/euvoc_status"^^xsd:anyURI ;
+    linkml:description "Status for omgrepet frå eit kontrollert vokabular (euvoc:status)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/euvoc_status> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#status"^^xsd:anyURI ;
+    linkml:usage_slot_name "euvoc_status" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_fagomrade> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/subject"^^xsd:anyURI ;
+    skos:prefLabel "fagomrade" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/fagomrade"^^xsd:anyURI ;
+    linkml:description "Fagområde omgrepet høyrer til (dct:subject)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/fagomrade> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/subject"^^xsd:anyURI ;
+    linkml:usage_slot_name "fagomrade" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_forkasta_term> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#hiddenLabel"^^xsd:anyURI ;
+    skos:prefLabel "forkasta_term" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/forkasta_term"^^xsd:anyURI ;
+    linkml:description "Tidlegare brukt, no forkasta term (skos:hiddenLabel)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/forkasta_term> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#hiddenLabel"^^xsd:anyURI ;
+    linkml:usage_slot_name "forkasta_term" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_generaliserer> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#generalizes"^^xsd:anyURI ;
+    skos:prefLabel "generaliserer" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/generaliserer"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet generaliserer (xkos:generalizes)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/generaliserer> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#generalizes"^^xsd:anyURI ;
+    linkml:usage_slot_name "generaliserer" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_gyldig_fra> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#startDate"^^xsd:anyURI ;
+    skos:prefLabel "gyldig_fra" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/gyldig_fra"^^xsd:anyURI ;
+    linkml:description "Dato omgrepet er gyldig frå (euvoc:startDate)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/gyldig_fra> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#startDate"^^xsd:anyURI ;
+    linkml:usage_slot_name "gyldig_fra" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_gyldig_til> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#endDate"^^xsd:anyURI ;
+    skos:prefLabel "gyldig_til" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/gyldig_til"^^xsd:anyURI ;
+    linkml:description "Dato omgrepet er gyldig til (euvoc:endDate)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/gyldig_til> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#endDate"^^xsd:anyURI ;
+    linkml:usage_slot_name "gyldig_til" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_har_definisjon> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#xlDefinition"^^xsd:anyURI ;
+    skos:prefLabel "har_definisjon" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_definisjon"^^xsd:anyURI ;
+    linkml:description "Definisjon via eige objekt (euvoc:xlDefinition)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_definisjon> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#xlDefinition"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_definisjon" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_har_del_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#hasPart"^^xsd:anyURI ;
+    skos:prefLabel "har_del_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_del_omgrep"^^xsd:anyURI ;
+    linkml:description "Omgrep som er ein del av dette omgrepet (xkos:hasPart)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_del_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#hasPart"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_del_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_har_generisk_relasjon> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasGenericConceptRelation"^^xsd:anyURI ;
+    skos:prefLabel "har_generisk_relasjon" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_generisk_relasjon"^^xsd:anyURI ;
+    linkml:description "Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_generisk_relasjon> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasGenericConceptRelation"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_generisk_relasjon" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_har_partitiv_relasjon> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasPartitiveConceptRelation"^^xsd:anyURI ;
+    skos:prefLabel "har_partitiv_relasjon" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_partitiv_relasjon"^^xsd:anyURI ;
+    linkml:description "Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_partitiv_relasjon> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasPartitiveConceptRelation"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_partitiv_relasjon" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_har_versjonsnummer> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2002/07/owl#versionInfo"^^xsd:anyURI ;
+    skos:prefLabel "har_versjonsnummer" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/har_versjonsnummer"^^xsd:anyURI ;
+    linkml:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_versjonsnummer> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:slot_uri "http://www.w3.org/2002/07/owl#versionInfo"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_versjonsnummer" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_identifikator_literal> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    skos:prefLabel "identifikator_literal" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/identifikator_literal"^^xsd:anyURI ;
+    linkml:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/identifikator_literal> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    linkml:usage_slot_name "identifikator_literal" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_kontaktpunkt_vcard> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/dcat#contactPoint"^^xsd:anyURI ;
+    skos:prefLabel "kontaktpunkt_vcard" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard"^^xsd:anyURI ;
+    linkml:description "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/kontaktpunkt_vcard> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/VCardKontakt> ;
+    linkml:required true ;
+    linkml:slot_uri "http://www.w3.org/ns/dcat#contactPoint"^^xsd:anyURI ;
+    linkml:usage_slot_name "kontaktpunkt_vcard" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_merknad> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#scopeNote"^^xsd:anyURI ;
+    skos:prefLabel "merknad" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/merknad"^^xsd:anyURI ;
+    linkml:description "Merknad om bruksomfanget for omgrepet (skos:scopeNote)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/merknad> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#scopeNote"^^xsd:anyURI ;
+    linkml:usage_slot_name "merknad" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_naert_samsvar> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#closeMatch"^^xsd:anyURI ;
+    skos:prefLabel "naert_samsvar" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/naert_samsvar"^^xsd:anyURI ;
+    linkml:description "Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/naert_samsvar> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#closeMatch"^^xsd:anyURI ;
+    linkml:usage_slot_name "naert_samsvar" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_noyaktig_samsvar> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#exactMatch"^^xsd:anyURI ;
+    skos:prefLabel "noyaktig_samsvar" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/noyaktig_samsvar"^^xsd:anyURI ;
+    linkml:description "Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/noyaktig_samsvar> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#exactMatch"^^xsd:anyURI ;
+    linkml:usage_slot_name "noyaktig_samsvar" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_opprettingsdato> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/created"^^xsd:anyURI ;
+    skos:prefLabel "opprettingsdato" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/opprettingsdato"^^xsd:anyURI ;
+    linkml:description "Dato omgrepet vart oppretta (dct:created)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/opprettingsdato> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/created"^^xsd:anyURI ;
+    linkml:usage_slot_name "opprettingsdato" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_sja_ogsa_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2000/01/rdf-schema#seeAlso"^^xsd:anyURI ;
+    skos:prefLabel "sja_ogsa_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/sja_ogsa_omgrep"^^xsd:anyURI ;
+    linkml:description "Relatert omgrep (rdfs:seeAlso)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/sja_ogsa_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2000/01/rdf-schema#seeAlso"^^xsd:anyURI ;
+    linkml:usage_slot_name "sja_ogsa_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_spesifiserer> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#specializes"^^xsd:anyURI ;
+    skos:prefLabel "spesifiserer" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/spesifiserer"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet spesifiserer (xkos:specializes)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/spesifiserer> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#specializes"^^xsd:anyURI ;
+    linkml:usage_slot_name "spesifiserer" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_tillate_term> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#altLabel"^^xsd:anyURI ;
+    skos:prefLabel "tillate_term" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/tillate_term"^^xsd:anyURI ;
+    linkml:description "Tillaten alternativ term for omgrepet (skos:altLabel)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/tillate_term> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#altLabel"^^xsd:anyURI ;
+    linkml:usage_slot_name "tillate_term" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_utgjevar> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/publisher"^^xsd:anyURI ;
+    skos:prefLabel "utgjevar" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/utgjevar"^^xsd:anyURI ;
+    linkml:description "Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/utgjevar> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Organisasjon> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/publisher"^^xsd:anyURI ;
+    linkml:usage_slot_name "utgjevar" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_verdiomrade> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#valueRange"^^xsd:anyURI ;
+    skos:prefLabel "verdiomrade" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/verdiomrade"^^xsd:anyURI ;
+    linkml:description "Verdiområde for omgrepet (skosno:valueRange)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/verdiomrade> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#valueRange"^^xsd:anyURI ;
+    linkml:usage_slot_name "verdiomrade" .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep_versjonsmerknad> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/adms#versionNotes"^^xsd:anyURI ;
+    skos:prefLabel "versjonsmerknad" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/versjonsmerknad"^^xsd:anyURI ;
+    linkml:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/versjonsmerknad> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/ns/adms#versionNotes"^^xsd:anyURI ;
+    linkml:usage_slot_name "versjonsmerknad" .
+
+<https://data.norge.no/linkml/brreg-begrep/Definisjon_kjelde> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/source"^^xsd:anyURI ;
+    skos:prefLabel "kjelde" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/kjelde"^^xsd:anyURI ;
+    linkml:description "Kjelde til definisjonen (dct:source)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/kjelde> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/uri> ;
+    linkml:slot_uri "http://purl.org/dc/terms/source"^^xsd:anyURI ;
+    linkml:usage_slot_name "kjelde" .
+
+<https://data.norge.no/linkml/brreg-begrep/Definisjon_kjelde_relasjon> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#relationshipWithSource"^^xsd:anyURI ;
+    skos:prefLabel "kjelde_relasjon" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/kjelde_relasjon"^^xsd:anyURI ;
+    linkml:description "Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:relationshipWithSource)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/kjelde_relasjon> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#relationshipWithSource"^^xsd:anyURI ;
+    linkml:usage_slot_name "kjelde_relasjon" .
+
+<https://data.norge.no/linkml/brreg-begrep/Definisjon_malgruppe_def> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Valgfri> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/audience"^^xsd:anyURI ;
+    skos:prefLabel "malgruppe_def" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/malgruppe_def"^^xsd:anyURI ;
+    linkml:description "Målgruppe definisjonen er retta mot (dct:audience)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/malgruppe_def> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/audience"^^xsd:anyURI ;
+    linkml:usage_slot_name "malgruppe_def" .
+
+<https://data.norge.no/linkml/brreg-begrep/Definisjon_tekst> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"^^xsd:anyURI ;
+    skos:prefLabel "tekst" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/tekst"^^xsd:anyURI ;
+    linkml:description "Definissjonstekst (rdf:value)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/tekst> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:required true ;
+    linkml:slot_uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"^^xsd:anyURI ;
+    linkml:usage_slot_name "tekst" .
+
+<https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_har_generisk_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasGenericConcept"^^xsd:anyURI ;
+    skos:prefLabel "har_generisk_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_generisk_omgrep"^^xsd:anyURI ;
+    linkml:description "Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_generisk_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasGenericConcept"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_generisk_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_har_spesifikt_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasSpecificConcept"^^xsd:anyURI ;
+    skos:prefLabel "har_spesifikt_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_spesifikt_omgrep"^^xsd:anyURI ;
+    linkml:description "Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_spesifikt_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasSpecificConcept"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_spesifikt_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_inndelingskriterium> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    skos:prefLabel "inndelingskriterium" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/inndelingskriterium"^^xsd:anyURI ;
+    linkml:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/inndelingskriterium> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:usage_slot_name "inndelingskriterium" .
+
+<https://data.norge.no/linkml/brreg-begrep/Mediatype> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "dct:MediaTypeOrExtent"^^xsd:anyURI ;
+    linkml:class_uri "http://purl.org/dc/terms/MediaTypeOrExtent"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Mediatype"^^xsd:anyURI ;
+    linkml:description "Ein medietype eller filformat (dct:MediaTypeOrExtent)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_har_heilskapleg_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasComprehensiveConcept"^^xsd:anyURI ;
+    skos:prefLabel "har_heilskapleg_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_heilskapleg_omgrep"^^xsd:anyURI ;
+    linkml:description "Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_heilskapleg_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasComprehensiveConcept"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_heilskapleg_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_har_partitivt_omgrep> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasPartitiveConcept"^^xsd:anyURI ;
+    skos:prefLabel "har_partitivt_omgrep" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_partitivt_omgrep"^^xsd:anyURI ;
+    linkml:description "Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/har_partitivt_omgrep> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasPartitiveConcept"^^xsd:anyURI ;
+    linkml:usage_slot_name "har_partitivt_omgrep" .
+
+<https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_inndelingskriterium> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    skos:prefLabel "inndelingskriterium" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/inndelingskriterium"^^xsd:anyURI ;
+    linkml:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/inndelingskriterium> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:usage_slot_name "inndelingskriterium" .
+
+<https://data.norge.no/linkml/brreg-begrep/Samling_beskrivelse> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Anbefalt> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    skos:prefLabel "beskrivelse" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/beskrivelse"^^xsd:anyURI ;
+    linkml:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/beskrivelse> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:usage_slot_name "beskrivelse" .
+
+<https://data.norge.no/linkml/brreg-begrep/Samling_identifikator_literal> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    skos:prefLabel "identifikator_literal" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/identifikator_literal"^^xsd:anyURI ;
+    linkml:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/identifikator_literal> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    linkml:usage_slot_name "identifikator_literal" .
+
+<https://data.norge.no/linkml/brreg-begrep/Samling_kontaktpunkt_vcard> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/dcat#contactPoint"^^xsd:anyURI ;
+    skos:prefLabel "kontaktpunkt_vcard" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard"^^xsd:anyURI ;
+    linkml:description "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/kontaktpunkt_vcard> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/VCardKontakt> ;
+    linkml:required true ;
+    linkml:slot_uri "http://www.w3.org/ns/dcat#contactPoint"^^xsd:anyURI ;
+    linkml:usage_slot_name "kontaktpunkt_vcard" .
+
+<https://data.norge.no/linkml/brreg-begrep/Samling_medlem> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#member"^^xsd:anyURI ;
+    skos:prefLabel "medlem" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/medlem"^^xsd:anyURI ;
+    linkml:description "Omgrep som er medlem av samlinga (skos:member)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/medlem> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:required true ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#member"^^xsd:anyURI ;
+    linkml:usage_slot_name "medlem" .
+
+<https://data.norge.no/linkml/brreg-begrep/Samling_tittel> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/title"^^xsd:anyURI ;
+    skos:prefLabel "tittel" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/tittel"^^xsd:anyURI ;
+    linkml:description "Namn/tittel på ressursen (dct:title)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/tittel> ;
+    linkml:is_usage_slot true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI ;
+    linkml:usage_slot_name "tittel" .
+
+<https://data.norge.no/linkml/brreg-begrep/Samling_utgjevar> a linkml:SlotDefinition ;
+    OIO:inSubset <https://data.norge.no/linkml/brreg-begrep/Obligatorisk> ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/publisher"^^xsd:anyURI ;
+    skos:prefLabel "utgjevar" ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/utgjevar"^^xsd:anyURI ;
+    linkml:description "Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)." ;
+    linkml:domain <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:is_a <https://data.norge.no/linkml/brreg-begrep/utgjevar> ;
+    linkml:is_usage_slot true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Organisasjon> ;
+    linkml:required true ;
+    linkml:slot_uri "http://purl.org/dc/terms/publisher"^^xsd:anyURI ;
+    linkml:usage_slot_name "utgjevar" .
+
+<https://data.norge.no/linkml/brreg-begrep/Spraak> a linkml:TypeDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Spraak"^^xsd:anyURI ;
+    linkml:description "Språk" ;
+    linkml:uri "http://purl.org/dc/terms/language"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/anbefalt_term> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#prefLabel"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/anbefalt_term"^^xsd:anyURI ;
+    linkml:description "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#prefLabel"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/ansvarleg_verksemd> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/creator"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/ansvarleg_verksemd"^^xsd:anyURI ;
+    linkml:description "Fagleg ansvarleg organisasjon for omgrepet (dct:creator)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Organisasjon> ;
+    linkml:slot_uri "http://purl.org/dc/terms/creator"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/assosiert_med> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#related"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/assosiert_med"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet er assosiert med (skos:related)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#related"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__assosiative_relasjonar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "assosiative_relasjonar" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/assosiative_relasjonar"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__begrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "begrep" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/begrep"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__definisjoner> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "definisjoner" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/definisjoner"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__generiske_relasjonar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "generiske_relasjonar" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/generiske_relasjonar"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__kontaktpunkt> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "kontaktpunkt" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/VCardKontakt> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/kontaktpunkt"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__organisasjonar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "organisasjonar" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Organisasjon> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/organisasjonar"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__partitive_relasjonar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "partitive_relasjonar" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/partitive_relasjonar"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/begrepContainer__samlingar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    skos:prefLabel "samlingar" ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:inlined true ;
+    linkml:inlined_as_list true ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/BegrepContainer> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:slot_uri "https://data.norge.no/linkml/brreg-begrep/samlingar"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/beskrivelse> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/beskrivelse"^^xsd:anyURI ;
+    linkml:description "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/datastruktur_term> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#dataStructureLabel"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/datastruktur_term"^^xsd:anyURI ;
+    linkml:description "Term brukt i datastrukturar (skosno:dataStructureLabel)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#dataStructureLabel"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/definisjon> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#definition"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/definisjon"^^xsd:anyURI ;
+    linkml:description "Direkte definisjon som fritekst (skos:definition)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#definition"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/eksempel> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#example"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/eksempel"^^xsd:anyURI ;
+    linkml:description "Eksempel på bruk av omgrepet (skos:example)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#example"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/endringsdato> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/modified"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/endringsdato"^^xsd:anyURI ;
+    linkml:description "Dato for siste endring av ressursen (dct:modified)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/modified"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/er_del_av_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#isPartOf"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_del_av_omgrep"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet er ein del av (xkos:isPartOf)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#isPartOf"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/er_erstatta_av> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/isReplacedBy"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_erstatta_av"^^xsd:anyURI ;
+    linkml:description "Omgrep som erstattar dette omgrepet (dct:isReplacedBy)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/isReplacedBy"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/er_fra_omgrep_i> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#isFromConceptIn"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_fra_omgrep_i"^^xsd:anyURI ;
+    linkml:description "Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptIn)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#isFromConceptIn"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/er_medlem_av> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/umu/uneskos#memberOf"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/er_medlem_av"^^xsd:anyURI ;
+    linkml:description "Samling dette omgrepet er medlem av (uneskos:memberOf)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:slot_uri "http://purl.org/umu/uneskos#memberOf"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/erstattar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/replaces"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/erstattar"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet erstattar (dct:replaces)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/replaces"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/euvoc_status> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#status"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/euvoc_status"^^xsd:anyURI ;
+    linkml:description "Status for omgrepet frå eit kontrollert vokabular (euvoc:status)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#status"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/fagomrade> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/subject"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/fagomrade"^^xsd:anyURI ;
+    linkml:description "Fagområde omgrepet høyrer til (dct:subject)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/subject"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/forkasta_term> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#hiddenLabel"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/forkasta_term"^^xsd:anyURI ;
+    linkml:description "Tidlegare brukt, no forkasta term (skos:hiddenLabel)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#hiddenLabel"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/generaliserer> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#generalizes"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/generaliserer"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet generaliserer (xkos:generalizes)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#generalizes"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/gyldig_fra> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#startDate"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/gyldig_fra"^^xsd:anyURI ;
+    linkml:description "Dato omgrepet er gyldig frå (euvoc:startDate)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#startDate"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/gyldig_til> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#endDate"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/gyldig_til"^^xsd:anyURI ;
+    linkml:description "Dato omgrepet er gyldig til (euvoc:endDate)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#endDate"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_definisjon> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://publications.europa.eu/ontology/euvoc#xlDefinition"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_definisjon"^^xsd:anyURI ;
+    linkml:description "Definisjon via eige objekt (euvoc:xlDefinition)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:slot_uri "http://publications.europa.eu/ontology/euvoc#xlDefinition"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_del_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#hasPart"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_del_omgrep"^^xsd:anyURI ;
+    linkml:description "Omgrep som er ein del av dette omgrepet (xkos:hasPart)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#hasPart"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_generisk_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasGenericConcept"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_generisk_omgrep"^^xsd:anyURI ;
+    linkml:description "Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasGenericConcept"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_generisk_relasjon> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasGenericConceptRelation"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_generisk_relasjon"^^xsd:anyURI ;
+    linkml:description "Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasGenericConceptRelation"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_heilskapleg_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasComprehensiveConcept"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_heilskapleg_omgrep"^^xsd:anyURI ;
+    linkml:description "Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasComprehensiveConcept"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_partitiv_relasjon> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasPartitiveConceptRelation"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_partitiv_relasjon"^^xsd:anyURI ;
+    linkml:description "Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasPartitiveConceptRelation"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_partitivt_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasPartitiveConcept"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_partitivt_omgrep"^^xsd:anyURI ;
+    linkml:description "Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasPartitiveConcept"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_spesifikt_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasSpecificConcept"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/har_spesifikt_omgrep"^^xsd:anyURI ;
+    linkml:description "Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasSpecificConcept"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/har_versjonsnummer> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2002/07/owl#versionInfo"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/har_versjonsnummer"^^xsd:anyURI ;
+    linkml:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:slot_uri "http://www.w3.org/2002/07/owl#versionInfo"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/kjelde> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/source"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/kjelde"^^xsd:anyURI ;
+    linkml:description "Kjelde til definisjonen (dct:source)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/uri> ;
+    linkml:slot_uri "http://purl.org/dc/terms/source"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/kjelde_relasjon> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#relationshipWithSource"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/kjelde_relasjon"^^xsd:anyURI ;
+    linkml:description "Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:relationshipWithSource)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#relationshipWithSource"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/malgruppe_def> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/audience"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/malgruppe_def"^^xsd:anyURI ;
+    linkml:description "Målgruppe definisjonen er retta mot (dct:audience)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://purl.org/dc/terms/audience"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/medlem> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#member"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/medlem"^^xsd:anyURI ;
+    linkml:description "Omgrep som er medlem av samlinga (skos:member)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#member"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/merknad> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#scopeNote"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/merknad"^^xsd:anyURI ;
+    linkml:description "Merknad om bruksomfanget for omgrepet (skos:scopeNote)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#scopeNote"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/naert_samsvar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#closeMatch"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/naert_samsvar"^^xsd:anyURI ;
+    linkml:description "Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#closeMatch"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/noyaktig_samsvar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#exactMatch"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/noyaktig_samsvar"^^xsd:anyURI ;
+    linkml:description "Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#exactMatch"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/opprettingsdato> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/created"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/opprettingsdato"^^xsd:anyURI ;
+    linkml:description "Dato omgrepet vart oppretta (dct:created)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/date> ;
+    linkml:slot_uri "http://purl.org/dc/terms/created"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/relasjontype> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#relationRole"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/relasjontype"^^xsd:anyURI ;
+    linkml:description "Rolle eller type av den assosiative relasjonen (skosno:relationRole)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#relationRole"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/sja_ogsa_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2000/01/rdf-schema#seeAlso"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/sja_ogsa_omgrep"^^xsd:anyURI ;
+    linkml:description "Relatert omgrep (rdfs:seeAlso)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://www.w3.org/2000/01/rdf-schema#seeAlso"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/spesifiserer> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://rdf-vocabulary.ddialliance.org/xkos#specializes"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/spesifiserer"^^xsd:anyURI ;
+    linkml:description "Omgrep dette omgrepet spesifiserer (xkos:specializes)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "http://rdf-vocabulary.ddialliance.org/xkos#specializes"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/tekst> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/tekst"^^xsd:anyURI ;
+    linkml:description "Definissjonstekst (rdf:value)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Definisjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#value"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/til_omgrep> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#hasToConcept"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/til_omgrep"^^xsd:anyURI ;
+    linkml:description "Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#hasToConcept"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/tillate_term> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/2004/02/skos/core#altLabel"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/tillate_term"^^xsd:anyURI ;
+    linkml:description "Tillaten alternativ term for omgrepet (skos:altLabel)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/2004/02/skos/core#altLabel"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/tittel> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/title"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/tittel"^^xsd:anyURI ;
+    linkml:description "Namn/tittel på ressursen (dct:title)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/title"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/uriorcurie> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "URIorCURIE" ;
+    linkml:definition_uri "https://w3id.org/linkml/Uriorcurie"^^xsd:anyURI ;
+    linkml:description "a URI or a CURIE" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/verdiomrade> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "https://data.norge.no/vocabulary/skosno#valueRange"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/verdiomrade"^^xsd:anyURI ;
+    linkml:description "Verdiområde for omgrepet (skosno:valueRange)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "https://data.norge.no/vocabulary/skosno#valueRange"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/versjonsmerknad> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/adms#versionNotes"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/versjonsmerknad"^^xsd:anyURI ;
+    linkml:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrep> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://www.w3.org/ns/adms#versionNotes"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrepssamling> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "skos:ConceptScheme"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/2004/02/skos/core#ConceptScheme"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Begrepssamling"^^xsd:anyURI ;
+    linkml:description "Ei SKOS-omgrepssamling (temavokabular)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/identifikator_literal> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/identifier"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/identifikator_literal"^^xsd:anyURI ;
+    linkml:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/string> ;
+    linkml:slot_uri "http://purl.org/dc/terms/identifier"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/inndelingskriterium> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/description"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/inndelingskriterium"^^xsd:anyURI ;
+    linkml:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/LangString> ;
+    linkml:slot_uri "http://purl.org/dc/terms/description"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/kontaktpunkt_vcard> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://www.w3.org/ns/dcat#contactPoint"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard"^^xsd:anyURI ;
+    linkml:description "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:multivalued true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/VCardKontakt> ;
+    linkml:slot_uri "http://www.w3.org/ns/dcat#contactPoint"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/utgjevar> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "http://purl.org/dc/terms/publisher"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/utgjevar"^^xsd:anyURI ;
+    linkml:description "Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/Begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Samling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/Organisasjon> ;
+    linkml:slot_uri "http://purl.org/dc/terms/publisher"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/uri> a linkml:TypeDefinition ;
+    dcterms:conformsTo "https://www.ietf.org/rfc/rfc3987.txt" ;
+    skos:closeMatch "schema:URL"^^xsd:anyURI ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"." ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    skos:note "in RDF serializations a slot with range of uri is treated as a literal or type xsd:anyURI unless it is an identifier or a reference to an identifier, in which case it is translated directly to a node" ;
+    linkml:base "URI" ;
+    linkml:definition_uri "https://w3id.org/linkml/Uri"^^xsd:anyURI ;
+    linkml:description "a complete URI" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/Konsept> a linkml:ClassDefinition ;
+    rdfs:seeAlso "https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be"^^xsd:anyURI ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "skos:Concept"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/2004/02/skos/core#Concept"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Konsept"^^xsd:anyURI ;
+    linkml:description "Referanse til eit SKOS-omgrep frå eit kontrollert vokabular." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/VCardKontakt> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "vcard:Kind"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/2006/vcard/ns#Kind"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/VCardKontakt"^^xsd:anyURI ;
+    linkml:description "Kontaktinformasjon (vCard) for omgrepseigaren." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/Organisasjon> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "org:Organization"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/ns/org#Organization"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/Organisasjon"^^xsd:anyURI ;
+    linkml:description "Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/date> a linkml:TypeDefinition ;
+    skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\".",
+        "URI is dateTime because OWL reasoners don't work with straight date or time" ;
+    skos:exactMatch "schema:Date"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "XSDDate" ;
+    linkml:definition_uri "https://w3id.org/linkml/Date"^^xsd:anyURI ;
+    linkml:description "a date (year, month and day) in an idealized calendar" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:repr "str" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#date"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/string> a linkml:TypeDefinition ;
+    skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
+    skos:exactMatch "schema:Text"^^xsd:anyURI ;
+    skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://w3id.org/linkml/String"^^xsd:anyURI ;
+    linkml:description "A character string" ;
+    linkml:imported_from "linkml:types" ;
+    linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/id> a linkml:SlotDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/id"^^xsd:anyURI ;
+    linkml:description "URI-identifikator for ressursen." ;
+    linkml:domain_of <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrepssamling>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Konsept>,
+        <https://data.norge.no/linkml/brreg-begrep/Mediatype>,
+        <https://data.norge.no/linkml/brreg-begrep/Organisasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling>,
+        <https://data.norge.no/linkml/brreg-begrep/VCardKontakt> ;
+    linkml:identifier true ;
+    linkml:owner <https://data.norge.no/linkml/brreg-begrep/Begrepssamling> ;
+    linkml:range <https://data.norge.no/linkml/brreg-begrep/uriorcurie> ;
+    linkml:required true ;
+    linkml:slot_uri "https://data.norge.no/linkml/common-ap-no/id"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/Anbefalt> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Anbefalt"^^xsd:anyURI ;
+    linkml:description "Anbefalte eigenskapar i ein AP-NO-profil." .
+
+<https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "skosno:AssociativeConceptRelation"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/vocabulary/skosno#AssociativeConceptRelation"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon"^^xsd:anyURI ;
+    linkml:description "Ein assosiativ relasjon mellom to omgrep." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon_relasjontype>,
+        <https://data.norge.no/linkml/brreg-begrep/AssosiativRelasjon_til_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/BegrepContainer> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/brreg-begrep"^^xsd:anyURI ;
+    linkml:attributes <https://data.norge.no/linkml/brreg-begrep/assosiative_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/definisjoner>,
+        <https://data.norge.no/linkml/brreg-begrep/generiske_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/kontaktpunkt>,
+        <https://data.norge.no/linkml/brreg-begrep/organisasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/partitive_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/samlingar> ;
+    linkml:class_uri "https://data.norge.no/linkml/brreg-begrep/BegrepContainer"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/brreg-begrep/BegrepContainer"^^xsd:anyURI ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/begrepContainer__assosiative_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__begrep>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__definisjoner>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__generiske_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__kontaktpunkt>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__organisasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__partitive_relasjonar>,
+        <https://data.norge.no/linkml/brreg-begrep/begrepContainer__samlingar> ;
+    linkml:tree_root true .
+
+<https://data.norge.no/linkml/brreg-begrep/Obligatorisk> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Obligatorisk"^^xsd:anyURI ;
+    linkml:description "Obligatoriske eigenskapar i ein AP-NO-profil." .
+
+<https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "skosno:GenericConceptRelation"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/vocabulary/skosno#GenericConceptRelation"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/GeneriskRelasjon"^^xsd:anyURI ;
+    linkml:description "Ein generisk relasjon mellom eit overomgrep og eit underomgrep." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_har_generisk_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_har_spesifikt_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/GeneriskRelasjon_inndelingskriterium>,
+        <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "skosno:PartitiveConceptRelation"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/vocabulary/skosno#PartitiveConceptRelation"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/PartitivRelasjon"^^xsd:anyURI ;
+    linkml:description "Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_har_heilskapleg_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_har_partitivt_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/PartitivRelasjon_inndelingskriterium>,
+        <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/Valgfri> a linkml:SubsetDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/Valgfri"^^xsd:anyURI ;
+    linkml:description "Valfrie eigenskapar i ein AP-NO-profil." .
+
+<https://data.norge.no/linkml/brreg-begrep/Definisjon> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "euvoc:XlNote"^^xsd:anyURI ;
+    linkml:class_uri "http://publications.europa.eu/ontology/euvoc#XlNote"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/Definisjon"^^xsd:anyURI ;
+    linkml:description "Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/Definisjon_kjelde>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon_kjelde_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon_malgruppe_def>,
+        <https://data.norge.no/linkml/brreg-begrep/Definisjon_tekst>,
+        <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/LangString> a linkml:TypeDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/common-ap-no"^^xsd:anyURI ;
+    linkml:base "str" ;
+    linkml:definition_uri "https://data.norge.no/linkml/common-ap-no/LangString"^^xsd:anyURI ;
+    linkml:description "Språktagget streng (rdf:langString)." ;
+    linkml:uri "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"^^xsd:anyURI .
+
+<https://data.norge.no/linkml/brreg-begrep/Samling> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "skos:Collection"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/2004/02/skos/core#Collection"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/Samling"^^xsd:anyURI ;
+    linkml:description "Ei namngitt samling av omgrep (skos:Collection)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/Samling_beskrivelse>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_identifikator_literal>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_kontaktpunkt_vcard>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_medlem>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_tittel>,
+        <https://data.norge.no/linkml/brreg-begrep/Samling_utgjevar>,
+        <https://data.norge.no/linkml/brreg-begrep/id> .
+
+<https://data.norge.no/linkml/brreg-begrep/Begrep> a linkml:ClassDefinition ;
+    skos:inScheme "https://data.norge.no/linkml/skos-ap-no"^^xsd:anyURI ;
+    skos:mappingRelation "skos:Concept"^^xsd:anyURI ;
+    linkml:class_uri "http://www.w3.org/2004/02/skos/core#Concept"^^xsd:anyURI ;
+    linkml:definition_uri "https://data.norge.no/linkml/skos-ap-no/Begrep"^^xsd:anyURI ;
+    linkml:description "Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept)." ;
+    linkml:slot_usage [ ] ;
+    linkml:slots <https://data.norge.no/linkml/brreg-begrep/Begrep_anbefalt_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_ansvarleg_verksemd>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_assosiert_med>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_datastruktur_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_eksempel>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_endringsdato>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_del_av_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_erstatta_av>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_fra_omgrep_i>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_er_medlem_av>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_erstattar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_euvoc_status>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_fagomrade>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_forkasta_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_generaliserer>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_gyldig_fra>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_gyldig_til>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_definisjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_del_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_generisk_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_partitiv_relasjon>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_har_versjonsnummer>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_identifikator_literal>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_kontaktpunkt_vcard>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_merknad>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_naert_samsvar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_noyaktig_samsvar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_opprettingsdato>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_sja_ogsa_omgrep>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_spesifiserer>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_tillate_term>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_utgjevar>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_verdiomrade>,
+        <https://data.norge.no/linkml/brreg-begrep/Begrep_versjonsmerknad>,
+        <https://data.norge.no/linkml/brreg-begrep/id> .
+

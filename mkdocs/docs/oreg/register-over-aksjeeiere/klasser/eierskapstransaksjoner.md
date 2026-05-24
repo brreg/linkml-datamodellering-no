@@ -3,13 +3,8 @@
 # Slot: eierskapstransaksjoner 
 
 
-_Samling av eigarskapstransaksjonar._
 
-
-
-
-
-URI: [aksje:eierskapstransaksjoner](https://example.no/ontology/aksje#eierskapstransaksjoner)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner](https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:eierskapstransaksjoner](https://example.no/ontology/aksje#eierskapst
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:eierskapstransaksjoner](https://example.no/ontology/aksje#eierskapst
 | Property | Value |
 | --- | --- |
 | Range | [Eierskapstransaksjon](eierskapstransaksjon.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:eierskapstransaksjoner](https://example.no/ontology/aksje#eierskapst
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:eierskapstransaksjoner |
-| native | aksje:eierskapstransaksjoner |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:eierskapstransaksjoner](https://example.no/ontology/aksje#eierskapst
 <details>
 ```yaml
 name: eierskapstransaksjoner
-description: Samling av eigarskapstransaksjonar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Eierskapstransaksjon
 multivalued: true
 inlined: true

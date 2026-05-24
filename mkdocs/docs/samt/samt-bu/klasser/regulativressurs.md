@@ -302,7 +302,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 | [Datasettserie](datasettserie.md) | [gjeldende_lovgivning](gjeldende_lovgivning.md) | range | [RegulativRessurs](regulativressurs.md) |
 | [Datatjeneste](datatjeneste.md) | [gjeldende_lovgivning](gjeldende_lovgivning.md) | range | [RegulativRessurs](regulativressurs.md) |
 | [Katalog](katalog.md) | [gjeldende_lovgivning](gjeldende_lovgivning.md) | range | [RegulativRessurs](regulativressurs.md) |
-| [Containerklasse](containerklasse.md) | [gjeldende_lovgivninger](gjeldende_lovgivninger.md) | range | [RegulativRessurs](regulativressurs.md) |
+| [SamtBuContainer](samtbucontainer.md) | [gjeldende_lovgivninger](gjeldende_lovgivninger.md) | range | [RegulativRessurs](regulativressurs.md) |
 
 
 
@@ -403,7 +403,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

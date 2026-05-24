@@ -1,0 +1,106 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "AksjeeierContainer" [[{Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.}]] {
+
+}
+class "Vederlag" [[{Vederlag knytt til ei aksjeoverdraging.}]] {
+    {field} identifikator : uriorcurie  
+    {field} belop : decimal  
+}
+class "Aksjeoverdragelse" [[{Overdraging av aksjar mellom partar.}]] {
+    {field} identifikator : uriorcurie  
+}
+"AksjeeierContainer" *--> "0..*" "Vederlag" : "vederlager"
+"Aksjeoverdragelse" --> "0..1" "Vederlag" : "kan_ha_vederlag"
+class "Utdeling" [[{Konkret utdeling av verdiar til aksjeeigarar.}]] {
+    {field} identifikator : uriorcurie  
+    {field} belop : decimal  
+}
+class "Utbytte" [[{Utbytte knytt til ein eigarposisjon.}]] {
+    {field} identifikator : uriorcurie  
+    {field} tidspunkt : date  
+}
+"AksjeeierContainer" *--> "0..*" "Utdeling" : "utdelinger"
+"Utbytte" --> "0..1" "Utdeling" : "har_utdeling"
+class "Eierposisjon" [[{Eierens samla posisjon i eit selskap.}]] {
+    {field} identifikator : uriorcurie  
+}
+"Utbytte" --> "0..1" "Eierposisjon" : "er_basert_paa_eierposisjon"
+"AksjeeierContainer" *--> "0..*" "Utbytte" : "utbytter"
+class "Tidspunkt" [[{Tidspunkt for ei hending.}]] {
+    {field} dato : date  
+}
+class "Selskapshendelse" [[{Hending som påverkar selskapet sitt eigarskap eller kapital.}]] {
+    {field} identifikator : uriorcurie  
+}
+class "Aksjeinnskudd" [[{Innskot knytt til aksjar i samband med selskapshending.}]] {
+    {field} identifikator : uriorcurie  
+    {field} gjelder_innbetalt_aksjekapital : decimal  
+    {field} gjelder_innbetalt_overkurs : decimal  
+}
+class "Eierskapstransaksjon" [[{Transaksjon som påverkar eigarskap i selskapet.}]] {
+    {field} identifikator : uriorcurie  
+    {field} tidspunkt : date  
+}
+"Selskapshendelse" --> "0..1" "Aksjeinnskudd" : "kan_ha_aksjeinnskudd"
+"AksjeeierContainer" *--> "0..*" "Selskapshendelse" : "selskapshendelser"
+"Eierskapstransaksjon" --> "0..1" "Selskapshendelse" : "kan_vaere_selskapshendelse"
+class "InnbetaltOverkurs" [[{Innbetalt overkurs utover pålydande.}]] {
+    {field} belop : decimal  
+}
+"AksjeeierContainer" *--> "0..*" "InnbetaltOverkurs" : "innbetalt_overkurser"
+class "InnbetaltAksjekapital" [[{Innbetalt aksjekapital.}]] {
+    {field} belop : decimal  
+}
+"AksjeeierContainer" *--> "0..*" "InnbetaltAksjekapital" : "innbetalt_aksjekapitaler"
+"Eierskapstransaksjon" --> "0..1" "Eierposisjon" : "paavirker_eierposisjon"
+"Eierskapstransaksjon" --> "0..1" "Aksjeoverdragelse" : "kan_vaere_aksjeoverdragelse"
+"AksjeeierContainer" *--> "0..*" "Eierskapstransaksjon" : "eierskapstransaksjoner"
+class "Aksjepost" [[{Samling aksjar eigd av ein aksjeeigar.}]] {
+    {field} identifikator : uriorcurie  
+    {field} har_antall_aksjer : integer  
+}
+class "Aksjeeier" [[{Person eller organisasjon som eig aksjar.}]] {
+    {field} identifikator : uriorcurie  
+    {field} navn : string  
+}
+"Eierposisjon" --> "0..1" "Aksjepost" : "gjelder_aksjepost"
+"AksjeeierContainer" *--> "0..*" "Eierposisjon" : "eierposisjoner"
+"Aksjeeier" --> "0..1" "Eierposisjon" : "har_eierposisjon"
+class "Aksjeselskap" [[{Selskap som utsteder aksjar og har aksjekapital.}]] {
+    {field} identifikator : uriorcurie  
+    {field} navn : string  
+}
+class "Aksje" [[{Ei enkelt aksje utstedt av eit aksjeselskap.}]] {
+    {field} identifikator : uriorcurie  
+    {field} har_palydende_belop : decimal  
+}
+class "Aksjekapital" [[{Den registrerte aksjekapitalen i eit aksjeselskap.}]] {
+    {field} identifikator : uriorcurie  
+    {field} har_antall_aksjer : integer  
+}
+"Aksjeselskap" --> "0..1" "Aksje" : "utsteder_aksje"
+"Aksjeselskap" --> "0..1" "Aksjekapital" : "har_aksjekapital"
+"AksjeeierContainer" *--> "0..*" "Aksjeselskap" : "aksjeselskaper"
+class "Aksjeklasse" [[{Klasse aksjar høyrer til, med eigne rettigheiter.}]] {
+    {field} identifikator : uriorcurie  
+    {field} navn : string  
+}
+"Aksjepost" --> "0..1" "Aksjeklasse" : "gjelder_aksjer_i_aksjeklasse"
+"AksjeeierContainer" *--> "0..*" "Aksjepost" : "aksjeposter"
+"AksjeeierContainer" *--> "0..*" "Aksjeoverdragelse" : "aksjeoverdragelser"
+class "Aksjeeierrettighet" [[{Rettigheiter knytt til aksjar, til dømes stemmerett.}]] {
+    {field} identifikator : uriorcurie  
+    {field} beskrivelse : string  
+}
+"AksjeeierContainer" *--> "0..*" "Aksjeklasse" : "aksjeklasser"
+"Aksjeeierrettighet" --> "0..1" "Aksjeklasse" : "gjelder_aksjer_i_aksjeklasse"
+"Aksje" --> "0..1" "Aksjeklasse" : "tilhorer_aksjeklasse"
+"AksjeeierContainer" *--> "0..*" "Aksjekapital" : "aksjekapitaler"
+"AksjeeierContainer" *--> "0..*" "Aksjeinnskudd" : "aksjeinnskudder"
+"AksjeeierContainer" *--> "0..*" "Aksjeeierrettighet" : "aksjeeierrettigheter"
+"AksjeeierContainer" *--> "0..*" "Aksjeeier" : "aksjeeiere"
+"AksjeeierContainer" *--> "0..*" "Aksje" : "aksjer"
+@enduml

@@ -3,13 +3,8 @@
 # Slot: aksjeklasser 
 
 
-_Samling av aksjeklasser._
 
-
-
-
-
-URI: [aksje:aksjeklasser](https://example.no/ontology/aksje#aksjeklasser)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeklasser](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeklasser)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjeklasser](https://example.no/ontology/aksje#aksjeklasser)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjeklasser](https://example.no/ontology/aksje#aksjeklasser)
 | Property | Value |
 | --- | --- |
 | Range | [Aksjeklasse](aksjeklasse.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjeklasser](https://example.no/ontology/aksje#aksjeklasser)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjeklasser |
-| native | aksje:aksjeklasser |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeklasser |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeklasser |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjeklasser](https://example.no/ontology/aksje#aksjeklasser)
 <details>
 ```yaml
 name: aksjeklasser
-description: Samling av aksjeklasser.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjeklasse
 multivalued: true
 inlined: true

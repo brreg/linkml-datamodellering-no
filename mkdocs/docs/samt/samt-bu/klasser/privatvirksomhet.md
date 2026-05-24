@@ -128,7 +128,7 @@ URI: [samtbuskole:PrivatVirksomhet](https://example.no/ontology/skole#PrivatVirk
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [private_virksomheter](private_virksomheter.md) | range | [PrivatVirksomhet](privatvirksomhet.md) |
+| [SamtBuContainer](samtbucontainer.md) | [private_virksomheter](private_virksomheter.md) | range | [PrivatVirksomhet](privatvirksomhet.md) |
 
 
 
@@ -248,7 +248,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

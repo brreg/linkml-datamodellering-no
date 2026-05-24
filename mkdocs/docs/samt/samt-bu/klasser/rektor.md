@@ -128,7 +128,7 @@ URI: [samtbuskole:Rektor](https://example.no/ontology/skole#Rektor)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [rektorer](rektorer.md) | range | [Rektor](rektor.md) |
+| [SamtBuContainer](samtbucontainer.md) | [rektorer](rektorer.md) | range | [Rektor](rektor.md) |
 | [Rektor](rektor.md) | [enhetsleder_for](enhetsleder_for.md) | domain | [Rektor](rektor.md) |
 
 
@@ -238,7 +238,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

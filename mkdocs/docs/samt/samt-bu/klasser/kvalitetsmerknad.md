@@ -309,7 +309,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Datasett](datasett.md) | [har_kvalitetsmerknad](har_kvalitetsmerknad.md) | range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
-| [Containerklasse](containerklasse.md) | [kvalitetsmerknader](kvalitetsmerknader.md) | range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
+| [SamtBuContainer](samtbucontainer.md) | [kvalitetsmerknader](kvalitetsmerknader.md) | range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
 
 
 
@@ -452,7 +452,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

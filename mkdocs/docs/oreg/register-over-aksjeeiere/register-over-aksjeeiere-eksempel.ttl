@@ -1,78 +1,79 @@
 @prefix aksje: <https://example.no/ontology/aksje#> .
+@prefix ns1: <https://data.norge.no/linkml/register-over-aksjeeiere/:> .
 @prefix schema1: <http://schema.org/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-aksje:Container1 a schema1:Thing ;
-    aksje:aksjeeiere aksje:Aksjeeier1 ;
-    aksje:aksjeeierrettigheter aksje:Aksjeeierrettighet1 ;
-    aksje:aksjeinnskudder aksje:Aksjeinnskudd1 ;
-    aksje:aksjekapitaler aksje:Aksjekapital1 ;
-    aksje:aksjeklasser aksje:Aksjeklasse1 ;
-    aksje:aksjeoverdragelser aksje:Aksjeoverdragelse1 ;
-    aksje:aksjeposter aksje:Aksjepost1 ;
-    aksje:aksjer aksje:Aksje1 ;
-    aksje:aksjeselskaper aksje:Aksjeselskap1 ;
-    aksje:eierposisjoner aksje:Eierposisjon1 ;
-    aksje:eierskapstransaksjoner aksje:Eierskapstransaksjon1 ;
-    aksje:selskapshendelser aksje:Selskapshendelse1 ;
-    aksje:utbytter aksje:Utbytte1 ;
-    aksje:utdelinger aksje:Utdeling1 ;
-    aksje:vederlager aksje:Vederlag1 .
+aksje:Aksjeeier1 a ns1:Aksjeeier ;
+    ns1:har_eierposisjon aksje:Eierposisjon1 ;
+    ns1:navn "Ola Nordmann" .
 
-aksje:Aksjeeier1 a aksje:Aksjeeier ;
-    aksje:har_eierposisjon aksje:Eierposisjon1 ;
-    aksje:navn "Ola Nordmann" .
+aksje:Aksjeeierrettighet1 a ns1:Aksjeeierrettighet ;
+    ns1:beskrivelse "Stemmerett på generalforsamling" ;
+    ns1:gjelder_aksjer_i_aksjeklasse aksje:Aksjeklasse1 .
 
-aksje:Aksjeeierrettighet1 a aksje:Aksjeeierrettighet ;
-    aksje:beskrivelse "Stemmerett på generalforsamling" ;
-    aksje:gjelder_aksjer_i_aksjeklasse aksje:Aksjeklasse1 .
+aksje:Aksjeselskap1 a ns1:Aksjeselskap ;
+    ns1:har_aksjekapital aksje:Aksjekapital1 ;
+    ns1:navn "Eksempel AS" ;
+    ns1:utsteder_aksje aksje:Aksje1 .
 
-aksje:Aksjeselskap1 a aksje:Aksjeselskap ;
-    aksje:har_aksjekapital aksje:Aksjekapital1 ;
-    aksje:navn "Eksempel AS" ;
-    aksje:utsteder_aksje aksje:Aksje1 .
+aksje:Eierskapstransaksjon1 a ns1:Eierskapstransaksjon ;
+    ns1:kan_vaere_aksjeoverdragelse aksje:Aksjeoverdragelse1 ;
+    ns1:kan_vaere_selskapshendelse aksje:Selskapshendelse1 ;
+    ns1:paavirker_eierposisjon aksje:Eierposisjon1 ;
+    ns1:tidspunkt "2026-01-01"^^xsd:date .
 
-aksje:Eierskapstransaksjon1 a aksje:Eierskapstransaksjon ;
-    aksje:kan_vaere_aksjeoverdragelse aksje:Aksjeoverdragelse1 ;
-    aksje:kan_vaere_selskapshendelse aksje:Selskapshendelse1 ;
-    aksje:paavirker_eierposisjon aksje:Eierposisjon1 ;
-    aksje:tidspunkt "2026-01-01"^^xsd:date .
+aksje:Utbytte1 a ns1:Utbytte ;
+    ns1:er_basert_paa_eierposisjon aksje:Eierposisjon1 ;
+    ns1:har_utdeling aksje:Utdeling1 ;
+    ns1:tidspunkt "2026-03-01"^^xsd:date .
 
-aksje:Utbytte1 a aksje:Utbytte ;
-    aksje:er_basert_paa_eierposisjon aksje:Eierposisjon1 ;
-    aksje:har_utdeling aksje:Utdeling1 ;
-    aksje:tidspunkt "2026-03-01"^^xsd:date .
+aksje:Aksje1 a ns1:Aksje ;
+    ns1:har_palydende_belop 100.0 ;
+    ns1:tilhorer_aksjeklasse aksje:Aksjeklasse1 .
 
-aksje:Aksje1 a aksje:Aksje ;
-    aksje:har_palydende_belop 100.0 ;
-    aksje:tilhorer_aksjeklasse aksje:Aksjeklasse1 .
+aksje:Aksjeinnskudd1 a ns1:Aksjeinnskudd ;
+    ns1:gjelder_innbetalt_aksjekapital 48484.0 ;
+    ns1:gjelder_innbetalt_overkurs 887763.0 .
 
-aksje:Aksjeinnskudd1 a aksje:Aksjeinnskudd ;
-    aksje:gjelder_innbetalt_aksjekapital 48484.0 ;
-    aksje:gjelder_innbetalt_overkurs 887763.0 .
+aksje:Aksjekapital1 a ns1:Aksjekapital ;
+    ns1:har_antall_aksjer 1000 .
 
-aksje:Aksjekapital1 a aksje:Aksjekapital ;
-    aksje:har_antall_aksjer 1000 .
+aksje:Aksjeoverdragelse1 a ns1:Aksjeoverdragelse ;
+    ns1:kan_ha_vederlag aksje:Vederlag1 .
 
-aksje:Aksjeoverdragelse1 a aksje:Aksjeoverdragelse ;
-    aksje:kan_ha_vederlag aksje:Vederlag1 .
+aksje:Aksjepost1 a ns1:Aksjepost ;
+    ns1:gjelder_aksjer_i_aksjeklasse aksje:Aksjeklasse1 ;
+    ns1:har_antall_aksjer 300 .
 
-aksje:Aksjepost1 a aksje:Aksjepost ;
-    aksje:gjelder_aksjer_i_aksjeklasse aksje:Aksjeklasse1 ;
-    aksje:har_antall_aksjer 300 .
+aksje:Selskapshendelse1 a ns1:Selskapshendelse ;
+    ns1:kan_ha_aksjeinnskudd aksje:Aksjeinnskudd1 .
 
-aksje:Selskapshendelse1 a aksje:Selskapshendelse ;
-    aksje:kan_ha_aksjeinnskudd aksje:Aksjeinnskudd1 .
+aksje:Utdeling1 a ns1:Utdeling ;
+    ns1:belop 5000.0 .
 
-aksje:Utdeling1 a aksje:Utdeling ;
-    aksje:belop 5000.0 .
+aksje:Vederlag1 a ns1:Vederlag ;
+    ns1:belop 100000.0 .
 
-aksje:Vederlag1 a aksje:Vederlag ;
-    aksje:belop 100000.0 .
+aksje:Aksjeklasse1 a ns1:Aksjeklasse ;
+    ns1:navn "Ordinær aksje" .
 
-aksje:Aksjeklasse1 a aksje:Aksjeklasse ;
-    aksje:navn "Ordinær aksje" .
+aksje:Eierposisjon1 a ns1:Eierposisjon ;
+    ns1:gjelder_aksjepost aksje:Aksjepost1 .
 
-aksje:Eierposisjon1 a aksje:Eierposisjon ;
-    aksje:gjelder_aksjepost aksje:Aksjepost1 .
+[] a schema1:Thing ;
+    ns1:aksjeeiere aksje:Aksjeeier1 ;
+    ns1:aksjeeierrettigheter aksje:Aksjeeierrettighet1 ;
+    ns1:aksjeinnskudder aksje:Aksjeinnskudd1 ;
+    ns1:aksjekapitaler aksje:Aksjekapital1 ;
+    ns1:aksjeklasser aksje:Aksjeklasse1 ;
+    ns1:aksjeoverdragelser aksje:Aksjeoverdragelse1 ;
+    ns1:aksjeposter aksje:Aksjepost1 ;
+    ns1:aksjer aksje:Aksje1 ;
+    ns1:aksjeselskaper aksje:Aksjeselskap1 ;
+    ns1:eierposisjoner aksje:Eierposisjon1 ;
+    ns1:eierskapstransaksjoner aksje:Eierskapstransaksjon1 ;
+    ns1:selskapshendelser aksje:Selskapshendelse1 ;
+    ns1:utbytter aksje:Utbytte1 ;
+    ns1:utdelinger aksje:Utdeling1 ;
+    ns1:vederlager aksje:Vederlag1 .
 

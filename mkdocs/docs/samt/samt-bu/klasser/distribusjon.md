@@ -806,7 +806,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 | ---  | --- | --- | --- |
 | [Datasett](datasett.md) | [datasettdistribusjon](datasettdistribusjon.md) | range | [Distribusjon](distribusjon.md) |
 | [Datasett](datasett.md) | [eksempeldata](eksempeldata.md) | range | [Distribusjon](distribusjon.md) |
-| [Containerklasse](containerklasse.md) | [datasettdistribusjoner](datasettdistribusjoner.md) | range | [Distribusjon](distribusjon.md) |
+| [SamtBuContainer](samtbucontainer.md) | [datasettdistribusjoner](datasettdistribusjoner.md) | range | [Distribusjon](distribusjon.md) |
 
 
 
@@ -975,7 +975,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

@@ -58,6 +58,167 @@
             "title": "Aksjeeier",
             "type": "object"
         },
+        "AksjeeierContainer": {
+            "additionalProperties": false,
+            "description": "Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg \u00e5 ha fleire instansar av kvar klasse i ei datafil.",
+            "properties": {
+                "aksjeeiere": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjeeier"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjeeierrettigheter": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjeeierrettighet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjeinnskudder": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjeinnskudd"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjekapitaler": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjekapital"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjeklasser": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjeklasse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjeoverdragelser": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjeoverdragelse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjeposter": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjepost"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjer": {
+                    "items": {
+                        "$ref": "#/$defs/Aksje"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "aksjeselskaper": {
+                    "items": {
+                        "$ref": "#/$defs/Aksjeselskap"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "eierposisjoner": {
+                    "items": {
+                        "$ref": "#/$defs/Eierposisjon"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "eierskapstransaksjoner": {
+                    "items": {
+                        "$ref": "#/$defs/Eierskapstransaksjon"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "innbetalt_aksjekapitaler": {
+                    "items": {
+                        "$ref": "#/$defs/InnbetaltAksjekapital"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "innbetalt_overkurser": {
+                    "items": {
+                        "$ref": "#/$defs/InnbetaltOverkurs"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "selskapshendelser": {
+                    "items": {
+                        "$ref": "#/$defs/Selskapshendelse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "utbytter": {
+                    "items": {
+                        "$ref": "#/$defs/Utbytte"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "utdelinger": {
+                    "items": {
+                        "$ref": "#/$defs/Utdeling"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "vederlager": {
+                    "items": {
+                        "$ref": "#/$defs/Vederlag"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "AksjeeierContainer",
+            "type": "object"
+        },
         "Aksjeeierrettighet": {
             "additionalProperties": false,
             "description": "Rettigheiter knytt til aksjar, til d\u00f8mes stemmerett.",
@@ -245,191 +406,6 @@
                 "identifikator"
             ],
             "title": "Aksjeselskap",
-            "type": "object"
-        },
-        "Containerklasse": {
-            "additionalProperties": false,
-            "description": "Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg \u00e5 ha fleire instansar av kvar klasse i ei datafil.",
-            "properties": {
-                "aksjeeiere": {
-                    "description": "Samling av aksjeeigarar.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjeeier"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjeeierrettigheter": {
-                    "description": "Samling av aksjeeierrettigheiter.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjeeierrettighet"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjeinnskudder": {
-                    "description": "Samling av aksjeinnskot.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjeinnskudd"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjekapitaler": {
-                    "description": "Samling av aksjekapitalar.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjekapital"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjeklasser": {
-                    "description": "Samling av aksjeklasser.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjeklasse"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjeoverdragelser": {
-                    "description": "Samling av aksjeoverdragingar.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjeoverdragelse"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjeposter": {
-                    "description": "Samling av aksjepostar.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjepost"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjer": {
-                    "description": "Samling av aksjar.",
-                    "items": {
-                        "$ref": "#/$defs/Aksje"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "aksjeselskaper": {
-                    "description": "Samling av aksjeselskap.",
-                    "items": {
-                        "$ref": "#/$defs/Aksjeselskap"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "eierposisjoner": {
-                    "description": "Samling av eigarposisjonar.",
-                    "items": {
-                        "$ref": "#/$defs/Eierposisjon"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "eierskapstransaksjoner": {
-                    "description": "Samling av eigarskapstransaksjonar.",
-                    "items": {
-                        "$ref": "#/$defs/Eierskapstransaksjon"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "identifikator": {
-                    "description": "Global identifikator for instansen.",
-                    "type": "string"
-                },
-                "innbetalt_aksjekapitaler": {
-                    "description": "Samling av innbetalt aksjekapital.",
-                    "items": {
-                        "$ref": "#/$defs/InnbetaltAksjekapital"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "innbetalt_overkurser": {
-                    "description": "Samling av innbetalt overkurs.",
-                    "items": {
-                        "$ref": "#/$defs/InnbetaltOverkurs"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "selskapshendelser": {
-                    "description": "Samling av selskapshendingar.",
-                    "items": {
-                        "$ref": "#/$defs/Selskapshendelse"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "utbytter": {
-                    "description": "Samling av utbytte.",
-                    "items": {
-                        "$ref": "#/$defs/Utbytte"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "utdelinger": {
-                    "description": "Samling av utdelingar.",
-                    "items": {
-                        "$ref": "#/$defs/Utdeling"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "vederlager": {
-                    "description": "Samling av vederlag.",
-                    "items": {
-                        "$ref": "#/$defs/Vederlag"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "identifikator"
-            ],
-            "title": "Containerklasse",
             "type": "object"
         },
         "Eierposisjon": {
@@ -655,7 +631,6 @@
     "metamodel_version": "1.11.0",
     "properties": {
         "aksjeeiere": {
-            "description": "Samling av aksjeeigarar.",
             "items": {
                 "$ref": "#/$defs/Aksjeeier"
             },
@@ -665,7 +640,6 @@
             ]
         },
         "aksjeeierrettigheter": {
-            "description": "Samling av aksjeeierrettigheiter.",
             "items": {
                 "$ref": "#/$defs/Aksjeeierrettighet"
             },
@@ -675,7 +649,6 @@
             ]
         },
         "aksjeinnskudder": {
-            "description": "Samling av aksjeinnskot.",
             "items": {
                 "$ref": "#/$defs/Aksjeinnskudd"
             },
@@ -685,7 +658,6 @@
             ]
         },
         "aksjekapitaler": {
-            "description": "Samling av aksjekapitalar.",
             "items": {
                 "$ref": "#/$defs/Aksjekapital"
             },
@@ -695,7 +667,6 @@
             ]
         },
         "aksjeklasser": {
-            "description": "Samling av aksjeklasser.",
             "items": {
                 "$ref": "#/$defs/Aksjeklasse"
             },
@@ -705,7 +676,6 @@
             ]
         },
         "aksjeoverdragelser": {
-            "description": "Samling av aksjeoverdragingar.",
             "items": {
                 "$ref": "#/$defs/Aksjeoverdragelse"
             },
@@ -715,7 +685,6 @@
             ]
         },
         "aksjeposter": {
-            "description": "Samling av aksjepostar.",
             "items": {
                 "$ref": "#/$defs/Aksjepost"
             },
@@ -725,7 +694,6 @@
             ]
         },
         "aksjer": {
-            "description": "Samling av aksjar.",
             "items": {
                 "$ref": "#/$defs/Aksje"
             },
@@ -735,7 +703,6 @@
             ]
         },
         "aksjeselskaper": {
-            "description": "Samling av aksjeselskap.",
             "items": {
                 "$ref": "#/$defs/Aksjeselskap"
             },
@@ -745,7 +712,6 @@
             ]
         },
         "eierposisjoner": {
-            "description": "Samling av eigarposisjonar.",
             "items": {
                 "$ref": "#/$defs/Eierposisjon"
             },
@@ -755,7 +721,6 @@
             ]
         },
         "eierskapstransaksjoner": {
-            "description": "Samling av eigarskapstransaksjonar.",
             "items": {
                 "$ref": "#/$defs/Eierskapstransaksjon"
             },
@@ -764,12 +729,7 @@
                 "null"
             ]
         },
-        "identifikator": {
-            "description": "Global identifikator for instansen.",
-            "type": "string"
-        },
         "innbetalt_aksjekapitaler": {
-            "description": "Samling av innbetalt aksjekapital.",
             "items": {
                 "$ref": "#/$defs/InnbetaltAksjekapital"
             },
@@ -779,7 +739,6 @@
             ]
         },
         "innbetalt_overkurser": {
-            "description": "Samling av innbetalt overkurs.",
             "items": {
                 "$ref": "#/$defs/InnbetaltOverkurs"
             },
@@ -789,7 +748,6 @@
             ]
         },
         "selskapshendelser": {
-            "description": "Samling av selskapshendingar.",
             "items": {
                 "$ref": "#/$defs/Selskapshendelse"
             },
@@ -799,7 +757,6 @@
             ]
         },
         "utbytter": {
-            "description": "Samling av utbytte.",
             "items": {
                 "$ref": "#/$defs/Utbytte"
             },
@@ -809,7 +766,6 @@
             ]
         },
         "utdelinger": {
-            "description": "Samling av utdelingar.",
             "items": {
                 "$ref": "#/$defs/Utdeling"
             },
@@ -819,7 +775,6 @@
             ]
         },
         "vederlager": {
-            "description": "Samling av vederlag.",
             "items": {
                 "$ref": "#/$defs/Vederlag"
             },
@@ -829,10 +784,7 @@
             ]
         }
     },
-    "required": [
-        "identifikator"
-    ],
-    "title": "aksje_eierskap",
+    "title": "register-over-aksjeeiere",
     "type": "object",
     "version": null
 }

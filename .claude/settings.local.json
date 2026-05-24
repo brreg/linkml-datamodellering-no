@@ -36,7 +36,13 @@
       "Bash(make mcp-val-smoke *)",
       "Bash(make linkml-build-docker *)",
       "Bash(make domain-gen-plantuml *)",
-      "WebFetch(domain:data.norge.no)"
+      "WebFetch(domain:data.norge.no)",
+      "Bash(make domain-validate-examples *)",
+      "Bash(make mcp-begrep-build *)",
+      "Bash(make mcp-begrep-smoke *)",
+      "Bash(podman images *)",
+      "Bash(make begrep *)",
+      "Bash(make docs-build-fast *)"
     ]
   },
   "enableAllProjectMcpServers": true,

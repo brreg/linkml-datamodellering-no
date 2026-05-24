@@ -3,13 +3,8 @@
 # Slot: aksjeinnskudder 
 
 
-_Samling av aksjeinnskot._
 
-
-
-
-
-URI: [aksje:aksjeinnskudder](https://example.no/ontology/aksje#aksjeinnskudder)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjeinnskudder](https://example.no/ontology/aksje#aksjeinnskudder)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjeinnskudder](https://example.no/ontology/aksje#aksjeinnskudder)
 | Property | Value |
 | --- | --- |
 | Range | [Aksjeinnskudd](aksjeinnskudd.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjeinnskudder](https://example.no/ontology/aksje#aksjeinnskudder)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjeinnskudder |
-| native | aksje:aksjeinnskudder |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjeinnskudder](https://example.no/ontology/aksje#aksjeinnskudder)
 <details>
 ```yaml
 name: aksjeinnskudder
-description: Samling av aksjeinnskot.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjeinnskudd
 multivalued: true
 inlined: true

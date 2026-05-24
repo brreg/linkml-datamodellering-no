@@ -9,7 +9,7 @@ _Konkret utdeling av verdiar til aksjeeigarar._
 
 
 
-URI: [aksje:Utdeling](https://example.no/ontology/aksje#Utdeling)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling](https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling)
 
 
 
@@ -121,7 +121,7 @@ URI: [aksje:Utdeling](https://example.no/ontology/aksje#Utdeling)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [utdelinger](utdelinger.md) | range | [Utdeling](utdeling.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [utdelinger](utdelinger.md) | range | [Utdeling](utdeling.md) |
 | [Utbytte](utbytte.md) | [har_utdeling](har_utdeling.md) | range | [Utdeling](utdeling.md) |
 
 
@@ -153,8 +153,8 @@ URI: [aksje:Utdeling](https://example.no/ontology/aksje#Utdeling)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Utdeling |
-| native | aksje:Utdeling |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling |
 
 
 
@@ -197,7 +197,6 @@ attributes:
     identifier: true
     owner: Utdeling
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

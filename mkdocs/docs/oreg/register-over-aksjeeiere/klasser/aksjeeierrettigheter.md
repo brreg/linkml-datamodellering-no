@@ -3,13 +3,8 @@
 # Slot: aksjeeierrettigheter 
 
 
-_Samling av aksjeeierrettigheiter._
 
-
-
-
-
-URI: [aksje:aksjeeierrettigheter](https://example.no/ontology/aksje#aksjeeierrettigheter)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjeeierrettigheter](https://example.no/ontology/aksje#aksjeeierret
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjeeierrettigheter](https://example.no/ontology/aksje#aksjeeierret
 | Property | Value |
 | --- | --- |
 | Range | [Aksjeeierrettighet](aksjeeierrettighet.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjeeierrettigheter](https://example.no/ontology/aksje#aksjeeierret
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjeeierrettigheter |
-| native | aksje:aksjeeierrettigheter |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjeeierrettigheter](https://example.no/ontology/aksje#aksjeeierret
 <details>
 ```yaml
 name: aksjeeierrettigheter
-description: Samling av aksjeeierrettigheiter.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjeeierrettighet
 multivalued: true
 inlined: true

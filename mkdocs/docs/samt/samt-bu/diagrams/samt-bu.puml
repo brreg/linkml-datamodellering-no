@@ -1,0 +1,401 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Datasett" [[{Ei samling av data utgjeven eller kuratert av éin aktør.}]] {
+    {field} beskrivelse : LangString  [1..*]
+    {field} tema : string  [1..*]
+    {field} tittel : LangString  [1..*]
+    {field} begrep : string  [0..*]
+    {field} ble_generert_ved : uri  [0..*]
+    {field} nokkelord : LangString  [0..*]
+    {field} tilgangsrettigheter : uri  [0..*]
+    {field} annen_ansvarlig_aktor : string  [0..*]
+    {field} dokumentasjon : uri  [0..*]
+    {field} eierskapshistorikk : string  [0..*]
+    {field} endringsdato : date  
+    {field} identifikator_literal : string  
+    {field} landingsside : uri  [0..*]
+    {field} relatert_ressurs : uri  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} utgivelsesdato : date  
+    {field} versjon : string  
+    {field} versjonsmerknad : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+}
+class "Tidsrom" [[{Eit tidsintervall med start- og sluttdato.}]] {
+    {field} id : uriorcurie  
+    {field} startdato : date  
+    {field} sluttdato : date  
+    {field} begynnelse : datetime  
+    {field} slutt : datetime  
+}
+class "Datasettserie" [[{Ei serie av relaterte datasett publisert separat men med felles metadata.}]] {
+    {field} beskrivelse : LangString  [1..*]
+    {field} tema : string  [1..*]
+    {field} tittel : LangString  [1..*]
+    {field} endringsdato : date  
+    {field} frekvens : string  
+    {field} utgivelsesdato : date  
+    {field} id(i) : uriorcurie  
+}
+class "SamtBuContainer" [[{Containerklasse for alle klasser som kan inngå i datasettet.}]] {
+    {field} id : string  
+}
+class "Katalog" [[{Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar.}]] {
+    {field} beskrivelse : LangString  [1..*]
+    {field} tittel : LangString  [1..*]
+    {field} endringsdato : date  
+    {field} heimeside : uri  [0..*]
+    {field} lisens : string  
+    {field} spraak : Spraak  [0..*]
+    {field} utgivelsesdato : date  
+    {field} identifikator_literal : string  
+    {field} id(i) : uriorcurie  
+}
+"Datasett" --> "0..*" "Tidsrom" : "tidsrom"
+"Datasettserie" --> "0..*" "Tidsrom" : "tidsrom"
+"SamtBuContainer" *--> "0..*" "Tidsrom" : "tidsromer"
+"Datasett" --> "0..*" "Tidsrom" : "tidsrom"(i)
+"Datasettserie" --> "0..*" "Tidsrom" : "tidsrom"(i)
+"Katalog" --> "0..*" "Tidsrom" : "tidsrom"
+class "Kvalitetsmerknad" [[{Ein merknad om kvaliteten til eit datasett.}]] {
+    {field} id : uriorcurie  
+    {field} er_motivert_av : uriorcurie  
+    {field} har_merknad : LangString  [0..*]
+    {field} har_maal : uri  
+}
+class "Tekstdel" [[{Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).}]] {
+    {field} id : uriorcurie  
+    {field} har_verdi_tekstdel : string  
+    {field} format : string  
+    {field} spraak : Spraak  [0..*]
+}
+"Kvalitetsmerknad" --> "0..1" "Tekstdel" : "har_tekstdel"
+"Kvalitetsmerknad" --> "0..1" "Tekstdel" : "har_tekstdel"(i)
+"SamtBuContainer" *--> "0..*" "Tekstdel" : "tekstdeler"
+class "Standard" [[{Ein standard eller spesifikasjon som eit datasett er i samsvar med.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} har_referanse : uri  [0..*]
+    {field} har_merknad : LangString  [0..*]
+    {field} har_versjonsnummer : string  
+}
+class "Kvalitetsdimensjon" [[{Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.}]] {
+    {field} id : uriorcurie  
+    {field} har_anbefalt_term : LangString  [0..*]
+    {field} har_definisjon : LangString  [0..*]
+}
+class "Datatjeneste" [[{Ei samling operasjonar tilgjengeleg via eit API-grensesnitt.}]] {
+    {field} endepunkts_url : uri  [1..*]
+    {field} tittel : LangString  [1..*]
+    {field} endepunktsbeskrivelse : uri  [0..*]
+    {field} format : string  
+    {field} nokkelord : LangString  [0..*]
+    {field} tema : string  [0..*]
+    {field} tilgjengelighet : string  
+    {field} beskrivelse : LangString  [0..*]
+    {field} dokumentasjon : uri  [0..*]
+    {field} identifikator_literal : string  
+    {field} landingsside : uri  [0..*]
+    {field} lisens : string  
+    {field} tilgangsrettigheter : uri  [0..*]
+    {field} versjon : string  
+    {field} versjonsmerknad : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+}
+class "Katalogpost" [[{Ein katalogpost som beskriv ein ressurs i katalogen.}]] {
+    {field} id : uriorcurie  
+    {field} endringsdato : date  
+    {field} utgivelsesdato : date  
+    {field} beskrivelse : LangString  [0..*]
+    {field} kilde_post : uri  
+    {field} spraak : Spraak  [0..*]
+    {field} tittel : LangString  [0..*]
+}
+class "Distribusjon" [[{Ein spesifikk representasjon/nedlastbar form av eit datasett.}]] {
+    {field} id : uriorcurie  
+    {field} tilgangs_url : uri  [1..*]
+    {field} beskrivelse : LangString  [0..*]
+    {field} format : string  
+    {field} lisens : string  
+    {field} tilgjengelighet : string  
+    {field} dokumentasjon : uri  [0..*]
+    {field} endringsdato : date  
+    {field} filstorrelse : NonNegativeInteger  
+    {field} nedlastningslenke : uri  [0..*]
+    {field} policy : string  
+    {field} spraak : Spraak  [0..*]
+    {field} tidsopplosning : Duration  
+    {field} tittel : LangString  [0..*]
+    {field} utgivelsesdato : date  
+}
+"Standard" --> "0..*" "Kvalitetsdimensjon" : "er_i_kvalitetsdimensjon"
+"Datatjeneste" --> "0..*" "Standard" : "i_samsvar_med"
+"Katalogpost" --> "0..*" "Standard" : "i_samsvar_med"
+"Distribusjon" --> "0..*" "Standard" : "i_samsvar_med"
+"Datasett" --> "0..*" "Standard" : "i_samsvar_med"
+"Datatjeneste" --> "0..*" "Standard" : "i_samsvar_med"(i)
+"Katalogpost" --> "0..*" "Standard" : "i_samsvar_med"(i)
+"SamtBuContainer" *--> "0..*" "Standard" : "standarder"
+class "Skole" [[{En skole er en privat eller offentlig institusjon eller et lærested hvor lærere underviser i ulike fag, oftest som grunnlag for videre utdannelse og yrkesliv.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+}
+abstract "Skoleeier" [[{Superklasse for alle typer skoleeiere.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+}
+class "PrivatVirksomhet" [[{Virksomhet, eller foretak, er betegnelser for en juridisk person eller en organisasjon som produserer varer eller tjenester.}]] {
+    {field} organisasjonsnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+}
+class "Kommune" [[{En kommune er et geografisk avgrenset område som utgjør en egen politisk og administrativ enhet innen en statsdannelse.}]] {
+    {field} kommunenummer : string  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+}
+class "Fylke" [[{Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt geografisk område, tilsvarende amt og len.}]] {
+    {field} fylkesnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+}
+"Skole" --> "0..1" "Skoleeier" : "har_skoleeier"
+"Skoleeier" ^-- "PrivatVirksomhet"
+"Skoleeier" ^-- "Kommune"
+"Skoleeier" ^-- "Fylke"
+class "Basisgruppe" [[{Skoleklasse som hovedsaklig samler elever i ulike fag.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} trinniva : string  
+}
+class "Rektor" [[{Høgaste akademiske leder av en skole}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+}
+class "Kontaktlaerer" [[{En lærer med ansvar for ei basisgruppe og er skolens kontaktpunkt for elevane i basisgruppa}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+}
+"Basisgruppe" --> "0..1" "Skole" : "del_av_skole"
+"Rektor" --> "0..1" "Skole" : "enhetsleder_for"
+"Kontaktlaerer" --> "0..1" "Skole" : "jobber_paa_skole"
+"SamtBuContainer" *--> "0..*" "Skole" : "skoler"
+class "Sjekksum" [[{Ein sjekksum for ein distribusjon.}]] {
+    {field} id : uriorcurie  
+    {field} algoritme : string  
+    {field} sjekksumverdi : string  
+}
+"Distribusjon" --> "0..1" "Sjekksum" : "sjekksum"
+class "Elev" [[{En person som går på skole}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+}
+class "Aktor" [[{Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.}]] {
+    {field} id : uriorcurie  
+    {field} navn_aktor : LangString  [1..*]
+    {field} identifikator_literal : string  
+}
+class "Kvalitetsmaaling" [[{Ei konkret måling av eit kvalitetsmål for eit datasett.}]] {
+    {field} id : uriorcurie  
+    {field} har_verdi : string  
+    {field} har_merknad : LangString  [0..*]
+}
+class "Brukartilbakemelding" [[{Tilbakemelding frå ein brukar om kvaliteten til eit datasett.}]] {
+    {field} id(i) : uriorcurie  
+    {field} er_motivert_av(i) : uriorcurie  
+    {field} har_merknad(i) : LangString  [0..*]
+    {field} har_maal(i) : uri  
+}
+class "RegulativRessurs" [[{Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.}]] {
+    {field} id : uriorcurie  
+    {field} beskrivelse : LangString  [0..*]
+    {field} identifikator_literal : string  
+    {field} har_referanse : uri  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} tittel : LangString  [0..*]
+}
+class "Kontaktopplysning" [[{Kontaktinformasjon for ein aktør.}]] {
+    {field} id : uriorcurie  
+    {field} navn_vcard : LangString  [1..*]
+    {field} har_epost : string  
+    {field} har_kontaktside : string  
+}
+"SamtBuContainer" *--> "0..*" "Kontaktlaerer" : "kontaktlaerere"
+"SamtBuContainer" *--> "0..*" "Rektor" : "rektorer"
+"SamtBuContainer" *--> "0..*" "Elev" : "elever"
+"SamtBuContainer" *--> "0..*" "Basisgruppe" : "basisgrupper"
+"SamtBuContainer" *--> "0..*" "PrivatVirksomhet" : "private_virksomheter"
+"SamtBuContainer" *--> "0..*" "Fylke" : "fylker"
+"SamtBuContainer" *--> "0..*" "Kommune" : "kommuner"
+"SamtBuContainer" *--> "0..*" "Kvalitetsdimensjon" : "kvalitetsdimensjoner"
+"SamtBuContainer" *--> "0..*" "Aktor" : "grupper"
+"SamtBuContainer" *--> "0..*" "Kvalitetsmaaling" : "kvalitetsmaalinger"
+"SamtBuContainer" *--> "0..*" "Brukartilbakemelding" : "brukertilbakemeldinger"
+"SamtBuContainer" *--> "0..*" "Kvalitetsmerknad" : "kvalitetsmerknader"
+"SamtBuContainer" *--> "0..*" "Datasett" : "dataset_metadata"
+"SamtBuContainer" *--> "0..*" "Distribusjon" : "datasettdistribusjoner"
+"SamtBuContainer" *--> "0..*" "RegulativRessurs" : "gjeldende_lovgivninger"
+"SamtBuContainer" *--> "0..*" "Aktor" : "organisasjoner"
+"SamtBuContainer" *--> "0..*" "Aktor" : "utgivere"
+"SamtBuContainer" *--> "0..*" "Kontaktopplysning" : "kontaktpunkter"
+class "Rettighetserklaring" [[{Ei erklæring om rettar til ein ressurs (ODRS).}]] {
+    {field} id : uriorcurie  
+    {field} anvendelsesretningslinjer : string  
+    {field} jurisdiksjon : string  
+    {field} krediteringstekst : string  
+    {field} krediteringsurl : uri  
+    {field} opphavsrettserklaring : string  
+    {field} opphavsrettsinnehaver : string  
+    {field} opphavsrettsnotis : string  
+    {field} opphavsrettsaar : GYear  
+}
+"Distribusjon" --> "0..1" "Rettighetserklaring" : "rettigheter"
+"Datatjeneste" --> "0..1" "Rettighetserklaring" : "rettigheter"
+"Katalog" --> "0..1" "Rettighetserklaring" : "rettigheter"
+class "Relasjon" [[{Ein kvalifisert relasjon mellom to ressursar.}]] {
+    {field} id : uriorcurie  
+    {field} har_rolle : string  
+    {field} relasjon_til : uri  
+}
+"Datasett" --> "0..*" "Relasjon" : "annen_spesifikk_relasjon"
+abstract "Person" [[{Eit menneske individ}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+}
+"Person" ^-- "Rektor"
+class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.}]] {
+    {field} id : uriorcurie  
+}
+"RegulativRessurs" --> "0..*" "RegulativRessurs" : "relatert_regulativ_ressurs"
+"RegulativRessurs" --> "0..1" "Konsept" : "type_concept"
+"Datasett" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"
+"Datasettserie" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"
+"Datatjeneste" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"
+"Distribusjon" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"
+"Datasett" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"(i)
+"Datasettserie" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"(i)
+"Datatjeneste" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"(i)
+"Katalog" --> "0..*" "RegulativRessurs" : "gjeldende_lovgivning"
+"Person" ^-- "Kontaktlaerer"
+"Person" ^-- "Elev"
+class "Mediatype" [[{Ein medietype eller filformat (dct:MediaTypeOrExtent).}]] {
+    {field} id : uriorcurie  
+}
+"Distribusjon" --> "0..1" "Mediatype" : "komprimeringsformat"
+"Distribusjon" --> "0..1" "Mediatype" : "medietype"
+"Distribusjon" --> "0..1" "Mediatype" : "pakkeformat"
+class "Kvalitetssertifikat" [[{Eit sertifikat som stadfester kvaliteten til eit datasett.}]] {
+    {field} id(i) : uriorcurie  
+    {field} er_motivert_av(i) : uriorcurie  
+    {field} har_merknad(i) : LangString  [0..*]
+    {field} har_maal(i) : uri  
+}
+"Kvalitetsmerknad" --> "0..*" "Kvalitetsdimensjon" : "er_i_kvalitetsdimensjon"
+"Datasett" --> "0..*" "Kvalitetsmerknad" : "har_kvalitetsmerknad"
+"Datasett" --> "0..*" "Kvalitetsmerknad" : "har_kvalitetsmerknad"(i)
+"Kvalitetsmerknad" ^-- "Kvalitetssertifikat"
+"Kvalitetsmerknad" ^-- "Brukartilbakemelding"
+class "Kvalitetsmaal" [[{Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.}]] {
+    {field} id : uriorcurie  
+    {field} har_forventet_datatype : uriorcurie  
+    {field} har_anbefalt_term : LangString  [0..*]
+    {field} har_definisjon : LangString  [0..*]
+}
+"Kvalitetsmaaling" --> "1" "Kvalitetsmaal" : "er_kvalitetsmaaling_av"
+"Datasett" --> "0..*" "Kvalitetsmaaling" : "har_kvalitetsmaaling"
+"Datasett" --> "0..*" "Kvalitetsmaaling" : "har_kvalitetsmaaling"(i)
+class "Kvalitetsdeldimensjon" [[{Ein deldimensjon av ein kvalitetsdimensjon.}]] {
+    {field} har_anbefalt_term : LangString  [0..*]
+    {field} har_definisjon : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+}
+"Kvalitetsmaal" --> "1" "Kvalitetsdeldimensjon" : "er_i_kvalitetsdeldimensjon"
+"Kvalitetsmaaling" --> "0..1" "Kvalitetsmaal" : "er_kvalitetsmaaling_av"(i)
+"Kvalitetsdeldimensjon" --> "1" "Kvalitetsdimensjon" : "er_deldimensjon_av"
+"Kvalitetsdeldimensjon" --> "0..1" "Kvalitetsdimensjon" : "er_deldimensjon_av"(i)
+"Kvalitetsmerknad" --> "0..*" "Kvalitetsdimensjon" : "er_i_kvalitetsdimensjon"(i)
+"Standard" --> "0..*" "Kvalitetsdimensjon" : "er_i_kvalitetsdimensjon"(i)
+"Kvalitetsdimensjon" ^-- "Kvalitetsdeldimensjon"
+"Kvalitetsmaal" --> "0..1" "Kvalitetsdeldimensjon" : "er_i_kvalitetsdeldimensjon"(i)
+"Datasett" --> "1..*" "Kontaktopplysning" : "kontaktpunkt"
+"Datasettserie" --> "1..*" "Kontaktopplysning" : "kontaktpunkt"
+"Datatjeneste" --> "1..*" "Kontaktopplysning" : "kontaktpunkt"
+"Katalog" --> "1..*" "Kontaktopplysning" : "kontaktpunkt"
+"Datasett" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
+"Datasettserie" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
+"Datatjeneste" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
+"Katalog" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
+"Kontaktlaerer" --> "0..1" "Elev" : "har_saerlig_ansvar_for"
+"Kontaktlaerer" --> "0..1" "Basisgruppe" : "tilknyttet_basisgruppe"
+class "Gebyr" [[{Eit gebyr knytt til bruk av ein datatjeneste.}]] {
+    {field} id : uriorcurie  
+    {field} belop : string  
+    {field} beskrivelse : LangString  [0..*]
+    {field} dokumentasjon : uri  [0..*]
+}
+"Datasett" --> "0..*" "Konsept" : "dekningsomraade"
+"Datasettserie" --> "0..*" "Konsept" : "dekningsomraade"
+"Distribusjon" --> "0..1" "Konsept" : "status"
+"Katalog" --> "0..*" "Konsept" : "dekningsomraade"
+"Katalogpost" --> "0..1" "Konsept" : "status"
+"Datasett" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"Datasettserie" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"Katalog" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"Distribusjon" --> "0..1" "Konsept" : "status"(i)
+"Datatjeneste" --> "0..1" "Konsept" : "status"
+"Katalogpost" --> "0..1" "Konsept" : "status"(i)
+"Aktor" --> "0..1" "Konsept" : "type_concept"
+"Datasett" --> "0..1" "Konsept" : "type_concept"
+"Gebyr" --> "0..1" "Konsept" : "valuta"
+abstract "KatalogisertRessurs" [[{Basisklasse for ressursar som kan katalogiserast.}]] {
+    {field} id : uriorcurie  
+}
+"Katalogpost" --> "1" "KatalogisertRessurs" : "primaertema"
+"Katalog" --> "0..*" "Katalogpost" : "katalogpost"
+"Katalogpost" --> "0..1" "KatalogisertRessurs" : "primaertema"(i)
+"KatalogisertRessurs" ^-- "Katalog"
+"KatalogisertRessurs" ^-- "Datatjeneste"
+"KatalogisertRessurs" ^-- "Datasettserie"
+"KatalogisertRessurs" ^-- "Datasett"
+class "Begrepssamling" [[{Ei SKOS-omgrepssamling (temavokabular).}]] {
+    {field} id : uriorcurie  
+}
+"Katalog" --> "0..1" "Aktor" : "produsent"
+"Katalog" --> "0..*" "Katalog" : "underkatalog"
+"Katalog" --> "0..*" "Katalog" : "har_del"
+"Katalog" --> "0..*" "Begrepssamling" : "temaer"
+"Katalog" --> "0..*" "Datatjeneste" : "datatjeneste"
+"Katalog" --> "0..*" "Datasett" : "datasett"
+"Katalog" --> "1" "Aktor" : "utgiver"
+class "Identifikator" [[{Ein alternativ identifikator for ein ressurs.}]] {
+    {field} id : uriorcurie  
+    {field} notasjon : string  
+}
+"Datasett" --> "0..*" "Identifikator" : "annen_identifikator"
+"Datatjeneste" --> "0..*" "Gebyr" : "har_gebyr"
+"Elev" --> "0..1" "Basisgruppe" : "horer_til_basisgruppe"
+"Distribusjon" --> "0..*" "Datatjeneste" : "tilgangstjeneste"
+"Datasett" --> "0..*" "Distribusjon" : "datasettdistribusjon"
+"Datasett" --> "0..*" "Distribusjon" : "datasettdistribusjon"(i)
+"Datasett" --> "0..*" "Distribusjon" : "eksempeldata"
+"Datatjeneste" --> "0..*" "Datasett" : "tilgjengeliggjor_datasett"
+"Datatjeneste" --> "1" "Aktor" : "utgiver"
+"Katalog" --> "0..*" "Datatjeneste" : "datatjeneste"(i)
+"Datasettserie" --> "0..1" "Datasett" : "forste"
+"Datasettserie" --> "0..1" "Datasett" : "siste"
+"Datasettserie" --> "1" "Aktor" : "utgiver"
+"Datasett" --> "0..*" "Datasettserie" : "i_serie"
+"Datasett" --> "0..1" "Aktor" : "produsent"
+"Datasett" --> "0..*" "Datasett" : "kilde_datasett"
+"Datasett" --> "1" "Aktor" : "utgiver"
+"Katalog" --> "0..*" "Datasett" : "datasett"(i)
+"Datasettserie" --> "0..1" "Datasett" : "siste"(i)
+"Datatjeneste" --> "0..*" "Datasett" : "tilgjengeliggjor_datasett"(i)
+"Katalog" --> "0..*" "Begrepssamling" : "temaer"(i)
+"Datasett" --> "0..1" "Aktor" : "utgiver"(i)
+"Datasettserie" --> "0..1" "Aktor" : "utgiver"(i)
+"Datatjeneste" --> "0..1" "Aktor" : "utgiver"(i)
+"Katalog" --> "0..1" "Aktor" : "utgiver"(i)
+@enduml

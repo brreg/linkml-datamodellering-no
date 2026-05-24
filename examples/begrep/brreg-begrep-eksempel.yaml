@@ -1,0 +1,109 @@
+# Tre begreper frå Registerenheten i Brønnøysund — under utvikling, ikkje publisert.
+# Midlertidige URI-ar under brreg.no. Felles Begrepskatalog tildeler permanente
+# URI-ar (data.norge.no/concepts/<uuid>) ved import.
+
+# ── Begrep ────────────────────────────────────────────────────────────────────
+
+begrep:
+
+  # Foretaksnavn
+  # Etter publisering: https://data.norge.no/concepts/5916c2a0-e5d3-31f7-b8d4-02938091f11f
+  - id: https://begrep.brreg.no/foretaksnavn
+    anbefalt_term:
+      - foretaksnavn
+    har_definisjon:
+      - https://begrep.brreg.no/def/foretaksnavn-nb
+    identifikator_literal: "https://begrep.brreg.no/foretaksnavn"
+    kontaktpunkt_vcard:
+      - https://begrep.brreg.no/kontakt/begrepsansvarleg
+    utgjevar: https://data.norge.no/organizations/974760673
+    fagomrade:
+      - https://psi.norge.no/los/tema/naringsliv
+    sja_ogsa_omgrep:
+      - https://data.norge.no/concepts/68944a03-76d8-38f5-894e-88265d962b36
+      - https://data.norge.no/concepts/e9074b72-758d-3500-bf6e-253a920a6900
+
+  # Nestleder / nestleiar / deputy chair — fleirspråkleg, eitt definisjonsobjekt per språk
+  # Etter publisering: https://data.norge.no/concepts/68944a03-76d8-38f5-894e-88265d962b36
+  - id: https://begrep.brreg.no/nestleder
+    anbefalt_term:
+      - nestleder
+      - nestleiar
+      - deputy chair
+    har_definisjon:
+      - https://begrep.brreg.no/def/nestleder-nb
+      - https://begrep.brreg.no/def/nestleder-nn
+      - https://begrep.brreg.no/def/nestleder-en
+    identifikator_literal: "https://begrep.brreg.no/nestleder"
+    kontaktpunkt_vcard:
+      - https://begrep.brreg.no/kontakt/begrepsansvarleg
+    utgjevar: https://data.norge.no/organizations/974760673
+    fagomrade:
+      - https://psi.norge.no/los/tema/naringsliv
+
+  # Aksjeklasser — med merknad og eksempel
+  # Etter publisering: https://data.norge.no/concepts/e9074b72-758d-3500-bf6e-253a920a6900
+  - id: https://begrep.brreg.no/aksjeklasser
+    anbefalt_term:
+      - aksjeklasser
+    har_definisjon:
+      - https://begrep.brreg.no/def/aksjeklasser-nb
+    identifikator_literal: "https://begrep.brreg.no/aksjeklasser"
+    kontaktpunkt_vcard:
+      - https://begrep.brreg.no/kontakt/begrepsansvarleg
+    utgjevar: https://data.norge.no/organizations/974760673
+    fagomrade:
+      - https://psi.norge.no/los/tema/naringsliv
+    merknad:
+      - I utgangspunktet skal alle aksjer gi lik rett i selskapet, men vedtektene kan bestemme at aksjene skal deles inn i forskjellige aksjeklasser.
+    eksempel:
+      - A-aksjer, b-aksjer, preferanseaksjer
+
+# ── Definisjonsobjekt — eitt per begrep per språk ─────────────────────────────
+
+definisjoner:
+
+  - id: https://begrep.brreg.no/def/foretaksnavn-nb
+    tekst: det offisielle navnet på en næringsdrivende juridisk person og kjennetegnet for et enkeltpersonforetak
+    kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#direct-from-source
+
+  - id: https://begrep.brreg.no/def/nestleder-nb
+    tekst: styremedlem som opptrer som styreleder ved leders fravær
+    kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#self-composed
+
+  - id: https://begrep.brreg.no/def/nestleder-nn
+    tekst: styremedlem som opptrer som styreleiar i fråværet til leiaren
+    kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#self-composed
+
+  - id: https://begrep.brreg.no/def/nestleder-en
+    tekst: board member who acts as the chair in the absence of the chair
+    kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#self-composed
+
+  - id: https://begrep.brreg.no/def/aksjeklasser-nb
+    tekst: inndeling av aksjer som gir aksjene ulike rettigheter
+    kjelde_relasjon: https://data.norge.no/vocabulary/relationship-with-source-type#derived-from-source
+
+# ── Kontaktpunkt og utgjevar — definerast lokalt i datafila ───────────────────
+
+kontaktpunkt:
+  - id: https://begrep.brreg.no/kontakt/begrepsansvarleg
+
+organisasjonar:
+  - id: https://data.norge.no/organizations/974760673
+
+# ── Samling ───────────────────────────────────────────────────────────────────
+
+samlingar:
+  - id: https://begrep.brreg.no/samlingar/registerbegrep-2025
+    identifikator_literal: "https://begrep.brreg.no/samlingar/registerbegrep-2025"
+    tittel:
+      - Registerenheten i Brønnøysund – begrepskatalog 2025
+    kontaktpunkt_vcard:
+      - https://begrep.brreg.no/kontakt/begrepsansvarleg
+    utgjevar: https://data.norge.no/organizations/974760673
+    beskrivelse:
+      - Begreper knytt til Enhetsregisteret, Foretaksregisteret og registerforvaltning.
+    medlem:
+      - https://begrep.brreg.no/foretaksnavn
+      - https://begrep.brreg.no/nestleder
+      - https://begrep.brreg.no/aksjeklasser

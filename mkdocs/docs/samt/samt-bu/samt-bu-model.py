@@ -1,5 +1,5 @@
 # Auto generated from samt-bu-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-21T17:57:46
+# Generation date: 2026-05-23T14:09:09
 # Schema: skole_ontologi
 #
 # id: https://example.no/ontology/samt-bu-skole
@@ -134,10 +134,6 @@ class GYear(str):
 
 
 # Class references
-class ContainerklasseId(URIorCURIE):
-    pass
-
-
 class SkoleId(URIorCURIE):
     pass
 
@@ -291,18 +287,17 @@ class BegrepssamlingId(URIorCURIE):
 
 
 @dataclass(repr=False)
-class Containerklasse(YAMLRoot):
+class SamtBuContainer(YAMLRoot):
     """
     Containerklasse for alle klasser som kan inngå i datasettet.
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["Containerklasse"]
-    class_class_curie: ClassVar[str] = "samtbuskole:Containerklasse"
-    class_name: ClassVar[str] = "Containerklasse"
-    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.Containerklasse
+    class_class_uri: ClassVar[URIRef] = SAMTBUSKOLE["SamtBuContainer"]
+    class_class_curie: ClassVar[str] = "samtbuskole:SamtBuContainer"
+    class_name: ClassVar[str] = "SamtBuContainer"
+    class_model_uri: ClassVar[URIRef] = SAMTBUSKOLE.SamtBuContainer
 
-    id: Union[str, ContainerklasseId] = None
     kontaktpunkter: Optional[Union[dict[Union[str, KontaktopplysningId], Union[dict, "Kontaktopplysning"]], list[Union[dict, "Kontaktopplysning"]]]] = empty_dict()
     utgivere: Optional[Union[dict[Union[str, AktorId], Union[dict, "Aktor"]], list[Union[dict, "Aktor"]]]] = empty_dict()
     organisasjoner: Optional[Union[dict[Union[str, AktorId], Union[dict, "Aktor"]], list[Union[dict, "Aktor"]]]] = empty_dict()
@@ -317,6 +312,7 @@ class Containerklasse(YAMLRoot):
     kvalitetsdimensjoner: Optional[Union[dict[Union[str, KvalitetsdimensjonId], Union[dict, "Kvalitetsdimensjon"]], list[Union[dict, "Kvalitetsdimensjon"]]]] = empty_dict()
     tidsromer: Optional[Union[dict[Union[str, TidsromId], Union[dict, "Tidsrom"]], list[Union[dict, "Tidsrom"]]]] = empty_dict()
     tekstdeler: Optional[Union[dict[Union[str, TekstdelId], Union[dict, "Tekstdel"]], list[Union[dict, "Tekstdel"]]]] = empty_dict()
+    id: Optional[str] = None
     skoler: Optional[Union[dict[Union[str, SkoleId], Union[dict, "Skole"]], list[Union[dict, "Skole"]]]] = empty_dict()
     kommuner: Optional[Union[dict[Union[str, KommuneId], Union[dict, "Kommune"]], list[Union[dict, "Kommune"]]]] = empty_dict()
     fylker: Optional[Union[dict[Union[str, FylkeId], Union[dict, "Fylke"]], list[Union[dict, "Fylke"]]]] = empty_dict()
@@ -327,11 +323,6 @@ class Containerklasse(YAMLRoot):
     kontaktlaerere: Optional[Union[dict[Union[str, KontaktlaererId], Union[dict, "Kontaktlaerer"]], list[Union[dict, "Kontaktlaerer"]]]] = empty_dict()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.id):
-            self.MissingRequiredField("id")
-        if not isinstance(self.id, ContainerklasseId):
-            self.id = ContainerklasseId(self.id)
-
         self._normalize_inlined_as_list(slot_name="kontaktpunkter", slot_type=Kontaktopplysning, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="utgivere", slot_type=Aktor, key_name="id", keyed=True)
@@ -359,6 +350,9 @@ class Containerklasse(YAMLRoot):
         self._normalize_inlined_as_list(slot_name="tidsromer", slot_type=Tidsrom, key_name="id", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="tekstdeler", slot_type=Tekstdel, key_name="id", keyed=True)
+
+        if self.id is not None and not isinstance(self.id, str):
+            self.id = str(self.id)
 
         self._normalize_inlined_as_list(slot_name="skoler", slot_type=Skole, key_name="id", keyed=True)
 
@@ -2224,72 +2218,6 @@ class slots:
 slots.navn = Slot(uri=SAMTBUSKOLE.navn, name="navn", curie=SAMTBUSKOLE.curie('navn'),
                    model_uri=SAMTBUSKOLE.navn, domain=None, range=Optional[str])
 
-slots.tidsromer = Slot(uri=SAMTBUSKOLE.tidsromer, name="tidsromer", curie=SAMTBUSKOLE.curie('tidsromer'),
-                   model_uri=SAMTBUSKOLE.tidsromer, domain=None, range=Optional[Union[dict[Union[str, TidsromId], Union[dict, Tidsrom]], list[Union[dict, Tidsrom]]]])
-
-slots.tekstdeler = Slot(uri=SAMTBUSKOLE.tekstdeler, name="tekstdeler", curie=SAMTBUSKOLE.curie('tekstdeler'),
-                   model_uri=SAMTBUSKOLE.tekstdeler, domain=None, range=Optional[Union[dict[Union[str, TekstdelId], Union[dict, Tekstdel]], list[Union[dict, Tekstdel]]]])
-
-slots.kvalitetsdimensjoner = Slot(uri=SAMTBUSKOLE.kvalitetsdimensjoner, name="kvalitetsdimensjoner", curie=SAMTBUSKOLE.curie('kvalitetsdimensjoner'),
-                   model_uri=SAMTBUSKOLE.kvalitetsdimensjoner, domain=None, range=Optional[Union[dict[Union[str, KvalitetsdimensjonId], Union[dict, Kvalitetsdimensjon]], list[Union[dict, Kvalitetsdimensjon]]]])
-
-slots.kontaktpunkter = Slot(uri=SAMTBUSKOLE.kontaktpunkter, name="kontaktpunkter", curie=SAMTBUSKOLE.curie('kontaktpunkter'),
-                   model_uri=SAMTBUSKOLE.kontaktpunkter, domain=None, range=Optional[Union[dict[Union[str, KontaktopplysningId], Union[dict, Kontaktopplysning]], list[Union[dict, Kontaktopplysning]]]])
-
-slots.utgivere = Slot(uri=SAMTBUSKOLE.utgivere, name="utgivere", curie=SAMTBUSKOLE.curie('utgivere'),
-                   model_uri=SAMTBUSKOLE.utgivere, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
-
-slots.organisasjoner = Slot(uri=SAMTBUSKOLE.organisasjoner, name="organisasjoner", curie=SAMTBUSKOLE.curie('organisasjoner'),
-                   model_uri=SAMTBUSKOLE.organisasjoner, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
-
-slots.grupper = Slot(uri=SAMTBUSKOLE.grupper, name="grupper", curie=SAMTBUSKOLE.curie('grupper'),
-                   model_uri=SAMTBUSKOLE.grupper, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
-
-slots.gjeldende_lovgivninger = Slot(uri=SAMTBUSKOLE.gjeldende_lovgivninger, name="gjeldende_lovgivninger", curie=SAMTBUSKOLE.curie('gjeldende_lovgivninger'),
-                   model_uri=SAMTBUSKOLE.gjeldende_lovgivninger, domain=None, range=Optional[Union[dict[Union[str, RegulativRessursId], Union[dict, RegulativRessurs]], list[Union[dict, RegulativRessurs]]]])
-
-slots.datasettdistribusjoner = Slot(uri=SAMTBUSKOLE.datasettdistribusjoner, name="datasettdistribusjoner", curie=SAMTBUSKOLE.curie('datasettdistribusjoner'),
-                   model_uri=SAMTBUSKOLE.datasettdistribusjoner, domain=None, range=Optional[Union[dict[Union[str, DistribusjonId], Union[dict, Distribusjon]], list[Union[dict, Distribusjon]]]])
-
-slots.dataset_metadata = Slot(uri=SAMTBUSKOLE.dataset_metadata, name="dataset_metadata", curie=SAMTBUSKOLE.curie('dataset_metadata'),
-                   model_uri=SAMTBUSKOLE.dataset_metadata, domain=None, range=Optional[Union[dict[Union[str, DatasettId], Union[dict, Datasett]], list[Union[dict, Datasett]]]])
-
-slots.kvalitetsmerknader = Slot(uri=SAMTBUSKOLE.kvalitetsmerknader, name="kvalitetsmerknader", curie=SAMTBUSKOLE.curie('kvalitetsmerknader'),
-                   model_uri=SAMTBUSKOLE.kvalitetsmerknader, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmerknadId], Union[dict, Kvalitetsmerknad]], list[Union[dict, Kvalitetsmerknad]]]])
-
-slots.brukertilbakemeldinger = Slot(uri=SAMTBUSKOLE.brukertilbakemeldinger, name="brukertilbakemeldinger", curie=SAMTBUSKOLE.curie('brukertilbakemeldinger'),
-                   model_uri=SAMTBUSKOLE.brukertilbakemeldinger, domain=None, range=Optional[Union[dict[Union[str, BrukartilbakemeldingId], Union[dict, Brukartilbakemelding]], list[Union[dict, Brukartilbakemelding]]]])
-
-slots.kvalitetsmaalinger = Slot(uri=SAMTBUSKOLE.kvalitetsmaalinger, name="kvalitetsmaalinger", curie=SAMTBUSKOLE.curie('kvalitetsmaalinger'),
-                   model_uri=SAMTBUSKOLE.kvalitetsmaalinger, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmaalingId], Union[dict, Kvalitetsmaaling]], list[Union[dict, Kvalitetsmaaling]]]])
-
-slots.standarder = Slot(uri=SAMTBUSKOLE.standarder, name="standarder", curie=SAMTBUSKOLE.curie('standarder'),
-                   model_uri=SAMTBUSKOLE.standarder, domain=None, range=Optional[Union[dict[Union[str, StandardId], Union[dict, Standard]], list[Union[dict, Standard]]]])
-
-slots.skoler = Slot(uri=SAMTBUSKOLE.skoler, name="skoler", curie=SAMTBUSKOLE.curie('skoler'),
-                   model_uri=SAMTBUSKOLE.skoler, domain=None, range=Optional[Union[dict[Union[str, SkoleId], Union[dict, Skole]], list[Union[dict, Skole]]]])
-
-slots.kommuner = Slot(uri=SAMTBUSKOLE.kommuner, name="kommuner", curie=SAMTBUSKOLE.curie('kommuner'),
-                   model_uri=SAMTBUSKOLE.kommuner, domain=None, range=Optional[Union[dict[Union[str, KommuneId], Union[dict, Kommune]], list[Union[dict, Kommune]]]])
-
-slots.fylker = Slot(uri=SAMTBUSKOLE.fylker, name="fylker", curie=SAMTBUSKOLE.curie('fylker'),
-                   model_uri=SAMTBUSKOLE.fylker, domain=None, range=Optional[Union[dict[Union[str, FylkeId], Union[dict, Fylke]], list[Union[dict, Fylke]]]])
-
-slots.private_virksomheter = Slot(uri=SAMTBUSKOLE.private_virksomheter, name="private_virksomheter", curie=SAMTBUSKOLE.curie('private_virksomheter'),
-                   model_uri=SAMTBUSKOLE.private_virksomheter, domain=None, range=Optional[Union[dict[Union[str, PrivatVirksomhetId], Union[dict, PrivatVirksomhet]], list[Union[dict, PrivatVirksomhet]]]])
-
-slots.basisgrupper = Slot(uri=SAMTBUSKOLE.basisgrupper, name="basisgrupper", curie=SAMTBUSKOLE.curie('basisgrupper'),
-                   model_uri=SAMTBUSKOLE.basisgrupper, domain=None, range=Optional[Union[dict[Union[str, BasisgruppeId], Union[dict, Basisgruppe]], list[Union[dict, Basisgruppe]]]])
-
-slots.rektorer = Slot(uri=SAMTBUSKOLE.rektorer, name="rektorer", curie=SAMTBUSKOLE.curie('rektorer'),
-                   model_uri=SAMTBUSKOLE.rektorer, domain=None, range=Optional[Union[dict[Union[str, RektorId], Union[dict, Rektor]], list[Union[dict, Rektor]]]])
-
-slots.elever = Slot(uri=SAMTBUSKOLE.elever, name="elever", curie=SAMTBUSKOLE.curie('elever'),
-                   model_uri=SAMTBUSKOLE.elever, domain=None, range=Optional[Union[dict[Union[str, ElevId], Union[dict, Elev]], list[Union[dict, Elev]]]])
-
-slots.kontaktlaerere = Slot(uri=SAMTBUSKOLE.kontaktlaerere, name="kontaktlaerere", curie=SAMTBUSKOLE.curie('kontaktlaerere'),
-                   model_uri=SAMTBUSKOLE.kontaktlaerere, domain=None, range=Optional[Union[dict[Union[str, KontaktlaererId], Union[dict, Kontaktlaerer]], list[Union[dict, Kontaktlaerer]]]])
-
 slots.kommunenummer = Slot(uri=DCAT.identifier, name="kommunenummer", curie=DCAT.curie('identifier'),
                    model_uri=SAMTBUSKOLE.kommunenummer, domain=None, range=Optional[str])
 
@@ -2646,6 +2574,75 @@ slots.anbefalt_term = Slot(uri=SKOS.prefLabel, name="anbefalt_term", curie=SKOS.
 
 slots.versjonsmerknad = Slot(uri=ADMS.versionNotes, name="versjonsmerknad", curie=ADMS.curie('versionNotes'),
                    model_uri=SAMTBUSKOLE.versjonsmerknad, domain=None, range=Optional[Union[str, list[str]]])
+
+slots.samtBuContainer__kontaktpunkter = Slot(uri=SAMTBUSKOLE.kontaktpunkter, name="samtBuContainer__kontaktpunkter", curie=SAMTBUSKOLE.curie('kontaktpunkter'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__kontaktpunkter, domain=None, range=Optional[Union[dict[Union[str, KontaktopplysningId], Union[dict, Kontaktopplysning]], list[Union[dict, Kontaktopplysning]]]])
+
+slots.samtBuContainer__utgivere = Slot(uri=SAMTBUSKOLE.utgivere, name="samtBuContainer__utgivere", curie=SAMTBUSKOLE.curie('utgivere'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__utgivere, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
+
+slots.samtBuContainer__organisasjoner = Slot(uri=SAMTBUSKOLE.organisasjoner, name="samtBuContainer__organisasjoner", curie=SAMTBUSKOLE.curie('organisasjoner'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__organisasjoner, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
+
+slots.samtBuContainer__gjeldende_lovgivninger = Slot(uri=SAMTBUSKOLE.gjeldende_lovgivninger, name="samtBuContainer__gjeldende_lovgivninger", curie=SAMTBUSKOLE.curie('gjeldende_lovgivninger'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__gjeldende_lovgivninger, domain=None, range=Optional[Union[dict[Union[str, RegulativRessursId], Union[dict, RegulativRessurs]], list[Union[dict, RegulativRessurs]]]])
+
+slots.samtBuContainer__datasettdistribusjoner = Slot(uri=SAMTBUSKOLE.datasettdistribusjoner, name="samtBuContainer__datasettdistribusjoner", curie=SAMTBUSKOLE.curie('datasettdistribusjoner'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__datasettdistribusjoner, domain=None, range=Optional[Union[dict[Union[str, DistribusjonId], Union[dict, Distribusjon]], list[Union[dict, Distribusjon]]]])
+
+slots.samtBuContainer__dataset_metadata = Slot(uri=SAMTBUSKOLE.dataset_metadata, name="samtBuContainer__dataset_metadata", curie=SAMTBUSKOLE.curie('dataset_metadata'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__dataset_metadata, domain=None, range=Optional[Union[dict[Union[str, DatasettId], Union[dict, Datasett]], list[Union[dict, Datasett]]]])
+
+slots.samtBuContainer__kvalitetsmerknader = Slot(uri=SAMTBUSKOLE.kvalitetsmerknader, name="samtBuContainer__kvalitetsmerknader", curie=SAMTBUSKOLE.curie('kvalitetsmerknader'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__kvalitetsmerknader, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmerknadId], Union[dict, Kvalitetsmerknad]], list[Union[dict, Kvalitetsmerknad]]]])
+
+slots.samtBuContainer__brukertilbakemeldinger = Slot(uri=SAMTBUSKOLE.brukertilbakemeldinger, name="samtBuContainer__brukertilbakemeldinger", curie=SAMTBUSKOLE.curie('brukertilbakemeldinger'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__brukertilbakemeldinger, domain=None, range=Optional[Union[dict[Union[str, BrukartilbakemeldingId], Union[dict, Brukartilbakemelding]], list[Union[dict, Brukartilbakemelding]]]])
+
+slots.samtBuContainer__kvalitetsmaalinger = Slot(uri=SAMTBUSKOLE.kvalitetsmaalinger, name="samtBuContainer__kvalitetsmaalinger", curie=SAMTBUSKOLE.curie('kvalitetsmaalinger'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__kvalitetsmaalinger, domain=None, range=Optional[Union[dict[Union[str, KvalitetsmaalingId], Union[dict, Kvalitetsmaaling]], list[Union[dict, Kvalitetsmaaling]]]])
+
+slots.samtBuContainer__grupper = Slot(uri=SAMTBUSKOLE.grupper, name="samtBuContainer__grupper", curie=SAMTBUSKOLE.curie('grupper'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__grupper, domain=None, range=Optional[Union[dict[Union[str, AktorId], Union[dict, Aktor]], list[Union[dict, Aktor]]]])
+
+slots.samtBuContainer__standarder = Slot(uri=SAMTBUSKOLE.standarder, name="samtBuContainer__standarder", curie=SAMTBUSKOLE.curie('standarder'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__standarder, domain=None, range=Optional[Union[dict[Union[str, StandardId], Union[dict, Standard]], list[Union[dict, Standard]]]])
+
+slots.samtBuContainer__kvalitetsdimensjoner = Slot(uri=SAMTBUSKOLE.kvalitetsdimensjoner, name="samtBuContainer__kvalitetsdimensjoner", curie=SAMTBUSKOLE.curie('kvalitetsdimensjoner'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__kvalitetsdimensjoner, domain=None, range=Optional[Union[dict[Union[str, KvalitetsdimensjonId], Union[dict, Kvalitetsdimensjon]], list[Union[dict, Kvalitetsdimensjon]]]])
+
+slots.samtBuContainer__tidsromer = Slot(uri=SAMTBUSKOLE.tidsromer, name="samtBuContainer__tidsromer", curie=SAMTBUSKOLE.curie('tidsromer'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__tidsromer, domain=None, range=Optional[Union[dict[Union[str, TidsromId], Union[dict, Tidsrom]], list[Union[dict, Tidsrom]]]])
+
+slots.samtBuContainer__tekstdeler = Slot(uri=SAMTBUSKOLE.tekstdeler, name="samtBuContainer__tekstdeler", curie=SAMTBUSKOLE.curie('tekstdeler'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__tekstdeler, domain=None, range=Optional[Union[dict[Union[str, TekstdelId], Union[dict, Tekstdel]], list[Union[dict, Tekstdel]]]])
+
+slots.samtBuContainer__id = Slot(uri=SAMTBUSKOLE.id, name="samtBuContainer__id", curie=SAMTBUSKOLE.curie('id'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__id, domain=None, range=Optional[str])
+
+slots.samtBuContainer__skoler = Slot(uri=SAMTBUSKOLE.skoler, name="samtBuContainer__skoler", curie=SAMTBUSKOLE.curie('skoler'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__skoler, domain=None, range=Optional[Union[dict[Union[str, SkoleId], Union[dict, Skole]], list[Union[dict, Skole]]]])
+
+slots.samtBuContainer__kommuner = Slot(uri=SAMTBUSKOLE.kommuner, name="samtBuContainer__kommuner", curie=SAMTBUSKOLE.curie('kommuner'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__kommuner, domain=None, range=Optional[Union[dict[Union[str, KommuneId], Union[dict, Kommune]], list[Union[dict, Kommune]]]])
+
+slots.samtBuContainer__fylker = Slot(uri=SAMTBUSKOLE.fylker, name="samtBuContainer__fylker", curie=SAMTBUSKOLE.curie('fylker'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__fylker, domain=None, range=Optional[Union[dict[Union[str, FylkeId], Union[dict, Fylke]], list[Union[dict, Fylke]]]])
+
+slots.samtBuContainer__private_virksomheter = Slot(uri=SAMTBUSKOLE.private_virksomheter, name="samtBuContainer__private_virksomheter", curie=SAMTBUSKOLE.curie('private_virksomheter'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__private_virksomheter, domain=None, range=Optional[Union[dict[Union[str, PrivatVirksomhetId], Union[dict, PrivatVirksomhet]], list[Union[dict, PrivatVirksomhet]]]])
+
+slots.samtBuContainer__basisgrupper = Slot(uri=SAMTBUSKOLE.basisgrupper, name="samtBuContainer__basisgrupper", curie=SAMTBUSKOLE.curie('basisgrupper'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__basisgrupper, domain=None, range=Optional[Union[dict[Union[str, BasisgruppeId], Union[dict, Basisgruppe]], list[Union[dict, Basisgruppe]]]])
+
+slots.samtBuContainer__elever = Slot(uri=SAMTBUSKOLE.elever, name="samtBuContainer__elever", curie=SAMTBUSKOLE.curie('elever'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__elever, domain=None, range=Optional[Union[dict[Union[str, ElevId], Union[dict, Elev]], list[Union[dict, Elev]]]])
+
+slots.samtBuContainer__rektorer = Slot(uri=SAMTBUSKOLE.rektorer, name="samtBuContainer__rektorer", curie=SAMTBUSKOLE.curie('rektorer'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__rektorer, domain=None, range=Optional[Union[dict[Union[str, RektorId], Union[dict, Rektor]], list[Union[dict, Rektor]]]])
+
+slots.samtBuContainer__kontaktlaerere = Slot(uri=SAMTBUSKOLE.kontaktlaerere, name="samtBuContainer__kontaktlaerere", curie=SAMTBUSKOLE.curie('kontaktlaerere'),
+                   model_uri=SAMTBUSKOLE.samtBuContainer__kontaktlaerere, domain=None, range=Optional[Union[dict[Union[str, KontaktlaererId], Union[dict, Kontaktlaerer]], list[Union[dict, Kontaktlaerer]]]])
 
 slots.Aktor_navn_aktor = Slot(uri=FOAF.name, name="Aktor_navn_aktor", curie=FOAF.curie('name'),
                    model_uri=SAMTBUSKOLE.Aktor_navn_aktor, domain=Aktor, range=Union[str, list[str]])

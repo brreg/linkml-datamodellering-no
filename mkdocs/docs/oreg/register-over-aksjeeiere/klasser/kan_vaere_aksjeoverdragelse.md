@@ -9,7 +9,7 @@ _Aksjeoverdraging i transaksjonen._
 
 
 
-URI: [aksje:kan_vaere_aksjeoverdragelse](https://example.no/ontology/aksje#kan_vaere_aksjeoverdragelse)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse](https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:kan_vaere_aksjeoverdragelse](https://example.no/ontology/aksje#kan_v
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:kan_vaere_aksjeoverdragelse |
-| native | aksje:kan_vaere_aksjeoverdragelse |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse |
 
 
 

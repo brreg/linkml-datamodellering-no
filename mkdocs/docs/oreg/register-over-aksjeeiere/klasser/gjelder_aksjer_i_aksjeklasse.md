@@ -9,7 +9,7 @@ _Rettigheiter knytt til aksjeklassen._
 
 
 
-URI: [aksje:gjelder_aksjer_i_aksjeklasse](https://example.no/ontology/aksje#gjelder_aksjer_i_aksjeklasse)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse](https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:gjelder_aksjer_i_aksjeklasse](https://example.no/ontology/aksje#gjel
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:gjelder_aksjer_i_aksjeklasse |
-| native | aksje:gjelder_aksjer_i_aksjeklasse |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse |
 
 
 

@@ -9,7 +9,7 @@ _Person eller organisasjon som eig aksjar._
 
 
 
-URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier)
 
 
 
@@ -149,7 +149,7 @@ URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjeeiere](aksjeeiere.md) | range | [Aksjeeier](aksjeeier.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjeeiere](aksjeeiere.md) | range | [Aksjeeier](aksjeeier.md) |
 | [Aksjeeier](aksjeeier.md) | [har_eierposisjon](har_eierposisjon.md) | domain | [Aksjeeier](aksjeeier.md) |
 
 
@@ -181,8 +181,8 @@ URI: [aksje:Aksjeeier](https://example.no/ontology/aksje#Aksjeeier)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjeeier |
-| native | aksje:Aksjeeier |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier |
 
 
 
@@ -226,7 +226,6 @@ attributes:
     identifier: true
     owner: Aksjeeier
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

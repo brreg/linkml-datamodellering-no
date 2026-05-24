@@ -119,11 +119,21 @@ LINKML_GEN_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_GEN_DIR)/validator.py:/app/validator.py:ro" \
   -v "$(CURDIR)/$(LINKML_GEN_DIR)/profiles:/app/profiles:ro"
 
+LINKML_BEGREP_DIR   := src/mcp-linkml-begrep-generator
+LINKML_BEGREP_IMAGE := mcp-linkml-begrep-generator
+LINKML_BEGREP_RUN   := podman run -i --rm \
+  -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/server.py:/app/server.py:ro" \
+  -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/generator.py:/app/generator.py:ro" \
+  -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/los_tema.py:/app/los_tema.py:ro" \
+  -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
+  -v "$(CURDIR):/repo:ro"
+
 .PHONY: all test validate clean domains gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
         linkml-build-docker python-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
         mcp-gen-build mcp-gen-run mcp-gen-smoke mcp-gen-test mcp-generate new-model \
+        mcp-begrep-build mcp-begrep-run mcp-begrep-smoke mcp-begrep-list-profiles \
         mcp-build mcp-run mcp-smoke mcp-test-policies \
         linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter \
 		docs-build-docker docs-serve docs-build docs-build-fast publish \
@@ -635,6 +645,35 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
 "
 
 linkml-gen-generate: mcp-generate
+
+# ---------------------------------------------------------------------------
+# mcp-linkml-begrep-generator
+# ---------------------------------------------------------------------------
+mcp-begrep-build:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-begrep-build$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	podman build -t $(LINKML_BEGREP_IMAGE) $(LINKML_BEGREP_DIR)
+
+mcp-begrep-run:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-begrep-run$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
+
+mcp-begrep-smoke: mcp-begrep-build
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-begrep-smoke$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":"2024-11-05","capabilities":{},"clientInfo":{"name":"test","version":"1"}}}' \
+	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
+
+# List profiler:
+#   make mcp-begrep-list-profiles
+mcp-begrep-list-profiles:
+	@podman image exists $(LINKML_BEGREP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-begrep-build
+	@echo '{"jsonrpc":"2.0","id":1,"method":"tools/call","params":{"name":"list_profiles","arguments":{}}}' \
+	| $(LINKML_BEGREP_RUN) $(LINKML_BEGREP_IMAGE)
 
 # Bruk: make new-model NAME=<namn> DOMAIN=<domene>
 new-model:

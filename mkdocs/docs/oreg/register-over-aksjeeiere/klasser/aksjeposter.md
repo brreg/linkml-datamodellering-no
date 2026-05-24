@@ -3,13 +3,8 @@
 # Slot: aksjeposter 
 
 
-_Samling av aksjepostar._
 
-
-
-
-
-URI: [aksje:aksjeposter](https://example.no/ontology/aksje#aksjeposter)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjeposter](https://example.no/ontology/aksje#aksjeposter)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjeposter](https://example.no/ontology/aksje#aksjeposter)
 | Property | Value |
 | --- | --- |
 | Range | [Aksjepost](aksjepost.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjeposter](https://example.no/ontology/aksje#aksjeposter)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjeposter |
-| native | aksje:aksjeposter |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjeposter](https://example.no/ontology/aksje#aksjeposter)
 <details>
 ```yaml
 name: aksjeposter
-description: Samling av aksjepostar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjepost
 multivalued: true
 inlined: true

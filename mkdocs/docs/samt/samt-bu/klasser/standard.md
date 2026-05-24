@@ -302,7 +302,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 | [Datasett](datasett.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](standard.md) |
 | [Datatjeneste](datatjeneste.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](standard.md) |
 | [Katalogpost](katalogpost.md) | [i_samsvar_med](i_samsvar_med.md) | range | [Standard](standard.md) |
-| [Containerklasse](containerklasse.md) | [standarder](standarder.md) | range | [Standard](standard.md) |
+| [SamtBuContainer](samtbucontainer.md) | [standarder](standarder.md) | range | [Standard](standard.md) |
 
 
 
@@ -445,7 +445,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

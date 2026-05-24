@@ -3,11 +3,6 @@
 # Slot: fylker 
 
 
-_Container slot for å legge tilrette for å kunne ha fleire instanser av fylke i ei datafil._
-
-
-
-
 
 URI: [samtbuskole:fylker](https://example.no/ontology/skole#fylker)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:fylker](https://example.no/ontology/skole#fylker)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:fylker](https://example.no/ontology/skole#fylker)
 | Property | Value |
 | --- | --- |
 | Range | [Fylke](fylke.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,12 +82,11 @@ URI: [samtbuskole:fylker](https://example.no/ontology/skole#fylker)
 <details>
 ```yaml
 name: fylker
-description: Container slot for å legge tilrette for å kunne ha fleire instanser av
-  fylke i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Fylke
 multivalued: true
 inlined: true

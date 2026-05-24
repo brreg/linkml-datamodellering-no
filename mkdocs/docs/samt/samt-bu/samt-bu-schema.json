@@ -143,241 +143,6 @@
             "title": "Brukartilbakemelding",
             "type": "object"
         },
-        "Containerklasse": {
-            "additionalProperties": false,
-            "description": "Containerklasse for alle klasser som kan inng\u00e5 i datasettet.",
-            "properties": {
-                "basisgrupper": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av basisgruppe i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/Basisgruppe"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "brukertilbakemeldinger": {
-                    "description": "Brukartilbakemeldingar for datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Brukartilbakemelding"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "dataset_metadata": {
-                    "description": "Metadata om datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Datasett"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "datasettdistribusjoner": {
-                    "description": "Distribusjonar av datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Distribusjon"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "elever": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av elev i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/Elev"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "fylker": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av fylke i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/Fylke"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "gjeldende_lovgivninger": {
-                    "description": "Gjeldande lovgiving for datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/RegulativRessurs"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "grupper": {
-                    "description": "Grupper knytt til datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Aktor"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "id": {
-                    "description": "URI-identifikator for ressursen.",
-                    "type": "string"
-                },
-                "kommuner": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av kommune i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/Kommune"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "kontaktlaerere": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av kontaktlaerer i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/Kontaktlaerer"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "kontaktpunkter": {
-                    "description": "Kontaktpunkt for datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Kontaktopplysning"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "kvalitetsdimensjoner": {
-                    "description": "Kvalitetsdimensjoner for datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Kvalitetsdimensjon"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "kvalitetsmaalinger": {
-                    "description": "Kvalitetsm\u00e5lingar for datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Kvalitetsmaaling"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "kvalitetsmerknader": {
-                    "description": "Kvalitetsmerknader for datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Kvalitetsmerknad"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "organisasjoner": {
-                    "description": "Organisasjonar knytt til datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Aktor"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "private_virksomheter": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av private_virksomheter i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/PrivatVirksomhet"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "rektorer": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av rektor i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/Rektor"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "skoler": {
-                    "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av skole i ei datafil.",
-                    "items": {
-                        "$ref": "#/$defs/Skole"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "standarder": {
-                    "description": "Standardar datasettet f\u00f8lgjer.",
-                    "items": {
-                        "$ref": "#/$defs/Standard"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "tekstdeler": {
-                    "description": "Tekstdel for kvalitetsmerknad.",
-                    "items": {
-                        "$ref": "#/$defs/Tekstdel"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "tidsromer": {
-                    "description": "Tidsrom for kvalitetsmerknad.",
-                    "items": {
-                        "$ref": "#/$defs/Tidsrom"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                },
-                "utgivere": {
-                    "description": "Utgjevarar av datasettet.",
-                    "items": {
-                        "$ref": "#/$defs/Aktor"
-                    },
-                    "type": [
-                        "array",
-                        "null"
-                    ]
-                }
-            },
-            "required": [
-                "id"
-            ],
-            "title": "Containerklasse",
-            "type": "object"
-        },
         "Datasett": {
             "additionalProperties": false,
             "description": "Ei samling av data utgjeven eller kuratert av \u00e9in akt\u00f8r.",
@@ -2350,6 +2115,218 @@
             "title": "Rettighetserklaring",
             "type": "object"
         },
+        "SamtBuContainer": {
+            "additionalProperties": false,
+            "description": "Containerklasse for alle klasser som kan inng\u00e5 i datasettet.",
+            "properties": {
+                "basisgrupper": {
+                    "items": {
+                        "$ref": "#/$defs/Basisgruppe"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "brukertilbakemeldinger": {
+                    "items": {
+                        "$ref": "#/$defs/Brukartilbakemelding"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "dataset_metadata": {
+                    "items": {
+                        "$ref": "#/$defs/Datasett"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "datasettdistribusjoner": {
+                    "items": {
+                        "$ref": "#/$defs/Distribusjon"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "elever": {
+                    "items": {
+                        "$ref": "#/$defs/Elev"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fylker": {
+                    "items": {
+                        "$ref": "#/$defs/Fylke"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "gjeldende_lovgivninger": {
+                    "items": {
+                        "$ref": "#/$defs/RegulativRessurs"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "grupper": {
+                    "items": {
+                        "$ref": "#/$defs/Aktor"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "kommuner": {
+                    "items": {
+                        "$ref": "#/$defs/Kommune"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kontaktlaerere": {
+                    "items": {
+                        "$ref": "#/$defs/Kontaktlaerer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kontaktpunkter": {
+                    "items": {
+                        "$ref": "#/$defs/Kontaktopplysning"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kvalitetsdimensjoner": {
+                    "items": {
+                        "$ref": "#/$defs/Kvalitetsdimensjon"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kvalitetsmaalinger": {
+                    "items": {
+                        "$ref": "#/$defs/Kvalitetsmaaling"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kvalitetsmerknader": {
+                    "items": {
+                        "$ref": "#/$defs/Kvalitetsmerknad"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "organisasjoner": {
+                    "items": {
+                        "$ref": "#/$defs/Aktor"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "private_virksomheter": {
+                    "items": {
+                        "$ref": "#/$defs/PrivatVirksomhet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "rektorer": {
+                    "items": {
+                        "$ref": "#/$defs/Rektor"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "skoler": {
+                    "items": {
+                        "$ref": "#/$defs/Skole"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "standarder": {
+                    "items": {
+                        "$ref": "#/$defs/Standard"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tekstdeler": {
+                    "items": {
+                        "$ref": "#/$defs/Tekstdel"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tidsromer": {
+                    "items": {
+                        "$ref": "#/$defs/Tidsrom"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "utgivere": {
+                    "items": {
+                        "$ref": "#/$defs/Aktor"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "SamtBuContainer",
+            "type": "object"
+        },
         "Sjekksum": {
             "additionalProperties": false,
             "description": "Ein sjekksum for ein distribusjon.",
@@ -2579,7 +2556,6 @@
     "metamodel_version": "1.11.0",
     "properties": {
         "basisgrupper": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av basisgruppe i ei datafil.",
             "items": {
                 "$ref": "#/$defs/Basisgruppe"
             },
@@ -2589,7 +2565,6 @@
             ]
         },
         "brukertilbakemeldinger": {
-            "description": "Brukartilbakemeldingar for datasettet.",
             "items": {
                 "$ref": "#/$defs/Brukartilbakemelding"
             },
@@ -2599,7 +2574,6 @@
             ]
         },
         "dataset_metadata": {
-            "description": "Metadata om datasettet.",
             "items": {
                 "$ref": "#/$defs/Datasett"
             },
@@ -2609,7 +2583,6 @@
             ]
         },
         "datasettdistribusjoner": {
-            "description": "Distribusjonar av datasettet.",
             "items": {
                 "$ref": "#/$defs/Distribusjon"
             },
@@ -2619,7 +2592,6 @@
             ]
         },
         "elever": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av elev i ei datafil.",
             "items": {
                 "$ref": "#/$defs/Elev"
             },
@@ -2629,7 +2601,6 @@
             ]
         },
         "fylker": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av fylke i ei datafil.",
             "items": {
                 "$ref": "#/$defs/Fylke"
             },
@@ -2639,7 +2610,6 @@
             ]
         },
         "gjeldende_lovgivninger": {
-            "description": "Gjeldande lovgiving for datasettet.",
             "items": {
                 "$ref": "#/$defs/RegulativRessurs"
             },
@@ -2649,7 +2619,6 @@
             ]
         },
         "grupper": {
-            "description": "Grupper knytt til datasettet.",
             "items": {
                 "$ref": "#/$defs/Aktor"
             },
@@ -2659,11 +2628,12 @@
             ]
         },
         "id": {
-            "description": "URI-identifikator for ressursen.",
-            "type": "string"
+            "type": [
+                "string",
+                "null"
+            ]
         },
         "kommuner": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av kommune i ei datafil.",
             "items": {
                 "$ref": "#/$defs/Kommune"
             },
@@ -2673,7 +2643,6 @@
             ]
         },
         "kontaktlaerere": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av kontaktlaerer i ei datafil.",
             "items": {
                 "$ref": "#/$defs/Kontaktlaerer"
             },
@@ -2683,7 +2652,6 @@
             ]
         },
         "kontaktpunkter": {
-            "description": "Kontaktpunkt for datasettet.",
             "items": {
                 "$ref": "#/$defs/Kontaktopplysning"
             },
@@ -2693,7 +2661,6 @@
             ]
         },
         "kvalitetsdimensjoner": {
-            "description": "Kvalitetsdimensjoner for datasettet.",
             "items": {
                 "$ref": "#/$defs/Kvalitetsdimensjon"
             },
@@ -2703,7 +2670,6 @@
             ]
         },
         "kvalitetsmaalinger": {
-            "description": "Kvalitetsm\u00e5lingar for datasettet.",
             "items": {
                 "$ref": "#/$defs/Kvalitetsmaaling"
             },
@@ -2713,7 +2679,6 @@
             ]
         },
         "kvalitetsmerknader": {
-            "description": "Kvalitetsmerknader for datasettet.",
             "items": {
                 "$ref": "#/$defs/Kvalitetsmerknad"
             },
@@ -2723,7 +2688,6 @@
             ]
         },
         "organisasjoner": {
-            "description": "Organisasjonar knytt til datasettet.",
             "items": {
                 "$ref": "#/$defs/Aktor"
             },
@@ -2733,7 +2697,6 @@
             ]
         },
         "private_virksomheter": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av private_virksomheter i ei datafil.",
             "items": {
                 "$ref": "#/$defs/PrivatVirksomhet"
             },
@@ -2743,7 +2706,6 @@
             ]
         },
         "rektorer": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av rektor i ei datafil.",
             "items": {
                 "$ref": "#/$defs/Rektor"
             },
@@ -2753,7 +2715,6 @@
             ]
         },
         "skoler": {
-            "description": "Container slot for \u00e5 legge tilrette for \u00e5 kunne ha fleire instanser av skole i ei datafil.",
             "items": {
                 "$ref": "#/$defs/Skole"
             },
@@ -2763,7 +2724,6 @@
             ]
         },
         "standarder": {
-            "description": "Standardar datasettet f\u00f8lgjer.",
             "items": {
                 "$ref": "#/$defs/Standard"
             },
@@ -2773,7 +2733,6 @@
             ]
         },
         "tekstdeler": {
-            "description": "Tekstdel for kvalitetsmerknad.",
             "items": {
                 "$ref": "#/$defs/Tekstdel"
             },
@@ -2783,7 +2742,6 @@
             ]
         },
         "tidsromer": {
-            "description": "Tidsrom for kvalitetsmerknad.",
             "items": {
                 "$ref": "#/$defs/Tidsrom"
             },
@@ -2793,7 +2751,6 @@
             ]
         },
         "utgivere": {
-            "description": "Utgjevarar av datasettet.",
             "items": {
                 "$ref": "#/$defs/Aktor"
             },
@@ -2803,9 +2760,6 @@
             ]
         }
     },
-    "required": [
-        "id"
-    ],
     "title": "skole_ontologi",
     "type": "object",
     "version": null

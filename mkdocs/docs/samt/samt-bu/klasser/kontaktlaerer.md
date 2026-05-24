@@ -184,7 +184,7 @@ URI: [samtbuskole:Kontaktlaerer](https://example.no/ontology/skole#Kontaktlaerer
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [kontaktlaerere](kontaktlaerere.md) | range | [Kontaktlaerer](kontaktlaerer.md) |
+| [SamtBuContainer](samtbucontainer.md) | [kontaktlaerere](kontaktlaerere.md) | range | [Kontaktlaerer](kontaktlaerer.md) |
 | [Kontaktlaerer](kontaktlaerer.md) | [tilknyttet_basisgruppe](tilknyttet_basisgruppe.md) | domain | [Kontaktlaerer](kontaktlaerer.md) |
 | [Kontaktlaerer](kontaktlaerer.md) | [har_saerlig_ansvar_for](har_saerlig_ansvar_for.md) | domain | [Kontaktlaerer](kontaktlaerer.md) |
 | [Kontaktlaerer](kontaktlaerer.md) | [jobber_paa_skole](jobber_paa_skole.md) | domain | [Kontaktlaerer](kontaktlaerer.md) |
@@ -336,7 +336,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

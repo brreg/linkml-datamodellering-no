@@ -3,11 +3,6 @@
 # Slot: kontaktpunkter 
 
 
-_Kontaktpunkt for datasettet._
-
-
-
-
 
 URI: [samtbuskole:kontaktpunkter](https://example.no/ontology/skole#kontaktpunkter)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:kontaktpunkter](https://example.no/ontology/skole#kontaktpunkt
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:kontaktpunkter](https://example.no/ontology/skole#kontaktpunkt
 | Property | Value |
 | --- | --- |
 | Range | [Kontaktopplysning](kontaktopplysning.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,11 +82,11 @@ URI: [samtbuskole:kontaktpunkter](https://example.no/ontology/skole#kontaktpunkt
 <details>
 ```yaml
 name: kontaktpunkter
-description: Kontaktpunkt for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Kontaktopplysning
 multivalued: true
 inlined: true

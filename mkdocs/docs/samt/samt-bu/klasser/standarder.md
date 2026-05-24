@@ -3,11 +3,6 @@
 # Slot: standarder 
 
 
-_Standardar datasettet følgjer._
-
-
-
-
 
 URI: [samtbuskole:standarder](https://example.no/ontology/skole#standarder)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:standarder](https://example.no/ontology/skole#standarder)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:standarder](https://example.no/ontology/skole#standarder)
 | Property | Value |
 | --- | --- |
 | Range | [Standard](standard.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,11 +82,11 @@ URI: [samtbuskole:standarder](https://example.no/ontology/skole#standarder)
 <details>
 ```yaml
 name: standarder
-description: Standardar datasettet følgjer.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Standard
 multivalued: true
 inlined: true

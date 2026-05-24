@@ -9,7 +9,7 @@ _Innbetalt overkurs utover pålydande._
 
 
 
-URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverkurs)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs](https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs)
 
 
 
@@ -93,7 +93,7 @@ URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverku
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [innbetalt_overkurser](innbetalt_overkurser.md) | range | [InnbetaltOverkurs](innbetaltoverkurs.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [innbetalt_overkurser](innbetalt_overkurser.md) | range | [InnbetaltOverkurs](innbetaltoverkurs.md) |
 
 
 
@@ -124,8 +124,8 @@ URI: [aksje:InnbetaltOverkurs](https://example.no/ontology/aksje#InnbetaltOverku
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:InnbetaltOverkurs |
-| native | aksje:InnbetaltOverkurs |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs |
 
 
 

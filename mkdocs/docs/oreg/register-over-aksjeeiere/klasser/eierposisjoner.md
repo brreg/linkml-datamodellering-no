@@ -3,13 +3,8 @@
 # Slot: eierposisjoner 
 
 
-_Samling av eigarposisjonar._
 
-
-
-
-
-URI: [aksje:eierposisjoner](https://example.no/ontology/aksje#eierposisjoner)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner](https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:eierposisjoner](https://example.no/ontology/aksje#eierposisjoner)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:eierposisjoner](https://example.no/ontology/aksje#eierposisjoner)
 | Property | Value |
 | --- | --- |
 | Range | [Eierposisjon](eierposisjon.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:eierposisjoner](https://example.no/ontology/aksje#eierposisjoner)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:eierposisjoner |
-| native | aksje:eierposisjoner |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:eierposisjoner](https://example.no/ontology/aksje#eierposisjoner)
 <details>
 ```yaml
 name: eierposisjoner
-description: Samling av eigarposisjonar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Eierposisjon
 multivalued: true
 inlined: true

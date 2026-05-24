@@ -9,7 +9,7 @@ _Utbytte knytt til ein eigarposisjon._
 
 
 
-URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte](https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte)
 
 
 
@@ -177,7 +177,7 @@ URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [utbytter](utbytter.md) | range | [Utbytte](utbytte.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [utbytter](utbytter.md) | range | [Utbytte](utbytte.md) |
 | [Utbytte](utbytte.md) | [har_utdeling](har_utdeling.md) | domain | [Utbytte](utbytte.md) |
 | [Utbytte](utbytte.md) | [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | domain | [Utbytte](utbytte.md) |
 
@@ -210,8 +210,8 @@ URI: [aksje:Utbytte](https://example.no/ontology/aksje#Utbytte)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Utbytte |
-| native | aksje:Utbytte |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte |
 
 
 
@@ -256,7 +256,6 @@ attributes:
     identifier: true
     owner: Utbytte
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

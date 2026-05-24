@@ -202,7 +202,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 | [Datasettserie](datasettserie.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 | [Datatjeneste](datatjeneste.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 | [Katalog](katalog.md) | [kontaktpunkt](kontaktpunkt.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
-| [Containerklasse](containerklasse.md) | [kontaktpunkter](kontaktpunkter.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
+| [SamtBuContainer](samtbucontainer.md) | [kontaktpunkter](kontaktpunkter.md) | range | [Kontaktopplysning](kontaktopplysning.md) |
 
 
 
@@ -319,7 +319,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

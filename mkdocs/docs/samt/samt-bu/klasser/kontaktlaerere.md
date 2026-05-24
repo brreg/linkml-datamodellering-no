@@ -3,11 +3,6 @@
 # Slot: kontaktlaerere 
 
 
-_Container slot for å legge tilrette for å kunne ha fleire instanser av kontaktlaerer i ei datafil._
-
-
-
-
 
 URI: [samtbuskole:kontaktlaerere](https://example.no/ontology/skole#kontaktlaerere)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:kontaktlaerere](https://example.no/ontology/skole#kontaktlaere
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:kontaktlaerere](https://example.no/ontology/skole#kontaktlaere
 | Property | Value |
 | --- | --- |
 | Range | [Kontaktlaerer](kontaktlaerer.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,12 +82,11 @@ URI: [samtbuskole:kontaktlaerere](https://example.no/ontology/skole#kontaktlaere
 <details>
 ```yaml
 name: kontaktlaerere
-description: Container slot for å legge tilrette for å kunne ha fleire instanser av
-  kontaktlaerer i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Kontaktlaerer
 multivalued: true
 inlined: true

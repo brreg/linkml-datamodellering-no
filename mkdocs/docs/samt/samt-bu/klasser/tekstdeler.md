@@ -3,11 +3,6 @@
 # Slot: tekstdeler 
 
 
-_Tekstdel for kvalitetsmerknad._
-
-
-
-
 
 URI: [samtbuskole:tekstdeler](https://example.no/ontology/skole#tekstdeler)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:tekstdeler](https://example.no/ontology/skole#tekstdeler)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:tekstdeler](https://example.no/ontology/skole#tekstdeler)
 | Property | Value |
 | --- | --- |
 | Range | [Tekstdel](tekstdel.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,11 +82,11 @@ URI: [samtbuskole:tekstdeler](https://example.no/ontology/skole#tekstdeler)
 <details>
 ```yaml
 name: tekstdeler
-description: Tekstdel for kvalitetsmerknad.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Tekstdel
 multivalued: true
 inlined: true

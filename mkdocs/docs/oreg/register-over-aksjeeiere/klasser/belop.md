@@ -9,7 +9,7 @@ _Monetært beløp._
 
 
 
-URI: [aksje:belop](https://example.no/ontology/aksje#belop)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:belop](https://data.norge.no/linkml/register-over-aksjeeiere/:belop)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [aksje:belop](https://example.no/ontology/aksje#belop)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:belop |
-| native | aksje:belop |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:belop |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:belop |
 
 
 

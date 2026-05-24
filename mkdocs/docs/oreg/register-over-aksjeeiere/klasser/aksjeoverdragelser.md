@@ -3,13 +3,8 @@
 # Slot: aksjeoverdragelser 
 
 
-_Samling av aksjeoverdragingar._
 
-
-
-
-
-URI: [aksje:aksjeoverdragelser](https://example.no/ontology/aksje#aksjeoverdragelser)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjeoverdragelser](https://example.no/ontology/aksje#aksjeoverdrage
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjeoverdragelser](https://example.no/ontology/aksje#aksjeoverdrage
 | Property | Value |
 | --- | --- |
 | Range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjeoverdragelser](https://example.no/ontology/aksje#aksjeoverdrage
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjeoverdragelser |
-| native | aksje:aksjeoverdragelser |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjeoverdragelser](https://example.no/ontology/aksje#aksjeoverdrage
 <details>
 ```yaml
 name: aksjeoverdragelser
-description: Samling av aksjeoverdragingar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjeoverdragelse
 multivalued: true
 inlined: true

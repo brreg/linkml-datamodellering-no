@@ -3,13 +3,8 @@
 # Slot: selskapshendelser 
 
 
-_Samling av selskapshendingar._
 
-
-
-
-
-URI: [aksje:selskapshendelser](https://example.no/ontology/aksje#selskapshendelser)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser](https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:selskapshendelser](https://example.no/ontology/aksje#selskapshendels
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:selskapshendelser](https://example.no/ontology/aksje#selskapshendels
 | Property | Value |
 | --- | --- |
 | Range | [Selskapshendelse](selskapshendelse.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:selskapshendelser](https://example.no/ontology/aksje#selskapshendels
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:selskapshendelser |
-| native | aksje:selskapshendelser |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:selskapshendelser](https://example.no/ontology/aksje#selskapshendels
 <details>
 ```yaml
 name: selskapshendelser
-description: Samling av selskapshendingar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Selskapshendelse
 multivalued: true
 inlined: true

@@ -9,7 +9,7 @@ _Eierposisjon aksjeeigaren har._
 
 
 
-URI: [aksje:har_eierposisjon](https://example.no/ontology/aksje#har_eierposisjon)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon](https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:har_eierposisjon](https://example.no/ontology/aksje#har_eierposisjon
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:har_eierposisjon |
-| native | aksje:har_eierposisjon |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon |
 
 
 

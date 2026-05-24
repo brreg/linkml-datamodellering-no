@@ -3,11 +3,6 @@
 # Slot: dataset_metadata 
 
 
-_Metadata om datasettet._
-
-
-
-
 
 URI: [samtbuskole:dataset_metadata](https://example.no/ontology/skole#dataset_metadata)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:dataset_metadata](https://example.no/ontology/skole#dataset_me
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:dataset_metadata](https://example.no/ontology/skole#dataset_me
 | Property | Value |
 | --- | --- |
 | Range | [Datasett](datasett.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,11 +82,11 @@ URI: [samtbuskole:dataset_metadata](https://example.no/ontology/skole#dataset_me
 <details>
 ```yaml
 name: dataset_metadata
-description: Metadata om datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Datasett
 multivalued: true
 inlined: true

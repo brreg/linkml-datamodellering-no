@@ -9,7 +9,7 @@ _Aksjekapital som høyrer til selskapet._
 
 
 
-URI: [aksje:har_aksjekapital](https://example.no/ontology/aksje#har_aksjekapital)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital](https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:har_aksjekapital](https://example.no/ontology/aksje#har_aksjekapital
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:har_aksjekapital |
-| native | aksje:har_aksjekapital |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital |
 
 
 

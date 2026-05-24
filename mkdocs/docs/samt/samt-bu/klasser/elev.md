@@ -128,7 +128,7 @@ URI: [samtbuskole:Elev](https://example.no/ontology/skole#Elev)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [elever](elever.md) | range | [Elev](elev.md) |
+| [SamtBuContainer](samtbucontainer.md) | [elever](elever.md) | range | [Elev](elev.md) |
 | [Elev](elev.md) | [horer_til_basisgruppe](horer_til_basisgruppe.md) | domain | [Elev](elev.md) |
 | [Kontaktlaerer](kontaktlaerer.md) | [har_saerlig_ansvar_for](har_saerlig_ansvar_for.md) | range | [Elev](elev.md) |
 
@@ -244,7 +244,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

@@ -9,7 +9,7 @@ _Tidspunkt for utbytte/eierskapstransaksjon._
 
 
 
-URI: [aksje:tidspunkt](https://example.no/ontology/aksje#tidspunkt)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt](https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:tidspunkt](https://example.no/ontology/aksje#tidspunkt)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:tidspunkt |
-| native | aksje:tidspunkt |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt |
 
 
 

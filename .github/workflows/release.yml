@@ -73,3 +73,25 @@ jobs:
             "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:latest"
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:${{ github.ref_name }}"
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:latest"
+
+  mcp-linkml-begrep-generator:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      packages: write
+    steps:
+      - uses: actions/checkout@v6
+
+      - name: Logg inn på GHCR
+        run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
+
+      - name: Bygg og push mcp-linkml-begrep-generator
+        run: |
+          podman build \
+            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:${{ github.ref_name }}" \
+            src/mcp-linkml-begrep-generator
+          podman tag \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:${{ github.ref_name }}" \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:latest"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:${{ github.ref_name }}"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:latest"

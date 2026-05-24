@@ -1,0 +1,1008 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+xsd:duration a rdfs:Datatype .
+
+xsd:gYear a rdfs:Datatype .
+
+xsd:nonNegativeInteger a rdfs:Datatype ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:onDatatype xsd:integer ;
+            owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] .
+
+<https://data.norge.no/linkml/brreg-begrep.owl.ttl> a owl:Ontology ;
+    rdfs:label "brreg-begrep" ;
+    dcterms:title "Registerenheten i Brønnøysund – Begrepskatalog" ;
+    pav:version "1.0.0" ;
+    skos:definition "Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog." .
+
+<https://data.norge.no/linkml/brreg-begrep/BegrepContainer> a owl:Class ;
+    rdfs:label "BegrepContainer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/kontaktpunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/begrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/begrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/organisasjonar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/definisjoner> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/GeneriskRelasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/generiske_relasjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Organisasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/organisasjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Samling> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/samlingar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/partitive_relasjonar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/samlingar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/assosiative_relasjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/PartitivRelasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/partitive_relasjonar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/generiske_relasjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/assosiative_relasjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/VCardKontakt> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/kontaktpunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Definisjon> ;
+            owl:onProperty <https://data.norge.no/linkml/brreg-begrep/definisjoner> ] ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/common-ap-no/Begrepssamling> a owl:Class ;
+    rdfs:label "Begrepssamling" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Ei SKOS-omgrepssamling (temavokabular)." ;
+    skos:exactMatch skos:ConceptScheme ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/Mediatype> a owl:Class ;
+    rdfs:label "Mediatype" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Ein medietype eller filformat (dct:MediaTypeOrExtent)." ;
+    skos:exactMatch dcterms:MediaTypeOrExtent ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/dekningsomraade> a owl:ObjectProperty ;
+    rdfs:label "dekningsomraade" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Geografisk dekningsområde (dct:spatial)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/format> a owl:DatatypeProperty ;
+    rdfs:label "format" ;
+    rdfs:range xsd:string ;
+    skos:definition "Filformat eller medietype (dct:format)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/har_merknad> a owl:DatatypeProperty ;
+    rdfs:label "har_merknad" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Fritekstmerknad (rdfs:comment)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/har_referanse> a owl:DatatypeProperty ;
+    rdfs:label "har_referanse" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/heimeside> a owl:DatatypeProperty ;
+    rdfs:label "heimeside" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/nokkelord> a owl:DatatypeProperty ;
+    rdfs:label "nokkelord" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/spraak> a owl:DatatypeProperty ;
+    rdfs:label "spraak" ;
+    rdfs:range dcterms:language ;
+    skos:definition "Språk brukt i ressursen (dct:language)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/status> a owl:ObjectProperty ;
+    rdfs:label "status" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/type_concept> a owl:ObjectProperty ;
+    rdfs:label "type_concept" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/utgivelsesdato> a owl:DatatypeProperty ;
+    rdfs:label "utgivelsesdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato ressursen vart første gong publisert (dct:issued)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/valuta> a owl:ObjectProperty ;
+    rdfs:label "valuta" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Valuta (cv:currency)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+dcterms:language a rdfs:Datatype .
+
+<https://data.norge.no/linkml/brreg-begrep/assosiative_relasjonar> a owl:ObjectProperty ;
+    rdfs:label "assosiative_relasjonar" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/begrep> a owl:ObjectProperty ;
+    rdfs:label "begrep" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/definisjoner> a owl:ObjectProperty ;
+    rdfs:label "definisjoner" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/generiske_relasjonar> a owl:ObjectProperty ;
+    rdfs:label "generiske_relasjonar" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/kontaktpunkt> a owl:ObjectProperty ;
+    rdfs:label "kontaktpunkt" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/organisasjonar> a owl:ObjectProperty ;
+    rdfs:label "organisasjonar" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/partitive_relasjonar> a owl:ObjectProperty ;
+    rdfs:label "partitive_relasjonar" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/brreg-begrep/samlingar> a owl:ObjectProperty ;
+    rdfs:label "samlingar" ;
+    skos:inScheme <https://data.norge.no/linkml/brreg-begrep> .
+
+<https://data.norge.no/linkml/common-ap-no/anbefalt_term> a owl:DatatypeProperty ;
+    rdfs:label "anbefalt_term" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/beskrivelse> a owl:DatatypeProperty ;
+    rdfs:label "beskrivelse" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/tittel> a owl:DatatypeProperty ;
+    rdfs:label "tittel" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Namn/tittel på ressursen (dct:title)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/versjonsmerknad> a owl:DatatypeProperty ;
+    rdfs:label "versjonsmerknad" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/assosiert_med> a owl:ObjectProperty ;
+    rdfs:label "assosiert_med" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep dette omgrepet er assosiert med (skos:related)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/datastruktur_term> a owl:DatatypeProperty ;
+    rdfs:label "datastruktur_term" ;
+    rdfs:range xsd:string ;
+    skos:definition "Term brukt i datastrukturar (skosno:dataStructureLabel)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/definisjon> a owl:DatatypeProperty ;
+    rdfs:label "definisjon" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Direkte definisjon som fritekst (skos:definition)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/eksempel> a owl:DatatypeProperty ;
+    rdfs:label "eksempel" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Eksempel på bruk av omgrepet (skos:example)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/er_del_av_omgrep> a owl:ObjectProperty ;
+    rdfs:label "er_del_av_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep dette omgrepet er ein del av (xkos:isPartOf)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/er_erstatta_av> a owl:ObjectProperty ;
+    rdfs:label "er_erstatta_av" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep som erstattar dette omgrepet (dct:isReplacedBy)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/er_fra_omgrep_i> a owl:ObjectProperty ;
+    rdfs:label "er_fra_omgrep_i" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon> ;
+    skos:definition "Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptIn)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/er_medlem_av> a owl:ObjectProperty ;
+    rdfs:label "er_medlem_av" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Samling> ;
+    skos:definition "Samling dette omgrepet er medlem av (uneskos:memberOf)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/erstattar> a owl:ObjectProperty ;
+    rdfs:label "erstattar" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep dette omgrepet erstattar (dct:replaces)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/fagomrade> a owl:ObjectProperty ;
+    rdfs:label "fagomrade" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Fagområde omgrepet høyrer til (dct:subject)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/forkasta_term> a owl:DatatypeProperty ;
+    rdfs:label "forkasta_term" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Tidlegare brukt, no forkasta term (skos:hiddenLabel)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/generaliserer> a owl:ObjectProperty ;
+    rdfs:label "generaliserer" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep dette omgrepet generaliserer (xkos:generalizes)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_definisjon> a owl:ObjectProperty ;
+    rdfs:label "har_definisjon" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Definisjon> ;
+    skos:definition "Definisjon via eige objekt (euvoc:xlDefinition)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_del_omgrep> a owl:ObjectProperty ;
+    rdfs:label "har_del_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep som er ein del av dette omgrepet (xkos:hasPart)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_generisk_omgrep> a owl:ObjectProperty ;
+    rdfs:label "har_generisk_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_generisk_relasjon> a owl:ObjectProperty ;
+    rdfs:label "har_generisk_relasjon" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/GeneriskRelasjon> ;
+    skos:definition "Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_heilskapleg_omgrep> a owl:ObjectProperty ;
+    rdfs:label "har_heilskapleg_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_partitiv_relasjon> a owl:ObjectProperty ;
+    rdfs:label "har_partitiv_relasjon" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/PartitivRelasjon> ;
+    skos:definition "Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_partitivt_omgrep> a owl:ObjectProperty ;
+    rdfs:label "har_partitivt_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/har_spesifikt_omgrep> a owl:ObjectProperty ;
+    rdfs:label "har_spesifikt_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/kjelde> a owl:DatatypeProperty ;
+    rdfs:label "kjelde" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Kjelde til definisjonen (dct:source)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/medlem> a owl:ObjectProperty ;
+    rdfs:label "medlem" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep som er medlem av samlinga (skos:member)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/merknad> a owl:DatatypeProperty ;
+    rdfs:label "merknad" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Merknad om bruksomfanget for omgrepet (skos:scopeNote)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/naert_samsvar> a owl:ObjectProperty ;
+    rdfs:label "naert_samsvar" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/noyaktig_samsvar> a owl:ObjectProperty ;
+    rdfs:label "noyaktig_samsvar" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/sja_ogsa_omgrep> a owl:ObjectProperty ;
+    rdfs:label "sja_ogsa_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Relatert omgrep (rdfs:seeAlso)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/spesifiserer> a owl:ObjectProperty ;
+    rdfs:label "spesifiserer" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep dette omgrepet spesifiserer (xkos:specializes)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/til_omgrep> a owl:ObjectProperty ;
+    rdfs:label "til_omgrep" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/tillate_term> a owl:DatatypeProperty ;
+    rdfs:label "tillate_term" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Tillaten alternativ term for omgrepet (skos:altLabel)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/verdiomrade> a owl:DatatypeProperty ;
+    rdfs:label "verdiomrade" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Verdiområde for omgrepet (skosno:valueRange)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/endringsdato> a owl:DatatypeProperty ;
+    rdfs:label "endringsdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato for siste endring av ressursen (dct:modified)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> a owl:DatatypeProperty ;
+    rdfs:label "har_versjonsnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Versjonsnummer for ressursen (owl:versionInfo)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon> a owl:Class ;
+    rdfs:label "AssosiativRelasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/relasjontype> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/til_omgrep> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/til_omgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/relasjontype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/relasjontype> ] ;
+    skos:definition "Ein assosiativ relasjon mellom to omgrep." ;
+    skos:exactMatch <https://data.norge.no/vocabulary/skosno#AssociativeConceptRelation> ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/Definisjon> a owl:Class ;
+    rdfs:label "Definisjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/malgruppe_def> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kjelde_relasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/malgruppe_def> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/tekst> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/malgruppe_def> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kjelde> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kjelde_relasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kjelde_relasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/tekst> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kjelde> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/tekst> ] ;
+    skos:definition "Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote)." ;
+    skos:exactMatch <http://publications.europa.eu/ontology/euvoc#XlNote> ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/GeneriskRelasjon> a owl:Class ;
+    rdfs:label "GeneriskRelasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_spesifikt_omgrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/inndelingskriterium> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_spesifikt_omgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_generisk_omgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/inndelingskriterium> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_generisk_omgrep> ] ;
+    skos:definition "Ein generisk relasjon mellom eit overomgrep og eit underomgrep." ;
+    skos:exactMatch <https://data.norge.no/vocabulary/skosno#GenericConceptRelation> ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/PartitivRelasjon> a owl:Class ;
+    rdfs:label "PartitivRelasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_partitivt_omgrep> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_heilskapleg_omgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_heilskapleg_omgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/inndelingskriterium> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_partitivt_omgrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/inndelingskriterium> ] ;
+    skos:definition "Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep." ;
+    skos:exactMatch <https://data.norge.no/vocabulary/skosno#PartitiveConceptRelation> ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/Samling> a owl:Class ;
+    rdfs:label "Samling" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Organisasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/VCardKontakt> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/medlem> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/medlem> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard> ] ;
+    skos:definition "Ei namngitt samling av omgrep (skos:Collection)." ;
+    skos:exactMatch skos:Collection ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/ansvarleg_verksemd> a owl:ObjectProperty ;
+    rdfs:label "ansvarleg_verksemd" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Organisasjon> ;
+    skos:definition "Fagleg ansvarleg organisasjon for omgrepet (dct:creator)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/euvoc_status> a owl:ObjectProperty ;
+    rdfs:label "euvoc_status" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Status for omgrepet frå eit kontrollert vokabular (euvoc:status)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/gyldig_fra> a owl:DatatypeProperty ;
+    rdfs:label "gyldig_fra" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato omgrepet er gyldig frå (euvoc:startDate)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/gyldig_til> a owl:DatatypeProperty ;
+    rdfs:label "gyldig_til" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato omgrepet er gyldig til (euvoc:endDate)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/kjelde_relasjon> a owl:ObjectProperty ;
+    rdfs:label "kjelde_relasjon" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:relationshipWithSource)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/malgruppe_def> a owl:ObjectProperty ;
+    rdfs:label "malgruppe_def" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+    skos:definition "Målgruppe definisjonen er retta mot (dct:audience)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/opprettingsdato> a owl:DatatypeProperty ;
+    rdfs:label "opprettingsdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato omgrepet vart oppretta (dct:created)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/relasjontype> a owl:DatatypeProperty ;
+    rdfs:label "relasjontype" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Rolle eller type av den assosiative relasjonen (skosno:relationRole)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/tekst> a owl:DatatypeProperty ;
+    rdfs:label "tekst" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Definissjonstekst (rdf:value)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/Konsept> a owl:Class ;
+    rdfs:label "Konsept" ;
+    rdfs:seeAlso <https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Referanse til eit SKOS-omgrep frå eit kontrollert vokabular." ;
+    skos:exactMatch skos:Concept ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/VCardKontakt> a owl:Class ;
+    rdfs:label "VCardKontakt" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Kontaktinformasjon (vCard) for omgrepseigaren." ;
+    skos:exactMatch <http://www.w3.org/2006/vcard/ns#Kind> ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/inndelingskriterium> a owl:DatatypeProperty ;
+    rdfs:label "inndelingskriterium" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard> a owl:ObjectProperty ;
+    rdfs:label "kontaktpunkt_vcard" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/VCardKontakt> ;
+    skos:definition "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/identifikator_literal> a owl:DatatypeProperty ;
+    rdfs:label "identifikator_literal" ;
+    rdfs:range xsd:string ;
+    skos:definition "Tekstleg identifikator for ressursen (dct:identifier)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/Organisasjon> a owl:Class ;
+    rdfs:label "Organisasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep." ;
+    skos:exactMatch org:Organization ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/utgjevar> a owl:ObjectProperty ;
+    rdfs:label "utgjevar" ;
+    rdfs:range <https://data.norge.no/linkml/skos-ap-no/Organisasjon> ;
+    skos:definition "Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)." ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+rdf:langString a rdfs:Datatype .
+
+<https://data.norge.no/linkml/common-ap-no/id> a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI-identifikator for ressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/skos-ap-no/Begrep> a owl:Class ;
+    rdfs:label "Begrep" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/gyldig_til> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/definisjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/eksempel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/gyldig_fra> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/sja_ogsa_omgrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/definisjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/datastruktur_term> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/gyldig_til> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/spesifiserer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_erstatta_av> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/merknad> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/erstattar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/euvoc_status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/gyldig_til> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/datastruktur_term> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_del_omgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Organisasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/ansvarleg_verksemd> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/forkasta_term> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/naert_samsvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/fagomrade> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/opprettingsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/GeneriskRelasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_generisk_relasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/tillate_term> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/assosiert_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/ansvarleg_verksemd> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/noyaktig_samsvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/sja_ogsa_omgrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_partitiv_relasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/ansvarleg_verksemd> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/euvoc_status> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/verdiomrade> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/generaliserer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/merknad> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/forkasta_term> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/opprettingsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Organisasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_del_av_omgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/AssosiativRelasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_fra_omgrep_i> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Definisjon> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_definisjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/assosiert_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/naert_samsvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_fra_omgrep_i> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_medlem_av> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/eksempel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/PartitivRelasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_partitiv_relasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_erstatta_av> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/versjonsmerknad> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/VCardKontakt> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/gyldig_fra> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/verdiomrade> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/kontaktpunkt_vcard> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/gyldig_fra> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_generisk_relasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_definisjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/opprettingsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Samling> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_medlem_av> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/spesifiserer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/noyaktig_samsvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/anbefalt_term> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/fagomrade> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/skos-ap-no/Begrep> ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/erstattar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/euvoc_status> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/har_del_omgrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/tillate_term> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/er_del_av_omgrep> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/anbefalt_term> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/skos-ap-no/generaliserer> ] ;
+    skos:definition "Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept)." ;
+    skos:exactMatch skos:Concept ;
+    skos:inScheme <https://data.norge.no/linkml/skos-ap-no> .
+
+

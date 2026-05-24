@@ -1,0 +1,19 @@
+version: 1
+description: >
+  Standardprofil utan org-spesifikke standardverdiar.
+  Alle parametrar (base_uri, utgjevar_uri, fagomrade_uri) må oppgjevast eksplisitt.
+
+uri:
+  begrep_pattern: "{base_uri}/{slug}"
+  definisjon_pattern: "{base_uri}/def/{slug}-{lang}"
+  kontaktpunkt_default: "{base_uri}/kontakt/begrepsansvarleg"
+
+defaults:
+  kjelde_relasjon: "self-composed"
+
+languages:
+  required: [nb]
+  optional: [nn, en]
+
+generation:
+  add_header_comment: true

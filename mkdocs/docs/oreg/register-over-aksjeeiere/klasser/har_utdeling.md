@@ -9,7 +9,7 @@ _Utdeling knytt til utbyttet._
 
 
 
-URI: [aksje:har_utdeling](https://example.no/ontology/aksje#har_utdeling)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling](https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:har_utdeling](https://example.no/ontology/aksje#har_utdeling)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:har_utdeling |
-| native | aksje:har_utdeling |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling |
 
 
 

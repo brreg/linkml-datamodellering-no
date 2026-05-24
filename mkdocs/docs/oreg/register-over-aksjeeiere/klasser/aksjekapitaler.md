@@ -3,13 +3,8 @@
 # Slot: aksjekapitaler 
 
 
-_Samling av aksjekapitalar._
 
-
-
-
-
-URI: [aksje:aksjekapitaler](https://example.no/ontology/aksje#aksjekapitaler)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjekapitaler](https://example.no/ontology/aksje#aksjekapitaler)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjekapitaler](https://example.no/ontology/aksje#aksjekapitaler)
 | Property | Value |
 | --- | --- |
 | Range | [Aksjekapital](aksjekapital.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjekapitaler](https://example.no/ontology/aksje#aksjekapitaler)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjekapitaler |
-| native | aksje:aksjekapitaler |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjekapitaler](https://example.no/ontology/aksje#aksjekapitaler)
 <details>
 ```yaml
 name: aksjekapitaler
-description: Samling av aksjekapitalar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjekapital
 multivalued: true
 inlined: true

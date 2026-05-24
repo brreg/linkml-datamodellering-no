@@ -149,7 +149,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [brukertilbakemeldinger](brukertilbakemeldinger.md) | range | [Brukartilbakemelding](brukartilbakemelding.md) |
+| [SamtBuContainer](samtbucontainer.md) | [brukertilbakemeldinger](brukertilbakemeldinger.md) | range | [Brukartilbakemelding](brukartilbakemelding.md) |
 
 
 
@@ -243,7 +243,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

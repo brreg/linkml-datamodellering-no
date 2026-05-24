@@ -3,11 +3,6 @@
 # Slot: kvalitetsmerknader 
 
 
-_Kvalitetsmerknader for datasettet._
-
-
-
-
 
 URI: [samtbuskole:kvalitetsmerknader](https://example.no/ontology/skole#kvalitetsmerknader)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:kvalitetsmerknader](https://example.no/ontology/skole#kvalitet
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:kvalitetsmerknader](https://example.no/ontology/skole#kvalitet
 | Property | Value |
 | --- | --- |
 | Range | [Kvalitetsmerknad](kvalitetsmerknad.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,11 +82,11 @@ URI: [samtbuskole:kvalitetsmerknader](https://example.no/ontology/skole#kvalitet
 <details>
 ```yaml
 name: kvalitetsmerknader
-description: Kvalitetsmerknader for datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Kvalitetsmerknad
 multivalued: true
 inlined: true

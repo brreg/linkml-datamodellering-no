@@ -3,13 +3,8 @@
 # Slot: aksjeselskaper 
 
 
-_Samling av aksjeselskap._
 
-
-
-
-
-URI: [aksje:aksjeselskaper](https://example.no/ontology/aksje#aksjeselskaper)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjeselskaper](https://example.no/ontology/aksje#aksjeselskaper)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjeselskaper](https://example.no/ontology/aksje#aksjeselskaper)
 | Property | Value |
 | --- | --- |
 | Range | [Aksjeselskap](aksjeselskap.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjeselskaper](https://example.no/ontology/aksje#aksjeselskaper)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjeselskaper |
-| native | aksje:aksjeselskaper |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjeselskaper](https://example.no/ontology/aksje#aksjeselskaper)
 <details>
 ```yaml
 name: aksjeselskaper
-description: Samling av aksjeselskap.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjeselskap
 multivalued: true
 inlined: true

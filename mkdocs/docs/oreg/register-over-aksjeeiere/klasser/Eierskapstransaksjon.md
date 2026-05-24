@@ -9,7 +9,7 @@ _Transaksjon som påverkar eigarskap i selskapet._
 
 
 
-URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstransaksjon)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon](https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon)
 
 
 
@@ -205,7 +205,7 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [eierskapstransaksjoner](eierskapstransaksjoner.md) | range | [Eierskapstransaksjon](eierskapstransaksjon.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [eierskapstransaksjoner](eierskapstransaksjoner.md) | range | [Eierskapstransaksjon](eierskapstransaksjon.md) |
 | [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
 | [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
 | [Eierskapstransaksjon](eierskapstransaksjon.md) | [paavirker_eierposisjon](paavirker_eierposisjon.md) | domain | [Eierskapstransaksjon](eierskapstransaksjon.md) |
@@ -239,8 +239,8 @@ URI: [aksje:Eierskapstransaksjon](https://example.no/ontology/aksje#Eierskapstra
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Eierskapstransaksjon |
-| native | aksje:Eierskapstransaksjon |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon |
 
 
 
@@ -286,7 +286,6 @@ attributes:
     identifier: true
     owner: Eierskapstransaksjon
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

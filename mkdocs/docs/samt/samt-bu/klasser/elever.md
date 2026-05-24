@@ -3,11 +3,6 @@
 # Slot: elever 
 
 
-_Container slot for å legge tilrette for å kunne ha fleire instanser av elev i ei datafil._
-
-
-
-
 
 URI: [samtbuskole:elever](https://example.no/ontology/skole#elever)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:elever](https://example.no/ontology/skole#elever)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:elever](https://example.no/ontology/skole#elever)
 | Property | Value |
 | --- | --- |
 | Range | [Elev](elev.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,12 +82,11 @@ URI: [samtbuskole:elever](https://example.no/ontology/skole#elever)
 <details>
 ```yaml
 name: elever
-description: Container slot for å legge tilrette for å kunne ha fleire instanser av
-  elev i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Elev
 multivalued: true
 inlined: true

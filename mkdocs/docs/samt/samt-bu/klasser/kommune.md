@@ -128,7 +128,7 @@ URI: [samtbuskole:Kommune](https://example.no/ontology/skole#Kommune)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [kommuner](kommuner.md) | range | [Kommune](kommune.md) |
+| [SamtBuContainer](samtbucontainer.md) | [kommuner](kommuner.md) | range | [Kommune](kommune.md) |
 
 
 
@@ -253,7 +253,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

@@ -53,32 +53,11 @@ nav:
   - Heim: index.md
   - Rettleiingar:
       - Ny domenemodell: ny-domenemodell.md
+      - Ny begrepskatalog: ny-begrepsmodell.md
       - Generatorkonfigurasjon: generate-config.md
-  - 'AP-NO – Applikasjonsprofiler':
-      - ap-no/index.md
-      - 'cpsv-ap-no': ap-no/cpsv-ap-no/index.md
-      - 'dcat-ap-no': ap-no/dcat-ap-no/index.md
-      - 'dqv-ap-no': ap-no/dqv-ap-no/index.md
-      - 'modelldcat-ap-no': ap-no/modelldcat-ap-no/index.md
-      - 'skos-ap-no': ap-no/skos-ap-no/index.md
-      - 'xkos-ap-no': ap-no/xkos-ap-no/index.md
-  - 'FAIR – Metadataoverbygning':
-      - fair/index.md
-      - 'fair-metadata': fair/fair-metadata/index.md
-  - 'FINT – Fylkeskommunale integrasjonar':
-      - fint/index.md
-      - 'fint-administrasjon': fint/fint-administrasjon/index.md
-      - 'fint-arkiv': fint/fint-arkiv/index.md
-      - 'fint-okonomi': fint/fint-okonomi/index.md
-      - 'fint-personvern': fint/fint-personvern/index.md
-      - 'fint-ressurs': fint/fint-ressurs/index.md
-      - 'fint-utdanning': fint/fint-utdanning/index.md
-  - 'NGR – Nasjonale Grunndata':
-      - ngr/index.md
-      - 'ngr-adresse': ngr/ngr-adresse/index.md
-      - 'ngr-eiendom': ngr/ngr-eiendom/index.md
-      - 'ngr-person': ngr/ngr-person/index.md
-      - 'ngr-virksomhet': ngr/ngr-virksomhet/index.md
+  - 'Begrep – Begrepskatalogmodellar':
+      - begrep/index.md
+      - 'brreg-begrep': begrep/brreg-begrep/index.md
   - 'OREG – Offentlege registre':
       - oreg/index.md
       - 'register-over-aksjeeiere': oreg/register-over-aksjeeiere/index.md

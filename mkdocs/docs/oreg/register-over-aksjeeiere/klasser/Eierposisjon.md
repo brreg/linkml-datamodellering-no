@@ -9,7 +9,7 @@ _Eierens samla posisjon i eit selskap._
 
 
 
-URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon](https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon)
 
 
 
@@ -121,7 +121,7 @@ URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [eierposisjoner](eierposisjoner.md) | range | [Eierposisjon](eierposisjon.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [eierposisjoner](eierposisjoner.md) | range | [Eierposisjon](eierposisjon.md) |
 | [Aksjeeier](aksjeeier.md) | [har_eierposisjon](har_eierposisjon.md) | range | [Eierposisjon](eierposisjon.md) |
 | [Eierposisjon](eierposisjon.md) | [gjelder_aksjepost](gjelder_aksjepost.md) | domain | [Eierposisjon](eierposisjon.md) |
 | [Utbytte](utbytte.md) | [er_basert_paa_eierposisjon](er_basert_paa_eierposisjon.md) | range | [Eierposisjon](eierposisjon.md) |
@@ -156,8 +156,8 @@ URI: [aksje:Eierposisjon](https://example.no/ontology/aksje#Eierposisjon)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Eierposisjon |
-| native | aksje:Eierposisjon |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon |
 
 
 
@@ -200,7 +200,6 @@ attributes:
     identifier: true
     owner: Eierposisjon
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

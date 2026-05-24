@@ -1,0 +1,64 @@
+id: https://data.norge.no/linkml/brreg-begrep
+name: brreg-begrep
+title: Registerenheten i Brønnøysund – Begrepskatalog
+description: >-
+  Begrepskatalog for Registerenheten i Brønnøysund.
+  Begreper modellert lokalt med midlertidige URI-ar, klare for
+  validering og eksport til Felles Begrepskatalog.
+version: "1.0.0"
+
+prefixes:
+  linkml: https://w3id.org/linkml/
+
+default_prefix: https://data.norge.no/linkml/brreg-begrep/
+default_range: string
+
+imports:
+  - linkml:types
+  - ../../ap-no/skos-ap-no/skos-ap-no-schema
+
+classes:
+
+  BegrepContainer:
+    tree_root: true
+    attributes:
+      begrep:
+        range: Begrep
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      samlingar:
+        range: Samling
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      definisjoner:
+        range: Definisjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      generiske_relasjonar:
+        range: GeneriskRelasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      partitive_relasjonar:
+        range: PartitivRelasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      assosiative_relasjonar:
+        range: AssosiativRelasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      organisasjonar:
+        range: Organisasjon
+        multivalued: true
+        inlined: true
+        inlined_as_list: true
+      kontaktpunkt:
+        range: VCardKontakt
+        multivalued: true
+        inlined: true
+        inlined_as_list: true

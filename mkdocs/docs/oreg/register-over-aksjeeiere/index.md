@@ -91,7 +91,7 @@ LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modell
 
 URI: https://example.no/ontology/aksje-eierskap
 
-Name: aksje_eierskap
+Name: register-over-aksjeeiere
 
 
 
@@ -138,21 +138,21 @@ Name: aksje_eierskap
 
 | Slot | Description |
 | --- | --- |
-| [aksjeeiere](klasser/aksjeeiere.md) | Samling av aksjeeigarar |
-| [aksjeeierrettigheter](klasser/aksjeeierrettigheter.md) | Samling av aksjeeierrettigheiter |
-| [aksjeinnskudder](klasser/aksjeinnskudder.md) | Samling av aksjeinnskot |
-| [aksjekapitaler](klasser/aksjekapitaler.md) | Samling av aksjekapitalar |
-| [aksjeklasser](klasser/aksjeklasser.md) | Samling av aksjeklasser |
-| [aksjeoverdragelser](klasser/aksjeoverdragelser.md) | Samling av aksjeoverdragingar |
-| [aksjeposter](klasser/aksjeposter.md) | Samling av aksjepostar |
-| [aksjer](klasser/aksjer.md) | Samling av aksjar |
-| [aksjeselskaper](klasser/aksjeselskaper.md) | Samling av aksjeselskap |
+| [aksjeeiere](klasser/aksjeeiere.md) |  |
+| [aksjeeierrettigheter](klasser/aksjeeierrettigheter.md) |  |
+| [aksjeinnskudder](klasser/aksjeinnskudder.md) |  |
+| [aksjekapitaler](klasser/aksjekapitaler.md) |  |
+| [aksjeklasser](klasser/aksjeklasser.md) |  |
+| [aksjeoverdragelser](klasser/aksjeoverdragelser.md) |  |
+| [aksjeposter](klasser/aksjeposter.md) |  |
+| [aksjer](klasser/aksjer.md) |  |
+| [aksjeselskaper](klasser/aksjeselskaper.md) |  |
 | [antall](klasser/antall.md) | Numerisk verdi |
 | [belop](klasser/belop.md) | Monetært beløp |
 | [beskrivelse](klasser/beskrivelse.md) | Tekstleg forklaring av instansen |
 | [dato](klasser/dato.md) | Kalenderdato |
-| [eierposisjoner](klasser/eierposisjoner.md) | Samling av eigarposisjonar |
-| [eierskapstransaksjoner](klasser/eierskapstransaksjoner.md) | Samling av eigarskapstransaksjonar |
+| [eierposisjoner](klasser/eierposisjoner.md) |  |
+| [eierskapstransaksjoner](klasser/eierskapstransaksjoner.md) |  |
 | [er_basert_paa_eierposisjon](klasser/er_basert_paa_eierposisjon.md) | Utbytte knytt til eigarposisjonen |
 | [gjelder_aksjepost](klasser/gjelder_aksjepost.md) | Aksjepost som inngår i eigarposisjonen |
 | [gjelder_aksjer_i_aksjeklasse](klasser/gjelder_aksjer_i_aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
@@ -164,21 +164,21 @@ Name: aksje_eierskap
 | [har_palydende_belop](klasser/har_palydende_belop.md) | Pålydande verdi for aksja |
 | [har_utdeling](klasser/har_utdeling.md) | Utdeling knytt til utbyttet |
 | [identifikator](klasser/identifikator.md) | Global identifikator for instansen |
-| [innbetalt_aksjekapitaler](klasser/innbetalt_aksjekapitaler.md) | Samling av innbetalt aksjekapital |
-| [innbetalt_overkurser](klasser/innbetalt_overkurser.md) | Samling av innbetalt overkurs |
+| [innbetalt_aksjekapitaler](klasser/innbetalt_aksjekapitaler.md) |  |
+| [innbetalt_overkurser](klasser/innbetalt_overkurser.md) |  |
 | [kan_ha_aksjeinnskudd](klasser/kan_ha_aksjeinnskudd.md) | Aksjeinnskot i selskapshending |
 | [kan_ha_vederlag](klasser/kan_ha_vederlag.md) | Vederlag for aksjeoverdraging |
 | [kan_vaere_aksjeoverdragelse](klasser/kan_vaere_aksjeoverdragelse.md) | Aksjeoverdraging i transaksjonen |
 | [kan_vaere_selskapshendelse](klasser/kan_vaere_selskapshendelse.md) | Selskapshendelse i transaksjonen |
 | [navn](klasser/navn.md) | Namn på instansen |
 | [paavirker_eierposisjon](klasser/paavirker_eierposisjon.md) | Eierskapstransaksjon knytt til eigarposisjonen |
-| [selskapshendelser](klasser/selskapshendelser.md) | Samling av selskapshendingar |
+| [selskapshendelser](klasser/selskapshendelser.md) |  |
 | [tidspunkt](klasser/tidspunkt.md) | Tidspunkt for utbytte/eierskapstransaksjon |
 | [tilhorer_aksjeklasse](klasser/tilhorer_aksjeklasse.md) | Klassen aksja høyrer til |
-| [utbytter](klasser/utbytter.md) | Samling av utbytte |
-| [utdelinger](klasser/utdelinger.md) | Samling av utdelingar |
+| [utbytter](klasser/utbytter.md) |  |
+| [utdelinger](klasser/utdelinger.md) |  |
 | [utsteder_aksje](klasser/utsteder_aksje.md) | Aksje utstedt av selskapet |
-| [vederlager](klasser/vederlager.md) | Samling av vederlag |
+| [vederlager](klasser/vederlager.md) |  |
 
 
 ## Enumerations
@@ -209,5 +209,7 @@ Name: aksje_eierskap
 | OWL ontologi | [register-over-aksjeeiere-ontology.ttl](register-over-aksjeeiere-ontology.ttl) |
 | RDF/Turtle skjema | [register-over-aksjeeiere-schema.ttl](register-over-aksjeeiere-schema.ttl) |
 | Python-klasser | [register-over-aksjeeiere-model.py](register-over-aksjeeiere-model.py) |
+| Protobuf-skjema | [register-over-aksjeeiere-schema.proto](register-over-aksjeeiere-schema.proto) |
 | ER-diagram (Mermaid) | [register-over-aksjeeiere-erdiagram.md](register-over-aksjeeiere-erdiagram.md) |
 | Eksempeldata (Turtle) | [register-over-aksjeeiere-eksempel.ttl](register-over-aksjeeiere-eksempel.ttl) |
+| PlantUML-diagram | [register-over-aksjeeiere.svg](diagrams/register-over-aksjeeiere.svg) · [register-over-aksjeeiere.puml](diagrams/register-over-aksjeeiere.puml) |

@@ -42,7 +42,6 @@ URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml
 | [Kvalitetsmaaling](kvalitetsmaaling.md) | Ei konkret måling av eit kvalitetsmål for eit datasett |  no  |
 | [Standard](standard.md) | Ein standard eller spesifikasjon som eit datasett er i samsvar med |  no  |
 | [Tekstdel](tekstdel.md) | Ein tekstleg del av ein kvalitetsmerknad (Web Annotation) |  no  |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 | [Skole](skole.md) | En skole er en privat eller offentlig institusjon eller et lærested hvor lære... |  no  |
 | [Skoleeier](skoleeier.md) | Superklasse for alle typer skoleeiere |  no  |
 | [Basisgruppe](basisgruppe.md) | Skoleklasse som hovedsaklig samler elever i ulike fag |  no  |
@@ -53,6 +52,7 @@ URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml
 | [Kvalitetsdeldimensjon](kvalitetsdeldimensjon.md) | Ein deldimensjon av ein kvalitetsdimensjon |  no  |
 | [Brukartilbakemelding](brukartilbakemelding.md) | Tilbakemelding frå ein brukar om kvaliteten til eit datasett |  no  |
 | [Kvalitetssertifikat](kvalitetssertifikat.md) | Eit sertifikat som stadfester kvaliteten til eit datasett |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 | [Kommune](kommune.md) | En kommune er et geografisk avgrenset område som utgjør en egen politisk og a... |  no  |
 | [Fylke](fylke.md) | Fylke (etter norrønt fylki) er en betegnelse på et undernasjonalt, regionalt ... |  no  |
 | [PrivatVirksomhet](privatvirksomhet.md) | Virksomhet, eller foretak, er betegnelser for en juridisk person eller en org... |  no  |
@@ -72,7 +72,7 @@ URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml
 | Property | Value |
 | --- | --- |
 | Range | [xsd:anyURI](http://www.w3.org/2001/XMLSchema#anyURI) |
-| Domain Of | [KatalogisertRessurs](katalogisertressurs.md), [Aktor](aktor.md), [Kontaktopplysning](kontaktopplysning.md), [Tidsrom](tidsrom.md), [RegulativRessurs](regulativressurs.md), [Identifikator](identifikator.md), [Rettighetserklaring](rettighetserklaring.md), [Sjekksum](sjekksum.md), [Gebyr](gebyr.md), [Relasjon](relasjon.md), [Distribusjon](distribusjon.md), [Datasett](datasett.md), [Katalogpost](katalogpost.md), [Mediatype](mediatype.md), [Konsept](konsept.md), [Begrepssamling](begrepssamling.md), [Kvalitetsdimensjon](kvalitetsdimensjon.md), [Kvalitetsmaal](kvalitetsmaal.md), [Kvalitetsmerknad](kvalitetsmerknad.md), [Kvalitetsmaaling](kvalitetsmaaling.md), [Standard](standard.md), [Tekstdel](tekstdel.md), [Containerklasse](containerklasse.md), [Skole](skole.md), [Skoleeier](skoleeier.md), [Basisgruppe](basisgruppe.md), [Person](person.md) |
+| Domain Of | [KatalogisertRessurs](katalogisertressurs.md), [Aktor](aktor.md), [Kontaktopplysning](kontaktopplysning.md), [Tidsrom](tidsrom.md), [RegulativRessurs](regulativressurs.md), [Identifikator](identifikator.md), [Rettighetserklaring](rettighetserklaring.md), [Sjekksum](sjekksum.md), [Gebyr](gebyr.md), [Relasjon](relasjon.md), [Distribusjon](distribusjon.md), [Datasett](datasett.md), [Katalogpost](katalogpost.md), [Mediatype](mediatype.md), [Konsept](konsept.md), [Begrepssamling](begrepssamling.md), [Kvalitetsdimensjon](kvalitetsdimensjon.md), [Kvalitetsmaal](kvalitetsmaal.md), [Kvalitetsmerknad](kvalitetsmerknad.md), [Kvalitetsmaaling](kvalitetsmaaling.md), [Standard](standard.md), [Tekstdel](tekstdel.md), [SamtBuContainer](samtbucontainer.md), [Skole](skole.md), [Skoleeier](skoleeier.md), [Basisgruppe](basisgruppe.md), [Person](person.md) |
 
 ### Cardinality and Requirements
 
@@ -151,7 +151,7 @@ domain_of:
 - Kvalitetsmaaling
 - Standard
 - Tekstdel
-- Containerklasse
+- SamtBuContainer
 - Skole
 - Skoleeier
 - Basisgruppe

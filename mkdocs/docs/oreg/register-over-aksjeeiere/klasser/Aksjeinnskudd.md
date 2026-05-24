@@ -9,7 +9,7 @@ _Innskot knytt til aksjar i samband med selskapshending._
 
 
 
-URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd)
 
 
 
@@ -149,7 +149,7 @@ URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjeinnskudder](aksjeinnskudder.md) | range | [Aksjeinnskudd](aksjeinnskudd.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjeinnskudder](aksjeinnskudder.md) | range | [Aksjeinnskudd](aksjeinnskudd.md) |
 | [Selskapshendelse](selskapshendelse.md) | [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | range | [Aksjeinnskudd](aksjeinnskudd.md) |
 | [Aksjeinnskudd](aksjeinnskudd.md) | [gjelder_innbetalt_aksjekapital](gjelder_innbetalt_aksjekapital.md) | domain | [Aksjeinnskudd](aksjeinnskudd.md) |
 | [Aksjeinnskudd](aksjeinnskudd.md) | [gjelder_innbetalt_overkurs](gjelder_innbetalt_overkurs.md) | domain | [Aksjeinnskudd](aksjeinnskudd.md) |
@@ -183,8 +183,8 @@ URI: [aksje:Aksjeinnskudd](https://example.no/ontology/aksje#Aksjeinnskudd)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjeinnskudd |
-| native | aksje:Aksjeinnskudd |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd |
 
 
 
@@ -228,7 +228,6 @@ attributes:
     identifier: true
     owner: Aksjeinnskudd
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

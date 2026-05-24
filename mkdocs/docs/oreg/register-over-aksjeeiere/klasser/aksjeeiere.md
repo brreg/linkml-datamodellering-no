@@ -3,13 +3,8 @@
 # Slot: aksjeeiere 
 
 
-_Samling av aksjeeigarar._
 
-
-
-
-
-URI: [aksje:aksjeeiere](https://example.no/ontology/aksje#aksjeeiere)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere)
 <!-- no inheritance hierarchy -->
 
 
@@ -20,7 +15,7 @@ URI: [aksje:aksjeeiere](https://example.no/ontology/aksje#aksjeeiere)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
+| [AksjeeierContainer](aksjeeiercontainer.md) | Containerklasse for alle forretningsobjekt i modellen |  no  |
 
 
 
@@ -34,14 +29,20 @@ URI: [aksje:aksjeeiere](https://example.no/ontology/aksje#aksjeeiere)
 | Property | Value |
 | --- | --- |
 | Range | [Aksjeeier](aksjeeier.md) |
-| Domain | [Containerklasse](containerklasse.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [AksjeeierContainer](aksjeeiercontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [AksjeeierContainer](aksjeeiercontainer.md) |
+
+
 
 
 
@@ -70,8 +71,8 @@ URI: [aksje:aksjeeiere](https://example.no/ontology/aksje#aksjeeiere)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:aksjeeiere |
-| native | aksje:aksjeeiere |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere |
 
 
 
@@ -81,12 +82,11 @@ URI: [aksje:aksjeeiere](https://example.no/ontology/aksje#aksjeeiere)
 <details>
 ```yaml
 name: aksjeeiere
-description: Samling av aksjeeigarar.
 from_schema: https://example.no/ontology/aksje-eierskap
 rank: 1000
-domain: Containerklasse
+owner: AksjeeierContainer
 domain_of:
-- Containerklasse
+- AksjeeierContainer
 range: Aksjeeier
 multivalued: true
 inlined: true

@@ -3,11 +3,6 @@
 # Slot: grupper 
 
 
-_Grupper knytt til datasettet._
-
-
-
-
 
 URI: [samtbuskole:grupper](https://example.no/ontology/skole#grupper)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:grupper](https://example.no/ontology/skole#grupper)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:grupper](https://example.no/ontology/skole#grupper)
 | Property | Value |
 | --- | --- |
 | Range | [Aktor](aktor.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,11 +82,11 @@ URI: [samtbuskole:grupper](https://example.no/ontology/skole#grupper)
 <details>
 ```yaml
 name: grupper
-description: Grupper knytt til datasettet.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Aktor
 multivalued: true
 inlined: true

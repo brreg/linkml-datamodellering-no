@@ -1,0 +1,21 @@
+version: 1
+description: >
+  Profil for Registerenheten i Brønnøysund.
+  Forhåndsset base_uri, utgjevar_uri og kontaktpunkt_uri.
+
+uri:
+  begrep_pattern: "{base_uri}/{slug}"
+  definisjon_pattern: "{base_uri}/def/{slug}-{lang}"
+  kontaktpunkt_default: "https://begrep.brreg.no/kontakt/begrepsansvarleg"
+
+defaults:
+  base_uri: "https://begrep.brreg.no"
+  utgjevar_uri: "https://data.norge.no/organizations/974760673"
+  kjelde_relasjon: "self-composed"
+
+languages:
+  required: [nb]
+  optional: [nn, en]
+
+generation:
+  add_header_comment: true

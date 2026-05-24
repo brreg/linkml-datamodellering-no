@@ -149,7 +149,7 @@ URI: [samtbuskole:Skole](https://example.no/ontology/skole#Skole)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [skoler](skoler.md) | range | [Skole](skole.md) |
+| [SamtBuContainer](samtbucontainer.md) | [skoler](skoler.md) | range | [Skole](skole.md) |
 | [Skole](skole.md) | [har_skoleeier](har_skoleeier.md) | domain | [Skole](skole.md) |
 | [Basisgruppe](basisgruppe.md) | [del_av_skole](del_av_skole.md) | range | [Skole](skole.md) |
 | [Rektor](rektor.md) | [enhetsleder_for](enhetsleder_for.md) | range | [Skole](skole.md) |
@@ -267,7 +267,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

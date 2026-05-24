@@ -1,6 +1,6 @@
 # Auto generated from register-over-aksjeeiere-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-21T17:57:40
-# Schema: aksje_eierskap
+# Generation date: 2026-05-23T14:08:57
+# Schema: register-over-aksjeeiere
 #
 # id: https://example.no/ontology/aksje-eierskap
 # description: LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
@@ -67,16 +67,12 @@ version = None
 AKSJE = CurieNamespace('aksje', 'https://example.no/ontology/aksje#')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
-DEFAULT_ = AKSJE
+DEFAULT_ = CurieNamespace('', 'https://data.norge.no/linkml/register-over-aksjeeiere/')
 
 
 # Types
 
 # Class references
-class ContainerklasseIdentifikator(URIorCURIE):
-    pass
-
-
 class AksjeselskapIdentifikator(URIorCURIE):
     pass
 
@@ -138,7 +134,7 @@ class AksjeinnskuddIdentifikator(URIorCURIE):
 
 
 @dataclass(repr=False)
-class Containerklasse(YAMLRoot):
+class AksjeeierContainer(YAMLRoot):
     """
     Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg å ha fleire instansar av kvar klasse i ei
     datafil.
@@ -147,10 +143,9 @@ class Containerklasse(YAMLRoot):
 
     class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
     class_class_curie: ClassVar[str] = "schema:Thing"
-    class_name: ClassVar[str] = "Containerklasse"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Containerklasse
+    class_name: ClassVar[str] = "AksjeeierContainer"
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer")
 
-    identifikator: Union[str, ContainerklasseIdentifikator] = None
     aksjeselskaper: Optional[Union[dict[Union[str, AksjeselskapIdentifikator], Union[dict, "Aksjeselskap"]], list[Union[dict, "Aksjeselskap"]]]] = empty_dict()
     aksjekapitaler: Optional[Union[dict[Union[str, AksjekapitalIdentifikator], Union[dict, "Aksjekapital"]], list[Union[dict, "Aksjekapital"]]]] = empty_dict()
     aksjer: Optional[Union[dict[Union[str, AksjeIdentifikator], Union[dict, "Aksje"]], list[Union[dict, "Aksje"]]]] = empty_dict()
@@ -170,11 +165,6 @@ class Containerklasse(YAMLRoot):
     innbetalt_overkurser: Optional[Union[Union[dict, "InnbetaltOverkurs"], list[Union[dict, "InnbetaltOverkurs"]]]] = empty_list()
 
     def __post_init__(self, *_: str, **kwargs: Any):
-        if self._is_empty(self.identifikator):
-            self.MissingRequiredField("identifikator")
-        if not isinstance(self.identifikator, ContainerklasseIdentifikator):
-            self.identifikator = ContainerklasseIdentifikator(self.identifikator)
-
         self._normalize_inlined_as_list(slot_name="aksjeselskaper", slot_type=Aksjeselskap, key_name="identifikator", keyed=True)
 
         self._normalize_inlined_as_list(slot_name="aksjekapitaler", slot_type=Aksjekapital, key_name="identifikator", keyed=True)
@@ -223,10 +213,10 @@ class Aksjeselskap(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjeselskap"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjeselskap"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeselskap"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjeselskap
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap")
 
     identifikator: Union[str, AksjeselskapIdentifikator] = None
     navn: Optional[str] = None
@@ -258,10 +248,10 @@ class Aksjekapital(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjekapital"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjekapital"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjekapital"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjekapital
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital")
 
     identifikator: Union[str, AksjekapitalIdentifikator] = None
     har_antall_aksjer: Optional[int] = None
@@ -285,10 +275,10 @@ class Aksje(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksje"]
-    class_class_curie: ClassVar[str] = "aksje:Aksje"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksje")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksje"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksje
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksje")
 
     identifikator: Union[str, AksjeIdentifikator] = None
     har_palydende_belop: Optional[Decimal] = None
@@ -316,10 +306,10 @@ class Aksjeklasse(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjeklasse"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjeklasse"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeklasse"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjeklasse
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse")
 
     identifikator: Union[str, AksjeklasseIdentifikator] = None
     navn: Optional[str] = None
@@ -343,10 +333,10 @@ class Aksjeeierrettighet(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjeeierrettighet"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjeeierrettighet"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeeierrettighet"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjeeierrettighet
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet")
 
     identifikator: Union[str, AksjeeierrettighetIdentifikator] = None
     beskrivelse: Optional[str] = None
@@ -374,10 +364,10 @@ class Aksjeeier(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjeeier"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjeeier"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeeier"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjeeier
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier")
 
     identifikator: Union[str, AksjeeierIdentifikator] = None
     navn: Optional[str] = None
@@ -405,10 +395,10 @@ class Eierposisjon(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Eierposisjon"]
-    class_class_curie: ClassVar[str] = "aksje:Eierposisjon"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Eierposisjon"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Eierposisjon
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon")
 
     identifikator: Union[str, EierposisjonIdentifikator] = None
     gjelder_aksjepost: Optional[Union[str, AksjepostIdentifikator]] = None
@@ -432,10 +422,10 @@ class Aksjepost(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjepost"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjepost"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjepost"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjepost
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost")
 
     identifikator: Union[str, AksjepostIdentifikator] = None
     har_antall_aksjer: Optional[int] = None
@@ -463,10 +453,10 @@ class Utbytte(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Utbytte"]
-    class_class_curie: ClassVar[str] = "aksje:Utbytte"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Utbytte"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Utbytte
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte")
 
     identifikator: Union[str, UtbytteIdentifikator] = None
     tidspunkt: Optional[Union[str, XSDDate]] = None
@@ -498,10 +488,10 @@ class Utdeling(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Utdeling"]
-    class_class_curie: ClassVar[str] = "aksje:Utdeling"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Utdeling"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Utdeling
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling")
 
     identifikator: Union[str, UtdelingIdentifikator] = None
     belop: Optional[Decimal] = None
@@ -525,10 +515,10 @@ class Tidspunkt(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Tidspunkt"]
-    class_class_curie: ClassVar[str] = "aksje:Tidspunkt"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Tidspunkt"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Tidspunkt
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt")
 
     dato: Optional[Union[str, XSDDate]] = None
 
@@ -546,10 +536,10 @@ class Eierskapstransaksjon(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Eierskapstransaksjon"]
-    class_class_curie: ClassVar[str] = "aksje:Eierskapstransaksjon"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Eierskapstransaksjon"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Eierskapstransaksjon
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon")
 
     identifikator: Union[str, EierskapstransaksjonIdentifikator] = None
     tidspunkt: Optional[Union[str, XSDDate]] = None
@@ -585,10 +575,10 @@ class Aksjeoverdragelse(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjeoverdragelse"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjeoverdragelse"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeoverdragelse"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjeoverdragelse
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse")
 
     identifikator: Union[str, AksjeoverdragelseIdentifikator] = None
     kan_ha_vederlag: Optional[Union[str, VederlagIdentifikator]] = None
@@ -612,10 +602,10 @@ class Vederlag(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Vederlag"]
-    class_class_curie: ClassVar[str] = "aksje:Vederlag"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Vederlag"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Vederlag
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag")
 
     identifikator: Union[str, VederlagIdentifikator] = None
     belop: Optional[Decimal] = None
@@ -639,10 +629,10 @@ class Selskapshendelse(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Selskapshendelse"]
-    class_class_curie: ClassVar[str] = "aksje:Selskapshendelse"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Selskapshendelse"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Selskapshendelse
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse")
 
     identifikator: Union[str, SelskapshendelseIdentifikator] = None
     kan_ha_aksjeinnskudd: Optional[Union[str, AksjeinnskuddIdentifikator]] = None
@@ -666,10 +656,10 @@ class Aksjeinnskudd(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["Aksjeinnskudd"]
-    class_class_curie: ClassVar[str] = "aksje:Aksjeinnskudd"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeinnskudd"
-    class_model_uri: ClassVar[URIRef] = AKSJE.Aksjeinnskudd
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd")
 
     identifikator: Union[str, AksjeinnskuddIdentifikator] = None
     gjelder_innbetalt_aksjekapital: Optional[Decimal] = None
@@ -697,10 +687,10 @@ class InnbetaltAksjekapital(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["InnbetaltAksjekapital"]
-    class_class_curie: ClassVar[str] = "aksje:InnbetaltAksjekapital"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "InnbetaltAksjekapital"
-    class_model_uri: ClassVar[URIRef] = AKSJE.InnbetaltAksjekapital
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital")
 
     belop: Optional[Decimal] = None
 
@@ -718,10 +708,10 @@ class InnbetaltOverkurs(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = AKSJE["InnbetaltOverkurs"]
-    class_class_curie: ClassVar[str] = "aksje:InnbetaltOverkurs"
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs")
+    class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "InnbetaltOverkurs"
-    class_model_uri: ClassVar[URIRef] = AKSJE.InnbetaltOverkurs
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs")
 
     belop: Optional[Decimal] = None
 
@@ -739,126 +729,126 @@ class InnbetaltOverkurs(YAMLRoot):
 class slots:
     pass
 
-slots.identifikator = Slot(uri=AKSJE.identifikator, name="identifikator", curie=AKSJE.curie('identifikator'),
-                   model_uri=AKSJE.identifikator, domain=None, range=URIRef)
+slots.identifikator = Slot(uri=DEFAULT_.identifikator, name="identifikator", curie=DEFAULT_.curie('identifikator'),
+                   model_uri=DEFAULT_.identifikator, domain=None, range=URIRef)
 
-slots.navn = Slot(uri=AKSJE.navn, name="navn", curie=AKSJE.curie('navn'),
-                   model_uri=AKSJE.navn, domain=None, range=Optional[str])
+slots.navn = Slot(uri=DEFAULT_.navn, name="navn", curie=DEFAULT_.curie('navn'),
+                   model_uri=DEFAULT_.navn, domain=None, range=Optional[str])
 
-slots.beskrivelse = Slot(uri=AKSJE.beskrivelse, name="beskrivelse", curie=AKSJE.curie('beskrivelse'),
-                   model_uri=AKSJE.beskrivelse, domain=None, range=Optional[str])
+slots.beskrivelse = Slot(uri=DEFAULT_.beskrivelse, name="beskrivelse", curie=DEFAULT_.curie('beskrivelse'),
+                   model_uri=DEFAULT_.beskrivelse, domain=None, range=Optional[str])
 
-slots.antall = Slot(uri=AKSJE.antall, name="antall", curie=AKSJE.curie('antall'),
-                   model_uri=AKSJE.antall, domain=None, range=Optional[int])
+slots.antall = Slot(uri=DEFAULT_.antall, name="antall", curie=DEFAULT_.curie('antall'),
+                   model_uri=DEFAULT_.antall, domain=None, range=Optional[int])
 
-slots.belop = Slot(uri=AKSJE.belop, name="belop", curie=AKSJE.curie('belop'),
-                   model_uri=AKSJE.belop, domain=None, range=Optional[Decimal])
+slots.belop = Slot(uri=DEFAULT_.belop, name="belop", curie=DEFAULT_.curie('belop'),
+                   model_uri=DEFAULT_.belop, domain=None, range=Optional[Decimal])
 
-slots.dato = Slot(uri=AKSJE.dato, name="dato", curie=AKSJE.curie('dato'),
-                   model_uri=AKSJE.dato, domain=None, range=Optional[Union[str, XSDDate]])
+slots.dato = Slot(uri=DEFAULT_.dato, name="dato", curie=DEFAULT_.curie('dato'),
+                   model_uri=DEFAULT_.dato, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.har_aksjekapital = Slot(uri=AKSJE.har_aksjekapital, name="har_aksjekapital", curie=AKSJE.curie('har_aksjekapital'),
-                   model_uri=AKSJE.har_aksjekapital, domain=Aksjeselskap, range=Optional[Union[str, AksjekapitalIdentifikator]])
+slots.har_aksjekapital = Slot(uri=DEFAULT_.har_aksjekapital, name="har_aksjekapital", curie=DEFAULT_.curie('har_aksjekapital'),
+                   model_uri=DEFAULT_.har_aksjekapital, domain=Aksjeselskap, range=Optional[Union[str, AksjekapitalIdentifikator]])
 
-slots.har_antall_aksjer = Slot(uri=AKSJE.har_antall_aksjer, name="har_antall_aksjer", curie=AKSJE.curie('har_antall_aksjer'),
-                   model_uri=AKSJE.har_antall_aksjer, domain=None, range=Optional[int])
+slots.har_antall_aksjer = Slot(uri=DEFAULT_.har_antall_aksjer, name="har_antall_aksjer", curie=DEFAULT_.curie('har_antall_aksjer'),
+                   model_uri=DEFAULT_.har_antall_aksjer, domain=None, range=Optional[int])
 
-slots.utsteder_aksje = Slot(uri=AKSJE.utsteder_aksje, name="utsteder_aksje", curie=AKSJE.curie('utsteder_aksje'),
-                   model_uri=AKSJE.utsteder_aksje, domain=Aksjeselskap, range=Optional[Union[str, AksjeIdentifikator]])
+slots.utsteder_aksje = Slot(uri=DEFAULT_.utsteder_aksje, name="utsteder_aksje", curie=DEFAULT_.curie('utsteder_aksje'),
+                   model_uri=DEFAULT_.utsteder_aksje, domain=Aksjeselskap, range=Optional[Union[str, AksjeIdentifikator]])
 
-slots.har_palydende_belop = Slot(uri=AKSJE.har_palydende_belop, name="har_palydende_belop", curie=AKSJE.curie('har_palydende_belop'),
-                   model_uri=AKSJE.har_palydende_belop, domain=Aksje, range=Optional[Decimal])
+slots.har_palydende_belop = Slot(uri=DEFAULT_.har_palydende_belop, name="har_palydende_belop", curie=DEFAULT_.curie('har_palydende_belop'),
+                   model_uri=DEFAULT_.har_palydende_belop, domain=Aksje, range=Optional[Decimal])
 
-slots.tilhorer_aksjeklasse = Slot(uri=AKSJE.tilhorer_aksjeklasse, name="tilhorer_aksjeklasse", curie=AKSJE.curie('tilhorer_aksjeklasse'),
-                   model_uri=AKSJE.tilhorer_aksjeklasse, domain=Aksje, range=Optional[Union[str, AksjeklasseIdentifikator]])
+slots.tilhorer_aksjeklasse = Slot(uri=DEFAULT_.tilhorer_aksjeklasse, name="tilhorer_aksjeklasse", curie=DEFAULT_.curie('tilhorer_aksjeklasse'),
+                   model_uri=DEFAULT_.tilhorer_aksjeklasse, domain=Aksje, range=Optional[Union[str, AksjeklasseIdentifikator]])
 
-slots.gjelder_aksjer_i_aksjeklasse = Slot(uri=AKSJE.gjelder_aksjer_i_aksjeklasse, name="gjelder_aksjer_i_aksjeklasse", curie=AKSJE.curie('gjelder_aksjer_i_aksjeklasse'),
-                   model_uri=AKSJE.gjelder_aksjer_i_aksjeklasse, domain=None, range=Optional[Union[str, AksjeklasseIdentifikator]])
+slots.gjelder_aksjer_i_aksjeklasse = Slot(uri=DEFAULT_.gjelder_aksjer_i_aksjeklasse, name="gjelder_aksjer_i_aksjeklasse", curie=DEFAULT_.curie('gjelder_aksjer_i_aksjeklasse'),
+                   model_uri=DEFAULT_.gjelder_aksjer_i_aksjeklasse, domain=None, range=Optional[Union[str, AksjeklasseIdentifikator]])
 
-slots.har_eierposisjon = Slot(uri=AKSJE.har_eierposisjon, name="har_eierposisjon", curie=AKSJE.curie('har_eierposisjon'),
-                   model_uri=AKSJE.har_eierposisjon, domain=Aksjeeier, range=Optional[Union[str, EierposisjonIdentifikator]])
+slots.har_eierposisjon = Slot(uri=DEFAULT_.har_eierposisjon, name="har_eierposisjon", curie=DEFAULT_.curie('har_eierposisjon'),
+                   model_uri=DEFAULT_.har_eierposisjon, domain=Aksjeeier, range=Optional[Union[str, EierposisjonIdentifikator]])
 
-slots.gjelder_aksjepost = Slot(uri=AKSJE.gjelder_aksjepost, name="gjelder_aksjepost", curie=AKSJE.curie('gjelder_aksjepost'),
-                   model_uri=AKSJE.gjelder_aksjepost, domain=Eierposisjon, range=Optional[Union[str, AksjepostIdentifikator]])
+slots.gjelder_aksjepost = Slot(uri=DEFAULT_.gjelder_aksjepost, name="gjelder_aksjepost", curie=DEFAULT_.curie('gjelder_aksjepost'),
+                   model_uri=DEFAULT_.gjelder_aksjepost, domain=Eierposisjon, range=Optional[Union[str, AksjepostIdentifikator]])
 
-slots.er_basert_paa_eierposisjon = Slot(uri=AKSJE.er_basert_paa_eierposisjon, name="er_basert_paa_eierposisjon", curie=AKSJE.curie('er_basert_paa_eierposisjon'),
-                   model_uri=AKSJE.er_basert_paa_eierposisjon, domain=Utbytte, range=Optional[Union[str, EierposisjonIdentifikator]])
+slots.er_basert_paa_eierposisjon = Slot(uri=DEFAULT_.er_basert_paa_eierposisjon, name="er_basert_paa_eierposisjon", curie=DEFAULT_.curie('er_basert_paa_eierposisjon'),
+                   model_uri=DEFAULT_.er_basert_paa_eierposisjon, domain=Utbytte, range=Optional[Union[str, EierposisjonIdentifikator]])
 
-slots.paavirker_eierposisjon = Slot(uri=AKSJE.paavirker_eierposisjon, name="paavirker_eierposisjon", curie=AKSJE.curie('paavirker_eierposisjon'),
-                   model_uri=AKSJE.paavirker_eierposisjon, domain=Eierskapstransaksjon, range=Optional[Union[str, EierposisjonIdentifikator]])
+slots.paavirker_eierposisjon = Slot(uri=DEFAULT_.paavirker_eierposisjon, name="paavirker_eierposisjon", curie=DEFAULT_.curie('paavirker_eierposisjon'),
+                   model_uri=DEFAULT_.paavirker_eierposisjon, domain=Eierskapstransaksjon, range=Optional[Union[str, EierposisjonIdentifikator]])
 
-slots.har_utdeling = Slot(uri=AKSJE.har_utdeling, name="har_utdeling", curie=AKSJE.curie('har_utdeling'),
-                   model_uri=AKSJE.har_utdeling, domain=Utbytte, range=Optional[Union[str, UtdelingIdentifikator]])
+slots.har_utdeling = Slot(uri=DEFAULT_.har_utdeling, name="har_utdeling", curie=DEFAULT_.curie('har_utdeling'),
+                   model_uri=DEFAULT_.har_utdeling, domain=Utbytte, range=Optional[Union[str, UtdelingIdentifikator]])
 
-slots.tidspunkt = Slot(uri=AKSJE.tidspunkt, name="tidspunkt", curie=AKSJE.curie('tidspunkt'),
-                   model_uri=AKSJE.tidspunkt, domain=None, range=Optional[Union[str, XSDDate]])
+slots.tidspunkt = Slot(uri=DEFAULT_.tidspunkt, name="tidspunkt", curie=DEFAULT_.curie('tidspunkt'),
+                   model_uri=DEFAULT_.tidspunkt, domain=None, range=Optional[Union[str, XSDDate]])
 
-slots.kan_vaere_aksjeoverdragelse = Slot(uri=AKSJE.kan_vaere_aksjeoverdragelse, name="kan_vaere_aksjeoverdragelse", curie=AKSJE.curie('kan_vaere_aksjeoverdragelse'),
-                   model_uri=AKSJE.kan_vaere_aksjeoverdragelse, domain=Eierskapstransaksjon, range=Optional[Union[str, AksjeoverdragelseIdentifikator]])
+slots.kan_vaere_aksjeoverdragelse = Slot(uri=DEFAULT_.kan_vaere_aksjeoverdragelse, name="kan_vaere_aksjeoverdragelse", curie=DEFAULT_.curie('kan_vaere_aksjeoverdragelse'),
+                   model_uri=DEFAULT_.kan_vaere_aksjeoverdragelse, domain=Eierskapstransaksjon, range=Optional[Union[str, AksjeoverdragelseIdentifikator]])
 
-slots.kan_vaere_selskapshendelse = Slot(uri=AKSJE.kan_vaere_selskapshendelse, name="kan_vaere_selskapshendelse", curie=AKSJE.curie('kan_vaere_selskapshendelse'),
-                   model_uri=AKSJE.kan_vaere_selskapshendelse, domain=Eierskapstransaksjon, range=Optional[Union[str, SelskapshendelseIdentifikator]])
+slots.kan_vaere_selskapshendelse = Slot(uri=DEFAULT_.kan_vaere_selskapshendelse, name="kan_vaere_selskapshendelse", curie=DEFAULT_.curie('kan_vaere_selskapshendelse'),
+                   model_uri=DEFAULT_.kan_vaere_selskapshendelse, domain=Eierskapstransaksjon, range=Optional[Union[str, SelskapshendelseIdentifikator]])
 
-slots.kan_ha_vederlag = Slot(uri=AKSJE.kan_ha_vederlag, name="kan_ha_vederlag", curie=AKSJE.curie('kan_ha_vederlag'),
-                   model_uri=AKSJE.kan_ha_vederlag, domain=Aksjeoverdragelse, range=Optional[Union[str, VederlagIdentifikator]])
+slots.kan_ha_vederlag = Slot(uri=DEFAULT_.kan_ha_vederlag, name="kan_ha_vederlag", curie=DEFAULT_.curie('kan_ha_vederlag'),
+                   model_uri=DEFAULT_.kan_ha_vederlag, domain=Aksjeoverdragelse, range=Optional[Union[str, VederlagIdentifikator]])
 
-slots.kan_ha_aksjeinnskudd = Slot(uri=AKSJE.kan_ha_aksjeinnskudd, name="kan_ha_aksjeinnskudd", curie=AKSJE.curie('kan_ha_aksjeinnskudd'),
-                   model_uri=AKSJE.kan_ha_aksjeinnskudd, domain=Selskapshendelse, range=Optional[Union[str, AksjeinnskuddIdentifikator]])
+slots.kan_ha_aksjeinnskudd = Slot(uri=DEFAULT_.kan_ha_aksjeinnskudd, name="kan_ha_aksjeinnskudd", curie=DEFAULT_.curie('kan_ha_aksjeinnskudd'),
+                   model_uri=DEFAULT_.kan_ha_aksjeinnskudd, domain=Selskapshendelse, range=Optional[Union[str, AksjeinnskuddIdentifikator]])
 
-slots.gjelder_innbetalt_aksjekapital = Slot(uri=AKSJE.gjelder_innbetalt_aksjekapital, name="gjelder_innbetalt_aksjekapital", curie=AKSJE.curie('gjelder_innbetalt_aksjekapital'),
-                   model_uri=AKSJE.gjelder_innbetalt_aksjekapital, domain=Aksjeinnskudd, range=Optional[Decimal])
+slots.gjelder_innbetalt_aksjekapital = Slot(uri=DEFAULT_.gjelder_innbetalt_aksjekapital, name="gjelder_innbetalt_aksjekapital", curie=DEFAULT_.curie('gjelder_innbetalt_aksjekapital'),
+                   model_uri=DEFAULT_.gjelder_innbetalt_aksjekapital, domain=Aksjeinnskudd, range=Optional[Decimal])
 
-slots.gjelder_innbetalt_overkurs = Slot(uri=AKSJE.gjelder_innbetalt_overkurs, name="gjelder_innbetalt_overkurs", curie=AKSJE.curie('gjelder_innbetalt_overkurs'),
-                   model_uri=AKSJE.gjelder_innbetalt_overkurs, domain=Aksjeinnskudd, range=Optional[Decimal])
+slots.gjelder_innbetalt_overkurs = Slot(uri=DEFAULT_.gjelder_innbetalt_overkurs, name="gjelder_innbetalt_overkurs", curie=DEFAULT_.curie('gjelder_innbetalt_overkurs'),
+                   model_uri=DEFAULT_.gjelder_innbetalt_overkurs, domain=Aksjeinnskudd, range=Optional[Decimal])
 
-slots.aksjeselskaper = Slot(uri=AKSJE.aksjeselskaper, name="aksjeselskaper", curie=AKSJE.curie('aksjeselskaper'),
-                   model_uri=AKSJE.aksjeselskaper, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjeselskapIdentifikator], Union[dict, "Aksjeselskap"]], list[Union[dict, "Aksjeselskap"]]]])
+slots.aksjeeierContainer__aksjeselskaper = Slot(uri=DEFAULT_.aksjeselskaper, name="aksjeeierContainer__aksjeselskaper", curie=DEFAULT_.curie('aksjeselskaper'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjeselskaper, domain=None, range=Optional[Union[dict[Union[str, AksjeselskapIdentifikator], Union[dict, Aksjeselskap]], list[Union[dict, Aksjeselskap]]]])
 
-slots.aksjekapitaler = Slot(uri=AKSJE.aksjekapitaler, name="aksjekapitaler", curie=AKSJE.curie('aksjekapitaler'),
-                   model_uri=AKSJE.aksjekapitaler, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjekapitalIdentifikator], Union[dict, "Aksjekapital"]], list[Union[dict, "Aksjekapital"]]]])
+slots.aksjeeierContainer__aksjekapitaler = Slot(uri=DEFAULT_.aksjekapitaler, name="aksjeeierContainer__aksjekapitaler", curie=DEFAULT_.curie('aksjekapitaler'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjekapitaler, domain=None, range=Optional[Union[dict[Union[str, AksjekapitalIdentifikator], Union[dict, Aksjekapital]], list[Union[dict, Aksjekapital]]]])
 
-slots.aksjer = Slot(uri=AKSJE.aksjer, name="aksjer", curie=AKSJE.curie('aksjer'),
-                   model_uri=AKSJE.aksjer, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjeIdentifikator], Union[dict, "Aksje"]], list[Union[dict, "Aksje"]]]])
+slots.aksjeeierContainer__aksjer = Slot(uri=DEFAULT_.aksjer, name="aksjeeierContainer__aksjer", curie=DEFAULT_.curie('aksjer'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjer, domain=None, range=Optional[Union[dict[Union[str, AksjeIdentifikator], Union[dict, Aksje]], list[Union[dict, Aksje]]]])
 
-slots.aksjeklasser = Slot(uri=AKSJE.aksjeklasser, name="aksjeklasser", curie=AKSJE.curie('aksjeklasser'),
-                   model_uri=AKSJE.aksjeklasser, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjeklasseIdentifikator], Union[dict, "Aksjeklasse"]], list[Union[dict, "Aksjeklasse"]]]])
+slots.aksjeeierContainer__aksjeklasser = Slot(uri=DEFAULT_.aksjeklasser, name="aksjeeierContainer__aksjeklasser", curie=DEFAULT_.curie('aksjeklasser'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjeklasser, domain=None, range=Optional[Union[dict[Union[str, AksjeklasseIdentifikator], Union[dict, Aksjeklasse]], list[Union[dict, Aksjeklasse]]]])
 
-slots.aksjeeierrettigheter = Slot(uri=AKSJE.aksjeeierrettigheter, name="aksjeeierrettigheter", curie=AKSJE.curie('aksjeeierrettigheter'),
-                   model_uri=AKSJE.aksjeeierrettigheter, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjeeierrettighetIdentifikator], Union[dict, "Aksjeeierrettighet"]], list[Union[dict, "Aksjeeierrettighet"]]]])
+slots.aksjeeierContainer__aksjeeierrettigheter = Slot(uri=DEFAULT_.aksjeeierrettigheter, name="aksjeeierContainer__aksjeeierrettigheter", curie=DEFAULT_.curie('aksjeeierrettigheter'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjeeierrettigheter, domain=None, range=Optional[Union[dict[Union[str, AksjeeierrettighetIdentifikator], Union[dict, Aksjeeierrettighet]], list[Union[dict, Aksjeeierrettighet]]]])
 
-slots.aksjeeiere = Slot(uri=AKSJE.aksjeeiere, name="aksjeeiere", curie=AKSJE.curie('aksjeeiere'),
-                   model_uri=AKSJE.aksjeeiere, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjeeierIdentifikator], Union[dict, "Aksjeeier"]], list[Union[dict, "Aksjeeier"]]]])
+slots.aksjeeierContainer__aksjeeiere = Slot(uri=DEFAULT_.aksjeeiere, name="aksjeeierContainer__aksjeeiere", curie=DEFAULT_.curie('aksjeeiere'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjeeiere, domain=None, range=Optional[Union[dict[Union[str, AksjeeierIdentifikator], Union[dict, Aksjeeier]], list[Union[dict, Aksjeeier]]]])
 
-slots.aksjeposter = Slot(uri=AKSJE.aksjeposter, name="aksjeposter", curie=AKSJE.curie('aksjeposter'),
-                   model_uri=AKSJE.aksjeposter, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjepostIdentifikator], Union[dict, "Aksjepost"]], list[Union[dict, "Aksjepost"]]]])
+slots.aksjeeierContainer__aksjeposter = Slot(uri=DEFAULT_.aksjeposter, name="aksjeeierContainer__aksjeposter", curie=DEFAULT_.curie('aksjeposter'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjeposter, domain=None, range=Optional[Union[dict[Union[str, AksjepostIdentifikator], Union[dict, Aksjepost]], list[Union[dict, Aksjepost]]]])
 
-slots.eierposisjoner = Slot(uri=AKSJE.eierposisjoner, name="eierposisjoner", curie=AKSJE.curie('eierposisjoner'),
-                   model_uri=AKSJE.eierposisjoner, domain=Containerklasse, range=Optional[Union[dict[Union[str, EierposisjonIdentifikator], Union[dict, "Eierposisjon"]], list[Union[dict, "Eierposisjon"]]]])
+slots.aksjeeierContainer__eierposisjoner = Slot(uri=DEFAULT_.eierposisjoner, name="aksjeeierContainer__eierposisjoner", curie=DEFAULT_.curie('eierposisjoner'),
+                   model_uri=DEFAULT_.aksjeeierContainer__eierposisjoner, domain=None, range=Optional[Union[dict[Union[str, EierposisjonIdentifikator], Union[dict, Eierposisjon]], list[Union[dict, Eierposisjon]]]])
 
-slots.eierskapstransaksjoner = Slot(uri=AKSJE.eierskapstransaksjoner, name="eierskapstransaksjoner", curie=AKSJE.curie('eierskapstransaksjoner'),
-                   model_uri=AKSJE.eierskapstransaksjoner, domain=Containerklasse, range=Optional[Union[dict[Union[str, EierskapstransaksjonIdentifikator], Union[dict, "Eierskapstransaksjon"]], list[Union[dict, "Eierskapstransaksjon"]]]])
+slots.aksjeeierContainer__eierskapstransaksjoner = Slot(uri=DEFAULT_.eierskapstransaksjoner, name="aksjeeierContainer__eierskapstransaksjoner", curie=DEFAULT_.curie('eierskapstransaksjoner'),
+                   model_uri=DEFAULT_.aksjeeierContainer__eierskapstransaksjoner, domain=None, range=Optional[Union[dict[Union[str, EierskapstransaksjonIdentifikator], Union[dict, Eierskapstransaksjon]], list[Union[dict, Eierskapstransaksjon]]]])
 
-slots.aksjeoverdragelser = Slot(uri=AKSJE.aksjeoverdragelser, name="aksjeoverdragelser", curie=AKSJE.curie('aksjeoverdragelser'),
-                   model_uri=AKSJE.aksjeoverdragelser, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjeoverdragelseIdentifikator], Union[dict, "Aksjeoverdragelse"]], list[Union[dict, "Aksjeoverdragelse"]]]])
+slots.aksjeeierContainer__aksjeoverdragelser = Slot(uri=DEFAULT_.aksjeoverdragelser, name="aksjeeierContainer__aksjeoverdragelser", curie=DEFAULT_.curie('aksjeoverdragelser'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjeoverdragelser, domain=None, range=Optional[Union[dict[Union[str, AksjeoverdragelseIdentifikator], Union[dict, Aksjeoverdragelse]], list[Union[dict, Aksjeoverdragelse]]]])
 
-slots.vederlager = Slot(uri=AKSJE.vederlager, name="vederlager", curie=AKSJE.curie('vederlager'),
-                   model_uri=AKSJE.vederlager, domain=Containerklasse, range=Optional[Union[dict[Union[str, VederlagIdentifikator], Union[dict, "Vederlag"]], list[Union[dict, "Vederlag"]]]])
+slots.aksjeeierContainer__vederlager = Slot(uri=DEFAULT_.vederlager, name="aksjeeierContainer__vederlager", curie=DEFAULT_.curie('vederlager'),
+                   model_uri=DEFAULT_.aksjeeierContainer__vederlager, domain=None, range=Optional[Union[dict[Union[str, VederlagIdentifikator], Union[dict, Vederlag]], list[Union[dict, Vederlag]]]])
 
-slots.selskapshendelser = Slot(uri=AKSJE.selskapshendelser, name="selskapshendelser", curie=AKSJE.curie('selskapshendelser'),
-                   model_uri=AKSJE.selskapshendelser, domain=Containerklasse, range=Optional[Union[dict[Union[str, SelskapshendelseIdentifikator], Union[dict, "Selskapshendelse"]], list[Union[dict, "Selskapshendelse"]]]])
+slots.aksjeeierContainer__selskapshendelser = Slot(uri=DEFAULT_.selskapshendelser, name="aksjeeierContainer__selskapshendelser", curie=DEFAULT_.curie('selskapshendelser'),
+                   model_uri=DEFAULT_.aksjeeierContainer__selskapshendelser, domain=None, range=Optional[Union[dict[Union[str, SelskapshendelseIdentifikator], Union[dict, Selskapshendelse]], list[Union[dict, Selskapshendelse]]]])
 
-slots.aksjeinnskudder = Slot(uri=AKSJE.aksjeinnskudder, name="aksjeinnskudder", curie=AKSJE.curie('aksjeinnskudder'),
-                   model_uri=AKSJE.aksjeinnskudder, domain=Containerklasse, range=Optional[Union[dict[Union[str, AksjeinnskuddIdentifikator], Union[dict, "Aksjeinnskudd"]], list[Union[dict, "Aksjeinnskudd"]]]])
+slots.aksjeeierContainer__aksjeinnskudder = Slot(uri=DEFAULT_.aksjeinnskudder, name="aksjeeierContainer__aksjeinnskudder", curie=DEFAULT_.curie('aksjeinnskudder'),
+                   model_uri=DEFAULT_.aksjeeierContainer__aksjeinnskudder, domain=None, range=Optional[Union[dict[Union[str, AksjeinnskuddIdentifikator], Union[dict, Aksjeinnskudd]], list[Union[dict, Aksjeinnskudd]]]])
 
-slots.utbytter = Slot(uri=AKSJE.utbytter, name="utbytter", curie=AKSJE.curie('utbytter'),
-                   model_uri=AKSJE.utbytter, domain=Containerklasse, range=Optional[Union[dict[Union[str, UtbytteIdentifikator], Union[dict, "Utbytte"]], list[Union[dict, "Utbytte"]]]])
+slots.aksjeeierContainer__utbytter = Slot(uri=DEFAULT_.utbytter, name="aksjeeierContainer__utbytter", curie=DEFAULT_.curie('utbytter'),
+                   model_uri=DEFAULT_.aksjeeierContainer__utbytter, domain=None, range=Optional[Union[dict[Union[str, UtbytteIdentifikator], Union[dict, Utbytte]], list[Union[dict, Utbytte]]]])
 
-slots.utdelinger = Slot(uri=AKSJE.utdelinger, name="utdelinger", curie=AKSJE.curie('utdelinger'),
-                   model_uri=AKSJE.utdelinger, domain=Containerklasse, range=Optional[Union[dict[Union[str, UtdelingIdentifikator], Union[dict, "Utdeling"]], list[Union[dict, "Utdeling"]]]])
+slots.aksjeeierContainer__utdelinger = Slot(uri=DEFAULT_.utdelinger, name="aksjeeierContainer__utdelinger", curie=DEFAULT_.curie('utdelinger'),
+                   model_uri=DEFAULT_.aksjeeierContainer__utdelinger, domain=None, range=Optional[Union[dict[Union[str, UtdelingIdentifikator], Union[dict, Utdeling]], list[Union[dict, Utdeling]]]])
 
-slots.innbetalt_aksjekapitaler = Slot(uri=AKSJE.innbetalt_aksjekapitaler, name="innbetalt_aksjekapitaler", curie=AKSJE.curie('innbetalt_aksjekapitaler'),
-                   model_uri=AKSJE.innbetalt_aksjekapitaler, domain=Containerklasse, range=Optional[Union[Union[dict, "InnbetaltAksjekapital"], list[Union[dict, "InnbetaltAksjekapital"]]]])
+slots.aksjeeierContainer__innbetalt_aksjekapitaler = Slot(uri=DEFAULT_.innbetalt_aksjekapitaler, name="aksjeeierContainer__innbetalt_aksjekapitaler", curie=DEFAULT_.curie('innbetalt_aksjekapitaler'),
+                   model_uri=DEFAULT_.aksjeeierContainer__innbetalt_aksjekapitaler, domain=None, range=Optional[Union[Union[dict, InnbetaltAksjekapital], list[Union[dict, InnbetaltAksjekapital]]]])
 
-slots.innbetalt_overkurser = Slot(uri=AKSJE.innbetalt_overkurser, name="innbetalt_overkurser", curie=AKSJE.curie('innbetalt_overkurser'),
-                   model_uri=AKSJE.innbetalt_overkurser, domain=Containerklasse, range=Optional[Union[Union[dict, "InnbetaltOverkurs"], list[Union[dict, "InnbetaltOverkurs"]]]])
+slots.aksjeeierContainer__innbetalt_overkurser = Slot(uri=DEFAULT_.innbetalt_overkurser, name="aksjeeierContainer__innbetalt_overkurser", curie=DEFAULT_.curie('innbetalt_overkurser'),
+                   model_uri=DEFAULT_.aksjeeierContainer__innbetalt_overkurser, domain=None, range=Optional[Union[Union[dict, InnbetaltOverkurs], list[Union[dict, InnbetaltOverkurs]]]])
 

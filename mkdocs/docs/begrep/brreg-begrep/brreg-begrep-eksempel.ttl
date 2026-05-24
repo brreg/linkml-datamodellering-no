@@ -1,0 +1,91 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix euvoc: <http://publications.europa.eu/ontology/euvoc#> .
+@prefix ns1: <https://data.norge.no/linkml/brreg-begrep/> .
+@prefix org: <http://www.w3.org/ns/org#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix skosno: <https://data.norge.no/vocabulary/skosno#> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+
+<https://begrep.brreg.no/samlingar/registerbegrep-2025> a skos:Collection ;
+    dct:description "Begreper knytt til Enhetsregisteret, Foretaksregisteret og registerforvaltning."^^rdf:langString ;
+    dct:identifier "https://begrep.brreg.no/samlingar/registerbegrep-2025" ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "Registerenheten i Brønnøysund – begrepskatalog 2025"^^rdf:langString ;
+    skos:member <https://begrep.brreg.no/aksjeklasser>,
+        <https://begrep.brreg.no/foretaksnavn>,
+        <https://begrep.brreg.no/nestleder> ;
+    dcat:contactPoint <https://begrep.brreg.no/kontakt/begrepsansvarleg> .
+
+<https://begrep.brreg.no/aksjeklasser> a skos:Concept ;
+    euvoc:xlDefinition <https://begrep.brreg.no/def/aksjeklasser-nb> ;
+    dct:identifier "https://begrep.brreg.no/aksjeklasser" ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:subject <https://psi.norge.no/los/tema/naringsliv> ;
+    skos:example "A-aksjer, b-aksjer, preferanseaksjer"^^rdf:langString ;
+    skos:prefLabel "aksjeklasser"^^rdf:langString ;
+    skos:scopeNote "I utgangspunktet skal alle aksjer gi lik rett i selskapet, men vedtektene kan bestemme at aksjene skal deles inn i forskjellige aksjeklasser."^^rdf:langString ;
+    dcat:contactPoint <https://begrep.brreg.no/kontakt/begrepsansvarleg> .
+
+<https://begrep.brreg.no/def/aksjeklasser-nb> a euvoc:XlNote ;
+    rdf:value "inndeling av aksjer som gir aksjene ulike rettigheter"^^rdf:langString ;
+    skosno:relationshipWithSource <https://data.norge.no/vocabulary/relationship-with-source-type#derived-from-source> .
+
+<https://begrep.brreg.no/def/foretaksnavn-nb> a euvoc:XlNote ;
+    rdf:value "det offisielle navnet på en næringsdrivende juridisk person og kjennetegnet for et enkeltpersonforetak"^^rdf:langString ;
+    skosno:relationshipWithSource <https://data.norge.no/vocabulary/relationship-with-source-type#direct-from-source> .
+
+<https://begrep.brreg.no/def/nestleder-en> a euvoc:XlNote ;
+    rdf:value "board member who acts as the chair in the absence of the chair"^^rdf:langString ;
+    skosno:relationshipWithSource <https://data.norge.no/vocabulary/relationship-with-source-type#self-composed> .
+
+<https://begrep.brreg.no/def/nestleder-nb> a euvoc:XlNote ;
+    rdf:value "styremedlem som opptrer som styreleder ved leders fravær"^^rdf:langString ;
+    skosno:relationshipWithSource <https://data.norge.no/vocabulary/relationship-with-source-type#self-composed> .
+
+<https://begrep.brreg.no/def/nestleder-nn> a euvoc:XlNote ;
+    rdf:value "styremedlem som opptrer som styreleiar i fråværet til leiaren"^^rdf:langString ;
+    skosno:relationshipWithSource <https://data.norge.no/vocabulary/relationship-with-source-type#self-composed> .
+
+<https://begrep.brreg.no/foretaksnavn> a skos:Concept ;
+    euvoc:xlDefinition <https://begrep.brreg.no/def/foretaksnavn-nb> ;
+    dct:identifier "https://begrep.brreg.no/foretaksnavn" ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:subject <https://psi.norge.no/los/tema/naringsliv> ;
+    rdfs:seeAlso <https://data.norge.no/concepts/68944a03-76d8-38f5-894e-88265d962b36>,
+        <https://data.norge.no/concepts/e9074b72-758d-3500-bf6e-253a920a6900> ;
+    skos:prefLabel "foretaksnavn"^^rdf:langString ;
+    dcat:contactPoint <https://begrep.brreg.no/kontakt/begrepsansvarleg> .
+
+<https://begrep.brreg.no/nestleder> a skos:Concept ;
+    euvoc:xlDefinition <https://begrep.brreg.no/def/nestleder-en>,
+        <https://begrep.brreg.no/def/nestleder-nb>,
+        <https://begrep.brreg.no/def/nestleder-nn> ;
+    dct:identifier "https://begrep.brreg.no/nestleder" ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:subject <https://psi.norge.no/los/tema/naringsliv> ;
+    skos:prefLabel "deputy chair"^^rdf:langString,
+        "nestleder"^^rdf:langString,
+        "nestleiar"^^rdf:langString ;
+    dcat:contactPoint <https://begrep.brreg.no/kontakt/begrepsansvarleg> .
+
+<https://begrep.brreg.no/kontakt/begrepsansvarleg> a vcard:Kind .
+
+<https://data.norge.no/organizations/974760673> a org:Organization .
+
+[] a ns1:BegrepContainer ;
+    ns1:begrep <https://begrep.brreg.no/aksjeklasser>,
+        <https://begrep.brreg.no/foretaksnavn>,
+        <https://begrep.brreg.no/nestleder> ;
+    ns1:definisjoner <https://begrep.brreg.no/def/aksjeklasser-nb>,
+        <https://begrep.brreg.no/def/foretaksnavn-nb>,
+        <https://begrep.brreg.no/def/nestleder-en>,
+        <https://begrep.brreg.no/def/nestleder-nb>,
+        <https://begrep.brreg.no/def/nestleder-nn> ;
+    ns1:kontaktpunkt <https://begrep.brreg.no/kontakt/begrepsansvarleg> ;
+    ns1:organisasjonar <https://data.norge.no/organizations/974760673> ;
+    ns1:samlingar <https://begrep.brreg.no/samlingar/registerbegrep-2025> .
+
+

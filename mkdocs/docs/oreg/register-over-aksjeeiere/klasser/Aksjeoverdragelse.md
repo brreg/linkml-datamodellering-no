@@ -9,7 +9,7 @@ _Overdraging av aksjar mellom partar._
 
 
 
-URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragelse)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse)
 
 
 
@@ -121,7 +121,7 @@ URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragel
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjeoverdragelser](aksjeoverdragelser.md) | range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjeoverdragelser](aksjeoverdragelser.md) | range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
 | [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_aksjeoverdragelse](kan_vaere_aksjeoverdragelse.md) | range | [Aksjeoverdragelse](aksjeoverdragelse.md) |
 | [Aksjeoverdragelse](aksjeoverdragelse.md) | [kan_ha_vederlag](kan_ha_vederlag.md) | domain | [Aksjeoverdragelse](aksjeoverdragelse.md) |
 
@@ -154,8 +154,8 @@ URI: [aksje:Aksjeoverdragelse](https://example.no/ontology/aksje#Aksjeoverdragel
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjeoverdragelse |
-| native | aksje:Aksjeoverdragelse |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse |
 
 
 
@@ -198,7 +198,6 @@ attributes:
     identifier: true
     owner: Aksjeoverdragelse
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

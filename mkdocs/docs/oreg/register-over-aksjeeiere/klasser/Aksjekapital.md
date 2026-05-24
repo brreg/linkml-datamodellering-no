@@ -9,7 +9,7 @@ _Den registrerte aksjekapitalen i eit aksjeselskap._
 
 
 
-URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital)
 
 
 
@@ -121,7 +121,7 @@ URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjekapitaler](aksjekapitaler.md) | range | [Aksjekapital](aksjekapital.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjekapitaler](aksjekapitaler.md) | range | [Aksjekapital](aksjekapital.md) |
 | [Aksjeselskap](aksjeselskap.md) | [har_aksjekapital](har_aksjekapital.md) | range | [Aksjekapital](aksjekapital.md) |
 
 
@@ -153,8 +153,8 @@ URI: [aksje:Aksjekapital](https://example.no/ontology/aksje#Aksjekapital)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjekapital |
-| native | aksje:Aksjekapital |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital |
 
 
 
@@ -197,7 +197,6 @@ attributes:
     identifier: true
     owner: Aksjekapital
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

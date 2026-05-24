@@ -9,7 +9,7 @@ _Klasse aksjar høyrer til, med eigne rettigheiter._
 
 
 
-URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse)
 
 
 
@@ -121,7 +121,7 @@ URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjeklasser](aksjeklasser.md) | range | [Aksjeklasse](aksjeklasse.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjeklasser](aksjeklasser.md) | range | [Aksjeklasse](aksjeklasse.md) |
 | [Aksje](aksje.md) | [tilhorer_aksjeklasse](tilhorer_aksjeklasse.md) | range | [Aksjeklasse](aksjeklasse.md) |
 | [Aksjeeierrettighet](aksjeeierrettighet.md) | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | range | [Aksjeklasse](aksjeklasse.md) |
 | [Aksjepost](aksjepost.md) | [gjelder_aksjer_i_aksjeklasse](gjelder_aksjer_i_aksjeklasse.md) | range | [Aksjeklasse](aksjeklasse.md) |
@@ -155,8 +155,8 @@ URI: [aksje:Aksjeklasse](https://example.no/ontology/aksje#Aksjeklasse)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjeklasse |
-| native | aksje:Aksjeklasse |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse |
 
 
 
@@ -199,7 +199,6 @@ attributes:
     identifier: true
     owner: Aksjeklasse
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

@@ -9,7 +9,7 @@ _Samling aksjar eigd av ein aksjeeigar._
 
 
 
-URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost)
 
 
 
@@ -149,7 +149,7 @@ URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjeposter](aksjeposter.md) | range | [Aksjepost](aksjepost.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjeposter](aksjeposter.md) | range | [Aksjepost](aksjepost.md) |
 | [Eierposisjon](eierposisjon.md) | [gjelder_aksjepost](gjelder_aksjepost.md) | range | [Aksjepost](aksjepost.md) |
 
 
@@ -181,8 +181,8 @@ URI: [aksje:Aksjepost](https://example.no/ontology/aksje#Aksjepost)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjepost |
-| native | aksje:Aksjepost |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost |
 
 
 
@@ -226,7 +226,6 @@ attributes:
     identifier: true
     owner: Aksjepost
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

@@ -9,7 +9,7 @@ _Selskap som utsteder aksjar og har aksjekapital._
 
 
 
-URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap)
 
 
 
@@ -177,7 +177,7 @@ URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjeselskaper](aksjeselskaper.md) | range | [Aksjeselskap](aksjeselskap.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjeselskaper](aksjeselskaper.md) | range | [Aksjeselskap](aksjeselskap.md) |
 | [Aksjeselskap](aksjeselskap.md) | [har_aksjekapital](har_aksjekapital.md) | domain | [Aksjeselskap](aksjeselskap.md) |
 | [Aksjeselskap](aksjeselskap.md) | [utsteder_aksje](utsteder_aksje.md) | domain | [Aksjeselskap](aksjeselskap.md) |
 
@@ -210,8 +210,8 @@ URI: [aksje:Aksjeselskap](https://example.no/ontology/aksje#Aksjeselskap)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjeselskap |
-| native | aksje:Aksjeselskap |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap |
 
 
 
@@ -256,7 +256,6 @@ attributes:
     identifier: true
     owner: Aksjeselskap
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

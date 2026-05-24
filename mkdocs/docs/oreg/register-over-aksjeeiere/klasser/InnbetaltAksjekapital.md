@@ -9,7 +9,7 @@ _Innbetalt aksjekapital._
 
 
 
-URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAksjekapital)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital](https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital)
 
 
 
@@ -93,7 +93,7 @@ URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAk
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | range | [InnbetaltAksjekapital](innbetaltaksjekapital.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [innbetalt_aksjekapitaler](innbetalt_aksjekapitaler.md) | range | [InnbetaltAksjekapital](innbetaltaksjekapital.md) |
 
 
 
@@ -124,8 +124,8 @@ URI: [aksje:InnbetaltAksjekapital](https://example.no/ontology/aksje#InnbetaltAk
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:InnbetaltAksjekapital |
-| native | aksje:InnbetaltAksjekapital |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital |
 
 
 

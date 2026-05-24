@@ -223,7 +223,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 | [Kvalitetsmerknad](kvalitetsmerknad.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
 | [Brukartilbakemelding](brukartilbakemelding.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
 | [Kvalitetssertifikat](kvalitetssertifikat.md) | [har_tekstdel](har_tekstdel.md) | range | [Tekstdel](tekstdel.md) |
-| [Containerklasse](containerklasse.md) | [tekstdeler](tekstdeler.md) | range | [Tekstdel](tekstdel.md) |
+| [SamtBuContainer](samtbucontainer.md) | [tekstdeler](tekstdeler.md) | range | [Tekstdel](tekstdel.md) |
 
 
 
@@ -348,7 +348,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

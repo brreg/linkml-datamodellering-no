@@ -16,3 +16,14 @@ modellere generiske kodelister/kodeverk
 generate workflow skal ha en matrix job pr domene
 
 legge til artifakter for protobuf og plantuml i mkdocs liste over genererte artifakter pr skjema
+
+generer OpenAPI/AsyncAPI spesifikasjon 
+integrere mot custom schemaregistry (apicur.io)
+
+integrere mot custom datakatalog (gcp data catalog)
+
+
+conventional commits for versjonering av modeller
+
+
+oppdatere readme og prosjektbeskrivelse med LinkML begrepsmodellering

@@ -190,7 +190,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 | [Brukartilbakemelding](brukartilbakemelding.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 | [Kvalitetssertifikat](kvalitetssertifikat.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 | [Standard](standard.md) | [er_i_kvalitetsdimensjon](er_i_kvalitetsdimensjon.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
-| [Containerklasse](containerklasse.md) | [kvalitetsdimensjoner](kvalitetsdimensjoner.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
+| [SamtBuContainer](samtbucontainer.md) | [kvalitetsdimensjoner](kvalitetsdimensjoner.md) | range | [Kvalitetsdimensjon](kvalitetsdimensjon.md) |
 
 
 
@@ -304,7 +304,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

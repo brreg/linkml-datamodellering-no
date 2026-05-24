@@ -1,0 +1,143 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// Ei enkelt aksje utstedt av eit aksjeselskap.
+message Aksje
+ {
+  uriorcurie identifikator = 0
+  decimal harPalydendeBelop = 0
+  aksjeklasse tilhorerAksjeklasse = 0
+ }
+// Person eller organisasjon som eig aksjar.
+message Aksjeeier
+ {
+  uriorcurie identifikator = 0
+  string navn = 0
+  eierposisjon harEierposisjon = 0
+ }
+// Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
+// 
+message AksjeeierContainer
+ {
+ repeated  aksjeselskap aksjeselskaper = 0
+ repeated  aksjekapital aksjekapitaler = 0
+ repeated  aksje aksjer = 0
+ repeated  aksjeklasse aksjeklasser = 0
+ repeated  aksjeeierrettighet aksjeeierrettigheter = 0
+ repeated  aksjeeier aksjeeiere = 0
+ repeated  aksjepost aksjeposter = 0
+ repeated  eierposisjon eierposisjoner = 0
+ repeated  eierskapstransaksjon eierskapstransaksjoner = 0
+ repeated  aksjeoverdragelse aksjeoverdragelser = 0
+ repeated  vederlag vederlager = 0
+ repeated  selskapshendelse selskapshendelser = 0
+ repeated  aksjeinnskudd aksjeinnskudder = 0
+ repeated  utbytte utbytter = 0
+ repeated  utdeling utdelinger = 0
+ repeated  innbetaltAksjekapital innbetaltAksjekapitaler = 0
+ repeated  innbetaltOverkurs innbetaltOverkurser = 0
+ }
+// Rettigheiter knytt til aksjar, til dømes stemmerett.
+message Aksjeeierrettighet
+ {
+  uriorcurie identifikator = 0
+  string beskrivelse = 0
+  aksjeklasse gjelderAksjerIAksjeklasse = 0
+ }
+// Innskot knytt til aksjar i samband med selskapshending.
+message Aksjeinnskudd
+ {
+  uriorcurie identifikator = 0
+  decimal gjelderInnbetaltAksjekapital = 0
+  decimal gjelderInnbetaltOverkurs = 0
+ }
+// Den registrerte aksjekapitalen i eit aksjeselskap.
+message Aksjekapital
+ {
+  uriorcurie identifikator = 0
+  integer harAntallAksjer = 0
+ }
+// Klasse aksjar høyrer til, med eigne rettigheiter.
+message Aksjeklasse
+ {
+  uriorcurie identifikator = 0
+  string navn = 0
+ }
+// Overdraging av aksjar mellom partar.
+message Aksjeoverdragelse
+ {
+  uriorcurie identifikator = 0
+  vederlag kanHaVederlag = 0
+ }
+// Samling aksjar eigd av ein aksjeeigar.
+message Aksjepost
+ {
+  uriorcurie identifikator = 0
+  integer harAntallAksjer = 0
+  aksjeklasse gjelderAksjerIAksjeklasse = 0
+ }
+// Selskap som utsteder aksjar og har aksjekapital.
+message Aksjeselskap
+ {
+  uriorcurie identifikator = 0
+  string navn = 0
+  aksjekapital harAksjekapital = 0
+  aksje utstederAksje = 0
+ }
+// Eierens samla posisjon i eit selskap.
+message Eierposisjon
+ {
+  uriorcurie identifikator = 0
+  aksjepost gjelderAksjepost = 0
+ }
+// Transaksjon som påverkar eigarskap i selskapet.
+message Eierskapstransaksjon
+ {
+  uriorcurie identifikator = 0
+  date tidspunkt = 0
+  aksjeoverdragelse kanVaereAksjeoverdragelse = 0
+  selskapshendelse kanVaereSelskapshendelse = 0
+  eierposisjon paavirkerEierposisjon = 0
+ }
+// Innbetalt aksjekapital.
+message InnbetaltAksjekapital
+ {
+  decimal belop = 0
+ }
+// Innbetalt overkurs utover pålydande.
+message InnbetaltOverkurs
+ {
+  decimal belop = 0
+ }
+// Hending som påverkar selskapet sitt eigarskap eller kapital.
+message Selskapshendelse
+ {
+  uriorcurie identifikator = 0
+  aksjeinnskudd kanHaAksjeinnskudd = 0
+ }
+// Tidspunkt for ei hending.
+message Tidspunkt
+ {
+  date dato = 0
+ }
+// Utbytte knytt til ein eigarposisjon.
+message Utbytte
+ {
+  uriorcurie identifikator = 0
+  date tidspunkt = 0
+  utdeling harUtdeling = 0
+  eierposisjon erBasertPaaEierposisjon = 0
+ }
+// Konkret utdeling av verdiar til aksjeeigarar.
+message Utdeling
+ {
+  uriorcurie identifikator = 0
+  decimal belop = 0
+ }
+// Vederlag knytt til ei aksjeoverdraging.
+message Vederlag
+ {
+  uriorcurie identifikator = 0
+  decimal belop = 0
+ }
+

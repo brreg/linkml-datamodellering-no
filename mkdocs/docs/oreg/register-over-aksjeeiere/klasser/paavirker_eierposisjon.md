@@ -9,7 +9,7 @@ _Eierskapstransaksjon knytt til eigarposisjonen._
 
 
 
-URI: [aksje:paavirker_eierposisjon](https://example.no/ontology/aksje#paavirker_eierposisjon)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon](https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:paavirker_eierposisjon](https://example.no/ontology/aksje#paavirker_
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:paavirker_eierposisjon |
-| native | aksje:paavirker_eierposisjon |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon |
 
 
 

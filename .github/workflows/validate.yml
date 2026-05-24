@@ -82,7 +82,7 @@ jobs:
       packages: read
     strategy:
       matrix:
-        domain: [ap-no, fair, fint, ngr, oreg, samt]
+        domain: [ap-no, begrep, fair, fint, ngr, oreg, samt]
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8

@@ -9,7 +9,7 @@ _Innbetalt aksjekapital._
 
 
 
-URI: [aksje:gjelder_innbetalt_aksjekapital](https://example.no/ontology/aksje#gjelder_innbetalt_aksjekapital)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital](https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [aksje:gjelder_innbetalt_aksjekapital](https://example.no/ontology/aksje#gj
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:gjelder_innbetalt_aksjekapital |
-| native | aksje:gjelder_innbetalt_aksjekapital |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital |
 
 
 

@@ -204,9 +204,9 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 | [Datatjeneste](datatjeneste.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
 | [Katalog](katalog.md) | [utgiver](utgiver.md) | range | [Aktor](aktor.md) |
 | [Katalog](katalog.md) | [produsent](produsent.md) | range | [Aktor](aktor.md) |
-| [Containerklasse](containerklasse.md) | [utgivere](utgivere.md) | range | [Aktor](aktor.md) |
-| [Containerklasse](containerklasse.md) | [organisasjoner](organisasjoner.md) | range | [Aktor](aktor.md) |
-| [Containerklasse](containerklasse.md) | [grupper](grupper.md) | range | [Aktor](aktor.md) |
+| [SamtBuContainer](samtbucontainer.md) | [utgivere](utgivere.md) | range | [Aktor](aktor.md) |
+| [SamtBuContainer](samtbucontainer.md) | [organisasjoner](organisasjoner.md) | range | [Aktor](aktor.md) |
+| [SamtBuContainer](samtbucontainer.md) | [grupper](grupper.md) | range | [Aktor](aktor.md) |
 
 
 
@@ -323,7 +323,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

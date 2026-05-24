@@ -177,7 +177,7 @@ URI: [samtbuskole:Basisgruppe](https://example.no/ontology/skole#Basisgruppe)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [basisgrupper](basisgrupper.md) | range | [Basisgruppe](basisgruppe.md) |
+| [SamtBuContainer](samtbucontainer.md) | [basisgrupper](basisgrupper.md) | range | [Basisgruppe](basisgruppe.md) |
 | [Basisgruppe](basisgruppe.md) | [del_av_skole](del_av_skole.md) | domain | [Basisgruppe](basisgruppe.md) |
 | [Elev](elev.md) | [horer_til_basisgruppe](horer_til_basisgruppe.md) | range | [Basisgruppe](basisgruppe.md) |
 | [Kontaktlaerer](kontaktlaerer.md) | [tilknyttet_basisgruppe](tilknyttet_basisgruppe.md) | range | [Basisgruppe](basisgruppe.md) |
@@ -285,7 +285,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

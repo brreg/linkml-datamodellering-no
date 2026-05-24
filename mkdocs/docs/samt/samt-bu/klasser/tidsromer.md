@@ -3,11 +3,6 @@
 # Slot: tidsromer 
 
 
-_Tidsrom for kvalitetsmerknad._
-
-
-
-
 
 URI: [samtbuskole:tidsromer](https://example.no/ontology/skole#tidsromer)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:tidsromer](https://example.no/ontology/skole#tidsromer)
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:tidsromer](https://example.no/ontology/skole#tidsromer)
 | Property | Value |
 | --- | --- |
 | Range | [Tidsrom](tidsrom.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,11 +82,11 @@ URI: [samtbuskole:tidsromer](https://example.no/ontology/skole#tidsromer)
 <details>
 ```yaml
 name: tidsromer
-description: Tidsrom for kvalitetsmerknad.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: Tidsrom
 multivalued: true
 inlined: true

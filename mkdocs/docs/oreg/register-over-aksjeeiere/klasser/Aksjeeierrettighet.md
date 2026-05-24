@@ -9,7 +9,7 @@ _Rettigheiter knytt til aksjar, til dømes stemmerett._
 
 
 
-URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierrettighet)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet)
 
 
 
@@ -149,7 +149,7 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [aksjeeierrettigheter](aksjeeierrettigheter.md) | range | [Aksjeeierrettighet](aksjeeierrettighet.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [aksjeeierrettigheter](aksjeeierrettigheter.md) | range | [Aksjeeierrettighet](aksjeeierrettighet.md) |
 
 
 
@@ -180,8 +180,8 @@ URI: [aksje:Aksjeeierrettighet](https://example.no/ontology/aksje#Aksjeeierretti
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Aksjeeierrettighet |
-| native | aksje:Aksjeeierrettighet |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet |
 
 
 
@@ -225,7 +225,6 @@ attributes:
     identifier: true
     owner: Aksjeeierrettighet
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

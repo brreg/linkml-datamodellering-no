@@ -24,7 +24,7 @@ make check-prereqs
 ```
 ```bash
 # 1. Bygg container-images (éin gong)
-make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-gen-build
+make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-gen-build && make mcp-begrep-build
 ```
 
 > Bytt ut `domene` og `modellnavn` i kommandoane nedanfor med dine eigne verdiar.
@@ -57,6 +57,7 @@ Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.m
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
+| begrep | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Instansar i YAML eksportert til SKOS/RDF for Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
 | fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
 | ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
@@ -70,6 +71,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
+| begrep | [brreg-begrep](src/linkml/begrep/brreg-begrep/) | Registerenheten i Brønnøysund – Begrepskatalog | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjonar for alle AP-NO-profilar |
 | ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
@@ -119,9 +121,10 @@ linkml-datamodellering-no/
 ├──src/
 │   ├── assets/                 # Containere, skript og malar
 │   ├── linkml/                 # LinkML-skjema
-│   ├── mcp-linkml-validator/   # MCP-server: policy-basert validering
-│   ├── mcp-linkml-generator/   # MCP-server: JSON Schema → LinkML
-│   └── templates/              # Jinja2-malar for make gen-docs
+│   ├── mcp-linkml-validator/        # MCP-server: policy-basert validering
+│   ├── mcp-linkml-generator/        # MCP-server: JSON Schema → LinkML
+│   ├── mcp-linkml-begrep-generator/ # MCP-server: generering av begrepsinstansar
+│   └── templates/                   # Jinja2-malar for make gen-docs
 │
 ├──examples/    # Eksempeldata per domene
 ├──tests/       # Testar og fixtures

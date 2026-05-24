@@ -3,11 +3,6 @@
 # Slot: private_virksomheter 
 
 
-_Container slot for å legge tilrette for å kunne ha fleire instanser av private_virksomheter i ei datafil._
-
-
-
-
 
 URI: [samtbuskole:private_virksomheter](https://example.no/ontology/skole#private_virksomheter)
 <!-- no inheritance hierarchy -->
@@ -20,7 +15,7 @@ URI: [samtbuskole:private_virksomheter](https://example.no/ontology/skole#privat
 
 | Name | Description | Modifies Slot |
 | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
+| [SamtBuContainer](samtbucontainer.md) | Containerklasse for alle klasser som kan inngå i datasettet |  no  |
 
 
 
@@ -34,13 +29,20 @@ URI: [samtbuskole:private_virksomheter](https://example.no/ontology/skole#privat
 | Property | Value |
 | --- | --- |
 | Range | [PrivatVirksomhet](privatvirksomhet.md) |
-| Domain Of | [Containerklasse](containerklasse.md) |
+| Domain Of | [SamtBuContainer](samtbucontainer.md) |
 
 ### Cardinality and Requirements
 
 | Property | Value |
 | --- | --- |
 | Multivalued | Yes |
+### Slot Characteristics
+
+| Property | Value |
+| --- | --- |
+| Owner | [SamtBuContainer](samtbucontainer.md) |
+
+
 
 
 
@@ -80,12 +82,11 @@ URI: [samtbuskole:private_virksomheter](https://example.no/ontology/skole#privat
 <details>
 ```yaml
 name: private_virksomheter
-description: Container slot for å legge tilrette for å kunne ha fleire instanser av
-  private_virksomheter i ei datafil.
 from_schema: https://example.no/ontology/samt-bu-skole
 rank: 1000
+owner: SamtBuContainer
 domain_of:
-- Containerklasse
+- SamtBuContainer
 range: PrivatVirksomhet
 multivalued: true
 inlined: true

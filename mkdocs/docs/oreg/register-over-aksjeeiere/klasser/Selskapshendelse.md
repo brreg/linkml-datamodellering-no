@@ -9,7 +9,7 @@ _Hending som påverkar selskapet sitt eigarskap eller kapital._
 
 
 
-URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse](https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse)
 
 
 
@@ -121,7 +121,7 @@ URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [selskapshendelser](selskapshendelser.md) | range | [Selskapshendelse](selskapshendelse.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [selskapshendelser](selskapshendelser.md) | range | [Selskapshendelse](selskapshendelse.md) |
 | [Eierskapstransaksjon](eierskapstransaksjon.md) | [kan_vaere_selskapshendelse](kan_vaere_selskapshendelse.md) | range | [Selskapshendelse](selskapshendelse.md) |
 | [Selskapshendelse](selskapshendelse.md) | [kan_ha_aksjeinnskudd](kan_ha_aksjeinnskudd.md) | domain | [Selskapshendelse](selskapshendelse.md) |
 
@@ -154,8 +154,8 @@ URI: [aksje:Selskapshendelse](https://example.no/ontology/aksje#Selskapshendelse
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Selskapshendelse |
-| native | aksje:Selskapshendelse |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse |
 
 
 
@@ -198,7 +198,6 @@ attributes:
     identifier: true
     owner: Selskapshendelse
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje

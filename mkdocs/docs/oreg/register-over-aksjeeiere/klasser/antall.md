@@ -9,7 +9,7 @@ _Numerisk verdi._
 
 
 
-URI: [aksje:antall](https://example.no/ontology/aksje#antall)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:antall](https://data.norge.no/linkml/register-over-aksjeeiere/:antall)
 <!-- no inheritance hierarchy -->
 
 
@@ -58,8 +58,8 @@ URI: [aksje:antall](https://example.no/ontology/aksje#antall)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:antall |
-| native | aksje:antall |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:antall |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:antall |
 
 
 

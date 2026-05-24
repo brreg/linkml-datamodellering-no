@@ -9,7 +9,7 @@ _Tekstleg forklaring av instansen._
 
 
 
-URI: [aksje:beskrivelse](https://example.no/ontology/aksje#beskrivelse)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse](https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse)
 <!-- no inheritance hierarchy -->
 
 
@@ -68,8 +68,8 @@ URI: [aksje:beskrivelse](https://example.no/ontology/aksje#beskrivelse)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:beskrivelse |
-| native | aksje:beskrivelse |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse |
 
 
 

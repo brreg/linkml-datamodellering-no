@@ -227,7 +227,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
 | [Datasett](datasett.md) | [har_kvalitetsmaaling](har_kvalitetsmaaling.md) | range | [Kvalitetsmaaling](kvalitetsmaaling.md) |
-| [Containerklasse](containerklasse.md) | [kvalitetsmaalinger](kvalitetsmaalinger.md) | range | [Kvalitetsmaaling](kvalitetsmaaling.md) |
+| [SamtBuContainer](samtbucontainer.md) | [kvalitetsmaalinger](kvalitetsmaalinger.md) | range | [Kvalitetsmaaling](kvalitetsmaaling.md) |
 
 
 
@@ -352,7 +352,7 @@ attributes:
     - Kvalitetsmaaling
     - Standard
     - Tekstdel
-    - Containerklasse
+    - SamtBuContainer
     - Skole
     - Skoleeier
     - Basisgruppe

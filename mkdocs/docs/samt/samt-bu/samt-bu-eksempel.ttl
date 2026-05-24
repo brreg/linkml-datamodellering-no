@@ -16,36 +16,6 @@
 @prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-samtbuskole:samt-bu-skole-data a samtbuskole:Containerklasse ;
-    samtbuskole:basisgrupper samtbuskole:basisgruppe-5A,
-        samtbuskole:basisgruppe-6B ;
-    samtbuskole:brukertilbakemeldinger dqv:brukerfeedback-1 ;
-    samtbuskole:dataset_metadata samtbuskole:samt-bu-skole-metadata ;
-    samtbuskole:datasettdistribusjoner samtbuskole:dist-human-readable,
-        samtbuskole:dist-rdf ;
-    samtbuskole:elever samtbuskole:elev-1,
-        samtbuskole:elev-2,
-        samtbuskole:elev-3 ;
-    samtbuskole:fylker samtbuskole:fylke-30 ;
-    samtbuskole:gjeldende_lovgivninger samtbuskole:lov-2019-123 ;
-    samtbuskole:grupper samtbuskole:gruppe-skoleforvaltning ;
-    samtbuskole:kommuner samtbuskole:kommune-0301 ;
-    samtbuskole:kontaktlaerere samtbuskole:kontaktlaerer-1 ;
-    samtbuskole:kontaktpunkter samtbuskole:kontakt-behandlingsansvarlig,
-        samtbuskole:kontakt-tekniskkontakt ;
-    samtbuskole:kvalitetsdimensjoner dqv:kvalitetsdim-completeness ;
-    samtbuskole:kvalitetsmaalinger dqv:maaling-1 ;
-    samtbuskole:kvalitetsmerknader dqv:merknad-1 ;
-    samtbuskole:organisasjoner samtbuskole:org-udir ;
-    samtbuskole:private_virksomheter samtbuskole:privat-1 ;
-    samtbuskole:rektorer samtbuskole:rektor-1 ;
-    samtbuskole:skoler samtbuskole:skole-1,
-        samtbuskole:skole-2 ;
-    samtbuskole:standarder dqv:dcat-ap-no ;
-    samtbuskole:tekstdeler dqv:tekstdel-1,
-        dqv:tekstdel-2 ;
-    samtbuskole:tidsromer dqv:tidsrom-1 .
-
 samtbuskole:elev-2 a samtbuskole:Elev ;
     samtbuskole:horer_til_basisgruppe samtbuskole:basisgruppe-6B ;
     samtbuskole:navn "Kari Nordmann" .
@@ -212,4 +182,35 @@ samtbuskole:basisgruppe-5A a samtbuskole:Basisgruppe ;
 samtbuskole:skole-1 a samtbuskole:Skole ;
     samtbuskole:har_skoleeier samtbuskole:kommune-0301 ;
     samtbuskole:navn "Solglimt skole" .
+
+[] a samtbuskole:SamtBuContainer ;
+    samtbuskole:basisgrupper samtbuskole:basisgruppe-5A,
+        samtbuskole:basisgruppe-6B ;
+    samtbuskole:brukertilbakemeldinger dqv:brukerfeedback-1 ;
+    samtbuskole:dataset_metadata samtbuskole:samt-bu-skole-metadata ;
+    samtbuskole:datasettdistribusjoner samtbuskole:dist-human-readable,
+        samtbuskole:dist-rdf ;
+    samtbuskole:elever samtbuskole:elev-1,
+        samtbuskole:elev-2,
+        samtbuskole:elev-3 ;
+    samtbuskole:fylker samtbuskole:fylke-30 ;
+    samtbuskole:gjeldende_lovgivninger samtbuskole:lov-2019-123 ;
+    samtbuskole:grupper samtbuskole:gruppe-skoleforvaltning ;
+    samtbuskole:id "samtbuskole:samt-bu-skole-data" ;
+    samtbuskole:kommuner samtbuskole:kommune-0301 ;
+    samtbuskole:kontaktlaerere samtbuskole:kontaktlaerer-1 ;
+    samtbuskole:kontaktpunkter samtbuskole:kontakt-behandlingsansvarlig,
+        samtbuskole:kontakt-tekniskkontakt ;
+    samtbuskole:kvalitetsdimensjoner dqv:kvalitetsdim-completeness ;
+    samtbuskole:kvalitetsmaalinger dqv:maaling-1 ;
+    samtbuskole:kvalitetsmerknader dqv:merknad-1 ;
+    samtbuskole:organisasjoner samtbuskole:org-udir ;
+    samtbuskole:private_virksomheter samtbuskole:privat-1 ;
+    samtbuskole:rektorer samtbuskole:rektor-1 ;
+    samtbuskole:skoler samtbuskole:skole-1,
+        samtbuskole:skole-2 ;
+    samtbuskole:standarder dqv:dcat-ap-no ;
+    samtbuskole:tekstdeler dqv:tekstdel-1,
+        dqv:tekstdel-2 ;
+    samtbuskole:tidsromer dqv:tidsrom-1 .
 

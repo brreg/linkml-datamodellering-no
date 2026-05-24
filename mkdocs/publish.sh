@@ -28,12 +28,13 @@ log_step() {
 
 domain_label() {
     case "$1" in
-        ap-no) echo "AP-NO – Applikasjonsprofiler" ;;
-        ngr)   echo "NGR – Nasjonale Grunndata" ;;
-        fint)  echo "FINT – Fylkeskommunale integrasjonar" ;;
-        samt)  echo "SAMT – Kommunale integrasjonar" ;;
-        fair)  echo "FAIR – Metadataoverbygning" ;;
-        oreg)  echo "OREG – Offentlege registre" ;;
+        ap-no)   echo "AP-NO – Applikasjonsprofiler" ;;
+        begrep)  echo "Begrep – Begrepskatalogmodellar" ;;
+        ngr)     echo "NGR – Nasjonale Grunndata" ;;
+        fint)    echo "FINT – Fylkeskommunale integrasjonar" ;;
+        samt)    echo "SAMT – Kommunale integrasjonar" ;;
+        fair)    echo "FAIR – Metadataoverbygning" ;;
+        oreg)    echo "OREG – Offentlege registre" ;;
         *)     echo "$1" | awk '{print toupper($0)}' ;;
     esac
 }
@@ -46,6 +47,7 @@ artifact_label() {
         context.jsonld) echo "JSON-LD kontekst" ;;
         schema.json)    echo "JSON Schema" ;;
         model.py)       echo "Python-klasser" ;;
+        schema.proto)   echo "Protobuf-skjema" ;;
         erdiagram.md)   echo "ER-diagram (Mermaid)" ;;
         eksempel.ttl)   echo "Eksempeldata (Turtle)" ;;
         *)              echo "$1" ;;
@@ -53,7 +55,7 @@ artifact_label() {
 }
 
 # Rekkjefølgje på artefakter i tabellen
-ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json ontology.ttl schema.ttl model.py erdiagram.md eksempel.ttl"
+ARTIFACT_ORDER="shapes.ttl context.jsonld schema.json ontology.ttl schema.ttl model.py schema.proto erdiagram.md eksempel.ttl"
 
 # ---------------------------------------------------------------------------
 # Per-skjema prosessering (køyrer parallelt)
@@ -70,6 +72,12 @@ process_schema() {
 
     # Kopier artefaktfiler (berre filer, ikkje docs/-underkatalog)
     find "$schema_dir" -maxdepth 1 -type f -exec cp {} "$out/" \;
+
+    # Kopier PlantUML-diagramfiler til diagrams/-underkatalog
+    if [ -d "$schema_dir/diagrams" ]; then
+        mkdir -p "$out/diagrams"
+        find "$schema_dir/diagrams" -type f -exec cp {} "$out/diagrams/" \;
+    fi
 
     # Kopier gen-doc markdown-filer til klasser/-underkatalog
     if [ -d "$schema_dir/docs" ]; then
@@ -124,6 +132,20 @@ process_schema() {
             fi
         done
 
+        # PlantUML-diagram (ligg i diagrams/-underkatalog)
+        puml_svg="$out/diagrams/${schema}.svg"
+        puml_src="$out/diagrams/${schema}.puml"
+        if [ -f "$puml_svg" ] || [ -f "$puml_src" ]; then
+            has_artifact=true
+            puml_links=""
+            [ -f "$puml_svg" ] && puml_links="[${schema}.svg](diagrams/${schema}.svg)"
+            if [ -f "$puml_src" ]; then
+                [ -n "$puml_links" ] && puml_links+=" · "
+                puml_links+="[${schema}.puml](diagrams/${schema}.puml)"
+            fi
+            artifact_rows+="| PlantUML-diagram | ${puml_links} |"$'\n'
+        fi
+
         if $has_artifact; then
             echo ""
             echo ""
@@ -167,14 +189,15 @@ log_step "Steg 2: Generer innhald per domene og skjema (parallelt)"
 declare -a ALL_DOMAINS=()
 declare -A DOMAIN_SCHEMA_LIST=()
 
-# Samle domene/skjema-struktur sekvensielt (rask)
+# Samle domene/skjema-struktur sekvensielt (rask); hopp over tomme domene-katalogar
 for domain_dir in $(find "$GEN" -mindepth 1 -maxdepth 1 -type d | sort); do
     domain=$(basename "$domain_dir")
-    ALL_DOMAINS+=("$domain")
     schemas=()
     for schema_dir in $(find "$domain_dir" -mindepth 1 -maxdepth 1 -type d | sort); do
         schemas+=("$(basename "$schema_dir")")
     done
+    [ "${#schemas[@]}" -eq 0 ] && continue
+    ALL_DOMAINS+=("$domain")
     DOMAIN_SCHEMA_LIST[$domain]="${schemas[*]:-}"
 done
 
@@ -215,6 +238,10 @@ for domain in "${ALL_DOMAINS[@]}"; do
                     artifacts+="$(artifact_label "$suffix")"
                 fi
             done
+            if [ -f "$GEN/$domain/$schema/diagrams/${schema}.svg" ] || [ -f "$GEN/$domain/$schema/diagrams/${schema}.puml" ]; then
+                [ -n "$artifacts" ] && artifacts+=" · "
+                artifacts+="PlantUML-diagram"
+            fi
             echo "| [${schema}](${schema}/index.md) | ${artifacts:-–} |"
         done
     } > "$DOCS/$domain/index.md"
@@ -292,6 +319,8 @@ nav:
   - Heim: index.md
   - Rettleiingar:
       - Ny domenemodell: ny-domenemodell.md
+      - Ny begrepskatalog: ny-begrepsmodell.md
+      - Generatorkonfigurasjon: generate-config.md
 STATIC
 
     for domain in "${ALL_DOMAINS[@]}"; do

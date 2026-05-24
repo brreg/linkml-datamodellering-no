@@ -9,7 +9,7 @@ _Vederlag knytt til ei aksjeoverdraging._
 
 
 
-URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
+URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag](https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag)
 
 
 
@@ -121,7 +121,7 @@ URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
 
 | used by | used in | type | used |
 | ---  | --- | --- | --- |
-| [Containerklasse](containerklasse.md) | [vederlager](vederlager.md) | range | [Vederlag](vederlag.md) |
+| [AksjeeierContainer](aksjeeiercontainer.md) | [vederlager](vederlager.md) | range | [Vederlag](vederlag.md) |
 | [Aksjeoverdragelse](aksjeoverdragelse.md) | [kan_ha_vederlag](kan_ha_vederlag.md) | range | [Vederlag](vederlag.md) |
 
 
@@ -153,8 +153,8 @@ URI: [aksje:Vederlag](https://example.no/ontology/aksje#Vederlag)
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | aksje:Vederlag |
-| native | aksje:Vederlag |
+| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag |
+| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag |
 
 
 
@@ -197,7 +197,6 @@ attributes:
     identifier: true
     owner: Vederlag
     domain_of:
-    - Containerklasse
     - Aksjeselskap
     - Aksjekapital
     - Aksje
