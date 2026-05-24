@@ -42,7 +42,8 @@
       "Bash(make mcp-begrep-smoke *)",
       "Bash(podman images *)",
       "Bash(make begrep *)",
-      "Bash(make docs-build-fast *)"
+      "Bash(make docs-build-fast *)",
+      "Bash(make domain-gen-doc *)"
     ]
   },
   "enableAllProjectMcpServers": true,

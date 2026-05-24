@@ -71,6 +71,8 @@ Samling ||--}| VCardKontakt : "kontaktpunkt_vcard"
 ```
 
 
+Denne begrepskatalogen implementerer [SKOS-AP-NO-Begrep](https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/) direkte og definerer ingen eigne klasser. Alle domeneklassar (`Begrep`, `Samling`, `Definisjon` o.fl.) er henta frå skos-ap-no via import — sjå [SKOS-AP-NO-Begrep-dokumentasjonen](https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/) for full klassedokumentasjon.
+
 
 Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog.
 
@@ -92,10 +94,6 @@ Name: brreg-begrep
 
 
 
-### Andre
-
-| Class | Description |
-| --- | --- |
 
 
 
@@ -105,14 +103,14 @@ Name: brreg-begrep
 
 | Slot | Description |
 | --- | --- |
-| [assosiative_relasjonar](klasser/assosiative_relasjonar.md) |  |
-| [begrep](klasser/begrep.md) |  |
-| [definisjoner](klasser/definisjoner.md) |  |
-| [generiske_relasjonar](klasser/generiske_relasjonar.md) |  |
-| [kontaktpunkt](klasser/kontaktpunkt.md) |  |
-| [organisasjonar](klasser/organisasjonar.md) |  |
-| [partitive_relasjonar](klasser/partitive_relasjonar.md) |  |
-| [samlingar](klasser/samlingar.md) |  |
+
+
+
+
+
+
+
+
 
 
 ## Enumerations
