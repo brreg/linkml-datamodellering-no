@@ -11,7 +11,7 @@ frå filstruktur til RDF-eksport klar for Felles Begrepskatalog.
     | | Ny begrepskatalog | Ny domenemodell |
     |---|---|---|
     | Scaffold | Manuelt (kopier skjema) | `make new-model` |
-    | Import | `skos-ap-no` | `common-ap-no` / AP-NO-profil |
+    | Import | `skos-ap-no` | `dcat-ap-no` / `dqv-ap-no` |
     | Generator | `mcp-linkml-begrep-generator` | `mcp-linkml-generator` |
     | RDF-eksport | `example_rdf: true` (krav) | Valfritt |
 

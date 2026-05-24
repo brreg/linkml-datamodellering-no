@@ -105,9 +105,13 @@ process_schema() {
         echo ""
 
         # Embed oversiktsdiagram frå gen-erdiagram
+        # Fall back til unfiltered-versjonen om den filtrerte er tom (t.d. når alle klasser kjem frå imports)
         erdiagram_file="$out/${schema}-erdiagram.md"
-        if [ -f "$erdiagram_file" ]; then
+        erdiagram_unfiltered="$out/${schema}-erdiagram-unfiltered.md"
+        if [ -f "$erdiagram_file" ] && grep -q '{' "$erdiagram_file" 2>/dev/null; then
             awk 'NR==1 && /^# / { next } 1' "$erdiagram_file"
+        elif [ -f "$erdiagram_unfiltered" ] && grep -q '{' "$erdiagram_unfiltered" 2>/dev/null; then
+            awk 'NR==1 && /^# / { next } 1' "$erdiagram_unfiltered"
         fi
 
         # Inline klasseliste frå gen-doc direkte i index.md
