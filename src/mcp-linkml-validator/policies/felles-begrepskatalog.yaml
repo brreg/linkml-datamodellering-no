@@ -1,0 +1,347 @@
+version: 1
+extends: bronze
+
+description: >
+  Policy for begrepskatalogskjema som skal publiserast til Felles Begrepskatalog.
+  Validerer at skjemaet importerer SKOS-AP-NO-Begrep og eksponerer dei nødvendige
+  klassane og slotsa via containerklassen (tree_root).
+  Arvar bronselaget: grunnleggande metadata- og modelleringskrav.
+
+required:
+  schema: [id, name]
+  class: []
+  slot: []
+
+recommended:
+  schema: [description, title, version]
+  class: []
+  slot: []
+
+checks:
+
+  # ── Import-krav ─────────────────────────────────────────────────────────────
+
+  schema_importerer_skos_ap_no:
+    severity: error
+    description: >
+      Skjemaet må importere skos-ap-no-schema (direkte eller transitivt).
+      SKOS-AP-NO-Begrep er grunnlaget for alle begrepskatalogskjema.
+    check: schema_imports
+    must_import: skos-ap-no-schema
+    characteristic_class: Begrep
+
+  # ── Prefiks-krav ─────────────────────────────────────────────────────────────
+
+  schema_brukar_skos_prefix:
+    severity: error
+    description: >
+      Skjemaet må deklarere skos:-prefikset. Alle begrep er skos:Concept.
+    check: schema_declares_standard_prefix
+    standard_prefixes: [skos]
+
+  schema_brukar_dct_prefix:
+    severity: error
+    description: >
+      Skjemaet må deklarere dct:-prefikset (Dublin Core Terms).
+      Nødvendig for dct:identifier, dct:publisher, dct:title o.a.
+    check: schema_declares_standard_prefix
+    standard_prefixes: [dct]
+
+  # ── Containerklasse-krav ─────────────────────────────────────────────────────
+
+  container_har_begrep:
+    severity: error
+    description: >
+      Containerklassen (tree_root) må ha eit attributt med range Begrep.
+      Felles Begrepskatalog krev minst eitt begrep per katalog.
+    check: container_has_class
+    class: Begrep
+
+  container_har_samling:
+    severity: warning
+    description: >
+      Containerklassen bør ha eit attributt med range Samling.
+      Anbefalt for å organisere begrep i namngjeve samlingar (skos:Collection).
+    check: container_has_class
+    class: Samling
+
+  # ── Begrep-krav (skos:Concept) — SKOS-AP-NO-Begrep obligatoriske ─────────────
+
+  begrep_har_anbefalt_term:
+    severity: error
+    description: >
+      Begrep må ha skos:prefLabel (anbefalt term). Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: skos:prefLabel
+
+  begrep_har_definisjon:
+    severity: error
+    description: >
+      Begrep må ha skos:definition eller euvoc:xlDefinition.
+      SKOS-AP-NO-Begrep krev minst éin av desse formene.
+    check: merged_class_has_any_slot_with_uri
+    class: Begrep
+    slot_uris:
+      - skos:definition
+      - euvoc:xlDefinition
+
+  begrep_har_identifikator:
+    severity: error
+    description: >
+      Begrep må ha dct:identifier. Obligatorisk i SKOS-AP-NO-Begrep —
+      gir kvart begrep ein persistent URI.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: dct:identifier
+
+  begrep_har_utgjevar:
+    severity: error
+    description: >
+      Begrep må ha dct:publisher. Obligatorisk i SKOS-AP-NO-Begrep —
+      peikar til ansvarleg organisasjon.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: dct:publisher
+
+  begrep_har_kontaktpunkt:
+    severity: error
+    description: >
+      Begrep må ha dcat:contactPoint. Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: dcat:contactPoint
+
+  # ── Begrep-krav — SKOS-AP-NO-Begrep anbefalte ────────────────────────────────
+
+  begrep_har_fagomrade:
+    severity: warning
+    description: >
+      Begrep bør ha dct:subject (fagområde / LOS-tema). Anbefalt i SKOS-AP-NO-Begrep
+      — gir kontekst og moglegheit for temafiltrering i katalogen.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: dct:subject
+
+  begrep_har_ansvarleg_verksemd:
+    severity: warning
+    description: >
+      Begrep bør ha dct:creator (ansvarleg verksemd). Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: dct:creator
+
+  begrep_har_gyldig_fra:
+    severity: warning
+    description: >
+      Begrep bør ha euvoc:startDate (gyldig frå). Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: euvoc:startDate
+
+  begrep_har_gyldig_til:
+    severity: warning
+    description: >
+      Begrep bør ha euvoc:endDate (gyldig til). Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: euvoc:endDate
+
+  begrep_har_opprettingsdato:
+    severity: warning
+    description: >
+      Begrep bør ha dct:created (opprettingsdato). Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: dct:created
+
+  begrep_har_endringsdato:
+    severity: warning
+    description: >
+      Begrep bør ha dct:modified (dato sist oppdatert). Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: dct:modified
+
+  begrep_har_merknad:
+    severity: warning
+    description: >
+      Begrep bør ha skos:scopeNote (merknad). Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: skos:scopeNote
+
+  begrep_har_tillate_term:
+    severity: warning
+    description: >
+      Begrep bør ha skos:altLabel (tillaten term). Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Begrep
+    slot_uri: skos:altLabel
+
+  # ── Definisjon-krav (euvoc:XlNote) ───────────────────────────────────────────
+
+  definisjon_har_tekst:
+    severity: error
+    description: >
+      Definisjon må ha rdf:value (definisjonsteikst). Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Definisjon
+    slot_uri: rdf:value
+
+  definisjon_har_kjelde_relasjon:
+    severity: warning
+    description: >
+      Definisjon bør ha skosno:relationshipWithSource (kjelde-relasjon).
+      Anbefalt i SKOS-AP-NO-Begrep — beskriv forholdet mellom definisjonen og kjelda.
+    check: merged_class_has_slot_with_uri
+    class: Definisjon
+    slot_uri: skosno:relationshipWithSource
+
+  # ── AssosiativRelasjon-krav (skosno:AssociativeConceptRelation) ───────────────
+
+  assosiativ_relasjon_har_til_omgrep:
+    severity: error
+    description: >
+      AssosiativRelasjon må ha skosno:hasToConcept (til-omgrep).
+      Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: AssosiativRelasjon
+    slot_uri: skosno:hasToConcept
+
+  assosiativ_relasjon_har_relasjontype:
+    severity: error
+    description: >
+      AssosiativRelasjon må ha skosno:relationRole (relasjonstype).
+      Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: AssosiativRelasjon
+    slot_uri: skosno:relationRole
+
+  # ── GeneriskRelasjon-krav (skosno:GenericConceptRelation) ────────────────────
+
+  generisk_relasjon_har_overomgrep:
+    severity: error
+    description: >
+      GeneriskRelasjon må ha skosno:hasGenericConcept (overomgrep).
+      Obligatorisk i SKOS-AP-NO-Begrep — skjemaet må støtte begge retningar.
+    check: merged_class_has_slot_with_uri
+    class: GeneriskRelasjon
+    slot_uri: skosno:hasGenericConcept
+
+  generisk_relasjon_har_underomgrep:
+    severity: error
+    description: >
+      GeneriskRelasjon må ha skosno:hasSpecificConcept (underomgrep).
+      Obligatorisk i SKOS-AP-NO-Begrep — skjemaet må støtte begge retningar.
+    check: merged_class_has_slot_with_uri
+    class: GeneriskRelasjon
+    slot_uri: skosno:hasSpecificConcept
+
+  generisk_relasjon_har_inndelingskriterium:
+    severity: warning
+    description: >
+      GeneriskRelasjon bør ha dct:description (inndelingskriterium).
+      Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: GeneriskRelasjon
+    slot_uri: dct:description
+
+  # ── PartitivRelasjon-krav (skosno:PartitiveConceptRelation) ──────────────────
+
+  partitiv_relasjon_har_delomgrep:
+    severity: error
+    description: >
+      PartitivRelasjon må ha skosno:hasPartitiveConcept (delomgrep).
+      Obligatorisk i SKOS-AP-NO-Begrep — skjemaet må støtte begge retningar.
+    check: merged_class_has_slot_with_uri
+    class: PartitivRelasjon
+    slot_uri: skosno:hasPartitiveConcept
+
+  partitiv_relasjon_har_heilskapleg_omgrep:
+    severity: error
+    description: >
+      PartitivRelasjon må ha skosno:hasComprehensiveConcept (heilskapleg omgrep).
+      Obligatorisk i SKOS-AP-NO-Begrep — skjemaet må støtte begge retningar.
+    check: merged_class_has_slot_with_uri
+    class: PartitivRelasjon
+    slot_uri: skosno:hasComprehensiveConcept
+
+  partitiv_relasjon_har_inndelingskriterium:
+    severity: warning
+    description: >
+      PartitivRelasjon bør ha dct:description (inndelingskriterium).
+      Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: PartitivRelasjon
+    slot_uri: dct:description
+
+  # ── Samling-krav (skos:Collection) — SKOS-AP-NO-Begrep obligatoriske ─────────
+
+  samling_har_identifikator:
+    severity: error
+    description: >
+      Samling må ha dct:identifier. Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Samling
+    slot_uri: dct:identifier
+
+  samling_har_tittel:
+    severity: error
+    description: >
+      Samling må ha dct:title (namn på samlinga). Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Samling
+    slot_uri: dct:title
+
+  samling_har_utgjevar:
+    severity: error
+    description: >
+      Samling må ha dct:publisher. Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Samling
+    slot_uri: dct:publisher
+
+  samling_har_kontaktpunkt:
+    severity: error
+    description: >
+      Samling må ha dcat:contactPoint. Obligatorisk i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Samling
+    slot_uri: dcat:contactPoint
+
+  samling_har_medlem:
+    severity: error
+    description: >
+      Samling må ha skos:member. Obligatorisk i SKOS-AP-NO-Begrep —
+      samlinga må innehalde minst eitt begrep.
+    check: merged_class_has_slot_with_uri
+    class: Samling
+    slot_uri: skos:member
+
+  # ── Samling-krav — SKOS-AP-NO-Begrep anbefalte ───────────────────────────────
+
+  samling_har_beskrivelse:
+    severity: warning
+    description: >
+      Samling bør ha dct:description (beskriving av samlinga).
+      Anbefalt i SKOS-AP-NO-Begrep.
+    check: merged_class_has_slot_with_uri
+    class: Samling
+    slot_uri: dct:description
+
+instance_checks:
+
+  # ── Instans-validering av utgjevar-URI ────────────────────────────────────────
+
+  utgjevar_er_kjend_org:
+    severity: error
+    description: >
+      dct:publisher-verdien i instansen må vere ein URI på formatet
+      https://data.norge.no/organizations/<9-sifra orgnr> og liggje
+      i lista over kjente utgivarar.
+    check: instance_slot_uri_pattern
+    slot_uri: dct:publisher
+    pattern: "^https://data\\.norge\\.no/organizations/\\d{9}$"
+    known_values:
+      - https://data.norge.no/organizations/974760673

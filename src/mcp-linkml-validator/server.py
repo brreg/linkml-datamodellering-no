@@ -2,6 +2,7 @@
 """MCP-server for LinkML-skjemavalidering med konfigurerbar policy."""
 
 import json
+import re
 import sys
 import tempfile
 import yaml
@@ -38,7 +39,7 @@ def _merge_policies(parent: dict, child: dict) -> dict:
     c_must = (child.get("common_classes") or {}).get("must_use", [])
     merged["common_classes"] = {"must_use": list(dict.fromkeys(p_must + c_must))}
 
-    for key in ("checks", "fair_checks"):
+    for key in ("checks", "fair_checks", "instance_checks"):
         p_checks = parent.get(key) or {}
         c_checks = child.get(key) or {}
         if p_checks or c_checks:
@@ -303,6 +304,54 @@ def _check_container_has_class(sv, schema, config, issues):
         ))
 
 
+def _check_schema_imports(sv, schema, config, issues):
+    must_import = config["must_import"]
+    # Direct check: works when schema is not pre-merged
+    found = any(must_import in imp for imp in (schema.imports or []))
+    if not found:
+        # Merged schemas lose the imports list — use a characteristic class as proxy
+        char_class = config.get("characteristic_class")
+        if char_class and sv.get_class(char_class) is not None:
+            found = True
+    if not found:
+        issues.append(issue(
+            config["severity"], "missing_required_import", "schema",
+            f"Skjemaet importerer ikkje '{must_import}'",
+        ))
+
+
+def _check_merged_class_has_slot_with_uri(sv, schema, config, issues):
+    cname = config["class"]
+    required_uri = config["slot_uri"]
+    if sv.get_class(cname) is None:
+        return
+    if required_uri not in _collect_class_slot_uris(sv, cname):
+        severity = config["severity"]
+        code = "class_missing_required_slot" if severity == "error" \
+               else "class_missing_recommended_slot"
+        issues.append(issue(
+            severity, code, f"class:{cname}",
+            f"Klasse '{cname}' manglar slot med {required_uri}",
+        ))
+
+
+def _check_merged_class_has_any_slot_with_uri(sv, schema, config, issues):
+    cname = config["class"]
+    slot_uris = config["slot_uris"]
+    if sv.get_class(cname) is None:
+        return
+    found = _collect_class_slot_uris(sv, cname)
+    if not any(uri in found for uri in slot_uris):
+        severity = config["severity"]
+        code = "class_missing_required_slot" if severity == "error" \
+               else "class_missing_recommended_slot"
+        issues.append(issue(
+            severity, code, f"class:{cname}",
+            f"Klasse '{cname}' manglar minst éin slot med URI frå: "
+            f"{', '.join(slot_uris)}",
+        ))
+
+
 _CHECK_HANDLERS = {
     "schema_id_is_http_uri":           _check_schema_id_is_http_uri,
     "schema_field_present":            _check_schema_field_present,
@@ -312,9 +361,66 @@ _CHECK_HANDLERS = {
     "schema_has_slot_with_uri":        _check_schema_has_slot_with_uri,
     "all_classes_have_identifier":     _check_all_classes_have_identifier,
     "all_classes_have_concept_ref":    _check_all_classes_have_concept_ref,
-    "class_has_slot_with_uri":         _check_class_has_slot_with_uri,
-    "container_has_class":             _check_container_has_class,
+    "class_has_slot_with_uri":            _check_class_has_slot_with_uri,
+    "container_has_class":                _check_container_has_class,
+    "schema_imports":                     _check_schema_imports,
+    "merged_class_has_slot_with_uri":     _check_merged_class_has_slot_with_uri,
+    "merged_class_has_any_slot_with_uri": _check_merged_class_has_any_slot_with_uri,
 }
+
+
+def _check_instance_slot_uri_pattern(sv, schema, instance, config, issues):
+    slot_uri_target = config["slot_uri"]
+    pattern = re.compile(config["pattern"])
+    known_values = config.get("known_values", [])
+
+    target_slots = {
+        name
+        for name, s in sv.all_slots().items()
+        if (s.slot_uri or "") == slot_uri_target
+    }
+
+    def walk(obj, path=""):
+        if not isinstance(obj, dict):
+            return
+        for key, val in obj.items():
+            if key in target_slots:
+                values = val if isinstance(val, list) else [val]
+                for v in values:
+                    if not isinstance(v, str):
+                        continue
+                    loc = f"instance:{path}.{key}" if path else f"instance:{key}"
+                    if not pattern.match(v):
+                        issues.append(issue(
+                            config["severity"],
+                            "instance_slot_invalid_uri_pattern",
+                            loc,
+                            f"'{v}' passar ikkje mønsteret {config['pattern']} "
+                            f"for {slot_uri_target}",
+                        ))
+                    elif known_values and v not in known_values:
+                        issues.append(issue(
+                            config["severity"],
+                            "instance_slot_unknown_value",
+                            loc,
+                            f"'{v}' er ikkje i lista over kjente utgivarar: "
+                            f"{', '.join(known_values)}",
+                        ))
+            walk(val, f"{path}.{key}" if path else key)
+
+    walk(instance)
+
+
+_INSTANCE_CHECK_HANDLERS = {
+    "instance_slot_uri_pattern": _check_instance_slot_uri_pattern,
+}
+
+
+def _run_instance_checks(sv, schema, instance, policy, issues):
+    for config in (policy.get("instance_checks") or {}).values():
+        handler = _INSTANCE_CHECK_HANDLERS.get(config.get("check"))
+        if handler:
+            handler(sv, schema, instance, config, issues)
 
 
 def _run_checks(sv, schema, policy: dict, issues: list) -> None:
@@ -364,8 +470,8 @@ def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text
             except Exception as exc:
                 issues.append(issue("error", "linter_error", "schema", str(exc)))
 
-        # 3) Instansvalidering — berre for basispolicyen, og berre om instans er gjeven.
-        if base and instance_text is not None:
+        # 3) Instansvalidering — køyrer for alle policyer om instans er gjeven.
+        if instance_text is not None:
             inst_result = validate_instance(schema_text, instance_text)
             issues.extend(inst_result["issues"])
 
@@ -417,6 +523,11 @@ def validate_schema(schema_text: str, policy_name: str = "bronze", instance_text
 
         # 5) Policy-spesifikke struktursjekkar (checks + fair_checks)
         _run_checks(sv, schema, policy, issues)
+
+        # 6) Instans-spesifikke policy-sjekkar (instance_checks)
+        if instance_text is not None:
+            parsed_instance = yaml.safe_load(instance_text)
+            _run_instance_checks(sv, schema, parsed_instance, policy, issues)
 
     errors = [i for i in issues if i["severity"] == "error"]
     warnings = [i for i in issues if i["severity"] == "warning"]

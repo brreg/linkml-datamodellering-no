@@ -43,7 +43,14 @@
       "Bash(podman images *)",
       "Bash(make begrep *)",
       "Bash(make docs-build-fast *)",
-      "Bash(make domain-gen-doc *)"
+      "Bash(make domain-gen-doc *)",
+      "WebFetch(domain:registrering.fellesdatakatalog.digdir.no)",
+      "WebFetch(domain:concept-catalog.fellesdatakatalog.digdir.no)",
+      "WebFetch(domain:fellesdatakatalog.digdir.no)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(make -n mcp-validate SCHEMA=src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml POLICY=bronze)",
+      "Bash(make schema-gen-doc *)"
     ]
   },
   "enableAllProjectMcpServers": true,
