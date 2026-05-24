@@ -20,10 +20,6 @@ Name: brreg-begrep
 
 
 
-### Andre
-
-| Class | Description |
-| --- | --- |
 
 
 
@@ -33,14 +29,14 @@ Name: brreg-begrep
 
 | Slot | Description |
 | --- | --- |
-| [assosiative_relasjonar](assosiative_relasjonar.md) |  |
-| [begrep](begrep.md) |  |
-| [definisjoner](definisjoner.md) |  |
-| [generiske_relasjonar](generiske_relasjonar.md) |  |
-| [kontaktpunkt](kontaktpunkt.md) |  |
-| [organisasjonar](organisasjonar.md) |  |
-| [partitive_relasjonar](partitive_relasjonar.md) |  |
-| [samlingar](samlingar.md) |  |
+
+
+
+
+
+
+
+
 
 
 ## Enumerations

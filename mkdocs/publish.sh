@@ -114,6 +114,13 @@ process_schema() {
             awk 'NR==1 && /^# / { next } 1' "$erdiagram_unfiltered"
         fi
 
+        # Injiser valfri skjema-skildring (src/linkml/<domain>/<schema>/description.md)
+        schema_desc="$REPO_ROOT/src/linkml/$domain/$schema/description.md"
+        if [ -f "$schema_desc" ]; then
+            echo ""
+            cat "$schema_desc"
+        fi
+
         # Inline klasseliste frå gen-doc direkte i index.md
         klasse_src=""
         [ -f "$out/klasser/index.md" ] && klasse_src="$out/klasser/index.md"

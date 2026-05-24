@@ -4,7 +4,7 @@ utføre alternativ-b-detaljert tiltak 4-6 etter at admin har fiksa tiltak 3.
 
 automatisk publisering av modell til felles datakatalog
 
-modellere begreper i egen begrepsmodell
+
 (importere begreper fra felles begrepskatalog)
 automatisk publisere begreper til felles begrepskatalog
 
@@ -15,7 +15,6 @@ modellere generiske kodelister/kodeverk
 
 generate workflow skal ha en matrix job pr domene
 
-legge til artifakter for protobuf og plantuml i mkdocs liste over genererte artifakter pr skjema
 
 generer OpenAPI/AsyncAPI spesifikasjon 
 integrere mot custom schemaregistry (apicur.io)
@@ -26,4 +25,3 @@ integrere mot custom datakatalog (gcp data catalog)
 conventional commits for versjonering av modeller
 
 
-oppdatere readme og prosjektbeskrivelse med LinkML begrepsmodellering

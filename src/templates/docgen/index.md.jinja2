@@ -19,6 +19,16 @@ Name: {{ schema.name }}
 
 {% set subsets_ordered = ['Obligatorisk', 'Anbefalt', 'Valgfri'] %}
 
+{# Samle attributtnamn frå containerklassen (tree_root) for å ekskludera dei frå slot-tabellen #}
+{%- set ns_root = namespace(attr_names=[]) %}
+{%- for c in gen.all_class_objects() %}
+  {%- if c.tree_root %}
+    {%- for attr_name in c.attributes %}
+      {%- set ns_root.attr_names = ns_root.attr_names + [attr_name] %}
+    {%- endfor %}
+  {%- endif %}
+{%- endfor %}
+
 {% if gen.hierarchical_class_view -%}
 | Class | Description |
 | --- | --- |
@@ -29,6 +39,7 @@ Name: {{ schema.name }}
 {% for subset_name in subsets_ordered + ['Andre'] %}
 {%- set ns = namespace(classes=[]) %}
 {%- for c in gen.all_class_objects()|sort(attribute=sort_by) %}
+  {%- if not c.tree_root %}
   {%- set ns2 = namespace(dominant='Andre') %}
   {%- for sn in subsets_ordered %}
     {%- if ns2.dominant == 'Andre' %}
@@ -41,6 +52,7 @@ Name: {{ schema.name }}
   {%- endfor %}
   {%- if ns2.dominant == subset_name %}
     {%- set ns.classes = ns.classes + [c] %}
+  {%- endif %}
   {%- endif %}
 {%- endfor %}
 {% if ns.classes %}
@@ -60,7 +72,9 @@ Name: {{ schema.name }}
 | Slot | Description |
 | --- | --- |
 {% for s in gen.all_slot_objects()|sort(attribute=sort_by) -%}
+{%- if s.name not in ns_root.attr_names %}
 | {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
+{%- endif %}
 {% endfor %}
 
 ## Enumerations
