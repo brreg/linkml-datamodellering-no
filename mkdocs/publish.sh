@@ -104,14 +104,10 @@ process_schema() {
         echo "# $schema"
         echo ""
 
-        # Embed oversiktsdiagram frå gen-erdiagram
-        # Fall back til unfiltered-versjonen om den filtrerte er tom (t.d. når alle klasser kjem frå imports)
+        # Embed oversiktsdiagram frå gen-erdiagram (berre filtrert versjon — importerte klasser visast ikkje)
         erdiagram_file="$out/${schema}-erdiagram.md"
-        erdiagram_unfiltered="$out/${schema}-erdiagram-unfiltered.md"
         if [ -f "$erdiagram_file" ] && grep -q '{' "$erdiagram_file" 2>/dev/null; then
             awk 'NR==1 && /^# / { next } 1' "$erdiagram_file"
-        elif [ -f "$erdiagram_unfiltered" ] && grep -q '{' "$erdiagram_unfiltered" 2>/dev/null; then
-            awk 'NR==1 && /^# / { next } 1' "$erdiagram_unfiltered"
         fi
 
         # Injiser valfri skjema-skildring (src/linkml/<domain>/<schema>/description.md)

@@ -24,4 +24,4 @@ integrere mot custom datakatalog (gcp data catalog)
 
 conventional commits for versjonering av modeller
 
-
+gen-doc skru på flag som viser eksempel dersom det finnes
