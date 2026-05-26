@@ -134,7 +134,7 @@ def opprett_begrep(
 
     if add_comment:
         yaml_str = (
-            f"# Generert av mcp-linkml-begrep-generator — legg til i instansfila di\n"
+            f"# Generert av mcp-linkml-begrep-utkast — legg til i instansfila di\n"
             f"# Begrep: {begrep_uri}\n\n"
             + yaml_str
         )

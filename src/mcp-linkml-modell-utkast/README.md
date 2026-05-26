@@ -1,4 +1,4 @@
-# mcp-linkml-generator
+# mcp-linkml-modell-utkast
 
 MCP-server for generering av LinkML-skjema frå JSON Schema (eller som tomt utkast). Det genererte skjemaet følgjer modellprinsippa i dette repoet — globale slots, containerklasse, URI-mapping og begrepsreferanse-stubbar.
 

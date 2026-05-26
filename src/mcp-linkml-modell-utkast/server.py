@@ -106,7 +106,7 @@ def handle(msg: dict) -> dict | None:
             "result": {
                 "protocolVersion": "2024-11-05",
                 "capabilities": {"tools": {}},
-                "serverInfo": {"name": "mcp-linkml-generator", "version": "1.0.0"},
+                "serverInfo": {"name": "mcp-linkml-modell-utkast", "version": "1.0.0"},
             },
         }
 
