@@ -51,7 +51,8 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "Bash(make -n mcp-validate SCHEMA=src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml POLICY=bronze)",
       "Bash(make schema-gen-doc *)",
-      "WebSearch"
+      "WebSearch",
+      "Bash(make mcp-mod-smoke *)"
     ]
   },
   "enableAllProjectMcpServers": true,

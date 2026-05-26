@@ -1,11 +1,11 @@
 {
   "mcpServers": {
-    "linkml-generator": {
+    "linkml-modell-utkast": {
       "type": "stdio",
       "command": "bash",
       "args": [
         "-c",
-        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-generator/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-generator/converter.py:/app/converter.py:ro\" -v \"$REPO/src/mcp-linkml-generator/validator.py:/app/validator.py:ro\" -v \"$REPO/src/mcp-linkml-generator/profiles:/app/profiles:ro\" mcp-linkml-generator"
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-modell-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/converter.py:/app/converter.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/validator.py:/app/validator.py:ro\" -v \"$REPO/src/mcp-linkml-modell-utkast/profiles:/app/profiles:ro\" mcp-linkml-modell-utkast"
       ],
       "env": {}
     },
@@ -15,6 +15,15 @@
       "args": [
         "-c",
         "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-validator/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-validator/policies:/app/policies:ro\" mcp-linkml-validator"
+      ],
+      "env": {}
+    },
+    "linkml-begrep-utkast": {
+      "type": "stdio",
+      "command": "bash",
+      "args": [
+        "-c",
+        "REPO=$(git rev-parse --show-toplevel) && podman run -i --rm -v \"$REPO/src/mcp-linkml-begrep-utkast/server.py:/app/server.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/generator.py:/app/generator.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/los_tema.py:/app/los_tema.py:ro\" -v \"$REPO/src/mcp-linkml-begrep-utkast/profiles:/app/profiles:ro\" -v \"$REPO:/repo:ro\" mcp-linkml-begrep-utkast"
       ],
       "env": {}
     }

@@ -52,7 +52,7 @@ jobs:
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:${{ github.ref_name }}"
           podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-validator:latest"
 
-  mcp-linkml-generator:
+  mcp-linkml-modell-utkast:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -63,18 +63,18 @@ jobs:
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Bygg og push mcp-linkml-generator
+      - name: Bygg og push mcp-linkml-modell-utkast
         run: |
           podman build \
-            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:${{ github.ref_name }}" \
-            src/mcp-linkml-generator
+            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:${{ github.ref_name }}" \
+            src/mcp-linkml-modell-utkast
           podman tag \
-            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:${{ github.ref_name }}" \
-            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:latest"
-          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:${{ github.ref_name }}"
-          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-generator:latest"
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:${{ github.ref_name }}" \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:latest"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:${{ github.ref_name }}"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-modell-utkast:latest"
 
-  mcp-linkml-begrep-generator:
+  mcp-linkml-begrep-utkast:
     runs-on: ubuntu-22.04
     permissions:
       contents: read
@@ -85,13 +85,13 @@ jobs:
       - name: Logg inn på GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | podman login ghcr.io -u ${{ github.actor }} --password-stdin
 
-      - name: Bygg og push mcp-linkml-begrep-generator
+      - name: Bygg og push mcp-linkml-begrep-utkast
         run: |
           podman build \
-            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:${{ github.ref_name }}" \
-            src/mcp-linkml-begrep-generator
+            -t "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:${{ github.ref_name }}" \
+            src/mcp-linkml-begrep-utkast
           podman tag \
-            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:${{ github.ref_name }}" \
-            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:latest"
-          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:${{ github.ref_name }}"
-          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-generator:latest"
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:${{ github.ref_name }}" \
+            "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:latest"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:${{ github.ref_name }}"
+          podman push "ghcr.io/${{ github.repository_owner }}/mcp-linkml-begrep-utkast:latest"

@@ -23,13 +23,13 @@ if [[ -d "$SCHEMA_DIR" ]]; then
     exit 1
 fi
 
-LINKML_GEN_DIR="$REPO_ROOT/src/mcp-linkml-generator"
-LINKML_GEN_IMAGE="mcp-linkml-generator"
+LINKML_GEN_DIR="$REPO_ROOT/src/mcp-linkml-modell-utkast"
+LINKML_GEN_IMAGE="mcp-linkml-modell-utkast"
 SCHEMA_ID="https://data.norge.no/$DOMAIN/$NAME"
 # LinkML name-felt: bindestrek er ikkje tillate, bruk understrek
 SCHEMA_NAME="${NAME//-/_}"
 
-echo "Genererer skjema via mcp-linkml-generator..."
+echo "Genererer skjema via mcp-linkml-modell-utkast..."
 
 LINKML_YAML=$(printf '%s\n%s\n' \
     '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{}}' \
@@ -67,7 +67,7 @@ for line in sys.stdin:
 ")
 
 if [[ -z "$LINKML_YAML" ]]; then
-    echo "Feil: mcp-linkml-generator returnerte tomt svar." >&2
+    echo "Feil: mcp-linkml-modell-utkast returnerte tomt svar." >&2
     exit 1
 fi
 

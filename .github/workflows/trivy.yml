@@ -28,11 +28,11 @@ jobs:
           format: sarif
           output: trivy-validator.sarif
 
-      - name: Skann mcp-linkml-generator/requirements.txt
+      - name: Skann mcp-linkml-modell-utkast/requirements.txt
         uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: fs
-          scan-ref: src/mcp-linkml-generator/requirements.txt
+          scan-ref: src/mcp-linkml-modell-utkast/requirements.txt
           format: sarif
           output: trivy-generator.sarif
 

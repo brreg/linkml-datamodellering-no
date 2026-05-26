@@ -17,7 +17,7 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make linkml-build-docker` | `linkml-local` | Artefaktgenerering og validering |
 | `make docs-build-docker` | `mkdocs-local` | Dokumentasjonsportal |
 | `make python-build-docker` | `python-pytest` | Python-testar |
-| `make mcp-gen-build` | `mcp-linkml-generator` | LinkML-generator MCP-server |
+| `make mcp-mod-build` | `mcp-linkml-modell-utkast` | Modell-utkast MCP-server |
 | `make mcp-val-build` | `mcp-linkml-validator` | Validator MCP-server |
 
 ## Ny modell
@@ -92,16 +92,16 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 
 `make publish` køyrer `mkdocs/publish.sh` som kopier artefakter og dokumentasjon frå `generated/` til `mkdocs/docs/`, genererer `index.md` per skjema og domene, og oppdaterer navigasjonsstrukturen i `mkdocs.yml`. Nye domene og skjema dukkar opp automatisk neste gong `publish` vert køyrt.
 
-## LinkML-generator mcp-server (mcp-linkml-generator)
+## mcp-linkml-modell-utkast
 
 | Kommando | Beskriving | Output |
 |---|---|---|
 | `make mcp-generate SCHEMA=<sti>` | Generer LinkML-utkast frå JSON Schema-fil | `<same katalog>/<skjema>-schema.yaml` |
 | `make mcp-generate SCHEMA=<sti> FORMAT=json-schema PROFILE=default` | Same med eksplisitt format og profil | `<same katalog>/<skjema>-schema.yaml` |
-| `make mcp-gen-build` | Bygg container-image | — |
-| `make mcp-gen-smoke` | Røyktest med eksempel-meldingar | — |
-| `make mcp-gen-test` | Køyr alle unit-testar (44 testar) | — |
-| `make mcp-gen-run` | Start server interaktivt (stdin/stdout) | — |
+| `make mcp-mod-build` | Bygg container-image | — |
+| `make mcp-mod-smoke` | Røyktest med eksempel-meldingar | — |
+| `make mcp-mod-test` | Køyr alle unit-testar | — |
+| `make mcp-mod-run` | Start server interaktivt (stdin/stdout) | — |
 
 ## LinkML-validator mcp-server (mcp-linkml-validator)
 

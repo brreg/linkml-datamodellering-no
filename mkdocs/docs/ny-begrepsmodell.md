@@ -5,14 +5,14 @@ frå filstruktur til RDF-eksport klar for Felles Begrepskatalog.
 
 !!! note "Skil seg frå ny domenemodell"
     Begrepskatalogar har ein eigen arbeidsflyt. `make new-model` gjeld **ikkje** her —
-    skjemaet er trivielt og vert skrive for hand. Bruk `mcp-linkml-begrep-generator`
-    for å generere YAML-instansar, ikkje `mcp-linkml-generator`.
+    skjemaet er trivielt og vert skrive for hand. Bruk `mcp-linkml-begrep-utkast`
+    for å generere YAML-instansar, ikkje `mcp-linkml-modell-utkast`.
 
     | | Ny begrepskatalog | Ny domenemodell |
     |---|---|---|
     | Scaffold | Manuelt (kopier skjema) | `make new-model` |
     | Import | `skos-ap-no` | `dcat-ap-no` / `dqv-ap-no` |
-    | Generator | `mcp-linkml-begrep-generator` | `mcp-linkml-generator` |
+    | Generator | `mcp-linkml-begrep-utkast` | `mcp-linkml-modell-utkast` |
     | RDF-eksport | `example_rdf: true` (krav) | Valfritt |
 
 ---
@@ -21,7 +21,7 @@ frå filstruktur til RDF-eksport klar for Felles Begrepskatalog.
 
 ```bash
 make check-prereqs
-make mcp-begrep-build    # byggjer mcp-linkml-begrep-generator
+make mcp-begrep-build    # byggjer mcp-linkml-begrep-utkast
 make mcp-val-build       # byggjer mcp-linkml-validator (for bronze-validering)
 ```
 
@@ -136,7 +136,7 @@ skal publiserast til Felles Begrepskatalog.
 
 ## 4 — Generer YAML-instansar
 
-Bruk `opprett_begrep`-verktøyet i `mcp-linkml-begrep-generator` til å byggje
+Bruk `opprett_begrep`-verktøyet i `mcp-linkml-begrep-utkast` til å byggje
 YAML-blokkar. Verktøyet kan køyrast av ein AI-assistent med MCP-støtte
 (t.d. Claude Code med MCP-konfigurasjon) eller manuelt via Makefile:
 
@@ -172,7 +172,7 @@ Resultatet er ein `BegrepContainer`-blokk som kan limast inn i instansfila
 
 ### Profil for eigen organisasjon
 
-Lag `src/mcp-linkml-begrep-generator/profiles/<org>.yaml` for å forhåndssette
+Lag `src/mcp-linkml-begrep-utkast/profiles/<org>.yaml` for å forhåndssette
 `base_uri`, `utgjevar_uri` og kontaktpunktmønster — så slepp du å oppgje desse
 for kvart kall. Sjå `profiles/brreg.yaml` som døme.
 
@@ -265,4 +265,4 @@ sjå [Publiser til Felles Begrepskatalog](publisering-begrep.md).
 - [Begrep – domeneindeks](begrep/index.md)
 - [Publiser til Felles Begrepskatalog](publisering-begrep.md) — pipeline og URI-stabilitet
 - [`specs/begrep-modellering.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/begrep-modellering.md) — fullstendig teknisk spesifikasjon
-- [`src/mcp-linkml-begrep-generator/README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-generator/README.md) — dokumentasjon for MCP-serveren
+- [`src/mcp-linkml-begrep-utkast/README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) — dokumentasjon for MCP-serveren

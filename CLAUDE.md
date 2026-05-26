@@ -177,6 +177,32 @@ examples/<domene>/<modell>-eksempel.yaml
 | `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/linkml/ngr-adresse/` |
 | `version` | Semantisk versjonering i hermeteikn | `"1.0.0"` |
 
+### Norske bokstavar i identifikatorar
+
+Særnorske bokstavar skal **translittererast** i alle identifikatorar — klassenamn, slotnamn, attributtnamn og URI-lokaldel:
+
+| Bokstav | Erstatning |
+|---|---|
+| æ / Æ | ae / Ae |
+| ø / Ø | oe / Oe |
+| å / Å | aa / Aa |
+
+Dette gjeld i `.yaml`-skjema og datafiler. `title`, `description` og andre fritekstfelt er unntatt — der er norske bokstavar tillate.
+
+```yaml
+# Riktig
+classes:
+  Aktoer:          # Aktør → Aktoer
+    class_uri: ex:Aktoer
+slots:
+  utgjevar_id:     # ingen særnorske her — OK som det er
+
+# Feil
+classes:
+  Aktør:
+    class_uri: ex:Aktør
+```
+
 ### Slotnamn
 
 Hovudregel: **`snake_case`**, norsk bokmål (t.d. `kommunenummer_ref`, `adressenavn_tekst`).

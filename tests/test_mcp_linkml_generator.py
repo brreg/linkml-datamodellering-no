@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Automatiske testar for mcp-linkml-generator converter.
+"""Automatiske testar for mcp-linkml-modell-utkast converter.
 
 Køyr frå repo-rot:
   make linkml-gen-test-converter
@@ -16,7 +16,7 @@ import unittest
 import yaml
 from pathlib import Path
 
-sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "mcp-linkml-generator"))
+sys.path.insert(0, str(Path(__file__).parent.parent / "src" / "mcp-linkml-modell-utkast"))
 from converter import convert, load_profile
 from validator import validate_generated
 from server import handle
@@ -502,7 +502,7 @@ class TestMCPProtocol(unittest.TestCase):
 
     def test_initialize_returnerer_server_info(self):
         resp = _call("initialize")
-        self.assertEqual(resp["result"]["serverInfo"]["name"], "mcp-linkml-generator")
+        self.assertEqual(resp["result"]["serverInfo"]["name"], "mcp-linkml-modell-utkast")
         self.assertIn("capabilities", resp["result"])
         self.assertIn("protocolVersion", resp["result"])
 

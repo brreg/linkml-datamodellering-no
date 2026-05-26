@@ -1,4 +1,4 @@
-# mcp-linkml-begrep-generator
+# mcp-linkml-begrep-utkast
 
 MCP-server for generering og validering av SKOS-AP-NO Begrep-instansar i YAML-format.
 Serveren følgjer mønsteret i `specs/begrep-modellering.md` og produserer
@@ -91,7 +91,7 @@ Returnerer `{ gyldig, feiltal, åtvaringtal, hendingar }` med same format som
 `opprett_begrep` produserer ein fullstendig `BegrepContainer`-blokk:
 
 ```yaml
-# Generert av mcp-linkml-begrep-generator — legg til i instansfila di
+# Generert av mcp-linkml-begrep-utkast — legg til i instansfila di
 # Begrep: https://begrep.brreg.no/foretaksnavn
 
 begrep:

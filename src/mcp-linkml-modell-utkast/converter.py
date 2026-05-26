@@ -28,12 +28,24 @@ def load_profile(name: str) -> dict:
 def _to_plural(name: str, suffix: str = "er") -> str:
     """Lagar container-slot-namn: lowercase første bokstav + suffiks.
 
+    Bindestrekar vert erstatta med understrek for å gje gyldige attributtnamn.
     Døme (suffix='er'): 'Person' → 'personers', 'Ting' → 'tinger'.
     Dette er ein enkel heuristikk som gjev akseptable utkast-namn.
     """
     if not name:
         return name
-    return name[0].lower() + name[1:] + suffix
+    safe = name.replace("-", "_")
+    return safe[0].lower() + safe[1:] + suffix
+
+
+def _transliterate(name: str) -> str:
+    """Translittererer særnorske bokstavar til ASCII (æ→ae, ø→oe, å→aa)."""
+    return (
+        name
+        .replace("æ", "ae").replace("Æ", "Ae")
+        .replace("ø", "oe").replace("Ø", "Oe")
+        .replace("å", "aa").replace("Å", "Aa")
+    )
 
 
 def _resolve_ref(ref: str) -> str:
@@ -211,7 +223,7 @@ def convert(
                 desc = prop_def.get("description") or ""
                 if desc:
                     slot_entry["description"] = desc
-                slot_entry["slot_uri"] = f"ex:{prop_name}"
+                slot_entry["slot_uri"] = f"ex:{_transliterate(prop_name)}"
                 if new_range:
                     slot_entry["range"] = new_range
                 if attrs.get("multivalued"):
@@ -229,7 +241,7 @@ def convert(
         entry: dict = {}
         if desc:
             entry["description"] = desc
-        entry["class_uri"] = f"ex:{cls_name}"
+        entry["class_uri"] = f"ex:{_transliterate(cls_name)}"
         if add_begrep_annotation:
             entry["annotations"] = {"begrepsidentifikator": f"{begrep_base_uri}TODO"}
 

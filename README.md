@@ -7,7 +7,7 @@ Norske W3C-applikasjonsprofiler og offentlege domenemodeller i [LinkML-format](h
 Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld:
 
 * LinkML-modellar for norske W3C-applikasjonsprofiler og offentlege domenemodeller for gjenbruk.
-* mcp-linkml-generator og mcp-linkml-validator [mcp servere](https://modelcontextprotocol.io/docs/getting-started/intro) for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
+* mcp-linkml-modell-utkast, mcp-linkml-begrep-utkast og mcp-linkml-validator [mcp servere](https://modelcontextprotocol.io/docs/getting-started/intro) for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
 * LinkML-generatorar for å produsere artefakter i andre format frå LinkML-skjema.
 * Github Actions (pipelines) for å automatisk generere, validere og publisere artefakter frå LinkML-skjema.
 * Github Pages dokumentasjonsportal med oversikt over alle LinkML-skjema og genererte artefakter.
@@ -24,7 +24,7 @@ make check-prereqs
 ```
 ```bash
 # Bygg container-images (éin gong)
-make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-gen-build && make mcp-begrep-build
+make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-mod-build && make mcp-begrep-build
 ```
 
 ### Datamodellering
@@ -158,8 +158,8 @@ linkml-datamodellering-no/
 │   ├── assets/                 # Containere, skript og malar
 │   ├── linkml/                 # LinkML-skjema
 │   ├── mcp-linkml-validator/        # MCP-server: policy-basert validering
-│   ├── mcp-linkml-generator/        # MCP-server: JSON Schema → LinkML
-│   ├── mcp-linkml-begrep-generator/ # MCP-server: generering av begrepsinstansar
+│   ├── mcp-linkml-modell-utkast/    # MCP-server: JSON Schema → LinkML-utkast
+│   ├── mcp-linkml-begrep-utkast/   # MCP-server: generering av begrepsinstansar
 │   └── templates/                   # Jinja2-malar for make gen-docs
 │
 ├──data/        # Produksjonsdata per domene (begrep → Felles Begrepskatalog)
@@ -167,5 +167,5 @@ linkml-datamodellering-no/
 ├──tests/       # Testar og fixtures
 ├──generated/   # Genererte artefakter (ikkje sjekka inn i git)
 ├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)
-└──tmp/         # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-generator
+└──tmp/         # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 ```

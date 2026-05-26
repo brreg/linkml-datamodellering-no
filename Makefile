@@ -122,16 +122,16 @@ endef
 # ---------------------------------------------------------------------------
 # Top-level targets
 # ---------------------------------------------------------------------------
-LINKML_GEN_DIR   := src/mcp-linkml-generator
-LINKML_GEN_IMAGE := mcp-linkml-generator
-LINKML_GEN_RUN   := podman run -i --rm \
-  -v "$(CURDIR)/$(LINKML_GEN_DIR)/server.py:/app/server.py:ro" \
-  -v "$(CURDIR)/$(LINKML_GEN_DIR)/converter.py:/app/converter.py:ro" \
-  -v "$(CURDIR)/$(LINKML_GEN_DIR)/validator.py:/app/validator.py:ro" \
-  -v "$(CURDIR)/$(LINKML_GEN_DIR)/profiles:/app/profiles:ro"
+LINKML_MOD_DIR   := src/mcp-linkml-modell-utkast
+LINKML_MOD_IMAGE := mcp-linkml-modell-utkast
+LINKML_MOD_RUN   := podman run -i --rm \
+  -v "$(CURDIR)/$(LINKML_MOD_DIR)/server.py:/app/server.py:ro" \
+  -v "$(CURDIR)/$(LINKML_MOD_DIR)/converter.py:/app/converter.py:ro" \
+  -v "$(CURDIR)/$(LINKML_MOD_DIR)/validator.py:/app/validator.py:ro" \
+  -v "$(CURDIR)/$(LINKML_MOD_DIR)/profiles:/app/profiles:ro"
 
-LINKML_BEGREP_DIR   := src/mcp-linkml-begrep-generator
-LINKML_BEGREP_IMAGE := mcp-linkml-begrep-generator
+LINKML_BEGREP_DIR   := src/mcp-linkml-begrep-utkast
+LINKML_BEGREP_IMAGE := mcp-linkml-begrep-utkast
 LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/server.py:/app/server.py:ro" \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/generator.py:/app/generator.py:ro" \
@@ -143,7 +143,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         linkml-build-docker python-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
-        mcp-gen-build mcp-gen-run mcp-gen-smoke mcp-gen-test mcp-generate new-model \
+        mcp-mod-build mcp-mod-run mcp-mod-smoke mcp-mod-test mcp-generate new-model \
         mcp-begrep-build mcp-begrep-run mcp-begrep-smoke mcp-begrep-list-profiles \
         mcp-build mcp-run mcp-smoke mcp-test-policies \
         linkml-gen-build linkml-gen-run linkml-gen-smoke linkml-gen-generate linkml-gen-test-converter \
@@ -665,42 +665,42 @@ mcp-smoke: mcp-val-smoke
 mcp-test-policies: mcp-val-test
 
 # ---------------------------------------------------------------------------
-# mcp-linkml-generator
+# mcp-linkml-modell-utkast
 # ---------------------------------------------------------------------------
-mcp-gen-build:
+mcp-mod-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-gen-build$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-mod-build$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	podman build -t $(LINKML_GEN_IMAGE) $(LINKML_GEN_DIR)
+	podman build -t $(LINKML_MOD_IMAGE) $(LINKML_MOD_DIR)
 
-mcp-gen-run:
+mcp-mod-run:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-gen-run$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-mod-run$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	$(LINKML_GEN_RUN) $(LINKML_GEN_IMAGE)
+	$(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-gen-smoke: mcp-gen-build
+mcp-mod-smoke: mcp-mod-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-gen-smoke$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-mod-smoke$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	cat tests/test-mcp-linkml-generator.json | $(LINKML_GEN_RUN) $(LINKML_GEN_IMAGE)
+	cat tests/test-mcp-linkml-generator.json | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE)
 
-mcp-gen-test: mcp-gen-build
+mcp-mod-test: mcp-mod-build
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@echo "$(CLR_HDR)*** make mcp-gen-test$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make mcp-mod-test$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	podman run --rm \
-		-v "$(CURDIR)/$(LINKML_GEN_DIR):/app/mcp-linkml-generator:ro" \
+		-v "$(CURDIR)/$(LINKML_MOD_DIR):/app/mcp-linkml-modell-utkast:ro" \
 		-v "$(CURDIR)/tests:/app/tests:ro" \
 		-w /app/tests \
-		-e PYTHONPATH=/app/mcp-linkml-generator \
-		$(LINKML_GEN_IMAGE) \
+		-e PYTHONPATH=/app/mcp-linkml-modell-utkast \
+		$(LINKML_MOD_IMAGE) \
 		python -m pytest test_mcp_linkml_generator.py -v
 
-linkml-gen-build: mcp-gen-build
-linkml-gen-run: mcp-gen-run
-linkml-gen-smoke: mcp-gen-smoke
-linkml-gen-test-converter: mcp-gen-test
+linkml-gen-build: mcp-mod-build
+linkml-gen-run: mcp-mod-run
+linkml-gen-smoke: mcp-mod-smoke
+linkml-gen-test-converter: mcp-mod-test
 
 # Bruk: make mcp-generate SCHEMA=<sti> [FORMAT=json-schema] [PROFILE=default]
 mcp-generate:
@@ -715,7 +715,7 @@ msgs = [ \
   {'jsonrpc':'2.0','id':2,'method':'tools/call','params':{'name':'generate_linkml','arguments':{'inputFormat':fmt,'inputContent':content,'schemaId':'https://example.org/generated','schemaName':'generated','profile':profile}}}, \
 ]; \
 print('\n'.join(json.dumps(m) for m in msgs)) \
-" | $(LINKML_GEN_RUN) $(LINKML_GEN_IMAGE) \
+" | $(LINKML_MOD_RUN) $(LINKML_MOD_IMAGE) \
   | python3 -c "\
 import json, sys, pathlib; \
 inp = pathlib.Path('$(SCHEMA)'); \
@@ -728,7 +728,7 @@ out = inp.parent / (inp.stem + '-schema.yaml'); \
 linkml-gen-generate: mcp-generate
 
 # ---------------------------------------------------------------------------
-# mcp-linkml-begrep-generator
+# mcp-linkml-begrep-utkast
 # ---------------------------------------------------------------------------
 mcp-begrep-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
@@ -760,7 +760,7 @@ mcp-begrep-list-profiles:
 new-model:
 	@test -n "$(NAME)" && test -n "$(DOMAIN)" || \
 	  (echo "Bruk: make new-model NAME=<namn> DOMAIN=<domene>"; exit 1)
-	@podman image exists $(LINKML_GEN_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-gen-build
+	@podman image exists $(LINKML_MOD_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-mod-build
 	bash src/assets/scripts/new-model.sh "$(NAME)" "$(DOMAIN)"
 
 check-prereqs:
