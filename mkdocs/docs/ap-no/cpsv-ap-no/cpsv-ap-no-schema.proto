@@ -1,0 +1,270 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 1.0
+// Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt.
+message Adresse
+ {
+  uriorcurie id = 0
+ repeated  string fullAdresse = 0
+  string postnummer = 0
+ repeated  langString poststad = 0
+  string land = 0
+ }
+// Ein aktør (person eller organisasjon) relatert til ei teneste.
+message Aktor
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  string identifikatorLiteral = 0
+  adresse adresseRef = 0
+ repeated  deltagelse deltekI = 0
+ }
+// Ei SKOS-omgrepssamling (temavokabular).
+message Begrepssamling
+ {
+  uriorcurie id = 0
+ }
+// Ei rolle ein aktør har i leveringa av ei teneste.
+message Deltagelse
+ {
+  uriorcurie id = 0
+  konsept harRolle = 0
+  aktor deltakar = 0
+ }
+// Ein type dokumentasjon som krevst for å levere ei teneste.
+message Dokumentasjonstype
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+  duration gyldigI = 0
+ repeated  spraak godtekSpraak = 0
+  konsept klassifisering = 0
+ repeated  uri erBeskriveAv = 0
+  uriorcurie erSpesifisertI = 0
+  konsept utstedingsstad = 0
+ }
+// Eit gebyr knytt til ei teneste.
+message Gebyr
+ {
+  uriorcurie id = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+  float verdi = 0
+  konsept valuta = 0
+ }
+// Ei hending som kan utløyse behov for ei offentleg teneste.
+message Hendelse
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  string identifikatorLiteral = 0
+ repeated  kontaktpunkt harKontaktpunkt = 0
+ repeated  langString beskrivelse = 0
+ repeated  offentligTjeneste kanUtlose = 0
+ repeated  konsept tema = 0
+ repeated  uri erBeskriveAv = 0
+  konsept typeConcept = 0
+ }
+// Ein katalog over offentlege tenester og hendingar.
+message Katalog
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+ repeated  offentligTjeneste inneheldTeneste = 0
+ repeated  kontaktpunkt harKontaktpunkt = 0
+  aktor utgjevar = 0
+ repeated  konsept dekningsomraade = 0
+  date endringsdato = 0
+  konsept oppdateringsfrekvens = 0
+ repeated  uri heimeside = 0
+ repeated  hendelse inneheldHending = 0
+  uri lisens = 0
+ repeated  spraak spraak = 0
+ }
+// Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
+message Konsept
+ {
+  uriorcurie id = 0
+ }
+// Kontaktinformasjon for ei teneste eller ein organisasjon.
+message Kontaktpunkt
+ {
+  uriorcurie id = 0
+ repeated  uri epost = 0
+ repeated  string telefon = 0
+ repeated  uri kontaktside = 0
+ repeated  string opningstider = 0
+ repeated  spraak spraak = 0
+ repeated  string kategori = 0
+ }
+// Ei livshending som kan utløyse behov for tenester (t.d. fødsel, ekteskap).
+message Livshendelse
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  string identifikatorLiteral = 0
+ repeated  kontaktpunkt harKontaktpunkt = 0
+ repeated  langString beskrivelse = 0
+ repeated  offentligTjeneste kanUtlose = 0
+ repeated  konsept tema = 0
+ repeated  uri erBeskriveAv = 0
+  konsept typeConcept = 0
+ repeated  uriorcurie kanUtloseBehovFor = 0
+ }
+// Ein medietype eller filformat (dct:MediaTypeOrExtent).
+message Mediatype
+ {
+  uriorcurie id = 0
+ }
+// Ein offentleg organisasjon som er ansvarleg for ei teneste.
+message OffentligOrganisasjon
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  string identifikatorLiteral = 0
+ repeated  deltagelse deltekI = 0
+ repeated  langString foretrektNamn = 0
+ repeated  konsept dekningsomraade = 0
+ repeated  uri heimeside = 0
+  konsept typeConcept = 0
+  adresse adresseRef = 0
+ }
+// Ei konkret offentleg teneste levert av ein offentleg organisasjon.
+message OffentligTjeneste
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+ repeated  kontaktpunkt harKontaktpunkt = 0
+ repeated  tjenesteresultattype harTenesteresultattype = 0
+ repeated  offentligOrganisasjon harAnsvarlegStyremakt = 0
+ repeated  konsept tema = 0
+ repeated  konsept dekningsomraade = 0
+ repeated  dokumentasjonstype harDokumentasjonstype = 0
+ repeated  uri heimeside = 0
+  konsept typeConcept = 0
+  konsept status = 0
+ repeated  konsept temaomrade = 0
+  duration behandlingstid = 0
+ repeated  uri erBeskriveAv = 0
+  uriorcurie erDelAv = 0
+ repeated  uriorcurie harDel = 0
+ repeated  tjenestekanal harTenestekanal = 0
+ repeated  deltagelse harDeltaking = 0
+ repeated  spraak spraak = 0
+ repeated  uriorcurie relatertTeneste = 0
+ repeated  hendelse erGruppertAv = 0
+ repeated  konsept erKlassifisertAv = 0
+ repeated  regel folger = 0
+ repeated  gebyr harGebyr = 0
+ repeated  regulativRessurs harRegulativRessurs = 0
+ repeated  uriorcurie krev = 0
+ repeated  konsept malgruppe = 0
+ repeated  langString nokkelord = 0
+ repeated  konsept sektor = 0
+ }
+// Eit regelverk eller retningsliner som styrer levering av ei teneste.
+message Regel
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+ repeated  spraak spraak = 0
+  konsept typeConcept = 0
+ }
+// Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.
+message RegulativRessurs
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  string identifikatorLiteral = 0
+  konsept typeConcept = 0
+ }
+// Ei teneste levert av ein ikkje-offentleg aktør.
+message Tjeneste
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+ repeated  kontaktpunkt harKontaktpunkt = 0
+ repeated  tjenesteresultattype harTenesteresultattype = 0
+ repeated  aktor eigdAv = 0
+ repeated  konsept tema = 0
+ repeated  konsept dekningsomraade = 0
+ repeated  dokumentasjonstype harDokumentasjonstype = 0
+ repeated  uri heimeside = 0
+  konsept typeConcept = 0
+  konsept status = 0
+ repeated  konsept temaomrade = 0
+  duration behandlingstid = 0
+ repeated  uri erBeskriveAv = 0
+  uriorcurie erDelAv = 0
+ repeated  uriorcurie harDel = 0
+ repeated  tjenestekanal harTenestekanal = 0
+ repeated  deltagelse harDeltaking = 0
+ repeated  spraak spraak = 0
+ repeated  uriorcurie relatertTeneste = 0
+ repeated  hendelse erGruppertAv = 0
+ repeated  konsept erKlassifisertAv = 0
+ repeated  regel folger = 0
+ repeated  gebyr harGebyr = 0
+ repeated  regulativRessurs harRegulativRessurs = 0
+ repeated  uriorcurie krev = 0
+ repeated  konsept malgruppe = 0
+ repeated  langString nokkelord = 0
+ repeated  konsept sektor = 0
+ }
+// Ein kanal for å få tilgang til ei teneste (t.d. nett, telefon, oppmøte).
+message Tjenestekanal
+ {
+  uriorcurie id = 0
+  string identifikatorLiteral = 0
+  konsept typeConcept = 0
+  duration behandlingstid = 0
+ repeated  string opningstider = 0
+ repeated  langString beskrivelse = 0
+ repeated  uri nettside = 0
+ }
+// Typen resultat som ei teneste produserer.
+message Tjenesteresultattype
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+ repeated  spraak moglegSpraak = 0
+ repeated  uri erBeskriveAv = 0
+  uriorcurie erSpesifisertI = 0
+ repeated  hendelse kanSkapeHending = 0
+  konsept typeConcept = 0
+ }
+// Ei liste over moglege tjenesteresultattypar.
+message Tjenesteresultattypeliste
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+ }
+// Ei verksemdhending som kan utløyse behov for tenester (t.d. oppstart, konkurs).
+message Virksomhetshendelse
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  string identifikatorLiteral = 0
+ repeated  kontaktpunkt harKontaktpunkt = 0
+ repeated  langString beskrivelse = 0
+ repeated  offentligTjeneste kanUtlose = 0
+ repeated  konsept tema = 0
+ repeated  uri erBeskriveAv = 0
+  konsept typeConcept = 0
+ repeated  uriorcurie kanUtloseBehovFor = 0
+ }
+

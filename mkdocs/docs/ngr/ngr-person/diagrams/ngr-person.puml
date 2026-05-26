@@ -1,0 +1,286 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Verge" [[{Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta interessene til ein person. Er av type Person.}]] {
+    {field} id : uriorcurie  
+    {field} vergetype : VergetypeKode  
+    {field} embete : string  
+}
+class "Person" [[{Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene person.}]] {
+    {field} id : uriorcurie  
+}
+class "PersonContainer" [[{Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.}]] {
+
+}
+"Verge" --> "1" "Person" : "er_av_type_person"
+"Person" --> "0..*" "Verge" : "har_verge"
+"Person" --> "0..*" "Verge" : "har_verge"(i)
+"PersonContainer" *--> "0..*" "Verge" : "verger"
+class "UtflyttingFraNorge" [[{Registrering av utflytting frå Noreg i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} tilflyttingsland : string  
+    {field} tilflyttingssted_i_utlandet : string  
+    {field} utflyttingsdato : date  
+}
+"Person" --> "0..1" "UtflyttingFraNorge" : "har_utflytting_fra_norge"
+"Person" --> "0..1" "UtflyttingFraNorge" : "har_utflytting_fra_norge"(i)
+"PersonContainer" *--> "0..*" "UtflyttingFraNorge" : "utflytting"
+class "Statsborgerskap" [[{Statsborgerskap registrert på ein person i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} landkode : string  
+    {field} gyldig_fra_og_med : date  
+    {field} gyldig_til_og_med : date  
+}
+"Person" --> "1..*" "Statsborgerskap" : "har_statsborgerskap"
+"Person" --> "0..*" "Statsborgerskap" : "har_statsborgerskap"(i)
+"PersonContainer" *--> "0..*" "Statsborgerskap" : "statsborgerskap"
+class "SpraakForElektroniskKommunikasjon" [[{Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, valt av personen sjølv.}]] {
+    {field} id : uriorcurie  
+    {field} spraakkode : string  
+}
+"Person" --> "1" "SpraakForElektroniskKommunikasjon" : "har_valgt_spraak"
+"Person" --> "0..1" "SpraakForElektroniskKommunikasjon" : "har_valgt_spraak"(i)
+"PersonContainer" *--> "0..*" "SpraakForElektroniskKommunikasjon" : "spraak"
+class "Sivilstand" [[{Sivilstand registrert på ein person i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} sivilstand_type : SivilstandType  
+    {field} gyldig_fra_og_med : date  
+}
+"Sivilstand" --> "0..1" "Person" : "relatert_ved_sivilstand"
+"Person" --> "1" "Sivilstand" : "har_sivilstand"
+"Person" --> "0..1" "Sivilstand" : "har_sivilstand"(i)
+"PersonContainer" *--> "0..*" "Sivilstand" : "sivilstand"
+class "RettsligHandleevne" [[{Registrering av avgrensing i rettsleg handleevne for ein person, t.d. under vergemål eller fråtatt rettsleg handleevne.}]] {
+    {field} id : uriorcurie  
+    {field} rettslig_handleevne_type : RettsligHandleevneType  
+    {field} omfang : string  
+}
+"Person" --> "0..1" "RettsligHandleevne" : "har_rettslig_handleevne"
+"Person" --> "0..1" "RettsligHandleevne" : "har_rettslig_handleevne"(i)
+"PersonContainer" *--> "0..*" "RettsligHandleevne" : "rettsligHandleevne"
+class "ReservasjonMotKommunikasjonPaaNett" [[{Registrering av at ein person har reservert seg mot digital kommunikasjon frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).}]] {
+    {field} id : uriorcurie  
+    {field} er_reservert : boolean  
+    {field} gyldig_fra_og_med : date  
+}
+"Person" --> "0..1" "ReservasjonMotKommunikasjonPaaNett" : "har_reservasjon_mot_kommunikasjon"
+"Person" --> "0..1" "ReservasjonMotKommunikasjonPaaNett" : "har_reservasjon_mot_kommunikasjon"(i)
+"PersonContainer" *--> "0..*" "ReservasjonMotKommunikasjonPaaNett" : "reservasjonar"
+class "Personstatus" [[{Status for ein person i Folkeregisteret (t.d. bosatt, utflyttet, død).}]] {
+    {field} id : uriorcurie  
+    {field} personstatus_type : PersonstatusType  
+    {field} gyldig_fra_og_med : date  
+}
+"Person" --> "1" "Personstatus" : "har_personstatus"
+"Person" --> "0..1" "Personstatus" : "har_personstatus"(i)
+"PersonContainer" *--> "0..*" "Personstatus" : "personstatus"
+class "Personnavn" [[{Offisielt registrert namn på ein person i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+    {field} forkortet_navn : string  
+}
+"Person" --> "1" "Personnavn" : "har_personnavn"
+"Person" --> "0..1" "Personnavn" : "har_personnavn"(i)
+"PersonContainer" *--> "0..*" "Personnavn" : "personnavn"
+class "Personidentifikasjon" [[{Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer, utanlandsk skatteidentifikasjon eller social security number.}]] {
+    {field} id : uriorcurie  
+    {field} identifikasjonstype : string  
+    {field} identifikatornummer : string  
+}
+"Person" --> "0..*" "Personidentifikasjon" : "har_personidentifikasjon"
+"Person" --> "0..*" "Personidentifikasjon" : "har_personidentifikasjon"(i)
+"PersonContainer" *--> "0..*" "Personidentifikasjon" : "personidentifikasjonar"
+class "Kontaktopplysninger" [[{Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).}]] {
+    {field} id : uriorcurie  
+    {field} epostadresse_verdi : string  
+    {field} mobiltelefonnummer : string  
+    {field} sist_oppdatert : date  
+}
+class "Oppholdsadresse" [[{Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa).}]] {
+    {field} gyldig_fra_og_med : date  
+    {field} gyldig_til_og_med : date  
+    {field} id(i) : uriorcurie  
+}
+class "Postadresse" [[{Adressa der personen mottar post.}]] {
+    {field} gyldig_fra_og_med : date  
+    {field} gyldig_til_og_med : date  
+    {field} id(i) : uriorcurie  
+}
+class "Bostedsadresse" [[{Adressa personen er registrert busett på i Folkeregisteret.}]] {
+    {field} gyldig_fra_og_med : date  
+    {field} gyldig_til_og_med : date  
+    {field} id(i) : uriorcurie  
+}
+class "Adressebeskyttelse" [[{Gradering av adressebeskyttelse for innflyttede personar til Noreg. Tidlegare kalla kode 6 (strengt fortroleg) og kode 7 (fortroleg).}]] {
+    {field} id : uriorcurie  
+    {field} adressebeskyttelse_gradering : AdressebeskyttelseGradering  
+}
+class "InnflyttingTilNorge" [[{Registrering av innflytting til Noreg i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} fraflyttingsland : string  
+    {field} fraflyttingssted_i_utlandet : string  
+    {field} innflyttingsdato : date  
+}
+class "KontaktinformasjonDoedsbo" [[{Kontaktinformasjon for eit dødsbu.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} telefonnummer : string  
+    {field} epostadresse_verdi : string  
+}
+class "Dodsfall" [[{Dødsfallsinformasjon om ein person registrert i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} doedsdato : date  
+    {field} doedssted : string  
+}
+class "FamilierelasjonEktefelle" [[{Familierelasjon der den relaterte personen er ektefelle eller registrert partnar. Dette er strengt tatt same informasjon som sivilstand GIFT.}]] {
+    {field} id : uriorcurie  
+}
+class "FamilierelasjonBarn" [[{Familierelasjon der den relaterte personen er barn.}]] {
+    {field} id : uriorcurie  
+}
+class "FamilierelasjonForelder" [[{Familierelasjon der den relaterte personen er forelder.}]] {
+    {field} id : uriorcurie  
+    {field} foreldrerelasjon_type : string  
+}
+class "ForeldreansvarBarn" [[{Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein person.}]] {
+    {field} id : uriorcurie  
+}
+class "ForeldreansvarForelder" [[{Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret for eit barn. Seier kven som er den ansvarlege forelderen.}]] {
+    {field} id : uriorcurie  
+    {field} ansvarsstatus : string  
+}
+class "Foedsel" [[{Fødselsinformasjon om ein person registrert i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} foedselsdato : date  
+    {field} foedested : string  
+    {field} foedselsaar : integer  
+}
+class "Opphold" [[{Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} oppholds_type : OppholdstypeKode  
+    {field} gyldig_fra_og_med : date  
+    {field} gyldig_til_og_med : date  
+}
+class "Kjoenn" [[{Kjønn registrert på ein person i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} kjoenn_kode : KjoennKode  
+    {field} gyldig_fra_og_med : date  
+}
+class "Identitetsgrunnlag" [[{Grunnlaget som er brukt for å fastsetje identiteten til ein person ved registrering i Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} identitetsgrunnlag_status : string  
+    {field} identitetsgrunnlag_kilde : string  
+}
+class "Identifikasjonsdokument" [[{Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort knytt til ein person.}]] {
+    {field} id : uriorcurie  
+    {field} dokumenttype : IdentifikasjonsdokumentType  
+    {field} dokumentnummer : string  
+    {field} utstederland : string  
+    {field} utstedtdato : date  
+    {field} utloepsdato : date  
+}
+class "FalskIdentitet" [[{Registrering av at ein person har opptrådt med falsk identitet. Kan peke på den rette identiteten om denne er kjent.}]] {
+    {field} id : uriorcurie  
+    {field} er_falsk : boolean  
+    {field} rett_identitet_er_ukjent : boolean  
+}
+class "DNummer" [[{Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i Noreg (t.d. med d-nummer, om dei har midlertidig eller permanent opphald). Brukes om de har midlertidig eller ikkje har permanent opphald.}]] {
+    {field} identifikatornummer : string  
+    {field} id(i) : uriorcurie  
+}
+class "Foedselsnummer" [[{Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast opphald i Noreg.}]] {
+    {field} identifikatornummer : string  
+    {field} id(i) : uriorcurie  
+}
+"PersonContainer" *--> "0..*" "Kontaktopplysninger" : "kontaktopplysningar"
+"PersonContainer" *--> "0..*" "Oppholdsadresse" : "oppholdsadresser"
+"PersonContainer" *--> "0..*" "Postadresse" : "postadresser"
+"PersonContainer" *--> "0..*" "Bostedsadresse" : "bostedsadresser"
+"PersonContainer" *--> "0..*" "Adressebeskyttelse" : "adressebeskyttelse"
+"PersonContainer" *--> "0..*" "InnflyttingTilNorge" : "innflytting"
+"PersonContainer" *--> "0..*" "KontaktinformasjonDoedsbo" : "kontaktinformasjonDoedsbo"
+"PersonContainer" *--> "0..*" "Dodsfall" : "dodsfall"
+"PersonContainer" *--> "0..*" "FamilierelasjonEktefelle" : "familierelasjonEktefelle"
+"PersonContainer" *--> "0..*" "FamilierelasjonBarn" : "familierelasjonBarn"
+"PersonContainer" *--> "0..*" "FamilierelasjonForelder" : "familierelasjonForelder"
+"PersonContainer" *--> "0..*" "ForeldreansvarBarn" : "foreldreansvarBarn"
+"PersonContainer" *--> "0..*" "ForeldreansvarForelder" : "foreldreansvarForelder"
+"PersonContainer" *--> "0..*" "Foedsel" : "foedslar"
+"PersonContainer" *--> "0..*" "Opphold" : "opphold"
+"PersonContainer" *--> "0..*" "Kjoenn" : "kjoenn"
+"PersonContainer" *--> "0..*" "Identitetsgrunnlag" : "identitetsgrunnlag"
+"PersonContainer" *--> "0..*" "Identifikasjonsdokument" : "identifikasjonsdokument"
+"PersonContainer" *--> "0..*" "FalskIdentitet" : "falskIdentitetar"
+"PersonContainer" *--> "0..*" "DNummer" : "dnummer"
+"PersonContainer" *--> "0..*" "Foedselsnummer" : "foedselsnummer"
+"PersonContainer" *--> "0..*" "Person" : "personar"
+abstract "GeografiskAdresse" [[{Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse.}]] {
+    {field} id : uriorcurie  
+}
+"Person" --> "0..1" "Postadresse" : "mottar_post_paa"
+"Person" --> "0..1" "Postadresse" : "mottar_post_paa"(i)
+"GeografiskAdresse" ^-- "Postadresse"
+abstract "Folkeregisteridentifikator" [[{Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete underklassar er Fødselsnummer og D-nummer.}]] {
+    {field} id : uriorcurie  
+    {field} identifikatornummer : string  
+}
+"Person" --> "0..1" "Kontaktopplysninger" : "har_kontaktopplysninger"
+"Person" --> "0..1" "Oppholdsadresse" : "oppholder_seg_paa"
+"Person" --> "0..1" "Bostedsadresse" : "har_bosted_paa"
+"Person" --> "0..1" "Adressebeskyttelse" : "har_adressebeskyttelse"
+"Person" --> "0..1" "InnflyttingTilNorge" : "har_innflytting_til_norge"
+"Person" --> "0..1" "KontaktinformasjonDoedsbo" : "har_kontaktinformasjon_doedsbo"
+"Person" --> "0..1" "Dodsfall" : "har_dodsfall"
+"Person" --> "0..1" "FamilierelasjonEktefelle" : "har_familierelasjon_ektefelle"
+"Person" --> "0..*" "FamilierelasjonBarn" : "har_familierelasjon_barn"
+"Person" --> "0..*" "FamilierelasjonForelder" : "har_familierelasjon_forelder"
+"Person" --> "0..*" "ForeldreansvarBarn" : "har_foreldreansvar_barn"
+"Person" --> "0..*" "ForeldreansvarForelder" : "har_foreldreansvar_forelder"
+"Person" --> "1" "Foedsel" : "har_foedsel"
+"Person" --> "0..1" "Opphold" : "har_lovlig_opphold"
+"Person" --> "1" "Kjoenn" : "har_kjoenn"
+"Person" --> "0..1" "Identitetsgrunnlag" : "har_identitetsgrunnlag"
+"Person" --> "0..*" "Identifikasjonsdokument" : "har_utenlandsk_identifikasjonsdokument"
+"Person" --> "0..1" "FalskIdentitet" : "har_falsk_identitet"
+"Person" --> "1" "Folkeregisteridentifikator" : "har_folkeregisteridentifikator"
+"FalskIdentitet" --> "0..1" "Person" : "rett_identitet"
+"FamilierelasjonBarn" --> "1" "Person" : "er_av_type_person"
+"FamilierelasjonEktefelle" --> "1" "Person" : "er_av_type_person"
+"FamilierelasjonForelder" --> "1" "Person" : "er_av_type_person"
+"ForeldreansvarBarn" --> "1" "Person" : "er_av_type_person"
+"ForeldreansvarForelder" --> "1" "Person" : "er_av_type_person"
+"ForeldreansvarForelder" --> "0..1" "Person" : "er_av_type_person"(i)
+"ForeldreansvarBarn" --> "0..1" "Person" : "er_av_type_person"(i)
+"FamilierelasjonForelder" --> "0..1" "Person" : "er_av_type_person"(i)
+"FamilierelasjonBarn" --> "0..1" "Person" : "er_av_type_person"(i)
+"FamilierelasjonEktefelle" --> "0..1" "Person" : "er_av_type_person"(i)
+"Verge" --> "0..1" "Person" : "er_av_type_person"(i)
+"Sivilstand" --> "0..1" "Person" : "relatert_ved_sivilstand"(i)
+"FalskIdentitet" --> "0..1" "Person" : "rett_identitet"(i)
+"Person" --> "0..1" "Oppholdsadresse" : "oppholder_seg_paa"(i)
+"GeografiskAdresse" ^-- "Oppholdsadresse"
+"Person" --> "0..1" "Opphold" : "har_lovlig_opphold"(i)
+"Person" --> "0..1" "Kontaktopplysninger" : "har_kontaktopplysninger"(i)
+"Person" --> "0..1" "KontaktinformasjonDoedsbo" : "har_kontaktinformasjon_doedsbo"(i)
+"Person" --> "0..1" "Kjoenn" : "har_kjoenn"(i)
+"Person" --> "0..1" "InnflyttingTilNorge" : "har_innflytting_til_norge"(i)
+"Person" --> "0..1" "Identitetsgrunnlag" : "har_identitetsgrunnlag"(i)
+"Person" --> "0..*" "Identifikasjonsdokument" : "har_utenlandsk_identifikasjonsdokument"(i)
+"GeografiskAdresse" ^-- "Bostedsadresse"
+"Person" --> "0..*" "ForeldreansvarForelder" : "har_foreldreansvar_forelder"(i)
+"Person" --> "0..*" "ForeldreansvarBarn" : "har_foreldreansvar_barn"(i)
+"Person" --> "0..1" "Folkeregisteridentifikator" : "har_folkeregisteridentifikator"(i)
+"Folkeregisteridentifikator" ^-- "Foedselsnummer"
+"Folkeregisteridentifikator" ^-- "DNummer"
+"Person" --> "0..1" "Foedsel" : "har_foedsel"(i)
+"Person" --> "0..*" "FamilierelasjonForelder" : "har_familierelasjon_forelder"(i)
+"Person" --> "0..1" "FamilierelasjonEktefelle" : "har_familierelasjon_ektefelle"(i)
+"Person" --> "0..*" "FamilierelasjonBarn" : "har_familierelasjon_barn"(i)
+"Person" --> "0..1" "FalskIdentitet" : "har_falsk_identitet"(i)
+"Person" --> "0..1" "Dodsfall" : "har_dodsfall"(i)
+"Person" --> "0..1" "Bostedsadresse" : "har_bosted_paa"(i)
+"Person" --> "0..1" "Adressebeskyttelse" : "har_adressebeskyttelse"(i)
+@enduml

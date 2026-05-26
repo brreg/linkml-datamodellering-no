@@ -1,0 +1,351 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Valuta" [[{Valutakodar for offisielle valutaer.}]] {
+    {field} id : uriorcurie  
+    {field} valuta_navn : string  
+}
+class "Identifikator" [[{Unik identifikasjon til eit objekt.}]] {
+    {field} identifikatorverdi : string  
+}
+"Valuta" *--> "1" "Identifikator" : "nummerkode"
+"Valuta" *--> "1" "Identifikator" : "bokstavkode"
+class "Status" [[{Status på ei digital eining i fagsystemet.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Periode" [[{Tidsperiode med obligatorisk start og valfri slutt.}]] {
+    {field} beskrivelse : string  
+    {field} start : datetime  
+    {field} slutt : datetime  
+}
+class "DigitalEnhet" [[{Ei digital eining som t.d. PC, nettbrett eller mobil.}]] {
+    {field} id : uriorcurie  
+    {field} serienummer : string  
+    {field} navn : string  
+    {field} flerbrukerenhet : boolean  
+    {field} privateid : boolean  
+    {field} administrator : uriorcurie  
+    {field} eier : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+class "RessursContainer" [[{Rotcontainer for FINT Ressurs-instansar.}]] {
+
+}
+"Status" *--> "0..1" "Periode" : "gyldighetsperiode"
+"DigitalEnhet" --> "0..1" "Status" : "status"
+"RessursContainer" *--> "0..*" "Status" : "statusar"
+"DigitalEnhet" --> "0..1" "Status" : "status"(i)
+class "Rettighet" [[{Ei namngitt rettighet.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} beskrivelse : string  
+    {field} passiv : boolean  
+}
+class "Identitet" [[{Identitet som identifiserer innehavaren av rettigheiter i organisasjonen.}]] {
+    {field} id : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+"Rettighet" --> "0..*" "Identitet" : "identitet"
+"Rettighet" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Identitet" --> "0..*" "Rettighet" : "rettighet"
+"RessursContainer" *--> "0..*" "Rettighet" : "rettigheiter"
+"Identitet" --> "0..*" "Rettighet" : "rettighet"(i)
+class "Produsent" [[{Produsent av ei digital eining.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Plattform" [[{Plattforma tenesta kan leverast på.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Lisensmodell" [[{Lisensmodellar som kan knytast til ein lisens.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Handhevingstype" [[{Korleis ulike lisensmodellar kan handhevast.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Enhetstype" [[{Type digital eining.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Brukertype" [[{Dei ulike brukartypane som kan nytte lisensen.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Applikasjonskategori" [[{Kategori av applikasjonar.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Enhetsgruppemedlemskap" [[{Medlemskap mellom ei digital eining og ei einingsgruppe.}]] {
+    {field} id : uriorcurie  
+}
+class "Enhetsgruppe" [[{Ei gruppering av einsarta digitale einingar.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} organisasjonsenhet : uriorcurie  
+}
+class "Applikasjonsressurstilgjengelighet" [[{Kva organisasjonselements brukarar som har tilgang til ein ressurs.}]] {
+    {field} id : uriorcurie  
+    {field} lisensantall : integer  
+    {field} konsument : uriorcurie  
+}
+class "Applikasjonsressurs" [[{Informasjon om kor ein applikasjon kan nyttast (lisensressurs).}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} beskrivelse : string  
+    {field} enhetskostnad : integer  
+    {field} kreverGodkjenning : boolean  
+    {field} lisensantall : integer  
+    {field} eier : uriorcurie  
+}
+class "Applikasjon" [[{Ein applikasjon med tilhøyrande ressursar.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} beskrivelse : string  
+}
+"RessursContainer" *--> "0..*" "Produsent" : "produsentar"
+"RessursContainer" *--> "0..*" "Plattform" : "plattformar"
+"RessursContainer" *--> "0..*" "Lisensmodell" : "lisensmodellar"
+"RessursContainer" *--> "0..*" "Handhevingstype" : "handhaevingstypar"
+"RessursContainer" *--> "0..*" "Enhetstype" : "einingstypar"
+"RessursContainer" *--> "0..*" "Brukertype" : "brukertypar"
+"RessursContainer" *--> "0..*" "Applikasjonskategori" : "applikasjonskategoriar"
+"RessursContainer" *--> "0..*" "Identitet" : "identitetar"
+"RessursContainer" *--> "0..*" "Enhetsgruppemedlemskap" : "einingsgruppedmedlemskap"
+"RessursContainer" *--> "0..*" "Enhetsgruppe" : "einingsgrupper"
+"RessursContainer" *--> "0..*" "DigitalEnhet" : "digitaleEiningar"
+"RessursContainer" *--> "0..*" "Applikasjonsressurstilgjengelighet" : "applikasjonsressurstilgjengelegheit"
+"RessursContainer" *--> "0..*" "Applikasjonsressurs" : "applikasjonsressursar"
+"RessursContainer" *--> "0..*" "Applikasjon" : "applikasjonar"
+"Produsent" *--> "0..1" "Periode" : "gyldighetsperiode"
+"DigitalEnhet" --> "0..1" "Produsent" : "produsent"
+"DigitalEnhet" --> "0..1" "Produsent" : "produsent"(i)
+"Plattform" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Applikasjon" --> "0..*" "Plattform" : "plattform"
+"DigitalEnhet" --> "1" "Plattform" : "plattform"
+"Enhetsgruppe" --> "1" "Plattform" : "plattform"
+"Applikasjon" --> "0..1" "Plattform" : "plattform"(i)
+"DigitalEnhet" --> "0..1" "Plattform" : "plattform"(i)
+"Enhetsgruppe" --> "0..1" "Plattform" : "plattform"(i)
+class "Kontaktperson" [[{Kontaktperson (pårørande) til ein person.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Personnavn" [[{Namn på ein person.}]] {
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+class "Person" [[{Fysiske private personar.}]] {
+    {field} id : uriorcurie  
+    {field} bilde : string  
+    {field} fodselsdato : date  
+    {field} laerling : uriorcurie  [0..*]
+    {field} otungdom : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"
+"Person" *--> "1" "Personnavn" : "person_navn"
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"(i)
+"Person" *--> "0..1" "Personnavn" : "person_navn"(i)
+class "Elev" [[{Ein elev registrert i skulesystemet.}]] {
+    {field} id : uriorcurie  
+}
+class "Spraak" [[{Verdiar for språk (2 bokstavar).}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kjonn" [[{Verdiar for kjønn basert på ISO/IEC 5218.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kommune" [[{Liste over Norges kommunar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Landkode" [[{Landskode i ISO 3166-1 alpha-2 format.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Adresse" [[{Fysisk adresse eller postadresse.}]] {
+    {field} adresselinje : string  [0..*]
+    {field} postnummer : string  
+    {field} poststed : string  
+}
+abstract "Aktoer" [[{Abstrakt base for person eller eining vi samhandlar med.}]] {
+
+}
+"Person" --> "0..1" "Elev" : "elev"
+"Person" --> "0..1" "Spraak" : "morsmaal"
+"Person" --> "0..1" "Spraak" : "maalform"
+"Person" --> "0..*" "Person" : "foreldre"
+"Person" --> "0..*" "Person" : "foreldreansvar"
+"Person" --> "0..1" "Kjonn" : "kjonn"
+"Person" --> "0..1" "Kommune" : "kommune"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"
+"Person" --> "0..*" "Kontaktperson" : "parorende"
+"Person" *--> "1" "Identifikator" : "fodselsnummer"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"
+"Elev" --> "0..1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"(i)
+"Elev" --> "0..1" "Person" : "person"(i)
+"Aktoer" ^-- "Person"
+abstract "Begrep" [[{Abstrakt fellesbase for alle FINT-kodeverk.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Person" --> "0..1" "Spraak" : "maalform"(i)
+"Person" --> "0..1" "Spraak" : "morsmaal"(i)
+"Begrep" ^-- "Spraak"
+"Applikasjon" *--> "1" "Periode" : "gyldighetsperiode"
+"Applikasjonskategori" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Applikasjonsressurs" *--> "1" "Periode" : "gyldighetsperiode"
+"Applikasjonsressurstilgjengelighet" *--> "1" "Periode" : "gyldighetsperiode"
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Brukertype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Enhetstype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Handhevingstype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Lisensmodell" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Applikasjon" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Applikasjonsressurs" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Applikasjonsressurstilgjengelighet" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Rettighet" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Applikasjonskategori" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Brukertype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Enhetstype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Handhevingstype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Lisensmodell" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Plattform" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Produsent" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Status" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Identifikator" *--> "0..1" "Periode" : "gyldighetsperiode"
+class "Matrikkelnummer" [[{Eintydleg identifisering av matrikkeleining innanfor kommune.}]] {
+    {field} bruksnummer : string  
+    {field} festenummer : string  
+    {field} gaardsnummer : string  
+    {field} seksjonsnummer : string  
+}
+"Matrikkelnummer" --> "0..1" "Kommune" : "kommunenummer"
+"Matrikkelnummer" *--> "0..1" "Adresse" : "adresse"
+"Applikasjonsressurs" --> "0..1" "Lisensmodell" : "lisensmodell"
+"Applikasjonsressurs" --> "0..1" "Lisensmodell" : "lisensmodell"(i)
+"Adresse" --> "0..1" "Landkode" : "land"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"(i)
+"Begrep" ^-- "Landkode"
+class "Kontaktinformasjon" [[{Informasjon som kan brukast for å oppnå kontakt.}]] {
+    {field} epostadresse : string  
+    {field} mobiltelefonnummer : string  
+    {field} nettsted : string  
+    {field} sip : string  
+    {field} telefonnummer : string  
+}
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Person" --> "0..*" "Kontaktperson" : "parorende"(i)
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+class "Fylke" [[{Liste over Norges fylker.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Kommune" --> "1" "Fylke" : "fylke"
+"Fylke" --> "0..*" "Kommune" : "kommune"
+"Fylke" --> "0..1" "Kommune" : "kommune"(i)
+"Person" --> "0..1" "Kommune" : "kommune"(i)
+"Begrep" ^-- "Kommune"
+"Person" --> "0..1" "Kjonn" : "kjonn"(i)
+"Begrep" ^-- "Kjonn"
+"Rettighet" --> "0..*" "Identitet" : "identitet"(i)
+abstract "Enhet" [[{Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.}]] {
+    {field} organisasjonsnavn : string  
+}
+class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenester.}]] {
+    {field} id : uriorcurie  
+    {field} laerling : uriorcurie  [0..*]
+    {field} organisasjonsnavn(i) : string  
+}
+"DigitalEnhet" *--> "0..1" "Identifikator" : "dataobjektId"
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Virksomhet" *--> "1" "Identifikator" : "virksomhetsId"
+"Valuta" *--> "0..1" "Identifikator" : "bokstavkode"(i)
+"DigitalEnhet" *--> "0..1" "Identifikator" : "dataobjektId"(i)
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"(i)
+"Person" *--> "0..1" "Identifikator" : "fodselsnummer"(i)
+"Valuta" *--> "0..1" "Identifikator" : "nummerkode"(i)
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Virksomhet" *--> "0..1" "Identifikator" : "virksomhetsId"(i)
+"Enhet" ^-- "Virksomhet"
+"Applikasjonsressurs" --> "0..1" "Handhevingstype" : "handhevingstype"
+"Applikasjonsressurs" --> "0..1" "Handhevingstype" : "handhevingstype"(i)
+"Kommune" --> "0..1" "Fylke" : "fylke"(i)
+"Begrep" ^-- "Fylke"
+"DigitalEnhet" --> "1" "Enhetstype" : "enhetstype"
+"Enhetsgruppe" --> "1" "Enhetstype" : "enhetstype"
+"DigitalEnhet" --> "0..1" "Enhetstype" : "enhetstype"(i)
+"Enhetsgruppe" --> "0..1" "Enhetstype" : "enhetstype"(i)
+"Enhetsgruppemedlemskap" --> "1" "Enhetsgruppe" : "enhetsgruppe"
+"Enhetsgruppemedlemskap" --> "1" "DigitalEnhet" : "digitalEnhet"
+"DigitalEnhet" --> "0..*" "Enhetsgruppemedlemskap" : "enhetsgruppemedlemskap"
+"Enhetsgruppe" --> "0..*" "Enhetsgruppemedlemskap" : "enhetsgruppemedlemskap"
+"DigitalEnhet" --> "0..*" "Enhetsgruppemedlemskap" : "enhetsgruppemedlemskap"(i)
+"Enhetsgruppe" --> "0..*" "Enhetsgruppemedlemskap" : "enhetsgruppemedlemskap"(i)
+"Enhetsgruppemedlemskap" --> "0..1" "Enhetsgruppe" : "enhetsgruppe"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"
+"Aktoer" ^-- "Enhet"
+"DigitalEnhet" --> "0..1" "Elev" : "elev"
+"DigitalEnhet" --> "0..1" "Elev" : "elev"(i)
+"Person" --> "0..1" "Elev" : "elev"(i)
+"Enhetsgruppemedlemskap" --> "0..1" "DigitalEnhet" : "digitalEnhet"(i)
+"Applikasjonsressurs" --> "1..*" "Brukertype" : "brukertype"
+"Applikasjonsressurs" --> "0..*" "Brukertype" : "brukertype"(i)
+"Applikasjonsressurstilgjengelighet" --> "1" "Applikasjonsressurs" : "ressursRef"
+"Applikasjonsressurs" --> "0..*" "Applikasjonsressurstilgjengelighet" : "ressurstilgjengelighet"
+"Applikasjonsressurs" --> "0..*" "Applikasjonsressurstilgjengelighet" : "ressurstilgjengelighet"(i)
+"Applikasjonsressurs" --> "1" "Applikasjon" : "applikasjon"
+"Applikasjon" --> "0..*" "Applikasjonsressurs" : "applikasjonsressurs"
+"Applikasjon" --> "0..*" "Applikasjonsressurs" : "applikasjonsressurs"(i)
+"Applikasjonsressurstilgjengelighet" --> "0..1" "Applikasjonsressurs" : "ressursRef"(i)
+"Applikasjon" --> "0..*" "Applikasjonskategori" : "applikasjonskategori"
+"Applikasjon" --> "0..*" "Applikasjonskategori" : "applikasjonskategori"(i)
+"Applikasjonsressurs" --> "0..1" "Applikasjon" : "applikasjon"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"(i)
+@enduml

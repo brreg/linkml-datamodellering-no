@@ -9,30 +9,38 @@ schema1:Thing a sh:NodeShape ;
 """ ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
+    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjer> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler> ],
+            sh:order 6 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter> ],
         [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> ;
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs> ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 16 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_overkurser> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> ;
             sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:utdelinger> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> ;
+            sh:order 11 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> ;
             sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet> ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital> ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 15 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter> ],
+            sh:order 12 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager> ],
         [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
@@ -41,42 +49,34 @@ schema1:Thing a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier> ;
+            sh:order 14 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:utdelinger> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet> ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag> ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs> ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 16 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_overkurser> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter> ],
+            sh:order 4 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter> ],
         [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte> ;
             sh:nodeKind sh:IRI ;
             sh:order 13 ;
             sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital> ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 15 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler> ] ;
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjer> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier> ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere> ] ;
     sh:targetClass schema1:Thing .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Tidspunkt> a sh:NodeShape ;
@@ -95,12 +95,7 @@ schema1:Thing a sh:NodeShape ;
     rdfs:comment "Person eller organisasjon som eig aksjar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
+    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
             sh:description "Eierposisjon aksjeeigaren har." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -111,7 +106,12 @@ schema1:Thing a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
+        [ sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet> a sh:NodeShape ;
@@ -123,36 +123,25 @@ schema1:Thing a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg forklaring av instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse> ],
         [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
             sh:description "Rettigheiter knytt til aksjeklassen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg forklaring av instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> a sh:NodeShape ;
     rdfs:comment "Selskap som utsteder aksjar og har aksjekapital." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Namn på instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
-        [ sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
+    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
             sh:description "Aksje utstedt av selskapet" ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -163,7 +152,18 @@ schema1:Thing a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
+        [ sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> a sh:NodeShape ;
@@ -175,6 +175,12 @@ schema1:Thing a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+        [ sh:datatype xsd:date ;
+            sh:description "Tidspunkt for utbytte/eierskapstransaksjon." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
         [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> ;
             sh:description "Aksjeoverdraging i transaksjonen." ;
             sh:maxCount 1 ;
@@ -187,12 +193,6 @@ schema1:Thing a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Tidspunkt for utbytte/eierskapstransaksjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
         [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
             sh:description "Eierskapstransaksjon knytt til eigarposisjonen." ;
             sh:maxCount 1 ;
@@ -229,29 +229,29 @@ schema1:Thing a sh:NodeShape ;
     rdfs:comment "Utbytte knytt til ein eigarposisjon." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> ;
-            sh:description "Utdeling knytt til utbyttet." ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Tidspunkt for utbytte/eierskapstransaksjon." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling> ],
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
         [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
             sh:description "Utbytte knytt til eigarposisjonen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Tidspunkt for utbytte/eierskapstransaksjon." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
         [ sh:description "Global identifikator for instansen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> ;
+            sh:description "Utdeling knytt til utbyttet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> a sh:NodeShape ;
@@ -281,12 +281,7 @@ schema1:Thing a sh:NodeShape ;
     rdfs:comment "Innskot knytt til aksjar i samband med selskapshending." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:datatype xsd:decimal ;
+    sh:property [ sh:datatype xsd:decimal ;
             sh:description "Innbetalt overkurs." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -297,24 +292,29 @@ schema1:Thing a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ],
+        [ sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> a sh:NodeShape ;
     rdfs:comment "Den registrerte aksjekapitalen i eit aksjeselskap." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description "Tal aksjar." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ],
+        [ sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> a sh:NodeShape ;
@@ -338,13 +338,7 @@ schema1:Thing a sh:NodeShape ;
     rdfs:comment "Samling aksjar eigd av ein aksjeeigar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
-            sh:description "Rettigheiter knytt til aksjeklassen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
-        [ sh:description "Global identifikator for instansen." ;
+    sh:property [ sh:description "Global identifikator for instansen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
@@ -354,24 +348,30 @@ schema1:Thing a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ],
+        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
+            sh:description "Rettigheiter knytt til aksjeklassen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> a sh:NodeShape ;
     rdfs:comment "Hending som påverkar selskapet sitt eigarskap eller kapital." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
+    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
             sh:description "Aksjeinnskot i selskapshending." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ],
+        [ sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> a sh:NodeShape ;
@@ -412,34 +412,34 @@ schema1:Thing a sh:NodeShape ;
     rdfs:comment "Klasse aksjar høyrer til, med eigne rettigheiter." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Namn på instansen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
+        [ sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> .
 
 <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> a sh:NodeShape ;
     rdfs:comment "Eierens samla posisjon i eit selskap." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Global identifikator for instansen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> ;
+    sh:property [ sh:class <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> ;
             sh:description "Aksjepost som inngår i eigarposisjonen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost> ] ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost> ],
+        [ sh:description "Global identifikator for instansen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
     sh:targetClass <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> .
 
 

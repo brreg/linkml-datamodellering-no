@@ -1,0 +1,84 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Klassifikasjon" [[{Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassifisere data (skos:ConceptScheme).}]] {
+    {field} id : uriorcurie  
+    {field} identifikator_literal : string  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [0..*]
+    {field} nokkelord : LangString  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} har_versjonsnummer : string  
+    {field} endringsdato : date  
+    {field} utgivelsesdato : date  
+    {field} heimeside : uri  [0..*]
+    {field} antall_nivaa : NonNegativeInteger  
+}
+class "Tidsrom" [[{Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime).}]] {
+    {field} id : uriorcurie  
+    {field} tidsrom_start : date  
+    {field} tidsrom_slutt : date  
+}
+"Klassifikasjon" --> "0..1" "Tidsrom" : "gjeld_for_tidsrom"
+"Klassifikasjon" --> "0..1" "Tidsrom" : "gjeld_for_tidsrom"(i)
+class "Organisasjon" [[{Ein organisasjon eller aktør (foaf:Agent).}]] {
+    {field} id : uriorcurie  
+}
+class "Klassifikasjonssamanlikning" [[{Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence).}]] {
+    {field} id : uriorcurie  
+    {field} identifikator_literal : string  
+    {field} tittel : LangString  [1..*]
+}
+"Klassifikasjon" --> "1" "Organisasjon" : "utgjevar"
+"Klassifikasjonssamanlikning" --> "1" "Organisasjon" : "utgjevar"
+"Klassifikasjon" --> "0..1" "Organisasjon" : "utgjevar"(i)
+"Klassifikasjonssamanlikning" --> "0..1" "Organisasjon" : "utgjevar"(i)
+class "Mediatype" [[{Ein medietype eller filformat (dct:MediaTypeOrExtent).}]] {
+    {field} id : uriorcurie  
+}
+class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.}]] {
+    {field} id : uriorcurie  
+}
+"Klassifikasjon" --> "0..*" "Konsept" : "tema"
+"Klassifikasjon" --> "0..*" "Konsept" : "tema"(i)
+class "Kategorisamanlikning" [[{Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:ConceptAssociation).}]] {
+    {field} id : uriorcurie  
+}
+"Klassifikasjonssamanlikning" --> "1..*" "Kategorisamanlikning" : "bestar_av"
+"Klassifikasjonssamanlikning" --> "1..*" "Klassifikasjon" : "samanliknar"
+class "Klassifikasjonsnivaa" [[{Eit nivå i ein klassifikasjon (xkos:ClassificationLevel).}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [0..*]
+    {field} nivaa_djupn : NonNegativeInteger  
+}
+class "Kategori" [[{Ein kategori i ein klassifikasjon (skos:Concept).}]] {
+    {field} id : uriorcurie  
+    {field} anbefalt_term : LangString  [1..*]
+    {field} har_notat : LangString  [0..*]
+}
+"Klassifikasjonsnivaa" --> "0..*" "Klassifikasjonsnivaa" : "underordna_klassifikasjonsnivaa"
+"Klassifikasjonsnivaa" --> "1..*" "Kategori" : "har_medlem"
+"Kategori" --> "0..1" "Klassifikasjonsnivaa" : "tilhorande_klassifikasjonsnivaa"
+"Klassifikasjon" --> "0..*" "Klassifikasjonsnivaa" : "forste_nivaa"
+"Klassifikasjon" --> "0..*" "Klassifikasjonsnivaa" : "forste_nivaa"(i)
+"Kategori" --> "0..1" "Klassifikasjonsnivaa" : "tilhorande_klassifikasjonsnivaa"(i)
+"Klassifikasjon" --> "0..*" "Klassifikasjon" : "er_samanlikna_med"
+"Kategori" --> "1" "Klassifikasjon" : "er_i_klassifikasjon"
+"Kategori" --> "0..1" "Klassifikasjon" : "er_i_klassifikasjon"(i)
+"Klassifikasjonssamanlikning" --> "0..*" "Klassifikasjon" : "samanliknar"(i)
+"Kategorisamanlikning" --> "0..1" "Kategori" : "maalomgrep"
+"Kategorisamanlikning" --> "0..1" "Kategori" : "kjeldeomgrep"
+"Klassifikasjonssamanlikning" --> "0..*" "Kategorisamanlikning" : "bestar_av"(i)
+"Kategori" --> "0..*" "Kategori" : "er_ikkje_ekvivalent_med"
+"Kategori" --> "0..*" "Kategori" : "er_eksklusivt_ekvivalent_med"
+"Kategori" --> "0..*" "Kategori" : "er_ekvivalent_med"
+"Kategori" --> "0..*" "Kategori" : "underordna_kategori"
+"Kategori" --> "0..*" "Kategori" : "overordna_kategori"
+"Klassifikasjonsnivaa" --> "0..*" "Kategori" : "har_medlem"(i)
+"Kategorisamanlikning" --> "0..1" "Kategori" : "kjeldeomgrep"(i)
+"Kategorisamanlikning" --> "0..1" "Kategori" : "maalomgrep"(i)
+class "Begrepssamling" [[{Ei SKOS-omgrepssamling (temavokabular).}]] {
+    {field} id : uriorcurie  
+}
+@enduml

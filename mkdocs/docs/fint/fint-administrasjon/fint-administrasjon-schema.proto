@@ -1,0 +1,619 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 4.0.20
+// Rotcontainer for FINT Administrasjon-instansar.
+message AdministrasjonContainer
+ {
+ repeated  person personar = 0
+ repeated  kontaktperson kontaktpersonar = 0
+ repeated  virksomhet virksomhetar = 0
+ repeated  landkode landkodar = 0
+  string kjonn = 0
+  string fylke = 0
+ repeated  kommune kommunar = 0
+ repeated  spraak spraak = 0
+ repeated  valuta valuta = 0
+ repeated  personalressurs personalressursar = 0
+  arbeidsforhold arbeidsforhold = 0
+ repeated  arbeidslokasjon arbeidslokasjoner = 0
+  fastlonn fastlonn = 0
+  fasttillegg fasttillegg = 0
+  fravaer fravaer = 0
+ repeated  fullmakt fullmakter = 0
+  organisasjonselement organisasjonselement = 0
+ repeated  rolle rollar = 0
+  variabellonn variabellonn = 0
+ repeated  aktivitet aktivitetar = 0
+  anlegg anlegg = 0
+  ansvar ansvar = 0
+ repeated  art artar = 0
+ repeated  arbeidsforholdstype arbeidsforholdstypar = 0
+  diverse diverse = 0
+  formaal formaal = 0
+ repeated  fravaersgrunn fravaersgrunnar = 0
+ repeated  fravaerstype fravaerstypar = 0
+ repeated  funksjon funksjonar = 0
+ repeated  kontrakt kontrakter = 0
+ repeated  lonsart lonsartar = 0
+  lopenummer lopenummer = 0
+  objekt objekt = 0
+ repeated  organisasjonstype organisasjonstypar = 0
+ repeated  personalressurskategori personalressurskategoriar = 0
+  prosjekt prosjekt = 0
+ repeated  prosjektart prosjektartar = 0
+ repeated  ramme rammer = 0
+ repeated  stillingskode stillingskoder = 0
+ repeated  uketimetall uketimetall = 0
+ }
+// Fysisk adresse eller postadresse.
+message Adresse
+ {
+ repeated  string adresselinje = 0
+  string postnummer = 0
+  string poststed = 0
+  landkode land = 0
+ }
+// Del av kontostrengen og detaljering av funksjon.
+message Aktivitet
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Del av kontostrengen; objekt som skal aktiverast eller avskrivast.
+message Anlegg
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller inntekt.
+message Ansvar
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  ansvar overordnet = 0
+ repeated  ansvar underordnet = 0
+ repeated  organisasjonselement organisasjonselement = 0
+ }
+// Eit avtaleforhold mellom personalressurs og arbeidsgjevar.
+message Arbeidsforhold
+ {
+  uriorcurie id = 0
+  integer ansettelsesprosent = 0
+  periode arbeidsforholdsperiode = 0
+  integer aarslonn = 0
+  periode gyldighetsperiode = 0
+  boolean hovedstilling = 0
+  integer lonnsprosent = 0
+  string stillingsnummer = 0
+  string stillingstittel = 0
+  integer tilstedeprosent = 0
+  aktivitet aktivitet = 0
+  anlegg anlegg = 0
+  ansvar ansvar = 0
+  arbeidsforholdstype arbeidsforholdstype = 0
+  art art = 0
+  diverse diverse = 0
+  formaal formaal = 0
+  funksjon funksjon = 0
+  kontrakt kontrakt = 0
+  lopenummer lopenummer = 0
+  objekt objekt = 0
+  prosjekt prosjekt = 0
+  ramme ramme = 0
+  stillingskode stillingskode = 0
+  uketimetall timerPerUke = 0
+  arbeidslokasjon arbeidslokasjon = 0
+  organisasjonselement arbeidssted = 0
+ repeated  fastlonn fastlonn = 0
+ repeated  fasttillegg fasttillegg = 0
+ repeated  fravaer fravaer = 0
+ repeated  variabellonn variabellonn = 0
+  personalressurs personalressurs = 0
+  personalressurs personalleder = 0
+  uriorcurie undervisningsforhold = 0
+ }
+// Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer.
+message Arbeidsforholdstype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  arbeidsforholdstype forelder = 0
+ }
+// Fysisk lokasjon der ein tilsett har sitt arbeidsstad.
+message Arbeidslokasjon
+ {
+  uriorcurie id = 0
+  identifikator lokasjonskode = 0
+  string lokasjonsnavn = 0
+  adresse forretningsadresse = 0
+  string organisasjonsnavn = 0
+  identifikator organisasjonsnummer = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+ repeated  arbeidsforhold arbeidsforhold = 0
+ }
+// Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld.
+message Art
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Del av kontostrengen; supplement til øvrige dimensjonar.
+message Diverse
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein elev registrert i skulesystemet.
+message Elev
+ {
+  uriorcurie id = 0
+  identifikator elevnummer = 0
+  person person = 0
+ }
+// Informasjon om fast lønnsbeordring.
+message Fastlonn
+ {
+  uriorcurie id = 0
+  datetime anvist = 0
+  datetime attestert = 0
+  string beskrivelse = 0
+  identifikator kildesystemId = 0
+  datetime kontert = 0
+  kontostreng kontostreng = 0
+  periode opptjent = 0
+  periode periode = 0
+  personalressurs anviser = 0
+  personalressurs konterer = 0
+  personalressurs attestant = 0
+  integer prosent = 0
+  lonsart lonsart = 0
+  arbeidsforhold arbeidsforhold = 0
+ }
+// Faste tillegg til utbetaling.
+message Fasttillegg
+ {
+  uriorcurie id = 0
+  datetime anvist = 0
+  datetime attestert = 0
+  string beskrivelse = 0
+  identifikator kildesystemId = 0
+  datetime kontert = 0
+  kontostreng kontostreng = 0
+  periode opptjent = 0
+  periode periode = 0
+  personalressurs anviser = 0
+  personalressurs konterer = 0
+  personalressurs attestant = 0
+  integer belop = 0
+  lonsart lonsart = 0
+  arbeidsforhold arbeidsforhold = 0
+ }
+// Del av kontostrengen som detaljerer inntekter og utgifter ved drift.
+message Formaal
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Fråvær frå eit arbeidsforhold.
+message Fravaer
+ {
+  uriorcurie id = 0
+  datetime godkjent = 0
+  identifikator kildesystemId = 0
+  periode periode = 0
+  integer prosent = 0
+  fravaersgrunn fravaersgrunn = 0
+  fravaerstype fravaerstype = 0
+ repeated  arbeidsforhold arbeidsforhold = 0
+  fravaer fortsettelse = 0
+  fravaer fortsetter = 0
+  personalressurs godkjenner = 0
+ }
+// Grunn til fråvær.
+message Fravaersgrunn
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Type fråvær.
+message Fravaerstype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  boolean overfores = 0
+  lonsart lonsart = 0
+ }
+// Fullmakt til å gjere handlingar i høve til ei gjeven Rolle.
+message Fullmakt
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  ramme ramme = 0
+  funksjon funksjon = 0
+  objekt objekt = 0
+  organisasjonselement organisasjonselement = 0
+  art art = 0
+  anlegg anlegg = 0
+  diverse diverse = 0
+  aktivitet aktivitet = 0
+  ansvar ansvar = 0
+  personalressurs stedfortreder = 0
+  kontrakt kontrakt = 0
+  personalressurs fullmektig = 0
+  prosjekt prosjekt = 0
+  formaal formaal = 0
+  rolle rolle = 0
+  lopenummer lopenummer = 0
+ }
+// Del av kontostrengen som beskriv kva som vert produsert.
+message Funksjon
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  funksjon overordnet = 0
+ repeated  funksjon underordnet = 0
+ }
+// Liste over Norges fylker.
+message Fylke
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  kommune kommune = 0
+ }
+// Unik identifikasjon til eit objekt.
+message Identifikator
+ {
+  string identifikatorverdi = 0
+  periode gyldighetsperiode = 0
+ }
+// Verdiar for kjønn basert på ISO/IEC 5218.
+message Kjonn
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Liste over Norges kommunar.
+message Kommune
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  fylke fylke = 0
+ }
+// Informasjon som kan brukast for å oppnå kontakt.
+message Kontaktinformasjon
+ {
+  string epostadresse = 0
+  string mobiltelefonnummer = 0
+  string nettsted = 0
+  string sip = 0
+  string telefonnummer = 0
+ }
+// Kontaktperson (pårørande) til ein person.
+message Kontaktperson
+ {
+  uriorcurie id = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  personnavn kontaktpersonNavn = 0
+  string type = 0
+ repeated  person kontaktperson = 0
+ }
+// Sammensetning av kontodimensjonar for bokføring.
+message Kontostreng
+ {
+  aktivitet aktivitet = 0
+  anlegg anlegg = 0
+  ansvar ansvar = 0
+  art art = 0
+  diverse diverse = 0
+  formaal formaal = 0
+  funksjon funksjon = 0
+  kontrakt kontrakt = 0
+  lopenummer lopenummer = 0
+  objekt objekt = 0
+  prosjekt prosjekt = 0
+  prosjektart prosjektart = 0
+  ramme ramme = 0
+ }
+// Kontrakt transaksjonen er knytt til.
+message Kontrakt
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Landskode i ISO 3166-1 alpha-2 format.
+message Landkode
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Type ytelse.
+message Lonsart
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  string kategori = 0
+  art art = 0
+ }
+// Løpenummer i ei nummerserie.
+message Lopenummer
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eintydleg identifisering av matrikkeleining innanfor kommune.
+message Matrikkelnummer
+ {
+  adresse adresse = 0
+  string bruksnummer = 0
+  string festenummer = 0
+  string gaardsnummer = 0
+  string seksjonsnummer = 0
+  kommune kommunenummer = 0
+ }
+// Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott.
+message Objekt
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eit element i organisasjonsstrukturen.
+message Organisasjonselement
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  string kortnavn = 0
+  string navn = 0
+  identifikator organisasjonsId = 0
+  identifikator organisasjonsKode = 0
+  adresse forretningsadresse = 0
+  string organisasjonsnavn = 0
+  identifikator organisasjonsnummer = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+ repeated  ansvar ansvar = 0
+  organisasjonstype organisasjonstype = 0
+  personalressurs leder = 0
+  organisasjonselement overordnet = 0
+ repeated  organisasjonselement underordnet = 0
+  uriorcurie skole = 0
+ repeated  arbeidsforhold arbeidsforhold = 0
+ }
+// Typen til eit organisasjonselement.
+message Organisasjonstype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Tidsperiode med obligatorisk start og valfri slutt.
+message Periode
+ {
+  string beskrivelse = 0
+  datetime start = 0
+  datetime slutt = 0
+ }
+// Fysiske private personar.
+message Person
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  uriorcurie id = 0
+  string bilde = 0
+  adresse bostedsadresse = 0
+  date fodselsdato = 0
+  identifikator fodselsnummer = 0
+  personnavn personNavn = 0
+ repeated  kontaktperson parorende = 0
+ repeated  landkode statsborgerskap = 0
+  kommune kommune = 0
+  kjonn kjonn = 0
+ repeated  person foreldreansvar = 0
+ repeated  person foreldre = 0
+  spraak maalform = 0
+  spraak morsmaal = 0
+ repeated  uriorcurie laerling = 0
+  elev elev = 0
+  uriorcurie otungdom = 0
+  uriorcurie personalressurs = 0
+ }
+// Arbeidstakar eller oppdragstakar i organisasjonen.
+message Personalressurs
+ {
+  uriorcurie id = 0
+  identifikator ansattnummer = 0
+  periode ansettelsesperiode = 0
+  date ansiennitet = 0
+  identifikator brukernavn = 0
+  string jobbtittel = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  person person = 0
+ repeated  fullmakt stedfortreder = 0
+ repeated  fullmakt fullmakt = 0
+  personalressurskategori personalressurskategori = 0
+ repeated  organisasjonselement lederFor = 0
+ repeated  arbeidsforhold arbeidsforhold = 0
+ repeated  arbeidsforhold personalansvar = 0
+  uriorcurie skoleressurs = 0
+ }
+// Ansettelsesform til eit arbeidsforhold.
+message Personalressurskategori
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Namn på ein person.
+message Personnavn
+ {
+  string fornavn = 0
+  string mellomnavn = 0
+  string etternavn = 0
+ }
+// Del av kontostrengen som peikar på løpande prosjekt.
+message Prosjekt
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  prosjektart prosjektart = 0
+ }
+// Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur.
+message Prosjektart
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  prosjekt prosjekt = 0
+  prosjektart overordnet = 0
+ repeated  prosjektart underordnet = 0
+ }
+// Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane.
+message Ramme
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Rettighet eller type fullmakt.
+message Rolle
+ {
+  uriorcurie id = 0
+  identifikator rolleNavn = 0
+  string beskrivelse = 0
+ repeated  fullmakt fullmakt = 0
+ }
+// Verdiar for språk (2 bokstavar).
+message Spraak
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Felles kodeverk for stillingar.
+message Stillingskode
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  stillingskode forelder = 0
+ }
+// Timer per veke i 100 % stilling.
+message Uketimetall
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Valutakodar for offisielle valutaer.
+message Valuta
+ {
+  uriorcurie id = 0
+  identifikator bokstavkode = 0
+  string valutaNavn = 0
+  identifikator nummerkode = 0
+ }
+// Informasjon om variabel lønn.
+message Variabellonn
+ {
+  uriorcurie id = 0
+  datetime anvist = 0
+  datetime attestert = 0
+  string beskrivelse = 0
+  identifikator kildesystemId = 0
+  datetime kontert = 0
+  kontostreng kontostreng = 0
+  periode opptjent = 0
+  periode periode = 0
+  personalressurs anviser = 0
+  personalressurs konterer = 0
+  personalressurs attestant = 0
+  integer antall = 0
+  integer belop = 0
+  lonsart lonsart = 0
+  arbeidsforhold arbeidsforhold = 0
+ }
+// Ein juridisk organisasjon som produserer varer eller tenester.
+message Virksomhet
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  adresse forretningsadresse = 0
+  string organisasjonsnavn = 0
+  identifikator organisasjonsnummer = 0
+  uriorcurie id = 0
+  identifikator virksomhetsId = 0
+ repeated  uriorcurie laerling = 0
+ }
+

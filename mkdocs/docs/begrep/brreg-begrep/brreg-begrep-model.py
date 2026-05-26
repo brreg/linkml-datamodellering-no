@@ -1,5 +1,5 @@
 # Auto generated from brreg-begrep-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-24T08:20:15
+# Generation date: 2026-05-24T12:07:29
 # Schema: brreg-begrep
 #
 # id: https://data.norge.no/linkml/brreg-begrep

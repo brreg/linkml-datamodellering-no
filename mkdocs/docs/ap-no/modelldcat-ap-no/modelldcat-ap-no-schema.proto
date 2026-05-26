@@ -1,0 +1,513 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 1.0
+// Ein abstraksjon — ein forenkling som representerer eit modellelement.
+message Abstraksjon
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+  modellelement erAbstraksjonAv = 0
+ }
+// Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
+message Aktor
+ {
+  uriorcurie id = 0
+ repeated  langString namnAktor = 0
+  string identifikatorLiteral = 0
+  konsept typeConcept = 0
+ }
+// Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).
+message AlleAv
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+ repeated  modellelement harNoe = 0
+ }
+// Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.
+message Assosiasjon
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+  modellelement referererTil = 0
+ }
+// Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.
+message Attributt
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+ repeated  datatype harDatatype = 0
+ repeated  enkelType harEnkelType = 0
+ repeated  kodeliste harVerdiFra = 0
+ repeated  objekttype inneholderObjekttype = 0
+ }
+// Ein avhengighet — ein relasjon der det eine modellelementet avheng av det andre.
+message Avhengighet
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+  modellelement avhengigAv = 0
+ }
+// Ei SKOS-omgrepssamling (temavokabular).
+message Begrepssamling
+ {
+  uriorcurie id = 0
+ }
+// Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.
+message Betingelsesregel
+ {
+  uriorcurie id = 0
+ repeated  modellelement annoterer = 0
+ repeated  langString eigenskapsmerknad = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+ repeated  modul tilhorerModul = 0
+ repeated  modellelement betinger = 0
+ repeated  langString betingelsesuttrykk = 0
+ }
+// Ein datatype — ein strukturert samansett type.
+message Datatype
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+ repeated  eigenskap harEigenskap = 0
+ repeated  langString beskrivelse = 0
+ repeated  modul tilhorerModul = 0
+ }
+// Eit dokument (foaf:Document).
+message Dokument
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  spraak spraak = 0
+  string format = 0
+ }
+// Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.
+message Eller
+ {
+  uriorcurie id = 0
+ repeated  modellelement annoterer = 0
+ repeated  langString eigenskapsmerknad = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+ repeated  modul tilhorerModul = 0
+ repeated  modellelement betinger = 0
+ repeated  langString betingelsesuttrykk = 0
+ }
+// Ein enkel type med restriksjonar (xsd-fasettar).
+message EnkelType
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+ repeated  eigenskap harEigenskap = 0
+ repeated  langString beskrivelse = 0
+ repeated  modul tilhorerModul = 0
+  uri typedefinisjonReferanse = 0
+  nonNegativeInteger fraksjonssifre = 0
+  nonNegativeInteger lengde = 0
+  string maksEksklusiv = 0
+  string maksInklusiv = 0
+  nonNegativeInteger maksLengde = 0
+  string minEksklusiv = 0
+  string minInklusiv = 0
+  nonNegativeInteger minLengde = 0
+  string monster = 0
+  nonNegativeInteger totaltSifre = 0
+ }
+// Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.
+message Ikke
+ {
+  uriorcurie id = 0
+ repeated  modellelement annoterer = 0
+ repeated  langString eigenskapsmerknad = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+ repeated  modul tilhorerModul = 0
+ repeated  modellelement betinger = 0
+ repeated  langString betingelsesuttrykk = 0
+ }
+// Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:InformationModel).
+message Informasjonsmodell
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  aktor utgiver = 0
+ repeated  konsept begrep = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+  string informasjonsmodellidentifikator = 0
+ repeated  modellelement inneholderModellelement = 0
+ repeated  kontaktopplysning kontaktpunkt = 0
+  lisensdokument lisens = 0
+ repeated  konsept tema = 0
+ repeated  konsept dekningsomraade = 0
+  date endringsdato = 0
+ repeated  informasjonsmodell erDelAvModell = 0
+ repeated  standard erProfilAv = 0
+ repeated  informasjonsmodell erErstattaAv = 0
+ repeated  informasjonsmodell erstatter = 0
+ repeated  informasjonsmodell harDelModell = 0
+ repeated  dokument harFormat = 0
+ repeated  tidsperiode tidsperiode = 0
+ repeated  uri heimeside = 0
+ repeated  standard erISamsvarMed = 0
+  konsept status = 0
+ repeated  langString nokkelord = 0
+  aktor skapar = 0
+ repeated  spraak spraak = 0
+  konsept typeConcept = 0
+  date utgivelsesdato = 0
+  string harVersjonsnummer = 0
+ repeated  langString versjonsmerknad = 0
+ }
+// Basisklasse for ressursar som kan katalogiserast (dcat:Resource).
+message KatalogisertRessurs
+ {
+  uriorcurie id = 0
+ }
+// Eit element i ei kodeliste (modelldcatno:CodeElement).
+message Kodeelement
+ {
+  uriorcurie id = 0
+ repeated  kodeliste iSkjema = 0
+  string notasjon = 0
+ repeated  langString anbefaltTerm = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+ repeated  kodeliste toppBegrepAv = 0
+ repeated  langString definisjon = 0
+ repeated  langString eksempelKode = 0
+ repeated  langString eksklusjonsnotat = 0
+  kodeelement forrige = 0
+ repeated  langString skjultTerm = 0
+ repeated  langString inklusjonsnotat = 0
+ repeated  langString notat = 0
+  kodeelement neste = 0
+ repeated  langString omfangsnotat = 0
+ repeated  langString alternativTerm = 0
+ }
+// Ei kodeliste — eit kontrollert vokabular av tillate verdiar.
+message Kodeliste
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+ repeated  eigenskap harEigenskap = 0
+ repeated  langString beskrivelse = 0
+ repeated  modul tilhorerModul = 0
+ repeated  uri harReferanse = 0
+ }
+// Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
+message Konsept
+ {
+  uriorcurie id = 0
+ }
+// Kontaktinformasjon (vcard:Organization).
+message Kontaktopplysning
+ {
+  uriorcurie id = 0
+ }
+// Eit lisensdokument (dct:LicenseDocument).
+message Lisensdokument
+ {
+  uriorcurie id = 0
+  konsept typeConcept = 0
+ }
+// Eit geografisk område (dct:Location).
+message Lokasjon
+ {
+  uriorcurie id = 0
+ }
+// Ein medietype eller filformat (dct:MediaTypeOrExtent).
+message Mediatype
+ {
+  uriorcurie id = 0
+ }
+// Ei merknad knytt til eit modellelement eller eigenskap.
+message Merknad
+ {
+  uriorcurie id = 0
+ repeated  modellelement annoterer = 0
+ repeated  langString eigenskapsmerknad = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+ repeated  modul tilhorerModul = 0
+ }
+// Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
+message Modelkatalog
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+ repeated  katalogisertRessurs harDel = 0
+  string identifikatorLiteral = 0
+ repeated  kontaktopplysning kontaktpunkt = 0
+  aktor utgiver = 0
+  date endringsdato = 0
+ repeated  uri heimeside = 0
+  lisensdokument lisens = 0
+ repeated  informasjonsmodell modell = 0
+ repeated  spraak spraak = 0
+ repeated  konsept tema = 0
+ repeated  begrepssamling temaer = 0
+  date utgivelsesdato = 0
+  modelkatalog erDelAvKatalog = 0
+ }
+// Ein modul som grupperer modellelement i informasjonsmodellen.
+message Modul
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+ repeated  eigenskap harEigenskap = 0
+ repeated  langString beskrivelse = 0
+ repeated  modul tilhorerModul = 0
+ }
+// Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).
+message NoenAv
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+ repeated  modellelement harNoe = 0
+ }
+// Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen.
+message Objekttype
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+ repeated  eigenskap harEigenskap = 0
+ repeated  langString beskrivelse = 0
+ repeated  modul tilhorerModul = 0
+ }
+// Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.
+message Og
+ {
+  uriorcurie id = 0
+ repeated  modellelement annoterer = 0
+ repeated  langString eigenskapsmerknad = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+ repeated  modul tilhorerModul = 0
+ repeated  modellelement betinger = 0
+ repeated  langString betingelsesuttrykk = 0
+ }
+// Ein realisering — ein implementasjonsrelasjon mellom modellelement.
+message Realisering
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+  modellelement harLeverandor = 0
+ }
+// Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.
+message Rolle
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+  objekttype harObjekttype = 0
+ }
+// Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen.
+message RootObjekttype
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+ repeated  eigenskap harEigenskap = 0
+ repeated  langString beskrivelse = 0
+ repeated  modul tilhorerModul = 0
+ }
+// Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.
+message Samling
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+ }
+// Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.
+message Sammensetning
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+  modellelement inneholder = 0
+ }
+// Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modellelement.
+message Spesialisering
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+  modellelement harGenereltBegrep = 0
+ }
+// Ein standard (dct:Standard).
+message Standard
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  uri harReferanse = 0
+  string harVersjonsnummer = 0
+ }
+// Eit tidsintervall med start- og sluttdato.
+message Tidsperiode
+ {
+  uriorcurie id = 0
+  date startdato = 0
+  date sluttdato = 0
+ }
+// Eit val — ein eigenskap som representerer eit val mellom modellelement.
+message Valg
+ {
+  uriorcurie id = 0
+ repeated  konsept begrep = 0
+  string identifikatorLiteral = 0
+  boolean navigerbar = 0
+  nonNegativeInteger minMultiplisitet = 0
+ repeated  langString tittel = 0
+  string maksMultiplisitet = 0
+ repeated  langString beskrivelse = 0
+ repeated  modellelement harType = 0
+ repeated  langString relasjonsegenskapetikett = 0
+  nonNegativeInteger sekvensnummer = 0
+ repeated  modul tilhorerModul = 0
+  eigenskap dannerSymmetriMed = 0
+ repeated  modellelement harNoe = 0
+ }
+// Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
+message XEllerY
+ {
+  uriorcurie id = 0
+ repeated  modellelement annoterer = 0
+ repeated  langString eigenskapsmerknad = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+ repeated  modul tilhorerModul = 0
+ repeated  modellelement betinger = 0
+ repeated  langString betingelsesuttrykk = 0
+ }
+

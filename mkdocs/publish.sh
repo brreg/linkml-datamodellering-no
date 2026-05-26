@@ -327,6 +327,7 @@ nav:
   - Rettleiingar:
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
+      - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Generatorkonfigurasjon: generate-config.md
 STATIC
 

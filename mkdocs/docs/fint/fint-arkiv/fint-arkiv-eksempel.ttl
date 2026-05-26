@@ -1,0 +1,91 @@
+@prefix ark: <https://schema.fintlabs.no/arkiv/> .
+@prefix fint: <https://schema.fintlabs.no/> .
+@prefix ns1: <https://schema.fintlabs.no/arkiv/:> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://example.no/fint/journalpost/2024-0001-1> a ark:Journalpost ;
+    ark:arkivertAv <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:journalAr "2024" ;
+    ark:journalDato "2024-02-15T09:05:00+00:00"^^xsd:dateTime ;
+    ark:journalPostnummer 1 ;
+    ark:journalSekvensnummer 42 ;
+    ark:journalposttype <https://example.no/fint/journalposttype/inngaaende-dokument> ;
+    ark:journalstatus <https://example.no/fint/journalstatus/journalfoert> ;
+    ark:opprettetAv <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:opprettetDato "2024-02-15T09:05:00+00:00"^^xsd:dateTime ;
+    ark:tittel "Søknad om tilskudd" .
+
+<https://example.no/fint/journalpost/2024-0001-2> a ark:Journalpost ;
+    ark:arkivertAv <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:journalAr "2024" ;
+    ark:journalDato "2024-03-10T13:00:00+00:00"^^xsd:dateTime ;
+    ark:journalPostnummer 2 ;
+    ark:journalSekvensnummer 87 ;
+    ark:journalposttype <https://example.no/fint/journalposttype/utgaaende-dokument> ;
+    ark:journalstatus <https://example.no/fint/journalstatus/journalfoert> ;
+    ark:opprettetAv <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:opprettetDato "2024-03-10T13:00:00+00:00"^^xsd:dateTime ;
+    ark:sendtDato "2024-03-10T14:00:00+00:00"^^xsd:dateTime ;
+    ark:tittel "Vedtak om tilskudd" .
+
+<https://example.no/fint/sak/2024-0001> a ark:Sak ;
+    ark:administrativEnhet <https://example.no/fint/administrativenhet/post-og-arkiv> ;
+    ark:opprettetAv <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:saksaar "2024" ;
+    ark:saksansvarlig <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:saksdato "2024-02-15T09:00:00+00:00"^^xsd:dateTime ;
+    ark:sakssekvensnummer "1" ;
+    ark:saksstatus <https://example.no/fint/saksstatus/avsluttet> ;
+    ark:tittel "Søknad om tilskudd til lokalt kulturtiltak" .
+
+<https://example.no/fint/sak/2024-0002> a ark:Sak ;
+    ark:administrativEnhet <https://example.no/fint/administrativenhet/post-og-arkiv> ;
+    ark:opprettetAv <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:saksaar "2024" ;
+    ark:saksansvarlig <https://example.no/fint/arkivressurs/ar-1> ;
+    ark:saksdato "2024-03-01T08:30:00+00:00"^^xsd:dateTime ;
+    ark:sakssekvensnummer "2" ;
+    ark:saksstatus <https://example.no/fint/saksstatus/under-behandling> ;
+    ark:tittel "Reguleringsplan Sentrum Nord" .
+
+<https://example.no/fint/journalposttype/inngaaende-dokument> a ark:JournalpostType ;
+    fint:kode "I" ;
+    fint:navn "Inngående dokument" .
+
+<https://example.no/fint/journalposttype/utgaaende-dokument> a ark:JournalpostType ;
+    fint:kode "U" ;
+    fint:navn "Utgående dokument" .
+
+<https://example.no/fint/saksstatus/avsluttet> a ark:Saksstatus ;
+    fint:kode "A" ;
+    fint:navn "Avsluttet" .
+
+<https://example.no/fint/saksstatus/under-behandling> a ark:Saksstatus ;
+    fint:kode "B" ;
+    fint:navn "Under behandling" .
+
+<https://example.no/fint/administrativenhet/post-og-arkiv> a ark:AdministrativEnhet ;
+    fint:navn "Post og arkiv" .
+
+<https://example.no/fint/journalstatus/journalfoert> a ark:JournalStatus ;
+    fint:kode "J" ;
+    fint:navn "Journalført" .
+
+<https://example.no/fint/arkivressurs/ar-1> a ark:Arkivressurs ;
+    ark:kildesystemId [ a fint:Identifikator ;
+            fint:identifikatorverdi "AR001" ] ;
+    ark:personalressurs <https://example.no/fint/personalressurs/p12345> .
+
+[] a ns1:ArkivContainer ;
+    ns1:administrativeEiningar <https://example.no/fint/administrativenhet/post-og-arkiv> ;
+    ns1:arkivressursar <https://example.no/fint/arkivressurs/ar-1> ;
+    ns1:journalpostar <https://example.no/fint/journalpost/2024-0001-1>,
+        <https://example.no/fint/journalpost/2024-0001-2> ;
+    ns1:journalposttypar <https://example.no/fint/journalposttype/inngaaende-dokument>,
+        <https://example.no/fint/journalposttype/utgaaende-dokument> ;
+    ns1:journalstatuskodar <https://example.no/fint/journalstatus/journalfoert> ;
+    ns1:sakar <https://example.no/fint/sak/2024-0001>,
+        <https://example.no/fint/sak/2024-0002> ;
+    ns1:sakstatuskodar <https://example.no/fint/saksstatus/avsluttet>,
+        <https://example.no/fint/saksstatus/under-behandling> .
+

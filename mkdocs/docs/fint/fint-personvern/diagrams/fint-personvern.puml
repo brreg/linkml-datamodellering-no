@@ -1,0 +1,223 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Valuta" [[{Valutakodar for offisielle valutaer.}]] {
+    {field} id : uriorcurie  
+    {field} valuta_navn : string  
+}
+class "Identifikator" [[{Unik identifikasjon til eit objekt.}]] {
+    {field} identifikatorverdi : string  
+}
+"Valuta" *--> "1" "Identifikator" : "nummerkode"
+"Valuta" *--> "1" "Identifikator" : "bokstavkode"
+class "Tjeneste" [[{Teneste eller system som behandlar personopplysningar.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} slettet : datetime  
+}
+class "Behandling" [[{All bruk av personopplysningar (behandlingsaktivitet).}]] {
+    {field} id : uriorcurie  
+    {field} aktiv : boolean  
+    {field} formal : string  
+    {field} slettet : datetime  
+}
+class "PersonvernContainer" [[{Rotcontainer for FINT Personvern-instansar.}]] {
+
+}
+"Tjeneste" --> "0..*" "Behandling" : "behandling"
+"Behandling" --> "1" "Tjeneste" : "tjeneste"
+"PersonvernContainer" *--> "0..*" "Tjeneste" : "tenester"
+"Behandling" --> "0..1" "Tjeneste" : "tjeneste"(i)
+class "Samtykke" [[{Tillating til behandling av personopplysning.}]] {
+    {field} id : uriorcurie  
+    {field} opprettet : datetime  
+    {field} organisasjonselement : uriorcurie  
+}
+class "Person" [[{Fysiske private personar.}]] {
+    {field} id : uriorcurie  
+    {field} bilde : string  
+    {field} fodselsdato : date  
+    {field} laerling : uriorcurie  [0..*]
+    {field} otungdom : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+class "Periode" [[{Tidsperiode med obligatorisk start og valfri slutt.}]] {
+    {field} beskrivelse : string  
+    {field} start : datetime  
+    {field} slutt : datetime  
+}
+"Samtykke" --> "1" "Person" : "person"
+"Samtykke" --> "1" "Behandling" : "behandling"
+"Samtykke" *--> "1" "Periode" : "gyldighetsperiode"
+"Behandling" --> "0..*" "Samtykke" : "samtykke"
+"PersonvernContainer" *--> "0..*" "Samtykke" : "samtykker"
+"Behandling" --> "0..*" "Samtykke" : "samtykke"(i)
+class "Personopplysning" [[{Opplysningar og vurderingar som kan knytast til enkeltpersonar.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Behandlingsgrunnlag" [[{Rettsleg grunnlag for behandling av personopplysningar.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"PersonvernContainer" *--> "0..*" "Personopplysning" : "personopplysningar"
+"PersonvernContainer" --> "0..1" "Behandlingsgrunnlag" : "behandlingsgrunnlag"
+"PersonvernContainer" *--> "0..*" "Behandling" : "behandlingar"
+"Personopplysning" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Behandling" --> "1" "Personopplysning" : "personopplysning"
+"Behandling" --> "0..1" "Personopplysning" : "personopplysning"(i)
+class "Kontaktperson" [[{Kontaktperson (pårørande) til ein person.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Personnavn" [[{Namn på ein person.}]] {
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"
+"Person" *--> "1" "Personnavn" : "person_navn"
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"(i)
+"Person" *--> "0..1" "Personnavn" : "person_navn"(i)
+class "Elev" [[{Ein elev registrert i skulesystemet.}]] {
+    {field} id : uriorcurie  
+}
+class "Spraak" [[{Verdiar for språk (2 bokstavar).}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kjonn" [[{Verdiar for kjønn basert på ISO/IEC 5218.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kommune" [[{Liste over Norges kommunar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Landkode" [[{Landskode i ISO 3166-1 alpha-2 format.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Adresse" [[{Fysisk adresse eller postadresse.}]] {
+    {field} adresselinje : string  [0..*]
+    {field} postnummer : string  
+    {field} poststed : string  
+}
+abstract "Aktoer" [[{Abstrakt base for person eller eining vi samhandlar med.}]] {
+
+}
+"Person" --> "0..1" "Elev" : "elev"
+"Person" --> "0..1" "Spraak" : "morsmaal"
+"Person" --> "0..1" "Spraak" : "maalform"
+"Person" --> "0..*" "Person" : "foreldre"
+"Person" --> "0..*" "Person" : "foreldreansvar"
+"Person" --> "0..1" "Kjonn" : "kjonn"
+"Person" --> "0..1" "Kommune" : "kommune"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"
+"Person" --> "0..*" "Kontaktperson" : "parorende"
+"Person" *--> "1" "Identifikator" : "fodselsnummer"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"
+"Elev" --> "0..1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"(i)
+"Samtykke" --> "0..1" "Person" : "person"(i)
+"Elev" --> "0..1" "Person" : "person"(i)
+"Aktoer" ^-- "Person"
+abstract "Begrep" [[{Abstrakt fellesbase for alle FINT-kodeverk.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Person" --> "0..1" "Spraak" : "maalform"(i)
+"Person" --> "0..1" "Spraak" : "morsmaal"(i)
+"Begrep" ^-- "Spraak"
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Behandlingsgrunnlag" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Samtykke" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Behandlingsgrunnlag" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Personopplysning" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Identifikator" *--> "0..1" "Periode" : "gyldighetsperiode"
+class "Matrikkelnummer" [[{Eintydleg identifisering av matrikkeleining innanfor kommune.}]] {
+    {field} bruksnummer : string  
+    {field} festenummer : string  
+    {field} gaardsnummer : string  
+    {field} seksjonsnummer : string  
+}
+"Matrikkelnummer" --> "0..1" "Kommune" : "kommunenummer"
+"Matrikkelnummer" *--> "0..1" "Adresse" : "adresse"
+"Adresse" --> "0..1" "Landkode" : "land"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"(i)
+"Begrep" ^-- "Landkode"
+class "Kontaktinformasjon" [[{Informasjon som kan brukast for å oppnå kontakt.}]] {
+    {field} epostadresse : string  
+    {field} mobiltelefonnummer : string  
+    {field} nettsted : string  
+    {field} sip : string  
+    {field} telefonnummer : string  
+}
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Person" --> "0..*" "Kontaktperson" : "parorende"(i)
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+class "Fylke" [[{Liste over Norges fylker.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Kommune" --> "1" "Fylke" : "fylke"
+"Fylke" --> "0..*" "Kommune" : "kommune"
+"Fylke" --> "0..1" "Kommune" : "kommune"(i)
+"Person" --> "0..1" "Kommune" : "kommune"(i)
+"Begrep" ^-- "Kommune"
+"Person" --> "0..1" "Kjonn" : "kjonn"(i)
+"Begrep" ^-- "Kjonn"
+abstract "Enhet" [[{Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.}]] {
+    {field} organisasjonsnavn : string  
+}
+class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenester.}]] {
+    {field} id : uriorcurie  
+    {field} laerling : uriorcurie  [0..*]
+    {field} organisasjonsnavn(i) : string  
+}
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Virksomhet" *--> "1" "Identifikator" : "virksomhetsId"
+"Valuta" *--> "0..1" "Identifikator" : "bokstavkode"(i)
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"(i)
+"Person" *--> "0..1" "Identifikator" : "fodselsnummer"(i)
+"Valuta" *--> "0..1" "Identifikator" : "nummerkode"(i)
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Virksomhet" *--> "0..1" "Identifikator" : "virksomhetsId"(i)
+"Enhet" ^-- "Virksomhet"
+"Kommune" --> "0..1" "Fylke" : "fylke"(i)
+"Begrep" ^-- "Fylke"
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"
+"Aktoer" ^-- "Enhet"
+"Person" --> "0..1" "Elev" : "elev"(i)
+"Behandling" --> "1" "Behandlingsgrunnlag" : "behandlingsgrunnlag"
+"PersonvernContainer" *--> "0..*" "Behandlingsgrunnlag" : "behandlingsgrunnlag"(i)
+"Behandling" --> "0..1" "Behandlingsgrunnlag" : "behandlingsgrunnlag"(i)
+"Samtykke" --> "0..1" "Behandling" : "behandling"(i)
+"Tjeneste" --> "0..1" "Behandling" : "behandling"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"(i)
+@enduml

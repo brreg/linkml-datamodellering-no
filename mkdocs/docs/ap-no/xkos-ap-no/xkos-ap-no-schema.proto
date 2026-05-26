@@ -1,0 +1,91 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// Ei SKOS-omgrepssamling (temavokabular).
+message Begrepssamling
+ {
+  uriorcurie id = 0
+ }
+// Ein kategori i ein klassifikasjon (skos:Concept).
+message Kategori
+ {
+  uriorcurie id = 0
+ repeated  langString anbefaltTerm = 0
+  klassifikasjon erIKlassifikasjon = 0
+  klassifikasjonsnivaa tilhorandeKlassifikasjonsnivaa = 0
+ repeated  kategori overordnaKategori = 0
+ repeated  kategori underordnaKategori = 0
+ repeated  langString harNotat = 0
+ repeated  kategori erEkvivalentMed = 0
+ repeated  kategori erEksklusivtEkvivalentMed = 0
+ repeated  kategori erIkkjeEkvivalentMed = 0
+ }
+// Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:ConceptAssociation).
+message Kategorisamanlikning
+ {
+  uriorcurie id = 0
+  kategori kjeldeomgrep = 0
+  kategori maalomgrep = 0
+ }
+// Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassifisere data (skos:ConceptScheme).
+message Klassifikasjon
+ {
+  uriorcurie id = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+ repeated  langString beskrivelse = 0
+  organisasjon utgjevar = 0
+ repeated  konsept tema = 0
+ repeated  langString nokkelord = 0
+ repeated  spraak spraak = 0
+  string harVersjonsnummer = 0
+  date endringsdato = 0
+  date utgivelsesdato = 0
+ repeated  uri heimeside = 0
+  tidsrom gjeldForTidsrom = 0
+  nonNegativeInteger antallNivaa = 0
+ repeated  klassifikasjon erSamanliknaMed = 0
+ repeated  klassifikasjonsnivaa forsteNivaa = 0
+ }
+// Eit nivå i ein klassifikasjon (xkos:ClassificationLevel).
+message Klassifikasjonsnivaa
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+  nonNegativeInteger nivaaDjupn = 0
+ repeated  kategori harMedlem = 0
+ repeated  klassifikasjonsnivaa underordnaKlassifikasjonsnivaa = 0
+ }
+// Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence).
+message Klassifikasjonssamanlikning
+ {
+  uriorcurie id = 0
+  string identifikatorLiteral = 0
+ repeated  langString tittel = 0
+  organisasjon utgjevar = 0
+ repeated  klassifikasjon samanliknar = 0
+ repeated  kategorisamanlikning bestarAv = 0
+ }
+// Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
+message Konsept
+ {
+  uriorcurie id = 0
+ }
+// Ein medietype eller filformat (dct:MediaTypeOrExtent).
+message Mediatype
+ {
+  uriorcurie id = 0
+ }
+// Ein organisasjon eller aktør (foaf:Agent).
+message Organisasjon
+ {
+  uriorcurie id = 0
+ }
+// Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime).
+message Tidsrom
+ {
+  uriorcurie id = 0
+  date tidsromStart = 0
+  date tidsromSlutt = 0
+ }
+

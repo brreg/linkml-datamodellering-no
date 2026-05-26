@@ -1,0 +1,43 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "FAIRMetadata" [[{Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR-prinsippa.}]] {
+    {field} id : uriorcurie  
+    {field} ressursIdentifikator : uriorcurie  
+    {field} ressurstype : uriorcurie  
+    {field} beskrivelse : uriorcurie  
+}
+class "Tilgangsmetadata" [[{Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2).}]] {
+    {field} tilgangsURL : uriorcurie  
+    {field} tilgangsprotokoll : string  
+    {field} tilgangsrettar : uriorcurie  
+    {field} autentiseringPaakrevd : boolean  
+    {field} metadataPersistens : boolean  
+}
+"FAIRMetadata" *--> "0..1" "Tilgangsmetadata" : "tilgangsmetadata"
+"FAIRMetadata" *--> "0..1" "Tilgangsmetadata" : "tilgangsmetadata"(i)
+class "Proveniensmetadata" [[{Metadata om opphav og endringshistorie (FAIR R1.2).}]] {
+    {field} ansvarlegAktoer : uriorcurie  
+    {field} generertAvAktivitet : uriorcurie  
+    {field} opprettingsdato : date  
+    {field} endringsdato : date  
+}
+"FAIRMetadata" *--> "0..1" "Proveniensmetadata" : "proveniensmetadata"
+"FAIRMetadata" *--> "0..1" "Proveniensmetadata" : "proveniensmetadata"(i)
+class "Katalogregistrering" [[{Dokumenterer registrering i søkbar katalog (FAIR F4).}]] {
+    {field} registrertIKatalog : uriorcurie  
+    {field} katalogOppfoeringURL : uriorcurie  
+    {field} registreringsdato : date  
+}
+"FAIRMetadata" *--> "0..1" "Katalogregistrering" : "katalogregistrering"
+"FAIRMetadata" *--> "0..1" "Katalogregistrering" : "katalogregistrering"(i)
+class "Gjenbruksmetadata" [[{Metadata som støttar gjenbruk av ressursen (FAIR R1.1, R1.3).}]] {
+    {field} lisens : uriorcurie  
+    {field} bruksavgrensingar : string  
+    {field} standardoverensstemming : uriorcurie  [0..*]
+    {field} vokabular : uriorcurie  [0..*]
+}
+"FAIRMetadata" *--> "0..1" "Gjenbruksmetadata" : "gjenbruksmetadata"
+"FAIRMetadata" *--> "0..1" "Gjenbruksmetadata" : "gjenbruksmetadata"(i)
+@enduml

@@ -1,0 +1,701 @@
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xkos: <http://rdf-vocabulary.ddialliance.org/xkos#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+xsd:duration a rdfs:Datatype .
+
+xsd:gYear a rdfs:Datatype .
+
+<https://data.norge.no/linkml/common-ap-no/Begrepssamling> a owl:Class ;
+    rdfs:label "Begrepssamling" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Ei SKOS-omgrepssamling (temavokabular)." ;
+    skos:exactMatch skos:ConceptScheme ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/Mediatype> a owl:Class ;
+    rdfs:label "Mediatype" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Ein medietype eller filformat (dct:MediaTypeOrExtent)." ;
+    skos:exactMatch dct:MediaTypeOrExtent ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/dekningsomraade> a owl:ObjectProperty ;
+    rdfs:label "dekningsomraade" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Geografisk dekningsområde (dct:spatial)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/format> a owl:DatatypeProperty ;
+    rdfs:label "format" ;
+    rdfs:range xsd:string ;
+    skos:definition "Filformat eller medietype (dct:format)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/har_merknad> a owl:DatatypeProperty ;
+    rdfs:label "har_merknad" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Fritekstmerknad (rdfs:comment)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/har_referanse> a owl:DatatypeProperty ;
+    rdfs:label "har_referanse" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Referanse til ekstern ressurs (rdfs:seeAlso)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/status> a owl:ObjectProperty ;
+    rdfs:label "status" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Status for ressursen frå eit kontrollert vokabular (adms:status)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/type_concept> a owl:ObjectProperty ;
+    rdfs:label "type_concept" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Type ressurs frå eit kontrollert vokabular (dct:type)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/valuta> a owl:ObjectProperty ;
+    rdfs:label "valuta" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Valuta (cv:currency)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/versjonsmerknad> a owl:DatatypeProperty ;
+    rdfs:label "versjonsmerknad" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no.owl.ttl> a owl:Ontology ;
+    rdfs:label "xkos-ap-no" ;
+    dct:title "XKOS-AP-NO" ;
+    skos:definition "LinkML-modell for XKOS-AP-NO – norsk applikasjonsprofil for utvida SKOS-klassifikasjonar. Basert på https://data.norge.no/specification/xkos-ap-no" .
+
+<https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonssamanlikning> a owl:Class ;
+    rdfs:label "Klassifikasjonssamanlikning" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategorisamanlikning> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/bestar_av> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/samanliknar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/bestar_av> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/samanliknar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Organisasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ] ;
+    skos:definition "Ein samanlikning mellom to klassifikasjonar (xkos:Correspondence)." ;
+    skos:exactMatch xkos:Correspondence ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+dct:language a rdfs:Datatype .
+
+<https://data.norge.no/linkml/common-ap-no/anbefalt_term> a owl:DatatypeProperty ;
+    rdfs:label "anbefalt_term" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/beskrivelse> a owl:DatatypeProperty ;
+    rdfs:label "beskrivelse" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Fritekstbeskrivelse av ressursen (dct:description)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/heimeside> a owl:DatatypeProperty ;
+    rdfs:label "heimeside" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Heimeside for ressursen eller organisasjonen (foaf:homepage)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/nokkelord> a owl:DatatypeProperty ;
+    rdfs:label "nokkelord" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Nøkkelord som beskriv ressursen (dcat:keyword)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/spraak> a owl:DatatypeProperty ;
+    rdfs:label "spraak" ;
+    rdfs:range dct:language ;
+    skos:definition "Språk brukt i ressursen (dct:language)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/Kategorisamanlikning> a owl:Class ;
+    rdfs:label "Kategorisamanlikning" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/maalomgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/maalomgrep> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/kjeldeomgrep> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/kjeldeomgrep> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/maalomgrep> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/kjeldeomgrep> ] ;
+    skos:definition "Ein samanlikning mellom to kategoriar på tvers av klassifikasjonar (xkos:ConceptAssociation)." ;
+    skos:exactMatch xkos:ConceptAssociation ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/Tidsrom> a owl:Class ;
+    rdfs:label "Tidsrom" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tidsrom_start> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tidsrom_start> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tidsrom_slutt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tidsrom_slutt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tidsrom_start> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tidsrom_slutt> ] ;
+    skos:definition "Eit tidsrom med start- og/eller sluttdato (dct:PeriodOfTime)." ;
+    skos:exactMatch dct:PeriodOfTime ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/bestar_av> a owl:ObjectProperty ;
+    rdfs:label "bestar_av" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategorisamanlikning> ;
+    skos:definition "Kategorisamanlikningar som inngår i klassifikasjonssamanlikninga (xkos:madeOf)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/er_eksklusivt_ekvivalent_med> a owl:ObjectProperty ;
+    rdfs:label "er_eksklusivt_ekvivalent_med" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Eksklusiv breid ekvivalens (xkos:exclusivelyBroadMatch)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/er_ekvivalent_med> a owl:ObjectProperty ;
+    rdfs:label "er_ekvivalent_med" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Breid ekvivalens til kategori i annan klassifikasjon (uneskos:broadMatch)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/er_ikkje_ekvivalent_med> a owl:ObjectProperty ;
+    rdfs:label "er_ikkje_ekvivalent_med" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Klar ikkje-ekvivalens til kategori i annan klassifikasjon (xkos:disjointMatch)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/er_samanlikna_med> a owl:ObjectProperty ;
+    rdfs:label "er_samanlikna_med" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjon> ;
+    skos:definition "Klassifikasjonar som er samanlikna (xkos:compares)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/forste_nivaa> a owl:ObjectProperty ;
+    rdfs:label "forste_nivaa" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonsnivaa> ;
+    skos:definition "Toppnivå i klassifikasjonen (xkos:levels)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/har_medlem> a owl:ObjectProperty ;
+    rdfs:label "har_medlem" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Kategoriar som høyrer til dette nivået (skos:member)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/har_notat> a owl:DatatypeProperty ;
+    rdfs:label "har_notat" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Fritekstnotat om kategorien (skos:note)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/overordna_kategori> a owl:ObjectProperty ;
+    rdfs:label "overordna_kategori" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Overordna kategori (skos:broader)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/samanliknar> a owl:ObjectProperty ;
+    rdfs:label "samanliknar" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjon> ;
+    skos:definition "Klassifikasjonar som er samanlikna i korrespondansen (xkos:compares)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/tema> a owl:ObjectProperty ;
+    rdfs:label "tema" ;
+    rdfs:range <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+    skos:definition "Fagleg tema klassifikasjonen dekkjer (dct:subject)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/underordna_kategori> a owl:ObjectProperty ;
+    rdfs:label "underordna_kategori" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Underordna kategori (skos:narrower)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/underordna_klassifikasjonsnivaa> a owl:ObjectProperty ;
+    rdfs:label "underordna_klassifikasjonsnivaa" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonsnivaa> ;
+    skos:definition "Underordna klassifikasjonsnivå (xkos:nextLevel)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/endringsdato> a owl:DatatypeProperty ;
+    rdfs:label "endringsdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato for siste endring av ressursen (dct:modified)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> a owl:DatatypeProperty ;
+    rdfs:label "har_versjonsnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Versjonsnummer for ressursen (owl:versionInfo)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/utgivelsesdato> a owl:DatatypeProperty ;
+    rdfs:label "utgivelsesdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato ressursen vart første gong publisert (dct:issued)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/Organisasjon> a owl:Class ;
+    rdfs:label "Organisasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Ein organisasjon eller aktør (foaf:Agent)." ;
+    skos:exactMatch foaf:Agent ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/antall_nivaa> a owl:DatatypeProperty ;
+    rdfs:label "antall_nivaa" ;
+    rdfs:range xsd:nonNegativeInteger ;
+    skos:definition "Antal nivå i klassifikasjonen (xkos:numberOfLevels)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/er_i_klassifikasjon> a owl:ObjectProperty ;
+    rdfs:label "er_i_klassifikasjon" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjon> ;
+    skos:definition "Klassifikasjonen kategorien tilhøyrer (skos:inScheme)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/gjeld_for_tidsrom> a owl:ObjectProperty ;
+    rdfs:label "gjeld_for_tidsrom" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Tidsrom> ;
+    skos:definition "Tidsrom klassifikasjonen er gyldig for (dct:temporal)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/kjeldeomgrep> a owl:ObjectProperty ;
+    rdfs:label "kjeldeomgrep" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Kjeldeomgrep i ein kategorisamanlikning (xkos:sourceConcept)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/maalomgrep> a owl:ObjectProperty ;
+    rdfs:label "maalomgrep" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+    skos:definition "Måleomgrep i ein kategorisamanlikning (xkos:targetConcept)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/nivaa_djupn> a owl:DatatypeProperty ;
+    rdfs:label "nivaa_djupn" ;
+    rdfs:range xsd:nonNegativeInteger ;
+    skos:definition "Djupna (nivånummer) i klassifikasjonsstrukturen (xkos:depth)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/tidsrom_slutt> a owl:DatatypeProperty ;
+    rdfs:label "tidsrom_slutt" ;
+    rdfs:range xsd:date ;
+    skos:definition "Sluttdato for tidsromet (dct:endDate)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/tidsrom_start> a owl:DatatypeProperty ;
+    rdfs:label "tidsrom_start" ;
+    rdfs:range xsd:date ;
+    skos:definition "Startdato for tidsromet (dct:startDate)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/tilhorande_klassifikasjonsnivaa> a owl:ObjectProperty ;
+    rdfs:label "tilhorande_klassifikasjonsnivaa" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonsnivaa> ;
+    skos:definition "Klassifikasjonsnivå kategorien høyrer til (xkos:belongsTo)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+xsd:nonNegativeInteger a rdfs:Datatype ;
+    owl:equivalentClass [ a rdfs:Datatype ;
+            owl:onDatatype xsd:integer ;
+            owl:withRestrictions ( [ xsd:minInclusive 0 ] ) ] .
+
+<https://data.norge.no/linkml/common-ap-no/Konsept> a owl:Class ;
+    rdfs:label "Konsept" ;
+    rdfs:seeAlso <https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be> ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Referanse til eit SKOS-omgrep frå eit kontrollert vokabular." ;
+    skos:exactMatch skos:Concept ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/identifikator_literal> a owl:DatatypeProperty ;
+    rdfs:label "identifikator_literal" ;
+    rdfs:range xsd:string ;
+    skos:definition "Tekstleg identifikator for ressursen (dct:identifier)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/tittel> a owl:DatatypeProperty ;
+    rdfs:label "tittel" ;
+    rdfs:range rdf:langString ;
+    skos:definition "Namn/tittel på ressursen (dct:title)." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/Klassifikasjon> a owl:Class ;
+    rdfs:label "Klassifikasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom dct:language ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonsnivaa> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/forste_nivaa> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/antall_nivaa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/antall_nivaa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:nonNegativeInteger ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/antall_nivaa> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Tidsrom> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/gjeld_for_tidsrom> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/heimeside> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_samanlikna_med> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/nokkelord> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/heimeside> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Organisasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/har_versjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_samanlikna_med> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/forste_nivaa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/common-ap-no/Konsept> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tema> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/gjeld_for_tidsrom> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/utgjevar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/gjeld_for_tidsrom> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/utgivelsesdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/endringsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/identifikator_literal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/spraak> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tema> ] ;
+    skos:definition "Ei klassifikasjon – ein systematisk struktur av kategoriar brukt til å klassifisere data (skos:ConceptScheme)." ;
+    skos:exactMatch skos:ConceptScheme ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonsnivaa> a owl:Class ;
+    rdfs:label "Klassifikasjonsnivaa" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonsnivaa> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/underordna_klassifikasjonsnivaa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/har_medlem> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/nivaa_djupn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:nonNegativeInteger ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/nivaa_djupn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/har_medlem> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/nivaa_djupn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/underordna_klassifikasjonsnivaa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/tittel> ] ;
+    skos:definition "Eit nivå i ein klassifikasjon (xkos:ClassificationLevel)." ;
+    skos:exactMatch xkos:ClassificationLevel ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/xkos-ap-no/utgjevar> a owl:ObjectProperty ;
+    rdfs:label "utgjevar" ;
+    rdfs:range <https://data.norge.no/linkml/xkos-ap-no/Organisasjon> ;
+    skos:definition "Organisasjon som er ansvarleg utgjevar (dct:publisher)." ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+rdf:langString a rdfs:Datatype .
+
+<https://data.norge.no/linkml/xkos-ap-no/Kategori> a owl:Class ;
+    rdfs:label "Kategori" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_i_klassifikasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/overordna_kategori> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_i_klassifikasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/har_notat> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/underordna_kategori> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_ekvivalent_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/underordna_kategori> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/anbefalt_term> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjonsnivaa> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tilhorande_klassifikasjonsnivaa> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_ikkje_ekvivalent_med> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_eksklusivt_ekvivalent_med> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_ekvivalent_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tilhorande_klassifikasjonsnivaa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Kategori> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_ikkje_ekvivalent_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/tilhorande_klassifikasjonsnivaa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/anbefalt_term> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/linkml/xkos-ap-no/Klassifikasjon> ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_i_klassifikasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/er_eksklusivt_ekvivalent_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/har_notat> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/linkml/xkos-ap-no/overordna_kategori> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/linkml/common-ap-no/id> ] ;
+    skos:definition "Ein kategori i ein klassifikasjon (skos:Concept)." ;
+    skos:exactMatch skos:Concept ;
+    skos:inScheme <https://data.norge.no/linkml/xkos-ap-no> .
+
+<https://data.norge.no/linkml/common-ap-no/id> a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI-identifikator for ressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/common-ap-no> .
+
+

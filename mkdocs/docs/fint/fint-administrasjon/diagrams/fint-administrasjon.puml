@@ -1,0 +1,679 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Valuta" [[{Valutakodar for offisielle valutaer.}]] {
+    {field} id : uriorcurie  
+    {field} valuta_navn : string  
+}
+class "Identifikator" [[{Unik identifikasjon til eit objekt.}]] {
+    {field} identifikatorverdi : string  
+}
+class "AdministrasjonContainer" [[{Rotcontainer for FINT Administrasjon-instansar.}]] {
+    {field} kjonn : string  
+    {field} fylke : string  
+}
+"Valuta" *--> "1" "Identifikator" : "nummerkode"
+"Valuta" *--> "1" "Identifikator" : "bokstavkode"
+"AdministrasjonContainer" *--> "0..*" "Valuta" : "valuta"
+class "Rolle" [[{Rettighet eller type fullmakt.}]] {
+    {field} id : uriorcurie  
+    {field} beskrivelse : string  
+}
+class "Fullmakt" [[{Fullmakt til å gjere handlingar i høve til ei gjeven Rolle.}]] {
+    {field} id : uriorcurie  
+}
+"Rolle" --> "1..*" "Fullmakt" : "fullmakt"
+"Rolle" *--> "1" "Identifikator" : "rolleNavn"
+"Fullmakt" --> "1" "Rolle" : "rolle"
+"AdministrasjonContainer" *--> "0..*" "Rolle" : "rollar"
+"Fullmakt" --> "0..1" "Rolle" : "rolle"(i)
+class "Kontaktperson" [[{Kontaktperson (pårørande) til ein person.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Personnavn" [[{Namn på ein person.}]] {
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+class "Person" [[{Fysiske private personar.}]] {
+    {field} id : uriorcurie  
+    {field} bilde : string  
+    {field} fodselsdato : date  
+    {field} laerling : uriorcurie  [0..*]
+    {field} otungdom : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"
+"Person" *--> "1" "Personnavn" : "person_navn"
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"(i)
+"Person" *--> "0..1" "Personnavn" : "person_navn"(i)
+class "Personalressurs" [[{Arbeidstakar eller oppdragstakar i organisasjonen.}]] {
+    {field} id : uriorcurie  
+    {field} ansiennitet : date  
+    {field} jobbtittel : string  
+    {field} skoleressurs : uriorcurie  
+}
+class "Arbeidsforhold" [[{Eit avtaleforhold mellom personalressurs og arbeidsgjevar.}]] {
+    {field} id : uriorcurie  
+    {field} ansettelsesprosent : integer  
+    {field} aarslonn : integer  
+    {field} hovedstilling : boolean  
+    {field} lonnsprosent : integer  
+    {field} stillingsnummer : string  
+    {field} stillingstittel : string  
+    {field} tilstedeprosent : integer  
+    {field} undervisningsforhold : uriorcurie  
+}
+class "Organisasjonselement" [[{Eit element i organisasjonsstrukturen.}]] {
+    {field} id : uriorcurie  
+    {field} kortnavn : string  
+    {field} navn : string  
+    {field} organisasjonsnavn : string  
+    {field} skole : uriorcurie  
+}
+class "Personalressurskategori" [[{Ansettelsesform til eit arbeidsforhold.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kontaktinformasjon" [[{Informasjon som kan brukast for å oppnå kontakt.}]] {
+    {field} epostadresse : string  
+    {field} mobiltelefonnummer : string  
+    {field} nettsted : string  
+    {field} sip : string  
+    {field} telefonnummer : string  
+}
+class "Periode" [[{Tidsperiode med obligatorisk start og valfri slutt.}]] {
+    {field} beskrivelse : string  
+    {field} start : datetime  
+    {field} slutt : datetime  
+}
+class "Fravaer" [[{Fråvær frå eit arbeidsforhold.}]] {
+    {field} id : uriorcurie  
+    {field} godkjent : datetime  
+    {field} prosent : integer  
+}
+abstract "Lonn" [[{Informasjon om lønn for eit arbeidsforhold (abstrakt base).}]] {
+    {field} id : uriorcurie  
+    {field} anvist : datetime  
+    {field} attestert : datetime  
+    {field} beskrivelse : string  
+    {field} kontert : datetime  
+}
+"Personalressurs" --> "0..*" "Arbeidsforhold" : "personalansvar"
+"Personalressurs" --> "0..*" "Arbeidsforhold" : "arbeidsforhold"
+"Personalressurs" --> "0..*" "Organisasjonselement" : "lederFor"
+"Personalressurs" --> "1" "Personalressurskategori" : "personalressurskategori"
+"Personalressurs" --> "0..*" "Fullmakt" : "fullmakt"
+"Personalressurs" --> "0..*" "Fullmakt" : "stedfortreder"
+"Personalressurs" --> "1" "Person" : "person"
+"Personalressurs" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Personalressurs" *--> "0..1" "Identifikator" : "brukernavn"
+"Personalressurs" *--> "1" "Periode" : "ansettelsesperiode"
+"Personalressurs" *--> "1" "Identifikator" : "ansattnummer"
+"Arbeidsforhold" --> "0..1" "Personalressurs" : "personalleder"
+"Arbeidsforhold" --> "1" "Personalressurs" : "personalressurs"
+"Fravaer" --> "0..1" "Personalressurs" : "godkjenner"
+"Fullmakt" --> "0..1" "Personalressurs" : "fullmektig"
+"Fullmakt" --> "0..1" "Personalressurs" : "stedfortreder"
+"Lonn" --> "0..1" "Personalressurs" : "anviser"
+"Lonn" --> "0..1" "Personalressurs" : "attestant"
+"Lonn" --> "0..1" "Personalressurs" : "konterer"
+"Organisasjonselement" --> "0..1" "Personalressurs" : "leder"
+"AdministrasjonContainer" *--> "0..*" "Personalressurs" : "personalressursar"
+"Lonn" --> "0..1" "Personalressurs" : "anviser"(i)
+"Lonn" --> "0..1" "Personalressurs" : "attestant"(i)
+"Fullmakt" --> "0..1" "Personalressurs" : "fullmektig"(i)
+"Fravaer" --> "0..1" "Personalressurs" : "godkjenner"(i)
+"Lonn" --> "0..1" "Personalressurs" : "konterer"(i)
+"Organisasjonselement" --> "0..1" "Personalressurs" : "leder"(i)
+"Arbeidsforhold" --> "0..1" "Personalressurs" : "personalleder"(i)
+"Arbeidsforhold" --> "0..1" "Personalressurs" : "personalressurs"(i)
+abstract "Begrep" [[{Abstrakt fellesbase for alle FINT-kodeverk.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"AdministrasjonContainer" *--> "0..*" "Personalressurskategori" : "personalressurskategoriar"
+"Personalressurs" --> "0..1" "Personalressurskategori" : "personalressurskategori"(i)
+"Begrep" ^-- "Personalressurskategori"
+class "Elev" [[{Ein elev registrert i skulesystemet.}]] {
+    {field} id : uriorcurie  
+}
+class "Spraak" [[{Verdiar for språk (2 bokstavar).}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kjonn" [[{Verdiar for kjønn basert på ISO/IEC 5218.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kommune" [[{Liste over Norges kommunar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Landkode" [[{Landskode i ISO 3166-1 alpha-2 format.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Adresse" [[{Fysisk adresse eller postadresse.}]] {
+    {field} adresselinje : string  [0..*]
+    {field} postnummer : string  
+    {field} poststed : string  
+}
+abstract "Aktoer" [[{Abstrakt base for person eller eining vi samhandlar med.}]] {
+
+}
+"Person" --> "0..1" "Elev" : "elev"
+"Person" --> "0..1" "Spraak" : "morsmaal"
+"Person" --> "0..1" "Spraak" : "maalform"
+"Person" --> "0..*" "Person" : "foreldre"
+"Person" --> "0..*" "Person" : "foreldreansvar"
+"Person" --> "0..1" "Kjonn" : "kjonn"
+"Person" --> "0..1" "Kommune" : "kommune"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"
+"Person" --> "0..*" "Kontaktperson" : "parorende"
+"Person" *--> "1" "Identifikator" : "fodselsnummer"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"
+"Elev" --> "0..1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"
+"AdministrasjonContainer" *--> "0..*" "Person" : "personar"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"(i)
+"Personalressurs" --> "0..1" "Person" : "person"(i)
+"Elev" --> "0..1" "Person" : "person"(i)
+"Aktoer" ^-- "Person"
+"AdministrasjonContainer" *--> "0..*" "Spraak" : "spraak"
+"Person" --> "0..1" "Spraak" : "maalform"(i)
+"Person" --> "0..1" "Spraak" : "morsmaal"(i)
+"Begrep" ^-- "Spraak"
+"Arbeidsforhold" *--> "0..1" "Periode" : "arbeidsforholdsperiode"
+"Arbeidsforhold" *--> "1" "Periode" : "gyldighetsperiode"
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Fravaer" *--> "1" "Periode" : "periode"
+"Fullmakt" *--> "1" "Periode" : "gyldighetsperiode"
+"Lonn" *--> "0..1" "Periode" : "opptjent"
+"Lonn" *--> "1" "Periode" : "periode"
+"Organisasjonselement" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Personalressurs" *--> "0..1" "Periode" : "ansettelsesperiode"(i)
+"Arbeidsforhold" *--> "0..1" "Periode" : "arbeidsforholdsperiode"(i)
+"Fullmakt" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Organisasjonselement" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Arbeidsforhold" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Identifikator" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Lonn" *--> "0..1" "Periode" : "opptjent"(i)
+"Lonn" *--> "0..1" "Periode" : "periode"(i)
+"Fravaer" *--> "0..1" "Periode" : "periode"(i)
+class "Organisasjonstype" [[{Typen til eit organisasjonselement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Ansvar" [[{Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller inntekt.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Organisasjonselement" --> "0..*" "Arbeidsforhold" : "arbeidsforhold"
+"Organisasjonselement" --> "0..*" "Organisasjonselement" : "underordnet"
+"Organisasjonselement" --> "1" "Organisasjonselement" : "overordnet"
+"Organisasjonselement" --> "0..1" "Organisasjonstype" : "organisasjonstype"
+"Organisasjonselement" --> "0..*" "Ansvar" : "ansvar"
+"Organisasjonselement" *--> "0..1" "Adresse" : "postadresse"
+"Organisasjonselement" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Organisasjonselement" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Organisasjonselement" *--> "0..1" "Adresse" : "forretningsadresse"
+"Organisasjonselement" *--> "1" "Identifikator" : "organisasjonsKode"
+"Organisasjonselement" *--> "1" "Identifikator" : "organisasjonsId"
+"AdministrasjonContainer" *--> "0..*" "Organisasjonselement" : "organisasjonselement"(i)
+"Ansvar" --> "0..*" "Organisasjonselement" : "organisasjonselement"
+"Arbeidsforhold" --> "1" "Organisasjonselement" : "arbeidssted"
+"Fullmakt" --> "0..1" "Organisasjonselement" : "organisasjonselement"
+"AdministrasjonContainer" --> "0..1" "Organisasjonselement" : "organisasjonselement"
+"Arbeidsforhold" --> "0..1" "Organisasjonselement" : "arbeidssted"(i)
+"Personalressurs" --> "0..*" "Organisasjonselement" : "lederFor"(i)
+"Ansvar" --> "0..1" "Organisasjonselement" : "organisasjonselement"(i)
+"Fullmakt" --> "0..1" "Organisasjonselement" : "organisasjonselement"(i)
+"AdministrasjonContainer" *--> "0..*" "Organisasjonstype" : "organisasjonstypar"
+"Organisasjonselement" --> "0..1" "Organisasjonstype" : "organisasjonstype"(i)
+"Begrep" ^-- "Organisasjonstype"
+class "Matrikkelnummer" [[{Eintydleg identifisering av matrikkeleining innanfor kommune.}]] {
+    {field} bruksnummer : string  
+    {field} festenummer : string  
+    {field} gaardsnummer : string  
+    {field} seksjonsnummer : string  
+}
+"Matrikkelnummer" --> "0..1" "Kommune" : "kommunenummer"
+"Matrikkelnummer" *--> "0..1" "Adresse" : "adresse"
+class "Kontostreng" [[{Sammensetning av kontodimensjonar for bokføring.}]] {
+
+}
+class "Variabellonn" [[{Informasjon om variabel lønn.}]] {
+    {field} antall : integer  
+    {field} belop : integer  
+    {field} id(i) : uriorcurie  
+    {field} anvist(i) : datetime  
+    {field} attestert(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} kontert(i) : datetime  
+}
+class "Fasttillegg" [[{Faste tillegg til utbetaling.}]] {
+    {field} belop : integer  
+    {field} id(i) : uriorcurie  
+    {field} anvist(i) : datetime  
+    {field} attestert(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} kontert(i) : datetime  
+}
+class "Fastlonn" [[{Informasjon om fast lønnsbeordring.}]] {
+    {field} prosent : integer  
+    {field} id(i) : uriorcurie  
+    {field} anvist(i) : datetime  
+    {field} attestert(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} kontert(i) : datetime  
+}
+"Lonn" *--> "1" "Kontostreng" : "kontostreng"
+"Lonn" *--> "0..1" "Identifikator" : "kildesystemId"
+"Lonn" ^-- "Variabellonn"
+"Lonn" ^-- "Fasttillegg"
+"Lonn" ^-- "Fastlonn"
+class "Lonsart" [[{Type ytelse.}]] {
+    {field} kategori : string  
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Variabellonn" --> "1" "Arbeidsforhold" : "arbeidsforhold"
+"Variabellonn" --> "1" "Lonsart" : "lonsart"
+"AdministrasjonContainer" *--> "0..*" "Variabellonn" : "variabellonn"(i)
+"Arbeidsforhold" --> "0..*" "Variabellonn" : "variabellonn"
+"AdministrasjonContainer" --> "0..1" "Variabellonn" : "variabellonn"
+"Arbeidsforhold" --> "0..1" "Variabellonn" : "variabellonn"(i)
+class "Art" [[{Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Fravaerstype" [[{Type fråvær.}]] {
+    {field} overfores : boolean  
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Lonsart" --> "0..1" "Art" : "art"
+"Fastlonn" --> "0..1" "Lonsart" : "lonsart"
+"Fasttillegg" --> "1" "Lonsart" : "lonsart"
+"Fravaerstype" --> "0..1" "Lonsart" : "lonsart"
+"AdministrasjonContainer" *--> "0..*" "Lonsart" : "lonsartar"
+"Fravaerstype" --> "0..1" "Lonsart" : "lonsart"(i)
+"Fastlonn" --> "0..1" "Lonsart" : "lonsart"(i)
+"Fasttillegg" --> "0..1" "Lonsart" : "lonsart"(i)
+"Variabellonn" --> "0..1" "Lonsart" : "lonsart"(i)
+"Begrep" ^-- "Lonsart"
+"AdministrasjonContainer" *--> "0..*" "Landkode" : "landkodar"
+"Adresse" --> "0..1" "Landkode" : "land"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"(i)
+"Begrep" ^-- "Landkode"
+class "Ramme" [[{Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Prosjektart" [[{Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Prosjekt" [[{Del av kontostrengen som peikar på løpande prosjekt.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Objekt" [[{Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Lopenummer" [[{Løpenummer i ei nummerserie.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kontrakt" [[{Kontrakt transaksjonen er knytt til.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Funksjon" [[{Del av kontostrengen som beskriv kva som vert produsert.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Formaal" [[{Del av kontostrengen som detaljerer inntekter og utgifter ved drift.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Diverse" [[{Del av kontostrengen; supplement til øvrige dimensjonar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Anlegg" [[{Del av kontostrengen; objekt som skal aktiverast eller avskrivast.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Aktivitet" [[{Del av kontostrengen og detaljering av funksjon.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Kontostreng" --> "0..1" "Ramme" : "ramme"
+"Kontostreng" --> "0..1" "Prosjektart" : "prosjektart"
+"Kontostreng" --> "0..1" "Prosjekt" : "prosjekt"
+"Kontostreng" --> "0..1" "Objekt" : "objekt"
+"Kontostreng" --> "0..1" "Lopenummer" : "lopenummer"
+"Kontostreng" --> "0..1" "Kontrakt" : "kontrakt"
+"Kontostreng" --> "1" "Funksjon" : "funksjon"
+"Kontostreng" --> "0..1" "Formaal" : "formaal"
+"Kontostreng" --> "0..1" "Diverse" : "diverse"
+"Kontostreng" --> "1" "Art" : "art"
+"Kontostreng" --> "1" "Ansvar" : "ansvar"
+"Kontostreng" --> "0..1" "Anlegg" : "anlegg"
+"Kontostreng" --> "0..1" "Aktivitet" : "aktivitet"
+"Lonn" *--> "0..1" "Kontostreng" : "kontostreng"(i)
+"Arbeidsforhold" --> "0..1" "Ramme" : "ramme"
+"Fullmakt" --> "0..1" "Ramme" : "ramme"
+"AdministrasjonContainer" *--> "0..*" "Ramme" : "rammer"
+"Kontostreng" --> "0..1" "Ramme" : "ramme"(i)
+"Fullmakt" --> "0..1" "Ramme" : "ramme"(i)
+"Arbeidsforhold" --> "0..1" "Ramme" : "ramme"(i)
+"Begrep" ^-- "Ramme"
+"Prosjektart" --> "0..*" "Prosjektart" : "underordnet"
+"Prosjektart" --> "0..1" "Prosjektart" : "overordnet"
+"Prosjektart" --> "0..1" "Prosjekt" : "prosjekt"
+"Prosjekt" --> "0..*" "Prosjektart" : "prosjektart"
+"AdministrasjonContainer" *--> "0..*" "Prosjektart" : "prosjektartar"
+"Kontostreng" --> "0..1" "Prosjektart" : "prosjektart"(i)
+"Prosjekt" --> "0..1" "Prosjektart" : "prosjektart"(i)
+"Begrep" ^-- "Prosjektart"
+"AdministrasjonContainer" *--> "0..*" "Prosjekt" : "prosjekt"(i)
+"Arbeidsforhold" --> "0..1" "Prosjekt" : "prosjekt"
+"Fullmakt" --> "0..1" "Prosjekt" : "prosjekt"
+"AdministrasjonContainer" --> "0..1" "Prosjekt" : "prosjekt"
+"Kontostreng" --> "0..1" "Prosjekt" : "prosjekt"(i)
+"Prosjektart" --> "0..1" "Prosjekt" : "prosjekt"(i)
+"Fullmakt" --> "0..1" "Prosjekt" : "prosjekt"(i)
+"Arbeidsforhold" --> "0..1" "Prosjekt" : "prosjekt"(i)
+"Begrep" ^-- "Prosjekt"
+"AdministrasjonContainer" *--> "0..*" "Objekt" : "objekt"(i)
+"Arbeidsforhold" --> "0..1" "Objekt" : "objekt"
+"Fullmakt" --> "0..1" "Objekt" : "objekt"
+"AdministrasjonContainer" --> "0..1" "Objekt" : "objekt"
+"Kontostreng" --> "0..1" "Objekt" : "objekt"(i)
+"Fullmakt" --> "0..1" "Objekt" : "objekt"(i)
+"Arbeidsforhold" --> "0..1" "Objekt" : "objekt"(i)
+"Begrep" ^-- "Objekt"
+"AdministrasjonContainer" *--> "0..*" "Lopenummer" : "lopenummer"(i)
+"Arbeidsforhold" --> "0..1" "Lopenummer" : "lopenummer"
+"Fullmakt" --> "0..1" "Lopenummer" : "lopenummer"
+"AdministrasjonContainer" --> "0..1" "Lopenummer" : "lopenummer"
+"Kontostreng" --> "0..1" "Lopenummer" : "lopenummer"(i)
+"Fullmakt" --> "0..1" "Lopenummer" : "lopenummer"(i)
+"Arbeidsforhold" --> "0..1" "Lopenummer" : "lopenummer"(i)
+"Begrep" ^-- "Lopenummer"
+"Arbeidsforhold" --> "0..1" "Kontrakt" : "kontrakt"
+"Fullmakt" --> "0..1" "Kontrakt" : "kontrakt"
+"AdministrasjonContainer" *--> "0..*" "Kontrakt" : "kontrakter"
+"Kontostreng" --> "0..1" "Kontrakt" : "kontrakt"(i)
+"Fullmakt" --> "0..1" "Kontrakt" : "kontrakt"(i)
+"Arbeidsforhold" --> "0..1" "Kontrakt" : "kontrakt"(i)
+"Begrep" ^-- "Kontrakt"
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"AdministrasjonContainer" *--> "0..*" "Kontaktperson" : "kontaktpersonar"
+"Person" --> "0..*" "Kontaktperson" : "parorende"(i)
+class "Arbeidslokasjon" [[{Fysisk lokasjon der ein tilsett har sitt arbeidsstad.}]] {
+    {field} id : uriorcurie  
+    {field} lokasjonsnavn : string  
+    {field} organisasjonsnavn : string  
+}
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Arbeidslokasjon" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Arbeidslokasjon" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Organisasjonselement" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Personalressurs" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+class "Fylke" [[{Liste over Norges fylker.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Kommune" --> "1" "Fylke" : "fylke"
+"Fylke" --> "0..*" "Kommune" : "kommune"
+"AdministrasjonContainer" *--> "0..*" "Kommune" : "kommunar"
+"Fylke" --> "0..1" "Kommune" : "kommune"(i)
+"Person" --> "0..1" "Kommune" : "kommune"(i)
+"Begrep" ^-- "Kommune"
+"AdministrasjonContainer" *--> "0..*" "Kjonn" : "kjonn"(i)
+"Person" --> "0..1" "Kjonn" : "kjonn"(i)
+"Begrep" ^-- "Kjonn"
+abstract "Enhet" [[{Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.}]] {
+    {field} organisasjonsnavn : string  
+}
+class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenester.}]] {
+    {field} id : uriorcurie  
+    {field} laerling : uriorcurie  [0..*]
+    {field} organisasjonsnavn(i) : string  
+}
+"Arbeidslokasjon" *--> "1" "Identifikator" : "lokasjonskode"
+"Arbeidslokasjon" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Fravaer" *--> "0..1" "Identifikator" : "kildesystemId"
+"Virksomhet" *--> "1" "Identifikator" : "virksomhetsId"
+"Personalressurs" *--> "0..1" "Identifikator" : "ansattnummer"(i)
+"Valuta" *--> "0..1" "Identifikator" : "bokstavkode"(i)
+"Personalressurs" *--> "0..1" "Identifikator" : "brukernavn"(i)
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"(i)
+"Person" *--> "0..1" "Identifikator" : "fodselsnummer"(i)
+"Lonn" *--> "0..1" "Identifikator" : "kildesystemId"(i)
+"Fravaer" *--> "0..1" "Identifikator" : "kildesystemId"(i)
+"Arbeidslokasjon" *--> "0..1" "Identifikator" : "lokasjonskode"(i)
+"Valuta" *--> "0..1" "Identifikator" : "nummerkode"(i)
+"Organisasjonselement" *--> "0..1" "Identifikator" : "organisasjonsId"(i)
+"Organisasjonselement" *--> "0..1" "Identifikator" : "organisasjonsKode"(i)
+"Arbeidslokasjon" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Organisasjonselement" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Rolle" *--> "0..1" "Identifikator" : "rolleNavn"(i)
+"Virksomhet" *--> "0..1" "Identifikator" : "virksomhetsId"(i)
+"AdministrasjonContainer" *--> "0..*" "Virksomhet" : "virksomhetar"
+"Enhet" ^-- "Virksomhet"
+"AdministrasjonContainer" *--> "0..*" "Fylke" : "fylke"(i)
+"Kommune" --> "0..1" "Fylke" : "fylke"(i)
+"Begrep" ^-- "Fylke"
+"Funksjon" --> "0..*" "Funksjon" : "underordnet"
+"Funksjon" --> "0..1" "Funksjon" : "overordnet"
+"Arbeidsforhold" --> "0..1" "Funksjon" : "funksjon"
+"Fullmakt" --> "0..1" "Funksjon" : "funksjon"
+"AdministrasjonContainer" *--> "0..*" "Funksjon" : "funksjonar"
+"Kontostreng" --> "0..1" "Funksjon" : "funksjon"(i)
+"Fullmakt" --> "0..1" "Funksjon" : "funksjon"(i)
+"Arbeidsforhold" --> "0..1" "Funksjon" : "funksjon"(i)
+"Begrep" ^-- "Funksjon"
+"Fullmakt" --> "0..1" "Formaal" : "formaal"
+"Fullmakt" --> "0..1" "Ansvar" : "ansvar"
+"Fullmakt" --> "0..1" "Aktivitet" : "aktivitet"
+"Fullmakt" --> "0..1" "Diverse" : "diverse"
+"Fullmakt" --> "0..1" "Anlegg" : "anlegg"
+"Fullmakt" --> "0..1" "Art" : "art"
+"AdministrasjonContainer" *--> "0..*" "Fullmakt" : "fullmakter"
+"Rolle" --> "0..1" "Fullmakt" : "fullmakt"(i)
+"Personalressurs" --> "0..1" "Fullmakt" : "fullmakt"(i)
+"Fravaer" --> "1" "Fravaerstype" : "fravaerstype"
+"AdministrasjonContainer" *--> "0..*" "Fravaerstype" : "fravaerstypar"
+"Fravaer" --> "0..1" "Fravaerstype" : "fravaerstype"(i)
+"Begrep" ^-- "Fravaerstype"
+class "Fravaersgrunn" [[{Grunn til fråvær.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Fravaer" --> "0..1" "Fravaer" : "fortsetter"
+"Fravaer" --> "0..1" "Fravaer" : "fortsettelse"
+"Fravaer" --> "1..*" "Arbeidsforhold" : "arbeidsforhold"
+"Fravaer" --> "0..1" "Fravaersgrunn" : "fravaersgrunn"
+"AdministrasjonContainer" *--> "0..*" "Fravaer" : "fravaer"(i)
+"Arbeidsforhold" --> "0..*" "Fravaer" : "fravaer"
+"AdministrasjonContainer" --> "0..1" "Fravaer" : "fravaer"
+"Arbeidsforhold" --> "0..1" "Fravaer" : "fravaer"(i)
+"AdministrasjonContainer" *--> "0..*" "Fravaersgrunn" : "fravaersgrunnar"
+"Fravaer" --> "0..1" "Fravaersgrunn" : "fravaersgrunn"(i)
+"Begrep" ^-- "Fravaersgrunn"
+"AdministrasjonContainer" *--> "0..*" "Formaal" : "formaal"(i)
+"Arbeidsforhold" --> "0..1" "Formaal" : "formaal"
+"AdministrasjonContainer" --> "0..1" "Formaal" : "formaal"
+"Kontostreng" --> "0..1" "Formaal" : "formaal"(i)
+"Fullmakt" --> "0..1" "Formaal" : "formaal"(i)
+"Arbeidsforhold" --> "0..1" "Formaal" : "formaal"(i)
+"Begrep" ^-- "Formaal"
+"Fasttillegg" --> "1" "Arbeidsforhold" : "arbeidsforhold"
+"AdministrasjonContainer" *--> "0..*" "Fasttillegg" : "fasttillegg"(i)
+"Arbeidsforhold" --> "0..*" "Fasttillegg" : "fasttillegg"
+"AdministrasjonContainer" --> "0..1" "Fasttillegg" : "fasttillegg"
+"Arbeidsforhold" --> "0..1" "Fasttillegg" : "fasttillegg"(i)
+"Fastlonn" --> "1" "Arbeidsforhold" : "arbeidsforhold"
+"AdministrasjonContainer" *--> "0..*" "Fastlonn" : "fastlonn"(i)
+"Arbeidsforhold" --> "0..*" "Fastlonn" : "fastlonn"
+"AdministrasjonContainer" --> "0..1" "Fastlonn" : "fastlonn"
+"Arbeidsforhold" --> "0..1" "Fastlonn" : "fastlonn"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"
+"Aktoer" ^-- "Enhet"
+"Person" --> "0..1" "Elev" : "elev"(i)
+"AdministrasjonContainer" *--> "0..*" "Diverse" : "diverse"(i)
+"Arbeidsforhold" --> "0..1" "Diverse" : "diverse"
+"AdministrasjonContainer" --> "0..1" "Diverse" : "diverse"
+"Kontostreng" --> "0..1" "Diverse" : "diverse"(i)
+"Fullmakt" --> "0..1" "Diverse" : "diverse"(i)
+"Arbeidsforhold" --> "0..1" "Diverse" : "diverse"(i)
+"Begrep" ^-- "Diverse"
+class "Uketimetall" [[{Timer per veke i 100 % stilling.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Stillingskode" [[{Felles kodeverk for stillingar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Arbeidsforholdstype" [[{Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Begrep" ^-- "Uketimetall"
+"Begrep" ^-- "Stillingskode"
+"Begrep" ^-- "Art"
+"Begrep" ^-- "Arbeidsforholdstype"
+"Begrep" ^-- "Ansvar"
+"Begrep" ^-- "Anlegg"
+"Begrep" ^-- "Aktivitet"
+"Arbeidsforhold" --> "0..1" "Uketimetall" : "timerPerUke"
+"AdministrasjonContainer" *--> "0..*" "Uketimetall" : "uketimetall"
+"Arbeidsforhold" --> "0..1" "Uketimetall" : "timerPerUke"(i)
+"Stillingskode" --> "0..1" "Stillingskode" : "forelder"
+"Arbeidsforhold" --> "0..1" "Stillingskode" : "stillingskode"
+"AdministrasjonContainer" *--> "0..*" "Stillingskode" : "stillingskoder"
+"Arbeidsforhold" --> "0..1" "Stillingskode" : "stillingskode"(i)
+"Arbeidsforhold" --> "0..1" "Art" : "art"
+"AdministrasjonContainer" *--> "0..*" "Art" : "artar"
+"Kontostreng" --> "0..1" "Art" : "art"(i)
+"Lonsart" --> "0..1" "Art" : "art"(i)
+"Fullmakt" --> "0..1" "Art" : "art"(i)
+"Arbeidsforhold" --> "0..1" "Art" : "art"(i)
+"Arbeidslokasjon" --> "0..*" "Arbeidsforhold" : "arbeidsforhold"
+"Arbeidslokasjon" *--> "0..1" "Adresse" : "postadresse"
+"Arbeidslokasjon" *--> "0..1" "Adresse" : "forretningsadresse"
+"Arbeidsforhold" --> "0..1" "Arbeidslokasjon" : "arbeidslokasjon"
+"AdministrasjonContainer" *--> "0..*" "Arbeidslokasjon" : "arbeidslokasjoner"
+"Arbeidsforhold" --> "0..1" "Arbeidslokasjon" : "arbeidslokasjon"(i)
+"Arbeidsforholdstype" --> "0..1" "Arbeidsforholdstype" : "forelder"
+"Arbeidsforhold" --> "0..1" "Arbeidsforholdstype" : "arbeidsforholdstype"
+"AdministrasjonContainer" *--> "0..*" "Arbeidsforholdstype" : "arbeidsforholdstypar"
+"Arbeidsforhold" --> "0..1" "Arbeidsforholdstype" : "arbeidsforholdstype"(i)
+"Arbeidsforhold" --> "0..1" "Ansvar" : "ansvar"
+"Arbeidsforhold" --> "0..1" "Anlegg" : "anlegg"
+"Arbeidsforhold" --> "0..1" "Aktivitet" : "aktivitet"
+"AdministrasjonContainer" *--> "0..*" "Arbeidsforhold" : "arbeidsforhold"(i)
+"AdministrasjonContainer" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"
+"Fastlonn" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
+"Fasttillegg" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
+"Variabellonn" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
+"Fravaer" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
+"Arbeidslokasjon" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
+"Organisasjonselement" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
+"Personalressurs" --> "0..1" "Arbeidsforhold" : "arbeidsforhold"(i)
+"Personalressurs" --> "0..*" "Arbeidsforhold" : "personalansvar"(i)
+"Ansvar" --> "0..*" "Ansvar" : "underordnet"
+"Ansvar" --> "0..1" "Ansvar" : "overordnet"
+"AdministrasjonContainer" *--> "0..*" "Ansvar" : "ansvar"(i)
+"AdministrasjonContainer" --> "0..1" "Ansvar" : "ansvar"
+"Kontostreng" --> "0..1" "Ansvar" : "ansvar"(i)
+"Fullmakt" --> "0..1" "Ansvar" : "ansvar"(i)
+"Organisasjonselement" --> "0..1" "Ansvar" : "ansvar"(i)
+"Arbeidsforhold" --> "0..1" "Ansvar" : "ansvar"(i)
+"AdministrasjonContainer" *--> "0..*" "Anlegg" : "anlegg"(i)
+"AdministrasjonContainer" --> "0..1" "Anlegg" : "anlegg"
+"Kontostreng" --> "0..1" "Anlegg" : "anlegg"(i)
+"Fullmakt" --> "0..1" "Anlegg" : "anlegg"(i)
+"Arbeidsforhold" --> "0..1" "Anlegg" : "anlegg"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"
+"AdministrasjonContainer" *--> "0..*" "Aktivitet" : "aktivitetar"
+"Kontostreng" --> "0..1" "Aktivitet" : "aktivitet"(i)
+"Fullmakt" --> "0..1" "Aktivitet" : "aktivitet"(i)
+"Arbeidsforhold" --> "0..1" "Aktivitet" : "aktivitet"(i)
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"(i)
+"Arbeidslokasjon" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Organisasjonselement" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Arbeidslokasjon" *--> "0..1" "Adresse" : "postadresse"(i)
+"Organisasjonselement" *--> "0..1" "Adresse" : "postadresse"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"(i)
+@enduml

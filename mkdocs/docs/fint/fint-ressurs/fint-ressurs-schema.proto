@@ -1,0 +1,342 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 4.0.20
+// Fysisk adresse eller postadresse.
+message Adresse
+ {
+ repeated  string adresselinje = 0
+  string postnummer = 0
+  string poststed = 0
+  landkode land = 0
+ }
+// Ein applikasjon med tilhøyrande ressursar.
+message Applikasjon
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+  periode gyldighetsperiode = 0
+ repeated  plattform plattform = 0
+ repeated  applikasjonsressurs applikasjonsressurs = 0
+ repeated  applikasjonskategori applikasjonskategori = 0
+ }
+// Kategori av applikasjonar.
+message Applikasjonskategori
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Informasjon om kor ein applikasjon kan nyttast (lisensressurs).
+message Applikasjonsressurs
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+  periode gyldighetsperiode = 0
+  integer enhetskostnad = 0
+  boolean kreverGodkjenning = 0
+  integer lisensantall = 0
+  uriorcurie eier = 0
+  applikasjon applikasjon = 0
+ repeated  brukertype brukertype = 0
+  handhevingstype handhevingstype = 0
+  lisensmodell lisensmodell = 0
+ repeated  applikasjonsressurstilgjengelighet ressurstilgjengelighet = 0
+ }
+// Kva organisasjonselements brukarar som har tilgang til ein ressurs.
+message Applikasjonsressurstilgjengelighet
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  integer lisensantall = 0
+  uriorcurie konsument = 0
+  applikasjonsressurs ressursRef = 0
+ }
+// Dei ulike brukartypane som kan nytte lisensen.
+message Brukertype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ei digital eining som t.d. PC, nettbrett eller mobil.
+message DigitalEnhet
+ {
+  uriorcurie id = 0
+  string serienummer = 0
+  string navn = 0
+  identifikator dataobjektId = 0
+  boolean flerbrukerenhet = 0
+  boolean privateid = 0
+  uriorcurie administrator = 0
+  uriorcurie eier = 0
+  uriorcurie personalressurs = 0
+  elev elev = 0
+  status status = 0
+  enhetstype enhetstype = 0
+  plattform plattform = 0
+  produsent produsent = 0
+ repeated  enhetsgruppemedlemskap enhetsgruppemedlemskap = 0
+ }
+// Ein elev registrert i skulesystemet.
+message Elev
+ {
+  uriorcurie id = 0
+  identifikator elevnummer = 0
+  person person = 0
+ }
+// Ei gruppering av einsarta digitale einingar.
+message Enhetsgruppe
+ {
+  uriorcurie id = 0
+  string navn = 0
+  uriorcurie organisasjonsenhet = 0
+  enhetstype enhetstype = 0
+  plattform plattform = 0
+ repeated  enhetsgruppemedlemskap enhetsgruppemedlemskap = 0
+ }
+// Medlemskap mellom ei digital eining og ei einingsgruppe.
+message Enhetsgruppemedlemskap
+ {
+  uriorcurie id = 0
+  digitalEnhet digitalEnhet = 0
+  enhetsgruppe enhetsgruppe = 0
+ }
+// Type digital eining.
+message Enhetstype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Liste over Norges fylker.
+message Fylke
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  kommune kommune = 0
+ }
+// Korleis ulike lisensmodellar kan handhevast.
+message Handhevingstype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Unik identifikasjon til eit objekt.
+message Identifikator
+ {
+  string identifikatorverdi = 0
+  periode gyldighetsperiode = 0
+ }
+// Identitet som identifiserer innehavaren av rettigheiter i organisasjonen.
+message Identitet
+ {
+  uriorcurie id = 0
+  uriorcurie personalressurs = 0
+ repeated  rettighet rettighet = 0
+ }
+// Verdiar for kjønn basert på ISO/IEC 5218.
+message Kjonn
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Liste over Norges kommunar.
+message Kommune
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  fylke fylke = 0
+ }
+// Informasjon som kan brukast for å oppnå kontakt.
+message Kontaktinformasjon
+ {
+  string epostadresse = 0
+  string mobiltelefonnummer = 0
+  string nettsted = 0
+  string sip = 0
+  string telefonnummer = 0
+ }
+// Kontaktperson (pårørande) til ein person.
+message Kontaktperson
+ {
+  uriorcurie id = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  personnavn kontaktpersonNavn = 0
+  string type = 0
+ repeated  person kontaktperson = 0
+ }
+// Landskode i ISO 3166-1 alpha-2 format.
+message Landkode
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Lisensmodellar som kan knytast til ein lisens.
+message Lisensmodell
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eintydleg identifisering av matrikkeleining innanfor kommune.
+message Matrikkelnummer
+ {
+  adresse adresse = 0
+  string bruksnummer = 0
+  string festenummer = 0
+  string gaardsnummer = 0
+  string seksjonsnummer = 0
+  kommune kommunenummer = 0
+ }
+// Tidsperiode med obligatorisk start og valfri slutt.
+message Periode
+ {
+  string beskrivelse = 0
+  datetime start = 0
+  datetime slutt = 0
+ }
+// Fysiske private personar.
+message Person
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  uriorcurie id = 0
+  string bilde = 0
+  adresse bostedsadresse = 0
+  date fodselsdato = 0
+  identifikator fodselsnummer = 0
+  personnavn personNavn = 0
+ repeated  kontaktperson parorende = 0
+ repeated  landkode statsborgerskap = 0
+  kommune kommune = 0
+  kjonn kjonn = 0
+ repeated  person foreldreansvar = 0
+ repeated  person foreldre = 0
+  spraak maalform = 0
+  spraak morsmaal = 0
+ repeated  uriorcurie laerling = 0
+  elev elev = 0
+  uriorcurie otungdom = 0
+  uriorcurie personalressurs = 0
+ }
+// Namn på ein person.
+message Personnavn
+ {
+  string fornavn = 0
+  string mellomnavn = 0
+  string etternavn = 0
+ }
+// Plattforma tenesta kan leverast på.
+message Plattform
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Produsent av ei digital eining.
+message Produsent
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Rotcontainer for FINT Ressurs-instansar.
+message RessursContainer
+ {
+ repeated  applikasjon applikasjonar = 0
+ repeated  applikasjonsressurs applikasjonsressursar = 0
+ repeated  applikasjonsressurstilgjengelighet applikasjonsressurstilgjengelegheit = 0
+ repeated  digitalEnhet digitaleEiningar = 0
+ repeated  enhetsgruppe einingsgrupper = 0
+ repeated  enhetsgruppemedlemskap einingsgruppedmedlemskap = 0
+ repeated  identitet identitetar = 0
+ repeated  rettighet rettigheiter = 0
+ repeated  applikasjonskategori applikasjonskategoriar = 0
+ repeated  brukertype brukertypar = 0
+ repeated  enhetstype einingstypar = 0
+ repeated  handhevingstype handhaevingstypar = 0
+ repeated  lisensmodell lisensmodellar = 0
+ repeated  plattform plattformar = 0
+ repeated  produsent produsentar = 0
+ repeated  status statusar = 0
+ }
+// Ei namngitt rettighet.
+message Rettighet
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  string beskrivelse = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  identitet identitet = 0
+ }
+// Verdiar for språk (2 bokstavar).
+message Spraak
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Status på ei digital eining i fagsystemet.
+message Status
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Valutakodar for offisielle valutaer.
+message Valuta
+ {
+  uriorcurie id = 0
+  identifikator bokstavkode = 0
+  string valutaNavn = 0
+  identifikator nummerkode = 0
+ }
+// Ein juridisk organisasjon som produserer varer eller tenester.
+message Virksomhet
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  adresse forretningsadresse = 0
+  string organisasjonsnavn = 0
+  identifikator organisasjonsnummer = 0
+  uriorcurie id = 0
+  identifikator virksomhetsId = 0
+ repeated  uriorcurie laerling = 0
+ }
+

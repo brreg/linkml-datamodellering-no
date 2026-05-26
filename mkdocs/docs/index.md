@@ -27,7 +27,7 @@ make check-prereqs
 make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-gen-build && make mcp-begrep-build
 ```
 
-> Bytt ut `domene` og `modellnavn` i kommandoane nedanfor med dine eigne verdiar.
+> Bytt ut **`domene`** og **`modellnavn`** i kommandoane nedanfor med dine eigne verdiar.
 
 ```bash
 # 2. Lag eit nytt tomt LinkML-skjema (med tilhøyrande filstruktur og eksempelfil)
@@ -56,9 +56,9 @@ For full rettleiing om modellering, validering og importar: sjå [Ny domenemodel
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
-| begrep | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Instansar i YAML eksportert til SKOS/RDF for Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
-| ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
 | fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
+| ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
+| begrep | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Produksjonsdatafiler i `data/begrep/` vert automatisk konverterte til SKOS/RDF og publiserte til Felles Begrepskatalog via GitHub Pages-høstingsendepunkt. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
 | oreg | Offentlege register. |
 | fint | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
@@ -103,15 +103,16 @@ Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar gener
 |---|---|---|---|---|
 | JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar | ✓ | `jsonld_context` |
 | SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
-| Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
-| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar | — | `json_schema` |
 | OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
 | RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
+| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
+| Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
+| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar | — | `json_schema` |
 | Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
 | ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
 | HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon | — | `docs` |
 | PlantUML-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon | — | `plantuml` |
-| Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
+
 
 ## Katalogstruktur
 
@@ -125,7 +126,8 @@ linkml-datamodellering-no/
 │   ├── mcp-linkml-begrep-generator/ # MCP-server: generering av begrepsinstansar
 │   └── templates/                   # Jinja2-malar for make gen-docs
 │
-├──examples/    # Eksempeldata per domene
+├──data/        # Produksjonsdata per domene (publiserast til Felles Begrepskatalog o.l.)
+├──examples/    # Eksempeldata per domene (aldri publisert — berre for gen-doc og testing)
 ├──tests/       # Testar og fixtures
 ├──generated/   # Genererte artefakter (ikkje sjekka inn i git)
 ├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)

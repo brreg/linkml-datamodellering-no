@@ -1,0 +1,300 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// Gradering av adressebeskyttelse for innflyttede personar til Noreg. Tidlegare kalla kode 6 (strengt fortroleg) og kode 7 (fortroleg).
+message Adressebeskyttelse
+ {
+  uriorcurie id = 0
+  adressebeskyttelseGradering adressebeskyttelseGradering = 0
+ }
+// Adressa personen er registrert busett på i Folkeregisteret.
+message Bostedsadresse
+ {
+  uriorcurie id = 0
+  date gyldigFraOgMed = 0
+  date gyldigTilOgMed = 0
+ }
+// Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i Noreg (t.d. med d-nummer, om dei har midlertidig eller permanent opphald). Brukes om de har midlertidig eller ikkje har permanent opphald.
+message DNummer
+ {
+  uriorcurie id = 0
+  string identifikatornummer = 0
+ }
+// Dødsfallsinformasjon om ein person registrert i Folkeregisteret.
+message Dodsfall
+ {
+  uriorcurie id = 0
+  date doedsdato = 0
+  string doedssted = 0
+ }
+// Registrering av at ein person har opptrådt med falsk identitet. Kan peke på den rette identiteten om denne er kjent.
+message FalskIdentitet
+ {
+  uriorcurie id = 0
+  boolean erFalsk = 0
+  boolean rettIdentitetErUkjent = 0
+  person rettIdentitet = 0
+ }
+// Familierelasjon der den relaterte personen er barn.
+message FamilierelasjonBarn
+ {
+  uriorcurie id = 0
+  person erAvTypePerson = 0
+ }
+// Familierelasjon der den relaterte personen er ektefelle eller registrert partnar. Dette er strengt tatt same informasjon som sivilstand GIFT.
+message FamilierelasjonEktefelle
+ {
+  uriorcurie id = 0
+  person erAvTypePerson = 0
+ }
+// Familierelasjon der den relaterte personen er forelder.
+message FamilierelasjonForelder
+ {
+  uriorcurie id = 0
+  person erAvTypePerson = 0
+  string foreldrerelasjonType = 0
+ }
+// Fødselsinformasjon om ein person registrert i Folkeregisteret.
+message Foedsel
+ {
+  uriorcurie id = 0
+  date foedselsdato = 0
+  string foedested = 0
+  integer foedselsaar = 0
+ }
+// Elleve-sifra fødselsnummer tildelt norske statsborgarar og personar med fast opphald i Noreg.
+message Foedselsnummer
+ {
+  uriorcurie id = 0
+  string identifikatornummer = 0
+ }
+// Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein person.
+message ForeldreansvarBarn
+ {
+  uriorcurie id = 0
+  person erAvTypePerson = 0
+ }
+// Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret for eit barn. Seier kven som er den ansvarlege forelderen.
+message ForeldreansvarForelder
+ {
+  uriorcurie id = 0
+  person erAvTypePerson = 0
+  string ansvarsstatus = 0
+ }
+// Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort knytt til ein person.
+message Identifikasjonsdokument
+ {
+  uriorcurie id = 0
+  identifikasjonsdokumentType dokumenttype = 0
+  string dokumentnummer = 0
+  string utstederland = 0
+  date utstedtdato = 0
+  date utloepsdato = 0
+ }
+// Grunnlaget som er brukt for å fastsetje identiteten til ein person ved registrering i Folkeregisteret.
+message Identitetsgrunnlag
+ {
+  uriorcurie id = 0
+  string identitetsgrunnlagStatus = 0
+  string identitetsgrunnlagKilde = 0
+ }
+// Registrering av innflytting til Noreg i Folkeregisteret.
+message InnflyttingTilNorge
+ {
+  uriorcurie id = 0
+  string fraflyttingsland = 0
+  string fraflyttingsstedIUtlandet = 0
+  date innflyttingsdato = 0
+ }
+// Kjønn registrert på ein person i Folkeregisteret.
+message Kjoenn
+ {
+  uriorcurie id = 0
+  kjoennKode kjoennKode = 0
+  date gyldigFraOgMed = 0
+ }
+// Kontaktinformasjon for eit dødsbu.
+message KontaktinformasjonDoedsbo
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string telefonnummer = 0
+  string epostadresseVerdi = 0
+ }
+// Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
+message Kontaktopplysninger
+ {
+  uriorcurie id = 0
+  string epostadresseVerdi = 0
+  string mobiltelefonnummer = 0
+  date sistOppdatert = 0
+ }
+// Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregisteret.
+message Opphold
+ {
+  uriorcurie id = 0
+  oppholdstypeKode oppholdsType = 0
+  date gyldigFraOgMed = 0
+  date gyldigTilOgMed = 0
+ }
+// Adressa der personen faktisk oppheld seg (ikkje nødvendigvis bustadsadressa).
+message Oppholdsadresse
+ {
+  uriorcurie id = 0
+  date gyldigFraOgMed = 0
+  date gyldigTilOgMed = 0
+ }
+// Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene person.
+message Person
+ {
+  uriorcurie id = 0
+  personnavn harPersonnavn = 0
+  folkeregisteridentifikator harFolkeregisteridentifikator = 0
+ repeated  personidentifikasjon harPersonidentifikasjon = 0
+  falskIdentitet harFalskIdentitet = 0
+ repeated  identifikasjonsdokument harUtenlandskIdentifikasjonsdokument = 0
+  identitetsgrunnlag harIdentitetsgrunnlag = 0
+  kjoenn harKjoenn = 0
+  sivilstand harSivilstand = 0
+  personstatus harPersonstatus = 0
+ repeated  statsborgerskap harStatsborgerskap = 0
+  opphold harLovligOpphold = 0
+  foedsel harFoedsel = 0
+ repeated  foreldreansvarForelder harForeldreansvarForelder = 0
+ repeated  foreldreansvarBarn harForeldreansvarBarn = 0
+ repeated  familierelasjonForelder harFamilierelasjonForelder = 0
+ repeated  familierelasjonBarn harFamilierelasjonBarn = 0
+  familierelasjonEktefelle harFamilierelasjonEktefelle = 0
+  dodsfall harDodsfall = 0
+  kontaktinformasjonDoedsbo harKontaktinformasjonDoedsbo = 0
+  innflyttingTilNorge harInnflyttingTilNorge = 0
+  utflyttingFraNorge harUtflyttingFraNorge = 0
+  adressebeskyttelse harAdressebeskyttelse = 0
+  bostedsadresse harBostedPaa = 0
+  postadresse mottarPostPaa = 0
+  oppholdsadresse oppholderSegPaa = 0
+ repeated  verge harVerge = 0
+  rettsligHandleevne harRettsligHandleevne = 0
+  reservasjonMotKommunikasjonPaaNett harReservasjonMotKommunikasjon = 0
+  kontaktopplysninger harKontaktopplysninger = 0
+  spraakForElektroniskKommunikasjon harValgtSpraak = 0
+ }
+// Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+message PersonContainer
+ {
+ repeated  person personar = 0
+ repeated  personnavn personnavn = 0
+ repeated  foedselsnummer foedselsnummer = 0
+ repeated  dNummer dnummer = 0
+ repeated  personidentifikasjon personidentifikasjonar = 0
+ repeated  falskIdentitet falskIdentitetar = 0
+ repeated  identifikasjonsdokument identifikasjonsdokument = 0
+ repeated  identitetsgrunnlag identitetsgrunnlag = 0
+ repeated  kjoenn kjoenn = 0
+ repeated  sivilstand sivilstand = 0
+ repeated  personstatus personstatus = 0
+ repeated  statsborgerskap statsborgerskap = 0
+ repeated  opphold opphold = 0
+ repeated  foedsel foedslar = 0
+ repeated  foreldreansvarForelder foreldreansvarForelder = 0
+ repeated  foreldreansvarBarn foreldreansvarBarn = 0
+ repeated  familierelasjonForelder familierelasjonForelder = 0
+ repeated  familierelasjonBarn familierelasjonBarn = 0
+ repeated  familierelasjonEktefelle familierelasjonEktefelle = 0
+ repeated  dodsfall dodsfall = 0
+ repeated  kontaktinformasjonDoedsbo kontaktinformasjonDoedsbo = 0
+ repeated  innflyttingTilNorge innflytting = 0
+ repeated  utflyttingFraNorge utflytting = 0
+ repeated  adressebeskyttelse adressebeskyttelse = 0
+ repeated  bostedsadresse bostedsadresser = 0
+ repeated  postadresse postadresser = 0
+ repeated  oppholdsadresse oppholdsadresser = 0
+ repeated  verge verger = 0
+ repeated  rettsligHandleevne rettsligHandleevne = 0
+ repeated  reservasjonMotKommunikasjonPaaNett reservasjonar = 0
+ repeated  kontaktopplysninger kontaktopplysningar = 0
+ repeated  spraakForElektroniskKommunikasjon spraak = 0
+ }
+// Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer, utanlandsk skatteidentifikasjon eller social security number.
+message Personidentifikasjon
+ {
+  uriorcurie id = 0
+  string identifikasjonstype = 0
+  string identifikatornummer = 0
+ }
+// Offisielt registrert namn på ein person i Folkeregisteret.
+message Personnavn
+ {
+  uriorcurie id = 0
+  string fornavn = 0
+  string mellomnavn = 0
+  string etternavn = 0
+  string forkortetNavn = 0
+ }
+// Status for ein person i Folkeregisteret (t.d. bosatt, utflyttet, død).
+message Personstatus
+ {
+  uriorcurie id = 0
+  personstatusType personstatusType = 0
+  date gyldigFraOgMed = 0
+ }
+// Adressa der personen mottar post.
+message Postadresse
+ {
+  uriorcurie id = 0
+  date gyldigFraOgMed = 0
+  date gyldigTilOgMed = 0
+ }
+// Registrering av at ein person har reservert seg mot digital kommunikasjon frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR).
+message ReservasjonMotKommunikasjonPaaNett
+ {
+  uriorcurie id = 0
+  boolean erReservert = 0
+  date gyldigFraOgMed = 0
+ }
+// Registrering av avgrensing i rettsleg handleevne for ein person, t.d. under vergemål eller fråtatt rettsleg handleevne.
+message RettsligHandleevne
+ {
+  uriorcurie id = 0
+  rettsligHandleevneType rettsligHandleevneType = 0
+  string omfang = 0
+ }
+// Sivilstand registrert på ein person i Folkeregisteret.
+message Sivilstand
+ {
+  uriorcurie id = 0
+  sivilstandType sivilstandType = 0
+  date gyldigFraOgMed = 0
+  person relatertVedSivilstand = 0
+ }
+// Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, valt av personen sjølv.
+message SpraakForElektroniskKommunikasjon
+ {
+  uriorcurie id = 0
+  string spraakkode = 0
+ }
+// Statsborgerskap registrert på ein person i Folkeregisteret.
+message Statsborgerskap
+ {
+  uriorcurie id = 0
+  string landkode = 0
+  date gyldigFraOgMed = 0
+  date gyldigTilOgMed = 0
+ }
+// Registrering av utflytting frå Noreg i Folkeregisteret.
+message UtflyttingFraNorge
+ {
+  uriorcurie id = 0
+  string tilflyttingsland = 0
+  string tilflyttingsstedIUtlandet = 0
+  date utflyttingsdato = 0
+ }
+// Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta interessene til ein person. Er av type Person.
+message Verge
+ {
+  uriorcurie id = 0
+  person erAvTypePerson = 0
+  vergetypeKode vergetype = 0
+  string embete = 0
+ }
+

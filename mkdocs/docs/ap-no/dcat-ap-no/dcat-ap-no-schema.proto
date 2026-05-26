@@ -1,0 +1,332 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 2.0
+// Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
+message Aktor
+ {
+  uriorcurie id = 0
+ repeated  langString navnAktor = 0
+  string identifikatorLiteral = 0
+  konsept typeConcept = 0
+ }
+// Ei SKOS-omgrepssamling (temavokabular).
+message Begrepssamling
+ {
+  uriorcurie id = 0
+ }
+// Tilbakemelding frå ein brukar om kvaliteten til eit datasett.
+message Brukartilbakemelding
+ {
+  uriorcurie id = 0
+  uriorcurie erMotivertAv = 0
+ repeated  kvalitetsdimensjon erIKvalitetsdimensjon = 0
+  tekstdel harTekstdel = 0
+ repeated  langString harMerknad = 0
+  uri harMaal = 0
+ }
+// Ei samling av data utgjeven eller kuratert av éin aktør.
+message Datasett
+ {
+  uriorcurie id = 0
+ repeated  langString beskrivelse = 0
+ repeated  kontaktopplysning kontaktpunkt = 0
+ repeated  string tema = 0
+ repeated  langString tittel = 0
+  aktor utgiver = 0
+ repeated  string begrep = 0
+ repeated  uri bleGenerertVed = 0
+ repeated  distribusjon datasettdistribusjon = 0
+ repeated  konsept dekningsomraade = 0
+ repeated  regulativRessurs gjeldendeLovgivning = 0
+ repeated  langString nokkelord = 0
+ repeated  tidsrom tidsrom = 0
+ repeated  uri tilgangsrettigheter = 0
+ repeated  string annenAnsvarligAktor = 0
+ repeated  identifikator annenIdentifikator = 0
+ repeated  relasjon annenSpesifikkRelasjon = 0
+ repeated  uri dokumentasjon = 0
+ repeated  string eierskapshistorikk = 0
+ repeated  distribusjon eksempeldata = 0
+  date endringsdato = 0
+  string identifikatorLiteral = 0
+ repeated  standard iSamsvarMed = 0
+ repeated  datasettserie iSerie = 0
+ repeated  datasett kildeDatasett = 0
+ repeated  uri landingsside = 0
+  aktor produsent = 0
+ repeated  uri relatertRessurs = 0
+ repeated  spraak spraak = 0
+  konsept typeConcept = 0
+  date utgivelsesdato = 0
+  string versjon = 0
+ repeated  langString versjonsmerknad = 0
+ repeated  kvalitetsmerknad harKvalitetsmerknad = 0
+ repeated  kvalitetsmaaling harKvalitetsmaaling = 0
+ }
+// Ei serie av relaterte datasett publisert separat men med felles metadata.
+message Datasettserie
+ {
+  uriorcurie id = 0
+ repeated  langString beskrivelse = 0
+ repeated  kontaktopplysning kontaktpunkt = 0
+ repeated  string tema = 0
+ repeated  langString tittel = 0
+  aktor utgiver = 0
+ repeated  konsept dekningsomraade = 0
+ repeated  regulativRessurs gjeldendeLovgivning = 0
+  datasett siste = 0
+ repeated  tidsrom tidsrom = 0
+  date endringsdato = 0
+  string frekvens = 0
+  datasett forste = 0
+  date utgivelsesdato = 0
+ }
+// Ei samling operasjonar tilgjengeleg via eit API-grensesnitt.
+message Datatjeneste
+ {
+  uriorcurie id = 0
+ repeated  uri endepunktsUrl = 0
+ repeated  kontaktopplysning kontaktpunkt = 0
+ repeated  langString tittel = 0
+  aktor utgiver = 0
+ repeated  uri endepunktsbeskrivelse = 0
+  string format = 0
+ repeated  regulativRessurs gjeldendeLovgivning = 0
+ repeated  standard iSamsvarMed = 0
+ repeated  langString nokkelord = 0
+ repeated  string tema = 0
+ repeated  datasett tilgjengeliggjorDatasett = 0
+  string tilgjengelighet = 0
+ repeated  langString beskrivelse = 0
+ repeated  uri dokumentasjon = 0
+ repeated  gebyr harGebyr = 0
+  string identifikatorLiteral = 0
+ repeated  uri landingsside = 0
+  string lisens = 0
+  rettighetserklaring rettigheter = 0
+  konsept status = 0
+ repeated  uri tilgangsrettigheter = 0
+  string versjon = 0
+ repeated  langString versjonsmerknad = 0
+ }
+// Ein spesifikk representasjon/nedlastbar form av eit datasett.
+message Distribusjon
+ {
+  uriorcurie id = 0
+ repeated  uri tilgangsUrl = 0
+ repeated  langString beskrivelse = 0
+  string format = 0
+  string lisens = 0
+  konsept status = 0
+  string tilgjengelighet = 0
+ repeated  uri dokumentasjon = 0
+  date endringsdato = 0
+  nonNegativeInteger filstorrelse = 0
+ repeated  regulativRessurs gjeldendeLovgivning = 0
+ repeated  standard iSamsvarMed = 0
+  mediatype komprimeringsformat = 0
+  mediatype medietype = 0
+ repeated  uri nedlastningslenke = 0
+  mediatype pakkeformat = 0
+  string policy = 0
+  rettighetserklaring rettigheter = 0
+  sjekksum sjekksum = 0
+ repeated  spraak spraak = 0
+  duration tidsopplosning = 0
+ repeated  datatjeneste tilgangstjeneste = 0
+ repeated  langString tittel = 0
+  date utgivelsesdato = 0
+ }
+// Eit gebyr knytt til bruk av ein datatjeneste.
+message Gebyr
+ {
+  uriorcurie id = 0
+  string belop = 0
+ repeated  langString beskrivelse = 0
+ repeated  uri dokumentasjon = 0
+  konsept valuta = 0
+ }
+// Ein alternativ identifikator for ein ressurs.
+message Identifikator
+ {
+  uriorcurie id = 0
+  string notasjon = 0
+ }
+// Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar.
+message Katalog
+ {
+  uriorcurie id = 0
+ repeated  langString beskrivelse = 0
+ repeated  kontaktopplysning kontaktpunkt = 0
+ repeated  langString tittel = 0
+  aktor utgiver = 0
+ repeated  datasett datasett = 0
+ repeated  datatjeneste datatjeneste = 0
+ repeated  konsept dekningsomraade = 0
+  date endringsdato = 0
+ repeated  uri heimeside = 0
+  string lisens = 0
+ repeated  spraak spraak = 0
+ repeated  begrepssamling temaer = 0
+  date utgivelsesdato = 0
+ repeated  regulativRessurs gjeldendeLovgivning = 0
+ repeated  katalog harDel = 0
+  string identifikatorLiteral = 0
+ repeated  katalog underkatalog = 0
+ repeated  katalogpost katalogpost = 0
+  aktor produsent = 0
+  rettighetserklaring rettigheter = 0
+ repeated  tidsrom tidsrom = 0
+ }
+// Ein katalogpost som beskriv ein ressurs i katalogen.
+message Katalogpost
+ {
+  uriorcurie id = 0
+  date endringsdato = 0
+  katalogisertRessurs primaertema = 0
+ repeated  standard iSamsvarMed = 0
+  konsept status = 0
+  date utgivelsesdato = 0
+ repeated  langString beskrivelse = 0
+  uri kildePost = 0
+ repeated  spraak spraak = 0
+ repeated  langString tittel = 0
+ }
+// Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
+message Konsept
+ {
+  uriorcurie id = 0
+ }
+// Kontaktinformasjon for ein aktør.
+message Kontaktopplysning
+ {
+  uriorcurie id = 0
+ repeated  langString navnVcard = 0
+  string harEpost = 0
+  string harKontaktside = 0
+ }
+// Ein deldimensjon av ein kvalitetsdimensjon.
+message Kvalitetsdeldimensjon
+ {
+  uriorcurie id = 0
+  kvalitetsdimensjon erDeldimensjonAv = 0
+ repeated  langString harAnbefaltTerm = 0
+ repeated  langString harDefinisjon = 0
+ }
+// Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
+message Kvalitetsdimensjon
+ {
+  uriorcurie id = 0
+ repeated  langString harAnbefaltTerm = 0
+ repeated  langString harDefinisjon = 0
+ }
+// Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
+message Kvalitetsmaal
+ {
+  uriorcurie id = 0
+  kvalitetsdeldimensjon erIKvalitetsdeldimensjon = 0
+  uriorcurie harForventetDatatype = 0
+ repeated  langString harAnbefaltTerm = 0
+ repeated  langString harDefinisjon = 0
+ }
+// Ei konkret måling av eit kvalitetsmål for eit datasett.
+message Kvalitetsmaaling
+ {
+  uriorcurie id = 0
+  kvalitetsmaal erKvalitetsmaalingAv = 0
+  string harVerdi = 0
+ repeated  langString harMerknad = 0
+ }
+// Ein merknad om kvaliteten til eit datasett.
+message Kvalitetsmerknad
+ {
+  uriorcurie id = 0
+  uriorcurie erMotivertAv = 0
+ repeated  kvalitetsdimensjon erIKvalitetsdimensjon = 0
+  tekstdel harTekstdel = 0
+ repeated  langString harMerknad = 0
+  uri harMaal = 0
+ }
+// Eit sertifikat som stadfester kvaliteten til eit datasett.
+message Kvalitetssertifikat
+ {
+  uriorcurie id = 0
+  uriorcurie erMotivertAv = 0
+ repeated  kvalitetsdimensjon erIKvalitetsdimensjon = 0
+  tekstdel harTekstdel = 0
+ repeated  langString harMerknad = 0
+  uri harMaal = 0
+ }
+// Ein medietype eller filformat (dct:MediaTypeOrExtent).
+message Mediatype
+ {
+  uriorcurie id = 0
+ }
+// Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
+message RegulativRessurs
+ {
+  uriorcurie id = 0
+ repeated  langString beskrivelse = 0
+  string identifikatorLiteral = 0
+ repeated  uri harReferanse = 0
+ repeated  spraak spraak = 0
+ repeated  langString tittel = 0
+  konsept typeConcept = 0
+ repeated  regulativRessurs relatertRegulativRessurs = 0
+ }
+// Ein kvalifisert relasjon mellom to ressursar.
+message Relasjon
+ {
+  uriorcurie id = 0
+  string harRolle = 0
+  uri relasjonTil = 0
+ }
+// Ei erklæring om rettar til ein ressurs (ODRS).
+message Rettighetserklaring
+ {
+  uriorcurie id = 0
+  string anvendelsesretningslinjer = 0
+  string jurisdiksjon = 0
+  string krediteringstekst = 0
+  uri krediteringsurl = 0
+  string opphavsrettserklaring = 0
+  string opphavsrettsinnehaver = 0
+  string opphavsrettsnotis = 0
+  gYear opphavsrettsaar = 0
+ }
+// Ein sjekksum for ein distribusjon.
+message Sjekksum
+ {
+  uriorcurie id = 0
+  string algoritme = 0
+  string sjekksumverdi = 0
+ }
+// Ein standard eller spesifikasjon som eit datasett er i samsvar med.
+message Standard
+ {
+  uriorcurie id = 0
+ repeated  langString tittel = 0
+ repeated  kvalitetsdimensjon erIKvalitetsdimensjon = 0
+ repeated  uri harReferanse = 0
+ repeated  langString harMerknad = 0
+  string harVersjonsnummer = 0
+ }
+// Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
+message Tekstdel
+ {
+  uriorcurie id = 0
+  string harVerdiTekstdel = 0
+  string format = 0
+ repeated  spraak spraak = 0
+ }
+// Eit tidsintervall med start- og sluttdato.
+message Tidsrom
+ {
+  uriorcurie id = 0
+  date startdato = 0
+  date sluttdato = 0
+  datetime begynnelse = 0
+  datetime slutt = 0
+ }
+

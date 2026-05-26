@@ -1,0 +1,175 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+message AdresseContainer
+ {
+ repeated  offisiellAdresse offisielleAdresser = 0
+ repeated  postboksadresse postboksadresser = 0
+ repeated  adressenavn adressenavn = 0
+ repeated  adresseomrade adresseomrader = 0
+ repeated  adressekode adressekoder = 0
+ repeated  husnummer husnummer = 0
+ repeated  bruksenhetsnummer bruksenhetsnummer = 0
+ repeated  kommune kommunar = 0
+ repeated  fylke fylke = 0
+ repeated  poststed poststeder = 0
+ repeated  grunnkrets grunnkretsar = 0
+ repeated  tettsted tettstadar = 0
+ repeated  kirkesokn kirkesokn = 0
+ repeated  stemmekrets stemmekretsar = 0
+ repeated  kommunalKrets kommunaleKretsar = 0
+ repeated  svalbard svalbardOmrader = 0
+ repeated  postboks postboksar = 0
+ repeated  representasjonspunkt representasjonspunkt = 0
+ repeated  bygning bygningar = 0
+ repeated  bruksenhet bruksenheter = 0
+ }
+// Firesifra kommunal kode som identifiserer eit adressenavn.
+message Adressekode
+ {
+  uriorcurie id = 0
+  integer kode = 0
+  adresseomrade adresseomradeRef = 0
+ }
+// Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av kommunen og godkjent av Kartverket.
+message Adressenavn
+ {
+  uriorcurie id = 0
+  string adressenavnTekst = 0
+  adresseomrade adresseomradeRef = 0
+  adressekode harAdressekode = 0
+ }
+// Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit stadnamn.
+message Adresseomrade
+ {
+  uriorcurie id = 0
+  string namn = 0
+ }
+// Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen.
+message Bruksenhet
+ {
+  uriorcurie id = 0
+ }
+// Identifikator for ei brukseining (leilegheit o.l.) innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1.
+message Bruksenhetsnummer
+ {
+  uriorcurie id = 0
+  etasjeplan etasjeplan = 0
+  integer etasjenummer = 0
+  integer nummereringIEtasjen = 0
+ }
+// Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen.
+message Bygning
+ {
+  uriorcurie id = 0
+ }
+// Eit norsk fylke.
+message Fylke
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string fylkesnummer = 0
+ }
+// Ei grunnkrets – minste geografiske eining i statistisk inndeling.
+message Grunnkrets
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string grunnkretsnummer = 0
+ }
+// Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t.d. 12 eller 12B).
+message Husnummer
+ {
+  uriorcurie id = 0
+  integer nummer = 0
+  string bokstav = 0
+ }
+// Eit kyrkjesokn.
+message Kirkesokn
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string kirkesoknnummer = 0
+ }
+// Ein kommunal krets (administrativ inndeling definert av kommunen).
+message KommunalKrets
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string kretsnummer = 0
+ }
+// Ein norsk kommune.
+message Kommune
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string kommunenummerKode = 0
+ }
+// Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenavn + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen.
+message OffisiellAdresse
+ {
+  uriorcurie id = 0
+  kommune kommunenummerRef = 0
+  adressenavn adressenavnRef = 0
+  adressekode adressekodeRef = 0
+  husnummer husnummerRef = 0
+  bruksenhetsnummer bruksenhetsnummerRef = 0
+  representasjonspunkt representasjonspunktRef = 0
+  string adressetilleggsnavn = 0
+  string matrikkelnummer = 0
+  bygning adressererBygning = 0
+  bruksenhet adressererBruksenhet = 0
+  uriorcurie adressererAnnetObjekt = 0
+ repeated  geografiskOmrade geografiskOmrade = 0
+ }
+// Ei postboks registrert i Postboksregisteret.
+message Postboks
+ {
+  uriorcurie id = 0
+  integer postboksnummer = 0
+ }
+// Ei postboksadresse registrert i Postboksregisteret (Posten Norge).
+message Postboksadresse
+ {
+  uriorcurie id = 0
+  postboks postboksRef = 0
+  poststed poststedRef = 0
+  string postboksanleggsnavn = 0
+ }
+// Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.
+message Poststed
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string postnummer = 0
+ }
+// Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa.
+message Representasjonspunkt
+ {
+  uriorcurie id = 0
+  float koordinatOst = 0
+  float koordinatNord = 0
+  string koordinatsystem = 0
+ }
+// Ei stemmekrets brukt ved val.
+message Stemmekrets
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string stemmekretsnummer = 0
+ }
+// Svalbard som særskild geografisk område.
+message Svalbard
+ {
+  uriorcurie id = 0
+  string namn = 0
+ }
+// Eit tettbygd område definert av SSB.
+message Tettsted
+ {
+  uriorcurie id = 0
+  string namn = 0
+  string tettstedsnummer = 0
+ }
+

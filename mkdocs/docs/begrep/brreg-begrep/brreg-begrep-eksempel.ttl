@@ -88,4 +88,3 @@
     ns1:organisasjonar <https://data.norge.no/organizations/974760673> ;
     ns1:samlingar <https://begrep.brreg.no/samlingar/registerbegrep-2025> .
 
-

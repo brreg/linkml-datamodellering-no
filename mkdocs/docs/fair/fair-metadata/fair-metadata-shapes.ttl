@@ -1,0 +1,179 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix fair: <https://data.norge.no/fair#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+fair:FAIRMetadata a sh:NodeShape ;
+    rdfs:comment """Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR-prinsippa.
+""" ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Persistent URI-identifikator for metadata-posten (FAIR F1)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path dct:identifier ],
+        [ sh:class fair:Katalogregistrering ;
+            sh:description "Dokumenterer registrering i søkbar katalog (FAIR F4)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path fair:katalogregistrering ],
+        [ sh:description """Global og persistent identifikator for ressursen (FAIR F1). Skal vere ein PID (t.d. DOI, Handle, eller stabil URI).
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path dct:identifier ],
+        [ sh:description "URI til ressursen som denne metadata-posten beskriver (FAIR F3)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:subject ],
+        [ sh:class fair:Proveniensmetadata ;
+            sh:description "Metadata om opphav og endringshistorie (FAIR R1.2)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path fair:proveniensmetadata ],
+        [ sh:description """Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ein URI frå eit kontrollert vokabular (FAIR F2).
+""" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:type ],
+        [ sh:class fair:Tilgangsmetadata ;
+            sh:description "Metadata for tilgang og tilgjengelegheit (FAIR A1/A2)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path fair:tilgangsmetadata ],
+        [ sh:class fair:Gjenbruksmetadata ;
+            sh:description "Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path fair:gjenbruksmetadata ] ;
+    sh:targetClass fair:FAIRMetadata .
+
+fair:Gjenbruksmetadata a sh:NodeShape ;
+    rdfs:comment "Metadata som støttar gjenbruk av ressursen (FAIR R1.1, R1.3)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Brukslisens for ressursen som URI (FAIR R1.1)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path dct:license ],
+        [ sh:datatype xsd:string ;
+            sh:description "Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path dct:rights ],
+        [ sh:description """Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO eller ISO 19115 (FAIR R1.3 / I3).
+""" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:conformsTo ],
+        [ sh:description """Kontrollerte vokabular eller ontologiar som ressursen brukar (FAIR I2).
+""" ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path fair:vokabular ] ;
+    sh:targetClass fair:Gjenbruksmetadata .
+
+fair:Katalogregistrering a sh:NodeShape ;
+    rdfs:comment "Dokumenterer registrering i søkbar katalog (FAIR F4)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "Direkte URL til oppføringa i katalogen (FAIR F4)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path fair:katalogOppfoeringURL ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato for katalogregistrering (FAIR F4)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fair:registreringsdato ],
+        [ sh:description "URI til katalogen der metadata er registrert (FAIR F4)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path fair:registrertIKatalog ] ;
+    sh:targetClass fair:Katalogregistrering .
+
+fair:Proveniensmetadata a sh:NodeShape ;
+    rdfs:comment "Metadata om opphav og endringshistorie (FAIR R1.2)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Sist endra dato (FAIR R1.2)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:modified ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato ressursen blei oppretta (FAIR R1.2)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path dct:created ],
+        [ sh:description """Organisasjon eller aktør som er ansvarleg for ressursen, som URI (FAIR R1.2).
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path prov:wasAttributedTo ],
+        [ sh:description "Aktivitet som har generert ressursen (FAIR R1.2)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path prov:wasGeneratedBy ] ;
+    sh:targetClass fair:Proveniensmetadata .
+
+fair:Tilgangsmetadata a sh:NodeShape ;
+    rdfs:comment "Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URL for maskinell tilgang til ressurs eller metadata (FAIR A1)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path dcat:accessURL ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fair:tilgangsprotokoll ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Om autentisering eller autorisasjon er nødvendig (FAIR A1.2)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path fair:autentiseringPaakrevd ],
+        [ sh:description """Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg, avgrensa, lukka) (FAIR A1.2).
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path dct:accessRights ],
+        [ sh:datatype xsd:boolean ;
+            sh:description """Metadata er tilgjengeleg sjølv om sjølve ressursen ikkje lenger er tilgjengeleg (FAIR A2).
+""" ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fair:metadataPersistens ] ;
+    sh:targetClass fair:Tilgangsmetadata .
+
+

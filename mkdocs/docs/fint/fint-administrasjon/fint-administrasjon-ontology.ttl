@@ -1,0 +1,3516 @@
+@prefix adm: <https://schema.fintlabs.no/administrasjon/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix fint: <https://schema.fintlabs.no/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pav: <http://purl.org/pav/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://data.norge.no/linkml/fint-administrasjon.owl.ttl> a owl:Ontology ;
+    rdfs:label "fint-administrasjon" ;
+    dcterms:title "FINT Administrasjon" ;
+    pav:version "4.0.20" ;
+    skos:definition """FINT-domenemodell for administrasjon og HR. Dekkjer personalressursar, arbeidsforhold, fullmakter og organisasjonsstruktur.
+""" .
+
+<https://schema.fintlabs.no/:Matrikkelnummer> a owl:Class ;
+    rdfs:label "Matrikkelnummer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:adresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gaardsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:seksjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommunenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:bruksnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:festenummer> ] ;
+    skos:definition "Eintydleg identifisering av matrikkeleining innanfor kommune." ;
+    skos:exactMatch fint:Matrikkelnummer ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:AdministrasjonContainer> a owl:Class ;
+    rdfs:label "AdministrasjonContainer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:landkodar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonstypar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmakter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Kontrakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rollar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Anlegg> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kommunar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonstype> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonstypar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Aktivitet> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitetar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:virksomhetar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Diverse> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kjonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Objekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjektart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjektartar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:spraak> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:artar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktperson> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontaktpersonar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjektartar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fastlonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fasttillegg> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fasttillegg> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Valuta> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:valuta> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kommunar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontaktpersonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fullmakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmakter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitetar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingskoder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaerstype> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaerstypar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsartar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:spraak> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Variabellonn> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:variabellonn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaersgrunnar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressursar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rammer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidslokasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kjonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:landkodar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurskategori> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurskategoriar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Funksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjonar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fylke> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:variabellonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fastlonn> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fastlonn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Uketimetall> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:uketimetall> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Formaal> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fylke> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lopenummer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaerstypar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressursar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforholdstype> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Art> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:artar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:valuta> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lonsart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsartar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaersgrunn> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaersgrunnar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Virksomhet> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:virksomhetar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Stillingskode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingskoder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Rolle> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rollar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ramme> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rammer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:uketimetall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurskategoriar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fasttillegg> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaer> ] ;
+    skos:definition "Rotcontainer for FINT Administrasjon-instansar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Valuta> a owl:Class ;
+    rdfs:label "Valuta" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:valuta_navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:valuta_navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:valuta_navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bokstavkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nummerkode> ] ;
+    skos:definition "Valutakodar for offisielle valutaer." ;
+    skos:exactMatch fint:Valuta ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Aktoer> a owl:Class ;
+    rdfs:label "Aktoer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ owl:unionOf ( <https://schema.fintlabs.no/:Enhet> <https://schema.fintlabs.no/:Person> ) ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ] ;
+    skos:definition "Abstrakt base for person eller eining vi samhandlar med." ;
+    skos:exactMatch fint:Aktoer ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Elev> a owl:Class ;
+    rdfs:label "Elev" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:elevnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:elevnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:elevnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ] ;
+    skos:definition "Ein elev registrert i skulesystemet." ;
+    skos:exactMatch fint:Elev ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Enhet> a owl:Class ;
+    rdfs:label "Enhet" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        <https://schema.fintlabs.no/:Aktoer>,
+        <https://schema.fintlabs.no/:Virksomhet> ;
+    skos:definition "Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer." ;
+    skos:exactMatch fint:Enhet ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Virksomhet> a owl:Class ;
+    rdfs:label "Virksomhet" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:virksomhetsId> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        <https://schema.fintlabs.no/:Enhet> ;
+    skos:definition "Ein juridisk organisasjon som produserer varer eller tenester." ;
+    skos:exactMatch fint:Virksomhet ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:adresselinje> a owl:DatatypeProperty ;
+    rdfs:label "adresselinje" ;
+    rdfs:range xsd:string ;
+    skos:definition "Adresseinformasjon." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:foreldre> a owl:ObjectProperty ;
+    rdfs:label "foreldre" ;
+    rdfs:range <https://schema.fintlabs.no/:Person> ;
+    skos:definition "Den/dei som har foreldreansvar til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:foreldreansvar> a owl:ObjectProperty ;
+    rdfs:label "foreldreansvar" ;
+    rdfs:range <https://schema.fintlabs.no/:Person> ;
+    skos:definition "Personar denne personen har foreldreansvar for." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kontaktperson> a owl:ObjectProperty ;
+    rdfs:label "kontaktperson" ;
+    rdfs:range <https://schema.fintlabs.no/:Person> ;
+    skos:definition "Personar kontaktpersonen er pårørande for." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:parorende> a owl:ObjectProperty ;
+    rdfs:label "parorende" ;
+    rdfs:range <https://schema.fintlabs.no/:Kontaktperson> ;
+    skos:definition "Pårørande kontaktperson til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:statsborgerskap> a owl:ObjectProperty ;
+    rdfs:label "statsborgerskap" ;
+    rdfs:range <https://schema.fintlabs.no/:Landkode> ;
+    skos:definition "Alle statsborgarskap personen har." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Kontostreng> a owl:Class ;
+    rdfs:label "Kontostreng" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lopenummer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Anlegg> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Funksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjektart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjektart> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Formaal> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjektart> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Kontrakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjektart> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ramme> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Art> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Objekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Diverse> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Aktivitet> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ] ;
+    skos:definition "Sammensetning av kontodimensjonar for bokføring." ;
+    skos:exactMatch adm:Kontostreng ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:aktivitetar> a owl:ObjectProperty ;
+    rdfs:label "aktivitetar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:arbeidsforholdstypar> a owl:ObjectProperty ;
+    rdfs:label "arbeidsforholdstypar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:arbeidslokasjoner> a owl:ObjectProperty ;
+    rdfs:label "arbeidslokasjoner" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:artar> a owl:ObjectProperty ;
+    rdfs:label "artar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fravaersgrunnar> a owl:ObjectProperty ;
+    rdfs:label "fravaersgrunnar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fravaerstypar> a owl:ObjectProperty ;
+    rdfs:label "fravaerstypar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fullmakter> a owl:ObjectProperty ;
+    rdfs:label "fullmakter" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:funksjonar> a owl:ObjectProperty ;
+    rdfs:label "funksjonar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fylke> a owl:DatatypeProperty ;
+    rdfs:label "fylke" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kjonn> a owl:DatatypeProperty ;
+    rdfs:label "kjonn" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kommunar> a owl:ObjectProperty ;
+    rdfs:label "kommunar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kontaktpersonar> a owl:ObjectProperty ;
+    rdfs:label "kontaktpersonar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kontrakter> a owl:ObjectProperty ;
+    rdfs:label "kontrakter" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:landkodar> a owl:ObjectProperty ;
+    rdfs:label "landkodar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:lederFor> a owl:ObjectProperty ;
+    rdfs:label "lederFor" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+    skos:definition "Organisasjonselement personalressursen er leiar for." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:lonsartar> a owl:ObjectProperty ;
+    rdfs:label "lonsartar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:organisasjonstypar> a owl:ObjectProperty ;
+    rdfs:label "organisasjonstypar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:personalansvar> a owl:ObjectProperty ;
+    rdfs:label "personalansvar" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+    skos:definition "Arbeidsforhold der personalressursen har personalansvar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:personalressursar> a owl:ObjectProperty ;
+    rdfs:label "personalressursar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:personalressurskategoriar> a owl:ObjectProperty ;
+    rdfs:label "personalressurskategoriar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:personar> a owl:ObjectProperty ;
+    rdfs:label "personar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:prosjektartar> a owl:ObjectProperty ;
+    rdfs:label "prosjektartar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:rammer> a owl:ObjectProperty ;
+    rdfs:label "rammer" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:rollar> a owl:ObjectProperty ;
+    rdfs:label "rollar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:spraak> a owl:ObjectProperty ;
+    rdfs:label "spraak" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:stillingskoder> a owl:ObjectProperty ;
+    rdfs:label "stillingskoder" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:uketimetall> a owl:ObjectProperty ;
+    rdfs:label "uketimetall" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:valuta> a owl:ObjectProperty ;
+    rdfs:label "valuta" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:virksomhetar> a owl:ObjectProperty ;
+    rdfs:label "virksomhetar" ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Fylke> a owl:Class ;
+    rdfs:label "Fylke" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Liste over Norges fylker." ;
+    skos:exactMatch fint:Fylke ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Kjonn> a owl:Class ;
+    rdfs:label "Kjonn" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Verdiar for kjønn basert på ISO/IEC 5218." ;
+    skos:exactMatch fint:Kjonn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Kontaktperson> a owl:Class ;
+    rdfs:label "Kontaktperson" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson_navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Personnavn> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson_navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson_navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktperson> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:type> ] ;
+    skos:definition "Kontaktperson (pårørande) til ein person." ;
+    skos:exactMatch fint:Kontaktperson ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:adresse> a owl:ObjectProperty ;
+    rdfs:label "adresse" ;
+    rdfs:range <https://schema.fintlabs.no/:Adresse> ;
+    skos:definition "Adresse til matrikkeleining." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bilde> a owl:DatatypeProperty ;
+    rdfs:label "bilde" ;
+    rdfs:range xsd:string ;
+    skos:definition "HTTP(S)-lenkje til eit bilete av personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bokstavkode> a owl:ObjectProperty ;
+    rdfs:label "bokstavkode" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Bokstavkode for aktuell valuta." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bostedsadresse> a owl:ObjectProperty ;
+    rdfs:label "bostedsadresse" ;
+    rdfs:range <https://schema.fintlabs.no/:Adresse> ;
+    skos:definition "Folkeregistrert adresse til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:bruksnummer> a owl:DatatypeProperty ;
+    rdfs:label "bruksnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Fortløpande nummerering av bruk under gårdsnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:elev> a owl:ObjectProperty ;
+    rdfs:label "elev" ;
+    rdfs:range <https://schema.fintlabs.no/:Elev> ;
+    skos:definition "Referanse til Elev (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:elevnummer> a owl:ObjectProperty ;
+    rdfs:label "elevnummer" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Skulens interne elevnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:epostadresse> a owl:DatatypeProperty ;
+    rdfs:label "epostadresse" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namngitt elektronisk adresse for mottak av e-post." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:etternavn> a owl:DatatypeProperty ;
+    rdfs:label "etternavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Etternamn til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:festenummer> a owl:DatatypeProperty ;
+    rdfs:label "festenummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Fortløpande nummerering av festar under gårdsnummer/bruksnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fodselsdato> a owl:DatatypeProperty ;
+    rdfs:label "fodselsdato" ;
+    rdfs:range xsd:date ;
+    skos:definition "Dato for fødsel." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fodselsnummer> a owl:ObjectProperty ;
+    rdfs:label "fodselsnummer" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Fødselsnummer eller ein av dei fiktive variantane." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fornavn> a owl:DatatypeProperty ;
+    rdfs:label "fornavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Fornamn til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:fylke> a owl:ObjectProperty ;
+    rdfs:label "fylke" ;
+    rdfs:range <https://schema.fintlabs.no/:Fylke> ;
+    skos:definition "Fylke." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:gaardsnummer> a owl:DatatypeProperty ;
+    rdfs:label "gaardsnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Nummerering av gårdseiging i matrikkelen, unik innanfor kommune." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:identifikatorverdi> a owl:DatatypeProperty ;
+    rdfs:label "identifikatorverdi" ;
+    rdfs:range xsd:string ;
+    skos:definition "Ein konkret kombinasjon av teikn og/eller bokstavar som utgjer ein bestemt identifikator." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kjonn> a owl:ObjectProperty ;
+    rdfs:label "kjonn" ;
+    rdfs:range <https://schema.fintlabs.no/:Kjonn> ;
+    skos:definition "Kjønn." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kode> a owl:DatatypeProperty ;
+    rdfs:label "kode" ;
+    rdfs:range xsd:string ;
+    skos:definition "Verdi som identifiserer omgrepet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kommunenummer> a owl:ObjectProperty ;
+    rdfs:label "kommunenummer" ;
+    rdfs:range <https://schema.fintlabs.no/:Kommune> ;
+    skos:definition "Nummerering av kommunen i høve til SSB si offisielle liste." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kontaktperson_navn> a owl:ObjectProperty ;
+    rdfs:label "kontaktperson_navn" ;
+    rdfs:range <https://schema.fintlabs.no/:Personnavn> ;
+    skos:definition "Namn på kontaktpersonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:land> a owl:ObjectProperty ;
+    rdfs:label "land" ;
+    rdfs:range <https://schema.fintlabs.no/:Landkode> ;
+    skos:definition "Land der adressa befinn seg." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:maalform> a owl:ObjectProperty ;
+    rdfs:label "maalform" ;
+    rdfs:range <https://schema.fintlabs.no/:Spraak> ;
+    skos:definition "Målform personen føretrekkjer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:mellomnavn> a owl:DatatypeProperty ;
+    rdfs:label "mellomnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Mellomnamn." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:mobiltelefonnummer> a owl:DatatypeProperty ;
+    rdfs:label "mobiltelefonnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Mobiltelefonnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:morsmaal> a owl:ObjectProperty ;
+    rdfs:label "morsmaal" ;
+    rdfs:range <https://schema.fintlabs.no/:Spraak> ;
+    skos:definition "Morsmål til personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:nettsted> a owl:DatatypeProperty ;
+    rdfs:label "nettsted" ;
+    rdfs:range xsd:string ;
+    skos:definition "Adresse til eit nettstad." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:nummerkode> a owl:ObjectProperty ;
+    rdfs:label "nummerkode" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Nummerkode for aktuell valuta." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:otungdom> a owl:DatatypeProperty ;
+    rdfs:label "otungdom" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Referanse til OtUngdom (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:passiv> a owl:DatatypeProperty ;
+    rdfs:label "passiv" ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Angir at koden er passiv og ikkje kan veljast." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:person_navn> a owl:ObjectProperty ;
+    rdfs:label "person_navn" ;
+    rdfs:range <https://schema.fintlabs.no/:Personnavn> ;
+    skos:definition "Namn på personen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:personalressurs> a owl:DatatypeProperty ;
+    rdfs:label "personalressurs" ;
+    skos:definition "Referanse til Personalressurs (Administrasjon)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:postnummer> a owl:DatatypeProperty ;
+    rdfs:label "postnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Postnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:poststed> a owl:DatatypeProperty ;
+    rdfs:label "poststed" ;
+    rdfs:range xsd:string ;
+    skos:definition "Poststad." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:seksjonsnummer> a owl:DatatypeProperty ;
+    rdfs:label "seksjonsnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Fortløpande nummerering av seksjonar under gårdsnummer/bruksnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:sip> a owl:DatatypeProperty ;
+    rdfs:label "sip" ;
+    rdfs:range xsd:string ;
+    skos:definition "SIP-protokoll for VoIP (IP-telefoni)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:slutt> a owl:DatatypeProperty ;
+    rdfs:label "slutt" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Til tidspunkt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:start> a owl:DatatypeProperty ;
+    rdfs:label "start" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Frå tidspunkt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:telefonnummer> a owl:DatatypeProperty ;
+    rdfs:label "telefonnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Telefonnummer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:type> a owl:DatatypeProperty ;
+    rdfs:label "type" ;
+    rdfs:range xsd:string ;
+    skos:definition "Beskriv kva slags type." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:valuta_navn> a owl:DatatypeProperty ;
+    rdfs:label "valuta_navn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namn på valuta." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:virksomhetsId> a owl:ObjectProperty ;
+    rdfs:label "virksomhetsId" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Intern unik identifikator i økonomisystemet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Arbeidslokasjon> a owl:Class ;
+    rdfs:label "Arbeidslokasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lokasjonskode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lokasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lokasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lokasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lokasjonskode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lokasjonskode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ] ;
+    skos:definition "Fysisk lokasjon der ein tilsett har sitt arbeidsstad." ;
+    skos:exactMatch adm:Arbeidslokasjon ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Lonn> a owl:Class ;
+    rdfs:label "Lonn" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anviser> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:attestant> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anviser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kildesystemId> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontert> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:konterer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:attestant> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontostreng> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anvist> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:attestant> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:opptjent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Kontostreng> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontostreng> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:opptjent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontostreng> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:periode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:attestert> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ owl:unionOf ( <https://schema.fintlabs.no/administrasjon/:Fastlonn> <https://schema.fintlabs.no/administrasjon/:Fasttillegg> <https://schema.fintlabs.no/administrasjon/:Variabellonn> ) ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:opptjent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anvist> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kildesystemId> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontert> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:periode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:konterer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anvist> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:attestert> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:attestert> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kildesystemId> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:konterer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anviser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:periode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontert> ] ;
+    skos:definition "Informasjon om lønn for eit arbeidsforhold (abstrakt base)." ;
+    skos:exactMatch adm:Lonn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Rolle> a owl:Class ;
+    rdfs:label "Rolle" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fullmakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmakt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmakt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rolleNavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rolleNavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rolleNavn> ] ;
+    skos:definition "Rettighet eller type fullmakt." ;
+    skos:exactMatch adm:Rolle ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:aarslonn> a owl:DatatypeProperty ;
+    rdfs:label "aarslonn" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Årslønn/grunnlønn i 100 % stilling." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:ansattnummer> a owl:ObjectProperty ;
+    rdfs:label "ansattnummer" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Unik identifikator for den tilsette i HR-systemet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:ansettelsesperiode> a owl:ObjectProperty ;
+    rdfs:label "ansettelsesperiode" ;
+    rdfs:range <https://schema.fintlabs.no/:Periode> ;
+    skos:definition "Perioden personalressursen er i eit tilhøve til organisasjonen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:ansettelsesprosent> a owl:DatatypeProperty ;
+    rdfs:label "ansettelsesprosent" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Prosenten personalressursen eig i høve til arbeidsavtalen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:ansiennitet> a owl:DatatypeProperty ;
+    rdfs:label "ansiennitet" ;
+    rdfs:range xsd:date ;
+    skos:definition "Ansiennitet for personalressurs hos arbeidsgjevar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:antall> a owl:DatatypeProperty ;
+    rdfs:label "antall" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Mengde som vert beskriven av tillegget, i hundredeler." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:anviser> a owl:ObjectProperty ;
+    rdfs:label "anviser" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Personalressurs som har anvist lønsmeldinga etter fullmakt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:anvist> a owl:DatatypeProperty ;
+    rdfs:label "anvist" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Tidspunkt då lønn vart anvist." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:arbeidsforholdsperiode> a owl:ObjectProperty ;
+    rdfs:label "arbeidsforholdsperiode" ;
+    rdfs:range <https://schema.fintlabs.no/:Periode> ;
+    skos:definition "Periode for ei gjeven stilling." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:arbeidsforholdstype> a owl:ObjectProperty ;
+    rdfs:label "arbeidsforholdstype" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Arbeidsforholdstype> ;
+    skos:definition "Beskriven kode som kategoriserer kva funksjon stillinga er gruppert til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:arbeidslokasjon> a owl:ObjectProperty ;
+    rdfs:label "arbeidslokasjon" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Arbeidslokasjon> ;
+    skos:definition "Fysisk lokasjon der den tilsette har sitt arbeidsstad." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:arbeidssted> a owl:ObjectProperty ;
+    rdfs:label "arbeidssted" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+    skos:definition "Tilhøyrsle til organisasjonsstrukturen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:attestant> a owl:ObjectProperty ;
+    rdfs:label "attestant" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Personalressurs som har attestert lønsmeldinga etter fullmakt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:attestert> a owl:DatatypeProperty ;
+    rdfs:label "attestert" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Tidspunkt då lønn vart attestert." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:brukernavn> a owl:ObjectProperty ;
+    rdfs:label "brukernavn" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Brukarnamn til den tilsette." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fortsettelse> a owl:ObjectProperty ;
+    rdfs:label "fortsettelse" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fravaer> ;
+    skos:definition "Fortsetjande fråvær." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fortsetter> a owl:ObjectProperty ;
+    rdfs:label "fortsetter" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fravaer> ;
+    skos:definition "Fråværet dette fråværet er fortsetjing av." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fravaersgrunn> a owl:ObjectProperty ;
+    rdfs:label "fravaersgrunn" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fravaersgrunn> ;
+    skos:definition "Grunn til fråværet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fravaerstype> a owl:ObjectProperty ;
+    rdfs:label "fravaerstype" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fravaerstype> ;
+    skos:definition "Type fråvær." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fullmektig> a owl:ObjectProperty ;
+    rdfs:label "fullmektig" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Personalressurs som har fått fullmakt til ei gjeven rolle." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:godkjenner> a owl:ObjectProperty ;
+    rdfs:label "godkjenner" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Personalressurs som har godkjent fråværsmeldinga." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:godkjent> a owl:DatatypeProperty ;
+    rdfs:label "godkjent" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Tidspunkt då fråværet vart godkjent." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:hovedstilling> a owl:DatatypeProperty ;
+    rdfs:label "hovedstilling" ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Angir kva arbeidsforhold som er hovudarbeidsforhold." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:jobbtittel> a owl:DatatypeProperty ;
+    rdfs:label "jobbtittel" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namn som beskriv jobben eller stillinga." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kategori> a owl:DatatypeProperty ;
+    rdfs:label "kategori" ;
+    rdfs:range xsd:string ;
+    skos:definition "Kategori lønnsart." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:konterer> a owl:ObjectProperty ;
+    rdfs:label "konterer" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Personalressurs som har kontert lønsmeldinga etter fullmakt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kontert> a owl:DatatypeProperty ;
+    rdfs:label "kontert" ;
+    rdfs:range xsd:dateTime ;
+    skos:definition "Tidspunkt då lønn vart kontert." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kontostreng> a owl:ObjectProperty ;
+    rdfs:label "kontostreng" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Kontostreng> ;
+    skos:definition "Kontering av lønn." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kortnavn> a owl:DatatypeProperty ;
+    rdfs:label "kortnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Forkorta namn som beskriv organisasjonselementet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:leder> a owl:ObjectProperty ;
+    rdfs:label "leder" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Ansvarleg leiar for organisasjonselementet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:lokasjonskode> a owl:ObjectProperty ;
+    rdfs:label "lokasjonskode" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Kode som identifiserer ein arbeidslokasjon." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:lokasjonsnavn> a owl:DatatypeProperty ;
+    rdfs:label "lokasjonsnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namn som beskriv ein arbeidslokasjon." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:lonnsprosent> a owl:DatatypeProperty ;
+    rdfs:label "lonnsprosent" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Prosent av årslønn den tilsette skal ha utbetalt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:opptjent> a owl:ObjectProperty ;
+    rdfs:label "opptjent" ;
+    rdfs:range <https://schema.fintlabs.no/:Periode> ;
+    skos:definition "Periode der lønn vart opptent." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:organisasjonsId> a owl:ObjectProperty ;
+    rdfs:label "organisasjonsId" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Unikt internnummer for organisasjonselementet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:organisasjonsKode> a owl:ObjectProperty ;
+    rdfs:label "organisasjonsKode" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Beskriven kode for organisasjonselementet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:organisasjonstype> a owl:ObjectProperty ;
+    rdfs:label "organisasjonstype" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Organisasjonstype> ;
+    skos:definition "Kva type organisasjonselement dette er." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:overfores> a owl:DatatypeProperty ;
+    rdfs:label "overfores" ;
+    rdfs:range xsd:boolean ;
+    skos:definition "Angir om fråvær av denne typen skal overførast til HR." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:personalleder> a owl:ObjectProperty ;
+    rdfs:label "personalleder" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Personalleiar til arbeidsforholdet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:personalressurs> a owl:ObjectProperty ;
+    rdfs:label "personalressurs" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+    skos:definition "Personalressurs til arbeidsforholdet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:personalressurskategori> a owl:ObjectProperty ;
+    rdfs:label "personalressurskategori" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Personalressurskategori> ;
+    skos:definition "Kategori for personalressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:rolle> a owl:ObjectProperty ;
+    rdfs:label "rolle" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Rolle> ;
+    skos:definition "Kva type fullmakt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:rolleNavn> a owl:ObjectProperty ;
+    rdfs:label "rolleNavn" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Namn på rolla; unik identifikator." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:skole> a owl:DatatypeProperty ;
+    rdfs:label "skole" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Referanse til Skole (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:skoleressurs> a owl:DatatypeProperty ;
+    rdfs:label "skoleressurs" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Referanse til Skoleressurs (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:stillingskode> a owl:ObjectProperty ;
+    rdfs:label "stillingskode" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Stillingskode> ;
+    skos:definition "Firesifra stillingskode frå KS, eventuelt utvida med to siffer." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:stillingsnummer> a owl:DatatypeProperty ;
+    rdfs:label "stillingsnummer" ;
+    rdfs:range xsd:string ;
+    skos:definition "Løpenummer for stillinga." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:stillingstittel> a owl:DatatypeProperty ;
+    rdfs:label "stillingstittel" ;
+    rdfs:range xsd:string ;
+    skos:definition "Arbeidstakarens stillingstittel i gjeldande stilling." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:tilstedeprosent> a owl:DatatypeProperty ;
+    rdfs:label "tilstedeprosent" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Det personalressursen faktisk jobbar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:timerPerUke> a owl:ObjectProperty ;
+    rdfs:label "timerPerUke" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Uketimetall> ;
+    skos:definition "Timer per veke i 100 % stilling." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:undervisningsforhold> a owl:DatatypeProperty ;
+    rdfs:label "undervisningsforhold" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Referanse til Undervisningsforhold (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Personnavn> a owl:Class ;
+    rdfs:label "Personnavn" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fornavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:mellomnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:etternavn> ] ;
+    skos:definition "Namn på ein person." ;
+    skos:exactMatch fint:Personnavn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:laerling> a owl:DatatypeProperty ;
+    rdfs:label "laerling" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "Referanse til Laerling (Utdanning)." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Fastlonn> a owl:Class ;
+    rdfs:label "Fastlonn" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lonsart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosent> ],
+        <https://schema.fintlabs.no/administrasjon/:Lonn> ;
+    skos:definition "Informasjon om fast lønnsbeordring." ;
+    skos:exactMatch adm:Fastlonn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Fasttillegg> a owl:Class ;
+    rdfs:label "Fasttillegg" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lonsart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:belop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:belop> ],
+        <https://schema.fintlabs.no/administrasjon/:Lonn> ;
+    skos:definition "Faste tillegg til utbetaling." ;
+    skos:exactMatch adm:Fasttillegg ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Fravaersgrunn> a owl:Class ;
+    rdfs:label "Fravaersgrunn" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Grunn til fråvær." ;
+    skos:exactMatch adm:Fravaersgrunn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Fravaerstype> a owl:Class ;
+    rdfs:label "Fravaerstype" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lonsart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overfores> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overfores> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overfores> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Type fråvær." ;
+    skos:exactMatch adm:Fravaerstype ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Organisasjonstype> a owl:Class ;
+    rdfs:label "Organisasjonstype" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Typen til eit organisasjonselement." ;
+    skos:exactMatch adm:Organisasjonstype ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Personalressurskategori> a owl:Class ;
+    rdfs:label "Personalressurskategori" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Ansettelsesform til eit arbeidsforhold." ;
+    skos:exactMatch adm:Personalressurskategori ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Uketimetall> a owl:Class ;
+    rdfs:label "Uketimetall" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Timer per veke i 100 % stilling." ;
+    skos:exactMatch adm:Uketimetall ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Variabellonn> a owl:Class ;
+    rdfs:label "Variabellonn" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:antall> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:antall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:antall> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lonsart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonsart> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:belop> ],
+        <https://schema.fintlabs.no/administrasjon/:Lonn> ;
+    skos:definition "Informasjon om variabel lønn." ;
+    skos:exactMatch adm:Variabellonn ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fastlonn> a owl:ObjectProperty ;
+    rdfs:label "fastlonn" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fastlonn> ;
+    skos:definition "Fastlønn for arbeidsforholdet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fasttillegg> a owl:ObjectProperty ;
+    rdfs:label "fasttillegg" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fasttillegg> ;
+    skos:definition "Faste tillegg for arbeidsforholdet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fravaer> a owl:ObjectProperty ;
+    rdfs:label "fravaer" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fravaer> ;
+    skos:definition "Fråvær knytt til ressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:fullmakt> a owl:ObjectProperty ;
+    rdfs:label "fullmakt" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Fullmakt> ;
+    skos:definition "Fullmakt ressursen er knytt til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:variabellonn> a owl:ObjectProperty ;
+    rdfs:label "variabellonn" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Variabellonn> ;
+    skos:definition "Variabel lønn for arbeidsforholdet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:kommune> a owl:ObjectProperty ;
+    rdfs:label "kommune" ;
+    rdfs:range <https://schema.fintlabs.no/:Kommune> ;
+    skos:definition "Kommune." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Arbeidsforholdstype> a owl:Class ;
+    rdfs:label "Arbeidsforholdstype" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:forelder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforholdstype> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:forelder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:forelder> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Viser kva behov hos arbeidsgjevar arbeidsforholdet dekkjer." ;
+    skos:exactMatch adm:Arbeidsforholdstype ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Fullmakt> a owl:Class ;
+    rdfs:label "Fullmakt" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Aktivitet> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stedfortreder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Kontrakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Anlegg> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rolle> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Funksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lopenummer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ramme> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmektig> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Diverse> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmektig> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stedfortreder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rolle> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmektig> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Rolle> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:rolle> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Formaal> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Art> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Objekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stedfortreder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ] ;
+    skos:definition "Fullmakt til å gjere handlingar i høve til ei gjeven Rolle." ;
+    skos:exactMatch adm:Fullmakt ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Stillingskode> a owl:Class ;
+    rdfs:label "Stillingskode" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Stillingskode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:forelder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:forelder> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:forelder> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Felles kodeverk for stillingar." ;
+    skos:exactMatch adm:Stillingskode ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:prosjektart> a owl:ObjectProperty ;
+    rdfs:label "prosjektart" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Prosjektart> ;
+    skos:definition "Deloppgåve eller delprosjekt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:stedfortreder> a owl:DatatypeProperty ;
+    rdfs:label "stedfortreder" ;
+    skos:definition "Stedfortredar i fullmaktssamanheng." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Kontaktinformasjon> a owl:Class ;
+    rdfs:label "Kontaktinformasjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:sip> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:nettsted> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:epostadresse> ] ;
+    skos:definition "Informasjon som kan brukast for å oppnå kontakt." ;
+    skos:exactMatch fint:Kontaktinformasjon ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Landkode> a owl:Class ;
+    rdfs:label "Landkode" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Landskode i ISO 3166-1 alpha-2 format." ;
+    skos:exactMatch fint:Landkode ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Spraak> a owl:Class ;
+    rdfs:label "Spraak" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Verdiar for språk (2 bokstavar)." ;
+    skos:exactMatch fint:Spraak ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:navn> a owl:DatatypeProperty ;
+    rdfs:label "navn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Hovudnamn for ressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:person> a owl:ObjectProperty ;
+    rdfs:label "person" ;
+    rdfs:range <https://schema.fintlabs.no/:Person> ;
+    skos:definition "Referanse til Person i Administrasjon-domenet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Aktivitet> a owl:Class ;
+    rdfs:label "Aktivitet" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen og detaljering av funksjon." ;
+    skos:exactMatch adm:Aktivitet ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Anlegg> a owl:Class ;
+    rdfs:label "Anlegg" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen; objekt som skal aktiverast eller avskrivast." ;
+    skos:exactMatch adm:Anlegg ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Diverse> a owl:Class ;
+    rdfs:label "Diverse" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen; supplement til øvrige dimensjonar." ;
+    skos:exactMatch adm:Diverse ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Formaal> a owl:Class ;
+    rdfs:label "Formaal" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen som detaljerer inntekter og utgifter ved drift." ;
+    skos:exactMatch adm:Formaal ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Kontrakt> a owl:Class ;
+    rdfs:label "Kontrakt" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Kontrakt transaksjonen er knytt til." ;
+    skos:exactMatch adm:Kontrakt ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Lopenummer> a owl:Class ;
+    rdfs:label "Lopenummer" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Løpenummer i ei nummerserie." ;
+    skos:exactMatch adm:Lopenummer ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Objekt> a owl:Class ;
+    rdfs:label "Objekt" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Eit bygg, ein veg eller ein mottakar av ei teneste eller eit tilskott." ;
+    skos:exactMatch adm:Objekt ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Ramme> a owl:Class ;
+    rdfs:label "Ramme" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen som viser kva budsjettramme som skal bere kostnadane." ;
+    skos:exactMatch adm:Ramme ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:belop> a owl:DatatypeProperty ;
+    rdfs:label "belop" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Beløp i øre." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:forelder> a owl:DatatypeProperty ;
+    rdfs:label "forelder" ;
+    skos:definition "Foreldreelement i hierarki." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kildesystemId> a owl:ObjectProperty ;
+    rdfs:label "kildesystemId" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Kjeldesystemets unike identifikator." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:periode> a owl:ObjectProperty ;
+    rdfs:label "periode" ;
+    rdfs:range <https://schema.fintlabs.no/:Periode> ;
+    skos:definition "Periode for ressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:prosent> a owl:DatatypeProperty ;
+    rdfs:label "prosent" ;
+    rdfs:range xsd:integer ;
+    skos:definition "Prosent." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Kommune> a owl:Class ;
+    rdfs:label "Kommune" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Fylke> ;
+            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fylke> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Liste over Norges kommunar." ;
+    skos:exactMatch fint:Kommune ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Art> a owl:Class ;
+    rdfs:label "Art" ;
+    rdfs:subClassOf <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen som beskriv kva slags inntekter og utgifter det gjeld." ;
+    skos:exactMatch adm:Art ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Fravaer> a owl:Class ;
+    rdfs:label "Fravaer" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fortsetter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fortsettelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaersgrunn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:godkjent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kildesystemId> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaersgrunn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaerstype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fortsettelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kildesystemId> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fortsetter> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:periode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:periode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:godkjent> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:godkjent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:periode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fortsetter> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:godkjenner> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:godkjenner> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fortsettelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaerstype> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaerstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kildesystemId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaersgrunn> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaersgrunn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:godkjenner> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaerstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosent> ] ;
+    skos:definition "Fråvær frå eit arbeidsforhold." ;
+    skos:exactMatch adm:Fravaer ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Lonsart> a owl:Class ;
+    rdfs:label "Lonsart" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Art> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kategori> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kategori> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kategori> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Type ytelse." ;
+    skos:exactMatch adm:Lonsart ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Prosjekt> a owl:Class ;
+    rdfs:label "Prosjekt" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjektart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjektart> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjektart> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen som peikar på løpande prosjekt." ;
+    skos:exactMatch adm:Prosjekt ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Prosjektart> a owl:Class ;
+    rdfs:label "Prosjektart" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjektart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjektart> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Element i ei prosjektnedbrytningsstruktur eller arbeidsnedbrytningsstruktur." ;
+    skos:exactMatch adm:Prosjektart ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:organisasjonselement> a owl:ObjectProperty ;
+    rdfs:label "organisasjonselement" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+    skos:definition "Organisasjonselement ressursen er knytt til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Funksjon> a owl:Class ;
+    rdfs:label "Funksjon" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Funksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Funksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen som beskriv kva som vert produsert." ;
+    skos:exactMatch adm:Funksjon ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:underordnet> a owl:DatatypeProperty ;
+    rdfs:label "underordnet" ;
+    skos:definition "Underordna element i hierarkiet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:beskrivelse> a owl:DatatypeProperty ;
+    rdfs:label "beskrivelse" ;
+    rdfs:range xsd:string ;
+    skos:definition "Beskriven namn eller omtale." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:forretningsadresse> a owl:ObjectProperty ;
+    rdfs:label "forretningsadresse" ;
+    rdfs:range <https://schema.fintlabs.no/:Adresse> ;
+    skos:definition "Besøksadresse til ein organisasjonseining." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:organisasjonsnavn> a owl:DatatypeProperty ;
+    rdfs:label "organisasjonsnavn" ;
+    rdfs:range xsd:string ;
+    skos:definition "Namn på eining registrert i Einingsregisteret." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:organisasjonsnummer> a owl:ObjectProperty ;
+    rdfs:label "organisasjonsnummer" ;
+    rdfs:range <https://schema.fintlabs.no/:Identifikator> ;
+    skos:definition "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:postadresse> a owl:ObjectProperty ;
+    rdfs:label "postadresse" ;
+    rdfs:range <https://schema.fintlabs.no/:Adresse> ;
+    skos:definition "Informasjon om postadresse til ein aktør." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Ansvar> a owl:Class ;
+    rdfs:label "Ansvar" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonselement> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonselement> ],
+        <https://schema.fintlabs.no/:Begrep> ;
+    skos:definition "Del av kontostrengen som beskriv kven som har ansvaret for ei utgift eller inntekt." ;
+    skos:exactMatch adm:Ansvar ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:aktivitet> a owl:ObjectProperty ;
+    rdfs:label "aktivitet" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Aktivitet> ;
+    skos:definition "Detaljering av funksjon." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:funksjon> a owl:ObjectProperty ;
+    rdfs:label "funksjon" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Funksjon> ;
+    skos:definition "Det som vert produsert eller tenesta som vert levert." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:kontrakt> a owl:ObjectProperty ;
+    rdfs:label "kontrakt" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Kontrakt> ;
+    skos:definition "Kontrakt ressursen er knytt til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:ramme> a owl:ObjectProperty ;
+    rdfs:label "ramme" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Ramme> ;
+    skos:definition "Budsjettramme som skal bere kostnadane." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:Organisasjonselement> a owl:Class ;
+    rdfs:label "Organisasjonselement" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:leder> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kortnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonsKode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonsKode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonstype> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kortnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:skole> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:leder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:leder> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonsId> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kortnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonsKode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonstype> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:skole> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:postadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:organisasjonsnavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:skole> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:underordnet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:overordnet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonstype> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:organisasjonstype> ] ;
+    skos:definition "Eit element i organisasjonsstrukturen." ;
+    skos:exactMatch adm:Organisasjonselement ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Person> a owl:Class ;
+    rdfs:label "Person" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:person_navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:person_navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:maalform> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Personnavn> ;
+            owl:onProperty <https://schema.fintlabs.no/:person_navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:laerling> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldreansvar> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Elev> ;
+            owl:onProperty <https://schema.fintlabs.no/:elev> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldreansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Spraak> ;
+            owl:onProperty <https://schema.fintlabs.no/:morsmaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Adresse> ;
+            owl:onProperty <https://schema.fintlabs.no/:bostedsadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:otungdom> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:foreldre> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kommune> ;
+            owl:onProperty <https://schema.fintlabs.no/:kommune> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:bilde> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/:fodselsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktperson> ;
+            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:parorende> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
+            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:statsborgerskap> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kjonn> ;
+            owl:onProperty <https://schema.fintlabs.no/:kjonn> ],
+        <https://schema.fintlabs.no/:Aktoer> ;
+    skos:definition "Fysiske private personar." ;
+    skos:exactMatch fint:Person ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> a owl:Class ;
+    rdfs:label "Arbeidsforhold" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Formaal> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Objekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforholdstype> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdstype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:timerPerUke> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdstype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonnsprosent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansettelsesprosent> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingstittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:undervisningsforhold> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Lopenummer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:hovedstilling> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:hovedstilling> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidssted> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidslokasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingstittel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:tilstedeprosent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:formaal> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidslokasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Diverse> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidslokasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidslokasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalleder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingstittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidssted> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansettelsesprosent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Prosjekt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Anlegg> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:undervisningsforhold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonnsprosent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Kontrakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:hovedstilling> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fravaer> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:objekt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lopenummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fasttillegg> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fasttillegg> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:variabellonn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingskode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lonnsprosent> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalleder> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidssted> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aarslonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fastlonn> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fastlonn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:tilstedeprosent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Aktivitet> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aktivitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fravaer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Stillingskode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingskode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aarslonn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansettelsesprosent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Funksjon> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:funksjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:tilstedeprosent> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:prosjekt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ramme> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforholdsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fasttillegg> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingskode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:timerPerUke> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:anlegg> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ramme> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stillingsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Art> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:art> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Uketimetall> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:timerPerUke> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:aarslonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:undervisningsforhold> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:kontrakt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurs> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalleder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Variabellonn> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:variabellonn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fastlonn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:diverse> ] ;
+    skos:definition "Eit avtaleforhold mellom personalressurs og arbeidsgjevar." ;
+    skos:exactMatch adm:Arbeidsforhold ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:anlegg> a owl:ObjectProperty ;
+    rdfs:label "anlegg" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Anlegg> ;
+    skos:definition "Objekt som skal aktiverast eller avskrivast." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:diverse> a owl:ObjectProperty ;
+    rdfs:label "diverse" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Diverse> ;
+    skos:definition "Spesifikasjon som ikkje kjem fram i øvrige dimensjonar." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:formaal> a owl:ObjectProperty ;
+    rdfs:label "formaal" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Formaal> ;
+    skos:definition "Formål viser aktivitet og tenesteproduksjon." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:lopenummer> a owl:ObjectProperty ;
+    rdfs:label "lopenummer" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Lopenummer> ;
+    skos:definition "Løpenummer i ei nummerserie." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:objekt> a owl:ObjectProperty ;
+    rdfs:label "objekt" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Objekt> ;
+    skos:definition "Objekt ressursen er knytt til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Adresse> a owl:Class ;
+    rdfs:label "Adresse" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:adresselinje> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:land> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:land> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:adresselinje> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Landkode> ;
+            owl:onProperty <https://schema.fintlabs.no/:land> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:poststed> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:postnummer> ] ;
+    skos:definition "Fysisk adresse eller postadresse." ;
+    skos:exactMatch fint:Adresse ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:art> a owl:ObjectProperty ;
+    rdfs:label "art" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Art> ;
+    skos:definition "Type inntekt eller utgift." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:lonsart> a owl:ObjectProperty ;
+    rdfs:label "lonsart" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Lonsart> ;
+    skos:definition "Lønnsart." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:overordnet> a owl:DatatypeProperty ;
+    rdfs:label "overordnet" ;
+    skos:definition "Overordna element i hierarkiet." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:ansvar> a owl:ObjectProperty ;
+    rdfs:label "ansvar" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Ansvar> ;
+    skos:definition "Ansvarleg for ei utgift eller inntekt." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:prosjekt> a owl:ObjectProperty ;
+    rdfs:label "prosjekt" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Prosjekt> ;
+    skos:definition "Prosjekt ressursen er knytt til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Periode> a owl:Class ;
+    rdfs:label "Periode" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/:start> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:dateTime ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:start> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:start> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:slutt> ] ;
+    skos:definition "Tidsperiode med obligatorisk start og valfri slutt." ;
+    skos:exactMatch fint:Periode ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:gyldighetsperiode> a owl:ObjectProperty ;
+    rdfs:label "gyldighetsperiode" ;
+    rdfs:range <https://schema.fintlabs.no/:Periode> ;
+    skos:definition "Periode ressursen er gyldig for." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:kontaktinformasjon> a owl:ObjectProperty ;
+    rdfs:label "kontaktinformasjon" ;
+    rdfs:range <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+    skos:definition "Den føretrekte måten å kome i kontakt med ein aktør." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/administrasjon/:Personalressurs> a owl:Class ;
+    rdfs:label "Personalressurs" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansattnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fullmakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stedfortreder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:jobbtittel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:jobbtittel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lederFor> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansiennitet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurskategori> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Person> ;
+            owl:onProperty <https://schema.fintlabs.no/:person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalansvar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmakt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansattnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansettelsesperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansettelsesperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Personalressurskategori> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurskategori> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:jobbtittel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Identifikator> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:brukernavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Fullmakt> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:fullmakt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansiennitet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansattnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:stedfortreder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalressurskategori> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansettelsesperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Organisasjonselement> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:lederFor> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:skoleressurs> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:ansiennitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:brukernavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:person> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:personalansvar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:skoleressurs> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:brukernavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:arbeidsforhold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Kontaktinformasjon> ;
+            owl:onProperty <https://schema.fintlabs.no/:kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/administrasjon/:skoleressurs> ] ;
+    skos:definition "Arbeidstakar eller oppdragstakar i organisasjonen." ;
+    skos:exactMatch adm:Personalressurs ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/administrasjon/:arbeidsforhold> a owl:ObjectProperty ;
+    rdfs:label "arbeidsforhold" ;
+    rdfs:range <https://schema.fintlabs.no/administrasjon/:Arbeidsforhold> ;
+    skos:definition "Arbeidsforhold ressursen er knytt til." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-administrasjon> .
+
+<https://schema.fintlabs.no/:Begrep> a owl:Class ;
+    rdfs:label "Begrep" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ owl:unionOf ( <https://schema.fintlabs.no/administrasjon/:Aktivitet> <https://schema.fintlabs.no/administrasjon/:Anlegg> <https://schema.fintlabs.no/administrasjon/:Ansvar> <https://schema.fintlabs.no/administrasjon/:Arbeidsforholdstype> <https://schema.fintlabs.no/administrasjon/:Art> <https://schema.fintlabs.no/administrasjon/:Diverse> <https://schema.fintlabs.no/administrasjon/:Formaal> <https://schema.fintlabs.no/administrasjon/:Fravaersgrunn> <https://schema.fintlabs.no/administrasjon/:Fravaerstype> <https://schema.fintlabs.no/administrasjon/:Funksjon> <https://schema.fintlabs.no/:Fylke> <https://schema.fintlabs.no/:Kjonn> <https://schema.fintlabs.no/:Kommune> <https://schema.fintlabs.no/administrasjon/:Kontrakt> <https://schema.fintlabs.no/:Landkode> <https://schema.fintlabs.no/administrasjon/:Lonsart> <https://schema.fintlabs.no/administrasjon/:Lopenummer> <https://schema.fintlabs.no/administrasjon/:Objekt> <https://schema.fintlabs.no/administrasjon/:Organisasjonstype> <https://schema.fintlabs.no/administrasjon/:Personalressurskategori> <https://schema.fintlabs.no/administrasjon/:Prosjekt> <https://schema.fintlabs.no/administrasjon/:Prosjektart> <https://schema.fintlabs.no/administrasjon/:Ramme> <https://schema.fintlabs.no/:Spraak> <https://schema.fintlabs.no/administrasjon/:Stillingskode> <https://schema.fintlabs.no/administrasjon/:Uketimetall> ) ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://schema.fintlabs.no/:id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:passiv> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:kode> ] ;
+    skos:definition "Abstrakt fellesbase for alle FINT-kodeverk." ;
+    skos:exactMatch fint:Begrep ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:Identifikator> a owl:Class ;
+    rdfs:label "Identifikator" ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://schema.fintlabs.no/:identifikatorverdi> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://schema.fintlabs.no/:Periode> ;
+            owl:onProperty <https://schema.fintlabs.no/:gyldighetsperiode> ] ;
+    skos:definition "Unik identifikasjon til eit objekt." ;
+    skos:exactMatch fint:Identifikator ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+<https://schema.fintlabs.no/:id> a owl:DatatypeProperty ;
+    rdfs:label "id" ;
+    rdfs:range xsd:anyURI ;
+    skos:definition "URI-identifikator for ressursen." ;
+    skos:inScheme <https://data.norge.no/linkml/fint-common> .
+
+

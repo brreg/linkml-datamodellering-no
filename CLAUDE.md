@@ -35,6 +35,21 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLIC
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
+## Dokumentasjonsportal (mkdocs)
+
+`mkdocs/mkdocs.yml` vert **automatisk regenerert** av `mkdocs/publish.sh` (Steg 4)
+kvar gong `make publish` køyrer. Endringar gjort direkte i `mkdocs.yml` vert
+overskrivne ved neste publisering.
+
+**Sannkjelda for nav-menyen er `mkdocs/publish.sh`**, ikkje `mkdocs.yml`.
+
+- Nye rettleiingssider (`mkdocs/docs/*.md`) må leggast til i heredoc-blokka i
+  `publish.sh` (leit etter `nav:` → `- Rettleiingar:`)
+- Domene og skjema vert lagt til automatisk frå `generated/`-strukturen — ikkje
+  rediger desse manuelt
+- Statisk innhald (`mkdocs/docs/` utanom genererte domene-katalogar) vert aldri
+  sletta av `publish.sh`
+
 ## Modelleringsprinsipper
 
 ### Skriftspråk

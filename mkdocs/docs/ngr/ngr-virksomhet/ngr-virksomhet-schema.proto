@@ -1,0 +1,161 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen eller føremålet til verksemda.
+message Aktivitet
+ {
+  uriorcurie id = 0
+  string aktivitetBeskrivelse = 0
+ }
+// Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten vert utøvd.
+message Beliggenhetsadresse
+ {
+  uriorcurie id = 0
+ }
+// Forretningsadressa til hovudeininga – adressa der hovudkontoret held til.
+message Forretningsadresse
+ {
+  uriorcurie id = 0
+ }
+// Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.
+message Hovedenhet
+ {
+  uriorcurie id = 0
+  string organisasjonsnummer = 0
+  string navn = 0
+ repeated  tilstand harTilstand = 0
+  postadresse mottarPostPaa = 0
+  organisasjonsform erKlassifisertSomOrganisasjonsform = 0
+  kontaktinformasjon harKontaktinformasjon = 0
+  varslingsadresse harVarslingsadresse = 0
+ repeated  naeringskode erKlassifisertINaeringskode = 0
+  integer antallAnsatte = 0
+  aktivitet utoevarAktivitet = 0
+  sektorkode erKlassifisertISektorkode = 0
+ repeated  rolleIVirksomhet harRolleIVirksomhet = 0
+  signaturrett harBestemmelserOmSignaturrett = 0
+ repeated  prokura harBestemmelserOmProkura = 0
+  date stiftelsesdato = 0
+  forretningsadresse harForretningsadresse = 0
+ }
+// Kontaktinformasjon for verksemda registrert i Enhetsregisteret.
+message Kontaktinformasjon
+ {
+  uriorcurie id = 0
+  string epostadresse = 0
+  string telefonnummer = 0
+  string mobiltelefonnummer = 0
+  string nettside = 0
+ }
+// Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE). Ei verksemd kan ha 1–3 næringskoder.
+message Naeringskode
+ {
+  uriorcurie id = 0
+  string naeringskodeKode = 0
+  string naeringskodeBeskrivelse = 0
+  boolean erHovednaeringskode = 0
+ }
+// Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF). Kodeverk forvalta av Enhetsregisteret.
+message Organisasjonsform
+ {
+  uriorcurie id = 0
+  string organisasjonsformKode = 0
+  string organisasjonsformBeskrivelse = 0
+ }
+// Ein fysisk person. Tilhøyrer Domene person og forvaltast av Folkeregisteret. Enhetsregisteret nyttar kopi av data frå Folkeregisteret.
+message Person
+ {
+  uriorcurie id = 0
+ }
+// Postadressa verksemda mottar post på.
+message Postadresse
+ {
+  uriorcurie id = 0
+ }
+// Prokura gjev ein person fullmakt til å handle på vegne av verksemda i næringssaker. Verksemda kan ha fleire prokuraistar.
+message Prokura
+ {
+  uriorcurie id = 0
+  string prokuraBestemmelse = 0
+ }
+// Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå Folkeregisteret) eller ei anna eining.
+message Rolleinnehaver
+ {
+  uriorcurie id = 0
+  person kanVaereAvTypePerson = 0
+  string rolleinnehaverNavn = 0
+ }
+// Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar). Kvar rolle kan ha éin eller fleire rolleinnehavarar.
+message RolleIVirksomhet
+ {
+  uriorcurie id = 0
+  rolleType rollebetegnelse = 0
+ repeated  rolleinnehaver harRolleinnehaver = 0
+ }
+// Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t.d. offentleg, privat).
+message Sektorkode
+ {
+  uriorcurie id = 0
+  string sektorkodeKode = 0
+  string sektorkodeBeskrivelse = 0
+ }
+// Bestemmelse om kven som har rett til å signere på vegne av verksemda (t.d. "Styret i fellesskap" eller "Dagleg leiar aleine").
+message Signaturrett
+ {
+  uriorcurie id = 0
+  string signaturrettBestemmelse = 0
+ }
+// Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldigheitsperiode for historisk sporing.
+message Tilstand
+ {
+  uriorcurie id = 0
+  tilstandType tilstandstype = 0
+  date gyldigFra = 0
+  date gyldigTil = 0
+ }
+// Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret.
+message Underenhet
+ {
+  uriorcurie id = 0
+  string organisasjonsnummer = 0
+  string navn = 0
+ repeated  tilstand harTilstand = 0
+  postadresse mottarPostPaa = 0
+  organisasjonsform erKlassifisertSomOrganisasjonsform = 0
+  kontaktinformasjon harKontaktinformasjon = 0
+  varslingsadresse harVarslingsadresse = 0
+ repeated  naeringskode erKlassifisertINaeringskode = 0
+  integer antallAnsatte = 0
+  date oppstartsdato = 0
+ repeated  date eierskiftedatoer = 0
+  date nedleggelsesdato = 0
+  beliggenhetsadresse harBeliggenhetsadresse = 0
+ }
+// Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert brukt for offisielle meldingar frå offentlege styresmakter.
+message Varslingsadresse
+ {
+  uriorcurie id = 0
+  varslingType varslingstype = 0
+  string varslingsverdi = 0
+ }
+// Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+message VirksomhetContainer
+ {
+ repeated  underenhet underenheter = 0
+ repeated  hovedenhet hovedenheter = 0
+ repeated  tilstand tilstander = 0
+ repeated  organisasjonsform organisasjonsformer = 0
+ repeated  naeringskode naeringskoder = 0
+ repeated  kontaktinformasjon kontaktinformasjon = 0
+ repeated  varslingsadresse varslingsadresser = 0
+ repeated  aktivitet aktivitetar = 0
+ repeated  sektorkode sektorkoder = 0
+ repeated  rolleIVirksomhet rollerIVirksomhet = 0
+ repeated  rolleinnehaver rolleinnehavere = 0
+ repeated  signaturrett signaturrettar = 0
+ repeated  prokura prokuraer = 0
+ repeated  postadresse postadresser = 0
+ repeated  forretningsadresse forretningsadresser = 0
+ repeated  beliggenhetsadresse beliggenhetsadresser = 0
+ }
+

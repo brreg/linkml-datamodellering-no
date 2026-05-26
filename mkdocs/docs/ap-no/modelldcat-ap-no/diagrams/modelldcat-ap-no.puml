@@ -1,0 +1,447 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Informasjonsmodell" [[{Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:InformationModel).}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [0..*]
+    {field} identifikator_literal : string  
+    {field} informasjonsmodellidentifikator : string  
+    {field} endringsdato : date  
+    {field} heimeside : uri  [0..*]
+    {field} nokkelord : LangString  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} utgivelsesdato : date  
+    {field} har_versjonsnummer : string  
+    {field} versjonsmerknad : LangString  [0..*]
+}
+class "Tidsperiode" [[{Eit tidsintervall med start- og sluttdato.}]] {
+    {field} id : uriorcurie  
+    {field} startdato : date  
+    {field} sluttdato : date  
+}
+"Informasjonsmodell" --> "0..*" "Tidsperiode" : "tidsperiode"
+"Informasjonsmodell" --> "0..*" "Tidsperiode" : "tidsperiode"(i)
+class "Standard" [[{Ein standard (dct:Standard).}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} har_referanse : uri  [0..*]
+    {field} har_versjonsnummer : string  
+}
+"Informasjonsmodell" --> "0..*" "Standard" : "er_i_samsvar_med"
+"Informasjonsmodell" --> "0..*" "Standard" : "er_profil_av"
+"Informasjonsmodell" --> "0..*" "Standard" : "er_i_samsvar_med"(i)
+"Informasjonsmodell" --> "0..*" "Standard" : "er_profil_av"(i)
+abstract "Modellelement" [[{Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} beskrivelse : LangString  [0..*]
+}
+class "Modul" [[{Ein modul som grupperer modellelement i informasjonsmodellen.}]] {
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+}
+abstract "Eigenskap" [[{Abstrakt basisklasse for eigenskapar knytt til eit modellelement.}]] {
+    {field} id : uriorcurie  
+    {field} identifikator_literal : string  
+    {field} navigerbar : boolean  
+    {field} min_multiplisitet : NonNegativeInteger  
+    {field} tittel : LangString  [0..*]
+    {field} maks_multiplisitet : string  
+    {field} beskrivelse : LangString  [0..*]
+    {field} relasjonsegenskapetikett : LangString  [0..*]
+    {field} sekvensnummer : NonNegativeInteger  
+}
+class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.}]] {
+    {field} id : uriorcurie  
+}
+class "Abstraksjon" [[{Ein abstraksjon — ein forenkling som representerer eit modellelement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "Assosiasjon" [[{Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "Avhengighet" [[{Ein avhengighet — ein relasjon der det eine modellelementet avheng av det andre.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "Betingelsesregel" [[{Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.}]] {
+    {field} betingelsesuttrykk : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} eigenskapsmerknad(i) : LangString  [0..*]
+    {field} identifikator_literal(i) : string  
+    {field} tittel(i) : LangString  [0..*]
+}
+class "Merknad" [[{Ei merknad knytt til eit modellelement eller eigenskap.}]] {
+    {field} id : uriorcurie  
+    {field} eigenskapsmerknad : LangString  [0..*]
+    {field} identifikator_literal : string  
+    {field} tittel : LangString  [0..*]
+}
+class "Realisering" [[{Ein realisering — ein implementasjonsrelasjon mellom modellelement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "Sammensetning" [[{Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "Spesialisering" [[{Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modellelement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "Valg" [[{Eit val — ein eigenskap som representerer eit val mellom modellelement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "RootObjekttype" [[{Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen.}]] {
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+}
+class "Objekttype" [[{Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen.}]] {
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+}
+class "Kodeliste" [[{Ei kodeliste — eit kontrollert vokabular av tillate verdiar.}]] {
+    {field} har_referanse : uri  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+}
+class "EnkelType" [[{Ein enkel type med restriksjonar (xsd-fasettar).}]] {
+    {field} typedefinisjon_referanse : uri  
+    {field} fraksjonssifre : NonNegativeInteger  
+    {field} lengde : NonNegativeInteger  
+    {field} maks_eksklusiv : string  
+    {field} maks_inklusiv : string  
+    {field} maks_lengde : NonNegativeInteger  
+    {field} min_eksklusiv : string  
+    {field} min_inklusiv : string  
+    {field} min_lengde : NonNegativeInteger  
+    {field} monster : string  
+    {field} totalt_sifre : NonNegativeInteger  
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+}
+class "Datatype" [[{Ein datatype — ein strukturert samansett type.}]] {
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+}
+"Modellelement" --> "0..*" "Modul" : "tilhorer_modul"
+"Modellelement" --> "0..*" "Eigenskap" : "har_eigenskap"
+"Modellelement" --> "0..*" "Konsept" : "begrep"
+"Abstraksjon" --> "0..1" "Modellelement" : "er_abstraksjon_av"
+"Assosiasjon" --> "0..1" "Modellelement" : "refererer_til"
+"Avhengighet" --> "0..1" "Modellelement" : "avhengig_av"
+"Betingelsesregel" --> "1..*" "Modellelement" : "betinger"
+"Eigenskap" --> "0..*" "Modellelement" : "har_type"
+"Informasjonsmodell" --> "0..*" "Modellelement" : "inneholder_modellelement"
+"Merknad" --> "0..*" "Modellelement" : "annoterer"
+"Realisering" --> "0..1" "Modellelement" : "har_leverandor"
+"Sammensetning" --> "0..1" "Modellelement" : "inneholder"
+"Spesialisering" --> "0..1" "Modellelement" : "har_generelt_begrep"
+"Valg" --> "0..*" "Modellelement" : "har_noe"
+"Merknad" --> "0..*" "Modellelement" : "annoterer"(i)
+"Avhengighet" --> "0..1" "Modellelement" : "avhengig_av"(i)
+"Betingelsesregel" --> "0..*" "Modellelement" : "betinger"(i)
+"Abstraksjon" --> "0..1" "Modellelement" : "er_abstraksjon_av"(i)
+"Spesialisering" --> "0..1" "Modellelement" : "har_generelt_begrep"(i)
+"Realisering" --> "0..1" "Modellelement" : "har_leverandor"(i)
+"Valg" --> "0..*" "Modellelement" : "har_noe"(i)
+"Eigenskap" --> "0..*" "Modellelement" : "har_type"(i)
+"Sammensetning" --> "0..1" "Modellelement" : "inneholder"(i)
+"Informasjonsmodell" --> "0..*" "Modellelement" : "inneholder_modellelement"(i)
+"Assosiasjon" --> "0..1" "Modellelement" : "refererer_til"(i)
+"Modellelement" ^-- "RootObjekttype"
+"Modellelement" ^-- "Objekttype"
+"Modellelement" ^-- "Modul"
+"Modellelement" ^-- "Kodeliste"
+"Modellelement" ^-- "EnkelType"
+"Modellelement" ^-- "Datatype"
+class "NoenAv" [[{Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "AlleAv" [[{Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+"Valg" ^-- "NoenAv"
+"Valg" ^-- "AlleAv"
+"Eigenskap" ^-- "Valg"
+"Eigenskap" ^-- "Spesialisering"
+"Eigenskap" ^-- "Sammensetning"
+"Eigenskap" ^-- "Realisering"
+class "Attributt" [[{Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+class "Rolle" [[{Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+"Attributt" --> "0..*" "Objekttype" : "inneholder_objekttype"
+"Rolle" --> "0..1" "Objekttype" : "har_objekttype"
+"Rolle" --> "0..1" "Objekttype" : "har_objekttype"(i)
+"Attributt" --> "0..*" "Objekttype" : "inneholder_objekttype"(i)
+"Eigenskap" ^-- "Rolle"
+"Eigenskap" --> "0..*" "Modul" : "tilhorer_modul"
+"Merknad" --> "0..*" "Modul" : "tilhorer_modul"
+"Modellelement" --> "0..*" "Modul" : "tilhorer_modul"(i)
+"Eigenskap" --> "0..*" "Modul" : "tilhorer_modul"(i)
+"Merknad" --> "0..*" "Modul" : "tilhorer_modul"(i)
+class "Modelkatalog" [[{Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} endringsdato : date  
+    {field} heimeside : uri  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} utgivelsesdato : date  
+}
+class "Begrepssamling" [[{Ei SKOS-omgrepssamling (temavokabular).}]] {
+    {field} id : uriorcurie  
+}
+class "Lisensdokument" [[{Eit lisensdokument (dct:LicenseDocument).}]] {
+    {field} id : uriorcurie  
+}
+class "Aktor" [[{Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.}]] {
+    {field} id : uriorcurie  
+    {field} namn_aktor : LangString  [1..*]
+    {field} identifikator_literal : string  
+}
+class "Kontaktopplysning" [[{Kontaktinformasjon (vcard:Organization).}]] {
+    {field} id : uriorcurie  
+}
+class "KatalogisertRessurs" [[{Basisklasse for ressursar som kan katalogiserast (dcat:Resource).}]] {
+    {field} id : uriorcurie  
+}
+"Modelkatalog" --> "0..1" "Modelkatalog" : "er_del_av_katalog"
+"Modelkatalog" --> "0..*" "Begrepssamling" : "temaer"
+"Modelkatalog" --> "0..*" "Konsept" : "tema"
+"Modelkatalog" --> "0..*" "Informasjonsmodell" : "modell"
+"Modelkatalog" --> "0..1" "Lisensdokument" : "lisens"
+"Modelkatalog" --> "1" "Aktor" : "utgiver"
+"Modelkatalog" --> "1..*" "Kontaktopplysning" : "kontaktpunkt"
+"Modelkatalog" --> "1..*" "KatalogisertRessurs" : "har_del"
+"Merknad" ^-- "Betingelsesregel"
+class "Mediatype" [[{Ein medietype eller filformat (dct:MediaTypeOrExtent).}]] {
+    {field} id : uriorcurie  
+}
+class "Lokasjon" [[{Eit geografisk område (dct:Location).}]] {
+    {field} id : uriorcurie  
+}
+"Lisensdokument" --> "0..1" "Konsept" : "type_concept"
+"Informasjonsmodell" --> "0..1" "Lisensdokument" : "lisens"
+"Modelkatalog" --> "0..1" "Lisensdokument" : "lisens"(i)
+"Informasjonsmodell" --> "0..1" "Lisensdokument" : "lisens"(i)
+"Informasjonsmodell" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"
+"Modelkatalog" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
+"Informasjonsmodell" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
+class "Kodeelement" [[{Eit element i ei kodeliste (modelldcatno:CodeElement).}]] {
+    {field} id : uriorcurie  
+    {field} notasjon : string  
+    {field} anbefalt_term : LangString  [0..*]
+    {field} identifikator_literal : string  
+    {field} definisjon : LangString  [0..*]
+    {field} eksempel_kode : LangString  [0..*]
+    {field} eksklusjonsnotat : LangString  [0..*]
+    {field} skjult_term : LangString  [0..*]
+    {field} inklusjonsnotat : LangString  [0..*]
+    {field} notat : LangString  [0..*]
+    {field} omfangsnotat : LangString  [0..*]
+    {field} alternativ_term : LangString  [0..*]
+}
+"Eigenskap" --> "0..*" "Konsept" : "begrep"
+"Informasjonsmodell" --> "0..*" "Konsept" : "begrep"
+"Informasjonsmodell" --> "0..*" "Konsept" : "dekningsomraade"
+"Informasjonsmodell" --> "0..1" "Konsept" : "status"
+"Informasjonsmodell" --> "0..*" "Konsept" : "tema"
+"Informasjonsmodell" --> "0..1" "Konsept" : "type_concept"
+"Kodeelement" --> "0..*" "Konsept" : "begrep"
+"Informasjonsmodell" --> "0..*" "Konsept" : "begrep"(i)
+"Modellelement" --> "0..*" "Konsept" : "begrep"(i)
+"Eigenskap" --> "0..*" "Konsept" : "begrep"(i)
+"Kodeelement" --> "0..*" "Konsept" : "begrep"(i)
+"Informasjonsmodell" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"Informasjonsmodell" --> "0..1" "Konsept" : "status"(i)
+"Modelkatalog" --> "0..*" "Konsept" : "tema"(i)
+"Informasjonsmodell" --> "0..*" "Konsept" : "tema"(i)
+"Aktor" --> "0..1" "Konsept" : "type_concept"
+"Informasjonsmodell" --> "0..1" "Konsept" : "type_concept"(i)
+"Attributt" --> "0..*" "Kodeliste" : "har_verdi_fra"
+"Kodeelement" --> "1..*" "Kodeliste" : "i_skjema"
+"Kodeelement" --> "0..*" "Kodeliste" : "topp_begrep_av"
+"Attributt" --> "0..*" "Kodeliste" : "har_verdi_fra"(i)
+"Kodeelement" --> "0..*" "Kodeliste" : "i_skjema"(i)
+"Kodeelement" --> "0..*" "Kodeliste" : "topp_begrep_av"(i)
+"Kodeelement" --> "0..1" "Kodeelement" : "neste"
+"Kodeelement" --> "0..1" "Kodeelement" : "forrige"
+"Modelkatalog" --> "0..*" "KatalogisertRessurs" : "har_del"(i)
+class "Dokument" [[{Eit dokument (foaf:Document).}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} format : string  
+}
+"Informasjonsmodell" --> "0..1" "Aktor" : "skapar"
+"Informasjonsmodell" --> "0..*" "Dokument" : "har_format"
+"Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "har_del_modell"
+"Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "erstatter"
+"Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "er_erstatta_av"
+"Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "er_del_av_modell"
+"Informasjonsmodell" --> "1" "Aktor" : "utgiver"
+"Modelkatalog" --> "0..*" "Informasjonsmodell" : "modell"(i)
+"Attributt" --> "0..*" "EnkelType" : "har_enkel_type"
+"Attributt" --> "0..*" "EnkelType" : "har_enkel_type"(i)
+class "Samling" [[{Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.}]] {
+    {field} id(i) : uriorcurie  
+    {field} identifikator_literal(i) : string  
+    {field} navigerbar(i) : boolean  
+    {field} min_multiplisitet(i) : NonNegativeInteger  
+    {field} tittel(i) : LangString  [0..*]
+    {field} maks_multiplisitet(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} relasjonsegenskapetikett(i) : LangString  [0..*]
+    {field} sekvensnummer(i) : NonNegativeInteger  
+}
+"Eigenskap" --> "0..1" "Eigenskap" : "danner_symmetri_med"
+"Modellelement" --> "0..*" "Eigenskap" : "har_eigenskap"(i)
+"Eigenskap" ^-- "Samling"
+"Eigenskap" ^-- "Avhengighet"
+"Eigenskap" ^-- "Attributt"
+"Eigenskap" ^-- "Assosiasjon"
+"Eigenskap" ^-- "Abstraksjon"
+"Informasjonsmodell" --> "0..*" "Dokument" : "har_format"(i)
+"Attributt" --> "0..*" "Datatype" : "har_datatype"
+"Attributt" --> "0..*" "Datatype" : "har_datatype"(i)
+class "XEllerY" [[{Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.}]] {
+    {field} betingelsesuttrykk(i) : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} eigenskapsmerknad(i) : LangString  [0..*]
+    {field} identifikator_literal(i) : string  
+    {field} tittel(i) : LangString  [0..*]
+}
+class "Og" [[{Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.}]] {
+    {field} betingelsesuttrykk(i) : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} eigenskapsmerknad(i) : LangString  [0..*]
+    {field} identifikator_literal(i) : string  
+    {field} tittel(i) : LangString  [0..*]
+}
+class "Ikke" [[{Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.}]] {
+    {field} betingelsesuttrykk(i) : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} eigenskapsmerknad(i) : LangString  [0..*]
+    {field} identifikator_literal(i) : string  
+    {field} tittel(i) : LangString  [0..*]
+}
+class "Eller" [[{Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.}]] {
+    {field} betingelsesuttrykk(i) : LangString  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} eigenskapsmerknad(i) : LangString  [0..*]
+    {field} identifikator_literal(i) : string  
+    {field} tittel(i) : LangString  [0..*]
+}
+"Betingelsesregel" ^-- "XEllerY"
+"Betingelsesregel" ^-- "Og"
+"Betingelsesregel" ^-- "Ikke"
+"Betingelsesregel" ^-- "Eller"
+"Modelkatalog" --> "0..*" "Begrepssamling" : "temaer"(i)
+"Informasjonsmodell" --> "0..1" "Aktor" : "skapar"(i)
+"Modelkatalog" --> "0..1" "Aktor" : "utgiver"(i)
+"Informasjonsmodell" --> "0..1" "Aktor" : "utgiver"(i)
+@enduml

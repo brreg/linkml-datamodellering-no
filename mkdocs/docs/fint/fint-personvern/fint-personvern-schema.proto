@@ -1,0 +1,216 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 4.0.20
+// Fysisk adresse eller postadresse.
+message Adresse
+ {
+ repeated  string adresselinje = 0
+  string postnummer = 0
+  string poststed = 0
+  landkode land = 0
+ }
+// All bruk av personopplysningar (behandlingsaktivitet).
+message Behandling
+ {
+  uriorcurie id = 0
+  boolean aktiv = 0
+  string formal = 0
+  datetime slettet = 0
+  behandlingsgrunnlag behandlingsgrunnlag = 0
+  personopplysning personopplysning = 0
+ repeated  samtykke samtykke = 0
+  tjeneste tjeneste = 0
+ }
+// Rettsleg grunnlag for behandling av personopplysningar.
+message Behandlingsgrunnlag
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein elev registrert i skulesystemet.
+message Elev
+ {
+  uriorcurie id = 0
+  identifikator elevnummer = 0
+  person person = 0
+ }
+// Liste over Norges fylker.
+message Fylke
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  kommune kommune = 0
+ }
+// Unik identifikasjon til eit objekt.
+message Identifikator
+ {
+  string identifikatorverdi = 0
+  periode gyldighetsperiode = 0
+ }
+// Verdiar for kjønn basert på ISO/IEC 5218.
+message Kjonn
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Liste over Norges kommunar.
+message Kommune
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  fylke fylke = 0
+ }
+// Informasjon som kan brukast for å oppnå kontakt.
+message Kontaktinformasjon
+ {
+  string epostadresse = 0
+  string mobiltelefonnummer = 0
+  string nettsted = 0
+  string sip = 0
+  string telefonnummer = 0
+ }
+// Kontaktperson (pårørande) til ein person.
+message Kontaktperson
+ {
+  uriorcurie id = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  personnavn kontaktpersonNavn = 0
+  string type = 0
+ repeated  person kontaktperson = 0
+ }
+// Landskode i ISO 3166-1 alpha-2 format.
+message Landkode
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eintydleg identifisering av matrikkeleining innanfor kommune.
+message Matrikkelnummer
+ {
+  adresse adresse = 0
+  string bruksnummer = 0
+  string festenummer = 0
+  string gaardsnummer = 0
+  string seksjonsnummer = 0
+  kommune kommunenummer = 0
+ }
+// Tidsperiode med obligatorisk start og valfri slutt.
+message Periode
+ {
+  string beskrivelse = 0
+  datetime start = 0
+  datetime slutt = 0
+ }
+// Fysiske private personar.
+message Person
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  uriorcurie id = 0
+  string bilde = 0
+  adresse bostedsadresse = 0
+  date fodselsdato = 0
+  identifikator fodselsnummer = 0
+  personnavn personNavn = 0
+ repeated  kontaktperson parorende = 0
+ repeated  landkode statsborgerskap = 0
+  kommune kommune = 0
+  kjonn kjonn = 0
+ repeated  person foreldreansvar = 0
+ repeated  person foreldre = 0
+  spraak maalform = 0
+  spraak morsmaal = 0
+ repeated  uriorcurie laerling = 0
+  elev elev = 0
+  uriorcurie otungdom = 0
+  uriorcurie personalressurs = 0
+ }
+// Namn på ein person.
+message Personnavn
+ {
+  string fornavn = 0
+  string mellomnavn = 0
+  string etternavn = 0
+ }
+// Opplysningar og vurderingar som kan knytast til enkeltpersonar.
+message Personopplysning
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Rotcontainer for FINT Personvern-instansar.
+message PersonvernContainer
+ {
+ repeated  behandling behandlingar = 0
+ repeated  samtykke samtykker = 0
+ repeated  tjeneste tenester = 0
+  behandlingsgrunnlag behandlingsgrunnlag = 0
+ repeated  personopplysning personopplysningar = 0
+ }
+// Tillating til behandling av personopplysning.
+message Samtykke
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  datetime opprettet = 0
+  behandling behandling = 0
+  person person = 0
+  uriorcurie organisasjonselement = 0
+ }
+// Verdiar for språk (2 bokstavar).
+message Spraak
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Teneste eller system som behandlar personopplysningar.
+message Tjeneste
+ {
+  uriorcurie id = 0
+  string navn = 0
+  datetime slettet = 0
+ repeated  behandling behandling = 0
+ }
+// Valutakodar for offisielle valutaer.
+message Valuta
+ {
+  uriorcurie id = 0
+  identifikator bokstavkode = 0
+  string valutaNavn = 0
+  identifikator nummerkode = 0
+ }
+// Ein juridisk organisasjon som produserer varer eller tenester.
+message Virksomhet
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  adresse forretningsadresse = 0
+  string organisasjonsnavn = 0
+  identifikator organisasjonsnummer = 0
+  uriorcurie id = 0
+  identifikator virksomhetsId = 0
+ repeated  uriorcurie laerling = 0
+ }
+

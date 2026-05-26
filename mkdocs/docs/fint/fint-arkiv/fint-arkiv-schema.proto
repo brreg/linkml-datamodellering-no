@@ -1,0 +1,737 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 4.0.20
+// Administrativ eining med ansvar for saksbehandling.
+message AdministrativEnhet
+ {
+  uriorcurie id = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  uriorcurie organisasjonselement = 0
+ }
+// Fysisk adresse eller postadresse.
+message Adresse
+ {
+ repeated  string adresselinje = 0
+  string postnummer = 0
+  string poststed = 0
+  landkode land = 0
+ }
+// Rotcontainer for FINT Arkiv-instansar.
+message ArkivContainer
+ {
+ repeated  arkivdel arkivdelar = 0
+ repeated  arkivressurs arkivressursar = 0
+ repeated  autorisasjon autorisasjonar = 0
+ repeated  administrativEnhet administrativeEiningar = 0
+ repeated  dokumentfil dokumentfiler = 0
+ repeated  dokumentbeskrivelse dokumentbeskrivelsar = 0
+ repeated  journalpost journalpostar = 0
+  klassifikasjonssystem klassifikasjonssystem = 0
+ repeated  tilgang tilgangar = 0
+ repeated  sak sakar = 0
+ repeated  personalmappe personalmappeListe = 0
+ repeated  dispensasjonAutomatiskFredaKulturminne dispensasjonAutomatiskFredaKulturminneListe = 0
+ repeated  tilskuddFartoy tilskuddFartoyListe = 0
+ repeated  tilskuddFredaBygningPrivatEie tilskuddFredaBygningPrivatEieListe = 0
+ repeated  soeknadDrosjeloeyve soeknadDrosjeloeyveListe = 0
+ repeated  dokumentStatus dokumentstatuskodar = 0
+ repeated  dokumentType dokumenttypar = 0
+ repeated  format formatar = 0
+ repeated  journalpostType journalposttypar = 0
+ repeated  journalStatus journalstatuskodar = 0
+ repeated  klassifikasjonstype klassifikasjonstypar = 0
+ repeated  korrespondansepartType korrespondanseparttypar = 0
+ repeated  merknadstype merknadstypar = 0
+ repeated  partRolle partRollar = 0
+ repeated  rolle rollar = 0
+ repeated  saksmappetype saksmappetypar = 0
+ repeated  saksstatus sakstatuskodar = 0
+ repeated  skjermingshjemmel skjermingsheimlar = 0
+ repeated  tilgangsgruppe tilgangsgrupper = 0
+ repeated  tilgangsrestriksjon tilgangsrestriksjonar = 0
+ repeated  tilknyttetRegistreringSom tilknyttetRegistreringSomKodar = 0
+ repeated  variantformat variantformatar = 0
+ }
+// Ein vilkårleg definert del av eit arkiv.
+message Arkivdel
+ {
+  uriorcurie id = 0
+  string tittel = 0
+ repeated  klassifikasjonssystem klassifikasjonssystem = 0
+ }
+// Ansatt med rolle og rettar innanfor arkiv.
+message Arkivressurs
+ {
+  uriorcurie id = 0
+  identifikator kildesystemId = 0
+  uriorcurie personalressurs = 0
+ repeated  autorisasjon autorisasjon = 0
+ repeated  tilgang tilgang = 0
+ }
+// Siling av kva ein innlogga brukar får lov til å gjere i løysinga.
+message Autorisasjon
+ {
+  uriorcurie id = 0
+ repeated  tilgangsrestriksjon tilgangsrestriksjon = 0
+ repeated  administrativEnhet administrativenhet = 0
+ repeated  arkivressurs arkivressurs = 0
+ }
+// Avskriving av ein journalpost (markering som ferdigbehandla).
+message Avskrivning
+ {
+  string avskrevetAv = 0
+  datetime avskrivningsdato = 0
+  string avskrivningsmate = 0
+ }
+// Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.
+message DispensasjonAutomatiskFredaKulturminne
+ {
+  uriorcurie id = 0
+  datetime avsluttetDato = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  identifikator mappeId = 0
+ repeated  merknad merknad = 0
+ repeated  string noekkelord = 0
+  string offentligTittel = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  arkivdel arkivdel = 0
+  arkivressurs avsluttetAv = 0
+  arkivressurs opprettetAv = 0
+ repeated  journalpost journalpost = 0
+  string saksaar = 0
+  datetime saksdato = 0
+  string sakssekvensnummer = 0
+  datetime utlaantDato = 0
+  saksmappetype saksmappetype = 0
+  saksstatus saksstatus = 0
+  tilgangsgruppe tilgangsgruppe = 0
+  administrativEnhet journalenhet = 0
+  administrativEnhet administrativEnhet = 0
+  arkivressurs saksansvarlig = 0
+  string kulturminneId = 0
+  matrikkelnummer matrikkelnummer = 0
+  identifikator soeknadsnummer = 0
+  string tiltak = 0
+ }
+// Skildring av eit dokument tilknytt ein journalpost.
+message Dokumentbeskrivelse
+ {
+  uriorcurie id = 0
+  string beskrivelse = 0
+  integer dokumentnummer = 0
+ repeated  dokumentobjekt dokumentobjekt = 0
+ repeated  string forfatter = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+ repeated  string referanseArkivdel = 0
+  skjerming skjerming = 0
+  datetime tilknyttetDato = 0
+  string tittel = 0
+  dokumentStatus dokumentstatus = 0
+  dokumentType dokumentType = 0
+ repeated  tilknyttetRegistreringSom tilknyttetRegistreringSom = 0
+  arkivressurs tilknyttetAv = 0
+  arkivressurs opprettetAv = 0
+ }
+// Sjølve dokumentfila med data og metadata.
+message Dokumentfil
+ {
+  uriorcurie id = 0
+  string data = 0
+  string filnavn = 0
+  string format = 0
+ }
+// Referanse til éin og berre éin dokumentfil.
+message Dokumentobjekt
+ {
+  string filstorrelse = 0
+  string formatDetaljer = 0
+  string sjekksum = 0
+  string sjekksumAlgoritme = 0
+  integer versjonsnummer = 0
+  format filformat = 0
+  variantformat variantFormat = 0
+  arkivressurs opprettetAv = 0
+  dokumentfil referanseDokumentfil = 0
+ }
+// Status til eit dokument.
+message DokumentStatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Type dokument.
+message DokumentType
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein elev registrert i skulesystemet.
+message Elev
+ {
+  uriorcurie id = 0
+  identifikator elevnummer = 0
+  person person = 0
+ }
+// Dokumentets filformat.
+message Format
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Liste over Norges fylker.
+message Fylke
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  kommune kommune = 0
+ }
+// Unik identifikasjon til eit objekt.
+message Identifikator
+ {
+  string identifikatorverdi = 0
+  periode gyldighetsperiode = 0
+ }
+// Ein journalpost (inn- eller utgåande dokument, notat o.l.) i ei saksmappe.
+message Journalpost
+ {
+  uriorcurie id = 0
+  datetime arkivertDato = 0
+  string beskrivelse = 0
+ repeated  dokumentbeskrivelse dokumentbeskrivelse = 0
+ repeated  string forfatter = 0
+  klasse klasse = 0
+ repeated  korrespondansepart korrespondansepart = 0
+ repeated  merknad merknad = 0
+ repeated  string nokkelord = 0
+  string offentligTittel = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+ repeated  string referanseArkivDel = 0
+  string registreringsId = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  tilgangsgruppe tilgangsgruppe = 0
+  administrativEnhet administrativEnhet = 0
+  arkivdel arkivdel = 0
+  arkivressurs saksbehandler = 0
+  arkivressurs arkivertAv = 0
+  arkivressurs opprettetAv = 0
+  integer antallVedlegg = 0
+  avskrivning avskrivning = 0
+  datetime dokumentetsDato = 0
+  datetime forfallsDato = 0
+  string journalAr = 0
+  datetime journalDato = 0
+  integer journalPostnummer = 0
+  integer journalSekvensnummer = 0
+  datetime mottattDato = 0
+  datetime offentlighetsvurdertDato = 0
+  datetime sendtDato = 0
+  journalpostType journalposttype = 0
+  journalStatus journalstatus = 0
+  administrativEnhet journalenhet = 0
+ }
+// Namn på type journalpost.
+message JournalpostType
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Status til journalposten.
+message JournalStatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Verdiar for kjønn basert på ISO/IEC 5218.
+message Kjonn
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein klasse i eit klassifikasjonssystem.
+message Klasse
+ {
+  string klasseId = 0
+  integer rekkefoelge = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  klassifikasjonssystem klassifikasjonssystem = 0
+ }
+// Overordna struktur for mappene i ein eller fleire arkivdelar.
+message Klassifikasjonssystem
+ {
+  uriorcurie id = 0
+  string avsluttetAvNavn = 0
+  datetime avsluttetDato = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  string opprettetAvNavn = 0
+  datetime opprettetDato = 0
+  string tittel = 0
+  klassifikasjonstype klassifikasjonstype = 0
+ repeated  arkivdel arkivdel = 0
+ }
+// Type klassifikasjonssystem.
+message Klassifikasjonstype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Liste over Norges kommunar.
+message Kommune
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  fylke fylke = 0
+ }
+// Informasjon som kan brukast for å oppnå kontakt.
+message Kontaktinformasjon
+ {
+  string epostadresse = 0
+  string mobiltelefonnummer = 0
+  string nettsted = 0
+  string sip = 0
+  string telefonnummer = 0
+ }
+// Kontaktperson (pårørande) til ein person.
+message Kontaktperson
+ {
+  uriorcurie id = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  personnavn kontaktpersonNavn = 0
+  string type = 0
+ repeated  person kontaktperson = 0
+ }
+// Verksemd eller person som arkivskapar mottek eller sender arkivdokument til.
+message Korrespondansepart
+ {
+  adresse adresse = 0
+  string foedselsnummer = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  string kontaktpersonStr = 0
+  string korrespondansepartNavn = 0
+  string orgnummer = 0
+  skjerming skjerming = 0
+  korrespondansepartType korrespondanseparttype = 0
+ }
+// Type korrespondansepart.
+message KorrespondansepartType
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Landskode i ISO 3166-1 alpha-2 format.
+message Landkode
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eintydleg identifisering av matrikkeleining innanfor kommune.
+message Matrikkelnummer
+ {
+  adresse adresse = 0
+  string bruksnummer = 0
+  string festenummer = 0
+  string gaardsnummer = 0
+  string seksjonsnummer = 0
+  kommune kommunenummer = 0
+ }
+// Merknad knytt til mappe, registrering eller dokumentbeskrivelse.
+message Merknad
+ {
+  datetime merknadsdato = 0
+  string merknadstekst = 0
+  merknadstype merknadstype = 0
+  arkivressurs merknadRegistrertAv = 0
+ }
+// Namn på type merknad.
+message Merknadstype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Part til Mappe, Registrering eller Dokumentbeskrivelse.
+message Part
+ {
+  adresse adresse = 0
+  string foedselsnummer = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  string kontaktpersonStr = 0
+  string orgnummer = 0
+  string partNavn = 0
+  partRolle partRolle = 0
+ }
+// Rolla til ein part.
+message PartRolle
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Tidsperiode med obligatorisk start og valfri slutt.
+message Periode
+ {
+  string beskrivelse = 0
+  datetime start = 0
+  datetime slutt = 0
+ }
+// Fysiske private personar.
+message Person
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  uriorcurie id = 0
+  string bilde = 0
+  adresse bostedsadresse = 0
+  date fodselsdato = 0
+  identifikator fodselsnummer = 0
+  personnavn personNavn = 0
+ repeated  kontaktperson parorende = 0
+ repeated  landkode statsborgerskap = 0
+  kommune kommune = 0
+  kjonn kjonn = 0
+ repeated  person foreldreansvar = 0
+ repeated  person foreldre = 0
+  spraak maalform = 0
+  spraak morsmaal = 0
+ repeated  uriorcurie laerling = 0
+  elev elev = 0
+  uriorcurie otungdom = 0
+  uriorcurie personalressurs = 0
+ }
+// Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold.
+message Personalmappe
+ {
+  uriorcurie id = 0
+  datetime avsluttetDato = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  identifikator mappeId = 0
+ repeated  merknad merknad = 0
+ repeated  string noekkelord = 0
+  string offentligTittel = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  arkivdel arkivdel = 0
+  arkivressurs avsluttetAv = 0
+  arkivressurs opprettetAv = 0
+ repeated  journalpost journalpost = 0
+  string saksaar = 0
+  datetime saksdato = 0
+  string sakssekvensnummer = 0
+  datetime utlaantDato = 0
+  saksmappetype saksmappetype = 0
+  saksstatus saksstatus = 0
+  tilgangsgruppe tilgangsgruppe = 0
+  administrativEnhet journalenhet = 0
+  administrativEnhet administrativEnhet = 0
+  arkivressurs saksansvarlig = 0
+  personnavn personnavn = 0
+  person person = 0
+  uriorcurie leder = 0
+  uriorcurie arbeidssted = 0
+  uriorcurie personalressurs = 0
+ }
+// Namn på ein person.
+message Personnavn
+ {
+  string fornavn = 0
+  string mellomnavn = 0
+  string etternavn = 0
+ }
+// Rolla til ein arkivressurs.
+message Rolle
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Generisk saksmappe (konkret Sak i Noark).
+message Sak
+ {
+  uriorcurie id = 0
+  datetime avsluttetDato = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  identifikator mappeId = 0
+ repeated  merknad merknad = 0
+ repeated  string noekkelord = 0
+  string offentligTittel = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  arkivdel arkivdel = 0
+  arkivressurs avsluttetAv = 0
+  arkivressurs opprettetAv = 0
+ repeated  journalpost journalpost = 0
+  string saksaar = 0
+  datetime saksdato = 0
+  string sakssekvensnummer = 0
+  datetime utlaantDato = 0
+  saksmappetype saksmappetype = 0
+  saksstatus saksstatus = 0
+  tilgangsgruppe tilgangsgruppe = 0
+  administrativEnhet journalenhet = 0
+  administrativEnhet administrativEnhet = 0
+  arkivressurs saksansvarlig = 0
+ }
+// Type saksmappe — differensierer innhald og behandlingsrutine.
+message Saksmappetype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Status til saksmappa.
+message Saksstatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Skjerming av mappe, registrering eller dokument etter offentleglova.
+message Skjerming
+ {
+  skjermingshjemmel skjermingshjemmel = 0
+  tilgangsrestriksjon tilgangsrestriksjon = 0
+ }
+// Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen.
+message Skjermingshjemmel
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Sak om søknad om løyve til å køyre drosje.
+message SoeknadDrosjeloeyve
+ {
+  uriorcurie id = 0
+  datetime avsluttetDato = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  identifikator mappeId = 0
+ repeated  merknad merknad = 0
+ repeated  string noekkelord = 0
+  string offentligTittel = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  arkivdel arkivdel = 0
+  arkivressurs avsluttetAv = 0
+  arkivressurs opprettetAv = 0
+ repeated  journalpost journalpost = 0
+  string saksaar = 0
+  datetime saksdato = 0
+  string sakssekvensnummer = 0
+  datetime utlaantDato = 0
+  saksmappetype saksmappetype = 0
+  saksstatus saksstatus = 0
+  tilgangsgruppe tilgangsgruppe = 0
+  administrativEnhet journalenhet = 0
+  administrativEnhet administrativEnhet = 0
+  arkivressurs saksansvarlig = 0
+  string organisasjonsnavn = 0
+  string orgnummer = 0
+ }
+// Verdiar for språk (2 bokstavar).
+message Spraak
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Styring av kven som har tilgang til kva opplysningar.
+message Tilgang
+ {
+  uriorcurie id = 0
+  string tittel = 0
+  rolle rolle = 0
+  administrativEnhet administrativEnhet = 0
+  arkivdel arkivdel = 0
+ repeated  arkivressurs arkivressurs = 0
+ }
+// Tilgangsgruppe for intern skjerming av innhald.
+message Tilgangsgruppe
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Angiving av at dokumenta ikkje er offentleg tilgjengelege.
+message Tilgangsrestriksjon
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Kva rolle dokumentet har i høve registreringa (t.d. Hoveddokument, Vedlegg).
+message TilknyttetRegistreringSom
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Sak om søknad om tilskudd til freda fartøy.
+message TilskuddFartoy
+ {
+  uriorcurie id = 0
+  datetime avsluttetDato = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  identifikator mappeId = 0
+ repeated  merknad merknad = 0
+ repeated  string noekkelord = 0
+  string offentligTittel = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  arkivdel arkivdel = 0
+  arkivressurs avsluttetAv = 0
+  arkivressurs opprettetAv = 0
+ repeated  journalpost journalpost = 0
+  string saksaar = 0
+  datetime saksdato = 0
+  string sakssekvensnummer = 0
+  datetime utlaantDato = 0
+  saksmappetype saksmappetype = 0
+  saksstatus saksstatus = 0
+  tilgangsgruppe tilgangsgruppe = 0
+  administrativEnhet journalenhet = 0
+  administrativEnhet administrativEnhet = 0
+  arkivressurs saksansvarlig = 0
+  string fartoyNavn = 0
+  string kallesignal = 0
+  string kulturminneId = 0
+  identifikator soeknadsnummer = 0
+ }
+// Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP).
+message TilskuddFredaBygningPrivatEie
+ {
+  uriorcurie id = 0
+  datetime avsluttetDato = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  identifikator mappeId = 0
+ repeated  merknad merknad = 0
+ repeated  string noekkelord = 0
+  string offentligTittel = 0
+  datetime opprettetDato = 0
+ repeated  part part = 0
+  skjerming skjerming = 0
+  string tittel = 0
+  arkivdel arkivdel = 0
+  arkivressurs avsluttetAv = 0
+  arkivressurs opprettetAv = 0
+ repeated  journalpost journalpost = 0
+  string saksaar = 0
+  datetime saksdato = 0
+  string sakssekvensnummer = 0
+  datetime utlaantDato = 0
+  saksmappetype saksmappetype = 0
+  saksstatus saksstatus = 0
+  tilgangsgruppe tilgangsgruppe = 0
+  administrativEnhet journalenhet = 0
+  administrativEnhet administrativEnhet = 0
+  arkivressurs saksansvarlig = 0
+  string bygningsnavn = 0
+  string kulturminneId = 0
+  matrikkelnummer matrikkelnummer = 0
+  identifikator soeknadsnummer = 0
+ }
+// Valutakodar for offisielle valutaer.
+message Valuta
+ {
+  uriorcurie id = 0
+  identifikator bokstavkode = 0
+  string valutaNavn = 0
+  identifikator nummerkode = 0
+ }
+// Angiving av kva variant eit dokument førekjem i.
+message Variantformat
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein juridisk organisasjon som produserer varer eller tenester.
+message Virksomhet
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  adresse forretningsadresse = 0
+  string organisasjonsnavn = 0
+  identifikator organisasjonsnummer = 0
+  uriorcurie id = 0
+  identifikator virksomhetsId = 0
+ repeated  uriorcurie laerling = 0
+ }
+

@@ -1,0 +1,3102 @@
+@prefix ark: <https://schema.fintlabs.no/arkiv/> .
+@prefix fint: <https://schema.fintlabs.no/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://schema.fintlabs.no/arkiv/:ArkivContainer> a sh:NodeShape ;
+    rdfs:comment "Rotcontainer for FINT Arkiv-instansar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:JournalStatus ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:journalstatuskodar> ],
+        [ sh:class ark:Journalpost ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:journalpostar> ],
+        [ sh:class ark:Skjermingshjemmel ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:skjermingsheimlar> ],
+        [ sh:class ark:Klassifikasjonstype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:klassifikasjonstypar> ],
+        [ sh:class ark:Dokumentfil ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:dokumentfiler> ],
+        [ sh:class ark:KorrespondansepartType ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:korrespondanseparttypar> ],
+        [ sh:class ark:Autorisasjon ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:autorisasjonar> ],
+        [ sh:class ark:SoeknadDrosjeloeyve ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:soeknadDrosjeloeyve_liste> ],
+        [ sh:class ark:Arkivressurs ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:arkivressursar> ],
+        [ sh:class ark:Dokumentbeskrivelse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:dokumentbeskrivelsar> ],
+        [ sh:class ark:Tilgangsrestriksjon ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:tilgangsrestriksjonar> ],
+        [ sh:class ark:Format ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:formatar> ],
+        [ sh:class ark:DispensasjonAutomatiskFredaKulturminne ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:dispensasjonAutomatiskFredaKulturminne_liste> ],
+        [ sh:class ark:TilknyttetRegistreringSom ;
+            sh:nodeKind sh:IRI ;
+            sh:order 30 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:tilknyttetRegistreringSomKodar> ],
+        [ sh:class ark:Sak ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:sakar> ],
+        [ sh:class ark:Merknadstype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 22 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:merknadstypar> ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:administrativeEiningar> ],
+        [ sh:class ark:Personalmappe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:personalmappe_liste> ],
+        [ sh:class ark:Variantformat ;
+            sh:nodeKind sh:IRI ;
+            sh:order 31 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:variantformatar> ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:tilgangsgrupper> ],
+        [ sh:class ark:Klassifikasjonssystem ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:klassifikasjonssystem> ],
+        [ sh:class ark:DokumentType ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:dokumenttypar> ],
+        [ sh:class ark:TilskuddFartoy ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:tilskuddFartoy_liste> ],
+        [ sh:class ark:Saksstatus ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:sakstatuskodar> ],
+        [ sh:class ark:TilskuddFredaBygningPrivatEie ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:tilskuddFredaBygningPrivatEie_liste> ],
+        [ sh:class ark:Rolle ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:rollar> ],
+        [ sh:class ark:DokumentStatus ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:dokumentstatuskodar> ],
+        [ sh:class ark:JournalpostType ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:journalposttypar> ],
+        [ sh:class ark:Tilgang ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:tilgangar> ],
+        [ sh:class ark:Saksmappetype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:saksmappetypar> ],
+        [ sh:class ark:PartRolle ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:partRollar> ],
+        [ sh:class ark:Arkivdel ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/arkiv/:arkivdelar> ] ;
+    sh:targetClass <https://schema.fintlabs.no/arkiv/:ArkivContainer> .
+
+ark:Mappe a sh:NodeShape ;
+    rdfs:comment "Abstrakt basisklasse for alle mappetypar. Grupperer dokument som høyrer saman." ;
+    sh:closed false ;
+    sh:ignoredProperties ( ark:kallesignal ark:matrikkelnummer ark:kulturminneId ark:journalenhet ark:organisasjonsnummer ark:journalpost ark:bygningsnavn ark:saksaar ark:saksmappetype fint:organisasjonsnavn ark:tilgangsgruppe ark:saksansvarlig ark:sakssekvensnummer ark:saksdato ark:personalressurs ark:personnavn rdf:type ark:saksstatus ark:arbeidssted ark:leder ark:tiltak ark:soeknadsnummer fint:person ark:fartoyNavn ark:utlaantDato ark:administrativEnhet ) ;
+    sh:property [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ark:avsluttetAv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:noekkelord ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:offentligTittel ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path ark:opprettetAv ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:arkivdel ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path ark:mappeId ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 9 ;
+            sh:path ark:part ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path ark:klasse ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 10 ;
+            sh:path ark:skjerming ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:beskrivelse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 11 ;
+            sh:path ark:tittel ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path ark:merknad ] ;
+    sh:targetClass ark:Mappe .
+
+ark:Registrering a sh:NodeShape ;
+    rdfs:comment "Abstrakt basisklasse — arkivets primære byggeklossar." ;
+    sh:closed false ;
+    sh:ignoredProperties ( ark:mottattDato rdf:type ark:journalPostnummer ark:journalstatus ark:journalenhet ark:journalposttype ark:journalSekvensnummer ark:forfallsDato ark:journalAr ark:sendtDato ark:dokumentetsDato ark:avskrivning ark:journalDato ark:offentlighetsvurdertDato ark:antallVedlegg ) ;
+    sh:property [ sh:class ark:Korrespondansepart ;
+            sh:description "Mottakar eller sendar av arkivdokument." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path ark:korrespondansepart ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett alle dokument knytt til registreringa vart arkivert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:arkivertDato ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path ark:arkivdel ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksbehandlar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path ark:saksbehandler ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 11 ;
+            sh:path ark:part ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 14 ;
+            sh:path ark:skjerming ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path ark:offentligTittel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på person eller organisasjon som skapte dokumentet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:forfatter ],
+        [ sh:datatype xsd:string ;
+            sh:description "Referanse til arkivdelen denne arkivenheten er tilknytt." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path ark:referanseArkivDel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Registrering)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ark:nokkelord ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path ark:tittel ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class ark:Dokumentbeskrivelse ;
+            sh:description "Dokumentbeskrivelsar til ei registrering." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ark:dokumentbeskrivelse ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path ark:merknad ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M004 journalpostID." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path ark:registreringsId ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path ark:opprettetAv ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som arkiverte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path ark:arkivertAv ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 5 ;
+            sh:path ark:klasse ] ;
+    sh:targetClass ark:Registrering .
+
+ark:Saksmappe a sh:NodeShape ;
+    rdfs:comment "Abstrakt spesialisering av Mappe som svarar til ei \"sak\" i Noark." ;
+    sh:closed false ;
+    sh:ignoredProperties ( ark:kallesignal ark:personnavn rdf:type fint:organisasjonsnavn ark:matrikkelnummer ark:kulturminneId ark:arbeidssted ark:leder ark:bygningsnavn ark:organisasjonsnummer ark:tiltak ark:soeknadsnummer fint:person ark:fartoyNavn ark:personalressurs ) ;
+    sh:property [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ark:part ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path ark:noekkelord ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path ark:arkivdel ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 21 ;
+            sh:path ark:skjerming ],
+        [ sh:class ark:Saksstatus ;
+            sh:description "Status til saksmappa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path ark:saksstatus ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:sakssekvensnummer ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksansvarleg." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ark:saksansvarlig ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path ark:journalenhet ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 16 ;
+            sh:path ark:merknad ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen saka er oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:saksdato ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path ark:avsluttetAv ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path ark:opprettetAv ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 14 ;
+            sh:path ark:klasse ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato ein fysisk saksmappe eller journalpost vart utlånt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:utlaantDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ark:tittel ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 15 ;
+            sh:path ark:mappeId ],
+        [ sh:class ark:Saksmappetype ;
+            sh:description "Type saksmappe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ark:saksmappetype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 18 ;
+            sh:path ark:offentligTittel ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 19 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Journalpost ;
+            sh:description "Journalpostar knytt til saksmappa." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path ark:journalpost ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path fint:beskrivelse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser året saksmappa vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:saksaar ] ;
+    sh:targetClass ark:Saksmappe .
+
+ark:Avskrivning a sh:NodeShape ;
+    rdfs:comment "Avskriving av ein journalpost (markering som ferdigbehandla)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Korleis journalposten er avskriven." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:avskrivningsmate ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett for avskrivinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:avskrivningsdato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Person som avskriva journalposten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:avskrevetAv ] ;
+    sh:targetClass ark:Avskrivning .
+
+ark:DispensasjonAutomatiskFredaKulturminne a sh:NodeShape ;
+    rdfs:comment "Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen saka er oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:saksdato ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path ark:avsluttetAv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ark:offentligTittel ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksansvarleg." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path ark:saksansvarlig ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path ark:arkivdel ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path ark:mappeId ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Søknadsnummer frå Digisak." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path ark:soeknadsnummer ],
+        [ sh:class ark:Saksmappetype ;
+            sh:description "Type saksmappe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ark:saksmappetype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 26 ;
+            sh:path ark:tittel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 18 ;
+            sh:path ark:klasse ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 24 ;
+            sh:path ark:part ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato ein fysisk saksmappe eller journalpost vart utlånt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ark:utlaantDato ],
+        [ sh:class ark:Saksstatus ;
+            sh:description "Status til saksmappa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ark:saksstatus ],
+        [ sh:class ark:Journalpost ;
+            sh:description "Journalpostar knytt til saksmappa." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ark:journalpost ],
+        [ sh:datatype xsd:string ;
+            sh:description "Skildrar kva tiltak som skal utførast på eigedommen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:tiltak ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:journalenhet ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path ark:opprettetAv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kulturminnets ID i Askeladden." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:kulturminneId ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path ark:noekkelord ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser året saksmappa vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:saksaar ],
+        [ sh:class fint:Matrikkelnummer ;
+            sh:description "Kulturminnets/bygningens identifikator i Matrikkelen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path ark:matrikkelnummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:sakssekvensnummer ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 25 ;
+            sh:path ark:skjerming ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ark:merknad ] ;
+    sh:targetClass ark:DispensasjonAutomatiskFredaKulturminne .
+
+ark:Dokumentobjekt a sh:NodeShape ;
+    rdfs:comment "Referanse til éin og berre éin dokumentfil." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path ark:opprettetAv ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Identifikasjon av versjonar innanfor same dokument." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:versjonsnummer ],
+        [ sh:class ark:Variantformat ;
+            sh:description "Kva variant dokumentet førekjem i." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path ark:variantFormat ],
+        [ sh:class ark:Format ;
+            sh:description "Dokumentets format." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ark:filformat ],
+        [ sh:datatype xsd:string ;
+            sh:description "Algoritme nytta for å berekne sjekksummen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:sjekksumAlgoritme ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som gir integritetssikring til dokumentets innhald." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:sjekksum ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nærare spesifikasjon av dokumentets format." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:formatDetaljer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Storleiken på fila i antal bytes." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:filstorrelse ],
+        [ sh:class ark:Dokumentfil ;
+            sh:description "Referanse til fila som inneheld det elektroniske dokumentet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path ark:referanseDokumentfil ] ;
+    sh:targetClass ark:Dokumentobjekt .
+
+ark:Personalmappe a sh:NodeShape ;
+    rdfs:comment "Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser året saksmappa vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:saksaar ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path ark:klasse ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 25 ;
+            sh:path ark:part ],
+        [ sh:class ark:Journalpost ;
+            sh:description "Journalpostar knytt til saksmappa." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ark:journalpost ],
+        [ sh:class ark:Saksmappetype ;
+            sh:description "Type saksmappe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ark:saksmappetype ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ark:mappeId ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ark:sakssekvensnummer ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path ark:avsluttetAv ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato ein fysisk saksmappe eller journalpost vart utlånt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path ark:utlaantDato ],
+        [ sh:description "Referanse til Personalressurs som er arbeidstakarens leiar." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ark:leder ],
+        [ sh:class fint:Personnavn ;
+            sh:description "Namn på person (Personnavn-objekt)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path ark:personnavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 27 ;
+            sh:path ark:tittel ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ark:noekkelord ],
+        [ sh:description "Referanse til Organisasjonselement som er arbeidstakarens arbeidsstad." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ark:arbeidssted ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 21 ;
+            sh:path ark:merknad ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path ark:arkivdel ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ark:journalenhet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 18 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 26 ;
+            sh:path ark:skjerming ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 24 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class fint:Person ;
+            sh:description "Referanse til Person i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path fint:person ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen saka er oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:saksdato ],
+        [ sh:description "Referanse til Personalressurs i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ark:personalressurs ],
+        [ sh:class ark:Saksstatus ;
+            sh:description "Status til saksmappa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ark:saksstatus ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 30 ;
+            sh:path ark:opprettetAv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path ark:offentligTittel ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksansvarleg." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path ark:saksansvarlig ] ;
+    sh:targetClass ark:Personalmappe .
+
+ark:Sak a sh:NodeShape ;
+    rdfs:comment "Generisk saksmappe (konkret Sak i Noark)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:sakssekvensnummer ],
+        [ sh:class ark:Journalpost ;
+            sh:description "Journalpostar knytt til saksmappa." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path ark:journalpost ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 13 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path ark:opprettetAv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path ark:noekkelord ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 18 ;
+            sh:path ark:offentligTittel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser året saksmappa vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:saksaar ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 14 ;
+            sh:path ark:klasse ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ark:part ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path ark:avsluttetAv ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 19 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 21 ;
+            sh:path ark:skjerming ],
+        [ sh:class ark:Saksstatus ;
+            sh:description "Status til saksmappa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path ark:saksstatus ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato ein fysisk saksmappe eller journalpost vart utlånt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:utlaantDato ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path ark:arkivdel ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path ark:journalenhet ],
+        [ sh:class ark:Saksmappetype ;
+            sh:description "Type saksmappe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ark:saksmappetype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ark:tittel ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 15 ;
+            sh:path ark:mappeId ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksansvarleg." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ark:saksansvarlig ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 16 ;
+            sh:path ark:merknad ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen saka er oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:saksdato ] ;
+    sh:targetClass ark:Sak .
+
+ark:SoeknadDrosjeloeyve a sh:NodeShape ;
+    rdfs:comment "Sak om søknad om løyve til å køyre drosje." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 16 ;
+            sh:path ark:klasse ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ark:journalenhet ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 22 ;
+            sh:path ark:part ],
+        [ sh:datatype xsd:string ;
+            sh:description "Organisasjonsnummer." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:organisasjonsnummer ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato ein fysisk saksmappe eller journalpost vart utlånt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:utlaantDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 24 ;
+            sh:path ark:tittel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 19 ;
+            sh:path ark:noekkelord ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen saka er oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:saksdato ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path ark:arkivdel ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 18 ;
+            sh:path ark:merknad ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 20 ;
+            sh:path ark:offentligTittel ],
+        [ sh:class ark:Journalpost ;
+            sh:description "Journalpostar knytt til saksmappa." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ark:journalpost ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path ark:opprettetAv ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 17 ;
+            sh:path ark:mappeId ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksansvarleg." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:saksansvarlig ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på eining registrert i Einingsregisteret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path fint:organisasjonsnavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path fint:beskrivelse ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Saksmappetype ;
+            sh:description "Type saksmappe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path ark:saksmappetype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:sakssekvensnummer ],
+        [ sh:class ark:Saksstatus ;
+            sh:description "Status til saksmappa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path ark:saksstatus ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser året saksmappa vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:saksaar ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 23 ;
+            sh:path ark:skjerming ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path ark:avsluttetAv ] ;
+    sh:targetClass ark:SoeknadDrosjeloeyve .
+
+ark:TilskuddFartoy a sh:NodeShape ;
+    rdfs:comment "Sak om søknad om tilskudd til freda fartøy." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Identifikator ;
+            sh:description "Søknadsnummer frå Digisak." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path ark:soeknadsnummer ],
+        [ sh:class ark:Saksmappetype ;
+            sh:description "Type saksmappe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ark:saksmappetype ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path ark:mappeId ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 25 ;
+            sh:path ark:skjerming ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato ein fysisk saksmappe eller journalpost vart utlånt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ark:utlaantDato ],
+        [ sh:class ark:Journalpost ;
+            sh:description "Journalpostar knytt til saksmappa." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ark:journalpost ],
+        [ sh:datatype xsd:string ;
+            sh:description "Fartøyets kallesignal." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:kallesignal ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path ark:opprettetDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kulturminnets ID i Askeladden." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:kulturminneId ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen saka er oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:saksdato ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:journalenhet ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 24 ;
+            sh:path ark:part ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path ark:arkivdel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ark:offentligTittel ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 18 ;
+            sh:path ark:klasse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 26 ;
+            sh:path ark:tittel ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser året saksmappa vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:saksaar ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path ark:noekkelord ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksansvarleg." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path ark:saksansvarlig ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ark:merknad ],
+        [ sh:class ark:Saksstatus ;
+            sh:description "Status til saksmappa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ark:saksstatus ],
+        [ sh:datatype xsd:string ;
+            sh:description "Fartøyets namn." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:fartoyNavn ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path ark:avsluttetAv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:sakssekvensnummer ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path ark:opprettetAv ] ;
+    sh:targetClass ark:TilskuddFartoy .
+
+ark:TilskuddFredaBygningPrivatEie a sh:NodeShape ;
+    rdfs:comment "Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ark:offentligTittel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 17 ;
+            sh:path fint:beskrivelse ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato ein fysisk saksmappe eller journalpost vart utlånt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ark:utlaantDato ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ark:merknad ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 25 ;
+            sh:path ark:skjerming ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 18 ;
+            sh:path ark:klasse ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Eintydig identifikasjon av mappa innanfor arkivet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path ark:mappeId ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 26 ;
+            sh:path ark:tittel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser rekkjefølgja saksmappene vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:sakssekvensnummer ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen saka er oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:saksdato ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path ark:arkivdel ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path ark:opprettetDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M003 mappeID — viser året saksmappa vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:saksaar ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:class ark:Saksstatus ;
+            sh:description "Status til saksmappa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ark:saksstatus ],
+        [ sh:class ark:Journalpost ;
+            sh:description "Journalpostar knytt til saksmappa." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ark:journalpost ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 24 ;
+            sh:path ark:part ],
+        [ sh:datatype xsd:string ;
+            sh:description "Bygningens namn." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:bygningsnavn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Søknadsnummer frå Digisak." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path ark:soeknadsnummer ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path ark:opprettetAv ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksansvarleg." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path ark:saksansvarlig ],
+        [ sh:class ark:Saksmappetype ;
+            sh:description "Type saksmappe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ark:saksmappetype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Mappe)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 21 ;
+            sh:path ark:noekkelord ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path ark:avsluttetAv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kulturminnets ID i Askeladden." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:kulturminneId ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:class fint:Matrikkelnummer ;
+            sh:description "Kulturminnets/bygningens identifikator i Matrikkelen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path ark:matrikkelnummer ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:journalenhet ] ;
+    sh:targetClass ark:TilskuddFredaBygningPrivatEie .
+
+ark:Autorisasjon a sh:NodeShape ;
+    rdfs:comment "Siling av kva ein innlogga brukar får lov til å gjere i løysinga." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrative einingar autorisasjonen er gyldig for." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ark:administrativenhet ],
+        [ sh:class ark:Tilgangsrestriksjon ;
+            sh:description "Tilgangsrestriksjon." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ark:tilgangsrestriksjon ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Arkivressursar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ark:arkivressurs ] ;
+    sh:targetClass ark:Autorisasjon .
+
+ark:DokumentStatus a sh:NodeShape ;
+    rdfs:comment "Status til eit dokument." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass ark:DokumentStatus .
+
+ark:DokumentType a sh:NodeShape ;
+    rdfs:comment "Type dokument." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass ark:DokumentType .
+
+ark:Dokumentfil a sh:NodeShape ;
+    rdfs:comment "Sjølve dokumentfila med data og metadata." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Format på dokumentfil, som IANA Media Type." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:format ],
+        [ sh:datatype xsd:string ;
+            sh:description "Dokumentfilens data, koda som Base64." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:data ],
+        [ sh:datatype xsd:string ;
+            sh:description "Dokumentfilens namn." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:filnavn ] ;
+    sh:targetClass ark:Dokumentfil .
+
+ark:Format a sh:NodeShape ;
+    rdfs:comment "Dokumentets filformat." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass ark:Format .
+
+ark:JournalStatus a sh:NodeShape ;
+    rdfs:comment "Status til journalposten." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass ark:JournalStatus .
+
+ark:JournalpostType a sh:NodeShape ;
+    rdfs:comment "Namn på type journalpost." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass ark:JournalpostType .
+
+ark:Klassifikasjonstype a sh:NodeShape ;
+    rdfs:comment "Type klassifikasjonssystem." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass ark:Klassifikasjonstype .
+
+ark:Korrespondansepart a sh:NodeShape ;
+    rdfs:comment "Verksemd eller person som arkivskapar mottek eller sender arkivdokument til." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:KorrespondansepartType ;
+            sh:description "Type korrespondansepart." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path ark:korrespondanseparttype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Fødselsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:foedselsnummer ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path ark:skjerming ],
+        [ sh:class fint:Adresse ;
+            sh:description "Adresse til matrikkeleining." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path fint:adresse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Organisasjonsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:organisasjonsnummer ],
+        [ sh:class fint:Kontaktinformasjon ;
+            sh:description "Den føretrekte måten å kome i kontakt med ein aktør." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path fint:kontaktinformasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kontaktperson hos ein organisasjon som er avsender, mottakar eller sakspart." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:kontaktperson ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på person eller organisasjon som er avsender eller mottakar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:korrespondansepartNavn ] ;
+    sh:targetClass ark:Korrespondansepart .
+
+ark:KorrespondansepartType a sh:NodeShape ;
+    rdfs:comment "Type korrespondansepart." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ] ;
+    sh:targetClass ark:KorrespondansepartType .
+
+ark:Merknadstype a sh:NodeShape ;
+    rdfs:comment "Namn på type merknad." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass ark:Merknadstype .
+
+ark:PartRolle a sh:NodeShape ;
+    rdfs:comment "Rolla til ein part." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass ark:PartRolle .
+
+ark:Rolle a sh:NodeShape ;
+    rdfs:comment "Rolla til ein arkivressurs." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ] ;
+    sh:targetClass ark:Rolle .
+
+ark:Skjermingshjemmel a sh:NodeShape ;
+    rdfs:comment "Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass ark:Skjermingshjemmel .
+
+ark:Tilgang a sh:NodeShape ;
+    rdfs:comment "Styring av kven som har tilgang til kva opplysningar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:Arkivressurs ;
+            sh:description "Arkivressursar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ark:arkivressurs ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:tittel ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class ark:Rolle ;
+            sh:description "Rolle tilknytt tilgangen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ark:rolle ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ark:arkivdel ] ;
+    sh:targetClass ark:Tilgang .
+
+ark:TilknyttetRegistreringSom a sh:NodeShape ;
+    rdfs:comment "Kva rolle dokumentet har i høve registreringa (t.d. Hoveddokument, Vedlegg)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ] ;
+    sh:targetClass ark:TilknyttetRegistreringSom .
+
+ark:Variantformat a sh:NodeShape ;
+    rdfs:comment "Angiving av kva variant eit dokument førekjem i." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass ark:Variantformat .
+
+ark:Dokumentbeskrivelse a sh:NodeShape ;
+    rdfs:comment "Skildring av eit dokument tilknytt ein journalpost." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:TilknyttetRegistreringSom ;
+            sh:description "Rolle dokumentet har i høve registreringa." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ark:tilknyttetRegistreringSom ],
+        [ sh:class ark:Dokumentobjekt ;
+            sh:description "Dokumentobjekt tilhøyrande dokumentbeskrivelsa." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path ark:dokumentobjekt ],
+        [ sh:class ark:DokumentStatus ;
+            sh:description "Status til dokumentet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ark:dokumentstatus ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:beskrivelse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Referanse til arkivdelen denne arkivenheten er tilknytt." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:referanseArkivdel ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 8 ;
+            sh:path ark:skjerming ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på person eller organisasjon som skapte dokumentet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:forfatter ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path ark:tittel ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som knytte dokumentet til registreringa." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path ark:tilknyttetAv ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen eit dokument vart knytt til ei registrering." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path ark:tilknyttetDato ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path ark:part ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path ark:opprettetAv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Identifikasjon av dokumenta innanfor ei registrering." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:dokumentnummer ],
+        [ sh:class ark:DokumentType ;
+            sh:description "Namn på type dokument." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:dokumentType ] ;
+    sh:targetClass ark:Dokumentbeskrivelse .
+
+ark:Klassifikasjonssystem a sh:NodeShape ;
+    rdfs:comment "Overordna struktur for mappene i ein eller fleire arkivdelar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path ark:klasse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:opprettetAvNavn ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path ark:arkivdel ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:opprettetDato ],
+        [ sh:class ark:Klassifikasjonstype ;
+            sh:description "Type klassifikasjonssystem." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path ark:klassifikasjonstype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på person som avslutta/lukka arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:avsluttetAvNavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:tittel ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett når arkivenheten vart avslutta/lukka." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:avsluttetDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path fint:beskrivelse ] ;
+    sh:targetClass ark:Klassifikasjonssystem .
+
+ark:Tilgangsrestriksjon a sh:NodeShape ;
+    rdfs:comment "Angiving av at dokumenta ikkje er offentleg tilgjengelege." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass ark:Tilgangsrestriksjon .
+
+ark:Journalpost a sh:NodeShape ;
+    rdfs:comment "Ein journalpost (inn- eller utgåande dokument, notat o.l.) i ei saksmappe." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:Dokumentbeskrivelse ;
+            sh:description "Dokumentbeskrivelsar til ei registrering." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path ark:dokumentbeskrivelse ],
+        [ sh:class ark:Part ;
+            sh:description "Partar til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 25 ;
+            sh:path ark:part ],
+        [ sh:class ark:Merknad ;
+            sh:description "Merknader knytt til arkivenhet." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 21 ;
+            sh:path ark:merknad ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som er saksbehandlar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 33 ;
+            sh:path ark:saksbehandler ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som arkiverte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 34 ;
+            sh:path ark:arkivertAv ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Administrativ eining som har ansvar for saksbehandlinga." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 31 ;
+            sh:path ark:administrativEnhet ],
+        [ sh:class ark:Klasse ;
+            sh:description "Klassifisering av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 19 ;
+            sh:path ark:klasse ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Antal fysiske vedlegg til eit fysisk hoveddokument." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:antallVedlegg ],
+        [ sh:class ark:Avskrivning ;
+            sh:description "Avskriving av journalposten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path ark:avskrivning ],
+        [ sh:class ark:AdministrativEnhet ;
+            sh:description "Eining med arkivmessig ansvar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ark:journalenhet ],
+        [ sh:datatype xsd:string ;
+            sh:description "Nøkkelord som skildrar innhaldet (Registrering)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path ark:nokkelord ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 29 ;
+            sh:path ark:tittel ],
+        [ sh:class ark:JournalStatus ;
+            sh:description "Status til journalposten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ark:journalstatus ],
+        [ sh:class ark:Arkivdel ;
+            sh:description "Arkivdel arkivenheten tilhøyrer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 32 ;
+            sh:path ark:arkivdel ],
+        [ sh:datatype xsd:string ;
+            sh:description "Inngår i M004 journalpostID." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 27 ;
+            sh:path ark:registreringsId ],
+        [ sh:datatype xsd:string ;
+            sh:description "Året journalposten vart oppretta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:journalAr ],
+        [ sh:class ark:JournalpostType ;
+            sh:description "Namn på type journalpost." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ark:journalposttype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 16 ;
+            sh:path fint:beskrivelse ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Rekkjefølgja journalposten vart oppretta under året." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path ark:journalSekvensnummer ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Rekkjefølgja journalpostane vart oppretta innanfor saksmappa." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path ark:journalPostnummer ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen offentlegheitsvurdering vart gjennomført." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path ark:offentlighetsvurdertDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på person eller organisasjon som skapte dokumentet." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 18 ;
+            sh:path ark:forfatter ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Datoen journalposten er oppretta/arkivert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:journalDato ],
+        [ sh:class ark:Korrespondansepart ;
+            sh:description "Mottakar eller sendar av arkivdokument." ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 20 ;
+            sh:path ark:korrespondansepart ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett alle dokument knytt til registreringa vart arkivert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path ark:arkivertDato ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Offentleg tittel der skjerma ord er fjerna." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 23 ;
+            sh:path ark:offentligTittel ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett arkivenheten vart oppretta/registrert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 24 ;
+            sh:path ark:opprettetDato ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato eit eksternt dokument vart motteke." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path ark:mottattDato ],
+        [ sh:class ark:Tilgangsgruppe ;
+            sh:description "Tilgangsgruppe som har tilgang til arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 30 ;
+            sh:path ark:tilgangsgruppe ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som oppretta/registrerte arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 35 ;
+            sh:path ark:opprettetAv ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato påført sjølve dokumentet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ark:dokumentetsDato ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato eit internt produsert dokument vart sendt/ekspedert." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 10 ;
+            sh:path ark:sendtDato ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Frist for å svare på eit inngåande dokument." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:forfallsDato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Referanse til arkivdelen denne arkivenheten er tilknytt." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 26 ;
+            sh:path ark:referanseArkivDel ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 28 ;
+            sh:path ark:skjerming ] ;
+    sh:targetClass ark:Journalpost .
+
+ark:Saksmappetype a sh:NodeShape ;
+    rdfs:comment "Type saksmappe — differensierer innhald og behandlingsrutine." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass ark:Saksmappetype .
+
+ark:Saksstatus a sh:NodeShape ;
+    rdfs:comment "Status til saksmappa." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass ark:Saksstatus .
+
+ark:Merknad a sh:NodeShape ;
+    rdfs:comment "Merknad knytt til mappe, registrering eller dokumentbeskrivelse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og klokkeslett merknaden vart registrert." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:merknadsdato ],
+        [ sh:class ark:Merknadstype ;
+            sh:description "Type merknad." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ark:merknadstype ],
+        [ sh:datatype xsd:string ;
+            sh:description "Merknad frå saksbehandlar, leiar eller arkivpersonale." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:merknadstekst ],
+        [ sh:class ark:Arkivressurs ;
+            sh:description "Person som registrerte merknaden." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ark:merknadRegistrertAv ] ;
+    sh:targetClass ark:Merknad .
+
+ark:Tilgangsgruppe a sh:NodeShape ;
+    rdfs:comment "Tilgangsgruppe for intern skjerming av innhald." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass ark:Tilgangsgruppe .
+
+ark:Klasse a sh:NodeShape ;
+    rdfs:comment "Ein klasse i eit klassifikasjonssystem." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:tittel ],
+        [ sh:class ark:Klassifikasjonssystem ;
+            sh:description "Klassifikasjonssystem." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ark:klassifikasjonssystem ],
+        [ sh:datatype xsd:string ;
+            sh:description "Eintydig identifikasjon av klassen innanfor klassifikasjonssystemet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ark:klasseId ],
+        [ sh:class ark:Skjerming ;
+            sh:description "Skjerming av arkivenhet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path ark:skjerming ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Rekkjefølgje for klassifiseringar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:rekkefolge ] ;
+    sh:targetClass ark:Klasse .
+
+ark:Part a sh:NodeShape ;
+    rdfs:comment "Part til Mappe, Registrering eller Dokumentbeskrivelse." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:PartRolle ;
+            sh:description "Rolla til parten." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path ark:partRolle ],
+        [ sh:class fint:Kontaktinformasjon ;
+            sh:description "Den føretrekte måten å kome i kontakt med ein aktør." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path fint:kontaktinformasjon ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kontaktperson hos ein organisasjon som er avsender, mottakar eller sakspart." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ark:kontaktperson ],
+        [ sh:datatype xsd:string ;
+            sh:description "Fødselsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:foedselsnummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Namn på verksemd eller person som er part." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ark:partNavn ],
+        [ sh:class fint:Adresse ;
+            sh:description "Adresse til matrikkeleining." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 0 ;
+            sh:path fint:adresse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Organisasjonsnummer." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ark:organisasjonsnummer ] ;
+    sh:targetClass ark:Part .
+
+ark:Arkivdel a sh:NodeShape ;
+    rdfs:comment "Ein vilkårleg definert del av eit arkiv." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:Klassifikasjonssystem ;
+            sh:description "Klassifikasjonssystem." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ark:klassifikasjonssystem ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tittel eller namn på arkivenheten." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ark:tittel ] ;
+    sh:targetClass ark:Arkivdel .
+
+ark:Skjerming a sh:NodeShape ;
+    rdfs:comment "Skjerming av mappe, registrering eller dokument etter offentleglova." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ark:Tilgangsrestriksjon ;
+            sh:description "Tilgangsrestriksjon." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ark:tilgangsrestriksjon ],
+        [ sh:class ark:Skjermingshjemmel ;
+            sh:description "Skjermingsheimelen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path ark:skjermingshjemmel ] ;
+    sh:targetClass ark:Skjerming .
+
+ark:AdministrativEnhet a sh:NodeShape ;
+    rdfs:comment "Administrativ eining med ansvar for saksbehandling." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:navn ],
+        [ sh:description "Referanse til Organisasjonselement i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ark:organisasjonselement ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 2 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass ark:AdministrativEnhet .
+
+ark:Arkivressurs a sh:NodeShape ;
+    rdfs:comment "Ansatt med rolle og rettar innanfor arkiv." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Identifikator ;
+            sh:description "Kildesystemets identifikator for arkivressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path ark:kildesystemId ],
+        [ sh:class ark:Autorisasjon ;
+            sh:description "Autorisasjonar gjevne til arkivressursen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ark:autorisasjon ],
+        [ sh:description "Referanse til Personalressurs i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ark:personalressurs ],
+        [ sh:class ark:Tilgang ;
+            sh:description "Tilgangar gjevne til arkivressursen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ark:tilgang ] ;
+    sh:targetClass ark:Arkivressurs .
+
+

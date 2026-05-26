@@ -1,0 +1,281 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Tjenesteresultattypeliste" [[{Ei liste over moglege tjenesteresultattypar.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [0..*]
+    {field} beskrivelse : LangString  [0..*]
+}
+class "Tjenesteresultattype" [[{Typen resultat som ei teneste produserer.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} mogleg_spraak : Spraak  [0..*]
+    {field} er_beskrive_av : uri  [0..*]
+    {field} er_spesifisert_i : uriorcurie  
+}
+class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.}]] {
+    {field} id : uriorcurie  
+}
+class "Hendelse" [[{Ei hending som kan utløyse behov for ei offentleg teneste.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} beskrivelse : LangString  [0..*]
+    {field} er_beskrive_av : uri  [0..*]
+}
+class "OffentligTjeneste" [[{Ei konkret offentleg teneste levert av ein offentleg organisasjon.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} heimeside : uri  [0..*]
+    {field} behandlingstid : Duration  
+    {field} er_beskrive_av : uri  [0..*]
+    {field} er_del_av : uriorcurie  
+    {field} har_del : uriorcurie  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} relatert_teneste : uriorcurie  [0..*]
+    {field} krev : uriorcurie  [0..*]
+    {field} nokkelord : LangString  [0..*]
+}
+class "Tjeneste" [[{Ei teneste levert av ein ikkje-offentleg aktør.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} heimeside : uri  [0..*]
+    {field} behandlingstid : Duration  
+    {field} er_beskrive_av : uri  [0..*]
+    {field} er_del_av : uriorcurie  
+    {field} har_del : uriorcurie  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} relatert_teneste : uriorcurie  [0..*]
+    {field} krev : uriorcurie  [0..*]
+    {field} nokkelord : LangString  [0..*]
+}
+"Tjenesteresultattype" --> "0..1" "Konsept" : "type_concept"
+"Tjenesteresultattype" --> "0..*" "Hendelse" : "kan_skape_hending"
+"OffentligTjeneste" --> "1..*" "Tjenesteresultattype" : "har_tenesteresultattype"
+"Tjeneste" --> "1..*" "Tjenesteresultattype" : "har_tenesteresultattype"
+"OffentligTjeneste" --> "0..*" "Tjenesteresultattype" : "har_tenesteresultattype"(i)
+"Tjeneste" --> "0..*" "Tjenesteresultattype" : "har_tenesteresultattype"(i)
+class "Tjenestekanal" [[{Ein kanal for å få tilgang til ei teneste (t.d. nett, telefon, oppmøte).}]] {
+    {field} id : uriorcurie  
+    {field} identifikator_literal : string  
+    {field} behandlingstid : Duration  
+    {field} opningstider : string  [0..*]
+    {field} beskrivelse : LangString  [0..*]
+    {field} nettside : uri  [0..*]
+}
+"Tjenestekanal" --> "0..1" "Konsept" : "type_concept"
+"OffentligTjeneste" --> "0..*" "Tjenestekanal" : "har_tenestekanal"
+"Tjeneste" --> "0..*" "Tjenestekanal" : "har_tenestekanal"
+"OffentligTjeneste" --> "0..*" "Tjenestekanal" : "har_tenestekanal"(i)
+"Tjeneste" --> "0..*" "Tjenestekanal" : "har_tenestekanal"(i)
+class "RegulativRessurs" [[{Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [0..*]
+    {field} identifikator_literal : string  
+}
+class "Gebyr" [[{Eit gebyr knytt til ei teneste.}]] {
+    {field} id : uriorcurie  
+    {field} beskrivelse : LangString  [0..*]
+    {field} identifikator_literal : string  
+    {field} verdi : float  
+}
+class "Regel" [[{Eit regelverk eller retningsliner som styrer levering av ei teneste.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [0..*]
+    {field} beskrivelse : LangString  [0..*]
+    {field} identifikator_literal : string  
+    {field} spraak : Spraak  [0..*]
+}
+class "Deltagelse" [[{Ei rolle ein aktør har i leveringa av ei teneste.}]] {
+    {field} id : uriorcurie  
+}
+class "Dokumentasjonstype" [[{Ein type dokumentasjon som krevst for å levere ei teneste.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} gyldig_i : Duration  
+    {field} godtek_spraak : Spraak  [0..*]
+    {field} er_beskrive_av : uri  [0..*]
+    {field} er_spesifisert_i : uriorcurie  
+}
+class "Aktor" [[{Ein aktør (person eller organisasjon) relatert til ei teneste.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} identifikator_literal : string  
+}
+class "Kontaktpunkt" [[{Kontaktinformasjon for ei teneste eller ein organisasjon.}]] {
+    {field} id : uriorcurie  
+    {field} epost : uri  [0..*]
+    {field} telefon : string  [0..*]
+    {field} kontaktside : uri  [0..*]
+    {field} opningstider : string  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} kategori : string  [0..*]
+}
+"Tjeneste" --> "0..*" "Konsept" : "sektor"
+"Tjeneste" --> "0..*" "Konsept" : "malgruppe"
+"Tjeneste" --> "0..*" "RegulativRessurs" : "har_regulativ_ressurs"
+"Tjeneste" --> "0..*" "Gebyr" : "har_gebyr"
+"Tjeneste" --> "0..*" "Regel" : "folger"
+"Tjeneste" --> "0..*" "Konsept" : "er_klassifisert_av"
+"Tjeneste" --> "0..*" "Hendelse" : "er_gruppert_av"
+"Tjeneste" --> "0..*" "Deltagelse" : "har_deltaking"
+"Tjeneste" --> "0..*" "Konsept" : "temaomrade"
+"Tjeneste" --> "0..1" "Konsept" : "status"
+"Tjeneste" --> "0..1" "Konsept" : "type_concept"
+"Tjeneste" --> "0..*" "Dokumentasjonstype" : "har_dokumentasjonstype"
+"Tjeneste" --> "0..*" "Konsept" : "dekningsomraade"
+"Tjeneste" --> "0..*" "Konsept" : "tema"
+"Tjeneste" --> "1..*" "Aktor" : "eigd_av"
+"Tjeneste" --> "1..*" "Kontaktpunkt" : "har_kontaktpunkt"
+"RegulativRessurs" --> "0..1" "Konsept" : "type_concept"
+"OffentligTjeneste" --> "0..*" "RegulativRessurs" : "har_regulativ_ressurs"
+"OffentligTjeneste" --> "0..*" "RegulativRessurs" : "har_regulativ_ressurs"(i)
+"Tjeneste" --> "0..*" "RegulativRessurs" : "har_regulativ_ressurs"(i)
+"Regel" --> "0..1" "Konsept" : "type_concept"
+"OffentligTjeneste" --> "0..*" "Regel" : "folger"
+"OffentligTjeneste" --> "0..*" "Regel" : "folger"(i)
+"Tjeneste" --> "0..*" "Regel" : "folger"(i)
+class "OffentligOrganisasjon" [[{Ein offentleg organisasjon som er ansvarleg for ei teneste.}]] {
+    {field} foretrekt_namn : LangString  [1..*]
+    {field} heimeside : uri  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+}
+class "Katalog" [[{Ein katalog over offentlege tenester og hendingar.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} endringsdato : date  
+    {field} heimeside : uri  [0..*]
+    {field} lisens : uri  
+    {field} spraak : Spraak  [0..*]
+}
+"OffentligTjeneste" --> "0..*" "Konsept" : "sektor"
+"OffentligTjeneste" --> "0..*" "Konsept" : "malgruppe"
+"OffentligTjeneste" --> "0..*" "Gebyr" : "har_gebyr"
+"OffentligTjeneste" --> "0..*" "Konsept" : "er_klassifisert_av"
+"OffentligTjeneste" --> "0..*" "Hendelse" : "er_gruppert_av"
+"OffentligTjeneste" --> "0..*" "Deltagelse" : "har_deltaking"
+"OffentligTjeneste" --> "0..*" "Konsept" : "temaomrade"
+"OffentligTjeneste" --> "0..1" "Konsept" : "status"
+"OffentligTjeneste" --> "0..1" "Konsept" : "type_concept"
+"OffentligTjeneste" --> "0..*" "Dokumentasjonstype" : "har_dokumentasjonstype"
+"OffentligTjeneste" --> "0..*" "Konsept" : "dekningsomraade"
+"OffentligTjeneste" --> "0..*" "Konsept" : "tema"
+"OffentligTjeneste" --> "1..*" "OffentligOrganisasjon" : "har_ansvarleg_styremakt"
+"OffentligTjeneste" --> "1..*" "Kontaktpunkt" : "har_kontaktpunkt"
+"Hendelse" --> "0..*" "OffentligTjeneste" : "kan_utlose"
+"Katalog" --> "1..*" "OffentligTjeneste" : "inneheld_teneste"
+"Katalog" --> "0..*" "OffentligTjeneste" : "inneheld_teneste"(i)
+"Hendelse" --> "0..*" "OffentligTjeneste" : "kan_utlose"(i)
+class "Adresse" [[{Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt.}]] {
+    {field} id : uriorcurie  
+    {field} full_adresse : string  [0..*]
+    {field} postnummer : string  
+    {field} poststad : LangString  [0..*]
+    {field} land : string  
+}
+"OffentligOrganisasjon" --> "0..1" "Adresse" : "adresse_ref"
+"OffentligOrganisasjon" --> "0..1" "Konsept" : "type_concept"
+"OffentligOrganisasjon" --> "1..*" "Konsept" : "dekningsomraade"
+"OffentligTjeneste" --> "0..*" "OffentligOrganisasjon" : "har_ansvarleg_styremakt"(i)
+"Aktor" ^-- "OffentligOrganisasjon"
+class "Mediatype" [[{Ein medietype eller filformat (dct:MediaTypeOrExtent).}]] {
+    {field} id : uriorcurie  
+}
+"Hendelse" --> "1..*" "Kontaktpunkt" : "har_kontaktpunkt"
+"Katalog" --> "1..*" "Kontaktpunkt" : "har_kontaktpunkt"
+"OffentligTjeneste" --> "0..*" "Kontaktpunkt" : "har_kontaktpunkt"(i)
+"Tjeneste" --> "0..*" "Kontaktpunkt" : "har_kontaktpunkt"(i)
+"Hendelse" --> "0..*" "Kontaktpunkt" : "har_kontaktpunkt"(i)
+"Katalog" --> "0..*" "Kontaktpunkt" : "har_kontaktpunkt"(i)
+"Deltagelse" --> "0..1" "Konsept" : "har_rolle"
+"Dokumentasjonstype" --> "0..1" "Konsept" : "klassifisering"
+"Dokumentasjonstype" --> "0..1" "Konsept" : "utstedingsstad"
+"Gebyr" --> "0..1" "Konsept" : "valuta"
+"Hendelse" --> "0..*" "Konsept" : "tema"
+"Hendelse" --> "0..1" "Konsept" : "type_concept"
+"Katalog" --> "0..*" "Konsept" : "dekningsomraade"
+"Katalog" --> "0..1" "Konsept" : "oppdateringsfrekvens"
+"OffentligTjeneste" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"Tjeneste" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"OffentligOrganisasjon" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"Katalog" --> "0..*" "Konsept" : "dekningsomraade"(i)
+"OffentligTjeneste" --> "0..*" "Konsept" : "er_klassifisert_av"(i)
+"Tjeneste" --> "0..*" "Konsept" : "er_klassifisert_av"(i)
+"Deltagelse" --> "0..1" "Konsept" : "har_rolle"(i)
+"Dokumentasjonstype" --> "0..1" "Konsept" : "klassifisering"(i)
+"OffentligTjeneste" --> "0..*" "Konsept" : "malgruppe"(i)
+"Tjeneste" --> "0..*" "Konsept" : "malgruppe"(i)
+"Katalog" --> "0..1" "Konsept" : "oppdateringsfrekvens"(i)
+"OffentligTjeneste" --> "0..*" "Konsept" : "sektor"(i)
+"Tjeneste" --> "0..*" "Konsept" : "sektor"(i)
+"OffentligTjeneste" --> "0..1" "Konsept" : "status"(i)
+"Tjeneste" --> "0..1" "Konsept" : "status"(i)
+"OffentligTjeneste" --> "0..*" "Konsept" : "tema"(i)
+"Tjeneste" --> "0..*" "Konsept" : "tema"(i)
+"Hendelse" --> "0..*" "Konsept" : "tema"(i)
+"OffentligTjeneste" --> "0..*" "Konsept" : "temaomrade"(i)
+"Tjeneste" --> "0..*" "Konsept" : "temaomrade"(i)
+"OffentligTjeneste" --> "0..1" "Konsept" : "type_concept"(i)
+"Hendelse" --> "0..1" "Konsept" : "type_concept"(i)
+"OffentligOrganisasjon" --> "0..1" "Konsept" : "type_concept"(i)
+"Tjenestekanal" --> "0..1" "Konsept" : "type_concept"(i)
+"Tjenesteresultattype" --> "0..1" "Konsept" : "type_concept"(i)
+"Regel" --> "0..1" "Konsept" : "type_concept"(i)
+"RegulativRessurs" --> "0..1" "Konsept" : "type_concept"(i)
+"Dokumentasjonstype" --> "0..1" "Konsept" : "utstedingsstad"(i)
+"Gebyr" --> "0..1" "Konsept" : "valuta"(i)
+"Katalog" --> "0..*" "Hendelse" : "inneheld_hending"
+"Katalog" --> "1" "Aktor" : "utgjevar"
+class "Virksomhetshendelse" [[{Ei verksemdhending som kan utløyse behov for tenester (t.d. oppstart, konkurs).}]] {
+    {field} kan_utlose_behov_for : uriorcurie  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} er_beskrive_av(i) : uri  [0..*]
+}
+class "Livshendelse" [[{Ei livshending som kan utløyse behov for tenester (t.d. fødsel, ekteskap).}]] {
+    {field} kan_utlose_behov_for : uriorcurie  [0..*]
+    {field} id(i) : uriorcurie  
+    {field} tittel(i) : LangString  [1..*]
+    {field} identifikator_literal(i) : string  
+    {field} beskrivelse(i) : LangString  [0..*]
+    {field} er_beskrive_av(i) : uri  [0..*]
+}
+"OffentligTjeneste" --> "0..*" "Hendelse" : "er_gruppert_av"(i)
+"Tjeneste" --> "0..*" "Hendelse" : "er_gruppert_av"(i)
+"Katalog" --> "0..*" "Hendelse" : "inneheld_hending"(i)
+"Tjenesteresultattype" --> "0..*" "Hendelse" : "kan_skape_hending"(i)
+"Hendelse" ^-- "Virksomhetshendelse"
+"Hendelse" ^-- "Livshendelse"
+"OffentligTjeneste" --> "0..*" "Gebyr" : "har_gebyr"(i)
+"Tjeneste" --> "0..*" "Gebyr" : "har_gebyr"(i)
+"OffentligTjeneste" --> "0..*" "Dokumentasjonstype" : "har_dokumentasjonstype"(i)
+"Tjeneste" --> "0..*" "Dokumentasjonstype" : "har_dokumentasjonstype"(i)
+"Deltagelse" --> "0..1" "Aktor" : "deltakar"
+"Aktor" --> "0..*" "Deltagelse" : "deltek_i"
+"Aktor" --> "0..*" "Deltagelse" : "deltek_i"(i)
+"OffentligTjeneste" --> "0..*" "Deltagelse" : "har_deltaking"(i)
+"Tjeneste" --> "0..*" "Deltagelse" : "har_deltaking"(i)
+class "Begrepssamling" [[{Ei SKOS-omgrepssamling (temavokabular).}]] {
+    {field} id : uriorcurie  
+}
+"Aktor" --> "0..1" "Adresse" : "adresse_ref"
+"Deltagelse" --> "0..1" "Aktor" : "deltakar"(i)
+"Tjeneste" --> "0..*" "Aktor" : "eigd_av"(i)
+"Katalog" --> "0..1" "Aktor" : "utgjevar"(i)
+"Aktor" --> "0..1" "Adresse" : "adresse_ref"(i)
+@enduml

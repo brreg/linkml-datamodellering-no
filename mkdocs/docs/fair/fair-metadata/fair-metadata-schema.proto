@@ -1,0 +1,50 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 1.0.0
+// Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tråd med FAIR-prinsippa.
+// 
+message FAIRMetadata
+ {
+  uriorcurie id = 0
+  uriorcurie ressursIdentifikator = 0
+  uriorcurie ressurstype = 0
+  uriorcurie beskrivelse = 0
+  tilgangsmetadata tilgangsmetadata = 0
+  gjenbruksmetadata gjenbruksmetadata = 0
+  proveniensmetadata proveniensmetadata = 0
+  katalogregistrering katalogregistrering = 0
+ }
+// Metadata som støttar gjenbruk av ressursen (FAIR R1.1, R1.3).
+message Gjenbruksmetadata
+ {
+  uriorcurie lisens = 0
+  string bruksavgrensingar = 0
+ repeated  uriorcurie standardoverensstemming = 0
+ repeated  uriorcurie vokabular = 0
+ }
+// Dokumenterer registrering i søkbar katalog (FAIR F4).
+message Katalogregistrering
+ {
+  uriorcurie registrertIKatalog = 0
+  uriorcurie katalogOppfoeringURL = 0
+  date registreringsdato = 0
+ }
+// Metadata om opphav og endringshistorie (FAIR R1.2).
+message Proveniensmetadata
+ {
+  uriorcurie ansvarlegAktoer = 0
+  uriorcurie generertAvAktivitet = 0
+  date opprettingsdato = 0
+  date endringsdato = 0
+ }
+// Metadata for tilgang, autentisering og tilgjengelegheit (FAIR A1/A2).
+message Tilgangsmetadata
+ {
+  uriorcurie tilgangsURL = 0
+  string tilgangsprotokoll = 0
+  uriorcurie tilgangsrettar = 0
+  boolean autentiseringPaakrevd = 0
+  boolean metadataPersistens = 0
+ }
+

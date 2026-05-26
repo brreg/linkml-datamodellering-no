@@ -1,0 +1,150 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "VirksomhetContainer" [[{Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.}]] {
+
+}
+class "Beliggenhetsadresse" [[{Beliggenheitsadressa til underleininga – den fysiske adressa der aktiviteten vert utøvd.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Forretningsadresse" [[{Forretningsadressa til hovudeininga – adressa der hovudkontoret held til.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Postadresse" [[{Postadressa verksemda mottar post på.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Prokura" [[{Prokura gjev ein person fullmakt til å handle på vegne av verksemda i næringssaker. Verksemda kan ha fleire prokuraistar.}]] {
+    {field} id : uriorcurie  
+    {field} prokura_bestemmelse : string  
+}
+class "Signaturrett" [[{Bestemmelse om kven som har rett til å signere på vegne av verksemda (t.d. "Styret i fellesskap" eller "Dagleg leiar aleine").}]] {
+    {field} id : uriorcurie  
+    {field} signaturrett_bestemmelse : string  
+}
+class "Rolleinnehaver" [[{Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå Folkeregisteret) eller ei anna eining.}]] {
+    {field} id : uriorcurie  
+    {field} rolleinnehaver_navn : string  
+}
+class "RolleIVirksomhet" [[{Ein definert rolle i ei hovudeining (t.d. dagleg leiar, styreleiar). Kvar rolle kan ha éin eller fleire rolleinnehavarar.}]] {
+    {field} id : uriorcurie  
+    {field} rollebetegnelse : RolleType  
+}
+class "Sektorkode" [[{Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t.d. offentleg, privat).}]] {
+    {field} id : uriorcurie  
+    {field} sektorkode_kode : string  
+    {field} sektorkode_beskrivelse : string  
+}
+class "Aktivitet" [[{Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen eller føremålet til verksemda.}]] {
+    {field} id : uriorcurie  
+    {field} aktivitet_beskrivelse : string  
+}
+class "Varslingsadresse" [[{Offisiell varslingsadresse for verksemda – e-post eller mobilnummer som vert brukt for offisielle meldingar frå offentlege styresmakter.}]] {
+    {field} id : uriorcurie  
+    {field} varslingstype : VarslingType  
+    {field} varslingsverdi : string  
+}
+class "Kontaktinformasjon" [[{Kontaktinformasjon for verksemda registrert i Enhetsregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} epostadresse : string  
+    {field} telefonnummer : string  
+    {field} mobiltelefonnummer : string  
+    {field} nettside : string  
+}
+class "Naeringskode" [[{Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE). Ei verksemd kan ha 1–3 næringskoder.}]] {
+    {field} id : uriorcurie  
+    {field} naeringskode_kode : string  
+    {field} naeringskode_beskrivelse : string  
+    {field} er_hovednaeringskode : boolean  
+}
+class "Organisasjonsform" [[{Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF). Kodeverk forvalta av Enhetsregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} organisasjonsform_kode : string  
+    {field} organisasjonsform_beskrivelse : string  
+}
+class "Tilstand" [[{Registrert tilstand (status) for ei verksemd i Enhetsregisteret, med gyldigheitsperiode for historisk sporing.}]] {
+    {field} id : uriorcurie  
+    {field} tilstandstype : TilstandType  
+    {field} gyldig_fra : date  
+    {field} gyldig_til : date  
+}
+class "Hovedenhet" [[{Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar.}]] {
+    {field} stiftelsesdato : date  
+    {field} id(i) : uriorcurie  
+    {field} organisasjonsnummer(i) : string  
+    {field} navn(i) : string  
+    {field} antall_ansatte(i) : integer  
+}
+class "Underenhet" [[{Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret.}]] {
+    {field} oppstartsdato : date  
+    {field} eierskiftedatoer : date  [0..*]
+    {field} nedleggelsesdato : date  
+    {field} id(i) : uriorcurie  
+    {field} organisasjonsnummer(i) : string  
+    {field} navn(i) : string  
+    {field} antall_ansatte(i) : integer  
+}
+"VirksomhetContainer" *--> "0..*" "Beliggenhetsadresse" : "beliggenhetsadresser"
+"VirksomhetContainer" *--> "0..*" "Forretningsadresse" : "forretningsadresser"
+"VirksomhetContainer" *--> "0..*" "Postadresse" : "postadresser"
+"VirksomhetContainer" *--> "0..*" "Prokura" : "prokuraer"
+"VirksomhetContainer" *--> "0..*" "Signaturrett" : "signaturrettar"
+"VirksomhetContainer" *--> "0..*" "Rolleinnehaver" : "rolleinnehavere"
+"VirksomhetContainer" *--> "0..*" "RolleIVirksomhet" : "rollerIVirksomhet"
+"VirksomhetContainer" *--> "0..*" "Sektorkode" : "sektorkoder"
+"VirksomhetContainer" *--> "0..*" "Aktivitet" : "aktivitetar"
+"VirksomhetContainer" *--> "0..*" "Varslingsadresse" : "varslingsadresser"
+"VirksomhetContainer" *--> "0..*" "Kontaktinformasjon" : "kontaktinformasjon"
+"VirksomhetContainer" *--> "0..*" "Naeringskode" : "naeringskoder"
+"VirksomhetContainer" *--> "0..*" "Organisasjonsform" : "organisasjonsformer"
+"VirksomhetContainer" *--> "0..*" "Tilstand" : "tilstander"
+"VirksomhetContainer" *--> "0..*" "Hovedenhet" : "hovedenheter"
+"VirksomhetContainer" *--> "0..*" "Underenhet" : "underenheter"
+abstract "Virksomhet" [[{Abstrakt overklasse for alle einingar registrert i Enhetsregisteret. Ei verksemd er alltid anten ei underleining eller ei hovudeining.}]] {
+    {field} id : uriorcurie  
+    {field} organisasjonsnummer : string  
+    {field} navn : string  
+    {field} antall_ansatte : integer  
+}
+"Virksomhet" --> "1..*" "Naeringskode" : "er_klassifisert_i_naeringskode"
+"Virksomhet" --> "1" "Varslingsadresse" : "har_varslingsadresse"
+"Virksomhet" --> "0..1" "Kontaktinformasjon" : "har_kontaktinformasjon"
+"Virksomhet" --> "1" "Organisasjonsform" : "er_klassifisert_som_organisasjonsform"
+"Virksomhet" --> "0..1" "Postadresse" : "mottar_post_paa"
+"Virksomhet" --> "0..*" "Tilstand" : "har_tilstand"
+"Virksomhet" ^-- "Underenhet"
+"Virksomhet" ^-- "Hovedenhet"
+"Virksomhet" --> "0..1" "Varslingsadresse" : "har_varslingsadresse"(i)
+"Underenhet" --> "1" "Beliggenhetsadresse" : "har_beliggenhetsadresse"
+"Virksomhet" --> "0..*" "Tilstand" : "har_tilstand"(i)
+"Hovedenhet" --> "0..1" "Signaturrett" : "har_bestemmelser_om_signaturrett"
+"Hovedenhet" --> "0..1" "Signaturrett" : "har_bestemmelser_om_signaturrett"(i)
+"Hovedenhet" --> "0..1" "Sektorkode" : "er_klassifisert_i_sektorkode"
+"Hovedenhet" --> "0..1" "Sektorkode" : "er_klassifisert_i_sektorkode"(i)
+class "Person" [[{Ein fysisk person. Tilhøyrer Domene person og forvaltast av Folkeregisteret. Enhetsregisteret nyttar kopi av data frå Folkeregisteret.}]] {
+    {field} id : uriorcurie  
+}
+"Rolleinnehaver" --> "0..1" "Person" : "kan_vaere_av_type_person"
+"RolleIVirksomhet" --> "0..*" "Rolleinnehaver" : "har_rolleinnehaver"
+"RolleIVirksomhet" --> "0..*" "Rolleinnehaver" : "har_rolleinnehaver"(i)
+"Hovedenhet" --> "1..*" "RolleIVirksomhet" : "har_rolle_i_virksomhet"
+"Hovedenhet" --> "0..*" "RolleIVirksomhet" : "har_rolle_i_virksomhet"(i)
+"Hovedenhet" --> "0..*" "Prokura" : "har_bestemmelser_om_prokura"
+"Hovedenhet" --> "0..*" "Prokura" : "har_bestemmelser_om_prokura"(i)
+abstract "GeografiskAdresse" [[{Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som kjelde til vegadresse, og gjer jamnleg vask mot Posten sitt adresseregister.}]] {
+    {field} id : uriorcurie  
+}
+"Virksomhet" --> "0..1" "Postadresse" : "mottar_post_paa"(i)
+"GeografiskAdresse" ^-- "Postadresse"
+"Rolleinnehaver" --> "0..1" "Person" : "kan_vaere_av_type_person"(i)
+"Virksomhet" --> "0..1" "Organisasjonsform" : "er_klassifisert_som_organisasjonsform"(i)
+"Virksomhet" --> "0..*" "Naeringskode" : "er_klassifisert_i_naeringskode"(i)
+"Virksomhet" --> "0..1" "Kontaktinformasjon" : "har_kontaktinformasjon"(i)
+"Hovedenhet" --> "0..1" "Forretningsadresse" : "har_forretningsadresse"
+"Hovedenhet" --> "1" "Aktivitet" : "utoevar_aktivitet"
+"GeografiskAdresse" ^-- "Forretningsadresse"
+"GeografiskAdresse" ^-- "Beliggenhetsadresse"
+"Hovedenhet" --> "0..1" "Forretningsadresse" : "har_forretningsadresse"(i)
+"Underenhet" --> "0..1" "Beliggenhetsadresse" : "har_beliggenhetsadresse"(i)
+"Hovedenhet" --> "0..1" "Aktivitet" : "utoevar_aktivitet"(i)
+@enduml

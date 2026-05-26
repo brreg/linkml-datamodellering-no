@@ -1,0 +1,939 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 4.0.20
+// Fysisk adresse eller postadresse.
+message Adresse
+ {
+ repeated  string adresselinje = 0
+  string postnummer = 0
+  string poststed = 0
+  landkode land = 0
+ }
+// Åtferds- og ordensanmerkningar for ein elev i eit skoleår.
+message Anmerkninger
+ {
+  uriorcurie id = 0
+  integer atferd = 0
+  integer orden = 0
+  skoleaar skoleaar = 0
+ }
+// Eit årstrinn i skulen (t.d. Vg1, Vg2, Vg3).
+message Arstrinn
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+  uriorcurie vigoreferanse = 0
+  uriorcurie grepreferanse = 0
+ repeated  programomrade programomrade = 0
+ }
+// Årsak til avbrot frå opplæring.
+message Avbruddsaarsak
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ei avlagt prøve for ein lærling.
+message AvlagtProve
+ {
+  uriorcurie id = 0
+  date provedato = 0
+ repeated  uriorcurie laerling = 0
+  provestatus provestatus = 0
+  fullfortkode fullfortkode = 0
+  brevtype brevtype = 0
+  bevistype bevistype = 0
+ }
+// Betalingsstatus for eksamensavgift.
+message Betalingsstatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Type kompetansebevis for lærling.
+message Bevistype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Type brev knytt til lærlingprøve.
+message Brevtype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein eksamen knytt til ei eksamensgruppe.
+message Eksamen
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+  datetime oppmoetetidspunkt = 0
+  periode tidsrom = 0
+ repeated  rom rom = 0
+  eksamensgruppe eksamensgruppe = 0
+ }
+// Form for gjennomføring av eksamen.
+message Eksamensform
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ei gruppe elevar som avlegg same eksamen.
+message Eksamensgruppe
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+  datetime eksamensdato = 0
+  fag fag = 0
+  skole skole = 0
+  termin termin = 0
+ repeated  undervisningsforhold undervisningsforhold = 0
+  eksamen eksamen = 0
+  eksamensform eksamensform = 0
+  skoleaar skoleaar = 0
+ repeated  eksamensgruppemedlemskap gruppemedlemskap = 0
+ repeated  sensor sensor = 0
+ }
+// Eit elevs deltaking i ei eksamensgruppe.
+message Eksamensgruppemedlemskap
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  boolean delegert = 0
+  string kandidatnummer = 0
+  uriorcurie delegertTil = 0
+  boolean foretrukketSkole = 0
+  boolean foretrukketSensor = 0
+  betalingsstatus betalingsstatus = 0
+  elevforhold elevforhold = 0
+  eksamensgruppe eksamensgruppe = 0
+  karakterstatus nus = 0
+ }
+// Vurdering gjeven i samband med ein eksamen.
+message Eksamensvurdering
+ {
+  uriorcurie id = 0
+  string kommentar = 0
+  datetime vurderingsdato = 0
+  fag fag = 0
+  skoleaar skoleaar = 0
+  karakterverdi karakter = 0
+  eksamensgruppe eksamensgruppe = 0
+ repeated  karakterhistorie karakterhistorie = 0
+  elevvurdering elevvurdering = 0
+ }
+// Ein elev registrert i skulesystemet.
+message Elev
+ {
+  uriorcurie id = 0
+  identifikator elevnummer = 0
+  person person = 0
+ }
+// Eit elevs tilknyting til ein skule og eit skoleår.
+message Elevforhold
+ {
+  uriorcurie id = 0
+  string beskrivelse = 0
+  date avbruddsdato = 0
+  boolean tosprakligFagopplaering = 0
+  elev elev = 0
+  skole skole = 0
+  elevkategori kategori = 0
+  avbruddsaarsak avbruddsarsak = 0
+  skoleaar skoleaar = 0
+ repeated  programomrademedlemskap programomrademedlemskap = 0
+ repeated  klassemedlemskap klassemedlemskap = 0
+ repeated  faggruppemedlemskap faggruppemedlemskap = 0
+ repeated  undervisningsgruppemedlemskap undervisningsgruppemedlemskap = 0
+ repeated  kontaktlaerergruppemedlemskap kontaktlaerergruppemedlemskap = 0
+ repeated  persongruppemedlemskap persongruppemedlemskap = 0
+ repeated  eksamensgruppemedlemskap eksamensgruppemedlemskap = 0
+ repeated  elevfravar fraversregistreringer = 0
+  fravarsoversikt elevfravar = 0
+ repeated  elevtilrettelegging tilrettelegging = 0
+  elevvurdering elevvurdering = 0
+ }
+// Fråværsregistreringar for ein elev knytt til eit elevforhold.
+message Elevfravar
+ {
+  uriorcurie id = 0
+  elevforhold elevforhold = 0
+ repeated  fraversregistrering fraversregistrering = 0
+ }
+// Kategori for eit elevforhold (t.d. Ordinær, Privatist, Voksen).
+message Elevkategori
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Tilrettelegging for ein elev i eit elevforhold.
+message Elevtilrettelegging
+ {
+  uriorcurie id = 0
+  elevforhold elev = 0
+  tilrettelegging tilrettelegging = 0
+  eksamensform eksamensform = 0
+ }
+// Samling av alle vurderingar for ein elev i eit elevforhold.
+message Elevvurdering
+ {
+  uriorcurie id = 0
+  elevforhold elevforhold = 0
+ repeated  eksamensvurdering eksamensvurdering = 0
+ repeated  sluttfagvurdering sluttfagvurdering = 0
+ repeated  halvaarsfagvurdering halvaarsfagvurdering = 0
+ repeated  underveisfagvurdering underveisfagvurdering = 0
+ repeated  halvaarsordensvurdering halvaarsordensvurdering = 0
+ repeated  underveisordensvurdering underveisordensvurdering = 0
+ repeated  sluttordensvurdering sluttordensvurdering = 0
+  vitnemalsmerknad vitnemalsmerknad = 0
+ }
+// Eit skulefag.
+message Fag
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+ repeated  tilrettelegging tilrettelegging = 0
+  uriorcurie grepreferanse = 0
+ repeated  skole skole = 0
+  uriorcurie vigoreferanse = 0
+ repeated  programomrade programomrade = 0
+ repeated  faggruppe faggruppe = 0
+ repeated  undervisningsgruppe undervisningsgruppe = 0
+ repeated  eksamensgruppe eksamensgruppe = 0
+ }
+// Ei gruppe elevar knytt til eit fag på ein skule.
+message Faggruppe
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+  fag fag = 0
+  skole skole = 0
+  skoleaar skoleaar = 0
+ repeated  faggruppemedlemskap faggruppemedlemskap = 0
+ }
+// Eit elevs medlemskap i ei faggruppe.
+message Faggruppemedlemskap
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  elevforhold elevforhold = 0
+ repeated  varsel varsel = 0
+  faggruppe faggruppe = 0
+  fagmerknad fagmerknad = 0
+  fagstatus fagstatus = 0
+ }
+// Merknad knytt til eit fag i ei faggruppe.
+message Fagmerknad
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Status for eit fag i eit faggruppemedlemskap.
+message Fagstatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Oversikt over fråvær for ein elev i eit fag.
+message Fravarsoversikt
+ {
+  uriorcurie id = 0
+  fravarsprosent halvaar = 0
+  fravarsprosent skoleaarFravar = 0
+  elevforhold elevforhold = 0
+  fag fag = 0
+ }
+// Kompleks type som representerer fråværsprosent for ein periode.
+message Fravarsprosent
+ {
+  integer fravaerstimer = 0
+  integer prosent = 0
+  integer undervisningstimer = 0
+ }
+// Type fråvær (t.d. Udokumentert, Dokumentert).
+message Fravartype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ei enkelt fråversregistrering for ein elev.
+message Fraversregistrering
+ {
+  uriorcurie id = 0
+  boolean forersPaaVitnemaal = 0
+  string kommentar = 0
+  periode periode = 0
+  skoleressurs registrertAv = 0
+  faggruppe faggruppe = 0
+  undervisningsgruppe undervisningsgruppe = 0
+  elevfravar elevfravar = 0
+  fravartype fravartype = 0
+ }
+// Kode for fullførtresultat av lærling.
+message Fullfortkode
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Liste over Norges fylker.
+message Fylke
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  kommune kommune = 0
+ }
+// Halvårsvurdering i eit fag.
+message Halvaarsfagvurdering
+ {
+  uriorcurie id = 0
+  string kommentar = 0
+  datetime vurderingsdato = 0
+  fag fag = 0
+  skoleaar skoleaar = 0
+  karakterverdi karakter = 0
+  elevvurdering elevvurdering = 0
+ }
+// Halvårsordensvurdering for ein elev.
+message Halvaarsordensvurdering
+ {
+  uriorcurie id = 0
+  string kommentar = 0
+  datetime vurderingsdato = 0
+  karakterverdi atferd = 0
+  karakterverdi orden = 0
+  skoleaar skoleaar = 0
+  elevvurdering elevvurdering = 0
+ }
+// Unik identifikasjon til eit objekt.
+message Identifikator
+ {
+  string identifikatorverdi = 0
+  periode gyldighetsperiode = 0
+ }
+// Historikk over endringar i ein karakter.
+message Karakterhistorie
+ {
+  uriorcurie id = 0
+  datetime endretDato = 0
+  skoleressurs oppdatertAv = 0
+  karakterverdi opprinneligKarakterverdi = 0
+  karakterstatus opprinneligKarakterstatus = 0
+  karakterverdi karakterverdi = 0
+  karakterstatus karakterstatus = 0
+ }
+// Skala for karaktersetjing (t.d. 1-6, Bestått/Ikkje bestått).
+message Karakterskala
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ repeated  karakterverdi verdi = 0
+  uriorcurie vigoreferanse = 0
+ }
+// Status for ein karakter (t.d. Fråvær, Friteke).
+message Karakterstatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein konkret karakterverdi i ei karakterskala.
+message Karakterverdi
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  karakterskala skala = 0
+ }
+// Verdiar for kjønn basert på ISO/IEC 5218.
+message Kjonn
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe).
+message Klasse
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+  skoleaar skoleaar = 0
+ repeated  termin termin = 0
+ repeated  arstrinn trinn = 0
+  skole skole = 0
+ repeated  undervisningsforhold undervisningsforhold = 0
+ repeated  klassemedlemskap klassemedlemskap = 0
+ repeated  kontaktlaerergruppe kontaktlaerergruppe = 0
+ }
+// Eit elevs medlemskap i ei klasse.
+message Klassemedlemskap
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  elevforhold elevforhold = 0
+  klasse klasse = 0
+ }
+// Liste over Norges kommunar.
+message Kommune
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  fylke fylke = 0
+ }
+// Informasjon som kan brukast for å oppnå kontakt.
+message Kontaktinformasjon
+ {
+  string epostadresse = 0
+  string mobiltelefonnummer = 0
+  string nettsted = 0
+  string sip = 0
+  string telefonnummer = 0
+ }
+// Gruppe av elevar med felles kontaktlærar.
+message Kontaktlaerergruppe
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+ repeated  klasse klasse = 0
+ repeated  termin termin = 0
+  skole skole = 0
+  skoleaar skoleaar = 0
+ repeated  undervisningsforhold undervisningsforhold = 0
+ repeated  kontaktlaerergruppemedlemskap gruppemedlemskap = 0
+ }
+// Eit elevs medlemskap i ei kontaktlærargruppe.
+message Kontaktlaerergruppemedlemskap
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  elevforhold elevforhold = 0
+  kontaktlaerergruppe kontaktlaerergruppe = 0
+ }
+// Kontaktperson (pårørande) til ein person.
+message Kontaktperson
+ {
+  uriorcurie id = 0
+  kontaktinformasjon kontaktinformasjon = 0
+  personnavn kontaktpersonNavn = 0
+  string type = 0
+ repeated  person kontaktperson = 0
+ }
+// Ein lærling i yrkesopplæring.
+message Laerling
+ {
+  uriorcurie id = 0
+  string kontraktstype = 0
+  periode laretid = 0
+  person person = 0
+  uriorcurie bedrift = 0
+ repeated  avlagtProve avlagtprove = 0
+  programomrade programomrade = 0
+ }
+// Landskode i ISO 3166-1 alpha-2 format.
+message Landkode
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eintydleg identifisering av matrikkeleining innanfor kommune.
+message Matrikkelnummer
+ {
+  adresse adresse = 0
+  string bruksnummer = 0
+  string festenummer = 0
+  string gaardsnummer = 0
+  string seksjonsnummer = 0
+  kommune kommunenummer = 0
+ }
+// Eining i oppfølgingstenesta (OT).
+message OtEnhet
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+  kommune kommune = 0
+ }
+// Status for ein ungdom i oppfølgingstenesta.
+message OtStatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  string beskrivelse = 0
+  string type = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eit ungdomsobjekt i oppfølgingstenesta (OT).
+message OtUngdom
+ {
+  uriorcurie id = 0
+  person person = 0
+  otStatus status = 0
+  otEnhet enhet = 0
+  programomrade programomrade = 0
+ }
+// Tidsperiode med obligatorisk start og valfri slutt.
+message Periode
+ {
+  string beskrivelse = 0
+  datetime start = 0
+  datetime slutt = 0
+ }
+// Fysiske private personar.
+message Person
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  uriorcurie id = 0
+  string bilde = 0
+  adresse bostedsadresse = 0
+  date fodselsdato = 0
+  identifikator fodselsnummer = 0
+  personnavn personNavn = 0
+ repeated  kontaktperson parorende = 0
+ repeated  landkode statsborgerskap = 0
+  kommune kommune = 0
+  kjonn kjonn = 0
+ repeated  person foreldreansvar = 0
+ repeated  person foreldre = 0
+  spraak maalform = 0
+  spraak morsmaal = 0
+ repeated  uriorcurie laerling = 0
+  elev elev = 0
+  uriorcurie otungdom = 0
+  uriorcurie personalressurs = 0
+ }
+// Ei gruppe elevar definert for personlege føremål.
+message Persongruppe
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+ repeated  elevforhold elev = 0
+ repeated  persongruppemedlemskap persongruppemedlemskap = 0
+ repeated  termin termin = 0
+ repeated  undervisningsforhold undervisningsforhold = 0
+  skole skole = 0
+ repeated  skoleressurs skoleressurs = 0
+  skoleaar skoleaar = 0
+ }
+// Eit elevs medlemskap i ei persongruppe.
+message Persongruppemedlemskap
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  elevforhold elevforhold = 0
+  persongruppe persongruppe = 0
+ }
+// Namn på ein person.
+message Personnavn
+ {
+  string fornavn = 0
+  string mellomnavn = 0
+  string etternavn = 0
+ }
+// Eit programområde innanfor eit utdanningsprogram (t.d. Vg2 Elektrofaget).
+message Programomrade
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+ repeated  arstrinn trinn = 0
+  uriorcurie grepreferanse = 0
+  uriorcurie vigoreferanse = 0
+ repeated  programomrademedlemskap gruppemedlemskap = 0
+ }
+// Eit elevs tilknyting til eit programområde.
+message Programomrademedlemskap
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  elevforhold elevforhold = 0
+  programomrade programomrade = 0
+ }
+// Status for ei lærlingprøve.
+message Provestatus
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Eit rom eller lokale ved ein skule.
+message Rom
+ {
+  uriorcurie id = 0
+  string navn = 0
+ repeated  eksamen eksamen = 0
+ repeated  time skuletime = 0
+ }
+// Ein sensor for ein eksamen.
+message Sensor
+ {
+  uriorcurie id = 0
+  boolean aktiv = 0
+  integer sensornummer = 0
+  skoleressurs skoleressurs = 0
+  eksamensgruppe eksamensgruppe = 0
+ }
+// Ein skule eller opplæringsinstitusjon.
+message Skole
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string domenenavn = 0
+  string juridiskNavn = 0
+  string organisasjonsnavn = 0
+  identifikator skolenummer = 0
+  identifikator organisasjonsnummer = 0
+  adresse forretningsadresse = 0
+  adresse postadresse = 0
+  uriorcurie organisasjon = 0
+ repeated  klasse klasse = 0
+ repeated  kontaktlaerergruppe kontaktlaerergruppe = 0
+ repeated  skoleressurs skoleressurs = 0
+ repeated  fag fag = 0
+ repeated  faggruppe faggruppe = 0
+  skoleeiertype skoleeierType = 0
+  uriorcurie vigoreferanse = 0
+ repeated  eksamensgruppe eksamensgruppe = 0
+ repeated  utdanningsprogram utdanningsprogram = 0
+ }
+// Eit skoleår (t.d. 2024/2025).
+message Skoleaar
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Type skuleeigartilknyting.
+message Skoleeiertype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein lærar eller anna tilsett ved ein skule.
+message Skoleressurs
+ {
+  uriorcurie id = 0
+  identifikator feidenavn = 0
+  uriorcurie personalressurs = 0
+  person person = 0
+ repeated  skole skole = 0
+ repeated  sensor sensor = 0
+ }
+// Sluttkarakter i eit fag.
+message Sluttfagvurdering
+ {
+  uriorcurie id = 0
+  string kommentar = 0
+  datetime vurderingsdato = 0
+  fag fag = 0
+  skoleaar skoleaar = 0
+  karakterverdi karakter = 0
+  eksamensgruppe eksamensgruppe = 0
+  elevvurdering elevvurdering = 0
+ repeated  karakterhistorie karakterhistorie = 0
+ }
+// Sluttordensvurdering for ein elev.
+message Sluttordensvurdering
+ {
+  uriorcurie id = 0
+  string kommentar = 0
+  datetime vurderingsdato = 0
+  karakterverdi atferd = 0
+  karakterverdi orden = 0
+  skoleaar skoleaar = 0
+  elevvurdering elevvurdering = 0
+ }
+// Verdiar for språk (2 bokstavar).
+message Spraak
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein skuleterm (t.d. Haust, Vår) — kodeverk.
+message Termin
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Type tilrettelegging for elevar (t.d. Utvida tid).
+message Tilrettelegging
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein time i timeplanen.
+message Time
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+  periode tidsrom = 0
+ repeated  undervisningsforhold undervisningsforhold = 0
+ repeated  rom rom = 0
+ repeated  undervisningsgruppe undervisningsgruppe = 0
+ }
+// Underveisfagvurdering for ein elev.
+message Underveisfagvurdering
+ {
+  uriorcurie id = 0
+  string kommentar = 0
+  datetime vurderingsdato = 0
+  fag fag = 0
+  skoleaar skoleaar = 0
+  karakterverdi karakter = 0
+  elevvurdering elevvurdering = 0
+ }
+// Underveisordensvurdering for ein elev.
+message Underveisordensvurdering
+ {
+  uriorcurie id = 0
+  string kommentar = 0
+  datetime vurderingsdato = 0
+  karakterverdi atferd = 0
+  karakterverdi orden = 0
+  skoleaar skoleaar = 0
+  elevvurdering elevvurdering = 0
+ }
+// Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar.
+message Undervisningsforhold
+ {
+  uriorcurie id = 0
+  string beskrivelse = 0
+  uriorcurie arbeidsforhold = 0
+  skoleressurs skoleressurs = 0
+ repeated  klasse klasse = 0
+ repeated  kontaktlaerergruppe kontaktlaerergruppe = 0
+ repeated  time skuletime = 0
+ repeated  eksamensgruppe eksamensgruppe = 0
+ }
+// Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag.
+message Undervisningsgruppe
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+ repeated  undervisningsforhold undervisningsforhold = 0
+ repeated  fag fag = 0
+ repeated  time skuletime = 0
+ repeated  termin termin = 0
+  skole skole = 0
+  skoleaar skoleaar = 0
+ repeated  undervisningsgruppemedlemskap gruppemedlemskap = 0
+ }
+// Eit elevs medlemskap i ei undervisningsgruppe.
+message Undervisningsgruppemedlemskap
+ {
+  uriorcurie id = 0
+  periode gyldighetsperiode = 0
+  elevforhold elevforhold = 0
+  undervisningsgruppe undervisningsgruppe = 0
+ }
+// Rotcontainer for FINT Utdanning-instansar.
+message UtdanningContainer
+ {
+ repeated  elev elevar = 0
+ repeated  skole skolar = 0
+ repeated  skoleressurs skoleressursar = 0
+  elevforhold elevforhold = 0
+ repeated  elevtilrettelegging elevtilrettelegging = 0
+ repeated  klasse klasser = 0
+ repeated  klassemedlemskap klassemedlemskap = 0
+ repeated  kontaktlaerergruppe kontaktlaerergrupper = 0
+ repeated  kontaktlaerergruppemedlemskap kontaktlaerergruppemedlemskap = 0
+ repeated  persongruppe persongrupper = 0
+ repeated  persongruppemedlemskap persongruppemedlemskap = 0
+ repeated  varsel varsel = 0
+ repeated  arstrinn arstrinn = 0
+ repeated  programomrade programomrader = 0
+ repeated  programomrademedlemskap programomrademedlemskap = 0
+ repeated  utdanningsprogram utdanningsprogram = 0
+  eksamen eksamen = 0
+  fag fag = 0
+ repeated  faggruppe faggrupper = 0
+ repeated  faggruppemedlemskap faggruppemedlemskap = 0
+  rom rom = 0
+ repeated  time timar = 0
+ repeated  undervisningsforhold undervisningsforhold = 0
+ repeated  undervisningsgruppe undervisningsgrupper = 0
+ repeated  undervisningsgruppemedlemskap undervisningsgruppemedlemskap = 0
+ repeated  anmerkninger anmerkningar = 0
+ repeated  eksamensgruppe eksamensgrupper = 0
+ repeated  eksamensgruppemedlemskap eksamensgruppemedlemskap = 0
+ repeated  eksamensvurdering eksamensvurdering = 0
+  elevfravar elevfravar = 0
+  elevvurdering elevvurdering = 0
+ repeated  fravarsoversikt fravarsoversikt = 0
+ repeated  fraversregistrering fraversregistrering = 0
+ repeated  halvaarsfagvurdering halvaarsfagvurdering = 0
+ repeated  halvaarsordensvurdering halvaarsordensvurdering = 0
+ repeated  karakterhistorie karakterhistorie = 0
+ repeated  sensor sensor = 0
+ repeated  sluttfagvurdering sluttfagvurdering = 0
+ repeated  sluttordensvurdering sluttordensvurdering = 0
+ repeated  underveisfagvurdering underveisfagvurdering = 0
+ repeated  underveisordensvurdering underveisordensvurdering = 0
+  vitnemalsmerknad vitnemalsmerknad = 0
+  betalingsstatus betalingsstatus = 0
+  fagstatus fagstatus = 0
+  karakterstatus karakterstatus = 0
+  skoleaar skoleaar = 0
+  tilrettelegging tilrettelegging = 0
+ repeated  avlagtProve avlagteprover = 0
+ repeated  laerling laerlingar = 0
+ repeated  otUngdom otUngdom = 0
+ repeated  avbruddsaarsak avbruddsaarsaker = 0
+ repeated  bevistype bevistypar = 0
+ repeated  brevtype brevtypar = 0
+ repeated  eksamensform eksamensformer = 0
+ repeated  elevkategori elevkategoriar = 0
+ repeated  fagmerknad fagmerknader = 0
+ repeated  fravartype fravartypar = 0
+ repeated  fullfortkode fullfortkoder = 0
+ repeated  karakterskala karakterskalaer = 0
+ repeated  karakterverdi karakterverdiar = 0
+ repeated  otEnhet otEnheter = 0
+ repeated  otStatus otStatus = 0
+ repeated  provestatus provestatuser = 0
+ repeated  skoleeiertype skoleeijartypar = 0
+ repeated  termin terminar = 0
+ repeated  varseltype varseltypar = 0
+ }
+// Eit utdanningsprogram (t.d. Elektrofag, Studiespesialisering).
+message Utdanningsprogram
+ {
+  uriorcurie id = 0
+  string navn = 0
+  string beskrivelse = 0
+ repeated  programomrade programomrade = 0
+ repeated  skole skole = 0
+  uriorcurie grepreferanse = 0
+  uriorcurie vigoreferanse = 0
+ }
+// Valutakodar for offisielle valutaer.
+message Valuta
+ {
+  uriorcurie id = 0
+  identifikator bokstavkode = 0
+  string valutaNavn = 0
+  identifikator nummerkode = 0
+ }
+// Eit varsel knytt til ein elev i ei faggruppe.
+message Varsel
+ {
+  uriorcurie id = 0
+  integer fravarsprosent = 0
+  date sendt = 0
+  string tekst = 0
+  skoleressurs utsteder = 0
+  skoleressurs karakteransvarlig = 0
+  varseltype type = 0
+ repeated  faggruppemedlemskap faggruppemedlemskap = 0
+ }
+// Type varsel knytt til ein elev.
+message Varseltype
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+// Ein juridisk organisasjon som produserer varer eller tenester.
+message Virksomhet
+ {
+  kontaktinformasjon kontaktinformasjon = 0
+  adresse postadresse = 0
+  adresse forretningsadresse = 0
+  string organisasjonsnavn = 0
+  identifikator organisasjonsnummer = 0
+  uriorcurie id = 0
+  identifikator virksomhetsId = 0
+ repeated  uriorcurie laerling = 0
+ }
+// Merknad på vitnemål.
+message Vitnemalsmerknad
+ {
+  uriorcurie id = 0
+  string kode = 0
+  string navn = 0
+  periode gyldighetsperiode = 0
+  boolean passiv = 0
+ }
+

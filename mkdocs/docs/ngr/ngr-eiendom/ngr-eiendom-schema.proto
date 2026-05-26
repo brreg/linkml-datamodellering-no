@@ -1,0 +1,316 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// Ein eigarandel i eit heimelsdokument (også kalt eierandel). Kvar andel har ein eller fleire rettigheitshavarar.
+message Andel
+ {
+  uriorcurie id = 0
+ repeated  rettighetshaver harRettighetshaver = 0
+ }
+// Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire grunneigedommar eller anleggseigedommar. Strekkjer seg over og/eller under andre matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs undergrunn eller sjøgrunn.
+message Anleggseiendom
+ {
+  uriorcurie id = 0
+  matrikkelnummer identifiseresMed = 0
+  kommune liggerInnenforKommune = 0
+ repeated  teig erDelAvTeig = 0
+ repeated  teig harTeig = 0
+  anleggsprojeksjonsflate harAnleggsprojeksjonsflate = 0
+ }
+// Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet og må supplerast på oppdrag.
+message Anleggsprojeksjonsflate
+ {
+  uriorcurie id = 0
+ }
+// Matrikkelenheit som ikkje fell inn under dei andre underklassane.
+message AnnenMatrikkelenhet
+ {
+  uriorcurie id = 0
+  matrikkelnummer identifiseresMed = 0
+  kommune liggerInnenforKommune = 0
+ repeated  teig erDelAvTeig = 0
+ repeated  teig harTeig = 0
+  anleggsprojeksjonsflate harAnleggsprojeksjonsflate = 0
+ }
+// Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsbygningen. Burettslagsandelar tilhøyrer eit burettslag.
+message Borettslag
+ {
+  uriorcurie id = 0
+  hovedenhet erAvTypeHovedenhet = 0
+ }
+// Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad i burettslagsbygningen.
+message Borettslagsandel
+ {
+  uriorcurie id = 0
+  borettslag tilhoererBorettslag = 0
+ repeated  eierforhold harEierforhold = 0
+ repeated  tinglystHeftelse harTinglystHeftelse = 0
+ }
+// Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit bruksenheitsnummer, ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit.
+message Bruksenhet
+ {
+  uriorcurie id = 0
+  bruksenhetsnummer harBruksenhetsnummer = 0
+  matrikkelenhet erTilknyttetMatrikkelenhet = 0
+  offisiellAdresse harOffisiellAdresse = 0
+ repeated  etasje liggerIEtasje = 0
+ }
+// Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1 (etasjeplan + etasjenummer + nummerering).
+message Bruksenhetsnummer
+ {
+  uriorcurie id = 0
+  etasjeplan etasjeplan = 0
+  integer etasjenummer = 0
+  integer nummereringIEtasjen = 0
+ }
+// Bruksnummer innanfor gardsnamnet.
+message Bruksnummer
+ {
+  uriorcurie id = 0
+  integer bruksnummerVerdi = 0
+ }
+// Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit og kan ha fleire ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i dag spreidd i fleire databasar.
+message Bygning
+ {
+  uriorcurie id = 0
+  bygningsnummer harBygningsnummer = 0
+  representasjonspunkt harRepresentasjonspunkt = 0
+  matrikkelenhet erKnyttetTilMatrikkelenhet = 0
+ repeated  ytreInngang harYtreInngang = 0
+ repeated  bruksenhet harBruksenhet = 0
+ repeated  etasje harEtasje = 0
+ }
+// Offisiell identifikator for ein bygning i Matrikkelen.
+message Bygningsnummer
+ {
+  uriorcurie id = 0
+  integer bygningsnummerVerdi = 0
+ }
+// Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.
+message EiendomContainer
+ {
+ repeated  fastEiendom fasteEiendommer = 0
+ repeated  samletFastEiendom samlinger = 0
+ repeated  borettslagsandel borettslagsandeler = 0
+ repeated  grunneiendom grunneiendommer = 0
+ repeated  festegrunn festegrunn = 0
+ repeated  jordsameie jordsameier = 0
+ repeated  eierseksjon eierseksjoner = 0
+ repeated  anleggseiendom anleggseiendommer = 0
+ repeated  annenMatrikkelenhet andreMatrikkelenheter = 0
+ repeated  matrikkelnummer matrikkelnumre = 0
+ repeated  bygning bygninger = 0
+ repeated  ytreInngang ytreInnganger = 0
+ repeated  bruksenhet bruksenheter = 0
+ repeated  etasje etasjer = 0
+ repeated  teig teiger = 0
+ repeated  tinglystEierforhold tinglystEierforhold = 0
+ repeated  ikkeTinglystEierforhold ikkeTinglystEierforhold = 0
+ repeated  hjemmelTilEiendomsrett hjemmelEiendomsrett = 0
+ repeated  hjemmelTilFesterett hjemmelFesterett = 0
+ repeated  hjemmelTilFramfesterett hjemmelFramfesterett = 0
+ repeated  andel andeler = 0
+ repeated  rettighetshaver rettighetshavere = 0
+ repeated  tinglystHeftelse tinglystHeftelser = 0
+ repeated  rettighetForAaBenytteEiendom rettigheter = 0
+ repeated  borettslag borettslag = 0
+ repeated  representasjonspunkt representasjonspunkt = 0
+ }
+// Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har einerett til å bruke ein bestemt del av eigedommen, medan heile eigedommen er i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere grunneigendom, festegrunn eller anleggseigendom.
+message Eierseksjon
+ {
+  uriorcurie id = 0
+  matrikkelnummer identifiseresMed = 0
+  kommune liggerInnenforKommune = 0
+ repeated  teig erDelAvTeig = 0
+ repeated  teig harTeig = 0
+  anleggsprojeksjonsflate harAnleggsprojeksjonsflate = 0
+  matrikkelenhet kanVaerePa = 0
+ }
+// Ei etasje i ein bygning.
+message Etasje
+ {
+  uriorcurie id = 0
+  integer etasjenummer = 0
+ }
+// Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast av og består av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige for å benytte eigedommen.
+message FastEiendom
+ {
+  uriorcurie id = 0
+  matrikkelenhet identifiseresAv = 0
+  matrikkelenhet bestarAvMatrikkelenhet = 0
+ repeated  bygning bestarAvBygning = 0
+ repeated  rettighetForAaBenytteEiendom bestarAvRettighet = 0
+ repeated  eierforhold harEierforhold = 0
+ repeated  tinglystHeftelse harTinglystHeftelse = 0
+ }
+// Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til. Ein festekontrakt gir eksklusiv og langvarig bruksrett til festegrunnen. Kan vere eit bestemt areal eller eit punktfeste.
+message Festegrunn
+ {
+  uriorcurie id = 0
+  matrikkelnummer identifiseresMed = 0
+  kommune liggerInnenforKommune = 0
+ repeated  teig erDelAvTeig = 0
+ repeated  teig harTeig = 0
+  anleggsprojeksjonsflate harAnleggsprojeksjonsflate = 0
+  matrikkelenhet kanVaerePa = 0
+ }
+// Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret).
+message Festenummer
+ {
+  uriorcurie id = 0
+  integer festenummerVerdi = 0
+ }
+// Gårdsnummer innanfor kommunen.
+message Gaardsnummer
+ {
+  uriorcurie id = 0
+  integer gaardsnummerVerdi = 0
+ }
+// Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune.
+message Grunneiendom
+ {
+  uriorcurie id = 0
+  matrikkelnummer identifiseresMed = 0
+  kommune liggerInnenforKommune = 0
+ repeated  teig erDelAvTeig = 0
+ repeated  teig harTeig = 0
+  anleggsprojeksjonsflate harAnleggsprojeksjonsflate = 0
+  matrikkelenhet kanVaerePa = 0
+ }
+// Heimelsdokument for eigedomsrett (full eigarrett).
+message HjemmelTilEiendomsrett
+ {
+  uriorcurie id = 0
+ repeated  andel harAndel = 0
+ }
+// Heimelsdokument for festerett (langvarig bruksrett til festegrunn).
+message HjemmelTilFesterett
+ {
+  uriorcurie id = 0
+ repeated  andel harAndel = 0
+ }
+// Heimelsdokument for framfesterett (vidarefestekontrakt).
+message HjemmelTilFramfesterett
+ {
+  uriorcurie id = 0
+ repeated  andel harAndel = 0
+ }
+// Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar. Tilhøyrer Domene virksomhet.
+message Hovedenhet
+ {
+  uriorcurie id = 0
+ }
+// Eigarforhold som ikkje er registrert i Grunnboka. Det kan finnast eigarforhold som ikkje samsvarer med det tinglyste eigarforholdet. Gjeld også bygningar.
+message IkkeTinglystEierforhold
+ {
+  uriorcurie id = 0
+  matrikkelenhet gjelderMatrikkelenhet = 0
+  borettslagsandel kanGjeldeBorettslagsandel = 0
+  hjemmelTilEiendomsrett gjelderHjemmelEiendomsrett = 0
+  hjemmelTilFesterett gjelderHjemmelFesterett = 0
+  hjemmelTilFramfesterett gjelderHjemmelFramfesterett = 0
+ }
+// Eit fellesareal som vert eigd av fleire eigedommar. Jordsameige er ein type realsameige. Eit umatrikulert jordsameige er eit eksisterande sameige som ikkje er registrert som eigen matrikkelenheit.
+message Jordsameie
+ {
+  uriorcurie id = 0
+  matrikkelnummer identifiseresMed = 0
+  kommune liggerInnenforKommune = 0
+ repeated  teig erDelAvTeig = 0
+ repeated  teig harTeig = 0
+  anleggsprojeksjonsflate harAnleggsprojeksjonsflate = 0
+  matrikkelenhet kanVaerePa = 0
+ }
+// Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og forvaltast av Nasjonal inndelingsbase.
+message Kommune
+ {
+  uriorcurie id = 0
+  string kommunenummerVerdi = 0
+ }
+// Firesifra kommunenummer (t.d. 0301 for Oslo).
+message Kommunenummer
+ {
+  uriorcurie id = 0
+  string kommunenummerVerdi = 0
+ }
+// Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, gards-, bruks- og eventuelt feste- og seksjonsnummer.
+message Matrikkelnummer
+ {
+  uriorcurie id = 0
+  kommunenummer bestarAvKommunenummer = 0
+  gaardsnummer bestarAvGaardsnummer = 0
+  bruksnummer bestarAvBruksnummer = 0
+  festenummer bestarAvFestenummer = 0
+  seksjonsnummer bestarAvSeksjonsnummer = 0
+ }
+// Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse og forvaltast av Matrikkelen via NGR-adresse.
+message OffisiellAdresse
+ {
+  uriorcurie id = 0
+ }
+// Ein fysisk person. Tilhøyrer Domene person.
+message Person
+ {
+  uriorcurie id = 0
+ }
+// Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen.
+message Representasjonspunkt
+ {
+  uriorcurie id = 0
+  float koordinatOst = 0
+  float koordinatNord = 0
+  string koordinatsystem = 0
+ }
+// Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse er registrerte som heftingar i Grunnboka på teneleg eigedom.
+message RettighetForAaBenytteEiendom
+ {
+  uriorcurie id = 0
+ }
+// Den som har ein rett knytt til ein eigedom. Kan vere ein fysisk person eller ei hovudeining (juridisk person).
+message Rettighetshaver
+ {
+  uriorcurie id = 0
+  person erAvTypePerson = 0
+  hovedenhet erAvTypeHovedenhet = 0
+ }
+// Samling av to eller fleire faste eigedommar som er organiserte saman. Lite brukt i praksis i dag.
+message SamletFastEiendom
+ {
+  uriorcurie id = 0
+ repeated  fastEiendom bestarAvFastEiendom = 0
+ }
+// Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret).
+message Seksjonsnummer
+ {
+  uriorcurie id = 0
+  integer seksjonsnummerVerdi = 0
+ }
+// Eit samanhengande areal med same type grenser. Mangler ofte vannareal som høyrer til eigedommen. Grensene kan ha manglande eller dårleg nøyaktigheit.
+message Teig
+ {
+  uriorcurie id = 0
+ }
+// Eigarforhold registrert (tinglyst) i Grunnboka.
+message TinglystEierforhold
+ {
+  uriorcurie id = 0
+  matrikkelenhet gjelderMatrikkelenhet = 0
+  borettslagsandel kanGjeldeBorettslagsandel = 0
+  hjemmelTilEiendomsrett gjelderHjemmelEiendomsrett = 0
+  hjemmelTilFesterett gjelderHjemmelFesterett = 0
+  hjemmelTilFramfesterett gjelderHjemmelFramfesterett = 0
+ }
+// Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel. Nokre heftingar har avgrensa geografisk utbreiing og manglar stadfestring.
+message TinglystHeftelse
+ {
+  uriorcurie id = 0
+ }
+// Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen, men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire brukseiningar.
+message YtreInngang
+ {
+  uriorcurie id = 0
+ repeated  bruksenhet gjelderBruksenhet = 0
+  offisiellAdresse harOffisiellAdresse = 0
+ }
+

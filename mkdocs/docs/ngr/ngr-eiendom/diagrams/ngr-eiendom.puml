@@ -1,0 +1,274 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "YtreInngang" [[{Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen, men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire brukseiningar.}]] {
+    {field} id : uriorcurie  
+}
+class "OffisiellAdresse" [[{Offisiell adresse tildelt av kommunen. Tilhøyrer Domene adresse og forvaltast av Matrikkelen via NGR-adresse.}]] {
+    {field} id : uriorcurie  
+}
+class "Bruksenhet" [[{Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit bruksenheitsnummer, ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit.}]] {
+    {field} id : uriorcurie  
+}
+class "Bygning" [[{Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit og kan ha fleire ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i dag spreidd i fleire databasar.}]] {
+    {field} id : uriorcurie  
+}
+class "EiendomContainer" [[{Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.}]] {
+
+}
+"YtreInngang" --> "0..1" "OffisiellAdresse" : "har_offisiell_adresse"
+"YtreInngang" --> "1..*" "Bruksenhet" : "gjelder_bruksenhet"
+"Bygning" --> "0..*" "YtreInngang" : "har_ytre_inngang"
+"EiendomContainer" *--> "0..*" "YtreInngang" : "ytreInnganger"
+"Bygning" --> "0..*" "YtreInngang" : "har_ytre_inngang"(i)
+class "Borettslagsandel" [[{Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad i burettslagsbygningen.}]] {
+    {field} id : uriorcurie  
+}
+class "TinglystHeftelse" [[{Heftelse tinglyst i Grunnboka mot ein eigedom eller burettslagsandel. Nokre heftingar har avgrensa geografisk utbreiing og manglar stadfestring.}]] {
+    {field} id : uriorcurie  
+}
+class "FastEiendom" [[{Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast av og består av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige for å benytte eigedommen.}]] {
+    {field} id : uriorcurie  
+}
+"Borettslagsandel" --> "0..*" "TinglystHeftelse" : "har_tinglyst_heftelse"
+"FastEiendom" --> "0..*" "TinglystHeftelse" : "har_tinglyst_heftelse"
+"EiendomContainer" *--> "0..*" "TinglystHeftelse" : "tinglystHeftelser"
+"FastEiendom" --> "0..*" "TinglystHeftelse" : "har_tinglyst_heftelse"(i)
+"Borettslagsandel" --> "0..*" "TinglystHeftelse" : "har_tinglyst_heftelse"(i)
+abstract "Matrikkelenhet" [[{Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen. Ei matrikkelenheit er den grunnleggjande eininga for registrering av fast eigedom i Noreg.}]] {
+    {field} id : uriorcurie  
+}
+class "Teig" [[{Eit samanhengande areal med same type grenser. Mangler ofte vannareal som høyrer til eigedommen. Grensene kan ha manglande eller dårleg nøyaktigheit.}]] {
+    {field} id : uriorcurie  
+}
+"Matrikkelenhet" --> "0..*" "Teig" : "er_del_av_teig"
+"Matrikkelenhet" --> "0..*" "Teig" : "har_teig"
+"EiendomContainer" *--> "0..*" "Teig" : "teiger"
+"Matrikkelenhet" --> "0..*" "Teig" : "er_del_av_teig"(i)
+"Matrikkelenhet" --> "0..*" "Teig" : "har_teig"(i)
+class "Matrikkelnummer" [[{Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, gards-, bruks- og eventuelt feste- og seksjonsnummer.}]] {
+    {field} id : uriorcurie  
+}
+class "Seksjonsnummer" [[{Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret).}]] {
+    {field} id : uriorcurie  
+    {field} seksjonsnummer_verdi : integer  
+}
+"Matrikkelnummer" --> "0..1" "Seksjonsnummer" : "bestar_av_seksjonsnummer"
+"Matrikkelnummer" --> "0..1" "Seksjonsnummer" : "bestar_av_seksjonsnummer"(i)
+class "SamletFastEiendom" [[{Samling av to eller fleire faste eigedommar som er organiserte saman. Lite brukt i praksis i dag.}]] {
+    {field} id : uriorcurie  
+}
+"SamletFastEiendom" --> "1..*" "FastEiendom" : "bestar_av_fast_eiendom"
+"EiendomContainer" *--> "0..*" "SamletFastEiendom" : "samlinger"
+class "Rettighetshaver" [[{Den som har ein rett knytt til ein eigedom. Kan vere ein fysisk person eller ei hovudeining (juridisk person).}]] {
+    {field} id : uriorcurie  
+}
+class "Hovedenhet" [[{Ei hovudeining i Einingsregisteret. Juridisk person som kan ha undereiningar. Tilhøyrer Domene virksomhet.}]] {
+    {field} id : uriorcurie  
+}
+class "Person" [[{Ein fysisk person. Tilhøyrer Domene person.}]] {
+    {field} id : uriorcurie  
+}
+class "Andel" [[{Ein eigarandel i eit heimelsdokument (også kalt eierandel). Kvar andel har ein eller fleire rettigheitshavarar.}]] {
+    {field} id : uriorcurie  
+}
+"Rettighetshaver" --> "0..1" "Hovedenhet" : "er_av_type_hovedenhet"
+"Rettighetshaver" --> "0..1" "Person" : "er_av_type_person"
+"Andel" --> "1..*" "Rettighetshaver" : "har_rettighetshaver"
+"EiendomContainer" *--> "0..*" "Rettighetshaver" : "rettighetshavere"
+"Andel" --> "0..*" "Rettighetshaver" : "har_rettighetshaver"(i)
+class "RettighetForAaBenytteEiendom" [[{Rettar og avtalar som er nødvendige for å kunne benytte eigedommen. Desse er registrerte som heftingar i Grunnboka på teneleg eigedom.}]] {
+    {field} id : uriorcurie  
+}
+"FastEiendom" --> "0..*" "RettighetForAaBenytteEiendom" : "bestar_av_rettighet"
+"FastEiendom" --> "0..*" "RettighetForAaBenytteEiendom" : "bestar_av_rettighet"(i)
+"EiendomContainer" *--> "0..*" "RettighetForAaBenytteEiendom" : "rettigheter"
+class "Representasjonspunkt" [[{Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen.}]] {
+    {field} id : uriorcurie  
+    {field} koordinat_ost : float  
+    {field} koordinat_nord : float  
+    {field} koordinatsystem : string  
+}
+"Bygning" --> "1" "Representasjonspunkt" : "har_representasjonspunkt"
+"EiendomContainer" *--> "0..*" "Representasjonspunkt" : "representasjonspunkt"
+"Bygning" --> "0..1" "Representasjonspunkt" : "har_representasjonspunkt"(i)
+"Rettighetshaver" --> "0..1" "Person" : "er_av_type_person"(i)
+"Bruksenhet" --> "0..1" "OffisiellAdresse" : "har_offisiell_adresse"
+"YtreInngang" --> "0..1" "OffisiellAdresse" : "har_offisiell_adresse"(i)
+"Bruksenhet" --> "0..1" "OffisiellAdresse" : "har_offisiell_adresse"(i)
+class "Festenummer" [[{Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret).}]] {
+    {field} id : uriorcurie  
+    {field} festenummer_verdi : integer  
+}
+class "Bruksnummer" [[{Bruksnummer innanfor gardsnamnet.}]] {
+    {field} id : uriorcurie  
+    {field} bruksnummer_verdi : integer  
+}
+class "Gaardsnummer" [[{Gårdsnummer innanfor kommunen.}]] {
+    {field} id : uriorcurie  
+    {field} gaardsnummer_verdi : integer  
+}
+class "Kommunenummer" [[{Firesifra kommunenummer (t.d. 0301 for Oslo).}]] {
+    {field} id : uriorcurie  
+    {field} kommunenummer_verdi : string  
+}
+"Matrikkelnummer" --> "0..1" "Festenummer" : "bestar_av_festenummer"
+"Matrikkelnummer" --> "1" "Bruksnummer" : "bestar_av_bruksnummer"
+"Matrikkelnummer" --> "1" "Gaardsnummer" : "bestar_av_gaardsnummer"
+"Matrikkelnummer" --> "1" "Kommunenummer" : "bestar_av_kommunenummer"
+"Matrikkelenhet" --> "1" "Matrikkelnummer" : "identifiseres_med"
+"EiendomContainer" *--> "0..*" "Matrikkelnummer" : "matrikkelnumre"
+"Matrikkelenhet" --> "0..1" "Matrikkelnummer" : "identifiseres_med"(i)
+class "Anleggsprojeksjonsflate" [[{Fotavtrykk av 3D-eigedommar (anleggseigedommar). Manglar volumet og må supplerast på oppdrag.}]] {
+    {field} id : uriorcurie  
+}
+class "Kommune" [[{Norsk kommune. Tilhøyrer Domene nasjonal inndelingsbase og forvaltast av Nasjonal inndelingsbase.}]] {
+    {field} id : uriorcurie  
+    {field} kommunenummer_verdi : string  
+}
+abstract "Eierforhold" [[{Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarforhold gjeld éi matrikkelenheit og kan eventuelt gjelde ein burettslagsandel. Inneheld heimelsdokument som fastset kven som er eigar og på kva vilkår.}]] {
+    {field} id : uriorcurie  
+}
+class "Eierseksjon" [[{Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har einerett til å bruke ein bestemt del av eigedommen, medan heile eigedommen er i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere grunneigendom, festegrunn eller anleggseigendom.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Festegrunn" [[{Ein del av ei grunneigendom eller eit jordsameige som nokon har festa til. Ein festekontrakt gir eksklusiv og langvarig bruksrett til festegrunnen. Kan vere eit bestemt areal eller eit punktfeste.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Grunneiendom" [[{Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Jordsameie" [[{Eit fellesareal som vert eigd av fleire eigedommar. Jordsameige er ein type realsameige. Eit umatrikulert jordsameige er eit eksisterande sameige som ikkje er registrert som eigen matrikkelenheit.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "AnnenMatrikkelenhet" [[{Matrikkelenheit som ikkje fell inn under dei andre underklassane.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Anleggseiendom" [[{Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire grunneigedommar eller anleggseigedommar. Strekkjer seg over og/eller under andre matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs undergrunn eller sjøgrunn.}]] {
+    {field} id(i) : uriorcurie  
+}
+"Matrikkelenhet" --> "0..1" "Anleggsprojeksjonsflate" : "har_anleggsprojeksjonsflate"
+"Matrikkelenhet" --> "1" "Kommune" : "ligger_innenfor_kommune"
+"Bruksenhet" --> "0..1" "Matrikkelenhet" : "er_tilknyttet_matrikkelenhet"
+"Bygning" --> "1" "Matrikkelenhet" : "er_knyttet_til_matrikkelenhet"
+"Eierforhold" --> "1" "Matrikkelenhet" : "gjelder_matrikkelenhet"
+"Eierseksjon" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"
+"FastEiendom" --> "1" "Matrikkelenhet" : "bestar_av_matrikkelenhet"
+"FastEiendom" --> "1" "Matrikkelenhet" : "identifiseres_av"
+"Festegrunn" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"
+"Grunneiendom" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"
+"Jordsameie" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"
+"FastEiendom" --> "0..1" "Matrikkelenhet" : "bestar_av_matrikkelenhet"(i)
+"Bygning" --> "0..1" "Matrikkelenhet" : "er_knyttet_til_matrikkelenhet"(i)
+"Bruksenhet" --> "0..1" "Matrikkelenhet" : "er_tilknyttet_matrikkelenhet"(i)
+"Eierforhold" --> "0..1" "Matrikkelenhet" : "gjelder_matrikkelenhet"(i)
+"FastEiendom" --> "0..1" "Matrikkelenhet" : "identifiseres_av"(i)
+"Grunneiendom" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"(i)
+"Festegrunn" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"(i)
+"Jordsameie" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"(i)
+"Eierseksjon" --> "0..1" "Matrikkelenhet" : "kan_vaere_pa"(i)
+"Matrikkelenhet" ^-- "Jordsameie"
+"Matrikkelenhet" ^-- "Grunneiendom"
+"Matrikkelenhet" ^-- "Festegrunn"
+"Matrikkelenhet" ^-- "Eierseksjon"
+"Matrikkelenhet" ^-- "AnnenMatrikkelenhet"
+"Matrikkelenhet" ^-- "Anleggseiendom"
+"Matrikkelnummer" --> "0..1" "Kommunenummer" : "bestar_av_kommunenummer"(i)
+"Matrikkelenhet" --> "0..1" "Kommune" : "ligger_innenfor_kommune"(i)
+"EiendomContainer" *--> "0..*" "Jordsameie" : "jordsameier"
+class "Borettslag" [[{Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsbygningen. Burettslagsandelar tilhøyrer eit burettslag.}]] {
+    {field} id : uriorcurie  
+}
+"Borettslag" --> "1" "Hovedenhet" : "er_av_type_hovedenhet"
+"Rettighetshaver" --> "0..1" "Hovedenhet" : "er_av_type_hovedenhet"(i)
+"Borettslag" --> "0..1" "Hovedenhet" : "er_av_type_hovedenhet"(i)
+abstract "Hjemmel" [[{Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset kven som har rett til eigedommen og i kva form, og består av ein eller fleire andeler med kvar sin rettigheitshavar.}]] {
+    {field} id : uriorcurie  
+}
+class "HjemmelTilFramfesterett" [[{Heimelsdokument for framfesterett (vidarefestekontrakt).}]] {
+    {field} id(i) : uriorcurie  
+}
+class "HjemmelTilFesterett" [[{Heimelsdokument for festerett (langvarig bruksrett til festegrunn).}]] {
+    {field} id(i) : uriorcurie  
+}
+class "HjemmelTilEiendomsrett" [[{Heimelsdokument for eigedomsrett (full eigarrett).}]] {
+    {field} id(i) : uriorcurie  
+}
+"Hjemmel" --> "1..*" "Andel" : "har_andel"
+"Hjemmel" ^-- "HjemmelTilFramfesterett"
+"Hjemmel" ^-- "HjemmelTilFesterett"
+"Hjemmel" ^-- "HjemmelTilEiendomsrett"
+"Eierforhold" --> "0..1" "HjemmelTilFramfesterett" : "gjelder_hjemmel_framfesterett"
+"EiendomContainer" *--> "0..*" "HjemmelTilFramfesterett" : "hjemmelFramfesterett"
+"Eierforhold" --> "0..1" "HjemmelTilFramfesterett" : "gjelder_hjemmel_framfesterett"(i)
+"Eierforhold" --> "0..1" "HjemmelTilFesterett" : "gjelder_hjemmel_festerett"
+"EiendomContainer" *--> "0..*" "HjemmelTilFesterett" : "hjemmelFesterett"
+"Eierforhold" --> "0..1" "HjemmelTilFesterett" : "gjelder_hjemmel_festerett"(i)
+"Eierforhold" --> "0..1" "HjemmelTilEiendomsrett" : "gjelder_hjemmel_eiendomsrett"
+"EiendomContainer" *--> "0..*" "HjemmelTilEiendomsrett" : "hjemmelEiendomsrett"
+"Eierforhold" --> "0..1" "HjemmelTilEiendomsrett" : "gjelder_hjemmel_eiendomsrett"(i)
+"EiendomContainer" *--> "0..*" "Grunneiendom" : "grunneiendommer"
+"Matrikkelnummer" --> "0..1" "Gaardsnummer" : "bestar_av_gaardsnummer"(i)
+"Matrikkelnummer" --> "0..1" "Festenummer" : "bestar_av_festenummer"(i)
+"EiendomContainer" *--> "0..*" "Festegrunn" : "festegrunn"
+"FastEiendom" --> "0..*" "Eierforhold" : "har_eierforhold"
+"FastEiendom" --> "0..*" "Bygning" : "bestar_av_bygning"
+"SamletFastEiendom" --> "0..*" "FastEiendom" : "bestar_av_fast_eiendom"(i)
+"EiendomContainer" *--> "0..*" "FastEiendom" : "fasteEiendommer"
+class "Etasje" [[{Ei etasje i ein bygning.}]] {
+    {field} id : uriorcurie  
+    {field} etasjenummer : integer  
+}
+"Bruksenhet" --> "1..*" "Etasje" : "ligger_i_etasje"
+"Bygning" --> "0..*" "Etasje" : "har_etasje"
+"EiendomContainer" *--> "0..*" "Etasje" : "etasjer"
+"Bygning" --> "0..*" "Etasje" : "har_etasje"(i)
+"Bruksenhet" --> "0..*" "Etasje" : "ligger_i_etasje"(i)
+"EiendomContainer" *--> "0..*" "Eierseksjon" : "eierseksjoner"
+class "TinglystEierforhold" [[{Eigarforhold registrert (tinglyst) i Grunnboka.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "IkkeTinglystEierforhold" [[{Eigarforhold som ikkje er registrert i Grunnboka. Det kan finnast eigarforhold som ikkje samsvarer med det tinglyste eigarforholdet. Gjeld også bygningar.}]] {
+    {field} id(i) : uriorcurie  
+}
+"Eierforhold" --> "0..1" "Borettslagsandel" : "kan_gjelde_borettslagsandel"
+"Borettslagsandel" --> "0..*" "Eierforhold" : "har_eierforhold"
+"FastEiendom" --> "0..*" "Eierforhold" : "har_eierforhold"(i)
+"Borettslagsandel" --> "0..*" "Eierforhold" : "har_eierforhold"(i)
+"Eierforhold" ^-- "TinglystEierforhold"
+"Eierforhold" ^-- "IkkeTinglystEierforhold"
+"EiendomContainer" *--> "0..*" "TinglystEierforhold" : "tinglystEierforhold"
+"EiendomContainer" *--> "0..*" "IkkeTinglystEierforhold" : "ikkeTinglystEierforhold"
+"EiendomContainer" *--> "0..*" "Borettslag" : "borettslag"
+"EiendomContainer" *--> "0..*" "Andel" : "andeler"
+"EiendomContainer" *--> "0..*" "Bruksenhet" : "bruksenheter"
+"EiendomContainer" *--> "0..*" "Bygning" : "bygninger"
+"EiendomContainer" *--> "0..*" "AnnenMatrikkelenhet" : "andreMatrikkelenheter"
+"EiendomContainer" *--> "0..*" "Anleggseiendom" : "anleggseiendommer"
+"EiendomContainer" *--> "0..*" "Borettslagsandel" : "borettslagsandeler"
+class "Bygningsnummer" [[{Offisiell identifikator for ein bygning i Matrikkelen.}]] {
+    {field} id : uriorcurie  
+    {field} bygningsnummer_verdi : integer  
+}
+"Bygning" --> "1" "Bygningsnummer" : "har_bygningsnummer"
+"Bygning" --> "0..1" "Bygningsnummer" : "har_bygningsnummer"(i)
+"Bygning" --> "0..*" "Bruksenhet" : "har_bruksenhet"
+"FastEiendom" --> "0..*" "Bygning" : "bestar_av_bygning"(i)
+"Matrikkelnummer" --> "0..1" "Bruksnummer" : "bestar_av_bruksnummer"(i)
+class "Bruksenhetsnummer" [[{Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1 (etasjeplan + etasjenummer + nummerering).}]] {
+    {field} id : uriorcurie  
+    {field} etasjeplan : Etasjeplan  
+    {field} etasjenummer : integer  
+    {field} nummerering_i_etasjen : integer  
+}
+"Bruksenhet" --> "1" "Bruksenhetsnummer" : "har_bruksenhetsnummer"
+"Bruksenhet" --> "0..1" "Bruksenhetsnummer" : "har_bruksenhetsnummer"(i)
+"YtreInngang" --> "0..*" "Bruksenhet" : "gjelder_bruksenhet"(i)
+"Bygning" --> "0..*" "Bruksenhet" : "har_bruksenhet"(i)
+"Borettslagsandel" --> "1" "Borettslag" : "tilhoerer_borettslag"
+"Eierforhold" --> "0..1" "Borettslagsandel" : "kan_gjelde_borettslagsandel"(i)
+"Borettslagsandel" --> "0..1" "Borettslag" : "tilhoerer_borettslag"(i)
+"Matrikkelenhet" --> "0..1" "Anleggsprojeksjonsflate" : "har_anleggsprojeksjonsflate"(i)
+"Hjemmel" --> "0..*" "Andel" : "har_andel"(i)
+@enduml

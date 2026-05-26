@@ -1,0 +1,729 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Variantformat" [[{Angiving av kva variant eit dokument førekjem i.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Periode" [[{Tidsperiode med obligatorisk start og valfri slutt.}]] {
+    {field} beskrivelse : string  
+    {field} start : datetime  
+    {field} slutt : datetime  
+}
+class "Dokumentobjekt" [[{Referanse til éin og berre éin dokumentfil.}]] {
+    {field} filstorrelse : string  
+    {field} formatDetaljer : string  
+    {field} sjekksum : string  
+    {field} sjekksumAlgoritme : string  
+    {field} versjonsnummer : integer  
+}
+class "ArkivContainer" [[{Rotcontainer for FINT Arkiv-instansar.}]] {
+
+}
+"Variantformat" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Dokumentobjekt" --> "1" "Variantformat" : "variantFormat"
+"ArkivContainer" *--> "0..*" "Variantformat" : "variantformatar"
+"Dokumentobjekt" --> "0..1" "Variantformat" : "variantFormat"(i)
+class "Valuta" [[{Valutakodar for offisielle valutaer.}]] {
+    {field} id : uriorcurie  
+    {field} valuta_navn : string  
+}
+class "Identifikator" [[{Unik identifikasjon til eit objekt.}]] {
+    {field} identifikatorverdi : string  
+}
+"Valuta" *--> "1" "Identifikator" : "nummerkode"
+"Valuta" *--> "1" "Identifikator" : "bokstavkode"
+class "TilknyttetRegistreringSom" [[{Kva rolle dokumentet har i høve registreringa (t.d. Hoveddokument, Vedlegg).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Dokumentbeskrivelse" [[{Skildring av eit dokument tilknytt ein journalpost.}]] {
+    {field} id : uriorcurie  
+    {field} beskrivelse : string  
+    {field} dokumentnummer : integer  
+    {field} forfatter : string  [0..*]
+    {field} opprettetDato : datetime  
+    {field} referanseArkivdel : string  [0..*]
+    {field} tilknyttetDato : datetime  
+    {field} tittel : string  
+}
+"TilknyttetRegistreringSom" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Dokumentbeskrivelse" --> "1..*" "TilknyttetRegistreringSom" : "tilknyttetRegistreringSom"
+"ArkivContainer" *--> "0..*" "TilknyttetRegistreringSom" : "tilknyttetRegistreringSomKodar"
+"Dokumentbeskrivelse" --> "0..*" "TilknyttetRegistreringSom" : "tilknyttetRegistreringSom"(i)
+class "Tilgangsrestriksjon" [[{Angiving av at dokumenta ikkje er offentleg tilgjengelege.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Autorisasjon" [[{Siling av kva ein innlogga brukar får lov til å gjere i løysinga.}]] {
+    {field} id : uriorcurie  
+}
+class "Skjerming" [[{Skjerming av mappe, registrering eller dokument etter offentleglova.}]] {
+
+}
+"Tilgangsrestriksjon" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Autorisasjon" --> "1..*" "Tilgangsrestriksjon" : "tilgangsrestriksjon"
+"Skjerming" --> "1" "Tilgangsrestriksjon" : "tilgangsrestriksjon"
+"ArkivContainer" *--> "0..*" "Tilgangsrestriksjon" : "tilgangsrestriksjonar"
+"Autorisasjon" --> "0..1" "Tilgangsrestriksjon" : "tilgangsrestriksjon"(i)
+"Skjerming" --> "0..1" "Tilgangsrestriksjon" : "tilgangsrestriksjon"(i)
+class "Tilgangsgruppe" [[{Tilgangsgruppe for intern skjerming av innhald.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+abstract "Registrering" [[{Abstrakt basisklasse — arkivets primære byggeklossar.}]] {
+    {field} id : uriorcurie  
+    {field} arkivertDato : datetime  
+    {field} beskrivelse : string  
+    {field} forfatter : string  [0..*]
+    {field} nokkelord : string  [0..*]
+    {field} offentligTittel : string  
+    {field} opprettetDato : datetime  
+    {field} referanseArkivDel : string  [0..*]
+    {field} registreringsId : string  
+    {field} tittel : string  
+}
+abstract "Saksmappe" [[{Abstrakt spesialisering av Mappe som svarar til ei "sak" i Noark.}]] {
+    {field} saksaar : string  
+    {field} saksdato : datetime  
+    {field} sakssekvensnummer : string  
+    {field} utlaantDato : datetime  
+    {field} id(i) : uriorcurie  
+    {field} avsluttetDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} noekkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} tittel(i) : string  
+}
+"Tilgangsgruppe" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Registrering" --> "0..1" "Tilgangsgruppe" : "tilgangsgruppe"
+"Saksmappe" --> "0..1" "Tilgangsgruppe" : "tilgangsgruppe"
+"ArkivContainer" *--> "0..*" "Tilgangsgruppe" : "tilgangsgrupper"
+"Saksmappe" --> "0..1" "Tilgangsgruppe" : "tilgangsgruppe"(i)
+"Registrering" --> "0..1" "Tilgangsgruppe" : "tilgangsgruppe"(i)
+class "Tilgang" [[{Styring av kven som har tilgang til kva opplysningar.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : string  
+}
+class "Arkivressurs" [[{Ansatt med rolle og rettar innanfor arkiv.}]] {
+    {field} id : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+class "Arkivdel" [[{Ein vilkårleg definert del av eit arkiv.}]] {
+    {field} id : uriorcurie  
+    {field} tittel : string  
+}
+class "AdministrativEnhet" [[{Administrativ eining med ansvar for saksbehandling.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} organisasjonselement : uriorcurie  
+}
+class "Rolle" [[{Rolla til ein arkivressurs.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Tilgang" --> "0..*" "Arkivressurs" : "arkivressurs"
+"Tilgang" --> "0..1" "Arkivdel" : "arkivdel"
+"Tilgang" --> "0..1" "AdministrativEnhet" : "administrativEnhet"
+"Tilgang" --> "1" "Rolle" : "rolle"
+"Arkivressurs" --> "0..*" "Tilgang" : "tilgang"
+"ArkivContainer" *--> "0..*" "Tilgang" : "tilgangar"
+"Arkivressurs" --> "0..*" "Tilgang" : "tilgang"(i)
+class "Skjermingshjemmel" [[{Tilvising til heimel i offentleglova, tryggingslova eller tryggingsinstruksen.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Skjermingshjemmel" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Skjerming" --> "1" "Skjermingshjemmel" : "skjermingshjemmel"
+"ArkivContainer" *--> "0..*" "Skjermingshjemmel" : "skjermingsheimlar"
+"Skjerming" --> "0..1" "Skjermingshjemmel" : "skjermingshjemmel"(i)
+class "Klasse" [[{Ein klasse i eit klassifikasjonssystem.}]] {
+    {field} klasseId : string  
+    {field} rekkefoelge : integer  
+    {field} tittel : string  
+}
+class "Korrespondansepart" [[{Verksemd eller person som arkivskapar mottek eller sender arkivdokument til.}]] {
+    {field} foedselsnummer : string  
+    {field} kontaktperson_str : string  
+    {field} korrespondansepartNavn : string  
+    {field} orgnummer : string  
+}
+abstract "Mappe" [[{Abstrakt basisklasse for alle mappetypar. Grupperer dokument som høyrer saman.}]] {
+    {field} id : uriorcurie  
+    {field} avsluttetDato : datetime  
+    {field} beskrivelse : string  
+    {field} noekkelord : string  [0..*]
+    {field} offentligTittel : string  
+    {field} opprettetDato : datetime  
+    {field} tittel : string  
+}
+"Dokumentbeskrivelse" *--> "0..1" "Skjerming" : "skjerming"
+"Klasse" *--> "0..1" "Skjerming" : "skjerming"
+"Korrespondansepart" *--> "0..1" "Skjerming" : "skjerming"
+"Mappe" *--> "0..1" "Skjerming" : "skjerming"
+"Registrering" *--> "0..1" "Skjerming" : "skjerming"
+"Mappe" *--> "0..1" "Skjerming" : "skjerming"(i)
+"Registrering" *--> "0..1" "Skjerming" : "skjerming"(i)
+"Dokumentbeskrivelse" *--> "0..1" "Skjerming" : "skjerming"(i)
+"Klasse" *--> "0..1" "Skjerming" : "skjerming"(i)
+"Korrespondansepart" *--> "0..1" "Skjerming" : "skjerming"(i)
+class "Saksstatus" [[{Status til saksmappa.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Saksstatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Saksmappe" --> "1" "Saksstatus" : "saksstatus"
+"ArkivContainer" *--> "0..*" "Saksstatus" : "sakstatuskodar"
+"Saksmappe" --> "0..1" "Saksstatus" : "saksstatus"(i)
+class "Saksmappetype" [[{Type saksmappe — differensierer innhald og behandlingsrutine.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Saksmappetype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Saksmappe" --> "0..1" "Saksmappetype" : "saksmappetype"
+"ArkivContainer" *--> "0..*" "Saksmappetype" : "saksmappetypar"
+"Saksmappe" --> "0..1" "Saksmappetype" : "saksmappetype"(i)
+class "Journalpost" [[{Ein journalpost (inn- eller utgåande dokument, notat o.l.) i ei saksmappe.}]] {
+    {field} antallVedlegg : integer  
+    {field} dokumentetsDato : datetime  
+    {field} forfallsDato : datetime  
+    {field} journalAr : string  
+    {field} journalDato : datetime  
+    {field} journalPostnummer : integer  
+    {field} journalSekvensnummer : integer  
+    {field} mottattDato : datetime  
+    {field} offentlighetsvurdertDato : datetime  
+    {field} sendtDato : datetime  
+    {field} id(i) : uriorcurie  
+    {field} arkivertDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} forfatter(i) : string  [0..*]
+    {field} nokkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} referanseArkivDel(i) : string  [0..*]
+    {field} registreringsId(i) : string  
+    {field} tittel(i) : string  
+}
+class "TilskuddFredaBygningPrivatEie" [[{Sak om søknad om tilskudd til freda bygningar i privat eige (FRIP).}]] {
+    {field} bygningsnavn : string  
+    {field} kulturminneId : string  
+    {field} saksaar(i) : string  
+    {field} saksdato(i) : datetime  
+    {field} sakssekvensnummer(i) : string  
+    {field} utlaantDato(i) : datetime  
+    {field} id(i) : uriorcurie  
+    {field} avsluttetDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} noekkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} tittel(i) : string  
+}
+class "TilskuddFartoy" [[{Sak om søknad om tilskudd til freda fartøy.}]] {
+    {field} fartoyNavn : string  
+    {field} kallesignal : string  
+    {field} kulturminneId : string  
+    {field} saksaar(i) : string  
+    {field} saksdato(i) : datetime  
+    {field} sakssekvensnummer(i) : string  
+    {field} utlaantDato(i) : datetime  
+    {field} id(i) : uriorcurie  
+    {field} avsluttetDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} noekkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} tittel(i) : string  
+}
+class "SoeknadDrosjeloeyve" [[{Sak om søknad om løyve til å køyre drosje.}]] {
+    {field} organisasjonsnavn : string  
+    {field} orgnummer : string  
+    {field} saksaar(i) : string  
+    {field} saksdato(i) : datetime  
+    {field} sakssekvensnummer(i) : string  
+    {field} utlaantDato(i) : datetime  
+    {field} id(i) : uriorcurie  
+    {field} avsluttetDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} noekkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} tittel(i) : string  
+}
+class "Sak" [[{Generisk saksmappe (konkret Sak i Noark).}]] {
+    {field} saksaar(i) : string  
+    {field} saksdato(i) : datetime  
+    {field} sakssekvensnummer(i) : string  
+    {field} utlaantDato(i) : datetime  
+    {field} id(i) : uriorcurie  
+    {field} avsluttetDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} noekkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} tittel(i) : string  
+}
+class "Personalmappe" [[{Saksmappe med opplysningar om ein arbeidstakars arbeidsforhold.}]] {
+    {field} leder : uriorcurie  
+    {field} arbeidssted : uriorcurie  
+    {field} personalressurs : uriorcurie  
+    {field} saksaar(i) : string  
+    {field} saksdato(i) : datetime  
+    {field} sakssekvensnummer(i) : string  
+    {field} utlaantDato(i) : datetime  
+    {field} id(i) : uriorcurie  
+    {field} avsluttetDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} noekkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} tittel(i) : string  
+}
+class "DispensasjonAutomatiskFredaKulturminne" [[{Sak om søknad om dispensasjon for tiltak på automatisk freda kulturminne.}]] {
+    {field} kulturminneId : string  
+    {field} tiltak : string  
+    {field} saksaar(i) : string  
+    {field} saksdato(i) : datetime  
+    {field} sakssekvensnummer(i) : string  
+    {field} utlaantDato(i) : datetime  
+    {field} id(i) : uriorcurie  
+    {field} avsluttetDato(i) : datetime  
+    {field} beskrivelse(i) : string  
+    {field} noekkelord(i) : string  [0..*]
+    {field} offentligTittel(i) : string  
+    {field} opprettetDato(i) : datetime  
+    {field} tittel(i) : string  
+}
+"Saksmappe" --> "1" "Arkivressurs" : "saksansvarlig"
+"Saksmappe" --> "1" "AdministrativEnhet" : "administrativEnhet"
+"Saksmappe" --> "0..1" "AdministrativEnhet" : "journalenhet"
+"Saksmappe" --> "0..*" "Journalpost" : "journalpost"
+"Saksmappe" ^-- "TilskuddFredaBygningPrivatEie"
+"Saksmappe" ^-- "TilskuddFartoy"
+"Saksmappe" ^-- "SoeknadDrosjeloeyve"
+"Saksmappe" ^-- "Sak"
+"Saksmappe" ^-- "Personalmappe"
+"Saksmappe" ^-- "DispensasjonAutomatiskFredaKulturminne"
+"Mappe" ^-- "Saksmappe"
+class "Matrikkelnummer" [[{Eintydleg identifisering av matrikkeleining innanfor kommune.}]] {
+    {field} bruksnummer : string  
+    {field} festenummer : string  
+    {field} gaardsnummer : string  
+    {field} seksjonsnummer : string  
+}
+"TilskuddFredaBygningPrivatEie" *--> "0..1" "Identifikator" : "soeknadsnummer"
+"TilskuddFredaBygningPrivatEie" *--> "0..1" "Matrikkelnummer" : "matrikkelnummer"
+"ArkivContainer" *--> "0..*" "TilskuddFredaBygningPrivatEie" : "tilskuddFredaBygningPrivatEie_liste"
+"TilskuddFartoy" *--> "1" "Identifikator" : "soeknadsnummer"
+"ArkivContainer" *--> "0..*" "TilskuddFartoy" : "tilskuddFartoy_liste"
+"ArkivContainer" *--> "0..*" "SoeknadDrosjeloeyve" : "soeknadDrosjeloeyve_liste"
+"ArkivContainer" *--> "0..*" "Sak" : "sakar"
+"Rolle" *--> "0..1" "Periode" : "gyldighetsperiode"
+"ArkivContainer" *--> "0..*" "Rolle" : "rollar"
+"Tilgang" --> "0..1" "Rolle" : "rolle"(i)
+class "Part" [[{Part til Mappe, Registrering eller Dokumentbeskrivelse.}]] {
+    {field} foedselsnummer : string  
+    {field} kontaktperson_str : string  
+    {field} orgnummer : string  
+    {field} partNavn : string  
+}
+class "Merknad" [[{Merknad knytt til mappe, registrering eller dokumentbeskrivelse.}]] {
+    {field} merknadsdato : datetime  
+    {field} merknadstekst : string  
+}
+"Registrering" --> "1" "Arkivressurs" : "opprettetAv"
+"Registrering" --> "1" "Arkivressurs" : "arkivertAv"
+"Registrering" --> "0..1" "Arkivressurs" : "saksbehandler"
+"Registrering" --> "0..1" "Arkivdel" : "arkivdel"
+"Registrering" --> "0..1" "AdministrativEnhet" : "administrativEnhet"
+"Registrering" *--> "0..*" "Part" : "part"
+"Registrering" *--> "0..*" "Merknad" : "merknad"
+"Registrering" *--> "0..*" "Korrespondansepart" : "korrespondansepart"
+"Registrering" *--> "0..1" "Klasse" : "klasse"
+"Registrering" --> "0..*" "Dokumentbeskrivelse" : "dokumentbeskrivelse"
+"Registrering" ^-- "Journalpost"
+class "Kontaktperson" [[{Kontaktperson (pårørande) til ein person.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Personnavn" [[{Namn på ein person.}]] {
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+class "Person" [[{Fysiske private personar.}]] {
+    {field} id : uriorcurie  
+    {field} bilde : string  
+    {field} fodselsdato : date  
+    {field} laerling : uriorcurie  [0..*]
+    {field} otungdom : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"
+"Person" *--> "1" "Personnavn" : "person_navn"
+"Personalmappe" *--> "1" "Personnavn" : "personnavn"
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"(i)
+"Person" *--> "0..1" "Personnavn" : "person_navn"(i)
+"Personalmappe" *--> "0..1" "Personnavn" : "personnavn"(i)
+"Personalmappe" --> "1" "Person" : "person"
+"ArkivContainer" *--> "0..*" "Personalmappe" : "personalmappe_liste"
+class "Elev" [[{Ein elev registrert i skulesystemet.}]] {
+    {field} id : uriorcurie  
+}
+class "Spraak" [[{Verdiar for språk (2 bokstavar).}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kjonn" [[{Verdiar for kjønn basert på ISO/IEC 5218.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kommune" [[{Liste over Norges kommunar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Landkode" [[{Landskode i ISO 3166-1 alpha-2 format.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Adresse" [[{Fysisk adresse eller postadresse.}]] {
+    {field} adresselinje : string  [0..*]
+    {field} postnummer : string  
+    {field} poststed : string  
+}
+abstract "Aktoer" [[{Abstrakt base for person eller eining vi samhandlar med.}]] {
+
+}
+"Person" --> "0..1" "Elev" : "elev"
+"Person" --> "0..1" "Spraak" : "morsmaal"
+"Person" --> "0..1" "Spraak" : "maalform"
+"Person" --> "0..*" "Person" : "foreldre"
+"Person" --> "0..*" "Person" : "foreldreansvar"
+"Person" --> "0..1" "Kjonn" : "kjonn"
+"Person" --> "0..1" "Kommune" : "kommune"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"
+"Person" --> "0..*" "Kontaktperson" : "parorende"
+"Person" *--> "1" "Identifikator" : "fodselsnummer"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"
+"Elev" --> "0..1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"(i)
+"Personalmappe" --> "0..1" "Person" : "person"(i)
+"Elev" --> "0..1" "Person" : "person"(i)
+"Aktoer" ^-- "Person"
+abstract "Begrep" [[{Abstrakt fellesbase for alle FINT-kodeverk.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Person" --> "0..1" "Spraak" : "maalform"(i)
+"Person" --> "0..1" "Spraak" : "morsmaal"(i)
+"Begrep" ^-- "Spraak"
+class "DokumentStatus" [[{Status til eit dokument.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "DokumentType" [[{Type dokument.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Format" [[{Dokumentets filformat.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "JournalStatus" [[{Status til journalposten.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "JournalpostType" [[{Namn på type journalpost.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Klassifikasjonstype" [[{Type klassifikasjonssystem.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "KorrespondansepartType" [[{Type korrespondansepart.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Merknadstype" [[{Namn på type merknad.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "PartRolle" [[{Rolla til ein part.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"AdministrativEnhet" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"
+"DokumentStatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"DokumentType" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Format" *--> "0..1" "Periode" : "gyldighetsperiode"
+"JournalStatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"JournalpostType" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Klassifikasjonstype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"KorrespondansepartType" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Merknadstype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"PartRolle" *--> "0..1" "Periode" : "gyldighetsperiode"
+"AdministrativEnhet" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"DokumentStatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"DokumentType" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Format" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"JournalpostType" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"JournalStatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Klassifikasjonstype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"KorrespondansepartType" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Merknadstype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"PartRolle" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Rolle" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Saksmappetype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Saksstatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Skjermingshjemmel" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Tilgangsgruppe" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Tilgangsrestriksjon" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"TilknyttetRegistreringSom" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Variantformat" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Identifikator" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Part" --> "0..1" "PartRolle" : "partRolle"
+"ArkivContainer" *--> "0..*" "PartRolle" : "partRollar"
+"Part" --> "0..1" "PartRolle" : "partRolle"(i)
+class "Kontaktinformasjon" [[{Informasjon som kan brukast for å oppnå kontakt.}]] {
+    {field} epostadresse : string  
+    {field} mobiltelefonnummer : string  
+    {field} nettsted : string  
+    {field} sip : string  
+    {field} telefonnummer : string  
+}
+"Part" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Part" *--> "0..1" "Adresse" : "adresse"
+"Dokumentbeskrivelse" *--> "0..*" "Part" : "part"
+"Mappe" *--> "0..*" "Part" : "part"
+"Mappe" *--> "0..*" "Part" : "part"(i)
+"Registrering" *--> "0..*" "Part" : "part"(i)
+"Dokumentbeskrivelse" *--> "0..*" "Part" : "part"(i)
+"Merknad" --> "1" "Merknadstype" : "merknadstype"
+"ArkivContainer" *--> "0..*" "Merknadstype" : "merknadstypar"
+"Merknad" --> "0..1" "Merknadstype" : "merknadstype"(i)
+"Merknad" --> "1" "Arkivressurs" : "merknadRegistrertAv"
+"Mappe" *--> "0..*" "Merknad" : "merknad"
+"Mappe" *--> "0..*" "Merknad" : "merknad"(i)
+"Registrering" *--> "0..*" "Merknad" : "merknad"(i)
+"Matrikkelnummer" --> "0..1" "Kommune" : "kommunenummer"
+"Matrikkelnummer" *--> "0..1" "Adresse" : "adresse"
+"DispensasjonAutomatiskFredaKulturminne" *--> "1" "Matrikkelnummer" : "matrikkelnummer"
+"DispensasjonAutomatiskFredaKulturminne" *--> "0..1" "Matrikkelnummer" : "matrikkelnummer"(i)
+"TilskuddFredaBygningPrivatEie" *--> "0..1" "Matrikkelnummer" : "matrikkelnummer"(i)
+"Mappe" --> "1" "Arkivressurs" : "opprettetAv"
+"Mappe" --> "0..1" "Arkivressurs" : "avsluttetAv"
+"Mappe" --> "0..1" "Arkivdel" : "arkivdel"
+"Mappe" *--> "0..1" "Identifikator" : "mappeId"
+"Mappe" *--> "0..*" "Klasse" : "klasse"
+"Adresse" --> "0..1" "Landkode" : "land"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"(i)
+"Begrep" ^-- "Landkode"
+"Korrespondansepart" --> "1" "KorrespondansepartType" : "korrespondanseparttype"
+"ArkivContainer" *--> "0..*" "KorrespondansepartType" : "korrespondanseparttypar"
+"Korrespondansepart" --> "0..1" "KorrespondansepartType" : "korrespondanseparttype"(i)
+"Korrespondansepart" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Korrespondansepart" *--> "0..1" "Adresse" : "adresse"
+"Registrering" *--> "0..*" "Korrespondansepart" : "korrespondansepart"(i)
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Person" --> "0..*" "Kontaktperson" : "parorende"(i)
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Korrespondansepart" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Part" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+class "Fylke" [[{Liste over Norges fylker.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Kommune" --> "1" "Fylke" : "fylke"
+"Fylke" --> "0..*" "Kommune" : "kommune"
+"Fylke" --> "0..1" "Kommune" : "kommune"(i)
+"Person" --> "0..1" "Kommune" : "kommune"(i)
+"Begrep" ^-- "Kommune"
+class "Klassifikasjonssystem" [[{Overordna struktur for mappene i ein eller fleire arkivdelar.}]] {
+    {field} id : uriorcurie  
+    {field} avsluttetAvNavn : string  
+    {field} avsluttetDato : datetime  
+    {field} beskrivelse : string  
+    {field} opprettetAvNavn : string  
+    {field} opprettetDato : datetime  
+    {field} tittel : string  
+}
+"Klassifikasjonssystem" --> "0..1" "Klassifikasjonstype" : "klassifikasjonstype"
+"ArkivContainer" *--> "0..*" "Klassifikasjonstype" : "klassifikasjonstypar"
+"Klassifikasjonssystem" --> "0..1" "Klassifikasjonstype" : "klassifikasjonstype"(i)
+"Klassifikasjonssystem" --> "1..*" "Arkivdel" : "arkivdel"
+"Klassifikasjonssystem" *--> "1..*" "Klasse" : "klasse"
+"ArkivContainer" *--> "0..*" "Klassifikasjonssystem" : "klassifikasjonssystem"(i)
+"Arkivdel" --> "0..*" "Klassifikasjonssystem" : "klassifikasjonssystem"
+"Klasse" --> "1" "Klassifikasjonssystem" : "klassifikasjonssystem"
+"ArkivContainer" --> "0..1" "Klassifikasjonssystem" : "klassifikasjonssystem"
+"Arkivdel" --> "0..1" "Klassifikasjonssystem" : "klassifikasjonssystem"(i)
+"Klasse" --> "0..1" "Klassifikasjonssystem" : "klassifikasjonssystem"(i)
+"Mappe" *--> "0..1" "Klasse" : "klasse"(i)
+"Registrering" *--> "0..1" "Klasse" : "klasse"(i)
+"Klassifikasjonssystem" *--> "0..1" "Klasse" : "klasse"(i)
+"Person" --> "0..1" "Kjonn" : "kjonn"(i)
+"Begrep" ^-- "Kjonn"
+"Journalpost" --> "1" "JournalpostType" : "journalposttype"
+"ArkivContainer" *--> "0..*" "JournalpostType" : "journalposttypar"
+"Journalpost" --> "0..1" "JournalpostType" : "journalposttype"(i)
+class "Avskrivning" [[{Avskriving av ein journalpost (markering som ferdigbehandla).}]] {
+    {field} avskrevetAv : string  
+    {field} avskrivningsdato : datetime  
+    {field} avskrivningsmate : string  
+}
+"Journalpost" --> "0..1" "AdministrativEnhet" : "journalenhet"
+"Journalpost" --> "1" "JournalStatus" : "journalstatus"
+"Journalpost" *--> "0..1" "Avskrivning" : "avskrivning"
+"ArkivContainer" *--> "0..*" "Journalpost" : "journalpostar"
+"Saksmappe" --> "0..*" "Journalpost" : "journalpost"(i)
+"ArkivContainer" *--> "0..*" "JournalStatus" : "journalstatuskodar"
+"Journalpost" --> "0..1" "JournalStatus" : "journalstatus"(i)
+abstract "Enhet" [[{Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.}]] {
+    {field} organisasjonsnavn : string  
+}
+class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenester.}]] {
+    {field} id : uriorcurie  
+    {field} laerling : uriorcurie  [0..*]
+    {field} organisasjonsnavn(i) : string  
+}
+"Arkivressurs" *--> "0..1" "Identifikator" : "kildesystemId"
+"DispensasjonAutomatiskFredaKulturminne" *--> "1" "Identifikator" : "soeknadsnummer"
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Virksomhet" *--> "1" "Identifikator" : "virksomhetsId"
+"Valuta" *--> "0..1" "Identifikator" : "bokstavkode"(i)
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"(i)
+"Person" *--> "0..1" "Identifikator" : "fodselsnummer"(i)
+"Arkivressurs" *--> "0..1" "Identifikator" : "kildesystemId"(i)
+"Mappe" *--> "0..1" "Identifikator" : "mappeId"(i)
+"Valuta" *--> "0..1" "Identifikator" : "nummerkode"(i)
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"DispensasjonAutomatiskFredaKulturminne" *--> "0..1" "Identifikator" : "soeknadsnummer"(i)
+"TilskuddFartoy" *--> "0..1" "Identifikator" : "soeknadsnummer"(i)
+"TilskuddFredaBygningPrivatEie" *--> "0..1" "Identifikator" : "soeknadsnummer"(i)
+"Virksomhet" *--> "0..1" "Identifikator" : "virksomhetsId"(i)
+"Enhet" ^-- "Virksomhet"
+"Kommune" --> "0..1" "Fylke" : "fylke"(i)
+"Begrep" ^-- "Fylke"
+"Dokumentobjekt" --> "0..1" "Format" : "filformat"
+"ArkivContainer" *--> "0..*" "Format" : "formatar"
+"Dokumentobjekt" --> "0..1" "Format" : "filformat"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"
+"Aktoer" ^-- "Enhet"
+"Person" --> "0..1" "Elev" : "elev"(i)
+class "Dokumentfil" [[{Sjølve dokumentfila med data og metadata.}]] {
+    {field} id : uriorcurie  
+    {field} data : string  
+    {field} filnavn : string  
+    {field} format : string  
+}
+"Dokumentobjekt" --> "0..1" "Dokumentfil" : "referanseDokumentfil"
+"Dokumentobjekt" --> "1" "Arkivressurs" : "opprettetAv"
+"Dokumentbeskrivelse" *--> "0..*" "Dokumentobjekt" : "dokumentobjekt"
+"Dokumentbeskrivelse" *--> "0..*" "Dokumentobjekt" : "dokumentobjekt"(i)
+"ArkivContainer" *--> "0..*" "Dokumentfil" : "dokumentfiler"
+"Dokumentobjekt" --> "0..1" "Dokumentfil" : "referanseDokumentfil"(i)
+"Dokumentbeskrivelse" --> "1" "Arkivressurs" : "opprettetAv"
+"Dokumentbeskrivelse" --> "1" "Arkivressurs" : "tilknyttetAv"
+"Dokumentbeskrivelse" --> "1" "DokumentType" : "dokumentType"
+"Dokumentbeskrivelse" --> "1" "DokumentStatus" : "dokumentstatus"
+"ArkivContainer" *--> "0..*" "Dokumentbeskrivelse" : "dokumentbeskrivelsar"
+"Registrering" --> "0..*" "Dokumentbeskrivelse" : "dokumentbeskrivelse"(i)
+"ArkivContainer" *--> "0..*" "DokumentType" : "dokumenttypar"
+"Dokumentbeskrivelse" --> "0..1" "DokumentType" : "dokumentType"(i)
+"ArkivContainer" *--> "0..*" "DokumentStatus" : "dokumentstatuskodar"
+"Dokumentbeskrivelse" --> "0..1" "DokumentStatus" : "dokumentstatus"(i)
+"ArkivContainer" *--> "0..*" "DispensasjonAutomatiskFredaKulturminne" : "dispensasjonAutomatiskFredaKulturminne_liste"
+"Journalpost" *--> "0..1" "Avskrivning" : "avskrivning"(i)
+"Autorisasjon" --> "0..*" "Arkivressurs" : "arkivressurs"
+"Autorisasjon" --> "0..*" "AdministrativEnhet" : "administrativenhet"
+"Arkivressurs" --> "0..*" "Autorisasjon" : "autorisasjon"
+"ArkivContainer" *--> "0..*" "Autorisasjon" : "autorisasjonar"
+"Arkivressurs" --> "0..*" "Autorisasjon" : "autorisasjon"(i)
+"ArkivContainer" *--> "0..*" "Arkivressurs" : "arkivressursar"
+"Registrering" --> "0..1" "Arkivressurs" : "arkivertAv"(i)
+"Autorisasjon" --> "0..*" "Arkivressurs" : "arkivressurs"(i)
+"Tilgang" --> "0..*" "Arkivressurs" : "arkivressurs"(i)
+"Mappe" --> "0..1" "Arkivressurs" : "avsluttetAv"(i)
+"Merknad" --> "0..1" "Arkivressurs" : "merknadRegistrertAv"(i)
+"Mappe" --> "0..1" "Arkivressurs" : "opprettetAv"(i)
+"Registrering" --> "0..1" "Arkivressurs" : "opprettetAv"(i)
+"Dokumentbeskrivelse" --> "0..1" "Arkivressurs" : "opprettetAv"(i)
+"Dokumentobjekt" --> "0..1" "Arkivressurs" : "opprettetAv"(i)
+"Saksmappe" --> "0..1" "Arkivressurs" : "saksansvarlig"(i)
+"Registrering" --> "0..1" "Arkivressurs" : "saksbehandler"(i)
+"Dokumentbeskrivelse" --> "0..1" "Arkivressurs" : "tilknyttetAv"(i)
+"ArkivContainer" *--> "0..*" "Arkivdel" : "arkivdelar"
+"Mappe" --> "0..1" "Arkivdel" : "arkivdel"(i)
+"Registrering" --> "0..1" "Arkivdel" : "arkivdel"(i)
+"Klassifikasjonssystem" --> "0..1" "Arkivdel" : "arkivdel"(i)
+"Tilgang" --> "0..1" "Arkivdel" : "arkivdel"(i)
+"ArkivContainer" *--> "0..*" "AdministrativEnhet" : "administrativeEiningar"
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"
+"Korrespondansepart" *--> "0..1" "Adresse" : "adresse"(i)
+"Part" *--> "0..1" "Adresse" : "adresse"(i)
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"(i)
+"Saksmappe" --> "0..1" "AdministrativEnhet" : "administrativEnhet"(i)
+"Registrering" --> "0..1" "AdministrativEnhet" : "administrativEnhet"(i)
+"Tilgang" --> "0..1" "AdministrativEnhet" : "administrativEnhet"(i)
+"Autorisasjon" --> "0..*" "AdministrativEnhet" : "administrativenhet"(i)
+"Saksmappe" --> "0..1" "AdministrativEnhet" : "journalenhet"(i)
+"Journalpost" --> "0..1" "AdministrativEnhet" : "journalenhet"(i)
+@enduml

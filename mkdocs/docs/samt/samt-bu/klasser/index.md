@@ -20,6 +20,8 @@ Name: skole_ontologi
 
 
 
+
+
 ### Andre
 
 | Class | Description |
@@ -43,41 +45,53 @@ Name: skole_ontologi
 
 | Slot | Description |
 | --- | --- |
-| [basisgrupper](basisgrupper.md) |  |
-| [brukertilbakemeldinger](brukertilbakemeldinger.md) |  |
-| [dataset_metadata](dataset_metadata.md) |  |
-| [datasettdistribusjoner](datasettdistribusjoner.md) |  |
+
+
+
+
+
 | [del_av_skole](del_av_skole.md) | Skolen basisgruppa tilhører |
-| [elever](elever.md) |  |
+
+
 | [enhetsleder_for](enhetsleder_for.md) | Enhet rektor er enhetsleder for |
-| [fylker](fylker.md) |  |
+
+
 | [fylkesnummer](fylkesnummer.md) | Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territ... |
-| [gjeldende_lovgivninger](gjeldende_lovgivninger.md) |  |
-| [grupper](grupper.md) |  |
+
+
+
 | [har_saerlig_ansvar_for](har_saerlig_ansvar_for.md) | Elev kontaktlæreren har særlig ansvar for |
+
 | [har_skoleeier](har_skoleeier.md) | Skoleeier for skolen |
+
 | [horer_til_basisgruppe](horer_til_basisgruppe.md) | Basisgruppe elev tilhører |
-| [id](id.md) |  |
+
+
 | [jobber_paa_skole](jobber_paa_skole.md) | Skolen kontaktlæreren jobber på |
+
 | [kommunenummer](kommunenummer.md) | Kommunenummer er en nummerrekke som identifiserer kommuner eller kommunefrie ... |
-| [kommuner](kommuner.md) |  |
-| [kontaktlaerere](kontaktlaerere.md) |  |
-| [kontaktpunkter](kontaktpunkter.md) |  |
-| [kvalitetsdimensjoner](kvalitetsdimensjoner.md) |  |
-| [kvalitetsmaalinger](kvalitetsmaalinger.md) |  |
-| [kvalitetsmerknader](kvalitetsmerknader.md) |  |
+
+
+
+
+
+
+
 | [navn](navn.md) | Namn på ressursen |
-| [organisasjoner](organisasjoner.md) |  |
+
+
 | [organisasjonsnummer](organisasjonsnummer.md) | Organisasjonsnummer er i Norge et ni-sifret registreringsnummer som tildeles ... |
-| [private_virksomheter](private_virksomheter.md) |  |
-| [rektorer](rektorer.md) |  |
-| [skoler](skoler.md) |  |
-| [standarder](standarder.md) |  |
-| [tekstdeler](tekstdeler.md) |  |
-| [tidsromer](tidsromer.md) |  |
+
+
+
+
+
+
+
 | [tilknyttet_basisgruppe](tilknyttet_basisgruppe.md) | Basisgruppe kontaktlærer er tilknyttet |
+
 | [trinniva](trinniva.md) | Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år |
-| [utgivere](utgivere.md) |  |
+
 
 
 ## Enumerations

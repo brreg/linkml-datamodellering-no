@@ -7,12 +7,12 @@
 <https://data.norge.no/linkml/register-over-aksjeeiere/register-over-aksjeeiere> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Aksje- og eigarskapsmodell" ;
-    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "http://schema.org/"^^xsd:anyURI ;
+            sh:prefix "schema" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
             sh:prefix "linkml" ],
         [ sh:namespace "https://example.no/ontology/aksje#"^^xsd:anyURI ;
-            sh:prefix "aksje" ],
-        [ sh:namespace "http://schema.org/"^^xsd:anyURI ;
-            sh:prefix "schema" ] ;
+            sh:prefix "aksje" ] ;
     linkml:classes <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje>,
         <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier>,
         <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer>,
@@ -36,7 +36,7 @@
     linkml:default_range <https://data.norge.no/linkml/register-over-aksjeeiere/string> ;
     linkml:description """LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
 """ ;
-    linkml:generation_date "2026-05-23T14:09:18"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-24T12:08:03"^^xsd:dateTime ;
     linkml:id "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;

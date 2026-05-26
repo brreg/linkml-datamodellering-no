@@ -1,0 +1,1080 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Vitnemalsmerknad" [[{Merknad på vitnemål.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Periode" [[{Tidsperiode med obligatorisk start og valfri slutt.}]] {
+    {field} beskrivelse : string  
+    {field} start : datetime  
+    {field} slutt : datetime  
+}
+class "Elevvurdering" [[{Samling av alle vurderingar for ein elev i eit elevforhold.}]] {
+    {field} id : uriorcurie  
+}
+class "UtdanningContainer" [[{Rotcontainer for FINT Utdanning-instansar.}]] {
+
+}
+"Vitnemalsmerknad" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Elevvurdering" --> "0..1" "Vitnemalsmerknad" : "vitnemalsmerknad"
+"UtdanningContainer" *--> "0..*" "Vitnemalsmerknad" : "vitnemalsmerknad"(i)
+"UtdanningContainer" --> "0..1" "Vitnemalsmerknad" : "vitnemalsmerknad"
+"Elevvurdering" --> "0..1" "Vitnemalsmerknad" : "vitnemalsmerknad"(i)
+class "Varseltype" [[{Type varsel knytt til ein elev.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Varsel" [[{Eit varsel knytt til ein elev i ei faggruppe.}]] {
+    {field} id : uriorcurie  
+    {field} fravarsprosent : integer  
+    {field} sendt : date  
+    {field} tekst : string  
+}
+"Varseltype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Varsel" --> "0..1" "Varseltype" : "type"
+"UtdanningContainer" *--> "0..*" "Varseltype" : "varseltypar"
+class "Faggruppemedlemskap" [[{Eit elevs medlemskap i ei faggruppe.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Skoleressurs" [[{Ein lærar eller anna tilsett ved ein skule.}]] {
+    {field} id : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+"Varsel" --> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"
+"Varsel" --> "0..1" "Skoleressurs" : "karakteransvarlig"
+"Varsel" --> "0..1" "Skoleressurs" : "utsteder"
+"Faggruppemedlemskap" --> "0..*" "Varsel" : "varsel"
+"UtdanningContainer" *--> "0..*" "Varsel" : "varsel"(i)
+"UtdanningContainer" --> "0..*" "Varsel" : "varsel"
+"Faggruppemedlemskap" --> "0..*" "Varsel" : "varsel"(i)
+class "Valuta" [[{Valutakodar for offisielle valutaer.}]] {
+    {field} id : uriorcurie  
+    {field} valuta_navn : string  
+}
+class "Identifikator" [[{Unik identifikasjon til eit objekt.}]] {
+    {field} identifikatorverdi : string  
+}
+"Valuta" *--> "1" "Identifikator" : "nummerkode"
+"Valuta" *--> "1" "Identifikator" : "bokstavkode"
+abstract "Utdanningsforhold" [[{Abstrakt basisklasse for undervisningsforhold i utdanning.}]] {
+    {field} id : uriorcurie  
+    {field} beskrivelse : string  
+}
+class "Undervisningsforhold" [[{Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar.}]] {
+    {field} arbeidsforhold : uriorcurie  
+    {field} id(i) : uriorcurie  
+    {field} beskrivelse(i) : string  
+}
+"Utdanningsforhold" ^-- "Undervisningsforhold"
+class "Termin" [[{Ein skuleterm (t.d. Haust, Vår) — kodeverk.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Skoleeiertype" [[{Type skuleeigartilknyting.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Provestatus" [[{Status for ei lærlingprøve.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "OtStatus" [[{Status for ein ungdom i oppfølgingstenesta.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} beskrivelse : string  
+    {field} type : string  
+    {field} passiv : boolean  
+}
+class "OtEnhet" [[{Eining i oppfølgingstenesta (OT).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Karakterverdi" [[{Ein konkret karakterverdi i ei karakterskala.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Karakterskala" [[{Skala for karaktersetjing (t.d. 1-6, Bestått/Ikkje bestått).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+    {field} vigoreferanse : uriorcurie  
+}
+class "Fullfortkode" [[{Kode for fullførtresultat av lærling.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Fravartype" [[{Type fråvær (t.d. Udokumentert, Dokumentert).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Fagmerknad" [[{Merknad knytt til eit fag i ei faggruppe.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Elevkategori" [[{Kategori for eit elevforhold (t.d. Ordinær, Privatist, Voksen).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Eksamensform" [[{Form for gjennomføring av eksamen.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Brevtype" [[{Type brev knytt til lærlingprøve.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Bevistype" [[{Type kompetansebevis for lærling.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Avbruddsaarsak" [[{Årsak til avbrot frå opplæring.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "OtUngdom" [[{Eit ungdomsobjekt i oppfølgingstenesta (OT).}]] {
+    {field} id : uriorcurie  
+}
+class "Laerling" [[{Ein lærling i yrkesopplæring.}]] {
+    {field} id : uriorcurie  
+    {field} kontraktstype : string  
+    {field} bedrift : uriorcurie  
+}
+class "AvlagtProve" [[{Ei avlagt prøve for ein lærling.}]] {
+    {field} id : uriorcurie  
+    {field} provedato : date  
+    {field} laerling : uriorcurie  [1..*]
+}
+class "Tilrettelegging" [[{Type tilrettelegging for elevar (t.d. Utvida tid).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Skoleaar" [[{Eit skoleår (t.d. 2024/2025).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Karakterstatus" [[{Status for ein karakter (t.d. Fråvær, Friteke).}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Fagstatus" [[{Status for eit fag i eit faggruppemedlemskap.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Betalingsstatus" [[{Betalingsstatus for eksamensavgift.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Underveisordensvurdering" [[{Underveisordensvurdering for ein elev.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kommentar(i) : string  
+    {field} vurderingsdato(i) : datetime  
+}
+class "Underveisfagvurdering" [[{Underveisfagvurdering for ein elev.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kommentar(i) : string  
+    {field} vurderingsdato(i) : datetime  
+}
+class "Sluttordensvurdering" [[{Sluttordensvurdering for ein elev.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kommentar(i) : string  
+    {field} vurderingsdato(i) : datetime  
+}
+class "Sluttfagvurdering" [[{Sluttkarakter i eit fag.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kommentar(i) : string  
+    {field} vurderingsdato(i) : datetime  
+}
+class "Sensor" [[{Ein sensor for ein eksamen.}]] {
+    {field} id : uriorcurie  
+    {field} aktiv : boolean  
+    {field} sensornummer : integer  
+}
+class "Karakterhistorie" [[{Historikk over endringar i ein karakter.}]] {
+    {field} id : uriorcurie  
+    {field} endretDato : datetime  
+}
+class "Halvaarsordensvurdering" [[{Halvårsordensvurdering for ein elev.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kommentar(i) : string  
+    {field} vurderingsdato(i) : datetime  
+}
+class "Halvaarsfagvurdering" [[{Halvårsvurdering i eit fag.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kommentar(i) : string  
+    {field} vurderingsdato(i) : datetime  
+}
+class "Fraversregistrering" [[{Ei enkelt fråversregistrering for ein elev.}]] {
+    {field} id : uriorcurie  
+    {field} forersPaaVitnemaal : boolean  
+    {field} kommentar : string  
+}
+class "Fravarsoversikt" [[{Oversikt over fråvær for ein elev i eit fag.}]] {
+    {field} id : uriorcurie  
+}
+class "Elevfravar" [[{Fråværsregistreringar for ein elev knytt til eit elevforhold.}]] {
+    {field} id : uriorcurie  
+}
+class "Eksamensvurdering" [[{Vurdering gjeven i samband med ein eksamen.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kommentar(i) : string  
+    {field} vurderingsdato(i) : datetime  
+}
+class "Eksamensgruppemedlemskap" [[{Eit elevs deltaking i ei eksamensgruppe.}]] {
+    {field} delegert : boolean  
+    {field} kandidatnummer : string  
+    {field} delegertTil : uriorcurie  
+    {field} foretrukketSkole : boolean  
+    {field} foretrukketSensor : boolean  
+    {field} id(i) : uriorcurie  
+}
+class "Eksamensgruppe" [[{Ei gruppe elevar som avlegg same eksamen.}]] {
+    {field} eksamensdato : datetime  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Anmerkninger" [[{Åtferds- og ordensanmerkningar for ein elev i eit skoleår.}]] {
+    {field} id : uriorcurie  
+    {field} atferd : integer  
+    {field} orden : integer  
+}
+class "Undervisningsgruppemedlemskap" [[{Eit elevs medlemskap i ei undervisningsgruppe.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Undervisningsgruppe" [[{Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag.}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Time" [[{Ein time i timeplanen.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} beskrivelse : string  
+}
+class "Rom" [[{Eit rom eller lokale ved ein skule.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+}
+class "Faggruppe" [[{Ei gruppe elevar knytt til eit fag på ein skule.}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Fag" [[{Eit skulefag.}]] {
+    {field} grepreferanse : uriorcurie  
+    {field} vigoreferanse : uriorcurie  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Eksamen" [[{Ein eksamen knytt til ei eksamensgruppe.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} beskrivelse : string  
+    {field} oppmoetetidspunkt : datetime  
+}
+class "Utdanningsprogram" [[{Eit utdanningsprogram (t.d. Elektrofag, Studiespesialisering).}]] {
+    {field} grepreferanse : uriorcurie  
+    {field} vigoreferanse : uriorcurie  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Programomrademedlemskap" [[{Eit elevs tilknyting til eit programområde.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Programomrade" [[{Eit programområde innanfor eit utdanningsprogram (t.d. Vg2 Elektrofaget).}]] {
+    {field} grepreferanse : uriorcurie  
+    {field} vigoreferanse : uriorcurie  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Arstrinn" [[{Eit årstrinn i skulen (t.d. Vg1, Vg2, Vg3).}]] {
+    {field} vigoreferanse : uriorcurie  
+    {field} grepreferanse : uriorcurie  
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Persongruppemedlemskap" [[{Eit elevs medlemskap i ei persongruppe.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Persongruppe" [[{Ei gruppe elevar definert for personlege føremål.}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Kontaktlaerergruppemedlemskap" [[{Eit elevs medlemskap i ei kontaktlærargruppe.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Kontaktlaerergruppe" [[{Gruppe av elevar med felles kontaktlærar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Klassemedlemskap" [[{Eit elevs medlemskap i ei klasse.}]] {
+    {field} id(i) : uriorcurie  
+}
+class "Klasse" [[{Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe).}]] {
+    {field} id(i) : uriorcurie  
+    {field} navn(i) : string  
+    {field} beskrivelse(i) : string  
+}
+class "Elevtilrettelegging" [[{Tilrettelegging for ein elev i eit elevforhold.}]] {
+    {field} id : uriorcurie  
+}
+class "Elevforhold" [[{Eit elevs tilknyting til ein skule og eit skoleår.}]] {
+    {field} id : uriorcurie  
+    {field} beskrivelse : string  
+    {field} avbruddsdato : date  
+    {field} tosprakligFagopplaering : boolean  
+}
+class "Skole" [[{Ein skule eller opplæringsinstitusjon.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} domenenavn : string  
+    {field} juridiskNavn : string  
+    {field} organisasjonsnavn : string  
+    {field} organisasjon : uriorcurie  
+    {field} vigoreferanse : uriorcurie  
+}
+class "Elev" [[{Ein elev registrert i skulesystemet.}]] {
+    {field} id : uriorcurie  
+}
+"UtdanningContainer" *--> "0..*" "Termin" : "terminar"
+"UtdanningContainer" *--> "0..*" "Skoleeiertype" : "skoleeijartypar"
+"UtdanningContainer" *--> "0..*" "Provestatus" : "provestatuser"
+"UtdanningContainer" *--> "0..*" "OtStatus" : "otStatus"
+"UtdanningContainer" *--> "0..*" "OtEnhet" : "otEnheter"
+"UtdanningContainer" *--> "0..*" "Karakterverdi" : "karakterverdiar"
+"UtdanningContainer" *--> "0..*" "Karakterskala" : "karakterskalaer"
+"UtdanningContainer" *--> "0..*" "Fullfortkode" : "fullfortkoder"
+"UtdanningContainer" *--> "0..*" "Fravartype" : "fravartypar"
+"UtdanningContainer" *--> "0..*" "Fagmerknad" : "fagmerknader"
+"UtdanningContainer" *--> "0..*" "Elevkategori" : "elevkategoriar"
+"UtdanningContainer" *--> "0..*" "Eksamensform" : "eksamensformer"
+"UtdanningContainer" *--> "0..*" "Brevtype" : "brevtypar"
+"UtdanningContainer" *--> "0..*" "Bevistype" : "bevistypar"
+"UtdanningContainer" *--> "0..*" "Avbruddsaarsak" : "avbruddsaarsaker"
+"UtdanningContainer" *--> "0..*" "OtUngdom" : "otUngdom"
+"UtdanningContainer" *--> "0..*" "Laerling" : "laerlingar"
+"UtdanningContainer" *--> "0..*" "AvlagtProve" : "avlagteprover"
+"UtdanningContainer" --> "0..1" "Tilrettelegging" : "tilrettelegging"
+"UtdanningContainer" --> "0..1" "Skoleaar" : "skoleaar"
+"UtdanningContainer" --> "0..1" "Karakterstatus" : "karakterstatus"
+"UtdanningContainer" --> "0..1" "Fagstatus" : "fagstatus"
+"UtdanningContainer" --> "0..1" "Betalingsstatus" : "betalingsstatus"
+"UtdanningContainer" --> "0..*" "Underveisordensvurdering" : "underveisordensvurdering"
+"UtdanningContainer" --> "0..*" "Underveisfagvurdering" : "underveisfagvurdering"
+"UtdanningContainer" --> "0..*" "Sluttordensvurdering" : "sluttordensvurdering"
+"UtdanningContainer" --> "0..*" "Sluttfagvurdering" : "sluttfagvurdering"
+"UtdanningContainer" --> "0..*" "Sensor" : "sensor"
+"UtdanningContainer" --> "0..*" "Karakterhistorie" : "karakterhistorie"
+"UtdanningContainer" --> "0..*" "Halvaarsordensvurdering" : "halvaarsordensvurdering"
+"UtdanningContainer" --> "0..*" "Halvaarsfagvurdering" : "halvaarsfagvurdering"
+"UtdanningContainer" --> "0..*" "Fraversregistrering" : "fraversregistrering"
+"UtdanningContainer" *--> "0..*" "Fravarsoversikt" : "fravarsoversikt"
+"UtdanningContainer" --> "0..1" "Elevvurdering" : "elevvurdering"
+"UtdanningContainer" --> "0..1" "Elevfravar" : "elevfravar"
+"UtdanningContainer" --> "0..*" "Eksamensvurdering" : "eksamensvurdering"
+"UtdanningContainer" --> "0..*" "Eksamensgruppemedlemskap" : "eksamensgruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Eksamensgruppe" : "eksamensgrupper"
+"UtdanningContainer" *--> "0..*" "Anmerkninger" : "anmerkningar"
+"UtdanningContainer" --> "0..*" "Undervisningsgruppemedlemskap" : "undervisningsgruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Undervisningsgruppe" : "undervisningsgrupper"
+"UtdanningContainer" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"
+"UtdanningContainer" *--> "0..*" "Time" : "timar"
+"UtdanningContainer" --> "0..1" "Rom" : "rom"
+"UtdanningContainer" --> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Faggruppe" : "faggrupper"
+"UtdanningContainer" --> "0..1" "Fag" : "fag"
+"UtdanningContainer" --> "0..1" "Eksamen" : "eksamen"
+"UtdanningContainer" --> "0..*" "Utdanningsprogram" : "utdanningsprogram"
+"UtdanningContainer" --> "0..*" "Programomrademedlemskap" : "programomrademedlemskap"
+"UtdanningContainer" *--> "0..*" "Programomrade" : "programomrader"
+"UtdanningContainer" *--> "0..*" "Arstrinn" : "arstrinn"
+"UtdanningContainer" --> "0..*" "Persongruppemedlemskap" : "persongruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Persongruppe" : "persongrupper"
+"UtdanningContainer" --> "0..*" "Kontaktlaerergruppemedlemskap" : "kontaktlaerergruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Kontaktlaerergruppe" : "kontaktlaerergrupper"
+"UtdanningContainer" --> "0..*" "Klassemedlemskap" : "klassemedlemskap"
+"UtdanningContainer" *--> "0..*" "Klasse" : "klasser"
+"UtdanningContainer" *--> "0..*" "Elevtilrettelegging" : "elevtilrettelegging"
+"UtdanningContainer" --> "0..1" "Elevforhold" : "elevforhold"
+"UtdanningContainer" *--> "0..*" "Skoleressurs" : "skoleressursar"
+"UtdanningContainer" *--> "0..*" "Skole" : "skolar"
+"UtdanningContainer" *--> "0..*" "Elev" : "elevar"
+abstract "Gruppe" [[{Abstrakt basisklasse for alle gruppetypar i utdanning.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} beskrivelse : string  
+}
+"Utdanningsprogram" --> "0..*" "Skole" : "skole"
+"Utdanningsprogram" --> "0..*" "Programomrade" : "programomrade"
+"Skole" --> "0..*" "Utdanningsprogram" : "utdanningsprogram"
+"UtdanningContainer" *--> "0..*" "Utdanningsprogram" : "utdanningsprogram"(i)
+"Skole" --> "0..*" "Utdanningsprogram" : "utdanningsprogram"(i)
+"Gruppe" ^-- "Utdanningsprogram"
+abstract "Gruppemedlemskap" [[{Abstrakt basisklasse for gruppemedlemskapar i utdanning.}]] {
+    {field} id : uriorcurie  
+}
+"Undervisningsgruppemedlemskap" --> "0..1" "Undervisningsgruppe" : "undervisningsgruppe"
+"Undervisningsgruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..*" "Undervisningsgruppemedlemskap" : "undervisningsgruppemedlemskap"
+"Undervisningsgruppe" --> "0..*" "Undervisningsgruppemedlemskap" : "gruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Undervisningsgruppemedlemskap" : "undervisningsgruppemedlemskap"(i)
+"Elevforhold" --> "0..*" "Undervisningsgruppemedlemskap" : "undervisningsgruppemedlemskap"(i)
+"Gruppemedlemskap" ^-- "Undervisningsgruppemedlemskap"
+"Undervisningsgruppe" --> "0..1" "Skoleaar" : "skoleaar"
+"Undervisningsgruppe" --> "0..1" "Skole" : "skole"
+"Undervisningsgruppe" --> "0..*" "Termin" : "termin"
+"Undervisningsgruppe" --> "0..*" "Time" : "skuletime"
+"Undervisningsgruppe" --> "1..*" "Fag" : "fag"
+"Undervisningsgruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"
+"Fag" --> "0..*" "Undervisningsgruppe" : "undervisningsgruppe"
+"Fraversregistrering" --> "1" "Undervisningsgruppe" : "undervisningsgruppe"
+"Time" --> "1..*" "Undervisningsgruppe" : "undervisningsgruppe"
+"Fag" --> "0..1" "Undervisningsgruppe" : "undervisningsgruppe"(i)
+"Time" --> "0..1" "Undervisningsgruppe" : "undervisningsgruppe"(i)
+"Undervisningsgruppemedlemskap" --> "0..1" "Undervisningsgruppe" : "undervisningsgruppe"(i)
+"Fraversregistrering" --> "0..1" "Undervisningsgruppe" : "undervisningsgruppe"(i)
+"Gruppe" ^-- "Undervisningsgruppe"
+"Undervisningsforhold" --> "0..*" "Eksamensgruppe" : "eksamensgruppe"
+"Undervisningsforhold" --> "0..*" "Time" : "skuletime"
+"Undervisningsforhold" --> "0..*" "Kontaktlaerergruppe" : "kontaktlaerergruppe"
+"Undervisningsforhold" --> "0..*" "Klasse" : "klasse"
+"Undervisningsforhold" --> "0..1" "Skoleressurs" : "skoleressurs"
+"Eksamensgruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"
+"Klasse" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"
+"Kontaktlaerergruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"
+"Persongruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"
+"Time" --> "1..*" "Undervisningsforhold" : "undervisningsforhold"
+"UtdanningContainer" *--> "0..*" "Undervisningsforhold" : "undervisningsforhold"(i)
+"Klasse" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"(i)
+"Kontaktlaerergruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"(i)
+"Persongruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"(i)
+"Time" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"(i)
+"Undervisningsgruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"(i)
+"Eksamensgruppe" --> "0..*" "Undervisningsforhold" : "undervisningsforhold"(i)
+abstract "OrdensvurderingAbstrakt" [[{Abstrakt basisklasse for ordensvurderingar.}]] {
+    {field} id : uriorcurie  
+    {field} kommentar : string  
+    {field} vurderingsdato : datetime  
+}
+"Underveisordensvurdering" --> "1" "Elevvurdering" : "elevvurdering"
+"Elevvurdering" --> "0..*" "Underveisordensvurdering" : "underveisordensvurdering"
+"UtdanningContainer" *--> "0..*" "Underveisordensvurdering" : "underveisordensvurdering"(i)
+"Elevvurdering" --> "0..*" "Underveisordensvurdering" : "underveisordensvurdering"(i)
+"OrdensvurderingAbstrakt" ^-- "Underveisordensvurdering"
+abstract "FagvurderingAbstrakt" [[{Abstrakt basisklasse for fagvurderingar.}]] {
+    {field} id : uriorcurie  
+    {field} kommentar : string  
+    {field} vurderingsdato : datetime  
+}
+"Underveisfagvurdering" --> "1" "Elevvurdering" : "elevvurdering"
+"Elevvurdering" --> "0..*" "Underveisfagvurdering" : "underveisfagvurdering"
+"UtdanningContainer" *--> "0..*" "Underveisfagvurdering" : "underveisfagvurdering"(i)
+"Elevvurdering" --> "0..*" "Underveisfagvurdering" : "underveisfagvurdering"(i)
+"FagvurderingAbstrakt" ^-- "Underveisfagvurdering"
+"Time" --> "0..*" "Rom" : "rom"
+"Time" *--> "0..1" "Periode" : "tidsrom"
+"Rom" --> "0..*" "Time" : "skuletime"
+"Rom" --> "0..*" "Time" : "skuletime"(i)
+"Undervisningsforhold" --> "0..*" "Time" : "skuletime"(i)
+"Undervisningsgruppe" --> "0..*" "Time" : "skuletime"(i)
+"Tilrettelegging" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Elevtilrettelegging" --> "0..1" "Tilrettelegging" : "tilrettelegging"
+"Fag" --> "0..*" "Tilrettelegging" : "tilrettelegging"
+"UtdanningContainer" *--> "0..*" "Tilrettelegging" : "tilrettelegging"(i)
+"Elevforhold" --> "0..1" "Tilrettelegging" : "tilrettelegging"(i)
+"Elevtilrettelegging" --> "0..1" "Tilrettelegging" : "tilrettelegging"(i)
+"Fag" --> "0..1" "Tilrettelegging" : "tilrettelegging"(i)
+"Termin" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Eksamensgruppe" --> "1" "Termin" : "termin"
+"Klasse" --> "0..*" "Termin" : "termin"
+"Kontaktlaerergruppe" --> "0..*" "Termin" : "termin"
+"Persongruppe" --> "0..*" "Termin" : "termin"
+"Klasse" --> "0..1" "Termin" : "termin"(i)
+"Kontaktlaerergruppe" --> "0..1" "Termin" : "termin"(i)
+"Persongruppe" --> "0..1" "Termin" : "termin"(i)
+"Undervisningsgruppe" --> "0..1" "Termin" : "termin"(i)
+"Eksamensgruppe" --> "0..1" "Termin" : "termin"(i)
+"Sluttordensvurdering" --> "1" "Elevvurdering" : "elevvurdering"
+"Elevvurdering" --> "0..*" "Sluttordensvurdering" : "sluttordensvurdering"
+"UtdanningContainer" *--> "0..*" "Sluttordensvurdering" : "sluttordensvurdering"(i)
+"Elevvurdering" --> "0..*" "Sluttordensvurdering" : "sluttordensvurdering"(i)
+"OrdensvurderingAbstrakt" ^-- "Sluttordensvurdering"
+"Sluttfagvurdering" --> "0..*" "Karakterhistorie" : "karakterhistorie"
+"Sluttfagvurdering" --> "1" "Elevvurdering" : "elevvurdering"
+"Sluttfagvurdering" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"
+"Elevvurdering" --> "0..*" "Sluttfagvurdering" : "sluttfagvurdering"
+"UtdanningContainer" *--> "0..*" "Sluttfagvurdering" : "sluttfagvurdering"(i)
+"Elevvurdering" --> "0..*" "Sluttfagvurdering" : "sluttfagvurdering"(i)
+"FagvurderingAbstrakt" ^-- "Sluttfagvurdering"
+class "Person" [[{Fysiske private personar.}]] {
+    {field} id : uriorcurie  
+    {field} bilde : string  
+    {field} fodselsdato : date  
+    {field} laerling : uriorcurie  [0..*]
+    {field} otungdom : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+"Skoleressurs" --> "0..*" "Sensor" : "sensor"
+"Skoleressurs" --> "0..*" "Skole" : "skole"
+"Skoleressurs" --> "0..1" "Person" : "person"
+"Skoleressurs" *--> "0..1" "Identifikator" : "feidenavn"
+"Fraversregistrering" --> "0..1" "Skoleressurs" : "registrertAv"
+"Karakterhistorie" --> "0..1" "Skoleressurs" : "oppdatertAv"
+"Persongruppe" --> "0..*" "Skoleressurs" : "skoleressurs"
+"Sensor" --> "1" "Skoleressurs" : "skoleressurs"
+"Skole" --> "0..*" "Skoleressurs" : "skoleressurs"
+"Varsel" --> "0..1" "Skoleressurs" : "karakteransvarlig"(i)
+"Karakterhistorie" --> "0..1" "Skoleressurs" : "oppdatertAv"(i)
+"Fraversregistrering" --> "0..1" "Skoleressurs" : "registrertAv"(i)
+"Persongruppe" --> "0..1" "Skoleressurs" : "skoleressurs"(i)
+"Skole" --> "0..1" "Skoleressurs" : "skoleressurs"(i)
+"Undervisningsforhold" --> "0..1" "Skoleressurs" : "skoleressurs"(i)
+"Sensor" --> "0..1" "Skoleressurs" : "skoleressurs"(i)
+"Varsel" --> "0..1" "Skoleressurs" : "utsteder"(i)
+"Skoleeiertype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Skole" --> "0..1" "Skoleeiertype" : "skoleeierType"
+"Skole" --> "0..1" "Skoleeiertype" : "skoleeierType"(i)
+"Skoleaar" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Anmerkninger" --> "0..1" "Skoleaar" : "skoleaar"
+"Eksamensgruppe" --> "0..1" "Skoleaar" : "skoleaar"
+"Elevforhold" --> "0..1" "Skoleaar" : "skoleaar"
+"Faggruppe" --> "0..1" "Skoleaar" : "skoleaar"
+"FagvurderingAbstrakt" --> "0..1" "Skoleaar" : "skoleaar"
+"Klasse" --> "0..1" "Skoleaar" : "skoleaar"
+"Kontaktlaerergruppe" --> "0..1" "Skoleaar" : "skoleaar"
+"OrdensvurderingAbstrakt" --> "0..1" "Skoleaar" : "skoleaar"
+"Persongruppe" --> "0..1" "Skoleaar" : "skoleaar"
+"UtdanningContainer" *--> "0..*" "Skoleaar" : "skoleaar"(i)
+"Elevforhold" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"Klasse" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"Kontaktlaerergruppe" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"Persongruppe" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"Faggruppe" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"Undervisningsgruppe" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"FagvurderingAbstrakt" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"OrdensvurderingAbstrakt" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"Anmerkninger" --> "0..1" "Skoleaar" : "skoleaar"(i)
+"Eksamensgruppe" --> "0..1" "Skoleaar" : "skoleaar"(i)
+class "Adresse" [[{Fysisk adresse eller postadresse.}]] {
+    {field} adresselinje : string  [0..*]
+    {field} postnummer : string  
+    {field} poststed : string  
+}
+"Skole" --> "0..*" "Eksamensgruppe" : "eksamensgruppe"
+"Skole" --> "0..*" "Faggruppe" : "faggruppe"
+"Skole" --> "0..*" "Fag" : "fag"
+"Skole" --> "0..*" "Kontaktlaerergruppe" : "kontaktlaerergruppe"
+"Skole" --> "0..*" "Klasse" : "klasse"
+"Skole" *--> "0..1" "Adresse" : "postadresse"
+"Skole" *--> "0..1" "Adresse" : "forretningsadresse"
+"Skole" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Skole" *--> "0..1" "Identifikator" : "skolenummer"
+"Eksamensgruppe" --> "1" "Skole" : "skole"
+"Elevforhold" --> "1" "Skole" : "skole"
+"Fag" --> "0..*" "Skole" : "skole"
+"Faggruppe" --> "0..1" "Skole" : "skole"
+"Klasse" --> "0..1" "Skole" : "skole"
+"Kontaktlaerergruppe" --> "0..1" "Skole" : "skole"
+"Persongruppe" --> "0..1" "Skole" : "skole"
+"Elevforhold" --> "0..1" "Skole" : "skole"(i)
+"Klasse" --> "0..1" "Skole" : "skole"(i)
+"Kontaktlaerergruppe" --> "0..1" "Skole" : "skole"(i)
+"Persongruppe" --> "0..1" "Skole" : "skole"(i)
+"Skoleressurs" --> "0..1" "Skole" : "skole"(i)
+"Utdanningsprogram" --> "0..1" "Skole" : "skole"(i)
+"Fag" --> "0..1" "Skole" : "skole"(i)
+"Faggruppe" --> "0..1" "Skole" : "skole"(i)
+"Undervisningsgruppe" --> "0..1" "Skole" : "skole"(i)
+"Eksamensgruppe" --> "0..1" "Skole" : "skole"(i)
+"Sensor" --> "1" "Eksamensgruppe" : "eksamensgruppe"
+"Eksamensgruppe" --> "0..*" "Sensor" : "sensor"
+"UtdanningContainer" *--> "0..*" "Sensor" : "sensor"(i)
+"Skoleressurs" --> "0..*" "Sensor" : "sensor"(i)
+"Eksamensgruppe" --> "0..*" "Sensor" : "sensor"(i)
+"Rom" --> "0..*" "Eksamen" : "eksamen"
+"Eksamen" --> "0..*" "Rom" : "rom"
+"UtdanningContainer" *--> "0..*" "Rom" : "rom"(i)
+"Eksamen" --> "0..1" "Rom" : "rom"(i)
+"Time" --> "0..1" "Rom" : "rom"(i)
+"Provestatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"AvlagtProve" --> "0..1" "Provestatus" : "provestatus"
+"AvlagtProve" --> "0..1" "Provestatus" : "provestatus"(i)
+"Programomrademedlemskap" --> "0..1" "Programomrade" : "programomrade"
+"Programomrademedlemskap" --> "0..1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..*" "Programomrademedlemskap" : "programomrademedlemskap"
+"Programomrade" --> "0..*" "Programomrademedlemskap" : "gruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Programomrademedlemskap" : "programomrademedlemskap"(i)
+"Elevforhold" --> "0..*" "Programomrademedlemskap" : "programomrademedlemskap"(i)
+"Gruppemedlemskap" ^-- "Programomrademedlemskap"
+"Programomrade" --> "0..*" "Arstrinn" : "trinn"
+"Arstrinn" --> "0..*" "Programomrade" : "programomrade"
+"Fag" --> "0..*" "Programomrade" : "programomrade"
+"Laerling" --> "0..1" "Programomrade" : "programomrade"
+"OtUngdom" --> "0..1" "Programomrade" : "programomrade"
+"Arstrinn" --> "0..1" "Programomrade" : "programomrade"(i)
+"Programomrademedlemskap" --> "0..1" "Programomrade" : "programomrade"(i)
+"Utdanningsprogram" --> "0..1" "Programomrade" : "programomrade"(i)
+"Fag" --> "0..1" "Programomrade" : "programomrade"(i)
+"Laerling" --> "0..1" "Programomrade" : "programomrade"(i)
+"OtUngdom" --> "0..1" "Programomrade" : "programomrade"(i)
+"Gruppe" ^-- "Programomrade"
+class "Kontaktperson" [[{Kontaktperson (pårørande) til ein person.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Personnavn" [[{Namn på ein person.}]] {
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"
+"Person" *--> "1" "Personnavn" : "person_navn"
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"(i)
+"Person" *--> "0..1" "Personnavn" : "person_navn"(i)
+"Persongruppemedlemskap" --> "0..1" "Persongruppe" : "persongruppe"
+"Persongruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..*" "Persongruppemedlemskap" : "persongruppemedlemskap"
+"Persongruppe" --> "0..*" "Persongruppemedlemskap" : "persongruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Persongruppemedlemskap" : "persongruppemedlemskap"(i)
+"Elevforhold" --> "0..*" "Persongruppemedlemskap" : "persongruppemedlemskap"(i)
+"Persongruppe" --> "0..*" "Persongruppemedlemskap" : "persongruppemedlemskap"(i)
+"Gruppemedlemskap" ^-- "Persongruppemedlemskap"
+"Persongruppe" --> "0..*" "Elevforhold" : "elev"
+"Persongruppemedlemskap" --> "0..1" "Persongruppe" : "persongruppe"(i)
+"Gruppe" ^-- "Persongruppe"
+class "Spraak" [[{Verdiar for språk (2 bokstavar).}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kjonn" [[{Verdiar for kjønn basert på ISO/IEC 5218.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kommune" [[{Liste over Norges kommunar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Landkode" [[{Landskode i ISO 3166-1 alpha-2 format.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+abstract "Aktoer" [[{Abstrakt base for person eller eining vi samhandlar med.}]] {
+
+}
+"Person" --> "0..1" "Elev" : "elev"
+"Person" --> "0..1" "Spraak" : "morsmaal"
+"Person" --> "0..1" "Spraak" : "maalform"
+"Person" --> "0..*" "Person" : "foreldre"
+"Person" --> "0..*" "Person" : "foreldreansvar"
+"Person" --> "0..1" "Kjonn" : "kjonn"
+"Person" --> "0..1" "Kommune" : "kommune"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"
+"Person" --> "0..*" "Kontaktperson" : "parorende"
+"Person" *--> "1" "Identifikator" : "fodselsnummer"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"
+"Elev" --> "0..1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"
+"Laerling" --> "1" "Person" : "person"
+"OtUngdom" --> "1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"(i)
+"Skoleressurs" --> "0..1" "Person" : "person"(i)
+"Laerling" --> "0..1" "Person" : "person"(i)
+"OtUngdom" --> "0..1" "Person" : "person"(i)
+"Elev" --> "0..1" "Person" : "person"(i)
+"Aktoer" ^-- "Person"
+abstract "Begrep" [[{Abstrakt fellesbase for alle FINT-kodeverk.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Person" --> "0..1" "Spraak" : "maalform"(i)
+"Person" --> "0..1" "Spraak" : "morsmaal"(i)
+"Begrep" ^-- "Spraak"
+"Avbruddsaarsak" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Betalingsstatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Bevistype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Brevtype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Eksamen" *--> "0..1" "Periode" : "tidsrom"
+"Eksamensform" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Elevkategori" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Fagmerknad" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Fagstatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Fravartype" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Fraversregistrering" *--> "1" "Periode" : "periode"
+"Fullfortkode" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Gruppemedlemskap" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Karakterskala" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Karakterstatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Karakterverdi" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Laerling" *--> "0..1" "Periode" : "laretid"
+"OtEnhet" *--> "0..1" "Periode" : "gyldighetsperiode"
+"OtStatus" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Gruppemedlemskap" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Avbruddsaarsak" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Betalingsstatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Bevistype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Brevtype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Eksamensform" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Elevkategori" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Fagmerknad" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Fagstatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Fravartype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Fullfortkode" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Karakterskala" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Karakterstatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Karakterverdi" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"OtEnhet" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"OtStatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Provestatus" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Skoleaar" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Skoleeiertype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Termin" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Tilrettelegging" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Varseltype" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Vitnemalsmerknad" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Identifikator" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Laerling" *--> "0..1" "Periode" : "laretid"(i)
+"Fraversregistrering" *--> "0..1" "Periode" : "periode"(i)
+"Eksamen" *--> "0..1" "Periode" : "tidsrom"(i)
+"Time" *--> "0..1" "Periode" : "tidsrom"(i)
+"OtUngdom" --> "0..1" "OtEnhet" : "enhet"
+"OtUngdom" --> "0..1" "OtStatus" : "status"
+"OtUngdom" --> "0..1" "OtStatus" : "status"(i)
+"OtEnhet" --> "1" "Kommune" : "kommune"
+"OtUngdom" --> "0..1" "OtEnhet" : "enhet"(i)
+"OrdensvurderingAbstrakt" --> "0..1" "Karakterverdi" : "orden"
+"OrdensvurderingAbstrakt" --> "0..1" "Karakterverdi" : "atferd"
+"OrdensvurderingAbstrakt" ^-- "Halvaarsordensvurdering"
+class "Matrikkelnummer" [[{Eintydleg identifisering av matrikkeleining innanfor kommune.}]] {
+    {field} bruksnummer : string  
+    {field} festenummer : string  
+    {field} gaardsnummer : string  
+    {field} seksjonsnummer : string  
+}
+"Matrikkelnummer" --> "0..1" "Kommune" : "kommunenummer"
+"Matrikkelnummer" *--> "0..1" "Adresse" : "adresse"
+"Adresse" --> "0..1" "Landkode" : "land"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"(i)
+"Begrep" ^-- "Landkode"
+"Laerling" --> "0..*" "AvlagtProve" : "avlagtprove"
+class "Kontaktinformasjon" [[{Informasjon som kan brukast for å oppnå kontakt.}]] {
+    {field} epostadresse : string  
+    {field} mobiltelefonnummer : string  
+    {field} nettsted : string  
+    {field} sip : string  
+    {field} telefonnummer : string  
+}
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Person" --> "0..*" "Kontaktperson" : "parorende"(i)
+"Kontaktlaerergruppemedlemskap" --> "0..1" "Kontaktlaerergruppe" : "kontaktlaerergruppe"
+"Kontaktlaerergruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..*" "Kontaktlaerergruppemedlemskap" : "kontaktlaerergruppemedlemskap"
+"Kontaktlaerergruppe" --> "0..*" "Kontaktlaerergruppemedlemskap" : "gruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Kontaktlaerergruppemedlemskap" : "kontaktlaerergruppemedlemskap"(i)
+"Elevforhold" --> "0..*" "Kontaktlaerergruppemedlemskap" : "kontaktlaerergruppemedlemskap"(i)
+"Gruppemedlemskap" ^-- "Kontaktlaerergruppemedlemskap"
+"Kontaktlaerergruppe" --> "1..*" "Klasse" : "klasse"
+"Klasse" --> "0..*" "Kontaktlaerergruppe" : "kontaktlaerergruppe"
+"Klasse" --> "0..1" "Kontaktlaerergruppe" : "kontaktlaerergruppe"(i)
+"Kontaktlaerergruppemedlemskap" --> "0..1" "Kontaktlaerergruppe" : "kontaktlaerergruppe"(i)
+"Skole" --> "0..1" "Kontaktlaerergruppe" : "kontaktlaerergruppe"(i)
+"Undervisningsforhold" --> "0..1" "Kontaktlaerergruppe" : "kontaktlaerergruppe"(i)
+"Gruppe" ^-- "Kontaktlaerergruppe"
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+class "Fylke" [[{Liste over Norges fylker.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Kommune" --> "1" "Fylke" : "fylke"
+"Fylke" --> "0..*" "Kommune" : "kommune"
+"OtEnhet" --> "0..1" "Kommune" : "kommune"(i)
+"Fylke" --> "0..1" "Kommune" : "kommune"(i)
+"Person" --> "0..1" "Kommune" : "kommune"(i)
+"Begrep" ^-- "Kommune"
+"Klassemedlemskap" --> "0..1" "Klasse" : "klasse"
+"Klassemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..*" "Klassemedlemskap" : "klassemedlemskap"
+"Klasse" --> "0..*" "Klassemedlemskap" : "klassemedlemskap"
+"UtdanningContainer" *--> "0..*" "Klassemedlemskap" : "klassemedlemskap"(i)
+"Elevforhold" --> "0..*" "Klassemedlemskap" : "klassemedlemskap"(i)
+"Klasse" --> "0..*" "Klassemedlemskap" : "klassemedlemskap"(i)
+"Gruppemedlemskap" ^-- "Klassemedlemskap"
+"Klasse" --> "0..*" "Arstrinn" : "trinn"
+"Arstrinn" --> "0..*" "Klasse" : "klasse"
+"Klassemedlemskap" --> "0..1" "Klasse" : "klasse"(i)
+"Kontaktlaerergruppe" --> "0..1" "Klasse" : "klasse"(i)
+"Skole" --> "0..1" "Klasse" : "klasse"(i)
+"Arstrinn" --> "0..1" "Klasse" : "klasse"(i)
+"Undervisningsforhold" --> "0..1" "Klasse" : "klasse"(i)
+"Gruppe" ^-- "Klasse"
+"Person" --> "0..1" "Kjonn" : "kjonn"(i)
+"Begrep" ^-- "Kjonn"
+"Karakterverdi" --> "1" "Karakterskala" : "skala"
+"FagvurderingAbstrakt" --> "0..1" "Karakterverdi" : "karakter"
+"Karakterhistorie" --> "0..1" "Karakterverdi" : "karakterverdi"
+"Karakterhistorie" --> "0..1" "Karakterverdi" : "opprinneligKarakterverdi"
+"Karakterskala" --> "0..*" "Karakterverdi" : "verdi"
+"OrdensvurderingAbstrakt" --> "0..1" "Karakterverdi" : "atferd"(i)
+"Anmerkninger" --> "0..1" "Karakterverdi" : "atferd"(i)
+"FagvurderingAbstrakt" --> "0..1" "Karakterverdi" : "karakter"(i)
+"Karakterhistorie" --> "0..1" "Karakterverdi" : "karakterverdi"(i)
+"Karakterhistorie" --> "0..1" "Karakterverdi" : "opprinneligKarakterverdi"(i)
+"OrdensvurderingAbstrakt" --> "0..1" "Karakterverdi" : "orden"(i)
+"Anmerkninger" --> "0..1" "Karakterverdi" : "orden"(i)
+"Karakterskala" --> "0..*" "Karakterverdi" : "verdi"(i)
+"Eksamensgruppemedlemskap" --> "0..1" "Karakterstatus" : "nus"
+"Karakterhistorie" --> "0..1" "Karakterstatus" : "karakterstatus"
+"Karakterhistorie" --> "0..1" "Karakterstatus" : "opprinneligKarakterstatus"
+"UtdanningContainer" *--> "0..*" "Karakterstatus" : "karakterstatus"(i)
+"Karakterhistorie" --> "0..1" "Karakterstatus" : "karakterstatus"(i)
+"Eksamensgruppemedlemskap" --> "0..1" "Karakterstatus" : "nus"(i)
+"Karakterhistorie" --> "0..1" "Karakterstatus" : "opprinneligKarakterstatus"(i)
+"Karakterverdi" --> "0..1" "Karakterskala" : "skala"(i)
+"Eksamensvurdering" --> "0..*" "Karakterhistorie" : "karakterhistorie"
+"UtdanningContainer" *--> "0..*" "Karakterhistorie" : "karakterhistorie"(i)
+"Eksamensvurdering" --> "0..*" "Karakterhistorie" : "karakterhistorie"(i)
+"Sluttfagvurdering" --> "0..*" "Karakterhistorie" : "karakterhistorie"(i)
+abstract "Enhet" [[{Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.}]] {
+    {field} organisasjonsnavn : string  
+}
+class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenester.}]] {
+    {field} id : uriorcurie  
+    {field} laerling : uriorcurie  [0..*]
+    {field} organisasjonsnavn(i) : string  
+}
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Virksomhet" *--> "1" "Identifikator" : "virksomhetsId"
+"Valuta" *--> "0..1" "Identifikator" : "bokstavkode"(i)
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"(i)
+"Skoleressurs" *--> "0..1" "Identifikator" : "feidenavn"(i)
+"Person" *--> "0..1" "Identifikator" : "fodselsnummer"(i)
+"Valuta" *--> "0..1" "Identifikator" : "nummerkode"(i)
+"Skole" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Skole" *--> "0..1" "Identifikator" : "skolenummer"(i)
+"Virksomhet" *--> "0..1" "Identifikator" : "virksomhetsId"(i)
+"Enhet" ^-- "Virksomhet"
+"Halvaarsordensvurdering" --> "1" "Elevvurdering" : "elevvurdering"
+"Elevvurdering" --> "0..*" "Halvaarsordensvurdering" : "halvaarsordensvurdering"
+"UtdanningContainer" *--> "0..*" "Halvaarsordensvurdering" : "halvaarsordensvurdering"(i)
+"Elevvurdering" --> "0..*" "Halvaarsordensvurdering" : "halvaarsordensvurdering"(i)
+"Halvaarsfagvurdering" --> "1" "Elevvurdering" : "elevvurdering"
+"Elevvurdering" --> "0..*" "Halvaarsfagvurdering" : "halvaarsfagvurdering"
+"UtdanningContainer" *--> "0..*" "Halvaarsfagvurdering" : "halvaarsfagvurdering"(i)
+"Elevvurdering" --> "0..*" "Halvaarsfagvurdering" : "halvaarsfagvurdering"(i)
+"FagvurderingAbstrakt" ^-- "Halvaarsfagvurdering"
+"Kontaktlaerergruppe" --> "0..*" "Gruppemedlemskap" : "gruppemedlemskap"(i)
+"Programomrade" --> "0..*" "Gruppemedlemskap" : "gruppemedlemskap"(i)
+"Undervisningsgruppe" --> "0..*" "Gruppemedlemskap" : "gruppemedlemskap"(i)
+"Eksamensgruppe" --> "0..*" "Gruppemedlemskap" : "gruppemedlemskap"(i)
+"Gruppemedlemskap" ^-- "Faggruppemedlemskap"
+"Gruppemedlemskap" ^-- "Eksamensgruppemedlemskap"
+"Gruppe" ^-- "Faggruppe"
+"Gruppe" ^-- "Fag"
+"Gruppe" ^-- "Eksamensgruppe"
+"Gruppe" ^-- "Arstrinn"
+"Kommune" --> "0..1" "Fylke" : "fylke"(i)
+"Begrep" ^-- "Fylke"
+"AvlagtProve" --> "0..1" "Fullfortkode" : "fullfortkode"
+"AvlagtProve" --> "0..1" "Fullfortkode" : "fullfortkode"(i)
+"Fraversregistrering" --> "1" "Fravartype" : "fravartype"
+"Fraversregistrering" --> "0..1" "Elevfravar" : "elevfravar"
+"Fraversregistrering" --> "0..1" "Faggruppe" : "faggruppe"
+"Elevfravar" --> "0..*" "Fraversregistrering" : "fraversregistrering"
+"UtdanningContainer" *--> "0..*" "Fraversregistrering" : "fraversregistrering"(i)
+"Elevfravar" --> "0..*" "Fraversregistrering" : "fraversregistrering"(i)
+"Fraversregistrering" --> "0..1" "Fravartype" : "fravartype"(i)
+class "Fravarsprosent" [[{Kompleks type som representerer fråværsprosent for ein periode.}]] {
+    {field} fravaerstimer : integer  
+    {field} prosent : integer  
+    {field} undervisningstimer : integer  
+}
+"Fravarsoversikt" *--> "1" "Fravarsprosent" : "halvaar"
+"Fravarsoversikt" *--> "1" "Fravarsprosent" : "skoleaarFravar"
+"Fravarsoversikt" *--> "0..1" "Fravarsprosent" : "halvaar"(i)
+"Fravarsoversikt" *--> "0..1" "Fravarsprosent" : "skoleaarFravar"(i)
+"Fravarsoversikt" --> "1" "Fag" : "fag"
+"Fravarsoversikt" --> "1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..1" "Fravarsoversikt" : "elevfravar"
+"FagvurderingAbstrakt" --> "0..1" "Fag" : "fag"
+"FagvurderingAbstrakt" ^-- "Eksamensvurdering"
+"Faggruppemedlemskap" --> "0..1" "Fagstatus" : "fagstatus"
+"UtdanningContainer" *--> "0..*" "Fagstatus" : "fagstatus"(i)
+"Faggruppemedlemskap" --> "0..1" "Fagstatus" : "fagstatus"(i)
+"Faggruppemedlemskap" --> "0..1" "Fagmerknad" : "fagmerknad"
+"Faggruppemedlemskap" --> "0..1" "Fagmerknad" : "fagmerknad"(i)
+"Faggruppemedlemskap" --> "0..1" "Faggruppe" : "faggruppe"
+"Faggruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"
+"Faggruppe" --> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"(i)
+"Elevforhold" --> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"(i)
+"Varsel" --> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"(i)
+"Faggruppe" --> "0..*" "Faggruppemedlemskap" : "faggruppemedlemskap"(i)
+"Faggruppe" --> "1" "Fag" : "fag"
+"Fag" --> "0..*" "Faggruppe" : "faggruppe"
+"Skole" --> "0..1" "Faggruppe" : "faggruppe"(i)
+"Fag" --> "0..1" "Faggruppe" : "faggruppe"(i)
+"Faggruppemedlemskap" --> "0..1" "Faggruppe" : "faggruppe"(i)
+"Fraversregistrering" --> "0..1" "Faggruppe" : "faggruppe"(i)
+"Fag" --> "0..*" "Eksamensgruppe" : "eksamensgruppe"
+"Eksamensgruppe" --> "1" "Fag" : "fag"
+"UtdanningContainer" *--> "0..*" "Fag" : "fag"(i)
+"Skole" --> "0..1" "Fag" : "fag"(i)
+"Faggruppe" --> "0..1" "Fag" : "fag"(i)
+"Undervisningsgruppe" --> "0..1" "Fag" : "fag"(i)
+"FagvurderingAbstrakt" --> "0..1" "Fag" : "fag"(i)
+"Eksamensgruppe" --> "0..1" "Fag" : "fag"(i)
+"Fravarsoversikt" --> "0..1" "Fag" : "fag"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"
+"Aktoer" ^-- "Enhet"
+"Elevvurdering" --> "0..*" "Eksamensvurdering" : "eksamensvurdering"
+"Elevvurdering" --> "1" "Elevforhold" : "elevforhold"
+"Eksamensvurdering" --> "1" "Elevvurdering" : "elevvurdering"
+"Elevforhold" --> "0..1" "Elevvurdering" : "elevvurdering"
+"UtdanningContainer" *--> "0..*" "Elevvurdering" : "elevvurdering"(i)
+"Elevforhold" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Eksamensvurdering" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Halvaarsfagvurdering" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Halvaarsordensvurdering" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Sluttfagvurdering" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Sluttordensvurdering" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Underveisfagvurdering" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Underveisordensvurdering" --> "0..1" "Elevvurdering" : "elevvurdering"(i)
+"Elevtilrettelegging" --> "0..1" "Eksamensform" : "eksamensform"
+"Elevtilrettelegging" --> "0..1" "Elevforhold" : "elev"
+"Elevforhold" --> "0..*" "Elevtilrettelegging" : "tilrettelegging"
+"Elevforhold" --> "0..1" "Elevkategori" : "kategori"
+"Elevforhold" --> "0..1" "Elevkategori" : "kategori"(i)
+"Elevfravar" --> "1" "Elevforhold" : "elevforhold"
+"Elevforhold" --> "0..*" "Elevfravar" : "fraversregistreringer"
+"UtdanningContainer" *--> "0..*" "Elevfravar" : "elevfravar"(i)
+"Elevforhold" --> "0..1" "Elevfravar" : "elevfravar"(i)
+"Fraversregistrering" --> "0..1" "Elevfravar" : "elevfravar"(i)
+"Elevforhold" --> "0..*" "Elevfravar" : "fraversregistreringer"(i)
+"Elevforhold" --> "0..*" "Eksamensgruppemedlemskap" : "eksamensgruppemedlemskap"
+"Elevforhold" --> "0..1" "Avbruddsaarsak" : "avbruddsarsak"
+"Elevforhold" --> "1" "Elev" : "elev"
+"Eksamensgruppemedlemskap" --> "1" "Elevforhold" : "elevforhold"
+"UtdanningContainer" *--> "0..*" "Elevforhold" : "elevforhold"(i)
+"Klassemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Kontaktlaerergruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Persongruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Programomrademedlemskap" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Faggruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Undervisningsgruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Eksamensgruppemedlemskap" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Elevfravar" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Elevvurdering" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Fravarsoversikt" --> "0..1" "Elevforhold" : "elevforhold"(i)
+"Elevforhold" --> "0..1" "Elev" : "elev"(i)
+"Elevtilrettelegging" --> "0..1" "Elev" : "elev"(i)
+"Persongruppe" --> "0..1" "Elev" : "elev"(i)
+"Person" --> "0..1" "Elev" : "elev"(i)
+"Eksamensvurdering" --> "1" "Eksamensgruppe" : "eksamensgruppe"
+"UtdanningContainer" *--> "0..*" "Eksamensvurdering" : "eksamensvurdering"(i)
+"Elevvurdering" --> "0..*" "Eksamensvurdering" : "eksamensvurdering"(i)
+"Eksamensgruppemedlemskap" --> "1" "Eksamensgruppe" : "eksamensgruppe"
+"Eksamensgruppemedlemskap" --> "0..1" "Betalingsstatus" : "betalingsstatus"
+"Eksamensgruppe" --> "0..*" "Eksamensgruppemedlemskap" : "gruppemedlemskap"
+"UtdanningContainer" *--> "0..*" "Eksamensgruppemedlemskap" : "eksamensgruppemedlemskap"(i)
+"Elevforhold" --> "0..*" "Eksamensgruppemedlemskap" : "eksamensgruppemedlemskap"(i)
+"Eksamensgruppe" --> "0..1" "Eksamensform" : "eksamensform"
+"Eksamensgruppe" --> "0..1" "Eksamen" : "eksamen"
+"Eksamen" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"
+"Skole" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Eksamen" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Fag" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Undervisningsforhold" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Eksamensgruppemedlemskap" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Eksamensvurdering" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Sensor" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Sluttfagvurdering" --> "0..1" "Eksamensgruppe" : "eksamensgruppe"(i)
+"Elevtilrettelegging" --> "0..1" "Eksamensform" : "eksamensform"(i)
+"Eksamensgruppe" --> "0..1" "Eksamensform" : "eksamensform"(i)
+"UtdanningContainer" *--> "0..*" "Eksamen" : "eksamen"(i)
+"Rom" --> "0..1" "Eksamen" : "eksamen"(i)
+"Eksamensgruppe" --> "0..1" "Eksamen" : "eksamen"(i)
+"AvlagtProve" --> "0..1" "Brevtype" : "brevtype"
+"AvlagtProve" --> "0..1" "Brevtype" : "brevtype"(i)
+"AvlagtProve" --> "0..1" "Bevistype" : "bevistype"
+"AvlagtProve" --> "0..1" "Bevistype" : "bevistype"(i)
+"UtdanningContainer" *--> "0..*" "Betalingsstatus" : "betalingsstatus"(i)
+"Eksamensgruppemedlemskap" --> "0..1" "Betalingsstatus" : "betalingsstatus"(i)
+"Laerling" --> "0..*" "AvlagtProve" : "avlagtprove"(i)
+"Elevforhold" --> "0..1" "Avbruddsaarsak" : "avbruddsarsak"(i)
+"Klasse" --> "0..*" "Arstrinn" : "trinn"(i)
+"Programomrade" --> "0..*" "Arstrinn" : "trinn"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"(i)
+"Skole" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Skole" *--> "0..1" "Adresse" : "postadresse"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"(i)
+@enduml

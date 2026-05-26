@@ -1,0 +1,329 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Vare" [[{Vare eller teneste som kan leverast og fakturerast.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} enhet : string  
+    {field} pris : integer  
+    {field} passiv : boolean  
+}
+class "Merverdiavgift" [[{Kodeverk for merverdiavgifter.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} sats : integer  
+    {field} passiv : boolean  
+}
+class "Fakturautsteder" [[{Eining som utformar og oversender faktura og mottar betaling.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+    {field} organisasjonselement : uriorcurie  
+}
+class "Periode" [[{Tidsperiode med obligatorisk start og valfri slutt.}]] {
+    {field} beskrivelse : string  
+    {field} start : datetime  
+    {field} slutt : datetime  
+}
+class "Kontostreng" [[{Kontodimensjonar for ei postering (kompleks datatype).}]] {
+    {field} art : string  
+    {field} funksjon : string  
+    {field} ansvar : string  
+    {field} prosjekt : string  
+}
+class "Fakturalinje" [[{Del av Fakturagrunnlag som skildrar ei enkelt vare (kompleks datatype).}]] {
+    {field} antall : float  
+    {field} pris : integer  
+    {field} fritekst : string  [0..*]
+}
+class "OkonomiContainer" [[{Rotcontainer for FINT Økonomi-instansar.}]] {
+
+}
+"Vare" --> "1" "Merverdiavgift" : "merverdiavgift"
+"Vare" --> "1" "Fakturautsteder" : "fakturautsteder"
+"Vare" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Vare" *--> "0..1" "Kontostreng" : "kontering"
+"Fakturalinje" --> "1" "Vare" : "vare"
+"Fakturautsteder" --> "0..*" "Vare" : "vare"
+"OkonomiContainer" *--> "0..*" "Vare" : "varer"
+"Fakturautsteder" --> "0..1" "Vare" : "vare"(i)
+"Fakturalinje" --> "0..1" "Vare" : "vare"(i)
+class "Valuta" [[{Valutakodar for offisielle valutaer.}]] {
+    {field} id : uriorcurie  
+    {field} valuta_navn : string  
+}
+class "Identifikator" [[{Unik identifikasjon til eit objekt.}]] {
+    {field} identifikatorverdi : string  
+}
+"Valuta" *--> "1" "Identifikator" : "nummerkode"
+"Valuta" *--> "1" "Identifikator" : "bokstavkode"
+class "Transaksjon" [[{Overføring av pengar til eller frå eksterne partar.}]] {
+    {field} id : uriorcurie  
+    {field} belop : integer  
+    {field} forfallsdato : date  
+    {field} beskrivelse : string  
+    {field} transaksjonstidspunkt : datetime  
+    {field} oppdateringstidspunkt : datetime  
+    {field} ansvarlig : uriorcurie  
+}
+class "OkonomiValuta" [[{Valuta for transaksjonsbeløp.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+class "Postering" [[{Føring på ein konto i rekneskapet.}]] {
+    {field} id : uriorcurie  
+    {field} belop : integer  
+    {field} debet : boolean  
+}
+class "Leverandor" [[{Person eller verksemd som leverer produkt eller tenester.}]] {
+    {field} id : uriorcurie  
+    {field} kontonummer : string  
+    {field} virksomhet : uriorcurie  
+}
+class "Bilag" [[{Dokumentasjon til ein transaksjon (kompleks datatype).}]] {
+    {field} bilagsdato : date  
+    {field} bilagsnummer : string  
+    {field} referanse : string  
+    {field} url : string  
+    {field} filnavn : string  
+    {field} data : string  
+}
+"Transaksjon" --> "1" "OkonomiValuta" : "valuta"
+"Transaksjon" --> "1..*" "Postering" : "postering"
+"Transaksjon" --> "0..1" "Leverandor" : "leverandor"
+"Transaksjon" *--> "0..*" "Bilag" : "bilag"
+"Transaksjon" *--> "1" "Identifikator" : "transaksjonsId"
+"Postering" --> "0..1" "Transaksjon" : "transaksjon"
+"OkonomiContainer" *--> "0..*" "Transaksjon" : "transaksjonar"
+"Postering" --> "0..1" "Transaksjon" : "transaksjon"(i)
+"Postering" *--> "1" "Kontostreng" : "kontering"
+"Postering" *--> "1" "Identifikator" : "posteringsId"
+"OkonomiContainer" *--> "0..*" "Postering" : "posteringar"
+"Transaksjon" --> "0..*" "Postering" : "postering"(i)
+class "Kontaktperson" [[{Kontaktperson (pårørande) til ein person.}]] {
+    {field} id : uriorcurie  
+    {field} type : string  
+}
+class "Personnavn" [[{Namn på ein person.}]] {
+    {field} fornavn : string  
+    {field} mellomnavn : string  
+    {field} etternavn : string  
+}
+class "Person" [[{Fysiske private personar.}]] {
+    {field} id : uriorcurie  
+    {field} bilde : string  
+    {field} fodselsdato : date  
+    {field} laerling : uriorcurie  [0..*]
+    {field} otungdom : uriorcurie  
+    {field} personalressurs : uriorcurie  
+}
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"
+"Person" *--> "1" "Personnavn" : "person_navn"
+"Kontaktperson" *--> "0..1" "Personnavn" : "kontaktperson_navn"(i)
+"Person" *--> "0..1" "Personnavn" : "person_navn"(i)
+class "Elev" [[{Ein elev registrert i skulesystemet.}]] {
+    {field} id : uriorcurie  
+}
+class "Spraak" [[{Verdiar for språk (2 bokstavar).}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kjonn" [[{Verdiar for kjønn basert på ISO/IEC 5218.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Kommune" [[{Liste over Norges kommunar.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Landkode" [[{Landskode i ISO 3166-1 alpha-2 format.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+class "Adresse" [[{Fysisk adresse eller postadresse.}]] {
+    {field} adresselinje : string  [0..*]
+    {field} postnummer : string  
+    {field} poststed : string  
+}
+class "Fakturamottaker" [[{Aktør som skal betale faktura (kompleks datatype).}]] {
+
+}
+abstract "Aktoer" [[{Abstrakt base for person eller eining vi samhandlar med.}]] {
+
+}
+"Person" --> "0..1" "Elev" : "elev"
+"Person" --> "0..1" "Spraak" : "morsmaal"
+"Person" --> "0..1" "Spraak" : "maalform"
+"Person" --> "0..*" "Person" : "foreldre"
+"Person" --> "0..*" "Person" : "foreldreansvar"
+"Person" --> "0..1" "Kjonn" : "kjonn"
+"Person" --> "0..1" "Kommune" : "kommune"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"
+"Person" --> "0..*" "Kontaktperson" : "parorende"
+"Person" *--> "1" "Identifikator" : "fodselsnummer"
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"
+"Elev" --> "0..1" "Person" : "person"
+"Fakturamottaker" --> "1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"
+"Leverandor" --> "0..1" "Person" : "person"
+"Kontaktperson" --> "0..*" "Person" : "kontaktperson"(i)
+"Fakturamottaker" --> "0..1" "Person" : "person"(i)
+"Leverandor" --> "0..1" "Person" : "person"(i)
+"Elev" --> "0..1" "Person" : "person"(i)
+"Aktoer" ^-- "Person"
+abstract "Begrep" [[{Abstrakt fellesbase for alle FINT-kodeverk.}]] {
+    {field} id : uriorcurie  
+    {field} kode : string  
+    {field} navn : string  
+    {field} passiv : boolean  
+}
+"Person" --> "0..1" "Spraak" : "maalform"(i)
+"Person" --> "0..1" "Spraak" : "morsmaal"(i)
+"Begrep" ^-- "Spraak"
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Merverdiavgift" *--> "0..1" "Periode" : "gyldighetsperiode"
+"OkonomiValuta" *--> "0..1" "Periode" : "gyldighetsperiode"
+"Vare" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Merverdiavgift" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"OkonomiValuta" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Begrep" *--> "0..1" "Periode" : "gyldighetsperiode"(i)
+"Identifikator" *--> "0..1" "Periode" : "gyldighetsperiode"
+"OkonomiContainer" *--> "0..*" "OkonomiValuta" : "valutaer"
+"Transaksjon" --> "0..1" "OkonomiValuta" : "valuta"(i)
+class "Leverandorgruppe" [[{Gruppering av leverandørar.}]] {
+    {field} id : uriorcurie  
+    {field} navn : string  
+}
+class "Fakturagrunnlag" [[{Grunnlag for fakturering.}]] {
+    {field} id : uriorcurie  
+    {field} leveringsdato : date  
+    {field} nettobelop : integer  
+    {field} avgiftsbelop : integer  
+    {field} totalbelop : integer  
+}
+class "Faktura" [[{Betalingskrav utforma og oversendt frå fakturautstedar til fakturamottakar.}]] {
+    {field} id : uriorcurie  
+    {field} dato : date  
+    {field} forfallsdato : date  
+    {field} belop : integer  
+    {field} mottaker : string  
+    {field} betalt : boolean  
+    {field} fakturert : boolean  
+    {field} kreditert : boolean  
+    {field} restbelop : integer  
+}
+"OkonomiContainer" *--> "0..*" "Merverdiavgift" : "merverdiavgifter"
+"OkonomiContainer" *--> "0..*" "Leverandorgruppe" : "leverandorgrupper"
+"OkonomiContainer" *--> "0..*" "Leverandor" : "leverandorar"
+"OkonomiContainer" *--> "0..*" "Fakturautsteder" : "fakturautstederear"
+"OkonomiContainer" --> "0..1" "Fakturagrunnlag" : "fakturagrunnlag"
+"OkonomiContainer" *--> "0..*" "Faktura" : "fakturaer"
+"Vare" --> "0..1" "Merverdiavgift" : "merverdiavgift"(i)
+class "Matrikkelnummer" [[{Eintydleg identifisering av matrikkeleining innanfor kommune.}]] {
+    {field} bruksnummer : string  
+    {field} festenummer : string  
+    {field} gaardsnummer : string  
+    {field} seksjonsnummer : string  
+}
+"Matrikkelnummer" --> "0..1" "Kommune" : "kommunenummer"
+"Matrikkelnummer" *--> "0..1" "Adresse" : "adresse"
+"Leverandorgruppe" --> "0..*" "Leverandor" : "leverandor"
+"Leverandor" --> "0..1" "Leverandorgruppe" : "leverandorgruppe"
+"Leverandor" --> "0..1" "Leverandorgruppe" : "leverandorgruppe"(i)
+"Leverandor" *--> "0..1" "Identifikator" : "leverandornummer"
+"Transaksjon" --> "0..1" "Leverandor" : "leverandor"(i)
+"Leverandorgruppe" --> "0..1" "Leverandor" : "leverandor"(i)
+"Adresse" --> "0..1" "Landkode" : "land"
+"Person" --> "0..*" "Landkode" : "statsborgerskap"(i)
+"Begrep" ^-- "Landkode"
+"Postering" *--> "0..1" "Kontostreng" : "kontering"(i)
+"Vare" *--> "0..1" "Kontostreng" : "kontering"(i)
+class "Kontaktinformasjon" [[{Informasjon som kan brukast for å oppnå kontakt.}]] {
+    {field} epostadresse : string  
+    {field} mobiltelefonnummer : string  
+    {field} nettsted : string  
+    {field} sip : string  
+    {field} telefonnummer : string  
+}
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Person" --> "0..*" "Kontaktperson" : "parorende"(i)
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"
+"Aktoer" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+"Kontaktperson" *--> "0..1" "Kontaktinformasjon" : "kontaktinformasjon"(i)
+class "Fylke" [[{Liste over Norges fylker.}]] {
+    {field} id(i) : uriorcurie  
+    {field} kode(i) : string  
+    {field} navn(i) : string  
+    {field} passiv(i) : boolean  
+}
+"Kommune" --> "1" "Fylke" : "fylke"
+"Fylke" --> "0..*" "Kommune" : "kommune"
+"Fylke" --> "0..1" "Kommune" : "kommune"(i)
+"Person" --> "0..1" "Kommune" : "kommune"(i)
+"Begrep" ^-- "Kommune"
+"Person" --> "0..1" "Kjonn" : "kjonn"(i)
+"Begrep" ^-- "Kjonn"
+abstract "Enhet" [[{Abstrakt base for alle hovudeiningar, undereiningar og organisasjonsledd identifisert med organisasjonsnummer.}]] {
+    {field} organisasjonsnavn : string  
+}
+class "Virksomhet" [[{Ein juridisk organisasjon som produserer varer eller tenester.}]] {
+    {field} id : uriorcurie  
+    {field} laerling : uriorcurie  [0..*]
+    {field} organisasjonsnavn(i) : string  
+}
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"
+"Faktura" *--> "1" "Identifikator" : "fakturanummer"
+"Fakturagrunnlag" *--> "1" "Identifikator" : "ordrenummer"
+"Virksomhet" *--> "1" "Identifikator" : "virksomhetsId"
+"Valuta" *--> "0..1" "Identifikator" : "bokstavkode"(i)
+"Elev" *--> "0..1" "Identifikator" : "elevnummer"(i)
+"Faktura" *--> "0..1" "Identifikator" : "fakturanummer"(i)
+"Person" *--> "0..1" "Identifikator" : "fodselsnummer"(i)
+"Leverandor" *--> "0..1" "Identifikator" : "leverandornummer"(i)
+"Valuta" *--> "0..1" "Identifikator" : "nummerkode"(i)
+"Fakturagrunnlag" *--> "0..1" "Identifikator" : "ordrenummer"(i)
+"Enhet" *--> "0..1" "Identifikator" : "organisasjonsnummer"(i)
+"Postering" *--> "0..1" "Identifikator" : "posteringsId"(i)
+"Transaksjon" *--> "0..1" "Identifikator" : "transaksjonsId"(i)
+"Virksomhet" *--> "0..1" "Identifikator" : "virksomhetsId"(i)
+"Enhet" ^-- "Virksomhet"
+"Kommune" --> "0..1" "Fylke" : "fylke"(i)
+"Begrep" ^-- "Fylke"
+"Fakturautsteder" --> "0..*" "Fakturagrunnlag" : "fakturagrunnlag"
+"Fakturagrunnlag" --> "1" "Fakturautsteder" : "fakturautsteder"
+"Fakturagrunnlag" --> "0..1" "Fakturautsteder" : "fakturautsteder"(i)
+"Vare" --> "0..1" "Fakturautsteder" : "fakturautsteder"(i)
+"Fakturagrunnlag" *--> "1" "Fakturamottaker" : "fakturamottaker"
+"Fakturagrunnlag" *--> "0..1" "Fakturamottaker" : "fakturamottaker"(i)
+"Fakturagrunnlag" *--> "1..*" "Fakturalinje" : "fakturalinjer"
+"Fakturagrunnlag" *--> "0..*" "Fakturalinje" : "fakturalinjer"(i)
+"Fakturagrunnlag" --> "0..*" "Faktura" : "faktura"
+"Faktura" --> "1" "Fakturagrunnlag" : "fakturagrunnlag"
+"OkonomiContainer" *--> "0..*" "Fakturagrunnlag" : "fakturagrunnlag"(i)
+"Faktura" --> "0..1" "Fakturagrunnlag" : "fakturagrunnlag"(i)
+"Fakturautsteder" --> "0..1" "Fakturagrunnlag" : "fakturagrunnlag"(i)
+"Faktura" *--> "0..1" "Adresse" : "adresse"
+"Fakturagrunnlag" --> "0..*" "Faktura" : "faktura"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"
+"Aktoer" ^-- "Enhet"
+"Person" --> "0..1" "Elev" : "elev"(i)
+"Transaksjon" *--> "0..*" "Bilag" : "bilag"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"
+"Faktura" *--> "0..1" "Adresse" : "adresse"(i)
+"Person" *--> "0..1" "Adresse" : "bostedsadresse"(i)
+"Enhet" *--> "0..1" "Adresse" : "forretningsadresse"(i)
+"Aktoer" *--> "0..1" "Adresse" : "postadresse"(i)
+@enduml

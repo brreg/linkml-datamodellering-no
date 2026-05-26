@@ -1,0 +1,166 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "OffisiellAdresse" [[{Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenavn + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen.}]] {
+    {field} adressetilleggsnavn : string  
+    {field} matrikkelnummer : string  
+    {field} adresserer_annet_objekt : uriorcurie  
+    {field} id(i) : uriorcurie  
+}
+class "Representasjonspunkt" [[{Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa.}]] {
+    {field} id : uriorcurie  
+    {field} koordinat_ost : float  
+    {field} koordinat_nord : float  
+    {field} koordinatsystem : string  
+}
+class "AdresseContainer" [[{Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.}]] {
+
+}
+"OffisiellAdresse" --> "0..1" "Representasjonspunkt" : "representasjonspunkt_ref"
+"AdresseContainer" *--> "0..*" "Representasjonspunkt" : "representasjonspunkt"
+"OffisiellAdresse" --> "0..1" "Representasjonspunkt" : "representasjonspunkt_ref"(i)
+class "Postboksadresse" [[{Ei postboksadresse registrert i Postboksregisteret (Posten Norge).}]] {
+    {field} postboksanleggsnavn : string  
+    {field} id(i) : uriorcurie  
+}
+class "Postboks" [[{Ei postboks registrert i Postboksregisteret.}]] {
+    {field} id : uriorcurie  
+    {field} postboksnummer : integer  
+}
+"Postboksadresse" --> "1" "Postboks" : "postboks_ref"
+"AdresseContainer" *--> "0..*" "Postboks" : "postboksar"
+"Postboksadresse" --> "0..1" "Postboks" : "postboks_ref"(i)
+class "Poststed" [[{Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.}]] {
+    {field} postnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+abstract "GeografiskAdresse" [[{Abstrakt basisklasse for norske adressar. Konkrete subklassar er OffisiellAdresse og Postboksadresse.}]] {
+    {field} id : uriorcurie  
+}
+"Postboksadresse" --> "1" "Poststed" : "poststed_ref"
+"AdresseContainer" *--> "0..*" "Postboksadresse" : "postboksadresser"
+"GeografiskAdresse" ^-- "Postboksadresse"
+abstract "GeografiskOmrade" [[{Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer til.}]] {
+    {field} id : uriorcurie  
+    {field} namn : string  
+}
+"AdresseContainer" *--> "0..*" "Poststed" : "poststeder"
+"Postboksadresse" --> "0..1" "Poststed" : "poststed_ref"(i)
+"GeografiskOmrade" ^-- "Poststed"
+class "Bruksenhet" [[{Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen.}]] {
+    {field} id : uriorcurie  
+}
+class "Bygning" [[{Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen.}]] {
+    {field} id : uriorcurie  
+}
+class "Bruksenhetsnummer" [[{Identifikator for ei brukseining (leilegheit o.l.) innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1.}]] {
+    {field} id : uriorcurie  
+    {field} etasjeplan : Etasjeplan  
+    {field} etasjenummer : integer  
+    {field} nummerering_i_etasjen : integer  
+}
+class "Husnummer" [[{Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t.d. 12 eller 12B).}]] {
+    {field} id : uriorcurie  
+    {field} nummer : integer  
+    {field} bokstav : string  
+}
+class "Adressekode" [[{Firesifra kommunal kode som identifiserer eit adressenavn.}]] {
+    {field} id : uriorcurie  
+    {field} kode : integer  
+}
+class "Adressenavn" [[{Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av kommunen og godkjent av Kartverket.}]] {
+    {field} id : uriorcurie  
+    {field} adressenavn_tekst : string  
+}
+class "Kommune" [[{Ein norsk kommune.}]] {
+    {field} kommunenummer_kode : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+"OffisiellAdresse" --> "1..*" "GeografiskOmrade" : "geografisk_omrade"
+"OffisiellAdresse" --> "0..1" "Bruksenhet" : "adresserer_bruksenhet"
+"OffisiellAdresse" --> "0..1" "Bygning" : "adresserer_bygning"
+"OffisiellAdresse" --> "0..1" "Bruksenhetsnummer" : "bruksenhetsnummer_ref"
+"OffisiellAdresse" --> "0..1" "Husnummer" : "husnummer_ref"
+"OffisiellAdresse" --> "1" "Adressekode" : "adressekode_ref"
+"OffisiellAdresse" --> "1" "Adressenavn" : "adressenavn_ref"
+"OffisiellAdresse" --> "1" "Kommune" : "kommunenummer_ref"
+"AdresseContainer" *--> "0..*" "OffisiellAdresse" : "offisielleAdresser"
+"GeografiskAdresse" ^-- "OffisiellAdresse"
+"AdresseContainer" *--> "0..*" "Kommune" : "kommunar"
+"OffisiellAdresse" --> "0..1" "Kommune" : "kommunenummer_ref"(i)
+"GeografiskOmrade" ^-- "Kommune"
+"AdresseContainer" *--> "0..*" "Husnummer" : "husnummer"
+"OffisiellAdresse" --> "0..1" "Husnummer" : "husnummer_ref"(i)
+class "Tettsted" [[{Eit tettbygd område definert av SSB.}]] {
+    {field} tettstedsnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+class "Svalbard" [[{Svalbard som særskild geografisk område.}]] {
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+class "Stemmekrets" [[{Ei stemmekrets brukt ved val.}]] {
+    {field} stemmekretsnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+class "KommunalKrets" [[{Ein kommunal krets (administrativ inndeling definert av kommunen).}]] {
+    {field} kretsnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+class "Kirkesokn" [[{Eit kyrkjesokn.}]] {
+    {field} kirkesoknnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+class "Grunnkrets" [[{Ei grunnkrets – minste geografiske eining i statistisk inndeling.}]] {
+    {field} grunnkretsnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+class "Fylke" [[{Eit norsk fylke.}]] {
+    {field} fylkesnummer : string  
+    {field} id(i) : uriorcurie  
+    {field} namn(i) : string  
+}
+"OffisiellAdresse" --> "0..*" "GeografiskOmrade" : "geografisk_omrade"(i)
+"GeografiskOmrade" ^-- "Tettsted"
+"GeografiskOmrade" ^-- "Svalbard"
+"GeografiskOmrade" ^-- "Stemmekrets"
+"GeografiskOmrade" ^-- "KommunalKrets"
+"GeografiskOmrade" ^-- "Kirkesokn"
+"GeografiskOmrade" ^-- "Grunnkrets"
+"GeografiskOmrade" ^-- "Fylke"
+"AdresseContainer" *--> "0..*" "Tettsted" : "tettstadar"
+"AdresseContainer" *--> "0..*" "Svalbard" : "svalbardOmrader"
+"AdresseContainer" *--> "0..*" "Stemmekrets" : "stemmekretsar"
+"AdresseContainer" *--> "0..*" "KommunalKrets" : "kommunaleKretsar"
+"AdresseContainer" *--> "0..*" "Kirkesokn" : "kirkesokn"
+"AdresseContainer" *--> "0..*" "Grunnkrets" : "grunnkretsar"
+"AdresseContainer" *--> "0..*" "Fylke" : "fylke"
+"AdresseContainer" *--> "0..*" "Bygning" : "bygningar"
+"OffisiellAdresse" --> "0..1" "Bygning" : "adresserer_bygning"(i)
+"AdresseContainer" *--> "0..*" "Bruksenhetsnummer" : "bruksenhetsnummer"
+"OffisiellAdresse" --> "0..1" "Bruksenhetsnummer" : "bruksenhetsnummer_ref"(i)
+"AdresseContainer" *--> "0..*" "Bruksenhet" : "bruksenheter"
+"OffisiellAdresse" --> "0..1" "Bruksenhet" : "adresserer_bruksenhet"(i)
+class "Adresseomrade" [[{Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit stadnamn.}]] {
+    {field} id : uriorcurie  
+    {field} namn : string  
+}
+"Adressenavn" --> "1" "Adresseomrade" : "adresseomrade_ref"
+"AdresseContainer" *--> "0..*" "Adresseomrade" : "adresseomrader"
+"Adressenavn" --> "0..1" "Adresseomrade" : "adresseomrade_ref"(i)
+"Adressekode" --> "0..1" "Adresseomrade" : "adresseomrade_ref"
+"Adressenavn" --> "1" "Adressekode" : "har_adressekode"
+"AdresseContainer" *--> "0..*" "Adressenavn" : "adressenavn"
+"OffisiellAdresse" --> "0..1" "Adressenavn" : "adressenavn_ref"(i)
+"AdresseContainer" *--> "0..*" "Adressekode" : "adressekoder"
+"OffisiellAdresse" --> "0..1" "Adressekode" : "adressekode_ref"(i)
+"Adressenavn" --> "0..1" "Adressekode" : "har_adressekode"(i)
+@enduml

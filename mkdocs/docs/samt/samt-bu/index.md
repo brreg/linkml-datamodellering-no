@@ -75,6 +75,8 @@ Name: skole_ontologi
 
 
 
+
+
 ### Andre
 
 | Class | Description |
@@ -98,41 +100,53 @@ Name: skole_ontologi
 
 | Slot | Description |
 | --- | --- |
-| [basisgrupper](klasser/basisgrupper.md) |  |
-| [brukertilbakemeldinger](klasser/brukertilbakemeldinger.md) |  |
-| [dataset_metadata](klasser/dataset_metadata.md) |  |
-| [datasettdistribusjoner](klasser/datasettdistribusjoner.md) |  |
+
+
+
+
+
 | [del_av_skole](klasser/del_av_skole.md) | Skolen basisgruppa tilhører |
-| [elever](klasser/elever.md) |  |
+
+
 | [enhetsleder_for](klasser/enhetsleder_for.md) | Enhet rektor er enhetsleder for |
-| [fylker](klasser/fylker.md) |  |
+
+
 | [fylkesnummer](klasser/fylkesnummer.md) | Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territ... |
-| [gjeldende_lovgivninger](klasser/gjeldende_lovgivninger.md) |  |
-| [grupper](klasser/grupper.md) |  |
+
+
+
 | [har_saerlig_ansvar_for](klasser/har_saerlig_ansvar_for.md) | Elev kontaktlæreren har særlig ansvar for |
+
 | [har_skoleeier](klasser/har_skoleeier.md) | Skoleeier for skolen |
+
 | [horer_til_basisgruppe](klasser/horer_til_basisgruppe.md) | Basisgruppe elev tilhører |
-| [id](klasser/id.md) |  |
+
+
 | [jobber_paa_skole](klasser/jobber_paa_skole.md) | Skolen kontaktlæreren jobber på |
+
 | [kommunenummer](klasser/kommunenummer.md) | Kommunenummer er en nummerrekke som identifiserer kommuner eller kommunefrie ... |
-| [kommuner](klasser/kommuner.md) |  |
-| [kontaktlaerere](klasser/kontaktlaerere.md) |  |
-| [kontaktpunkter](klasser/kontaktpunkter.md) |  |
-| [kvalitetsdimensjoner](klasser/kvalitetsdimensjoner.md) |  |
-| [kvalitetsmaalinger](klasser/kvalitetsmaalinger.md) |  |
-| [kvalitetsmerknader](klasser/kvalitetsmerknader.md) |  |
+
+
+
+
+
+
+
 | [navn](klasser/navn.md) | Namn på ressursen |
-| [organisasjoner](klasser/organisasjoner.md) |  |
+
+
 | [organisasjonsnummer](klasser/organisasjonsnummer.md) | Organisasjonsnummer er i Norge et ni-sifret registreringsnummer som tildeles ... |
-| [private_virksomheter](klasser/private_virksomheter.md) |  |
-| [rektorer](klasser/rektorer.md) |  |
-| [skoler](klasser/skoler.md) |  |
-| [standarder](klasser/standarder.md) |  |
-| [tekstdeler](klasser/tekstdeler.md) |  |
-| [tidsromer](klasser/tidsromer.md) |  |
+
+
+
+
+
+
+
 | [tilknyttet_basisgruppe](klasser/tilknyttet_basisgruppe.md) | Basisgruppe kontaktlærer er tilknyttet |
+
 | [trinniva](klasser/trinniva.md) | Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år |
-| [utgivere](klasser/utgivere.md) |  |
+
 
 
 ## Enumerations
