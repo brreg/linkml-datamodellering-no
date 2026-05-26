@@ -159,6 +159,15 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag](https://d
 
 
 
+## Examples
+### Example: Vederlag-Vederlag1
+
+```yaml
+identifikator: aksje:Vederlag1
+belop: 100000.0
+
+```
+
 
 
 ## LinkML Source

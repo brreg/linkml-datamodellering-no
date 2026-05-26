@@ -189,6 +189,16 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd](http
 
 
 
+## Examples
+### Example: Aksjeinnskudd-Aksjeinnskudd1
+
+```yaml
+identifikator: aksje:Aksjeinnskudd1
+gjelder_innbetalt_aksjekapital: 48484
+gjelder_innbetalt_overkurs: 887763
+
+```
+
 
 
 ## LinkML Source

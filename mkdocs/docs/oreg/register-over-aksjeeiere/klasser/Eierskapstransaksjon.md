@@ -245,6 +245,18 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjo
 
 
 
+## Examples
+### Example: Eierskapstransaksjon-Eierskapstransaksjon1
+
+```yaml
+identifikator: aksje:Eierskapstransaksjon1
+tidspunkt: '2026-01-01'
+kan_vaere_aksjeoverdragelse: aksje:Aksjeoverdragelse1
+paavirker_eierposisjon: aksje:Eierposisjon1
+kan_vaere_selskapshendelse: aksje:Selskapshendelse1
+
+```
+
 
 
 ## LinkML Source

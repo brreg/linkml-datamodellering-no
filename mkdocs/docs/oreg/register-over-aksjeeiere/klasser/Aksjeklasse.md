@@ -161,6 +161,15 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse](https:
 
 
 
+## Examples
+### Example: Aksjeklasse-Aksjeklasse1
+
+```yaml
+identifikator: aksje:Aksjeklasse1
+navn: Ordinær aksje
+
+```
+
 
 
 ## LinkML Source

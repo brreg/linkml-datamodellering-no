@@ -140,71 +140,30 @@ Name: register-over-aksjeeiere
 
 | Slot | Description |
 | --- | --- |
-
-
-
-
-
-
-
-
-
-
 | [antall](klasser/antall.md) | Numerisk verdi |
-
 | [belop](klasser/belop.md) | Monetært beløp |
-
 | [beskrivelse](klasser/beskrivelse.md) | Tekstleg forklaring av instansen |
-
 | [dato](klasser/dato.md) | Kalenderdato |
-
-
-
 | [er_basert_paa_eierposisjon](klasser/er_basert_paa_eierposisjon.md) | Utbytte knytt til eigarposisjonen |
-
 | [gjelder_aksjepost](klasser/gjelder_aksjepost.md) | Aksjepost som inngår i eigarposisjonen |
-
 | [gjelder_aksjer_i_aksjeklasse](klasser/gjelder_aksjer_i_aksjeklasse.md) | Rettigheiter knytt til aksjeklassen |
-
 | [gjelder_innbetalt_aksjekapital](klasser/gjelder_innbetalt_aksjekapital.md) | Innbetalt aksjekapital |
-
 | [gjelder_innbetalt_overkurs](klasser/gjelder_innbetalt_overkurs.md) | Innbetalt overkurs |
-
 | [har_aksjekapital](klasser/har_aksjekapital.md) | Aksjekapital som høyrer til selskapet |
-
 | [har_antall_aksjer](klasser/har_antall_aksjer.md) | Tal aksjar |
-
 | [har_eierposisjon](klasser/har_eierposisjon.md) | Eierposisjon aksjeeigaren har |
-
 | [har_palydende_belop](klasser/har_palydende_belop.md) | Pålydande verdi for aksja |
-
 | [har_utdeling](klasser/har_utdeling.md) | Utdeling knytt til utbyttet |
-
 | [identifikator](klasser/identifikator.md) | Global identifikator for instansen |
-
-
-
 | [kan_ha_aksjeinnskudd](klasser/kan_ha_aksjeinnskudd.md) | Aksjeinnskot i selskapshending |
-
 | [kan_ha_vederlag](klasser/kan_ha_vederlag.md) | Vederlag for aksjeoverdraging |
-
 | [kan_vaere_aksjeoverdragelse](klasser/kan_vaere_aksjeoverdragelse.md) | Aksjeoverdraging i transaksjonen |
-
 | [kan_vaere_selskapshendelse](klasser/kan_vaere_selskapshendelse.md) | Selskapshendelse i transaksjonen |
-
 | [navn](klasser/navn.md) | Namn på instansen |
-
 | [paavirker_eierposisjon](klasser/paavirker_eierposisjon.md) | Eierskapstransaksjon knytt til eigarposisjonen |
-
-
 | [tidspunkt](klasser/tidspunkt.md) | Tidspunkt for utbytte/eierskapstransaksjon |
-
 | [tilhorer_aksjeklasse](klasser/tilhorer_aksjeklasse.md) | Klassen aksja høyrer til |
-
-
-
 | [utsteder_aksje](klasser/utsteder_aksje.md) | Aksje utstedt av selskapet |
-
 
 
 ## Enumerations

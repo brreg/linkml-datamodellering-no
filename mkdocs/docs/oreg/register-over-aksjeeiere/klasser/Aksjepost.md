@@ -187,6 +187,16 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost](https://
 
 
 
+## Examples
+### Example: Aksjepost-Aksjepost1
+
+```yaml
+identifikator: aksje:Aksjepost1
+har_antall_aksjer: 300
+gjelder_aksjer_i_aksjeklasse: aksje:Aksjeklasse1
+
+```
+
 
 
 ## LinkML Source

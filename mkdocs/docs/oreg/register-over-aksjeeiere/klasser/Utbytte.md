@@ -216,6 +216,17 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte](https://da
 
 
 
+## Examples
+### Example: Utbytte-Utbytte1
+
+```yaml
+identifikator: aksje:Utbytte1
+tidspunkt: '2026-03-01'
+har_utdeling: aksje:Utdeling1
+er_basert_paa_eierposisjon: aksje:Eierposisjon1
+
+```
+
 
 
 ## LinkML Source

@@ -160,6 +160,15 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse](h
 
 
 
+## Examples
+### Example: Selskapshendelse-Selskapshendelse1
+
+```yaml
+identifikator: aksje:Selskapshendelse1
+kan_ha_aksjeinnskudd: aksje:Aksjeinnskudd1
+
+```
+
 
 
 ## LinkML Source

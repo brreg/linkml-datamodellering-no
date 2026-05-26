@@ -187,6 +187,16 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier](https://
 
 
 
+## Examples
+### Example: Aksjeeier-Aksjeeier1
+
+```yaml
+identifikator: aksje:Aksjeeier1
+navn: Ola Nordmann
+har_eierposisjon: aksje:Eierposisjon1
+
+```
+
 
 
 ## LinkML Source

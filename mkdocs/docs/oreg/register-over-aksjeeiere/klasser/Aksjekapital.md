@@ -159,6 +159,15 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital](https
 
 
 
+## Examples
+### Example: Aksjekapital-Aksjekapital1
+
+```yaml
+identifikator: aksje:Aksjekapital1
+har_antall_aksjer: 1000
+
+```
+
 
 
 ## LinkML Source

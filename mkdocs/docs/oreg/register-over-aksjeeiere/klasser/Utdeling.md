@@ -159,6 +159,15 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling](https://d
 
 
 
+## Examples
+### Example: Utdeling-Utdeling1
+
+```yaml
+identifikator: aksje:Utdeling1
+belop: 5000.0
+
+```
+
 
 
 ## LinkML Source

@@ -216,6 +216,17 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap](https
 
 
 
+## Examples
+### Example: Aksjeselskap-Aksjeselskap1
+
+```yaml
+identifikator: aksje:Aksjeselskap1
+navn: Eksempel AS
+har_aksjekapital: aksje:Aksjekapital1
+utsteder_aksje: aksje:Aksje1
+
+```
+
 
 
 ## LinkML Source

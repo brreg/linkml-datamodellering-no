@@ -186,6 +186,16 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet]
 
 
 
+## Examples
+### Example: Aksjeeierrettighet-Aksjeeierrettighet1
+
+```yaml
+identifikator: aksje:Aksjeeierrettighet1
+beskrivelse: Stemmerett på generalforsamling
+gjelder_aksjer_i_aksjeklasse: aksje:Aksjeklasse1
+
+```
+
 
 
 ## LinkML Source

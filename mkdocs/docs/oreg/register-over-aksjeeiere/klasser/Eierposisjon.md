@@ -162,6 +162,15 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon](https
 
 
 
+## Examples
+### Example: Eierposisjon-Eierposisjon1
+
+```yaml
+identifikator: aksje:Eierposisjon1
+gjelder_aksjepost: aksje:Aksjepost1
+
+```
+
 
 
 ## LinkML Source

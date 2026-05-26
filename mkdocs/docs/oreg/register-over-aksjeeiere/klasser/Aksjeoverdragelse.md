@@ -160,6 +160,15 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse](
 
 
 
+## Examples
+### Example: Aksjeoverdragelse-Aksjeoverdragelse1
+
+```yaml
+identifikator: aksje:Aksjeoverdragelse1
+kan_ha_vederlag: aksje:Vederlag1
+
+```
+
 
 
 ## LinkML Source

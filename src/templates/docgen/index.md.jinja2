@@ -71,10 +71,8 @@ Name: {{ schema.name }}
 
 | Slot | Description |
 | --- | --- |
-{% for s in gen.all_slot_objects()|sort(attribute=sort_by) -%}
-{%- if s.name not in ns_root.attr_names %}
+{% for s in gen.all_slot_objects()|sort(attribute=sort_by) if s.name not in ns_root.attr_names -%}
 | {{ gen.link(s, True) }} | {{ s.description|enshorten }} |
-{%- endif %}
 {% endfor %}
 
 ## Enumerations

@@ -189,6 +189,16 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje](https://data
 
 
 
+## Examples
+### Example: Aksje-Aksje1
+
+```yaml
+identifikator: aksje:Aksje1
+har_palydende_belop: 100
+tilhorer_aksjeklasse: aksje:Aksjeklasse1
+
+```
+
 
 
 ## LinkML Source

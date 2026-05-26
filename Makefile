@@ -68,8 +68,17 @@ endef
 # gen-doc writes to a directory instead of stdout
 define run_gen_doc
 @$(foreach s,$(1), \
+  echo "$(CLR_STEP)→ gen-docgen-examples  $(s)$(CLR_RST)" && \
+  mkdir -p $(call schema_outdir,$(s))/docgen-examples && \
+  $(PYTHON_RUN) python3 src/assets/scripts/gen-docgen-examples.py \
+    $(s) \
+    examples/$(call schema_domain,$(s))/$(call schema_name,$(s))-eksempel.yaml \
+    $(call schema_outdir,$(s))/docgen-examples && \
+  $(if $(wildcard src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/*.yaml), \
+    cp src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/*.yaml \
+       $(call schema_outdir,$(s))/docgen-examples/,) \
   echo "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)" && \
-  echo "$(LINKML_RUN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram -d $(call schema_outdir,$(s))/docs $(s)" && \
+  echo "$(LINKML_RUN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram --example-directory $(call schema_outdir,$(s))/docgen-examples -d $(call schema_outdir,$(s))/docs $(s)" && \
   mkdir -p $(call schema_outdir,$(s))/docs && \
   $(LINKML_RUN) gen-doc \
     --template-directory src/templates/docgen \
@@ -77,6 +86,7 @@ define run_gen_doc
     --no-render-imports \
     --no-hierarchical-class-view \
     --diagram-type mermaid_class_diagram \
+    --example-directory $(call schema_outdir,$(s))/docgen-examples \
     -d $(call schema_outdir,$(s))/docs $(s) && \
   sed -i '/Container/d' $(call schema_outdir,$(s))/docs/index.md; \
 )
@@ -596,7 +606,7 @@ docs-serve:
 	@echo "$(CLR_HDR)*** make docs-serve$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
-	$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000 --dirtyreload --no-livereload
+	$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000 --dirtyreload
 
 docs-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
