@@ -152,7 +152,7 @@ jobs:
         if: steps.cache-generated.outputs.cache-hit != 'true'
         shell: bash
         run: |
-          for artifact in linkml context shapes python json-schema owl rdf erdiagram doc proto plantuml examples; do
+          for artifact in linkml context shapes python json-schema owl rdf erdiagram doc proto plantuml examples data; do
             make domain-gen-$artifact DOMAIN=${{ matrix.domain }}
           done
 

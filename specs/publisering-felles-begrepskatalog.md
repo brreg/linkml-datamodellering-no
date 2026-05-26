@@ -9,12 +9,22 @@ oppfyller SKOS-AP-NO-Begrep-krava før publisering.
 
 ## Bakgrunn
 
-Pipelinen genererer allereie SKOS/Turtle (`brreg-begrep-eksempel.ttl`) frå
-YAML-instansar og publiserer fila til GitHub Pages via `generate.yml`.
-Fila er dermed allereie offentleg tilgjengeleg. Det som manglar er:
+Repoet har to typar YAML-filer med klart skilde føremål:
 
-1. Ein `felles-begrepskatalog`-policy i `mcp-linkml-validator`
-2. Registrering av GitHub Pages-URL som høstingsendepunkt
+| Katalog | Føremål | Publiserast til Felles Begrepskatalog? |
+|---|---|---|
+| `examples/<domene>/` | Illustrative døme — viser gyldig datafil, nyttast i gen-doc | **Nei** |
+| `data/<domene>/` | Reelle produksjonsdata — dei faktiske begrepsdefinisjonane | **Ja** |
+
+Eksempelfiler skal **aldri** publiserast til eksterne mottakarar. Dei er berre
+til internt bruk: som gyldige dataeksempel og for gen-doc-dokumentasjon.
+
+Pipelinen genererer allereie Turtle frå YAML via `convert-rdf`. Det som manglar er:
+
+1. Ein `data/`-katalog med reelle begrepsfiler (skilt frå `examples/`)
+2. Ein `felles-begrepskatalog`-policy i `mcp-linkml-validator`
+3. Ei konverteringspipeline for `data/`-filer til Turtle
+4. Registrering av GitHub Pages-URL som høstingsendepunkt
 
 ---
 
@@ -646,16 +656,61 @@ Pluss arva frå `bronze`: `schema_id_is_http_uri`, `all_classes_have_class_uri` 
 
 ---
 
-## Del 2 — Publisering via høstingsendepunkt
+## Del 2 — Datafiler og konverteringspipeline
+
+### Katalogstruktur for reelle data
+
+Reelle begrepsdefinisjonar ligg i `data/`-katalogen, spegla etter same
+domene/skjema-mønster som `src/linkml/` og `examples/`:
+
+```
+data/
+  begrep/
+    brreg-begrep.yaml        # reelle begrepsdefinisjonar — det som vert publisert
+```
+
+Éi YAML-fil per begrepskatalog. Fila følgjer same skjemastruktur som
+`examples/begrep/brreg-begrep-eksempel.yaml`, men inneheld faktiske
+produksjonsdata med stabile URI-ar.
+
+### Konverteringspipeline
+
+Ein ny Makefile-regel `convert-data` konverterer alle `data/`-filer til Turtle,
+parallelt med `convert-rdf` (som handterer `examples/`):
+
+```makefile
+convert-data:
+	@for domain in $$(ls data/ 2>/dev/null); do \
+		for datafile in data/$$domain/*-eksempel.yaml data/$$domain/*.yaml; do \
+			[ -f "$$datafile" ] || continue; \
+			name=$$(basename "$$datafile" .yaml); \
+			# resolv schema: same mønster som convert-rdf \
+			schema=src/linkml/$$domain/$$name/$$name-schema.yaml; \
+			mkdir -p $(GEN_DIR)/$$domain/$$name; \
+			$(LINKML_RUN) linkml-convert \
+				--schema $$schema --output-format ttl \
+				--no-validate \
+				--output $(GEN_DIR)/$$domain/$$name/$$name.ttl \
+				$$datafile; \
+		done; \
+	done
+```
+
+`generate.yml` utvidar med `convert-data` etter `convert-rdf` slik at
+`data/`-filer vert publiserte til GitHub Pages ved kvar push til `main`.
 
 ### Publisert URL
 
 ```
-https://brreg.github.io/linkml-datamodellering-no/begrep/brreg-begrep/brreg-begrep-eksempel.ttl
+https://brreg.github.io/linkml-datamodellering-no/begrep/brreg-begrep/brreg-begrep.ttl
 ```
 
-Kvar gong `examples/begrep/brreg-begrep-eksempel.yaml` vert endra og pushat til
-`main`, kjøyrer `generate.yml` og publiserer ny versjon av `.ttl`-fila automatisk.
+Kvar gong `data/begrep/brreg-begrep.yaml` vert endra og pushat til `main`,
+kjøyrer `generate.yml` og publiserer ny versjon av `.ttl`-fila automatisk.
+
+---
+
+## Del 3 — Publisering via høstingsendepunkt
 
 ### Tilnærming: høstingsendepunkt
 
@@ -668,20 +723,25 @@ Data.norge.no tilbyr to publiseringsmetodar:
 
 ### Steg-for-steg
 
-#### Steg 1 — Validér mot `felles-begrepskatalog`-policyen
+#### Steg 1 — Opprett datafil og validér
+
+Lag `data/begrep/brreg-begrep.yaml` med reelle begrepsdefinisjonar.
+Valider skjema og datafil i eitt steg:
 
 ```bash
 make mcp-validate \
   SCHEMA=src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml \
-  POLICY=felles-begrepskatalog
+  POLICY=felles-begrepskatalog \
+  INSTANCE=data/begrep/brreg-begrep.yaml
 ```
 
-Alle feil (severity: error) må rettast før registrering. Åtvaringar (warning)
-bør rettast, men blokkerer ikkje publisering.
+`flatten-and-validate.bash` tek `INSTANCE` som eksplisitt tredje argument
+(sjå Del 4 § Instansvalidering). Alle feil (severity: error) må rettast
+før registrering. Åtvaringar (warning) bør rettast, men blokkerer ikkje publisering.
 
 Sjekk i tillegg at den genererte `.ttl`-fila har eksplisitte språktag (`@nb`/`@nn`/`@en`)
-på alle `skos:prefLabel`- og `skos:definition`-verdiar — dette er eit instansnivå-krav
-som policyen ikkje dekkar (gjeld begrep-generatoren, ikkje skjemaet).
+på alle `skos:prefLabel`- og `skos:definition`-verdiar — dette er eit RDF-nivå-krav
+utanfor LinkML sin validator.
 
 #### Steg 2 — Tilgang til administrasjonsgrensesnittet
 
@@ -703,7 +763,7 @@ Navigér til [admin.fellesdatakatalog.digdir.no/data-sources](https://admin.fell
 | **Katalogtype** | Begreper |
 | **Datakildentype** | SKOS-AP-NO |
 | **Format** | Turtle |
-| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/begrep/brreg-begrep/brreg-begrep-eksempel.ttl` |
+| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/begrep/brreg-begrep/brreg-begrep.ttl` |
 | **Autentisering** | (tomt — endepunktet er offentleg) |
 
 Lagre. Felles datakatalog vil frå no av høste endepunktet automatisk med jamleg intervall.
@@ -715,7 +775,7 @@ vente på neste automatiske syklus. Behandlingstida er typisk nokre minutt.
 
 #### Steg 5 — Verifiser publisering
 
-Søk etter `aksjeklasser`, `foretaksnavn` eller `nestleder` på
+Søk på nokre av begrepene frå `data/begrep/brreg-begrep.yaml` på
 [data.norge.no/concepts](https://data.norge.no/concepts) og verifiser at:
 
 - Begrepet visast med rett definisjon
@@ -728,71 +788,55 @@ Søk etter `aksjeklasser`, `foretaksnavn` eller `nestleder` på
 Når høstingsendepunktet er registrert éin gong, er arbeidsflyten fullt automatisk:
 
 ```
-rediger examples/begrep/brreg-begrep-eksempel.yaml
-    → make begrep  (eller CI-pipeline ved push til main)
-    → generated/begrep/brreg-begrep/brreg-begrep-eksempel.ttl
+rediger data/begrep/brreg-begrep.yaml
+    → make convert-data  (eller CI-pipeline ved push til main)
+    → generated/begrep/brreg-begrep/brreg-begrep.ttl
     → GitHub Pages publiserer ny .ttl
     → Felles Begrepskatalog høstar automatisk ved neste syklus
 ```
+
+Merk: `examples/begrep/brreg-begrep-eksempel.yaml` vert ikkje endra som
+del av denne arbeidsflyten. Eksempelfila kan oppdaterast uavhengig
+(t.d. for å illustrere skjemaendringar), men vert aldri publisert.
 
 ---
 
 ## Kjende avgrensingar og risiko
 
-### Instansvalidering som publiseringsport
+### Del 4 — Instansvalidering av datafiler
 
-#### Problem
+#### Eksplisitt instansbane i `flatten-and-validate.bash`
 
-`felles-begrepskatalog`-policyen sjekkar at LinkML-skjemaet er riktig strukturert,
-men ikkje at dei konkrete YAML-instansane i `examples/` er gyldige SKOS-AP-NO.
-Eit skjema kan vere perfekt, men instansfila kan likevel innehalde begrep som
-manglar `skos:prefLabel`, har feil type, eller bryt `required`-krav.
+`flatten-and-validate.bash` tek eit valfritt tredje argument — ein eksplisitt
+instansfil — i tillegg til schema og policy. Når dette argumentet er gjeve,
+nyttast datafila i staden for å oppdage `examples/`-fila automatisk:
 
-#### Kvifor instansvalidering allereie finst — men ikkje virkar for denne policyen
+```bash
+# Automatisk (eksempel-fil): brukast for bronze/silver/gold
+bash src/mcp-linkml-validator/flatten-and-validate.bash \
+  src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml \
+  bronze
 
-`flatten-and-validate.bash` lastar automatisk `examples/${DOMAIN}/${NAME}-eksempel.yaml`
-og sender ho som `instanceText` til `validate_linkml_schema`. Instansvalideringa er
-dermed allereie "leda inn" til validatoren ved `make mcp-validate`.
-
-Men i `server.py` er instansvalideringa gated bak ein `base`-sjekk:
-
-```python
-# server.py linje ~368 — instansvalidering køyrer berre for basispolicyen
-if base and instance_text is not None:
-    inst_result = validate_instance(schema_text, instance_text)
-    issues.extend(inst_result["issues"])
+# Eksplisitt datafil (publiseringspolicyen): brukast for felles-begrepskatalog
+bash src/mcp-linkml-validator/flatten-and-validate.bash \
+  src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml \
+  felles-begrepskatalog \
+  data/begrep/brreg-begrep.yaml
 ```
 
-`base` er `True` berre når policyen ikkje arvar nokon annan policy (dvs. berre
-for bronze). `felles-begrepskatalog` arvar bronze, så `base = False` — og
-instansen vert aldri validert sjølv om fila finst og er sendt inn.
+Makefile-regelen `mcp-validate` les ein valfri `INSTANCE`-variabel og sender
+han vidare til skriptet:
 
-Same avgrensing gjeld for silver og gold.
-
-#### Løysing: fjern `base`-gating frå instansvalidering
-
-Endre `server.py` slik at instansvalidering køyrer for **alle policyer** når
-`instance_text` er tilgjengeleg — ikkje berre for basispolicyen:
-
-```python
-# Før (server.py ~linje 368):
-if base and instance_text is not None:
-
-# Etter:
-if instance_text is not None:
+```makefile
+mcp-validate:
+	bash src/mcp-linkml-validator/flatten-and-validate.bash \
+	  $(SCHEMA) $(POLICY) $(INSTANCE)
 ```
-
-Dette er ei trygg endring: `validate_instance` brukar `linkml.validator.validate`
-direkte mot skjemaet — ingen dobbel validering, ingen arv-konflikt. Den einaste
-årsaka til den opphavlege `base`-gatinget var sannsynlegvis å unngå instanssjekk
-på policynivå der det ikkje vart rekna som relevant, men det skapar eit hol for
-alle ikkje-basispolicyer.
 
 #### Kva instansvalideringa fangar opp
 
-Etter endringa vil `make mcp-validate SCHEMA=... POLICY=felles-begrepskatalog`
-automatisk validere `examples/begrep/brreg-begrep-eksempel.yaml` mot det flatta
-skjemaet og rapportere:
+`make mcp-validate SCHEMA=... POLICY=felles-begrepskatalog INSTANCE=data/begrep/brreg-begrep.yaml`
+validerer datafila mot det flatta skjemaet og rapporterer:
 
 | Feil-type | Eksempel |
 |---|---|
@@ -801,31 +845,44 @@ skjemaet og rapportere:
 | Ugyldig type | tekst-verdi der URI er forventa |
 | Feil kardinalitet | `multivalued: false`-slot med liste |
 | Ukjend klasse/slot | Typo i instansnøkkel |
+| Ugyldig utgjevar-URI | `dct:publisher` ikkje i `known_values`-lista |
 
 Instansvalideringa fangar **ikkje** opp:
-- Manglande språktag (`@nb`/`@nn`) — dette er eit RDF-nivå-krav utanfor LinkML sin validator
-- URI-formatvalidering (t.d. om `dct:publisher` peikar på ein faktisk registrert org)
+- Manglande språktag (`@nb`/`@nn`) — RDF-nivå-krav; bør validerast mot
+  SKOS-AP-NO SHACL-shapes frå [informasjonsforvaltning/skos-ap-no-begrep](https://github.com/Informasjonsforvaltning/skos-ap-no-begrep)
 
-Manglande språktag bør handterast separat, t.d. ved å validere den genererte
-`.ttl`-fila mot SKOS-AP-NO SHACL-shapes frå [informasjonsforvaltning/skos-ap-no-begrep](https://github.com/Informasjonsforvaltning/skos-ap-no-begrep).
-
-#### Koordinering med URI-registeret og CI
-
-Etter at `server.py`-endringa er implementert, vert den anbefalte flyten:
+#### Anbefalt arbeidsflyt
 
 ```
-1. rediger examples/begrep/brreg-begrep-eksempel.yaml
-2. make mcp-validate SCHEMA=src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml \
-                     POLICY=felles-begrepskatalog
-   → validerer både skjema OG instans i eitt steg
+1. rediger data/begrep/brreg-begrep.yaml
+2. make mcp-validate \
+     SCHEMA=src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml \
+     POLICY=felles-begrepskatalog \
+     INSTANCE=data/begrep/brreg-begrep.yaml
+   → validerer skjema + datafil + instance_checks (utgjevar-URI) i eitt steg
 3. (ved nye URI-ar) oppdater published-uris.lock
 4. push til main → CI køyrer same validering automatisk
 5. GitHub Pages publiserer ny .ttl → Felles Begrepskatalog høstar
 ```
 
-CI-pipelinen (`validate.yml`) treng ingen endringar — han køyrer allereie
-`make mcp-validate` for alle skjema, og vil automatisk fange opp instansfeil
-etter at `server.py` er oppdatert.
+#### CI-integrering
+
+`validate.yml` utvidast med eit eige steg for datafiler:
+
+```yaml
+- name: Valider datafiler mot publiseringspolicyer
+  run: |
+    if [ -f data/begrep/brreg-begrep.yaml ]; then
+      make mcp-validate \
+        SCHEMA=src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml \
+        POLICY=felles-begrepskatalog \
+        INSTANCE=data/begrep/brreg-begrep.yaml
+    fi
+```
+
+Eksisterande `make mcp-validate` per skjema (utan `INSTANCE`) held fram
+uendra — det validerer skjemastrukturen mot bronze/silver/gold og nyttar
+eksempelfila for instansvalidering av skjemakvalitet.
 
 ### Fleire begrepskatalogfiler
 
@@ -851,7 +908,7 @@ den opphavlege URI-en.
 
 #### Prinsipp: URI-ar er uforanderlege etter første publisering
 
-`id:`-feltet i `examples/begrep/<katalog>-eksempel.yaml` er **permanent** frå det
+`id:`-feltet i `data/begrep/<katalog>.yaml` er **permanent** frå det
 augeblikket katalogen er registrert som høstingsendepunkt. Denne regelen gjeld:
 
 - `id:` på `Begrep`-objekt (`https://begrep.brreg.no/<slug>`)
@@ -881,8 +938,8 @@ https://begrep.brreg.no/samlingar/registerbegrep-2025
 ```
 
 **Arbeidsflyt:**
-1. Nye begrep: legg til `id:` i YAML-fila, legg til same URI nedst i `.lock`-fila, commit
-2. CI-sjekk: alle URI-ar i `.lock`-fila må framleis finst i YAML-fila — manglar betyr at eit publisert begrep er fjerna (error)
+1. Nye begrep: legg til `id:` i `data/begrep/brreg-begrep.yaml`, legg til same URI nedst i `.lock`-fila, commit
+2. CI-sjekk: alle URI-ar i `.lock`-fila må framleis finst i datafila — manglar betyr at eit publisert begrep er fjerna (error)
 3. Etter høsting bekrefta i Felles Begrepskatalog: oppdater kommentaren «Sist oppdatert» i `.lock`-fila
 
 #### CI-sjekk: validate-published-uris
@@ -891,15 +948,15 @@ Legg til ein enkel CI-sjekk (bash-skript eller Make-regel) som køyrer ved kvar 
 
 ```bash
 #!/usr/bin/env bash
-# Sjekk at alle URI-ar i .lock-fila framleis finst i YAML-instansfila
+# Sjekk at alle URI-ar i .lock-fila framleis finst i datafila
 set -euo pipefail
 LOCK="src/linkml/begrep/brreg-begrep/published-uris.lock"
-YAML="examples/begrep/brreg-begrep-eksempel.yaml"
+DATA="data/begrep/brreg-begrep.yaml"
 failed=0
 while IFS= read -r uri; do
     [[ "$uri" =~ ^#|^$ ]] && continue
-    if ! grep -qF "$uri" "$YAML"; then
-        echo "FEIL: Publisert URI manglar frå YAML: $uri" >&2
+    if ! grep -qF "$uri" "$DATA"; then
+        echo "FEIL: Publisert URI manglar frå datafila: $uri" >&2
         failed=1
     fi
 done < "$LOCK"
@@ -907,13 +964,14 @@ exit $failed
 ```
 
 Skriptet feilar PRen dersom nokon har fjerna eller endra eit `id:`-felt for eit
-allereie publisert begrep.
+allereie publisert begrep. Eksempelfiler (`examples/`) er ikkje med i denne sjekken —
+dei kan endrast fritt utan å bryte URI-kontrakten.
 
 #### Handtering av endringar: deprecering
 
 Dersom eit begrep faktisk må erstattast (t.d. feil namn, omdefiniering):
 
-1. **Behald** det opphavlege begrepet i YAML-fila — slett det ikkje
+1. **Behald** det opphavlege begrepet i `data/begrep/brreg-begrep.yaml` — slett det ikkje
 2. Legg til `er_erstatta_av: <ny-uri>` (`dct:isReplacedBy`) på det gamle begrepet
 3. Legg til `erstattar: <gamal-uri>` (`dct:replaces`) på det nye begrepet
 4. Vurder å merkje det gamle begrepet med `euvoc:status` → `deprecated`

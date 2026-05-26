@@ -7,6 +7,7 @@ GEN_DIR    			:= generated
 SCHEMA_DIR 			:= src/linkml
 MCP_DIR    			:= src/mcp-linkml-validator
 MCP_IMAGE  			:= mcp-linkml-validator
+INSTANCE   			?=
 DOCS_IMAGE 			:= localhost/mkdocs-local:latest
 PLANTUML_IMAGE		:= docker.io/plantuml/plantuml:latest
 DOCS_DOCKERFILE 	:= mkdocs/Dockerfile.mkdocs
@@ -129,7 +130,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR):/repo:ro"
 
 .PHONY: all test validate clean domains gen-config \
-		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf gen-docs \
+		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         linkml-build-docker python-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
         mcp-gen-build mcp-gen-run mcp-gen-smoke mcp-gen-test mcp-generate new-model \
@@ -140,14 +141,14 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
         $(DOMAINS) \
         domain-gen-linkml domain-gen-context domain-gen-shapes domain-gen-python \
         domain-gen-json-schema domain-gen-owl domain-gen-rdf \
-        domain-gen-examples domain-gen-doc domain-gen-erdiagram \
+        domain-gen-examples domain-gen-data domain-validate-data domain-gen-doc domain-gen-erdiagram \
         gen-proto gen-plantuml \
         domain-gen-proto domain-gen-plantuml \
         domain-validate-bronze domain-validate-examples \
         schema-gen-linkml schema-gen-context schema-gen-shapes schema-gen-python \
         schema-gen-json-schema schema-gen-owl schema-gen-rdf schema-gen-erdiagram \
         schema-gen-doc schema-gen-proto schema-gen-plantuml schema-gen-examples \
-        check-prereqs \
+        check-published-uris check-prereqs \
         gource-build gource-preview gource-video _gource-render
 
 all: test
@@ -267,6 +268,30 @@ convert-rdf:
 				--no-validate \
 				--output $(GEN_DIR)/$$domain/$$profil/$$name.ttl \
 				$$example; \
+		done; \
+	done
+
+# Convert data YAML files to RDF/Turtle for all domains.
+# Naming convention: data/<domain>/<name>.yaml → generated/<domain>/<name>/<name>.ttl
+# Schema resolved as: src/linkml/<domain>/<name>/<name>-schema.yaml
+convert-data:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make convert-data$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@for domain in $$(ls data/ 2>/dev/null); do \
+		for datafile in data/$$domain/*.yaml; do \
+			[ -f "$$datafile" ] || continue; \
+			name=$$(basename "$$datafile" .yaml); \
+			mkdir -p $(GEN_DIR)/$$domain/$$name; \
+			schema=$(SCHEMA_DIR)/$$domain/$$name/$$name-schema.yaml; \
+			echo "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
+			echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$name/$$name.ttl $$datafile"; \
+			$(LINKML_RUN) linkml-convert \
+				--schema $$schema \
+				--output-format ttl \
+				--no-validate \
+				--output $(GEN_DIR)/$$domain/$$name/$$name.ttl \
+				$$datafile; \
 		done; \
 	done
 
@@ -397,6 +422,52 @@ domain-gen-examples:
 			--no-validate \
 			$$example > $(GEN_DIR)/$(DOMAIN)/$$profil/$$name.ttl; \
 	done
+
+domain-gen-data:
+	@for datafile in data/$(DOMAIN)/*.yaml; do \
+		[ -f "$$datafile" ] || continue; \
+		name=$$(basename "$$datafile" .yaml); \
+		mkdir -p $(GEN_DIR)/$(DOMAIN)/$$name; \
+		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$name/$$name-schema.yaml; \
+		echo "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
+		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate $$datafile > $(GEN_DIR)/$(DOMAIN)/$$name/$$name.ttl"; \
+		$(LINKML_RUN) linkml-convert \
+			--schema $$schema \
+			--output-format ttl \
+			--no-validate \
+			$$datafile > $(GEN_DIR)/$(DOMAIN)/$$name/$$name.ttl; \
+	done
+
+domain-validate-data:
+	@for datafile in data/$(DOMAIN)/*.yaml; do \
+		[ -f "$$datafile" ] || continue; \
+		name=$$(basename "$$datafile" .yaml); \
+		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$name/$$name-schema.yaml; \
+		gen_yaml=$(SCHEMA_DIR)/$(DOMAIN)/$$name/generate.yaml; \
+		[ -f "$$gen_yaml" ] || continue; \
+		policy=$$(grep '^data_policy:' "$$gen_yaml" | awk '{print $$2}'); \
+		[ -n "$$policy" ] || continue; \
+		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
+		$(MAKE) --no-print-directory mcp-validate SCHEMA=$$schema POLICY=$$policy INSTANCE=$$datafile; \
+	done
+
+check-published-uris:
+	@failed=0; \
+	for lock in $$(find $(SCHEMA_DIR) -name 'published-uris.lock' 2>/dev/null); do \
+		schema_name=$$(basename "$$(dirname "$$lock")"); \
+		schema_domain=$$(basename "$$(dirname "$$(dirname "$$lock")")"); \
+		data=data/$$schema_domain/$$schema_name.yaml; \
+		[ -f "$$data" ] || { echo "Ingen datafil $$data for $$lock — hoppar over"; continue; }; \
+		while IFS= read -r uri; do \
+			[ -z "$$uri" ] && continue; \
+			printf '%s' "$$uri" | grep -q '^#' && continue; \
+			if ! grep -qF "$$uri" "$$data"; then \
+				echo "FEIL: Publisert URI manglar frå datafila: $$uri" >&2; \
+				failed=1; \
+			fi; \
+		done < "$$lock"; \
+	done; \
+	exit $$failed
 
 domain-gen-doc:
 	$(call run_gen_doc,$(_schemas_$(DOMAIN)))
@@ -695,7 +766,7 @@ mcp-validate:
 	@echo "$(CLR_HDR)*** make mcp-validate  SCHEMA=$(SCHEMA)  POLICY=$(POLICY)$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@podman image exists $(MCP_IMAGE) 2>/dev/null || $(MAKE) --no-print-directory mcp-val-build
-	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY)
+	bash $(MCP_DIR)/flatten-and-validate.bash $(SCHEMA) $(POLICY) $(INSTANCE)
 
 # ---------------------------------------------------------------------------
 # Gource – visualisering av git-historikk
