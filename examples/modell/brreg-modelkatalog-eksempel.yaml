@@ -1,0 +1,121 @@
+modelkatalogar:
+  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog
+    tittel:
+      - "Brønnøysundregistra – Modelkatalog"
+    beskrivelse:
+      - "Informasjonsmodellar frå Brønnøysundregistra i LinkML-format, tilgjengeleg som SHACL, JSON Schema, OWL og RDF/Turtle."
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog"
+    utgiver: https://data.norge.no/organizations/974760673
+    kontaktpunkt:
+      - https://brreg.no/kontakt/modellforvaltning
+    har_del:
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu
+    modell:
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
+      - https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu
+    spraak:
+      - http://publications.europa.eu/resource/authority/language/NOB
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+
+informasjonsmodellar:
+  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
+    tittel:
+      - "Nasjonale grunndata – Adresse"
+    beskrivelse:
+      - "Informasjonsmodell for offisielle adresser frå Matrikkelen."
+    utgiver: https://data.norge.no/organizations/974760673
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse"
+    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-adresse/"
+    kontaktpunkt:
+      - https://brreg.no/kontakt/modellforvaltning
+    tema:
+      - https://psi.norge.no/los/tema/bolig-og-eiendom
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+
+  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom
+    tittel:
+      - "Nasjonale grunndata – Eiendom"
+    beskrivelse:
+      - "Informasjonsmodell for fast eigedom, matrikkeleining og bygning."
+    utgiver: https://data.norge.no/organizations/974760673
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom"
+    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-eiendom/"
+    kontaktpunkt:
+      - https://brreg.no/kontakt/modellforvaltning
+    tema:
+      - https://psi.norge.no/los/tema/bolig-og-eiendom
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+
+  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person
+    tittel:
+      - "Nasjonale grunndata – Person"
+    beskrivelse:
+      - "Informasjonsmodell for person, identifikasjon og familierelasjonar."
+    utgiver: https://data.norge.no/organizations/974760673
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person"
+    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-person/"
+    kontaktpunkt:
+      - https://brreg.no/kontakt/modellforvaltning
+    tema:
+      - https://psi.norge.no/los/tema/familie-og-sivilstand
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+
+  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet
+    tittel:
+      - "Nasjonale grunndata – Virksomhet"
+    beskrivelse:
+      - "Informasjonsmodell for verksemder, roller og organisasjonsstruktur."
+    utgiver: https://data.norge.no/organizations/974760673
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet"
+    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-virksomhet/"
+    kontaktpunkt:
+      - https://brreg.no/kontakt/modellforvaltning
+    tema:
+      - https://psi.norge.no/los/tema/naering-og-sysselsetting
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+
+  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
+    tittel:
+      - "Register over aksjeeigarar"
+    beskrivelse:
+      - "Informasjonsmodell for aksjeeigarar, aksjekapital og eigarstruktur."
+    utgiver: https://data.norge.no/organizations/974760673
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere"
+    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/oreg/register-over-aksjeeiere/"
+    kontaktpunkt:
+      - https://brreg.no/kontakt/modellforvaltning
+    tema:
+      - https://psi.norge.no/los/tema/naering-og-sysselsetting
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+
+  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu
+    tittel:
+      - "SAMT – Barnehagar og skular"
+    beskrivelse:
+      - "Informasjonsmodell for barnehagar og skular i kommunesektoren."
+    utgiver: https://data.norge.no/organizations/974760673
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu"
+    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/"
+    kontaktpunkt:
+      - https://brreg.no/kontakt/modellforvaltning
+    tema:
+      - https://psi.norge.no/los/tema/familie-og-sivilstand
+    lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
+
+aktorer:
+  - id: https://brreg.no/kontakt/modellforvaltning
+    namn_aktor:
+      - "Registerenheten i Brønnøysund – Modellforvaltning"
+
+  - id: https://data.norge.no/organizations/974760673
+    namn_aktor:
+      - "Registerenheten i Brønnøysund"

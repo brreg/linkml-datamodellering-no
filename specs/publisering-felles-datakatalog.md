@@ -554,6 +554,60 @@ rediger examples/modell/brreg-modelkatalog-eksempel.yaml
 
 ---
 
+## Del 5 — Dokumentasjon
+
+### Ny rettleiingsside i portalen
+
+Lag `mkdocs/docs/publisering-modell.md` etter same mønster som
+`mkdocs/docs/publisering-begrep.md`. Sida bør dekke:
+
+- Oversikt med flowchart (same mønster som begrep-sida)
+- Dagleg arbeidsflyt — redigere instansfila og pushe til `main`
+- Legg til ny modell i katalogen
+- URI-stabilitet og `published-uris.lock`
+- Registrering av høstingsendepunkt (éin gong)
+- CI-pipeline-oversikt
+- Sett opp for ny organisasjon
+
+Legg sida til i `mkdocs/publish.sh` sin nav-heredoc (Rettleiingar-seksjonen)
+saman med dei andre publiseringsrettleiingane:
+
+```yaml
+- Publiser til Felles Datakatalog: publisering-modell.md
+```
+
+### Automatisk portalboks
+
+`mkdocs/publish.sh` viser allereie ein informasjonsboks og «Publisert til»-kolonne
+for skjema som har `published-uris.lock`. Opprett lock-fila for `brreg-modelkatalog`
+etter publisering:
+
+```bash
+cat > src/linkml/modell/brreg-modelkatalog/published-uris.lock << 'EOF'
+# Publiserte URI-ar for brreg-modelkatalog — IKKJE endre eller slett eksisterande linjer.
+# Nye URI-ar leggast til nedst etter publisering.
+https://brreg.no/modellkatalogar/brreg-modelkatalog
+EOF
+```
+
+Portalen oppdaterer seg automatisk neste gong `make publish` køyrer.
+
+### README-oppdatering
+
+Oppdater `README.md` med det nye `modell`-domenet i domene-tabellen:
+
+| Domene | Skildring | Dokumentasjon |
+|---|---|---|
+| modell | Modelkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no) |
+
+### generate.yaml
+
+Legg til `data_policy: felles-datakatalog` i
+`src/linkml/modell/brreg-modelkatalog/generate.yaml` slik at CI-pipelinen
+køyrer rett valideringspolicy automatisk.
+
+---
+
 ## Kjende avgrensingar
 
 ### Modellelement-djupn

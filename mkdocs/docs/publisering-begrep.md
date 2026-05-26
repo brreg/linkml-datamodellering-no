@@ -263,6 +263,26 @@ make mcp-validate \
 
 ---
 
+## Dokumenter publiseringa i portalen
+
+Når begrepskatalogen er publisert og URI-ane er lagde inn i `published-uris.lock`,
+oppdaterer portalen seg automatisk neste gong `make publish` køyrer.
+
+`publish.sh` les `published-uris.lock` og legg automatisk til:
+
+- Ein **informasjonsboks** øvst på skjema-sida med høstingsendepunktet
+- Ei **«Publisert til»-kolonne** i domene-oversikta som lenkar til
+  [data.norge.no/concepts](https://data.norge.no/concepts)
+
+Det er ingen manuell dokumentasjonsoppdatering nødvendig — det held å halde
+lock-fila oppdatert. For å sjå resultatet lokalt:
+
+```bash
+make publish && make docs-serve
+```
+
+---
+
 ## Sjå òg
 
 - [Ny begrepskatalog](ny-begrepsmodell.md) — opprette nytt skjema

@@ -1,0 +1,106 @@
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix modelldcatno: <https://data.norge.no/vocabulary/modelldcatno#> .
+@prefix ns1: <https://data.norge.no/linkml/brreg-modelkatalog/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+
+<https://brreg.no/modellkatalogar/brreg-modelkatalog> a dcat:Catalog ;
+    dct:description "Informasjonsmodellar frå Brønnøysundregistra i LinkML-format, tilgjengeleg som SHACL, JSON Schema, OWL og RDF/Turtle."^^rdf:langString ;
+    dct:hasPart <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu> ;
+    dct:identifier "https://brreg.no/modellkatalogar/brreg-modelkatalog" ;
+    dct:language "http://publications.europa.eu/resource/authority/language/NOB"^^dct:language ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "Brønnøysundregistra – Modelkatalog"^^rdf:langString ;
+    dcat:contactPoint <https://brreg.no/kontakt/modellforvaltning> ;
+    modelldcatno:model <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu> .
+
+<https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse> a modelldcatno:InformationModel ;
+    dct:description "Informasjonsmodell for offisielle adresser frå Matrikkelen."^^rdf:langString ;
+    dct:identifier "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse" ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "Nasjonale grunndata – Adresse"^^rdf:langString ;
+    dcat:contactPoint <https://brreg.no/kontakt/modellforvaltning> ;
+    dcat:theme <https://psi.norge.no/los/tema/bolig-og-eiendom> ;
+    modelldcatno:informationModelIdentifier "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-adresse/" .
+
+<https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom> a modelldcatno:InformationModel ;
+    dct:description "Informasjonsmodell for fast eigedom, matrikkeleining og bygning."^^rdf:langString ;
+    dct:identifier "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom" ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "Nasjonale grunndata – Eiendom"^^rdf:langString ;
+    dcat:contactPoint <https://brreg.no/kontakt/modellforvaltning> ;
+    dcat:theme <https://psi.norge.no/los/tema/bolig-og-eiendom> ;
+    modelldcatno:informationModelIdentifier "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-eiendom/" .
+
+<https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person> a modelldcatno:InformationModel ;
+    dct:description "Informasjonsmodell for person, identifikasjon og familierelasjonar."^^rdf:langString ;
+    dct:identifier "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person" ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "Nasjonale grunndata – Person"^^rdf:langString ;
+    dcat:contactPoint <https://brreg.no/kontakt/modellforvaltning> ;
+    dcat:theme <https://psi.norge.no/los/tema/familie-og-sivilstand> ;
+    modelldcatno:informationModelIdentifier "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-person/" .
+
+<https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet> a modelldcatno:InformationModel ;
+    dct:description "Informasjonsmodell for verksemder, roller og organisasjonsstruktur."^^rdf:langString ;
+    dct:identifier "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet" ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "Nasjonale grunndata – Virksomhet"^^rdf:langString ;
+    dcat:contactPoint <https://brreg.no/kontakt/modellforvaltning> ;
+    dcat:theme <https://psi.norge.no/los/tema/naering-og-sysselsetting> ;
+    modelldcatno:informationModelIdentifier "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-virksomhet/" .
+
+<https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere> a modelldcatno:InformationModel ;
+    dct:description "Informasjonsmodell for aksjeeigarar, aksjekapital og eigarstruktur."^^rdf:langString ;
+    dct:identifier "https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere" ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "Register over aksjeeigarar"^^rdf:langString ;
+    dcat:contactPoint <https://brreg.no/kontakt/modellforvaltning> ;
+    dcat:theme <https://psi.norge.no/los/tema/naering-og-sysselsetting> ;
+    modelldcatno:informationModelIdentifier "https://brreg.github.io/linkml-datamodellering-no/oreg/register-over-aksjeeiere/" .
+
+<https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu> a modelldcatno:InformationModel ;
+    dct:description "Informasjonsmodell for barnehagar og skular i kommunesektoren."^^rdf:langString ;
+    dct:identifier "https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu" ;
+    dct:license <http://publications.europa.eu/resource/authority/licence/CC_BY_4_0> ;
+    dct:publisher <https://data.norge.no/organizations/974760673> ;
+    dct:title "SAMT – Barnehagar og skular"^^rdf:langString ;
+    dcat:contactPoint <https://brreg.no/kontakt/modellforvaltning> ;
+    dcat:theme <https://psi.norge.no/los/tema/familie-og-sivilstand> ;
+    modelldcatno:informationModelIdentifier "https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/" .
+
+<https://brreg.no/kontakt/modellforvaltning> a foaf:Agent ;
+    foaf:name "Registerenheten i Brønnøysund – Modellforvaltning"^^rdf:langString .
+
+<https://data.norge.no/organizations/974760673> a foaf:Agent ;
+    foaf:name "Registerenheten i Brønnøysund"^^rdf:langString .
+
+[] a ns1:ModelkatalogContainer ;
+    ns1:aktorer <https://brreg.no/kontakt/modellforvaltning>,
+        <https://data.norge.no/organizations/974760673> ;
+    ns1:informasjonsmodellar <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere>,
+        <https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu> ;
+    ns1:modelkatalogar <https://brreg.no/modellkatalogar/brreg-modelkatalog> .
+
+

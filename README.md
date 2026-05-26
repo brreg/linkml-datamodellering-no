@@ -57,6 +57,7 @@ Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.m
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
+| modell | Modelkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
 | fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
 | ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
 | begrep | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Produksjonsdatafiler i `data/begrep/` vert automatisk konverterte til SKOS/RDF og publiserte til Felles Begrepskatalog via GitHub Pages-høstingsendepunkt. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
@@ -127,7 +128,7 @@ linkml-datamodellering-no/
 │   ├── mcp-linkml-begrep-generator/ # MCP-server: generering av begrepsinstansar
 │   └── templates/                   # Jinja2-malar for make gen-docs
 │
-├──data/        # Produksjonsdata per domene (publiserast til Felles Begrepskatalog o.l.)
+├──data/        # Produksjonsdata per domene (begrep → Felles Begrepskatalog)
 ├──examples/    # Eksempeldata per domene (aldri publisert — berre for gen-doc og testing)
 ├──tests/       # Testar og fixtures
 ├──generated/   # Genererte artefakter (ikkje sjekka inn i git)
