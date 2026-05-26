@@ -1,0 +1,76 @@
+# Subset: Interoperable 
+
+
+_Eigenskapar knytt til FAIR I-prinsippa (Interoperable)._
+
+
+
+URI: [Interoperable](interoperable.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/linkml/fair-metadata
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
