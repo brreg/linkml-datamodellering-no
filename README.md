@@ -19,37 +19,71 @@ Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld
 **Føresetnader:** [Podman](https://podman.io/) (rootless), WSL2 og GNU make.
 
 ```bash
-# 0. Sjekk at alt er på plass
+# Sjekk at alt er på plass
 make check-prereqs
 ```
 ```bash
-# 1. Bygg container-images (éin gong)
+# Bygg container-images (éin gong)
 make linkml-build-docker && make python-build-docker && make mcp-val-build && make mcp-gen-build && make mcp-begrep-build
 ```
 
-> Bytt ut **`domene`** og **`modellnavn`** i kommandoane nedanfor med dine eigne verdiar.
+### Datamodellering
+
+> Bytt ut **`domene`** og **`modellnavn`** med dine aktuelle navn.
 
 ```bash
-# 2. Lag eit nytt tomt LinkML-skjema (med tilhøyrande filstruktur og eksempelfil)
+# 1. Lag eit nytt tomt LinkML-skjema (skjema + filstruktur)
 make new-model NAME=modellnavn DOMAIN=domene
 
-# 2b. (om ønskeleg): generer LinkML-skjema frå eksisterande JSON Schema
+# 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
 # Legg JSON Schema-filen i tmp/, t.d. tmp/modellnavn.json
 make mcp-generate SCHEMA=tmp/modellnavn.json
 # → genererer tmp/modellnavn-schema.yaml. Flytt ho til src/linkml/domene/modellnavn/
 ```
 ```bash
-# 3. Valider LinkML-skjema mot minimumskrav
-make mcp-validate SCHEMA=src/linkml/domene/modellnavn/modellnavn-schema.yaml POLICY=bronze
+# 2. Rediger modellfila etter behov
+#    → src/linkml/domene/modellnavn/modellnavn-schema.yaml
 ```
 ```bash
-# 4. Generer artefakter frå LinkML-skjema og sjå resultatet
+# 3. Valider skjema
+make mcp-validate \
+  SCHEMA=src/linkml/domene/modellnavn/modellnavn-schema.yaml \
+  POLICY=felles-datakatalog
+```
+```bash
+# 4. Generer artefakter og publiser til dokumentasjonsportal
 make domene && make publish && make docs-serve   # → http://localhost:8000
 ```
 
 Nye skjema under `src/linkml/<domene>/<modellnavn>/` vert oppdaga automatisk.
 
-For full rettleiing om modellering, validering og importar: sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/) i dokumentasjonsportalen.
+For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datamodellering-no/ny-domenemodell/) og [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/).
+
+### Begrepsmodellering
+
+> Bytt ut **`katalognavn`** med ditt aktuelle navn.
+
+```bash
+# 1. Opprett ny begrepskatalog (skjema + filstruktur)
+make new-model NAME=katalognavn DOMAIN=begrep
+```
+```bash
+# 2. Rediger datafila med reelle begrep
+#    → data/begrep/katalognavn.yaml
+```
+```bash
+# 3. Valider skjema og datafil
+make mcp-validate \
+  SCHEMA=src/linkml/begrep/katalognavn/katalognavn-schema.yaml \
+  POLICY=felles-begrepskatalog \
+  INSTANCE=data/begrep/katalognavn.yaml
+```
+```bash
+# 4. Generer og publiser til dokumentasjonsportal
+make begrep && make publish && make docs-serve   # → http://localhost:8000
+```
+
+For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/ny-begrepsmodell/) og [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/).
 
 Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.md) for alle tilgjengelege kommandoar.
 

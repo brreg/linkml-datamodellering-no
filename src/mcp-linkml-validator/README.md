@@ -13,12 +13,24 @@ Valideringa køyrer i tre steg, men **lint og instansvalidering køyrer berre é
 ## Bruk
 
 ```bash
+# Medaljongnivå:
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
+
+# Publisering — med datafil/instans:
+make mcp-validate \
+  SCHEMA=src/linkml/begrep/<katalog>/<katalog>-schema.yaml \
+  POLICY=felles-begrepskatalog \
+  INSTANCE=data/begrep/<katalog>.yaml
+
+make mcp-validate \
+  SCHEMA=src/linkml/modell/<katalog>/<katalog>-schema.yaml \
+  POLICY=felles-datakatalog \
+  INSTANCE=examples/modell/<katalog>-eksempel.yaml
 ```
 
-## Medaljongnivå
+## Medaljongnivå for datasett
 
 Kvart nivå arvar alle krav frå lågare nivå. Brot på eit nivå gir alltid `error` for det nivået — unntaket er åtvarslane på bronse som blir oppgradert til `error` på gull.
 
@@ -88,15 +100,136 @@ Arvar sølv og bronse. Implementerer FAIR-prinsippa (Findable, Accessible, Inter
 
 ---
 
+## Publiseringspolicyer
+
+Domene-spesifikke policyer for publisering til nasjonale katalogar. Dei arvar `bronze`
+og er meinte brukt i tillegg til medaljongnivåa — typisk i CI-pipelinen for skjema
+som har ein tilhøyrande datafil.
+
+---
+
+### Felles Begrepskatalog (`felles-begrepskatalog`)
+
+For begrepskatalogskjema som publiserer til [data.norge.no/concepts](https://data.norge.no/concepts)
+via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/) for full rettleiing.
+
+**Import og prefiks:**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | Importerer `skos-ap-no-schema` | `schema_importerer_skos_ap_no` |
+| **error** | Deklarerer `skos:`-prefix | `schema_brukar_skos_prefix` |
+| **error** | Deklarerer `dct:`-prefix | `schema_brukar_dct_prefix` |
+
+**Containerklasse:**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | Container har attributt med range `Begrep` | `container_har_begrep` |
+| warning | Container har attributt med range `Samling` | `container_har_samling` |
+
+**`Begrep`-krav (obligatoriske per SKOS-AP-NO-Begrep):**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | `skos:prefLabel` | `begrep_har_anbefalt_term` |
+| **error** | `skos:definition` eller `euvoc:xlDefinition` | `begrep_har_definisjon` |
+| **error** | `dct:identifier` | `begrep_har_identifikator` |
+| **error** | `dct:publisher` | `begrep_har_utgjevar` |
+| **error** | `dcat:contactPoint` | `begrep_har_kontaktpunkt` |
+| warning | `dct:subject` | `begrep_har_fagomrade` |
+| warning | `dct:creator` | `begrep_har_ansvarleg_verksemd` |
+| warning | `euvoc:startDate` | `begrep_har_gyldig_fra` |
+| warning | `euvoc:endDate` | `begrep_har_gyldig_til` |
+| warning | `dct:created` | `begrep_har_opprettingsdato` |
+| warning | `dct:modified` | `begrep_har_endringsdato` |
+| warning | `skos:scopeNote` | `begrep_har_merknad` |
+| warning | `skos:altLabel` | `begrep_har_tillate_term` |
+
+**`Definisjon`-, `AssosiativRelasjon`-, `GeneriskRelasjon`-, `PartitivRelasjon`- og `Samling`-krav** er dokumenterte i [`policies/felles-begrepskatalog.yaml`](policies/felles-begrepskatalog.yaml).
+
+**Instanssjekk:**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | `utgjevar_er_kjend_org` |
+
+---
+
+### Felles Datakatalog (`felles-datakatalog`)
+
+For modelkatalogskjema som publiserer til [data.norge.no/models](https://data.norge.no/models)
+via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/) for full rettleiing.
+
+**Import og prefiks:**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | Importerer `modelldcat-ap-no-schema` | `schema_importerer_modelldcat_ap_no` |
+| **error** | Deklarerer `dct:`-prefix | `schema_brukar_dct_prefix` |
+| **error** | Deklarerer `dcat:`-prefix | `schema_brukar_dcat_prefix` |
+
+**Containerklasse:**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | Container har attributt med range `Modelkatalog` | `container_har_modelkatalog` |
+| **error** | Container har attributt med range `Informasjonsmodell` | `container_har_informasjonsmodell` |
+
+**`Modelkatalog`-krav (obligatoriske per ModelDCAT-AP-NO):**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | `dct:title` | `modelkatalog_har_tittel` |
+| **error** | `dct:description` | `modelkatalog_har_beskrivelse` |
+| **error** | `dct:identifier` | `modelkatalog_har_identifikator` |
+| **error** | `dct:publisher` | `modelkatalog_har_utgjevar` |
+| **error** | `dcat:contactPoint` | `modelkatalog_har_kontaktpunkt` |
+| **error** | `dct:hasPart` | `modelkatalog_har_del` |
+| warning | `dct:license` | `modelkatalog_har_lisens` |
+| warning | `modelldcatno:model` | `modelkatalog_har_modell` |
+
+**`Informasjonsmodell`-krav (obligatoriske per ModelDCAT-AP-NO):**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | `dct:title` | `informasjonsmodell_har_tittel` |
+| **error** | `dct:publisher` | `informasjonsmodell_har_utgjevar` |
+| warning | `dct:description` | `informasjonsmodell_har_beskrivelse` |
+| warning | `dct:identifier` | `informasjonsmodell_har_identifikator` |
+| warning | `modelldcatno:informationModelIdentifier` | `informasjonsmodell_har_modellidentifikator` |
+| warning | `dcat:contactPoint` | `informasjonsmodell_har_kontaktpunkt` |
+| warning | `dct:license` | `informasjonsmodell_har_lisens` |
+| warning | `dcat:theme` | `informasjonsmodell_har_tema` |
+| warning | `modelldcatno:containsModelElement` | `informasjonsmodell_har_modellelement` |
+
+**Instanssjekk:**
+
+| Alvor | Krav | Kode |
+|---|---|---|
+| **error** | `dct:publisher`-verdi er `https://data.norge.no/organizations/<9-sifra orgnr>` og er i lista over kjende utgivarar | `utgjevar_er_kjend_org` |
+
+---
+
 ## Policyarv
 
 ```
 bronze
-  └── silver  (extends: bronze)
-        └── gold  (extends: silver)
+  ├── silver  (extends: bronze)
+  │     └── gold  (extends: silver)
+  ├── felles-begrepskatalog  (extends: bronze)
+  └── felles-datakatalog  (extends: bronze)
 ```
 
 `make mcp-validate POLICY=gold` køyrer alle bronse-, sølv- og gull-krav i éin gjennomgang.
+
+Publiseringspolicyane er sidegreinar — dei arvar bronse, men ikkje sølv eller gull.
+Bruk dei saman med medaljongnivåa for fullstendig dekning:
+
+```bash
+make mcp-validate SCHEMA=... POLICY=bronze
+make mcp-validate SCHEMA=... POLICY=felles-begrepskatalog INSTANCE=...
+```
 
 ## MCP-verktøy
 
