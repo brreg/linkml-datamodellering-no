@@ -2,18 +2,26 @@
 # Validerer eit LinkML-skjema med alle importar resolve (flatten + validate).
 # Nyttig for domenemodeller med relative importar (t.d. FINT, AP-NO).
 #
-# Bruk: bash src/mcp-linkml-validator/flatten-and-validate.bash <sti-til-skjema> [policy]
+# Bruk: bash src/mcp-linkml-validator/flatten-and-validate.bash <sti-til-skjema> [policy] [instans]
 # Eks:  bash src/mcp-linkml-validator/flatten-and-validate.bash \
 #           src/linkml/fint/fint-administrasjon/fint-administrasjon-schema.yaml gold
+# Eks med eksplisitt datafil:
+#   bash src/mcp-linkml-validator/flatten-and-validate.bash \
+#       src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml felles-begrepskatalog \
+#       data/begrep/brreg-begrep.yaml
 
 set -euo pipefail
 
-SCHEMA="${1:?Bruk: $0 <sti-til-skjema> [policy]}"
+SCHEMA="${1:?Bruk: $0 <sti-til-skjema> [policy] [instans]}"
 POLICY="${2:-bronze}"
+EXPLICIT_INSTANCE="${3:-}"
 REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 NAME=$(basename "$(dirname "$SCHEMA")")
 DOMAIN=$(basename "$(dirname "$(dirname "$SCHEMA")")")
 EXAMPLE="${REPO_ROOT}/examples/${DOMAIN}/${NAME}-eksempel.yaml"
+if [ -n "$EXPLICIT_INSTANCE" ]; then
+    EXAMPLE="${REPO_ROOT}/${EXPLICIT_INSTANCE}"
+fi
 LINKML_IMAGE="docker.io/linkml/linkml:latest"
 MCP_IMAGE="mcp-linkml-validator"
 

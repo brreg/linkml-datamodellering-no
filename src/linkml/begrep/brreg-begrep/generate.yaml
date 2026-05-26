@@ -10,3 +10,4 @@ generators:
   docs: true
   plantuml: false
   example_rdf: true
+data_policy: felles-begrepskatalog

@@ -123,9 +123,14 @@ generators:
   docs: true
   plantuml: false
   example_rdf: true    # konverterer instansfila til RDF/Turtle
+data_policy: felles-begrepskatalog   # berre for katalogar som skal publiserast
 ```
 
 `example_rdf: true` er obligatorisk — det er dette som produserer SKOS/Turtle for eksport.
+
+`data_policy` peikar til publiseringspolicyen som `make domain-validate-data`
+nyttar for å validere filer under `data/`. Berre nødvendig viss katalogen
+skal publiserast til Felles Begrepskatalog.
 
 ---
 
@@ -219,12 +224,45 @@ Denne Turtle-fila er SKOS-kompatibel og kan importerast til
 
 Ingen endringar i workflowfiler nødvendig. `validate.yml` og `generate.yml` fangar
 automatisk opp nye skjema under `src/linkml/begrep/`. Pipelinen køyrer ved push til
-`main` når filer under `src/linkml/begrep/**` eller `examples/begrep/**` er endra.
+`main` når filer under `src/linkml/begrep/**`, `examples/begrep/**` eller
+`data/begrep/**` er endra.
+
+---
+
+## 8 — Datafil for publisering (valfritt)
+
+Berre nødvendig for katalogar som skal publiserast til Felles Begrepskatalog.
+
+**1.** Lag `data/begrep/<katalognavn>.yaml` med stabile produksjons-URI-ar.
+Bruk `data/begrep/brreg-begrep.yaml` som mal — same struktur som eksempelfila,
+men utan «under utvikling»-merknader og med permanente `id:`-verdiar.
+
+**2.** Lag ei tom URI-lock-fil:
+
+```bash
+cat > src/linkml/begrep/<katalognavn>/published-uris.lock << 'EOF'
+# Publiserte URI-ar for <katalognavn> — IKKJE endre eller slett eksisterande linjer.
+# Nye URI-ar leggast til nedst etter publisering.
+EOF
+```
+
+**3.** Valider datafila mot publiseringspolicyen:
+
+```bash
+make mcp-validate \
+  SCHEMA=src/linkml/begrep/<katalognavn>/<katalognavn>-schema.yaml \
+  POLICY=felles-begrepskatalog \
+  INSTANCE=data/begrep/<katalognavn>.yaml
+```
+
+For fullstendig rettleiing om registrering og URI-stabilitet:
+sjå [Publiser til Felles Begrepskatalog](publisering-begrep.md).
 
 ---
 
 ## Sjå òg
 
 - [Begrep – domeneindeks](begrep/index.md)
+- [Publiser til Felles Begrepskatalog](publisering-begrep.md) — pipeline og URI-stabilitet
 - [`specs/begrep-modellering.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/specs/begrep-modellering.md) — fullstendig teknisk spesifikasjon
 - [`src/mcp-linkml-begrep-generator/README.md`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-generator/README.md) — dokumentasjon for MCP-serveren

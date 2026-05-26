@@ -7,10 +7,12 @@ on:
     paths:
       - 'src/linkml/**'
       - 'src/mcp-linkml-validator/**'
+      - 'data/**'
   pull_request:
     paths:
       - 'src/linkml/**'
       - 'src/mcp-linkml-validator/**'
+      - 'data/**'
 
 jobs:
 
@@ -26,6 +28,7 @@ jobs:
           path: |
             src/
             examples/
+            data/
             .github/
             Makefile
           retention-days: 1
@@ -94,7 +97,7 @@ jobs:
         uses: actions/cache@v5
         with:
           path: .validated-${{ matrix.domain }}
-          key: validated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain), format('examples/{0}/**', matrix.domain), 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml') }}
+          key: validated-${{ matrix.domain }}-${{ hashFiles(format('src/linkml/{0}/**', matrix.domain), format('examples/{0}/**', matrix.domain), format('data/{0}/**', matrix.domain), 'src/mcp-linkml-validator/server.py', 'src/mcp-linkml-validator/policies/**', 'src/mcp-linkml-validator/flatten-and-validate.bash', 'src/mcp-linkml-validator/Dockerfile', 'src/mcp-linkml-validator/requirements.txt', '.github/workflows/validate.yml') }}
 
       - name: Logg inn på GHCR
         if: steps.cache-validated.outputs.cache-hit != 'true'
@@ -114,6 +117,14 @@ jobs:
       - name: Valider eksempelfiler mot skjema
         if: steps.cache-validated.outputs.cache-hit != 'true'
         run: make domain-validate-examples DOMAIN=${{ matrix.domain }}
+
+      - name: Valider datafiler mot publiseringspolicyer
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: make domain-validate-data DOMAIN=${{ matrix.domain }}
+
+      - name: Sjekk at publiserte URI-ar ikkje er fjerna
+        if: steps.cache-validated.outputs.cache-hit != 'true'
+        run: make check-published-uris
 
       - name: Merk validering som vellykka
         if: steps.cache-validated.outputs.cache-hit != 'true'
