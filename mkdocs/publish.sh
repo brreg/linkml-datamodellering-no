@@ -104,6 +104,21 @@ process_schema() {
         echo "# $schema"
         echo ""
 
+        # Publiseringsinfo: boks dersom skjema har eit publisert URI-register
+        lock_file="$REPO_ROOT/src/linkml/$domain/$schema/published-uris.lock"
+        if [ -f "$lock_file" ]; then
+            ttl_url="https://brreg.github.io/linkml-datamodellering-no/$domain/$schema/$schema.ttl"
+            echo "!!! info \"Publisert til Felles Begrepskatalog\""
+            echo "    Denne katalogen er publisert til [data.norge.no/concepts](https://data.norge.no/concepts)"
+            echo "    via høstingsendepunkt. Turtle-fila er tilgjengeleg på:"
+            echo ""
+            echo "    \`${ttl_url}\`"
+            echo ""
+            echo "    Sjå [Publiser til Felles Begrepskatalog](../../publisering-begrep.md) for rettleiing"
+            echo "    om arbeidsflyt, URI-stabilitet og oppsett for nye katalogar."
+            echo ""
+        fi
+
         # Embed oversiktsdiagram frå gen-erdiagram (berre filtrert versjon — importerte klasser visast ikkje)
         erdiagram_file="$out/${schema}-erdiagram.md"
         if [ -f "$erdiagram_file" ] && grep -q '{' "$erdiagram_file" 2>/dev/null; then
@@ -231,11 +246,22 @@ done
 
 # Generer domain/index.md sekvensielt (avheng av at alle skjema er ferdige)
 for domain in "${ALL_DOMAINS[@]}"; do
+    # Sjekk om noko skjema i domenet har eit publisert URI-register
+    domain_has_published=false
+    for schema in ${DOMAIN_SCHEMA_LIST[$domain]:-}; do
+        [ -f "$REPO_ROOT/src/linkml/$domain/$schema/published-uris.lock" ] && domain_has_published=true && break
+    done
+
     {
         echo "# $(domain_label "$domain")"
         echo ""
-        echo "| Modell | Tilgjengelege artefakter |"
-        echo "|--------|--------------------------|"
+        if $domain_has_published; then
+            echo "| Modell | Tilgjengelege artefakter | Publisert til |"
+            echo "|--------|--------------------------|---------------|"
+        else
+            echo "| Modell | Tilgjengelege artefakter |"
+            echo "|--------|--------------------------|"
+        fi
 
         for schema in ${DOMAIN_SCHEMA_LIST[$domain]:-}; do
             artifacts=""
@@ -249,7 +275,14 @@ for domain in "${ALL_DOMAINS[@]}"; do
                 [ -n "$artifacts" ] && artifacts+=" · "
                 artifacts+="PlantUML-diagram"
             fi
-            echo "| [${schema}](${schema}/index.md) | ${artifacts:-–} |"
+            if $domain_has_published; then
+                published_col=""
+                [ -f "$REPO_ROOT/src/linkml/$domain/$schema/published-uris.lock" ] && \
+                    published_col="[Felles Begrepskatalog](https://data.norge.no/concepts)"
+                echo "| [${schema}](${schema}/index.md) | ${artifacts:-–} | ${published_col} |"
+            else
+                echo "| [${schema}](${schema}/index.md) | ${artifacts:-–} |"
+            fi
         done
     } > "$DOCS/$domain/index.md"
 done
