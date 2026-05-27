@@ -166,6 +166,16 @@ URI: [samtbuskole:Fylke](https://example.no/ontology/skole#Fylke)
 
 
 
+## Examples
+### Example: Fylke-fylke-30
+
+```yaml
+id: samtbuskole:fylke-30
+fylkesnummer: '30'
+navn: Viken fylkeskommune
+
+```
+
 
 
 ## LinkML Source
@@ -219,7 +229,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Fylke
     domain_of:

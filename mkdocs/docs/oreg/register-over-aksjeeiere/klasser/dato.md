@@ -9,7 +9,7 @@ _Kalenderdato._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:dato](https://data.norge.no/linkml/register-over-aksjeeiere/:dato)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:dato](https://data.norge.no/oreg/register-over-aksjeeiere/:dato)
 <!-- no inheritance hierarchy -->
 
 
@@ -68,8 +68,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:dato](https://data.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:dato |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:dato |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:dato |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:dato |
 
 
 

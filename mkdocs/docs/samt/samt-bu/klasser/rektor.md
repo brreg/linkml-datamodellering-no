@@ -166,6 +166,16 @@ URI: [samtbuskole:Rektor](https://example.no/ontology/skole#Rektor)
 
 
 
+## Examples
+### Example: Rektor-rektor-1
+
+```yaml
+id: samtbuskole:rektor-1
+navn: Rektor Rasmus
+enhetsleder_for: samtbuskole:skole-1
+
+```
+
 
 
 ## LinkML Source
@@ -212,7 +222,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Rektor
     domain_of:

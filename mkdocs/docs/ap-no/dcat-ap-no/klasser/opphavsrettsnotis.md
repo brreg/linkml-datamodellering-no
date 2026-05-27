@@ -60,7 +60,7 @@ URI: [odrs:copyrightNotice](http://schema.theodi.org/odrs#copyrightNotice)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [odrs:copyrightNotice](http://schema.theodi.org/odrs#copyrightNotice)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:copyrightNotice |
-| native | https://data.norge.no/linkml/dcat-ap-no/opphavsrettsnotis |
+| native | https://data.norge.no/ap-no/dcat-ap-no/opphavsrettsnotis |
 
 
 
@@ -81,7 +81,7 @@ URI: [odrs:copyrightNotice](http://schema.theodi.org/odrs#copyrightNotice)
 ```yaml
 name: opphavsrettsnotis
 description: Opphavsrettsnotis.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrs:copyrightNotice
 domain_of:

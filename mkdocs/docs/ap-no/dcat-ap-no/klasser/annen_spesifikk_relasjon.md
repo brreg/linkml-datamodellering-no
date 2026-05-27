@@ -61,7 +61,7 @@ URI: [dcat:qualifiedRelation](http://www.w3.org/ns/dcat#qualifiedRelation)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:qualifiedRelation](http://www.w3.org/ns/dcat#qualifiedRelation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:qualifiedRelation |
-| native | https://data.norge.no/linkml/dcat-ap-no/annen_spesifikk_relasjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/annen_spesifikk_relasjon |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:qualifiedRelation](http://www.w3.org/ns/dcat#qualifiedRelation)
 ```yaml
 name: annen_spesifikk_relasjon
 description: Kvalifisert relasjon til ein annan ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:qualifiedRelation
 domain_of:

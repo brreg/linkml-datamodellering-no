@@ -1,0 +1,68 @@
+# Subset: Obligatorisk 
+
+
+_Obligatorisk eigensskap._
+
+
+
+URI: [Obligatorisk](obligatorisk.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/fint/fint-common
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

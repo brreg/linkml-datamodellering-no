@@ -61,7 +61,7 @@ URI: [dcat:distribution](http://www.w3.org/ns/dcat#distribution)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:distribution](http://www.w3.org/ns/dcat#distribution)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:distribution |
-| native | https://data.norge.no/linkml/dcat-ap-no/datasettdistribusjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/datasettdistribusjon |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:distribution](http://www.w3.org/ns/dcat#distribution)
 ```yaml
 name: datasettdistribusjon
 description: Tilgjengelege distribusjonar av datasettet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:distribution
 domain_of:

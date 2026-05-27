@@ -60,7 +60,7 @@ URI: [time:hasEnd](http://www.w3.org/6006/time#hasEnd)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [time:hasEnd](http://www.w3.org/6006/time#hasEnd)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | time:hasEnd |
-| native | https://data.norge.no/linkml/dcat-ap-no/slutt |
+| native | https://data.norge.no/ap-no/dcat-ap-no/slutt |
 
 
 
@@ -81,7 +81,7 @@ URI: [time:hasEnd](http://www.w3.org/6006/time#hasEnd)
 ```yaml
 name: slutt
 description: Sluttidspunkt for eit tidsrom.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: time:hasEnd
 domain_of:

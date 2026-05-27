@@ -1,0 +1,68 @@
+# Subset: Anbefalt 
+
+
+_Anbefalt eigensskap._
+
+
+
+URI: [Anbefalt](anbefalt.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/fint/fint-common
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -218,6 +218,26 @@ URI: [samtbuskole:Basisgruppe](https://example.no/ontology/skole#Basisgruppe)
 
 
 
+## Examples
+### Example: Basisgruppe-basisgruppe-5A
+
+```yaml
+id: samtbuskole:basisgruppe-5A
+navn: 5A
+trinniva: '5'
+del_av_skole: samtbuskole:skole-1
+
+```
+### Example: Basisgruppe-basisgruppe-6B
+
+```yaml
+id: samtbuskole:basisgruppe-6B
+navn: 6B
+trinniva: '6'
+del_av_skole: samtbuskole:skole-2
+
+```
+
 
 
 ## LinkML Source
@@ -259,7 +279,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Basisgruppe
     domain_of:

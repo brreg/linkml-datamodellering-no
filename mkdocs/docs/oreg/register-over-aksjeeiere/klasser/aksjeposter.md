@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeposter](https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeposter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter](https:
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeposter |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeposter |
 
 
 

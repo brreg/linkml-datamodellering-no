@@ -60,7 +60,7 @@ URI: [cv:participant](http://data.europa.eu/m8g/participant)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cv:participant](http://data.europa.eu/m8g/participant)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:participant |
-| native | https://data.norge.no/linkml/cpsv-ap-no/deltakar |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/deltakar |
 
 
 
@@ -81,7 +81,7 @@ URI: [cv:participant](http://data.europa.eu/m8g/participant)
 ```yaml
 name: deltakar
 description: Aktøren som deltek.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:participant
 domain_of:

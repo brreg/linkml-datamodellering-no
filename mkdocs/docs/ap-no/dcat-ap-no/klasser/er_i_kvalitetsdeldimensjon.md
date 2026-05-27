@@ -60,7 +60,7 @@ URI: [dqvno:inSubDimension](https://data.norge.no/vocabulary/dqvno#inSubDimensio
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dqvno:inSubDimension](https://data.norge.no/vocabulary/dqvno#inSubDimensio
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqvno:inSubDimension |
-| native | https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdeldimensjon |
+| native | https://data.norge.no/ap-no/dqv-ap-no/er_i_kvalitetsdeldimensjon |
 
 
 
@@ -81,7 +81,7 @@ URI: [dqvno:inSubDimension](https://data.norge.no/vocabulary/dqvno#inSubDimensio
 ```yaml
 name: er_i_kvalitetsdeldimensjon
 description: Kvalitetsdeldimensjonen dette målet operasjonaliserer.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: dqvno:inSubDimension
 domain_of:
 - Kvalitetsmaal

@@ -168,6 +168,32 @@ URI: [samtbuskole:Elev](https://example.no/ontology/skole#Elev)
 
 
 
+## Examples
+### Example: Elev-elev-1
+
+```yaml
+id: samtbuskole:elev-1
+navn: Ola Nordmann
+horer_til_basisgruppe: samtbuskole:basisgruppe-5A
+
+```
+### Example: Elev-elev-2
+
+```yaml
+id: samtbuskole:elev-2
+navn: Kari Nordmann
+horer_til_basisgruppe: samtbuskole:basisgruppe-6B
+
+```
+### Example: Elev-elev-3
+
+```yaml
+id: samtbuskole:elev-3
+navn: Nils Nordmann
+horer_til_basisgruppe: samtbuskole:basisgruppe-5A
+
+```
+
 
 
 ## LinkML Source
@@ -218,7 +244,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Elev
     domain_of:

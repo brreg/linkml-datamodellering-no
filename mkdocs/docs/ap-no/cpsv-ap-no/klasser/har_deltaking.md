@@ -62,7 +62,7 @@ URI: [cv:hasParticipation](http://data.europa.eu/m8g/hasParticipation)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:hasParticipation](http://data.europa.eu/m8g/hasParticipation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasParticipation |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_deltaking |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_deltaking |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:hasParticipation](http://data.europa.eu/m8g/hasParticipation)
 ```yaml
 name: har_deltaking
 description: Deltakarar med spesifikke roller i levering av tenesta.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasParticipation
 domain_of:

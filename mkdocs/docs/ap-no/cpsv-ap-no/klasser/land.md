@@ -60,7 +60,7 @@ URI: [locn:adminUnitL1](http://www.w3.org/ns/locn#adminUnitL1)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [locn:adminUnitL1](http://www.w3.org/ns/locn#adminUnitL1)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | locn:adminUnitL1 |
-| native | https://data.norge.no/linkml/cpsv-ap-no/land |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/land |
 
 
 
@@ -81,7 +81,7 @@ URI: [locn:adminUnitL1](http://www.w3.org/ns/locn#adminUnitL1)
 ```yaml
 name: land
 description: Land (ISO 3166-1 alpha-2 kode).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: locn:adminUnitL1
 domain_of:

@@ -164,7 +164,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -174,7 +174,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:QualityCertificate |
-| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetssertifikat |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Kvalitetssertifikat |
 
 
 
@@ -191,7 +191,7 @@ URI: [dqv:QualityCertificate](http://www.w3.org/ns/dqv#QualityCertificate)
 ```yaml
 name: Kvalitetssertifikat
 description: Eit sertifikat som stadfester kvaliteten til eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 class_uri: dqv:QualityCertificate
 
@@ -204,13 +204,13 @@ class_uri: dqv:QualityCertificate
 ```yaml
 name: Kvalitetssertifikat
 description: Eit sertifikat som stadfester kvaliteten til eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kvalitetssertifikat
     domain_of:
@@ -243,7 +243,7 @@ attributes:
     description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:motivatedBy
     owner: Kvalitetssertifikat
     domain_of:
@@ -257,7 +257,7 @@ attributes:
       '
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqv:inDimension
     owner: Kvalitetssertifikat
     domain_of:
@@ -271,7 +271,7 @@ attributes:
     description: Tekstleg innhald i merknaden.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:hasBody
     owner: Kvalitetssertifikat
     domain_of:
@@ -282,7 +282,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: rdfs:comment
     owner: Kvalitetssertifikat
     domain_of:
@@ -300,7 +300,7 @@ attributes:
     description: Ressursen merknaden gjeld.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:hasTarget
     owner: Kvalitetssertifikat
     domain_of:

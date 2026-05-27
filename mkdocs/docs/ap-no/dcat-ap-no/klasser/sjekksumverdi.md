@@ -60,7 +60,7 @@ URI: [spdx:checksumValue](http://spdx.org/rdf/terms#checksumValue)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [spdx:checksumValue](http://spdx.org/rdf/terms#checksumValue)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | spdx:checksumValue |
-| native | https://data.norge.no/linkml/dcat-ap-no/sjekksumverdi |
+| native | https://data.norge.no/ap-no/dcat-ap-no/sjekksumverdi |
 
 
 
@@ -81,7 +81,7 @@ URI: [spdx:checksumValue](http://spdx.org/rdf/terms#checksumValue)
 ```yaml
 name: sjekksumverdi
 description: Sjekksumverdi som heksadesimal streng.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: spdx:checksumValue
 domain_of:

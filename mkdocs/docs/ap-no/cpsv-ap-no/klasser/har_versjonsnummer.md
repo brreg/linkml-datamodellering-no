@@ -50,7 +50,7 @@ URI: [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -60,7 +60,7 @@ URI: [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | owl:versionInfo |
-| native | https://data.norge.no/linkml/common-ap-no/har_versjonsnummer |
+| native | https://data.norge.no/ap-no/common-ap-no/har_versjonsnummer |
 
 
 
@@ -71,7 +71,7 @@ URI: [owl:versionInfo](http://www.w3.org/2002/07/owl#versionInfo)
 ```yaml
 name: har_versjonsnummer
 description: Versjonsnummer for ressursen (owl:versionInfo).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: owl:versionInfo
 range: string
 

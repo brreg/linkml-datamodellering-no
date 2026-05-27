@@ -248,7 +248,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -258,7 +258,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:QualityMeasurement |
-| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaaling |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Kvalitetsmaaling |
 
 
 
@@ -275,7 +275,7 @@ URI: [dqv:QualityMeasurement](http://www.w3.org/ns/dqv#QualityMeasurement)
 ```yaml
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
 - er_kvalitetsmaaling_av
@@ -306,7 +306,7 @@ class_uri: dqv:QualityMeasurement
 ```yaml
 name: Kvalitetsmaaling
 description: Ei konkret måling av eit kvalitetsmål for eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   er_kvalitetsmaaling_av:
     name: er_kvalitetsmaaling_av
@@ -325,7 +325,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kvalitetsmaaling
     domain_of:
@@ -358,7 +358,7 @@ attributes:
     description: Kvalitetsmålet denne målinga er ei måling av.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqv:isMeasurementOf
     owner: Kvalitetsmaaling
     domain_of:
@@ -371,7 +371,7 @@ attributes:
       rdfs:Literal avhengig av kvalitetsmålet).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqv:value
     owner: Kvalitetsmaaling
     domain_of:
@@ -382,7 +382,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: rdfs:comment
     owner: Kvalitetsmaaling
     domain_of:

@@ -61,7 +61,7 @@ URI: [cv:telephone](http://data.europa.eu/m8g/telephone)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cv:telephone](http://data.europa.eu/m8g/telephone)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:telephone |
-| native | https://data.norge.no/linkml/cpsv-ap-no/telefon |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/telefon |
 
 
 
@@ -82,7 +82,7 @@ URI: [cv:telephone](http://data.europa.eu/m8g/telephone)
 ```yaml
 name: telefon
 description: Telefonnummer.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:telephone
 domain_of:

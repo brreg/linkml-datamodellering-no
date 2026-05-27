@@ -62,7 +62,7 @@ URI: [cv:isClassifiedBy](http://data.europa.eu/m8g/isClassifiedBy)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:isClassifiedBy](http://data.europa.eu/m8g/isClassifiedBy)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:isClassifiedBy |
-| native | https://data.norge.no/linkml/cpsv-ap-no/er_klassifisert_av |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/er_klassifisert_av |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:isClassifiedBy](http://data.europa.eu/m8g/isClassifiedBy)
 ```yaml
 name: er_klassifisert_av
 description: Omgrep tenesta er klassifisert med.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:isClassifiedBy
 domain_of:

@@ -9,7 +9,7 @@ _Tal aksjar._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer](https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer](https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer](
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer |
 
 
 

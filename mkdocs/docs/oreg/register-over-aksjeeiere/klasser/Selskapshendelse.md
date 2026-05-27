@@ -9,7 +9,7 @@ _Hending som påverkar selskapet sitt eigarskap eller kapital._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse](https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse](https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse)
 
 
 
@@ -154,8 +154,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse](h
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse |
 
 
 

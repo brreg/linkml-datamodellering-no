@@ -62,7 +62,7 @@ URI: [dct:identifier](http://purl.org/dc/terms/identifier)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -86,7 +86,7 @@ description: 'Global og persistent identifikator for ressursen (FAIR F1). Skal v
   ein PID (t.d. DOI, Handle, eller stabil URI).
 
   '
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:identifier
 domain_of:

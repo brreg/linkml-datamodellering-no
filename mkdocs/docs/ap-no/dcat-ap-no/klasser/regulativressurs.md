@@ -323,7 +323,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -333,7 +333,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | eli:LegalResource |
-| native | https://data.norge.no/linkml/dcat-ap-no/RegulativRessurs |
+| native | https://data.norge.no/ap-no/dcat-ap-no/RegulativRessurs |
 
 
 
@@ -350,7 +350,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 ```yaml
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slots:
 - id
@@ -372,13 +372,13 @@ class_uri: eli:LegalResource
 ```yaml
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: RegulativRessurs
     domain_of:
@@ -409,7 +409,7 @@ attributes:
   beskrivelse:
     name: beskrivelse
     description: Fritekstbeskrivelse av ressursen (dct:description).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: RegulativRessurs
     domain_of:
@@ -426,7 +426,7 @@ attributes:
   identifikator_literal:
     name: identifikator_literal
     description: Tekstleg identifikator for ressursen (dct:identifier).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: RegulativRessurs
     domain_of:
@@ -439,7 +439,7 @@ attributes:
   har_referanse:
     name: har_referanse
     description: Referanse til ekstern ressurs (rdfs:seeAlso).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: rdfs:seeAlso
     owner: RegulativRessurs
     domain_of:
@@ -450,7 +450,7 @@ attributes:
   spraak:
     name: spraak
     description: Språk brukt i ressursen (dct:language).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: RegulativRessurs
     domain_of:
@@ -465,7 +465,7 @@ attributes:
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: RegulativRessurs
     domain_of:
@@ -482,7 +482,7 @@ attributes:
   type_concept:
     name: type_concept
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: RegulativRessurs
     domain_of:
@@ -493,7 +493,7 @@ attributes:
   relatert_regulativ_ressurs:
     name: relatert_regulativ_ressurs
     description: Relatert regulativ ressurs.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:relation
     owner: RegulativRessurs

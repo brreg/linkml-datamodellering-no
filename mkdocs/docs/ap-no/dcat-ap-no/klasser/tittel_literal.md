@@ -51,7 +51,7 @@ URI: [dct:title](http://purl.org/dc/terms/title)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -61,7 +61,7 @@ URI: [dct:title](http://purl.org/dc/terms/title)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:title |
-| native | https://data.norge.no/linkml/dcat-ap-no/tittel_literal |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tittel_literal |
 
 
 
@@ -72,7 +72,7 @@ URI: [dct:title](http://purl.org/dc/terms/title)
 ```yaml
 name: tittel_literal
 description: Namn/tittel utan språktag.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:title
 range: string

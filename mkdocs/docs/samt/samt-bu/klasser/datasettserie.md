@@ -565,7 +565,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -575,7 +575,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:DatasetSeries |
-| native | https://data.norge.no/linkml/dcat-ap-no/Datasettserie |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Datasettserie |
 
 
 
@@ -592,7 +592,7 @@ URI: [dcat:DatasetSeries](http://www.w3.org/ns/dcat#DatasetSeries)
 ```yaml
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 is_a: KatalogisertRessurs
 slots:
 - beskrivelse
@@ -661,7 +661,7 @@ class_uri: dcat:DatasetSeries
 ```yaml
 name: Datasettserie
 description: Ei serie av relaterte datasett publisert separat men med felles metadata.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 is_a: KatalogisertRessurs
 slot_usage:
   beskrivelse:
@@ -711,7 +711,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Datasettserie
     domain_of:
@@ -731,7 +731,7 @@ attributes:
     description: Kontaktinformasjon for hendvendelsar om ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dcat:contactPoint
     owner: Datasettserie
     domain_of:
@@ -747,7 +747,7 @@ attributes:
     description: Tema frå eit kontrollert vokabular.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dcat:theme
     owner: Datasettserie
     domain_of:
@@ -762,7 +762,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Datasettserie
     domain_of:
@@ -782,7 +782,7 @@ attributes:
     description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dct:publisher
     owner: Datasettserie
     domain_of:
@@ -797,7 +797,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:spatial
     owner: Datasettserie
     domain_of:
@@ -811,7 +811,7 @@ attributes:
     description: Lovgjeving som gjeld for ressursen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dcatap:applicableLegislation
     owner: Datasettserie
     domain_of:
@@ -827,7 +827,7 @@ attributes:
     description: Siste datasett i ei datasettserie.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dcat:last
     owner: Datasettserie
     domain_of:
@@ -838,7 +838,7 @@ attributes:
     description: Tidsperiode ressursen dekkar.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dct:temporal
     owner: Datasettserie
     domain_of:
@@ -850,7 +850,7 @@ attributes:
   endringsdato:
     name: endringsdato
     description: Dato for siste endring av ressursen (dct:modified).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:modified
     owner: Datasettserie
     domain_of:
@@ -867,7 +867,7 @@ attributes:
         tag: gyldige_verdier
         value: dct:Frequency
     description: Oppdateringsfrekvens for datasettet.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dct:accrualPeriodicity
     owner: Datasettserie
     domain_of:
@@ -876,7 +876,7 @@ attributes:
   forste:
     name: forste
     description: Første datasett i ei datasettserie.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dcat:first
     owner: Datasettserie
     domain_of:
@@ -885,7 +885,7 @@ attributes:
   utgivelsesdato:
     name: utgivelsesdato
     description: Dato ressursen vart første gong publisert (dct:issued).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:issued
     owner: Datasettserie
     domain_of:
@@ -898,7 +898,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Datasettserie
     domain_of:

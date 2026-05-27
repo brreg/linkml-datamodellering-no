@@ -51,7 +51,7 @@ URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -61,7 +61,7 @@ URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:seeAlso |
-| native | https://data.norge.no/linkml/dcat-ap-no/referanse |
+| native | https://data.norge.no/ap-no/dcat-ap-no/referanse |
 
 
 
@@ -72,7 +72,7 @@ URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
 ```yaml
 name: referanse
 description: Referanse til ekstern ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: rdfs:seeAlso
 range: uri

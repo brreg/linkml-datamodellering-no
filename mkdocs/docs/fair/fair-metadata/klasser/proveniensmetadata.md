@@ -60,7 +60,7 @@ URI: [fair:proveniensmetadata](https://data.norge.no/fair#proveniensmetadata)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:proveniensmetadata](https://data.norge.no/fair#proveniensmetadata)
 ```yaml
 name: proveniensmetadata
 description: Metadata om opphav og endringshistorie (FAIR R1.2).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:proveniensmetadata
 domain_of:

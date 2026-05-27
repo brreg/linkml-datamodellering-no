@@ -60,7 +60,7 @@ URI: [fair:tilgangsmetadata](https://data.norge.no/fair#tilgangsmetadata)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:tilgangsmetadata](https://data.norge.no/fair#tilgangsmetadata)
 ```yaml
 name: tilgangsmetadata
 description: Metadata for tilgang og tilgjengelegheit (FAIR A1/A2).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:tilgangsmetadata
 domain_of:

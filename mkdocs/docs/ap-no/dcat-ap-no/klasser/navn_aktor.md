@@ -61,7 +61,7 @@ URI: [foaf:name](http://xmlns.com/foaf/0.1/name)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [foaf:name](http://xmlns.com/foaf/0.1/name)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:name |
-| native | https://data.norge.no/linkml/dcat-ap-no/navn_aktor |
+| native | https://data.norge.no/ap-no/dcat-ap-no/navn_aktor |
 
 
 
@@ -82,7 +82,7 @@ URI: [foaf:name](http://xmlns.com/foaf/0.1/name)
 ```yaml
 name: navn_aktor
 description: Namn på aktøren.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: foaf:name
 domain_of:

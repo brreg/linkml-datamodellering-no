@@ -60,7 +60,7 @@ URI: [odrs:jurisdiction](http://schema.theodi.org/odrs#jurisdiction)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [odrs:jurisdiction](http://schema.theodi.org/odrs#jurisdiction)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:jurisdiction |
-| native | https://data.norge.no/linkml/dcat-ap-no/jurisdiksjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/jurisdiksjon |
 
 
 
@@ -81,7 +81,7 @@ URI: [odrs:jurisdiction](http://schema.theodi.org/odrs#jurisdiction)
 ```yaml
 name: jurisdiksjon
 description: Jurisdiksjon for rettigheitserklæringa.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrs:jurisdiction
 domain_of:

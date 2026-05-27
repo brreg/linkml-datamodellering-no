@@ -68,7 +68,7 @@ URI: [prov:qualifiedAttribution](http://www.w3.org/ns/prov#qualifiedAttribution)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -78,7 +78,7 @@ URI: [prov:qualifiedAttribution](http://www.w3.org/ns/prov#qualifiedAttribution)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | prov:qualifiedAttribution |
-| native | https://data.norge.no/linkml/dcat-ap-no/annen_ansvarlig_aktor |
+| native | https://data.norge.no/ap-no/dcat-ap-no/annen_ansvarlig_aktor |
 
 
 
@@ -93,7 +93,7 @@ annotations:
     tag: gyldige_verdier
     value: prov:Attribution
 description: Kvalifisert attributering til ansvarleg aktør.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: prov:qualifiedAttribution
 domain_of:

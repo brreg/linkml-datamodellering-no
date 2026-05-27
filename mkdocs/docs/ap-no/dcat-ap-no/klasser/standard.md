@@ -323,7 +323,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -333,7 +333,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:Standard |
-| native | https://data.norge.no/linkml/dqv-ap-no/Standard |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Standard |
 
 
 
@@ -350,7 +350,7 @@ URI: [dct:Standard](http://purl.org/dc/terms/Standard)
 ```yaml
 name: Standard
 description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
 - tittel
@@ -391,7 +391,7 @@ class_uri: dct:Standard
 ```yaml
 name: Standard
 description: Ein standard eller spesifikasjon som eit datasett er i samsvar med.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   tittel:
     name: tittel
@@ -418,7 +418,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Standard
     domain_of:
@@ -451,7 +451,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Standard
     domain_of:
@@ -473,7 +473,7 @@ attributes:
       '
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqv:inDimension
     owner: Standard
     domain_of:
@@ -487,7 +487,7 @@ attributes:
     description: Referanse til ekstern ressurs (rdfs:seeAlso).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: rdfs:seeAlso
     owner: Standard
     domain_of:
@@ -500,7 +500,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: rdfs:comment
     owner: Standard
     domain_of:
@@ -514,7 +514,7 @@ attributes:
     description: Versjonsnummer for ressursen (owl:versionInfo).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: owl:versionInfo
     owner: Standard
     domain_of:

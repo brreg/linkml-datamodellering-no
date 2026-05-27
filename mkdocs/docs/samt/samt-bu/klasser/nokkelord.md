@@ -62,7 +62,7 @@ URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:keyword |
-| native | https://data.norge.no/linkml/common-ap-no/nokkelord |
+| native | https://data.norge.no/ap-no/common-ap-no/nokkelord |
 
 
 
@@ -83,7 +83,7 @@ URI: [dcat:keyword](http://www.w3.org/ns/dcat#keyword)
 ```yaml
 name: nokkelord
 description: Nøkkelord som beskriv ressursen (dcat:keyword).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dcat:keyword
 domain_of:
 - Datasett

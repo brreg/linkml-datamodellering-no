@@ -185,7 +185,7 @@ message Ikke
  repeated  modellelement betinger = 0
  repeated  langString betingelsesuttrykk = 0
  }
-// Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:InformationModel).
+// Ein informasjonsmodell som er katalogisert i ein modellkatalog (modelldcatno:InformationModel).
 message Informasjonsmodell
  {
   uriorcurie id = 0
@@ -294,7 +294,7 @@ message Merknad
  repeated  modul tilhorerModul = 0
  }
 // Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
-message Modelkatalog
+message Modellkatalog
  {
   uriorcurie id = 0
  repeated  langString tittel = 0
@@ -311,7 +311,7 @@ message Modelkatalog
  repeated  konsept tema = 0
  repeated  begrepssamling temaer = 0
   date utgivelsesdato = 0
-  modelkatalog erDelAvKatalog = 0
+  modellkatalog erDelAvKatalog = 0
  }
 // Ein modul som grupperer modellelement i informasjonsmodellen.
 message Modul

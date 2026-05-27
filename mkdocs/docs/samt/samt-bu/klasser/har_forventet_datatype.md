@@ -60,7 +60,7 @@ URI: [dqv:expectedDataType](http://www.w3.org/ns/dqv#expectedDataType)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dqv:expectedDataType](http://www.w3.org/ns/dqv#expectedDataType)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:expectedDataType |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_forventet_datatype |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_forventet_datatype |
 
 
 
@@ -81,7 +81,7 @@ URI: [dqv:expectedDataType](http://www.w3.org/ns/dqv#expectedDataType)
 ```yaml
 name: har_forventet_datatype
 description: Forventa XSD-datatype for verdien av ei kvalitetsmåling.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: dqv:expectedDataType
 domain_of:
 - Kvalitetsmaal

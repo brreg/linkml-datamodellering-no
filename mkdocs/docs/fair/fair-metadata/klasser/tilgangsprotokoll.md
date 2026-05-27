@@ -60,7 +60,7 @@ URI: [fair:tilgangsprotokoll](https://data.norge.no/fair#tilgangsprotokoll)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:tilgangsprotokoll](https://data.norge.no/fair#tilgangsprotokoll)
 ```yaml
 name: tilgangsprotokoll
 description: Kommunikasjonsprotokoll, t.d. HTTPS eller SPARQL (FAIR A1.1).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:tilgangsprotokoll
 domain_of:

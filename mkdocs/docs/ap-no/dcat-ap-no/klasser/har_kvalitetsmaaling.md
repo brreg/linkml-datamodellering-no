@@ -61,7 +61,7 @@ URI: [dqv:hasQualityMeasurement](http://www.w3.org/ns/dqv#hasQualityMeasurement)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dqv:hasQualityMeasurement](http://www.w3.org/ns/dqv#hasQualityMeasurement)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:hasQualityMeasurement |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_kvalitetsmaaling |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_kvalitetsmaaling |
 
 
 
@@ -82,7 +82,7 @@ URI: [dqv:hasQualityMeasurement](http://www.w3.org/ns/dqv#hasQualityMeasurement)
 ```yaml
 name: har_kvalitetsmaaling
 description: Kvalitetsmåling knytt til datasettet.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: dqv:hasQualityMeasurement
 domain_of:
 - Datasett

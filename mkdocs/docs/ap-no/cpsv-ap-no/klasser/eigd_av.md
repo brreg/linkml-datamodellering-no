@@ -61,7 +61,7 @@ URI: [cv:ownedBy](http://data.europa.eu/m8g/ownedBy)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cv:ownedBy](http://data.europa.eu/m8g/ownedBy)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:ownedBy |
-| native | https://data.norge.no/linkml/cpsv-ap-no/eigd_av |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/eigd_av |
 
 
 
@@ -82,7 +82,7 @@ URI: [cv:ownedBy](http://data.europa.eu/m8g/ownedBy)
 ```yaml
 name: eigd_av
 description: Aktør som eig eller er ansvarleg for tenesta.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:ownedBy
 domain_of:

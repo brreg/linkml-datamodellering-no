@@ -309,7 +309,7 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -319,7 +319,7 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsv:Rule |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Regel |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Regel |
 
 
 
@@ -336,7 +336,7 @@ URI: [cpsv:Rule](http://purl.org/vocab/cpsv#Rule)
 ```yaml
 name: Regel
 description: Eit regelverk eller retningsliner som styrer levering av ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -377,7 +377,7 @@ class_uri: cpsv:Rule
 ```yaml
 name: Regel
 description: Eit regelverk eller retningsliner som styrer levering av ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -404,7 +404,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Regel
     domain_of:
@@ -433,7 +433,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Regel
     domain_of:
@@ -454,7 +454,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Regel
     domain_of:
@@ -475,7 +475,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Regel
     domain_of:
@@ -496,7 +496,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: Regel
     domain_of:
@@ -512,7 +512,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Regel
     domain_of:

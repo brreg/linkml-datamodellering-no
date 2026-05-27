@@ -171,7 +171,7 @@ URI: [cpsvno:OutputTypeList](https://data.norge.no/vocabulary/cpsvno#OutputTypeL
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -181,7 +181,7 @@ URI: [cpsvno:OutputTypeList](https://data.norge.no/vocabulary/cpsvno#OutputTypeL
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsvno:OutputTypeList |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Tjenesteresultattypeliste |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Tjenesteresultattypeliste |
 
 
 
@@ -198,7 +198,7 @@ URI: [cpsvno:OutputTypeList](https://data.norge.no/vocabulary/cpsvno#OutputTypeL
 ```yaml
 name: Tjenesteresultattypeliste
 description: Ei liste over moglege tjenesteresultattypar.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -215,13 +215,13 @@ class_uri: cpsvno:OutputTypeList
 ```yaml
 name: Tjenesteresultattypeliste
 description: Ei liste over moglege tjenesteresultattypar.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Tjenesteresultattypeliste
     domain_of:
@@ -248,7 +248,7 @@ attributes:
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Tjenesteresultattypeliste
     domain_of:
@@ -267,7 +267,7 @@ attributes:
   beskrivelse:
     name: beskrivelse
     description: Fritekstbeskrivelse av ressursen (dct:description).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Tjenesteresultattypeliste
     domain_of:

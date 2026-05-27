@@ -203,7 +203,7 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -213,7 +213,7 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:Participation |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Deltagelse |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Deltagelse |
 
 
 
@@ -230,7 +230,7 @@ URI: [cv:Participation](http://data.europa.eu/m8g/Participation)
 ```yaml
 name: Deltagelse
 description: Ei rolle ein aktør har i leveringa av ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -256,7 +256,7 @@ class_uri: cv:Participation
 ```yaml
 name: Deltagelse
 description: Ei rolle ein aktør har i leveringa av ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   har_rolle:
@@ -271,7 +271,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Deltagelse
     domain_of:
@@ -300,7 +300,7 @@ attributes:
     description: Rolla aktøren har i ei deltaking.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:role
     owner: Deltagelse
@@ -312,7 +312,7 @@ attributes:
     description: Aktøren som deltek.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:participant
     owner: Deltagelse

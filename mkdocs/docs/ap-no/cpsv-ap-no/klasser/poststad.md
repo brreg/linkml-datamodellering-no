@@ -61,7 +61,7 @@ URI: [locn:postName](http://www.w3.org/ns/locn#postName)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [locn:postName](http://www.w3.org/ns/locn#postName)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | locn:postName |
-| native | https://data.norge.no/linkml/cpsv-ap-no/poststad |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/poststad |
 
 
 
@@ -82,7 +82,7 @@ URI: [locn:postName](http://www.w3.org/ns/locn#postName)
 ```yaml
 name: poststad
 description: Poststad/by.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: locn:postName
 domain_of:

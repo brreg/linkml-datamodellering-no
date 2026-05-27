@@ -9,7 +9,7 @@ _Klassen aksja høyrer til._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse](https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse](https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklass
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse |
 
 
 

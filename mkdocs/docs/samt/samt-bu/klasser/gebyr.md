@@ -234,7 +234,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -244,7 +244,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:Cost |
-| native | https://data.norge.no/linkml/dcat-ap-no/Gebyr |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Gebyr |
 
 
 
@@ -261,7 +261,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 ```yaml
 name: Gebyr
 description: Eit gebyr knytt til bruk av ein datatjeneste.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slots:
 - id
 - belop
@@ -279,12 +279,12 @@ class_uri: cv:Cost
 ```yaml
 name: Gebyr
 description: Eit gebyr knytt til bruk av ein datatjeneste.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Gebyr
     domain_of:
@@ -320,7 +320,7 @@ attributes:
   belop:
     name: belop
     description: Beløp for gebyret.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: cv:hasValue
     owner: Gebyr
     domain_of:
@@ -329,7 +329,7 @@ attributes:
   beskrivelse:
     name: beskrivelse
     description: Fritekstbeskrivelse av ressursen (dct:description).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Gebyr
     domain_of:
@@ -346,7 +346,7 @@ attributes:
   dokumentasjon:
     name: dokumentasjon
     description: Lenke til dokumentasjon om ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: foaf:page
     owner: Gebyr
     domain_of:
@@ -359,7 +359,7 @@ attributes:
   valuta:
     name: valuta
     description: Valuta (cv:currency).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: cv:currency
     owner: Gebyr
     domain_of:

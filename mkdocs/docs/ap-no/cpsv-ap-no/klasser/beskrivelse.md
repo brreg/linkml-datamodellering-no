@@ -72,7 +72,7 @@ URI: [dct:description](http://purl.org/dc/terms/description)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -82,7 +82,7 @@ URI: [dct:description](http://purl.org/dc/terms/description)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:description |
-| native | https://data.norge.no/linkml/common-ap-no/beskrivelse |
+| native | https://data.norge.no/ap-no/common-ap-no/beskrivelse |
 
 
 
@@ -93,7 +93,7 @@ URI: [dct:description](http://purl.org/dc/terms/description)
 ```yaml
 name: beskrivelse
 description: Fritekstbeskrivelse av ressursen (dct:description).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:description
 domain_of:
 - OffentligTjeneste

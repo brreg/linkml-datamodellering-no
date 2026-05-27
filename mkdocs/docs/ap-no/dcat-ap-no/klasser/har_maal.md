@@ -69,7 +69,7 @@ URI: [oa:hasTarget](http://www.w3.org/ns/oa#hasTarget)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -79,7 +79,7 @@ URI: [oa:hasTarget](http://www.w3.org/ns/oa#hasTarget)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:hasTarget |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_maal |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_maal |
 
 
 
@@ -94,7 +94,7 @@ annotations:
     tag: gyldige_verdier
     value: dcat:Resource
 description: Ressursen merknaden gjeld.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: oa:hasTarget
 domain_of:
 - Kvalitetsmerknad

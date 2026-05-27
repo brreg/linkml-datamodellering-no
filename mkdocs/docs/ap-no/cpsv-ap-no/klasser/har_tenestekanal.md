@@ -62,7 +62,7 @@ URI: [cv:hasChannel](http://data.europa.eu/m8g/hasChannel)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:hasChannel](http://data.europa.eu/m8g/hasChannel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasChannel |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_tenestekanal |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_tenestekanal |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:hasChannel](http://data.europa.eu/m8g/hasChannel)
 ```yaml
 name: har_tenestekanal
 description: Kanal for tilgang til tenesta.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasChannel
 domain_of:

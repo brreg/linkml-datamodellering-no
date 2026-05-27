@@ -73,7 +73,7 @@ URI: [dct:identifier](http://purl.org/dc/terms/identifier)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -83,7 +83,7 @@ URI: [dct:identifier](http://purl.org/dc/terms/identifier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:identifier |
-| native | https://data.norge.no/linkml/common-ap-no/identifikator_literal |
+| native | https://data.norge.no/ap-no/common-ap-no/identifikator_literal |
 
 
 
@@ -94,7 +94,7 @@ URI: [dct:identifier](http://purl.org/dc/terms/identifier)
 ```yaml
 name: identifikator_literal
 description: Tekstleg identifikator for ressursen (dct:identifier).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:identifier
 domain_of:
 - OffentligTjeneste

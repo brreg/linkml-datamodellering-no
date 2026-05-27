@@ -23,7 +23,7 @@ URI: [Obligatorisk](obligatorisk.md)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 

@@ -1,0 +1,643 @@
+{
+    "$defs": {
+        "AssosiativRelasjon": {
+            "additionalProperties": false,
+            "description": "Ein assosiativ relasjon mellom to omgrep.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "relasjontype": {
+                    "description": "Rolle eller type av den assosiative relasjonen (skosno:relationRole).",
+                    "type": "string"
+                },
+                "til_omgrep": {
+                    "description": "Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "id",
+                "til_omgrep",
+                "relasjontype"
+            ],
+            "title": "AssosiativRelasjon",
+            "type": "object"
+        },
+        "Begrep": {
+            "additionalProperties": false,
+            "description": "Eit omgrep med definisjon og tilh\u00f8yrande metadata (skos:Concept).",
+            "properties": {
+                "anbefalt_term": {
+                    "description": "F\u00f8retrukke term/namn for ressursen (skos:prefLabel).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "ansvarleg_verksemd": {
+                    "description": "Fagleg ansvarleg organisasjon for omgrepet (dct:creator).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "assosiert_med": {
+                    "description": "Omgrep dette omgrepet er assosiert med (skos:related).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "datastruktur_term": {
+                    "description": "Term brukt i datastrukturar (skosno:dataStructureLabel).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "definisjon": {
+                    "description": "Direkte definisjon som fritekst (skos:definition).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "eksempel": {
+                    "description": "Eksempel p\u00e5 bruk av omgrepet (skos:example).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "endringsdato": {
+                    "description": "Dato for siste endring av ressursen (dct:modified).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "er_del_av_omgrep": {
+                    "description": "Omgrep dette omgrepet er ein del av (xkos:isPartOf).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "er_erstatta_av": {
+                    "description": "Omgrep som erstattar dette omgrepet (dct:isReplacedBy).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "er_fra_omgrep_i": {
+                    "description": "Assosiativ relasjon der dette omgrepet er fr\u00e5-omgrepet (skosno:isFromConceptIn).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "er_medlem_av": {
+                    "description": "Samling dette omgrepet er medlem av (uneskos:memberOf).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "erstattar": {
+                    "description": "Omgrep dette omgrepet erstattar (dct:replaces).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "euvoc_status": {
+                    "description": "Status for omgrepet fr\u00e5 eit kontrollert vokabular (euvoc:status).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "fagomrade": {
+                    "description": "Fagomr\u00e5de omgrepet h\u00f8yrer til (dct:subject).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "forkasta_term": {
+                    "description": "Tidlegare brukt, no forkasta term (skos:hiddenLabel).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "generaliserer": {
+                    "description": "Omgrep dette omgrepet generaliserer (xkos:generalizes).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "gyldig_fra": {
+                    "description": "Dato omgrepet er gyldig fr\u00e5 (euvoc:startDate).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "gyldig_til": {
+                    "description": "Dato omgrepet er gyldig til (euvoc:endDate).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "har_definisjon": {
+                    "description": "Definisjon via eige objekt (euvoc:xlDefinition).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_del_omgrep": {
+                    "description": "Omgrep som er ein del av dette omgrepet (xkos:hasPart).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_generisk_relasjon": {
+                    "description": "Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_partitiv_relasjon": {
+                    "description": "Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_versjonsnummer": {
+                    "description": "Versjonsnummer for ressursen (owl:versionInfo).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator_literal": {
+                    "description": "Tekstleg identifikator for ressursen (dct:identifier).",
+                    "type": "string"
+                },
+                "kontaktpunkt_vcard": {
+                    "description": "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "merknad": {
+                    "description": "Merknad om bruksomfanget for omgrepet (skos:scopeNote).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "naert_samsvar": {
+                    "description": "Omgrep med n\u00e6r, men ikkje n\u00f8yaktig same meining (skos:closeMatch).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "noyaktig_samsvar": {
+                    "description": "Omgrep med n\u00f8yaktig same meining i anna vokabular (skos:exactMatch).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "opprettingsdato": {
+                    "description": "Dato omgrepet vart oppretta (dct:created).",
+                    "format": "date",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "sja_ogsa_omgrep": {
+                    "description": "Relatert omgrep (rdfs:seeAlso).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "spesifiserer": {
+                    "description": "Omgrep dette omgrepet spesifiserer (xkos:specializes).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tillate_term": {
+                    "description": "Tillaten alternativ term for omgrepet (skos:altLabel).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "utgjevar": {
+                    "description": "Organisasjon ansvarleg for \u00e5 publisere omgrepet (dct:publisher).",
+                    "type": "string"
+                },
+                "verdiomrade": {
+                    "description": "Verdiomr\u00e5de for omgrepet (skosno:valueRange).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "versjonsmerknad": {
+                    "description": "Merknad om endringar i denne versjonen (adms:versionNotes).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "anbefalt_term",
+                "identifikator_literal",
+                "kontaktpunkt_vcard",
+                "utgjevar"
+            ],
+            "title": "Begrep",
+            "type": "object"
+        },
+        "Begrepssamling": {
+            "additionalProperties": false,
+            "description": "Ei SKOS-omgrepssamling (temavokabular).",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Begrepssamling",
+            "type": "object"
+        },
+        "Definisjon": {
+            "additionalProperties": false,
+            "description": "Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote).",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kjelde": {
+                    "description": "Kjelde til definisjonen (dct:source).",
+                    "items": {
+                        "format": "uri",
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kjelde_relasjon": {
+                    "description": "Omgrep som beskriv forholdet mellom definisjonen og kjelda (skosno:relationshipWithSource).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "malgruppe_def": {
+                    "description": "M\u00e5lgruppe definisjonen er retta mot (dct:audience).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tekst": {
+                    "description": "Definissjonstekst (rdf:value).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "tekst"
+            ],
+            "title": "Definisjon",
+            "type": "object"
+        },
+        "GeneriskRelasjon": {
+            "additionalProperties": false,
+            "description": "Ein generisk relasjon mellom eit overomgrep og eit underomgrep.",
+            "properties": {
+                "har_generisk_omgrep": {
+                    "description": "Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_spesifikt_omgrep": {
+                    "description": "Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "inndelingskriterium": {
+                    "description": "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeneriskRelasjon",
+            "type": "object"
+        },
+        "Konsept": {
+            "additionalProperties": false,
+            "description": "Referanse til eit SKOS-omgrep fr\u00e5 eit kontrollert vokabular.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Konsept",
+            "type": "object"
+        },
+        "Mediatype": {
+            "additionalProperties": false,
+            "description": "Ein medietype eller filformat (dct:MediaTypeOrExtent).",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Mediatype",
+            "type": "object"
+        },
+        "Organisasjon": {
+            "additionalProperties": false,
+            "description": "Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Organisasjon",
+            "type": "object"
+        },
+        "PartitivRelasjon": {
+            "additionalProperties": false,
+            "description": "Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.",
+            "properties": {
+                "har_heilskapleg_omgrep": {
+                    "description": "Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "har_partitivt_omgrep": {
+                    "description": "Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "inndelingskriterium": {
+                    "description": "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "PartitivRelasjon",
+            "type": "object"
+        },
+        "Samling": {
+            "additionalProperties": false,
+            "description": "Ei namngitt samling av omgrep (skos:Collection).",
+            "properties": {
+                "beskrivelse": {
+                    "description": "Fritekstbeskrivelse av ressursen (dct:description).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "identifikator_literal": {
+                    "description": "Tekstleg identifikator for ressursen (dct:identifier).",
+                    "type": "string"
+                },
+                "kontaktpunkt_vcard": {
+                    "description": "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "medlem": {
+                    "description": "Omgrep som er medlem av samlinga (skos:member).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "tittel": {
+                    "description": "Namn/tittel p\u00e5 ressursen (dct:title).",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "utgjevar": {
+                    "description": "Organisasjon ansvarleg for \u00e5 publisere omgrepet (dct:publisher).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "identifikator_literal",
+                "medlem",
+                "kontaktpunkt_vcard",
+                "tittel",
+                "utgjevar"
+            ],
+            "title": "Samling",
+            "type": "object"
+        },
+        "VCardKontakt": {
+            "additionalProperties": false,
+            "description": "Kontaktinformasjon (vCard) for omgrepseigaren.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "VCardKontakt",
+            "type": "object"
+        }
+    },
+    "$id": "https://data.norge.no/ap-no/skos-ap-no",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "metamodel_version": "1.11.0",
+    "title": "skos-ap-no",
+    "type": "object",
+    "version": "2.0"
+}
+

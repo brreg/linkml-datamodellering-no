@@ -60,7 +60,7 @@ URI: [dcat:last](http://www.w3.org/ns/dcat#last)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:last](http://www.w3.org/ns/dcat#last)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:last |
-| native | https://data.norge.no/linkml/dcat-ap-no/siste |
+| native | https://data.norge.no/ap-no/dcat-ap-no/siste |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:last](http://www.w3.org/ns/dcat#last)
 ```yaml
 name: siste
 description: Siste datasett i ei datasettserie.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:last
 domain_of:

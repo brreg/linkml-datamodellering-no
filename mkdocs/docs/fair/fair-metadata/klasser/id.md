@@ -68,7 +68,7 @@ URI: [dct:identifier](http://purl.org/dc/terms/identifier)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -89,7 +89,7 @@ URI: [dct:identifier](http://purl.org/dc/terms/identifier)
 ```yaml
 name: id
 description: Persistent URI-identifikator for metadata-posten (FAIR F1).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:identifier
 identifier: true

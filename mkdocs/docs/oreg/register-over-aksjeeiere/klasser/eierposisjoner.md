@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner](https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:eierposisjoner](https://data.norge.no/oreg/register-over-aksjeeiere/:eierposisjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner](htt
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:eierposisjoner |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:eierposisjoner |
 
 
 

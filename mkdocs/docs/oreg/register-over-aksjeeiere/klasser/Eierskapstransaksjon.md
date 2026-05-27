@@ -9,7 +9,7 @@ _Transaksjon som påverkar eigarskap i selskapet._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon](https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon](https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon)
 
 
 
@@ -239,8 +239,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjo
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon |
 
 
 

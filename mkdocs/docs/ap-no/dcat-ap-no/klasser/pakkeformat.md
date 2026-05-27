@@ -60,7 +60,7 @@ URI: [dcat:packageFormat](http://www.w3.org/ns/dcat#packageFormat)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:packageFormat](http://www.w3.org/ns/dcat#packageFormat)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:packageFormat |
-| native | https://data.norge.no/linkml/dcat-ap-no/pakkeformat |
+| native | https://data.norge.no/ap-no/dcat-ap-no/pakkeformat |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:packageFormat](http://www.w3.org/ns/dcat#packageFormat)
 ```yaml
 name: pakkeformat
 description: Pakkeformat brukt i distribusjonen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:packageFormat
 domain_of:

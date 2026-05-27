@@ -9,7 +9,7 @@ _Utbytte knytt til eigarposisjonen._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon](https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon](https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierp
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon |
 
 
 

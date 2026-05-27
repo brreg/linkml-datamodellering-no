@@ -9,7 +9,7 @@ _Innbetalt aksjekapital._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital](https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltAksjekapital](https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltAksjekapital)
 
 
 
@@ -124,8 +124,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapit
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltAksjekapital |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltAksjekapital |
 
 
 

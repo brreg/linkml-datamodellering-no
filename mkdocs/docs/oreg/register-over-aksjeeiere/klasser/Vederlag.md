@@ -9,7 +9,7 @@ _Vederlag knytt til ei aksjeoverdraging._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag](https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag](https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag)
 
 
 
@@ -153,8 +153,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag](https://d
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag |
 
 
 

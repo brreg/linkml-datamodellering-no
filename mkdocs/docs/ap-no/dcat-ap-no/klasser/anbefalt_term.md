@@ -51,7 +51,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -61,7 +61,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:prefLabel |
-| native | https://data.norge.no/linkml/common-ap-no/anbefalt_term |
+| native | https://data.norge.no/ap-no/common-ap-no/anbefalt_term |
 
 
 
@@ -72,7 +72,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 ```yaml
 name: anbefalt_term
 description: Føretrukke term/namn for ressursen (skos:prefLabel).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: skos:prefLabel
 range: LangString
 multivalued: true

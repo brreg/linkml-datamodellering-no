@@ -62,7 +62,7 @@ URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:seeAlso |
-| native | https://data.norge.no/linkml/common-ap-no/har_referanse |
+| native | https://data.norge.no/ap-no/common-ap-no/har_referanse |
 
 
 
@@ -83,7 +83,7 @@ URI: [rdfs:seeAlso](http://www.w3.org/2000/01/rdf-schema#seeAlso)
 ```yaml
 name: har_referanse
 description: Referanse til ekstern ressurs (rdfs:seeAlso).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: rdfs:seeAlso
 domain_of:
 - Standard

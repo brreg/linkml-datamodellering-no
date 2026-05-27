@@ -60,7 +60,7 @@ URI: [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:accessURL](http://www.w3.org/ns/dcat#accessURL)
 ```yaml
 name: tilgangsURL
 description: URL for maskinell tilgang til ressurs eller metadata (FAIR A1).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dcat:accessURL
 domain_of:

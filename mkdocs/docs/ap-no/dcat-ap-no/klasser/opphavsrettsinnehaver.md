@@ -60,7 +60,7 @@ URI: [odrs:copyrightHolder](http://schema.theodi.org/odrs#copyrightHolder)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [odrs:copyrightHolder](http://schema.theodi.org/odrs#copyrightHolder)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:copyrightHolder |
-| native | https://data.norge.no/linkml/dcat-ap-no/opphavsrettsinnehaver |
+| native | https://data.norge.no/ap-no/dcat-ap-no/opphavsrettsinnehaver |
 
 
 
@@ -81,7 +81,7 @@ URI: [odrs:copyrightHolder](http://schema.theodi.org/odrs#copyrightHolder)
 ```yaml
 name: opphavsrettsinnehaver
 description: Namn på opphavsrettsinnehavar.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrs:copyrightHolder
 domain_of:

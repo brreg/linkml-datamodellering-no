@@ -122,7 +122,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -132,7 +132,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:ConceptScheme |
-| native | https://data.norge.no/linkml/common-ap-no/Begrepssamling |
+| native | https://data.norge.no/ap-no/common-ap-no/Begrepssamling |
 
 
 
@@ -149,7 +149,7 @@ URI: [skos:ConceptScheme](http://www.w3.org/2004/02/skos/core#ConceptScheme)
 ```yaml
 name: Begrepssamling
 description: Ei SKOS-omgrepssamling (temavokabular).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slots:
 - id
 class_uri: skos:ConceptScheme
@@ -163,12 +163,12 @@ class_uri: skos:ConceptScheme
 ```yaml
 name: Begrepssamling
 description: Ei SKOS-omgrepssamling (temavokabular).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Begrepssamling
     domain_of:

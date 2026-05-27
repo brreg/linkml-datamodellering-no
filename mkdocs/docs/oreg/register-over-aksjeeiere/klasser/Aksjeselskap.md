@@ -9,7 +9,7 @@ _Selskap som utsteder aksjar og har aksjekapital._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap)
 
 
 
@@ -210,8 +210,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap](https
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap |
 
 
 

@@ -63,7 +63,7 @@ URI: [dct:spatial](http://purl.org/dc/terms/spatial)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -73,7 +73,7 @@ URI: [dct:spatial](http://purl.org/dc/terms/spatial)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:spatial |
-| native | https://data.norge.no/linkml/common-ap-no/dekningsomraade |
+| native | https://data.norge.no/ap-no/common-ap-no/dekningsomraade |
 
 
 
@@ -84,7 +84,7 @@ URI: [dct:spatial](http://purl.org/dc/terms/spatial)
 ```yaml
 name: dekningsomraade
 description: Geografisk dekningsområde (dct:spatial).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:spatial
 domain_of:
 - Datasett

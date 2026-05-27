@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager](https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:vederlager](https://data.norge.no/oreg/register-over-aksjeeiere/:vederlager)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager](https:/
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:vederlager |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:vederlager |
 
 
 

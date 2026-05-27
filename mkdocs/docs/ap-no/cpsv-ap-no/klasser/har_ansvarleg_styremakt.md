@@ -61,7 +61,7 @@ URI: [cv:hasCompetentAuthority](http://data.europa.eu/m8g/hasCompetentAuthority)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cv:hasCompetentAuthority](http://data.europa.eu/m8g/hasCompetentAuthority)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasCompetentAuthority |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_ansvarleg_styremakt |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_ansvarleg_styremakt |
 
 
 
@@ -82,7 +82,7 @@ URI: [cv:hasCompetentAuthority](http://data.europa.eu/m8g/hasCompetentAuthority)
 ```yaml
 name: har_ansvarleg_styremakt
 description: Offentleg organisasjon ansvarleg for tenesta.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasCompetentAuthority
 domain_of:

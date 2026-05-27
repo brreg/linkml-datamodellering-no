@@ -232,7 +232,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -242,10 +242,30 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:Agent |
-| native | https://data.norge.no/linkml/dcat-ap-no/Aktor |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Aktor |
 
 
 
+
+## Examples
+### Example: Aktor-gruppe-skoleforvaltning
+
+```yaml
+id: samtbuskole:gruppe-skoleforvaltning
+navn_aktor:
+- Nasjonal gruppe for skoleforvaltning
+type_concept: https://example.org/actor-type/arbeidsgruppe
+
+```
+### Example: Aktor-org-udir
+
+```yaml
+id: samtbuskole:org-udir
+navn_aktor:
+- Direktoratet for utdanning
+type_concept: http://purl.org/adms/publishertype/NationalAuthority
+
+```
 
 
 
@@ -259,7 +279,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 ```yaml
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 slots:
@@ -284,7 +304,7 @@ class_uri: foaf:Agent
 ```yaml
 name: Aktor
 description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 slot_usage:
@@ -297,7 +317,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Aktor
     domain_of:
@@ -335,7 +355,7 @@ attributes:
     description: Namn på aktøren.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: foaf:name
     owner: Aktor
     domain_of:
@@ -346,7 +366,7 @@ attributes:
   identifikator_literal:
     name: identifikator_literal
     description: Tekstleg identifikator for ressursen (dct:identifier).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Aktor
     domain_of:
@@ -359,7 +379,7 @@ attributes:
   type_concept:
     name: type_concept
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Aktor
     domain_of:

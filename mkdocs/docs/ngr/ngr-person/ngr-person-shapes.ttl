@@ -4,167 +4,167 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://data.norge.no/linkml/ngr-person/PersonContainer> a sh:NodeShape ;
+<https://data.norge.no/ngr/ngr-person/PersonContainer> a sh:NodeShape ;
     rdfs:comment "Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngrp:Oppholdsadresse ;
+    sh:property [ sh:class ngrp:ReservasjonMotKommunikasjonPaaNett ;
             sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/oppholdsadresser> ],
-        [ sh:class ngrp:Postadresse ;
-            sh:nodeKind sh:IRI ;
-            sh:order 25 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/postadresser> ],
-        [ sh:class ngrp:ForeldreansvarBarn ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/foreldreansvarBarn> ],
-        [ sh:class ngrp:Personidentifikasjon ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/personidentifikasjonar> ],
-        [ sh:class ngrp:KontaktinformasjonDoedsbo ;
-            sh:nodeKind sh:IRI ;
-            sh:order 20 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/kontaktinformasjonDoedsbo> ],
-        [ sh:class ngrp:ForeldreansvarForelder ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/foreldreansvarForelder> ],
-        [ sh:class ngrp:Verge ;
-            sh:nodeKind sh:IRI ;
-            sh:order 27 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/verger> ],
-        [ sh:class ngrp:FamilierelasjonForelder ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/familierelasjonForelder> ],
-        [ sh:class ngrp:Dodsfall ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/dodsfall> ],
-        [ sh:class ngrp:Foedsel ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/foedslar> ],
-        [ sh:class ngrp:DNummer ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/dnummer> ],
-        [ sh:class ngrp:UtflyttingFraNorge ;
-            sh:nodeKind sh:IRI ;
-            sh:order 22 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/utflytting> ],
-        [ sh:class ngrp:Identifikasjonsdokument ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/identifikasjonsdokument> ],
-        [ sh:class ngrp:FalskIdentitet ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/falskIdentitetar> ],
-        [ sh:class ngrp:Identitetsgrunnlag ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/identitetsgrunnlag> ],
-        [ sh:class ngrp:Person ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/personar> ],
-        [ sh:class ngrp:Adressebeskyttelse ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/adressebeskyttelse> ],
-        [ sh:class ngrp:FamilierelasjonEktefelle ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/familierelasjonEktefelle> ],
+            sh:order 29 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/reservasjonar> ],
         [ sh:class ngrp:Kontaktopplysninger ;
             sh:nodeKind sh:IRI ;
             sh:order 30 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/kontaktopplysningar> ],
-        [ sh:class ngrp:Personnavn ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/personnavn> ],
+            sh:path <https://data.norge.no/ngr/ngr-person/kontaktopplysningar> ],
         [ sh:class ngrp:SpraakForElektroniskKommunikasjon ;
             sh:nodeKind sh:IRI ;
             sh:order 31 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/spraak> ],
-        [ sh:class ngrp:Bostedsadresse ;
+            sh:path <https://data.norge.no/ngr/ngr-person/spraak> ],
+        [ sh:class ngrp:ForeldreansvarBarn ;
             sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/bostedsadresser> ],
-        [ sh:class ngrp:Sivilstand ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/sivilstand> ],
-        [ sh:class ngrp:Statsborgerskap ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/statsborgerskap> ],
-        [ sh:class ngrp:Foedselsnummer ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/foedselsnummer> ],
-        [ sh:class ngrp:ReservasjonMotKommunikasjonPaaNett ;
-            sh:nodeKind sh:IRI ;
-            sh:order 29 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/reservasjonar> ],
-        [ sh:class ngrp:Kjoenn ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/kjoenn> ],
-        [ sh:class ngrp:InnflyttingTilNorge ;
-            sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/innflytting> ],
-        [ sh:class ngrp:Personstatus ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/personstatus> ],
+            sh:order 15 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/foreldreansvarBarn> ],
         [ sh:class ngrp:RettsligHandleevne ;
             sh:nodeKind sh:IRI ;
             sh:order 28 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/rettsligHandleevne> ],
-        [ sh:class ngrp:Opphold ;
+            sh:path <https://data.norge.no/ngr/ngr-person/rettsligHandleevne> ],
+        [ sh:class ngrp:Identitetsgrunnlag ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/opphold> ],
+            sh:order 7 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag> ],
+        [ sh:class ngrp:Personidentifikasjon ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/personidentifikasjonar> ],
+        [ sh:class ngrp:Sivilstand ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/sivilstand> ],
+        [ sh:class ngrp:Personnavn ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/personnavn> ],
+        [ sh:class ngrp:Verge ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/verger> ],
+        [ sh:class ngrp:FalskIdentitet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/falskIdentitetar> ],
+        [ sh:class ngrp:Kjoenn ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/kjoenn> ],
+        [ sh:class ngrp:Bostedsadresse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/bostedsadresser> ],
+        [ sh:class ngrp:Adressebeskyttelse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/adressebeskyttelse> ],
+        [ sh:class ngrp:Dodsfall ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/dodsfall> ],
+        [ sh:class ngrp:InnflyttingTilNorge ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/innflytting> ],
         [ sh:class ngrp:FamilierelasjonBarn ;
             sh:nodeKind sh:IRI ;
             sh:order 17 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/familierelasjonBarn> ] ;
-    sh:targetClass <https://data.norge.no/linkml/ngr-person/PersonContainer> .
+            sh:path <https://data.norge.no/ngr/ngr-person/familierelasjonBarn> ],
+        [ sh:class ngrp:Foedsel ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/foedslar> ],
+        [ sh:class ngrp:Person ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/personar> ],
+        [ sh:class ngrp:DNummer ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/dnummer> ],
+        [ sh:class ngrp:KontaktinformasjonDoedsbo ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/kontaktinformasjonDoedsbo> ],
+        [ sh:class ngrp:Foedselsnummer ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/foedselsnummer> ],
+        [ sh:class ngrp:ForeldreansvarForelder ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/foreldreansvarForelder> ],
+        [ sh:class ngrp:Statsborgerskap ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/statsborgerskap> ],
+        [ sh:class ngrp:Identifikasjonsdokument ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/identifikasjonsdokument> ],
+        [ sh:class ngrp:Personstatus ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/personstatus> ],
+        [ sh:class ngrp:UtflyttingFraNorge ;
+            sh:nodeKind sh:IRI ;
+            sh:order 22 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/utflytting> ],
+        [ sh:class ngrp:Opphold ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/opphold> ],
+        [ sh:class ngrp:Postadresse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/postadresser> ],
+        [ sh:class ngrp:Oppholdsadresse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/oppholdsadresser> ],
+        [ sh:class ngrp:FamilierelasjonEktefelle ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/familierelasjonEktefelle> ],
+        [ sh:class ngrp:FamilierelasjonForelder ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/familierelasjonForelder> ] ;
+    sh:targetClass <https://data.norge.no/ngr/ngr-person/PersonContainer> .
 
 ngrp:GeografiskAdresse a sh:NodeShape ;
     rdfs:comment "Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse." ;
     sh:closed false ;
-    sh:ignoredProperties ( rdf:type ngrp:gyldigFraOgMed ngrp:gyldigTilOgMed ) ;
+    sh:ignoredProperties ( ngrp:gyldigTilOgMed ngrp:gyldigFraOgMed rdf:type ) ;
     sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:GeografiskAdresse .
 
 ngrp:DNummer a sh:NodeShape ;
     rdfs:comment "Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i Noreg (t.d. med d-nummer, om dei har midlertidig eller permanent opphald). Brukes om de har midlertidig eller ikkje har permanent opphald." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:identifikatornummer ] ;
+            sh:path ngrp:identifikatornummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:DNummer .
 
 ngrp:Foedselsnummer a sh:NodeShape ;
@@ -182,24 +182,24 @@ ngrp:Foedselsnummer a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:Foedselsnummer .
 
 ngrp:Folkeregisteridentifikator a sh:NodeShape ;
     rdfs:comment "Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete underklassar er Fødselsnummer og D-nummer." ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:identifikatornummer ] ;
+            sh:path ngrp:identifikatornummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:Folkeregisteridentifikator .
 
 ngrp:Adressebeskyttelse a sh:NodeShape ;
@@ -210,7 +210,7 @@ ngrp:Adressebeskyttelse a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:description "Graderinga av adressebeskyttelsen (STRENGT_FORTROLIG, FORTROLIG o.l.)." ;
             sh:in ( "STRENGT_FORTROLIG" "FORTROLIG" "STRENGT_FORTROLIG_UTLAND" "UGRADERT" ) ;
             sh:maxCount 1 ;
@@ -227,26 +227,31 @@ ngrp:Bostedsadresse a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato opplysinga er gyldig til og med." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ngrp:gyldigTilOgMed ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig frå og med." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 0 ;
-            sh:path ngrp:gyldigFraOgMed ] ;
+            sh:path ngrp:gyldigFraOgMed ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato opplysinga er gyldig til og med." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngrp:gyldigTilOgMed ] ;
     sh:targetClass ngrp:Bostedsadresse .
 
 ngrp:Dodsfall a sh:NodeShape ;
     rdfs:comment "Dødsfallsinformasjon om ein person registrert i Folkeregisteret." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:string ;
             sh:description "Stad for dødsfallet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -258,19 +263,20 @@ ngrp:Dodsfall a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:doedsdato ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path ngrp:doedsdato ] ;
     sh:targetClass ngrp:Dodsfall .
 
 ngrp:FalskIdentitet a sh:NodeShape ;
     rdfs:comment "Registrering av at ein person har opptrådt med falsk identitet. Kan peke på den rette identiteten om denne er kjent." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
+    sh:property [ sh:class ngrp:Person ;
+            sh:description "Den rette identiteten til ein person som har opptrådt med falsk identitet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngrp:rettIdentitet ],
+        [ sh:datatype xsd:boolean ;
             sh:description "Om denne identiteten er registrert som falsk." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -287,31 +293,25 @@ ngrp:FalskIdentitet a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:class ngrp:Person ;
-            sh:description "Den rette identiteten til ein person som har opptrådt med falsk identitet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngrp:rettIdentitet ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:FalskIdentitet .
 
 ngrp:FamilierelasjonBarn a sh:NodeShape ;
     rdfs:comment "Familierelasjon der den relaterte personen er barn." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngrp:Person ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:class ngrp:Person ;
             sh:description "Personen som denne relasjonen peikar til." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngrp:erAvTypePerson ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path ngrp:erAvTypePerson ] ;
     sh:targetClass ngrp:FamilierelasjonBarn .
 
 ngrp:FamilierelasjonEktefelle a sh:NodeShape ;
@@ -329,65 +329,11 @@ ngrp:FamilierelasjonEktefelle a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:FamilierelasjonEktefelle .
 
 ngrp:FamilierelasjonForelder a sh:NodeShape ;
     rdfs:comment "Familierelasjon der den relaterte personen er forelder." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Type foreldrerelasjon (MOR, FAR, MEDMOR o.l.)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:foreldrerelasjonType ],
-        [ sh:class ngrp:Person ;
-            sh:description "Personen som denne relasjonen peikar til." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path ngrp:erAvTypePerson ] ;
-    sh:targetClass ngrp:FamilierelasjonForelder .
-
-ngrp:Foedsel a sh:NodeShape ;
-    rdfs:comment "Fødselsinformasjon om ein person registrert i Folkeregisteret." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Fødested (kommune eller land)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:foedested ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ngrp:foedselsaar ],
-        [ sh:datatype xsd:date ;
-            sh:description "Fødselsdato (kan vere ukjent for eldre registreringar)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ngrp:foedselsdato ] ;
-    sh:targetClass ngrp:Foedsel .
-
-ngrp:ForeldreansvarBarn a sh:NodeShape ;
-    rdfs:comment "Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein person." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class ngrp:Person ;
@@ -401,7 +347,61 @@ ngrp:ForeldreansvarBarn a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Type foreldrerelasjon (MOR, FAR, MEDMOR o.l.)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:foreldrerelasjonType ] ;
+    sh:targetClass ngrp:FamilierelasjonForelder .
+
+ngrp:Foedsel a sh:NodeShape ;
+    rdfs:comment "Fødselsinformasjon om ein person registrert i Folkeregisteret." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:date ;
+            sh:description "Fødselsdato (kan vere ukjent for eldre registreringar)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngrp:foedselsdato ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Fødselsår (alltid tilgjengeleg, sjølv om fullstendig dato manglar)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngrp:foedselsaar ],
+        [ sh:datatype xsd:string ;
+            sh:description "Fødested (kommune eller land)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:foedested ] ;
+    sh:targetClass ngrp:Foedsel .
+
+ngrp:ForeldreansvarBarn a sh:NodeShape ;
+    rdfs:comment "Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein person." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:class ngrp:Person ;
+            sh:description "Personen som denne relasjonen peikar til." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ngrp:erAvTypePerson ] ;
     sh:targetClass ngrp:ForeldreansvarBarn .
 
 ngrp:ForeldreansvarForelder a sh:NodeShape ;
@@ -412,62 +412,62 @@ ngrp:ForeldreansvarForelder a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Status for foreldreansvaret (t.d. FELLES, ALENE)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:ansvarsstatus ],
         [ sh:class ngrp:Person ;
             sh:description "Personen som denne relasjonen peikar til." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngrp:erAvTypePerson ],
-        [ sh:datatype xsd:string ;
-            sh:description "Status for foreldreansvaret (t.d. FELLES, ALENE)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:ansvarsstatus ] ;
+            sh:path ngrp:erAvTypePerson ] ;
     sh:targetClass ngrp:ForeldreansvarForelder .
 
 ngrp:Identifikasjonsdokument a sh:NodeShape ;
     rdfs:comment "Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort knytt til ein person." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:date ;
-            sh:description "Datoen dokumentet vart utstedt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path ngrp:utstedtdato ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Datoen dokumentet går ut på dato." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path ngrp:utloepsdato ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Nummeret på identifikasjonsdokumentet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path ngrp:dokumentnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:description "Type identifikasjonsdokument (pass, førekort, nasjonalt ID-kort o.l.)." ;
             sh:in ( "PASS" "FOERERKORT" "NASJONAL_ID_KORT" "OPPHOLDSTILLATELSE" "ANNET" ) ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path ngrp:dokumenttype ],
+        [ sh:datatype xsd:date ;
+            sh:description "Datoen dokumentet vart utstedt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path ngrp:utstedtdato ],
         [ sh:datatype xsd:string ;
             sh:description "ISO 3166-1 landkode for landet som utsteda dokumentet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path ngrp:utstederland ] ;
+            sh:path ngrp:utstederland ],
+        [ sh:datatype xsd:date ;
+            sh:description "Datoen dokumentet går ut på dato." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path ngrp:utloepsdato ] ;
     sh:targetClass ngrp:Identifikasjonsdokument .
 
 ngrp:Identitetsgrunnlag a sh:NodeShape ;
@@ -475,23 +475,23 @@ ngrp:Identitetsgrunnlag a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Kjelde for identitetsgrunnlaget." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:identitetsgrunnlagKilde ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
             sh:description "Status/type for identitetsgrunnlaget (t.d. FOLKEREGISTERET, PASS)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:identitetsgrunnlagStatus ] ;
+            sh:path ngrp:identitetsgrunnlagStatus ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kjelde for identitetsgrunnlaget." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:identitetsgrunnlagKilde ] ;
     sh:targetClass ngrp:Identitetsgrunnlag .
 
 ngrp:InnflyttingTilNorge a sh:NodeShape ;
@@ -502,13 +502,7 @@ ngrp:InnflyttingTilNorge a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Stad i utlandet personen flytta frå." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:fraflyttingsstedIUtlandet ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:string ;
             sh:description "ISO 3166-1 landkode for landet personen flytta frå." ;
             sh:maxCount 1 ;
@@ -521,19 +515,20 @@ ngrp:InnflyttingTilNorge a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path ngrp:innflyttingsdato ] ;
+            sh:path ngrp:innflyttingsdato ],
+        [ sh:datatype xsd:string ;
+            sh:description "Stad i utlandet personen flytta frå." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:fraflyttingsstedIUtlandet ] ;
     sh:targetClass ngrp:InnflyttingTilNorge .
 
 ngrp:Kjoenn a sh:NodeShape ;
     rdfs:comment "Kjønn registrert på ein person i Folkeregisteret." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:date ;
+    sh:property [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig frå og med." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -544,7 +539,12 @@ ngrp:Kjoenn a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:order 1 ;
-            sh:path ngrp:kjoennKode ] ;
+            sh:path ngrp:kjoennKode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:Kjoenn .
 
 ngrp:KontaktinformasjonDoedsbo a sh:NodeShape ;
@@ -555,7 +555,13 @@ ngrp:KontaktinformasjonDoedsbo a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "E-postadresse." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngrp:epostadresse ],
         [ sh:datatype xsd:string ;
             sh:description "Namn på person eller institusjon." ;
             sh:maxCount 1 ;
@@ -563,12 +569,6 @@ ngrp:KontaktinformasjonDoedsbo a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path ngrp:namn ],
-        [ sh:datatype xsd:string ;
-            sh:description "E-postadresse." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ngrp:epostadresse ],
         [ sh:datatype xsd:string ;
             sh:description "Telefonnummer." ;
             sh:maxCount 1 ;
@@ -587,11 +587,6 @@ ngrp:Kontaktopplysninger a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path ngrp:epostadresse ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
         [ sh:datatype xsd:date ;
             sh:description "Dato kontaktopplysningane sist vart oppdatert." ;
             sh:maxCount 1 ;
@@ -603,7 +598,12 @@ ngrp:Kontaktopplysninger a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path ngrp:mobiltelefonnummer ] ;
+            sh:path ngrp:mobiltelefonnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:Kontaktopplysninger .
 
 ngrp:Opphold a sh:NodeShape ;
@@ -611,29 +611,29 @@ ngrp:Opphold a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:date ;
-            sh:description "Dato opplysinga er gyldig til og med." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ngrp:gyldigTilOgMed ],
-        [ sh:description "Type opphald (MIDLERTIDIG, PERMANENT, OPPLYSNING_MANGLER)." ;
-            sh:in ( "MIDLERTIDIG" "PERMANENT" "OPPLYSNING_MANGLER" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path ngrp:oppholdType ],
-        [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig frå og med." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path ngrp:gyldigFraOgMed ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato opplysinga er gyldig til og med." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngrp:gyldigTilOgMed ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:description "Type opphald (MIDLERTIDIG, PERMANENT, OPPLYSNING_MANGLER)." ;
+            sh:in ( "MIDLERTIDIG" "PERMANENT" "OPPLYSNING_MANGLER" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path ngrp:oppholdType ] ;
     sh:targetClass ngrp:Opphold .
 
 ngrp:Oppholdsadresse a sh:NodeShape ;
@@ -644,44 +644,44 @@ ngrp:Oppholdsadresse a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato opplysinga er gyldig frå og med." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ngrp:gyldigFraOgMed ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig til og med." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:gyldigTilOgMed ] ;
+            sh:path ngrp:gyldigTilOgMed ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato opplysinga er gyldig frå og med." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngrp:gyldigFraOgMed ] ;
     sh:targetClass ngrp:Oppholdsadresse .
 
 ngrp:Personidentifikasjon a sh:NodeShape ;
     rdfs:comment "Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer, utanlandsk skatteidentifikasjon eller social security number." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Type utanlandsk identifikasjon (t.d. DUF-nummer, tax identification)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ngrp:identifikasjonstype ],
-        [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:string ;
             sh:description "Sjølve identifikatoren som tekststreng (11 siffer for fødselsnummer/D-nummer)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path ngrp:identifikatornummer ] ;
+            sh:path ngrp:identifikatornummer ],
+        [ sh:datatype xsd:string ;
+            sh:description "Type utanlandsk identifikasjon (t.d. DUF-nummer, tax identification)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngrp:identifikasjonstype ] ;
     sh:targetClass ngrp:Personidentifikasjon .
 
 ngrp:Personnavn a sh:NodeShape ;
@@ -689,36 +689,36 @@ ngrp:Personnavn a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Forkorta versjon av fullt namn." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path ngrp:forkortetNavn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
             sh:description "Mellomnamn til personen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path ngrp:mellomnavn ],
-        [ sh:datatype xsd:string ;
-            sh:description "Etternamn til personen." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Forkorta versjon av fullt namn." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ngrp:etternavn ],
+            sh:order 4 ;
+            sh:path ngrp:forkortetNavn ],
         [ sh:datatype xsd:string ;
             sh:description "Fornamn(et/a) til personen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:fornavn ] ;
+            sh:path ngrp:fornavn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Etternamn til personen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngrp:etternavn ] ;
     sh:targetClass ngrp:Personnavn .
 
 ngrp:Personstatus a sh:NodeShape ;
@@ -731,17 +731,17 @@ ngrp:Personstatus a sh:NodeShape ;
             sh:minCount 1 ;
             sh:order 1 ;
             sh:path ngrp:personstatusType ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig frå og med." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path ngrp:gyldigFraOgMed ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ] ;
+            sh:path ngrp:gyldigFraOgMed ] ;
     sh:targetClass ngrp:Personstatus .
 
 ngrp:Postadresse a sh:NodeShape ;
@@ -749,6 +749,12 @@ ngrp:Postadresse a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:date ;
+            sh:description "Dato opplysinga er gyldig frå og med." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path ngrp:gyldigFraOgMed ],
+        [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig til og med." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -758,54 +764,48 @@ ngrp:Postadresse a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato opplysinga er gyldig frå og med." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path ngrp:gyldigFraOgMed ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:Postadresse .
 
 ngrp:ReservasjonMotKommunikasjonPaaNett a sh:NodeShape ;
     rdfs:comment "Registrering av at ein person har reservert seg mot digital kommunikasjon frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Dato opplysinga er gyldig frå og med." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:gyldigFraOgMed ],
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:boolean ;
             sh:description "Om personen er reservert mot digital kommunikasjon frå det offentlege." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:erReservert ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato opplysinga er gyldig frå og med." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:gyldigFraOgMed ] ;
+            sh:path ngrp:erReservert ] ;
     sh:targetClass ngrp:ReservasjonMotKommunikasjonPaaNett .
 
 ngrp:RettsligHandleevne a sh:NodeShape ;
     rdfs:comment "Registrering av avgrensing i rettsleg handleevne for ein person, t.d. under vergemål eller fråtatt rettsleg handleevne." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Omfanget av vergemålet eller avgrensinga i rettsleg handleevne." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path ngrp:omfang ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:description "Type avgrensing i rettsleg handleevne." ;
             sh:in ( "UNDER_VERGEMAAL" "FRATATT_RETTSLIG_HANDLEEVNE_PERSONLIG" "FRATATT_RETTSLIG_HANDLEEVNE_OKONOMISK" ) ;
             sh:maxCount 1 ;
@@ -818,23 +818,23 @@ ngrp:Sivilstand a sh:NodeShape ;
     rdfs:comment "Sivilstand registrert på ein person i Folkeregisteret." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Sivilstandstype (UGIFT, GIFT, SKILT o.l.)." ;
-            sh:in ( "UOPPGITT" "UGIFT" "GIFT" "ENKE_ELLER_ENKEMANN" "SKILT" "SEPARERT" "REGISTRERT_PARTNER" "SEPARERT_PARTNER" "SKILT_PARTNER" "ETTERLATT_PARTNER" ) ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path ngrp:sivilstandType ],
-        [ sh:class ngrp:Person ;
+    sh:property [ sh:class ngrp:Person ;
             sh:description "Person ein er gift/partnar med (utfyller sivilstand GIFT, REGISTRERT_PARTNER o.l.)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path ngrp:relatertVedSivilstand ],
+        [ sh:description "Sivilstandstype (UGIFT, GIFT, SKILT o.l.)." ;
+            sh:in ( "UOPPGITT" "UGIFT" "GIFT" "ENKE_ELLER_ENKEMANN" "SKILT" "SEPARERT" "REGISTRERT_PARTNER" "SEPARERT_PARTNER" "SKILT_PARTNER" "ETTERLATT_PARTNER" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path ngrp:sivilstandType ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig frå og med." ;
             sh:maxCount 1 ;
@@ -847,66 +847,55 @@ ngrp:SpraakForElektroniskKommunikasjon a sh:NodeShape ;
     rdfs:comment "Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, valt av personen sjølv." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "BCP 47 språkkode for føretrekt kommunikasjonsspråk (t.d. nb, nn, en)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:spraakkode ] ;
+            sh:path ngrp:spraakkode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:SpraakForElektroniskKommunikasjon .
 
 ngrp:Statsborgerskap a sh:NodeShape ;
     rdfs:comment "Statsborgerskap registrert på ein person i Folkeregisteret." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Dato opplysinga er gyldig frå og med." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:gyldigFraOgMed ],
         [ sh:datatype xsd:date ;
             sh:description "Dato opplysinga er gyldig til og med." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path ngrp:gyldigTilOgMed ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
         [ sh:datatype xsd:string ;
             sh:description "ISO 3166-1 alfa-2 landkode (t.d. NO for Noreg)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:landkode ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato opplysinga er gyldig frå og med." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:gyldigFraOgMed ] ;
+            sh:path ngrp:landkode ] ;
     sh:targetClass ngrp:Statsborgerskap .
 
 ngrp:UtflyttingFraNorge a sh:NodeShape ;
     rdfs:comment "Registrering av utflytting frå Noreg i Folkeregisteret." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Stad i utlandet personen flytta til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path ngrp:tilflyttingsstedIUtlandet ],
-        [ sh:datatype xsd:date ;
+    sh:property [ sh:datatype xsd:date ;
             sh:description "Dato personen vart registrert utflytta frå Noreg." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -918,78 +907,100 @@ ngrp:UtflyttingFraNorge a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngrp:tilflyttingsland ] ;
+            sh:path ngrp:tilflyttingsland ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Stad i utlandet personen flytta til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path ngrp:tilflyttingsstedIUtlandet ] ;
     sh:targetClass ngrp:UtflyttingFraNorge .
 
 ngrp:Verge a sh:NodeShape ;
     rdfs:comment "Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta interessene til ein person. Er av type Person." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Statsforvaltarembetet som oppnemnde vergjet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ngrp:embete ],
-        [ sh:class ngrp:Person ;
+    sh:property [ sh:class ngrp:Person ;
             sh:description "Personen som denne relasjonen peikar til." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path ngrp:erAvTypePerson ],
-        [ sh:description "URI-identifikator for ressursen." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Statsforvaltarembetet som oppnemnde vergjet." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngrp:embete ],
         [ sh:description "Type vergemål (mindreårig, vaksen o.l.)." ;
             sh:in ( "ENSLIG_MINDREAARIG_ASYLSOEKER" "MINDREAARIG" "VOKSEN" "MIDLERTIDIG_FOR_VOKSEN" ) ;
             sh:maxCount 1 ;
             sh:order 2 ;
-            sh:path ngrp:vergetype ] ;
+            sh:path ngrp:vergetype ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:Verge .
 
 ngrp:Person a sh:NodeShape ;
     rdfs:comment "Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene person." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngrp:KontaktinformasjonDoedsbo ;
-            sh:description "Kontaktinformasjon for personens dødsbu." ;
+    sh:property [ sh:class ngrp:Bostedsadresse ;
+            sh:description "Adressa personen er registrert busett på." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path ngrp:harKontaktinformasjonDoedsbo ],
+            sh:order 23 ;
+            sh:path ngrp:harBostedPaa ],
+        [ sh:class ngrp:Identifikasjonsdokument ;
+            sh:description "Utanlandske identifikasjonsdokument knytt til personen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ngrp:harUtenlandskIdentifikasjonsdokument ],
         [ sh:class ngrp:Oppholdsadresse ;
             sh:description "Adressa personen faktisk oppheld seg på." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 25 ;
             sh:path ngrp:oppholderSegPaa ],
-        [ sh:class ngrp:Identitetsgrunnlag ;
-            sh:description "Grunnlaget for personens identitetsfastsetjing." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path ngrp:harIdentitetsgrunnlag ],
-        [ sh:class ngrp:Personstatus ;
-            sh:description "Status for personen i Folkeregisteret." ;
+        [ sh:class ngrp:Sivilstand ;
+            sh:description "Sivilstand registrert på personen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path ngrp:harPersonstatus ],
-        [ sh:class ngrp:ForeldreansvarBarn ;
-            sh:description "Barn som denne personen har juridisk foreldreansvar for." ;
+            sh:order 8 ;
+            sh:path ngrp:harSivilstand ],
+        [ sh:class ngrp:Personidentifikasjon ;
+            sh:description "Utanlandsk eller alternativ identifikasjon av personen." ;
             sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path ngrp:harForeldreansvarBarn ],
-        [ sh:class ngrp:Bostedsadresse ;
-            sh:description "Adressa personen er registrert busett på." ;
+            sh:order 3 ;
+            sh:path ngrp:harPersonidentifikasjon ],
+        [ sh:class ngrp:UtflyttingFraNorge ;
+            sh:description "Siste utflyttingsregistrering frå Noreg." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path ngrp:harBostedPaa ],
+            sh:order 21 ;
+            sh:path ngrp:harUtflyttingFraNorge ],
+        [ sh:class ngrp:Postadresse ;
+            sh:description "Adressa personen mottar post på." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path ngrp:mottarPostPaa ],
+        [ sh:class ngrp:KontaktinformasjonDoedsbo ;
+            sh:description "Kontaktinformasjon for personens dødsbu." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path ngrp:harKontaktinformasjonDoedsbo ],
         [ sh:class ngrp:Folkeregisteridentifikator ;
             sh:description "Unik identifikator i Folkeregisteret (fødselsnummer eller D-nummer)." ;
             sh:maxCount 1 ;
@@ -997,35 +1008,85 @@ ngrp:Person a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path ngrp:harFolkeregisteridentifikator ],
-        [ sh:class ngrp:UtflyttingFraNorge ;
-            sh:description "Siste utflyttingsregistrering frå Noreg." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path ngrp:harUtflyttingFraNorge ],
-        [ sh:class ngrp:SpraakForElektroniskKommunikasjon ;
-            sh:description "Føretrekt språk for elektronisk kommunikasjon valt av personen." ;
+        [ sh:class ngrp:Personstatus ;
+            sh:description "Status for personen i Folkeregisteret." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 30 ;
-            sh:path ngrp:harValgtSpraak ],
-        [ sh:class ngrp:Identifikasjonsdokument ;
-            sh:description "Utanlandske identifikasjonsdokument knytt til personen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path ngrp:harUtenlandskIdentifikasjonsdokument ],
+            sh:order 9 ;
+            sh:path ngrp:harPersonstatus ],
         [ sh:class ngrp:RettsligHandleevne ;
             sh:description "Avgrensing i rettsleg handleevne registrert for personen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 27 ;
             sh:path ngrp:harRettsligHandleevne ],
+        [ sh:class ngrp:Kontaktopplysninger ;
+            sh:description "Kontaktopplysningar registrert i KRR." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path ngrp:harKontaktopplysninger ],
+        [ sh:class ngrp:Kjoenn ;
+            sh:description "Kjønn registrert på personen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path ngrp:harKjoenn ],
+        [ sh:class ngrp:ReservasjonMotKommunikasjonPaaNett ;
+            sh:description "Reservasjon mot digital kommunikasjon frå det offentlege." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path ngrp:harReservasjonMotKommunikasjon ],
+        [ sh:class ngrp:Dodsfall ;
+            sh:description "Dødsfallsinformasjon om personen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path ngrp:harDodsfall ],
+        [ sh:class ngrp:FamilierelasjonEktefelle ;
+            sh:description "Familierelasjon til ektefelle eller registrert partnar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path ngrp:harFamilierelasjonEktefelle ],
+        [ sh:class ngrp:Statsborgerskap ;
+            sh:description "Statsborgerskap registrert på personen (minimum 1)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path ngrp:harStatsborgerskap ],
+        [ sh:class ngrp:InnflyttingTilNorge ;
+            sh:description "Siste innflyttingsregistrering til Noreg." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path ngrp:harInnflyttingTilNorge ],
         [ sh:class ngrp:FamilierelasjonForelder ;
             sh:description "Familierelasjonar der den relaterte personen er forelder (maks 2)." ;
             sh:nodeKind sh:IRI ;
             sh:order 15 ;
             sh:path ngrp:harFamilierelasjonForelder ],
+        [ sh:class ngrp:Foedsel ;
+            sh:description "Fødselsinformasjon om personen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path ngrp:harFoedsel ],
+        [ sh:class ngrp:ForeldreansvarForelder ;
+            sh:description "Personar med juridisk foreldreansvar for denne personen (maks 2)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path ngrp:harForeldreansvarForelder ],
+        [ sh:class ngrp:Opphold ;
+            sh:description "Lovleg opphaldsgrunnlag for utanlandske statsborgarar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path ngrp:harLovligOpphold ],
         [ sh:class ngrp:FalskIdentitet ;
             sh:description "Registrering av at personen har opptrådt med falsk identitet." ;
             sh:maxCount 1 ;
@@ -1037,31 +1098,28 @@ ngrp:Person a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 16 ;
             sh:path ngrp:harFamilierelasjonBarn ],
+        [ sh:class ngrp:Verge ;
+            sh:description "Verje(r) oppnemnd for personen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path ngrp:harVerge ],
+        [ sh:class ngrp:ForeldreansvarBarn ;
+            sh:description "Barn som denne personen har juridisk foreldreansvar for." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path ngrp:harForeldreansvarBarn ],
         [ sh:class ngrp:Adressebeskyttelse ;
             sh:description "Adressebeskyttelse registrert på personen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 22 ;
             sh:path ngrp:harAdressebeskyttelse ],
-        [ sh:class ngrp:Kjoenn ;
-            sh:description "Kjønn registrert på personen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path ngrp:harKjoenn ],
-        [ sh:class ngrp:Postadresse ;
-            sh:description "Adressa personen mottar post på." ;
+        [ sh:class ngrp:Identitetsgrunnlag ;
+            sh:description "Grunnlaget for personens identitetsfastsetjing." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path ngrp:mottarPostPaa ],
-        [ sh:class ngrp:Statsborgerskap ;
-            sh:description "Statsborgerskap registrert på personen (minimum 1)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path ngrp:harStatsborgerskap ],
+            sh:order 6 ;
+            sh:path ngrp:harIdentitetsgrunnlag ],
         [ sh:class ngrp:Personnavn ;
             sh:description "Offisielt registrert namn på personen." ;
             sh:maxCount 1 ;
@@ -1069,76 +1127,18 @@ ngrp:Person a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path ngrp:harPersonnavn ],
-        [ sh:class ngrp:InnflyttingTilNorge ;
-            sh:description "Siste innflyttingsregistrering til Noreg." ;
+        [ sh:class ngrp:SpraakForElektroniskKommunikasjon ;
+            sh:description "Føretrekt språk for elektronisk kommunikasjon valt av personen." ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 20 ;
-            sh:path ngrp:harInnflyttingTilNorge ],
-        [ sh:class ngrp:Opphold ;
-            sh:description "Lovleg opphaldsgrunnlag for utanlandske statsborgarar." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path ngrp:harLovligOpphold ],
+            sh:order 30 ;
+            sh:path ngrp:harValgtSpraak ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/ngr-person/id> ],
-        [ sh:class ngrp:Personidentifikasjon ;
-            sh:description "Utanlandsk eller alternativ identifikasjon av personen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngrp:harPersonidentifikasjon ],
-        [ sh:class ngrp:Dodsfall ;
-            sh:description "Dødsfallsinformasjon om personen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path ngrp:harDodsfall ],
-        [ sh:class ngrp:Foedsel ;
-            sh:description "Fødselsinformasjon om personen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path ngrp:harFoedsel ],
-        [ sh:class ngrp:Sivilstand ;
-            sh:description "Sivilstand registrert på personen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path ngrp:harSivilstand ],
-        [ sh:class ngrp:ForeldreansvarForelder ;
-            sh:description "Personar med juridisk foreldreansvar for denne personen (maks 2)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path ngrp:harForeldreansvarForelder ],
-        [ sh:class ngrp:FamilierelasjonEktefelle ;
-            sh:description "Familierelasjon til ektefelle eller registrert partnar." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path ngrp:harFamilierelasjonEktefelle ],
-        [ sh:class ngrp:Verge ;
-            sh:description "Verje(r) oppnemnd for personen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path ngrp:harVerge ],
-        [ sh:class ngrp:ReservasjonMotKommunikasjonPaaNett ;
-            sh:description "Reservasjon mot digital kommunikasjon frå det offentlege." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 28 ;
-            sh:path ngrp:harReservasjonMotKommunikasjon ],
-        [ sh:class ngrp:Kontaktopplysninger ;
-            sh:description "Kontaktopplysningar registrert i KRR." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 29 ;
-            sh:path ngrp:harKontaktopplysninger ] ;
+            sh:path <https://data.norge.no/ngr/ngr-person/id> ] ;
     sh:targetClass ngrp:Person .
 
 

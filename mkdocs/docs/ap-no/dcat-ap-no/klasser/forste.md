@@ -60,7 +60,7 @@ URI: [dcat:first](http://www.w3.org/ns/dcat#first)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:first](http://www.w3.org/ns/dcat#first)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:first |
-| native | https://data.norge.no/linkml/dcat-ap-no/forste |
+| native | https://data.norge.no/ap-no/dcat-ap-no/forste |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:first](http://www.w3.org/ns/dcat#first)
 ```yaml
 name: forste
 description: Første datasett i ei datasettserie.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:first
 domain_of:

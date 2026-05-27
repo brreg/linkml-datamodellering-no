@@ -62,7 +62,7 @@ URI: [dct:type](http://purl.org/dc/terms/type)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -86,7 +86,7 @@ description: 'Type digital ressurs, t.d. dcat:Dataset, dcat:DataService eller ei
   URI frå eit kontrollert vokabular (FAIR F2).
 
   '
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:type
 domain_of:

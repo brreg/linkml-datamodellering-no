@@ -62,7 +62,7 @@ URI: [dct:accessRights](http://purl.org/dc/terms/accessRights)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -86,7 +86,7 @@ description: 'Tilgangsnivå som URI, t.d. frå EU Publications Office (offentleg
   lukka) (FAIR A1.2).
 
   '
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:accessRights
 domain_of:

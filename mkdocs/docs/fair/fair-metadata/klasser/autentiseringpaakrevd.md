@@ -60,7 +60,7 @@ URI: [fair:autentiseringPaakrevd](https://data.norge.no/fair#autentiseringPaakre
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:autentiseringPaakrevd](https://data.norge.no/fair#autentiseringPaakre
 ```yaml
 name: autentiseringPaakrevd
 description: Om autentisering eller autorisasjon er nødvendig (FAIR A1.2).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:autentiseringPaakrevd
 domain_of:

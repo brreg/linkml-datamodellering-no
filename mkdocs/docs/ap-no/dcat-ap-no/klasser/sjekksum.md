@@ -60,7 +60,7 @@ URI: [spdx:checksum](http://spdx.org/rdf/terms#checksum)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [spdx:checksum](http://spdx.org/rdf/terms#checksum)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | spdx:checksum |
-| native | https://data.norge.no/linkml/dcat-ap-no/sjekksum |
+| native | https://data.norge.no/ap-no/dcat-ap-no/sjekksum |
 
 
 
@@ -81,7 +81,7 @@ URI: [spdx:checksum](http://spdx.org/rdf/terms#checksum)
 ```yaml
 name: sjekksum
 description: Sjekksum for distribusjonsfila.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: spdx:checksum
 domain_of:

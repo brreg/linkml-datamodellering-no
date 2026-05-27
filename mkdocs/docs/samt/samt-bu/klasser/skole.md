@@ -195,6 +195,24 @@ URI: [samtbuskole:Skole](https://example.no/ontology/skole#Skole)
 
 
 
+## Examples
+### Example: Skole-skole-1
+
+```yaml
+id: samtbuskole:skole-1
+navn: Solglimt skole
+har_skoleeier: samtbuskole:kommune-0301
+
+```
+### Example: Skole-skole-2
+
+```yaml
+id: samtbuskole:skole-2
+navn: Fjelltoppen skole
+har_skoleeier: samtbuskole:privat-1
+
+```
+
 
 
 ## LinkML Source
@@ -241,7 +259,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Skole
     domain_of:

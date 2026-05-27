@@ -60,7 +60,7 @@ URI: [cv:role](http://data.europa.eu/m8g/role)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cv:role](http://data.europa.eu/m8g/role)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:role |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_rolle |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_rolle |
 
 
 
@@ -81,7 +81,7 @@ URI: [cv:role](http://data.europa.eu/m8g/role)
 ```yaml
 name: har_rolle
 description: Rolla aktøren har i ei deltaking.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:role
 domain_of:

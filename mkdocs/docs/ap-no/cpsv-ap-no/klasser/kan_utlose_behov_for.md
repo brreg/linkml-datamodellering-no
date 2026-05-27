@@ -62,7 +62,7 @@ URI: [cpsvno:mayTriggerNeedFor](https://data.norge.no/vocabulary/cpsvno#mayTrigg
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cpsvno:mayTriggerNeedFor](https://data.norge.no/vocabulary/cpsvno#mayTrigg
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsvno:mayTriggerNeedFor |
-| native | https://data.norge.no/linkml/cpsv-ap-no/kan_utlose_behov_for |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/kan_utlose_behov_for |
 
 
 
@@ -83,7 +83,7 @@ URI: [cpsvno:mayTriggerNeedFor](https://data.norge.no/vocabulary/cpsvno#mayTrigg
 ```yaml
 name: kan_utlose_behov_for
 description: Tenester det kan oppstå behov for som følgje av hendinga.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:mayTriggerNeedFor
 domain_of:

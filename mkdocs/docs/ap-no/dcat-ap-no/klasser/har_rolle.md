@@ -60,7 +60,7 @@ URI: [dcat:hadRole](http://www.w3.org/ns/dcat#hadRole)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:hadRole](http://www.w3.org/ns/dcat#hadRole)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:hadRole |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_rolle |
+| native | https://data.norge.no/ap-no/dcat-ap-no/har_rolle |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:hadRole](http://www.w3.org/ns/dcat#hadRole)
 ```yaml
 name: har_rolle
 description: Rolle ein aktør eller ressurs har i ein relasjon.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:hadRole
 domain_of:

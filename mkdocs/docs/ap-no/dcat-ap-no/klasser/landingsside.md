@@ -62,7 +62,7 @@ URI: [dcat:landingPage](http://www.w3.org/ns/dcat#landingPage)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [dcat:landingPage](http://www.w3.org/ns/dcat#landingPage)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:landingPage |
-| native | https://data.norge.no/linkml/dcat-ap-no/landingsside |
+| native | https://data.norge.no/ap-no/dcat-ap-no/landingsside |
 
 
 
@@ -83,7 +83,7 @@ URI: [dcat:landingPage](http://www.w3.org/ns/dcat#landingPage)
 ```yaml
 name: landingsside
 description: Nettside med informasjon om ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:landingPage
 domain_of:

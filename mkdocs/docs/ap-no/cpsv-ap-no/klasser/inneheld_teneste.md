@@ -61,7 +61,7 @@ URI: [dcatno:containsService](https://data.norge.no/vocabulary/dcatno#containsSe
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcatno:containsService](https://data.norge.no/vocabulary/dcatno#containsSe
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcatno:containsService |
-| native | https://data.norge.no/linkml/cpsv-ap-no/inneheld_teneste |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/inneheld_teneste |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcatno:containsService](https://data.norge.no/vocabulary/dcatno#containsSe
 ```yaml
 name: inneheld_teneste
 description: Offentlege tenester i katalogen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: dcatno:containsService
 domain_of:

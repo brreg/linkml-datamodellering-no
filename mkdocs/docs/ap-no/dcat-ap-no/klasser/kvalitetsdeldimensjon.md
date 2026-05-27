@@ -177,7 +177,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -187,7 +187,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqvno:SubDimension |
-| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdeldimensjon |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Kvalitetsdeldimensjon |
 
 
 
@@ -204,7 +204,7 @@ URI: [dqvno:SubDimension](https://data.norge.no/vocabulary/dqvno#SubDimension)
 ```yaml
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsdimensjon
 slots:
 - er_deldimensjon_av
@@ -233,7 +233,7 @@ class_uri: dqvno:SubDimension
 ```yaml
 name: Kvalitetsdeldimensjon
 description: Ein deldimensjon av ein kvalitetsdimensjon.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsdimensjon
 slot_usage:
   er_deldimensjon_av:
@@ -255,7 +255,7 @@ attributes:
     description: Overordna kvalitetsdimensjon denne deldimensjonen høyrer til.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: skos:broader
     owner: Kvalitetsdeldimensjon
     domain_of:
@@ -265,7 +265,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kvalitetsdeldimensjon
     domain_of:
@@ -298,7 +298,7 @@ attributes:
     description: Føretrekt term/namn for dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: skos:prefLabel
     owner: Kvalitetsdeldimensjon
     domain_of:
@@ -311,7 +311,7 @@ attributes:
     description: Definisjon av dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: skos:definition
     owner: Kvalitetsdeldimensjon
     domain_of:

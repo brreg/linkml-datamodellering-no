@@ -61,7 +61,7 @@ URI: [cv:contactPage](http://data.europa.eu/m8g/contactPage)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cv:contactPage](http://data.europa.eu/m8g/contactPage)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:contactPage |
-| native | https://data.norge.no/linkml/cpsv-ap-no/kontaktside |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/kontaktside |
 
 
 
@@ -82,7 +82,7 @@ URI: [cv:contactPage](http://data.europa.eu/m8g/contactPage)
 ```yaml
 name: kontaktside
 description: Kontaktside (nettadresse).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:contactPage
 domain_of:

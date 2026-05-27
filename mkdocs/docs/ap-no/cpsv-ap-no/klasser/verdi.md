@@ -60,7 +60,7 @@ URI: [cv:value](http://data.europa.eu/m8g/value)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cv:value](http://data.europa.eu/m8g/value)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:value |
-| native | https://data.norge.no/linkml/cpsv-ap-no/verdi |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/verdi |
 
 
 
@@ -81,7 +81,7 @@ URI: [cv:value](http://data.europa.eu/m8g/value)
 ```yaml
 name: verdi
 description: Verdien av gebyret.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:value
 domain_of:

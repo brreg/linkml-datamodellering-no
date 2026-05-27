@@ -9,7 +9,7 @@ _Innbetalt overkurs utover pålydande._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs](https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltOverkurs](https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltOverkurs)
 
 
 
@@ -124,8 +124,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs](
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltOverkurs |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltOverkurs |
 
 
 

@@ -61,7 +61,7 @@ URI: [dcat:endpointURL](http://www.w3.org/ns/dcat#endpointURL)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:endpointURL](http://www.w3.org/ns/dcat#endpointURL)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:endpointURL |
-| native | https://data.norge.no/linkml/dcat-ap-no/endepunkts_url |
+| native | https://data.norge.no/ap-no/dcat-ap-no/endepunkts_url |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:endpointURL](http://www.w3.org/ns/dcat#endpointURL)
 ```yaml
 name: endepunkts_url
 description: URL til datatjenestens endepunkt.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:endpointURL
 domain_of:

@@ -61,7 +61,7 @@ URI: [dcat:record](http://www.w3.org/ns/dcat#record)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:record](http://www.w3.org/ns/dcat#record)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:record |
-| native | https://data.norge.no/linkml/dcat-ap-no/katalogpost |
+| native | https://data.norge.no/ap-no/dcat-ap-no/katalogpost |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:record](http://www.w3.org/ns/dcat#record)
 ```yaml
 name: katalogpost
 description: Katalogpostar i katalogen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:record
 domain_of:

@@ -60,7 +60,7 @@ URI: [cv:evidenceTypeClassification](http://data.europa.eu/m8g/evidenceTypeClass
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cv:evidenceTypeClassification](http://data.europa.eu/m8g/evidenceTypeClass
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:evidenceTypeClassification |
-| native | https://data.norge.no/linkml/cpsv-ap-no/klassifisering |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/klassifisering |
 
 
 
@@ -81,7 +81,7 @@ URI: [cv:evidenceTypeClassification](http://data.europa.eu/m8g/evidenceTypeClass
 ```yaml
 name: klassifisering
 description: Klassifisering av dokumentasjonstypen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:evidenceTypeClassification
 domain_of:

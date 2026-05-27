@@ -9,7 +9,7 @@ _Klasse aksjar høyrer til, med eigne rettigheiter._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse)
 
 
 
@@ -155,8 +155,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse](https:
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse |
 
 
 

@@ -9,7 +9,7 @@ _Innbetalt overkurs._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs](https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs](https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_o
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs |
 
 
 

@@ -22,7 +22,7 @@ dct:MediaTypeOrExtent a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ] ;
     sh:targetClass dct:MediaTypeOrExtent .
 
 skos:ConceptScheme a sh:NodeShape ;
@@ -33,28 +33,28 @@ skos:ConceptScheme a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ] ;
     sh:targetClass skos:ConceptScheme .
 
 euvoc:XlNote a sh:NodeShape ;
     rdfs:comment "Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:Concept ;
+    sh:property [ sh:description "Kjelde til definisjonen (dct:source)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path dct:source ],
+        [ sh:class skos:Concept ;
             sh:description "Målgruppe definisjonen er retta mot (dct:audience)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path dct:audience ],
-        [ sh:description "Kjelde til definisjonen (dct:source)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path dct:source ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ],
         [ sh:datatype rdf:langString ;
             sh:description "Definissjonstekst (rdf:value)." ;
             sh:maxCount 1 ;
@@ -74,7 +74,25 @@ skos:Collection a sh:NodeShape ;
     rdfs:comment "Ei namngitt samling av omgrep (skos:Collection)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:Concept ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Namn/tittel på ressursen (dct:title)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path dct:title ],
+        [ sh:class org:Organization ;
+            sh:description "Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dct:publisher ],
+        [ sh:class skos:Concept ;
             sh:description "Omgrep som er medlem av samlinga (skos:member)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -85,37 +103,19 @@ skos:Collection a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path dct:description ],
-        [ sh:class org:Organization ;
-            sh:description "Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dct:publisher ],
-        [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path dct:identifier ],
         [ sh:class vcard:Kind ;
             sh:description "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path dcat:contactPoint ],
-        [ sh:description "URI-identifikator for ressursen." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Namn/tittel på ressursen (dct:title)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dct:title ] ;
+            sh:order 1 ;
+            sh:path dct:identifier ] ;
     sh:targetClass skos:Collection .
 
 skosno:AssociativeConceptRelation a sh:NodeShape ;
@@ -133,7 +133,7 @@ skosno:AssociativeConceptRelation a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ],
         [ sh:class skos:Concept ;
             sh:description "Til-omgrepet i den assosiative relasjonen (skosno:hasToConcept)." ;
             sh:minCount 1 ;
@@ -146,33 +146,43 @@ skosno:GenericConceptRelation a sh:NodeShape ;
     rdfs:comment "Ein generisk relasjon mellom eit overomgrep og eit underomgrep." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path skosno:hasSpecificConcept ],
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path dct:description ],
         [ sh:class skos:Concept ;
             sh:description "Overomgrepet i ein generisk relasjon (skosno:hasGenericConcept)." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path skosno:hasGenericConcept ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path dct:description ] ;
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Underomgrepet i ein generisk relasjon (skosno:hasSpecificConcept)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path skosno:hasSpecificConcept ] ;
     sh:targetClass skosno:GenericConceptRelation .
 
 skosno:PartitiveConceptRelation a sh:NodeShape ;
     rdfs:comment "Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class skos:Concept ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path skosno:hasComprehensiveConcept ],
+        [ sh:class skos:Concept ;
             sh:description "Delomgrepet i ein partitiv relasjon (skosno:hasPartitiveConcept)." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
@@ -181,17 +191,7 @@ skosno:PartitiveConceptRelation a sh:NodeShape ;
             sh:description "Inndelingskriterium for ein generisk eller partitiv relasjon (dct:description)." ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path dct:description ],
-        [ sh:class skos:Concept ;
-            sh:description "Heilskapleg omgrep i ein partitiv relasjon (skosno:hasComprehensiveConcept)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path skosno:hasComprehensiveConcept ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path dct:description ] ;
     sh:targetClass skosno:PartitiveConceptRelation .
 
 vcard:Kind a sh:NodeShape ;
@@ -202,7 +202,7 @@ vcard:Kind a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ] ;
     sh:targetClass vcard:Kind .
 
 org:Organization a sh:NodeShape ;
@@ -213,7 +213,7 @@ org:Organization a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ] ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ] ;
     sh:targetClass org:Organization .
 
 skos:Concept a sh:NodeShape ;
@@ -222,75 +222,112 @@ skos:Concept a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ),
         ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:datatype rdf:langString ;
+            sh:description "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path dct:identifier ],
-        [ sh:datatype xsd:string ;
-            sh:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
+            sh:order 1 ;
+            sh:path skos:prefLabel ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato omgrepet vart oppretta (dct:created)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 34 ;
-            sh:path owl:versionInfo ],
-        [ sh:datatype xsd:string ;
-            sh:description "Term brukt i datastrukturar (skosno:dataStructureLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 15 ;
-            sh:path skosno:dataStructureLabel ],
+            sh:order 10 ;
+            sh:path dct:created ],
         [ sh:class skos:Concept ;
-            sh:description "Omgrep dette omgrepet erstattar (dct:replaces)." ;
+            sh:description "Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path dct:replaces ],
-        [ sh:class vcard:Kind ;
-            sh:description "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path dcat:contactPoint ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Tidlegare brukt, no forkasta term (skos:hiddenLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 22 ;
-            sh:path skos:hiddenLabel ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path skos:closeMatch ],
+            sh:order 24 ;
+            sh:path skos:exactMatch ],
         [ sh:class euvoc:XlNote ;
             sh:description "Definisjon via eige objekt (euvoc:xlDefinition)." ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path euvoc:xlDefinition ],
         [ sh:class skos:Concept ;
-            sh:description "Fagområde omgrepet høyrer til (dct:subject)." ;
+            sh:description "Omgrep som erstattar dette omgrepet (dct:isReplacedBy)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path dct:subject ],
-        [ sh:class skosno:PartitiveConceptRelation ;
-            sh:description "Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation)." ;
+            sh:order 18 ;
+            sh:path dct:isReplacedBy ],
+        [ sh:class skos:Concept ;
+            sh:description "Relatert omgrep (rdfs:seeAlso)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 27 ;
-            sh:path skosno:hasPartitiveConceptRelation ],
+            sh:order 30 ;
+            sh:path rdfs:seeAlso ],
         [ sh:datatype rdf:langString ;
-            sh:description "Verdiområde for omgrepet (skosno:valueRange)." ;
+            sh:description "Eksempel på bruk av omgrepet (skos:example)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 33 ;
-            sh:path skosno:valueRange ],
+            sh:order 16 ;
+            sh:path skos:example ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep dette omgrepet spesifiserer (xkos:specializes)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 31 ;
+            sh:path xkos:specializes ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato omgrepet er gyldig til (euvoc:endDate)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path euvoc:endDate ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep dette omgrepet er assosiert med (skos:related)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path skos:related ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep dette omgrepet erstattar (dct:replaces)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path dct:replaces ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep med nær, men ikkje nøyaktig same meining (skos:closeMatch)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path skos:closeMatch ],
         [ sh:datatype rdf:langString ;
-            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+            sh:description "Merknad om bruksomfanget for omgrepet (skos:scopeNote)." ;
             sh:nodeKind sh:Literal ;
-            sh:order 35 ;
-            sh:path adms:versionNotes ],
+            sh:order 13 ;
+            sh:path skos:scopeNote ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Direkte definisjon som fritekst (skos:definition)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path skos:definition ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Tillaten alternativ term for omgrepet (skos:altLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 14 ;
+            sh:path skos:altLabel ],
+        [ sh:class vcard:Kind ;
+            sh:description "Kontaktpunkt (vCard) for omgrepet eller samlinga (dcat:contactPoint)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path dcat:contactPoint ],
+        [ sh:datatype xsd:string ;
+            sh:description "Tekstleg identifikator for ressursen (dct:identifier)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path dct:identifier ],
         [ sh:class skosno:AssociativeConceptRelation ;
             sh:description "Assosiativ relasjon der dette omgrepet er frå-omgrepet (skosno:isFromConceptIn)." ;
             sh:nodeKind sh:IRI ;
             sh:order 19 ;
             sh:path skosno:isFromConceptIn ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Merknad om endringar i denne versjonen (adms:versionNotes)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 35 ;
+            sh:path adms:versionNotes ],
         [ sh:class org:Organization ;
             sh:description "Organisasjon ansvarleg for å publisere omgrepet (dct:publisher)." ;
             sh:maxCount 1 ;
@@ -298,128 +335,91 @@ skos:Concept a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path dct:publisher ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep med nøyaktig same meining i anna vokabular (skos:exactMatch)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path skos:exactMatch ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Føretrukke term/namn for ressursen (skos:prefLabel)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path skos:prefLabel ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Merknad om bruksomfanget for omgrepet (skos:scopeNote)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 13 ;
-            sh:path skos:scopeNote ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep som er ein del av dette omgrepet (xkos:hasPart)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 28 ;
-            sh:path xkos:hasPart ],
-        [ sh:class skos:Concept ;
-            sh:description "Status for omgrepet frå eit kontrollert vokabular (euvoc:status)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 32 ;
-            sh:path euvoc:status ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep som erstattar dette omgrepet (dct:isReplacedBy)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path dct:isReplacedBy ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato omgrepet vart oppretta (dct:created)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 10 ;
-            sh:path dct:created ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato omgrepet er gyldig frå (euvoc:startDate)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path euvoc:startDate ],
         [ sh:datatype xsd:date ;
             sh:description "Dato for siste endring av ressursen (dct:modified)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path dct:modified ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Eksempel på bruk av omgrepet (skos:example)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 16 ;
-            sh:path skos:example ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato omgrepet er gyldig til (euvoc:endDate)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path euvoc:endDate ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Tillaten alternativ term for omgrepet (skos:altLabel)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 14 ;
-            sh:path skos:altLabel ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep dette omgrepet er assosiert med (skos:related)." ;
+        [ sh:class skosno:PartitiveConceptRelation ;
+            sh:description "Partitiv relasjon dette omgrepet er del av (skosno:hasPartitiveConceptRelation)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 20 ;
-            sh:path skos:related ],
-        [ sh:class skos:Concept ;
-            sh:description "Omgrep dette omgrepet generaliserer (xkos:generalizes)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path xkos:generalizes ],
-        [ sh:class skos:Collection ;
-            sh:description "Samling dette omgrepet er medlem av (uneskos:memberOf)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 29 ;
-            sh:path uneskos:memberOf ],
-        [ sh:datatype rdf:langString ;
-            sh:description "Direkte definisjon som fritekst (skos:definition)." ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path skos:definition ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
-        [ sh:class skos:Concept ;
-            sh:description "Relatert omgrep (rdfs:seeAlso)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 30 ;
-            sh:path rdfs:seeAlso ],
+            sh:order 27 ;
+            sh:path skosno:hasPartitiveConceptRelation ],
         [ sh:class skosno:GenericConceptRelation ;
             sh:description "Generisk relasjon dette omgrepet er del av (skosno:hasGenericConceptRelation)." ;
             sh:nodeKind sh:IRI ;
             sh:order 25 ;
             sh:path skosno:hasGenericConceptRelation ],
         [ sh:class skos:Concept ;
-            sh:description "Omgrep dette omgrepet er ein del av (xkos:isPartOf)." ;
+            sh:description "Status for omgrepet frå eit kontrollert vokabular (euvoc:status)." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path xkos:isPartOf ],
+            sh:order 32 ;
+            sh:path euvoc:status ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato omgrepet er gyldig frå (euvoc:startDate)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path euvoc:startDate ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep som er ein del av dette omgrepet (xkos:hasPart)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path xkos:hasPart ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep dette omgrepet generaliserer (xkos:generalizes)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path xkos:generalizes ],
+        [ sh:datatype xsd:string ;
+            sh:description "Versjonsnummer for ressursen (owl:versionInfo)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 34 ;
+            sh:path owl:versionInfo ],
         [ sh:class org:Organization ;
             sh:description "Fagleg ansvarleg organisasjon for omgrepet (dct:creator)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path dct:creator ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Tidlegare brukt, no forkasta term (skos:hiddenLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 22 ;
+            sh:path skos:hiddenLabel ],
+        [ sh:class skos:Concept ;
+            sh:description "Omgrep dette omgrepet er ein del av (xkos:isPartOf)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path xkos:isPartOf ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/linkml/common-ap-no/id> ],
+            sh:path <https://data.norge.no/ap-no/common-ap-no/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Term brukt i datastrukturar (skosno:dataStructureLabel)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 15 ;
+            sh:path skosno:dataStructureLabel ],
+        [ sh:datatype rdf:langString ;
+            sh:description "Verdiområde for omgrepet (skosno:valueRange)." ;
+            sh:nodeKind sh:Literal ;
+            sh:order 33 ;
+            sh:path skosno:valueRange ],
         [ sh:class skos:Concept ;
-            sh:description "Omgrep dette omgrepet spesifiserer (xkos:specializes)." ;
+            sh:description "Fagområde omgrepet høyrer til (dct:subject)." ;
             sh:nodeKind sh:IRI ;
-            sh:order 31 ;
-            sh:path xkos:specializes ] ;
+            sh:order 12 ;
+            sh:path dct:subject ],
+        [ sh:class skos:Collection ;
+            sh:description "Samling dette omgrepet er medlem av (uneskos:memberOf)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path uneskos:memberOf ] ;
     sh:targetClass skos:Concept .
 
 

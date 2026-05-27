@@ -63,7 +63,7 @@ URI: [dct:temporal](http://purl.org/dc/terms/temporal)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ URI: [dct:temporal](http://purl.org/dc/terms/temporal)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:temporal |
-| native | https://data.norge.no/linkml/dcat-ap-no/tidsrom |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tidsrom |
 
 
 
@@ -84,7 +84,7 @@ URI: [dct:temporal](http://purl.org/dc/terms/temporal)
 ```yaml
 name: tidsrom
 description: Tidsperiode ressursen dekkar.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:temporal
 domain_of:

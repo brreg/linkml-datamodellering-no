@@ -23,7 +23,7 @@ URI: [Reusable](reusable.md)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 

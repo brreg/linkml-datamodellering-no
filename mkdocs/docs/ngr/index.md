@@ -2,7 +2,7 @@
 
 | Modell | Tilgjengelege artefakter |
 |--------|--------------------------|
-| [ngr-adresse](ngr-adresse/index.md) | OWL ontologi · Protobuf-skjema · PlantUML-diagram |
-| [ngr-eiendom](ngr-eiendom/index.md) | SHACL shapes · OWL ontologi · Protobuf-skjema · PlantUML-diagram |
-| [ngr-person](ngr-person/index.md) | SHACL shapes · OWL ontologi · Protobuf-skjema · Eksempeldata (Turtle) · PlantUML-diagram |
-| [ngr-virksomhet](ngr-virksomhet/index.md) | OWL ontologi · Protobuf-skjema · PlantUML-diagram |
+| [ngr-adresse](ngr-adresse/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [ngr-eiendom](ngr-eiendom/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · PlantUML-diagram |
+| [ngr-person](ngr-person/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · Eksempeldata (Turtle) · PlantUML-diagram |
+| [ngr-virksomhet](ngr-virksomhet/index.md) | SHACL shapes · JSON-LD kontekst · JSON Schema · OWL ontologi · RDF/Turtle skjema · Python-klasser · Protobuf-skjema · ER-diagram (Mermaid) · PlantUML-diagram |

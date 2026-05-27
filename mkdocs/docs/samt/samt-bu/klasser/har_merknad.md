@@ -65,7 +65,7 @@ URI: [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -75,7 +75,7 @@ URI: [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:comment |
-| native | https://data.norge.no/linkml/common-ap-no/har_merknad |
+| native | https://data.norge.no/ap-no/common-ap-no/har_merknad |
 
 
 
@@ -86,7 +86,7 @@ URI: [rdfs:comment](http://www.w3.org/2000/01/rdf-schema#comment)
 ```yaml
 name: har_merknad
 description: Fritekstmerknad (rdfs:comment).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: rdfs:comment
 domain_of:
 - Kvalitetsmerknad

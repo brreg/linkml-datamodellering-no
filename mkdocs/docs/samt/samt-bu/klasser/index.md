@@ -45,53 +45,18 @@ Name: skole_ontologi
 
 | Slot | Description |
 | --- | --- |
-
-
-
-
-
 | [del_av_skole](del_av_skole.md) | Skolen basisgruppa tilhører |
-
-
 | [enhetsleder_for](enhetsleder_for.md) | Enhet rektor er enhetsleder for |
-
-
 | [fylkesnummer](fylkesnummer.md) | Fylkesnummer er definerte identifikasjonskoder for Norges fylker og to territ... |
-
-
-
 | [har_saerlig_ansvar_for](har_saerlig_ansvar_for.md) | Elev kontaktlæreren har særlig ansvar for |
-
 | [har_skoleeier](har_skoleeier.md) | Skoleeier for skolen |
-
 | [horer_til_basisgruppe](horer_til_basisgruppe.md) | Basisgruppe elev tilhører |
-
-
 | [jobber_paa_skole](jobber_paa_skole.md) | Skolen kontaktlæreren jobber på |
-
 | [kommunenummer](kommunenummer.md) | Kommunenummer er en nummerrekke som identifiserer kommuner eller kommunefrie ... |
-
-
-
-
-
-
-
 | [navn](navn.md) | Namn på ressursen |
-
-
 | [organisasjonsnummer](organisasjonsnummer.md) | Organisasjonsnummer er i Norge et ni-sifret registreringsnummer som tildeles ... |
-
-
-
-
-
-
-
 | [tilknyttet_basisgruppe](tilknyttet_basisgruppe.md) | Basisgruppe kontaktlærer er tilknyttet |
-
 | [trinniva](trinniva.md) | Grunnskolen (6-15 år) er delt opp i 10 trinn, eit for kvart år |
-
 
 
 ## Enumerations

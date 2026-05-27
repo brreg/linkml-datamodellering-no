@@ -349,7 +349,7 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -359,7 +359,7 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:ContactPoint |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Kontaktpunkt |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Kontaktpunkt |
 
 
 
@@ -376,7 +376,7 @@ URI: [cv:ContactPoint](http://data.europa.eu/m8g/ContactPoint)
 ```yaml
 name: Kontaktpunkt
 description: Kontaktinformasjon for ei teneste eller ein organisasjon.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -422,7 +422,7 @@ class_uri: cv:ContactPoint
 ```yaml
 name: Kontaktpunkt
 description: Kontaktinformasjon for ei teneste eller ein organisasjon.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   epost:
@@ -453,7 +453,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kontaktpunkt
     domain_of:
@@ -482,7 +482,7 @@ attributes:
     description: E-postadresse (mailto:-URI).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:email
     owner: Kontaktpunkt
@@ -495,7 +495,7 @@ attributes:
     description: Telefonnummer.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:telephone
     owner: Kontaktpunkt
@@ -508,7 +508,7 @@ attributes:
     description: Kontaktside (nettadresse).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPage
     owner: Kontaktpunkt
@@ -521,7 +521,7 @@ attributes:
     description: Opningstider.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:openingHours
     owner: Kontaktpunkt
@@ -535,7 +535,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: Kontaktpunkt
     domain_of:
@@ -551,7 +551,7 @@ attributes:
     description: Kategori for kontaktpunktet.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: vcard:category
     owner: Kontaktpunkt

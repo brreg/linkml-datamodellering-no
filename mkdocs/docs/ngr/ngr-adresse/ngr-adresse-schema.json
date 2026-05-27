@@ -1,0 +1,1024 @@
+{
+    "$defs": {
+        "AdresseContainer": {
+            "additionalProperties": false,
+            "description": "Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.",
+            "properties": {
+                "adressekoder": {
+                    "items": {
+                        "$ref": "#/$defs/Adressekode"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "adressenavn": {
+                    "items": {
+                        "$ref": "#/$defs/Adressenavn"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "adresseomrader": {
+                    "items": {
+                        "$ref": "#/$defs/Adresseomrade"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "bruksenheter": {
+                    "items": {
+                        "$ref": "#/$defs/Bruksenhet"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "bruksenhetsnummer": {
+                    "items": {
+                        "$ref": "#/$defs/Bruksenhetsnummer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "bygningar": {
+                    "items": {
+                        "$ref": "#/$defs/Bygning"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "fylke": {
+                    "items": {
+                        "$ref": "#/$defs/Fylke"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "grunnkretsar": {
+                    "items": {
+                        "$ref": "#/$defs/Grunnkrets"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "husnummer": {
+                    "items": {
+                        "$ref": "#/$defs/Husnummer"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kirkesokn": {
+                    "items": {
+                        "$ref": "#/$defs/Kirkesokn"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kommunaleKretsar": {
+                    "items": {
+                        "$ref": "#/$defs/KommunalKrets"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "kommunar": {
+                    "items": {
+                        "$ref": "#/$defs/Kommune"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "offisielleAdresser": {
+                    "items": {
+                        "$ref": "#/$defs/OffisiellAdresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "postboksadresser": {
+                    "items": {
+                        "$ref": "#/$defs/Postboksadresse"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "postboksar": {
+                    "items": {
+                        "$ref": "#/$defs/Postboks"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "poststeder": {
+                    "items": {
+                        "$ref": "#/$defs/Poststed"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "representasjonspunkt": {
+                    "items": {
+                        "$ref": "#/$defs/Representasjonspunkt"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "stemmekretsar": {
+                    "items": {
+                        "$ref": "#/$defs/Stemmekrets"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "svalbardOmrader": {
+                    "items": {
+                        "$ref": "#/$defs/Svalbard"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                },
+                "tettstadar": {
+                    "items": {
+                        "$ref": "#/$defs/Tettsted"
+                    },
+                    "type": [
+                        "array",
+                        "null"
+                    ]
+                }
+            },
+            "title": "AdresseContainer",
+            "type": "object"
+        },
+        "Adressekode": {
+            "additionalProperties": false,
+            "description": "Firesifra kommunal kode som identifiserer eit adressenavn.",
+            "properties": {
+                "adresseomrade_ref": {
+                    "description": "Adresseomr\u00e5det dette adressenamnet eller adressekoden h\u00f8yrer til.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kode": {
+                    "description": "Numerisk kode for adressekoden (kommunal firesifra kode).",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "id",
+                "kode"
+            ],
+            "title": "Adressekode",
+            "type": "object"
+        },
+        "Adressenavn": {
+            "additionalProperties": false,
+            "description": "Offisielt namn p\u00e5 ei veglenke eller eit adresseobjekt i ein kommune, tildelt av kommunen og godkjent av Kartverket.",
+            "properties": {
+                "adressenavn_tekst": {
+                    "description": "Tekstleg namn p\u00e5 vegen eller stadnamnet (locn:thoroughfare).",
+                    "type": "string"
+                },
+                "adresseomrade_ref": {
+                    "description": "Adresseomr\u00e5det dette adressenamnet eller adressekoden h\u00f8yrer til.",
+                    "type": "string"
+                },
+                "har_adressekode": {
+                    "description": "Adressekode tilknytt dette adressenamnet.",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id",
+                "adressenavn_tekst",
+                "adresseomrade_ref",
+                "har_adressekode"
+            ],
+            "title": "Adressenavn",
+            "type": "object"
+        },
+        "Adresseomrade": {
+            "additionalProperties": false,
+            "description": "Geografisk omr\u00e5de eit adressenavn h\u00f8yrer til, t.d. ei gate, eit veg eller eit stadnamn.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Adresseomrade",
+            "type": "object"
+        },
+        "Bruksenhet": {
+            "additionalProperties": false,
+            "description": "Referanse til ei brukseining (leilegheit/lokale) i Matrikkelen.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Bruksenhet",
+            "type": "object"
+        },
+        "Bruksenhetsnummer": {
+            "additionalProperties": false,
+            "description": "Identifikator for ei brukseining (leilegheit o.l.) innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1.",
+            "properties": {
+                "etasjenummer": {
+                    "description": "Etasjenummer (t.d. 2 for 2. etasje).",
+                    "type": "integer"
+                },
+                "etasjeplan": {
+                    "$ref": "#/$defs/Etasjeplan",
+                    "description": "Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M)."
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "nummerering_i_etasjen": {
+                    "description": "L\u00f8penummer for brukseininga innanfor etasjen.",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "id",
+                "etasjeplan",
+                "etasjenummer",
+                "nummerering_i_etasjen"
+            ],
+            "title": "Bruksenhetsnummer",
+            "type": "object"
+        },
+        "Bygning": {
+            "additionalProperties": false,
+            "description": "Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Bygning",
+            "type": "object"
+        },
+        "Etasjeplan": {
+            "description": "Kode for kva del av bygningen eit bruksenhetsnummer refererer til.",
+            "enum": [
+                "H",
+                "U",
+                "K",
+                "L",
+                "M"
+            ],
+            "title": "Etasjeplan",
+            "type": "string"
+        },
+        "Fylke": {
+            "additionalProperties": false,
+            "description": "Eit norsk fylke.",
+            "properties": {
+                "fylkesnummer": {
+                    "description": "Tosifra fylkesnummer (t.d. 03 for Oslo).",
+                    "type": "string"
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "fylkesnummer",
+                "id"
+            ],
+            "title": "Fylke",
+            "type": "object"
+        },
+        "GeografiskAdresse": {
+            "additionalProperties": false,
+            "description": "Abstrakt basisklasse for norske adressar. Konkrete subklassar er OffisiellAdresse og Postboksadresse.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeografiskAdresse",
+            "type": "object"
+        },
+        "GeografiskOmrade": {
+            "additionalProperties": false,
+            "description": "Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer til.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "GeografiskOmrade",
+            "type": "object"
+        },
+        "Grunnkrets": {
+            "additionalProperties": false,
+            "description": "Ei grunnkrets \u2013 minste geografiske eining i statistisk inndeling.",
+            "properties": {
+                "grunnkretsnummer": {
+                    "description": "\u00c5ttesifra grunnkretsnummer (kommunenummer + firesifra kretsnummer).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Grunnkrets",
+            "type": "object"
+        },
+        "Husnummer": {
+            "additionalProperties": false,
+            "description": "Husnummer best\u00e5ande av eit obligatorisk nummer og ein valfri bokstav (t.d. 12 eller 12B).",
+            "properties": {
+                "bokstav": {
+                    "description": "Husbokstav (A\u2013\u00c5) som skil einingar med same husnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "nummer": {
+                    "description": "Husnummeret (heltalsverdi).",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "id",
+                "nummer"
+            ],
+            "title": "Husnummer",
+            "type": "object"
+        },
+        "Kirkesokn": {
+            "additionalProperties": false,
+            "description": "Eit kyrkjesokn.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kirkesoknnummer": {
+                    "description": "Kysokn-nummer fr\u00e5 Kyrkja.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Kirkesokn",
+            "type": "object"
+        },
+        "KommunalKrets": {
+            "additionalProperties": false,
+            "description": "Ein kommunal krets (administrativ inndeling definert av kommunen).",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kretsnummer": {
+                    "description": "Kommunalt kretsnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "KommunalKrets",
+            "type": "object"
+        },
+        "Kommune": {
+            "additionalProperties": false,
+            "description": "Ein norsk kommune.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenummer_kode": {
+                    "description": "Firesifra kommunenummer (t.d. 0301 for Oslo).",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "kommunenummer_kode",
+                "id"
+            ],
+            "title": "Kommune",
+            "type": "object"
+        },
+        "OffisiellAdresse": {
+            "additionalProperties": false,
+            "description": "Ei offisiell adresse tildelt av kommunen, best\u00e5ande av vegadresse (adressenavn + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen.",
+            "properties": {
+                "adressekode_ref": {
+                    "description": "Kommunal adressekode for adressa.",
+                    "type": "string"
+                },
+                "adressenavn_ref": {
+                    "description": "Adressenavn (vegnamn o.l.) for adressa.",
+                    "type": "string"
+                },
+                "adresserer_annet_objekt": {
+                    "description": "Anna objekt (t.d. badeplass, monument) denne adressa er tildelt.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adresserer_bruksenhet": {
+                    "description": "Brukseining denne adressa er tildelt (forvaltar: Matrikkelen).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adresserer_bygning": {
+                    "description": "Bygning denne adressa er tildelt (forvaltar: Matrikkelen).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "adressetilleggsnavn": {
+                    "description": "Offisielt tilleggsnamn til vegadressa (t.d. gardsnamn, bruksnamn).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "bruksenhetsnummer_ref": {
+                    "description": "Bruksenhetsnummer for leilegheit eller lokale.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "geografisk_omrade": {
+                    "description": "Geografiske inndelingar (kommune, poststed, grunnkrets osv.) adressa ligg i.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "husnummer_ref": {
+                    "description": "Husnummer (nummer + bokstav) for adressa.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "kommunenummer_ref": {
+                    "description": "Kommunen denne adressa ligg i.",
+                    "type": "string"
+                },
+                "matrikkelnummer": {
+                    "description": "Matrikkelnummer for adresser utan vegadresse (t.d. 28/2-2).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "representasjonspunkt_ref": {
+                    "description": "Geografisk punkt som representerer adressas posisjon.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "kommunenummer_ref",
+                "adressenavn_ref",
+                "adressekode_ref",
+                "geografisk_omrade",
+                "id"
+            ],
+            "title": "OffisiellAdresse",
+            "type": "object"
+        },
+        "Postboks": {
+            "additionalProperties": false,
+            "description": "Ei postboks registrert i Postboksregisteret.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "postboksnummer": {
+                    "description": "Postboksnummer (heiltal).",
+                    "type": "integer"
+                }
+            },
+            "required": [
+                "id",
+                "postboksnummer"
+            ],
+            "title": "Postboks",
+            "type": "object"
+        },
+        "Postboksadresse": {
+            "additionalProperties": false,
+            "description": "Ei postboksadresse registrert i Postboksregisteret (Posten Norge).",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "postboks_ref": {
+                    "description": "Postboksen denne postboksadressa tilh\u00f8yrer.",
+                    "type": "string"
+                },
+                "postboksanleggsnavn": {
+                    "description": "Namn p\u00e5 postboksanlegget (t.d. bedriftsnamn, institusjon).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "poststed_ref": {
+                    "description": "Poststedet (postnummer) denne adressa h\u00f8yrer til.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "postboks_ref",
+                "poststed_ref",
+                "id"
+            ],
+            "title": "Postboksadresse",
+            "type": "object"
+        },
+        "Poststed": {
+            "additionalProperties": false,
+            "description": "Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "postnummer": {
+                    "description": "Firesifra postnummer (locn:postCode).",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "postnummer",
+                "id"
+            ],
+            "title": "Poststed",
+            "type": "object"
+        },
+        "Representasjonspunkt": {
+            "additionalProperties": false,
+            "description": "Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "koordinat_nord": {
+                    "description": "Nordleg koordinat (Y) i det angitte koordinatsystemet.",
+                    "type": "number"
+                },
+                "koordinat_ost": {
+                    "description": "Austleg koordinat (X) i det angitte koordinatsystemet.",
+                    "type": "number"
+                },
+                "koordinatsystem": {
+                    "description": "Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N).",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id",
+                "koordinat_ost",
+                "koordinat_nord"
+            ],
+            "title": "Representasjonspunkt",
+            "type": "object"
+        },
+        "Stemmekrets": {
+            "additionalProperties": false,
+            "description": "Ei stemmekrets brukt ved val.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "stemmekretsnummer": {
+                    "description": "Stemmekretsnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Stemmekrets",
+            "type": "object"
+        },
+        "Svalbard": {
+            "additionalProperties": false,
+            "description": "Svalbard som s\u00e6rskild geografisk omr\u00e5de.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Svalbard",
+            "type": "object"
+        },
+        "Tettsted": {
+            "additionalProperties": false,
+            "description": "Eit tettbygd omr\u00e5de definert av SSB.",
+            "properties": {
+                "id": {
+                    "description": "URI-identifikator for ressursen.",
+                    "type": "string"
+                },
+                "namn": {
+                    "description": "Namn p\u00e5 det geografiske omr\u00e5det eller adressekomponenten.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                },
+                "tettstedsnummer": {
+                    "description": "SSB-tettstedsnummer.",
+                    "type": [
+                        "string",
+                        "null"
+                    ]
+                }
+            },
+            "required": [
+                "id"
+            ],
+            "title": "Tettsted",
+            "type": "object"
+        }
+    },
+    "$id": "https://data.norge.no/ngr/ngr-adresse",
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "additionalProperties": true,
+    "description": "Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking.",
+    "metamodel_version": "1.11.0",
+    "properties": {
+        "adressekoder": {
+            "items": {
+                "$ref": "#/$defs/Adressekode"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "adressenavn": {
+            "items": {
+                "$ref": "#/$defs/Adressenavn"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "adresseomrader": {
+            "items": {
+                "$ref": "#/$defs/Adresseomrade"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "bruksenheter": {
+            "items": {
+                "$ref": "#/$defs/Bruksenhet"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "bruksenhetsnummer": {
+            "items": {
+                "$ref": "#/$defs/Bruksenhetsnummer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "bygningar": {
+            "items": {
+                "$ref": "#/$defs/Bygning"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "fylke": {
+            "items": {
+                "$ref": "#/$defs/Fylke"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "grunnkretsar": {
+            "items": {
+                "$ref": "#/$defs/Grunnkrets"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "husnummer": {
+            "items": {
+                "$ref": "#/$defs/Husnummer"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kirkesokn": {
+            "items": {
+                "$ref": "#/$defs/Kirkesokn"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kommunaleKretsar": {
+            "items": {
+                "$ref": "#/$defs/KommunalKrets"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "kommunar": {
+            "items": {
+                "$ref": "#/$defs/Kommune"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "offisielleAdresser": {
+            "items": {
+                "$ref": "#/$defs/OffisiellAdresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "postboksadresser": {
+            "items": {
+                "$ref": "#/$defs/Postboksadresse"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "postboksar": {
+            "items": {
+                "$ref": "#/$defs/Postboks"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "poststeder": {
+            "items": {
+                "$ref": "#/$defs/Poststed"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "representasjonspunkt": {
+            "items": {
+                "$ref": "#/$defs/Representasjonspunkt"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "stemmekretsar": {
+            "items": {
+                "$ref": "#/$defs/Stemmekrets"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "svalbardOmrader": {
+            "items": {
+                "$ref": "#/$defs/Svalbard"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        },
+        "tettstadar": {
+            "items": {
+                "$ref": "#/$defs/Tettsted"
+            },
+            "type": [
+                "array",
+                "null"
+            ]
+        }
+    },
+    "title": "ngr-adresse",
+    "type": "object",
+    "version": null
+}
+

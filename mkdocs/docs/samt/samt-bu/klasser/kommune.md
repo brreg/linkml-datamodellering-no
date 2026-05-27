@@ -170,6 +170,16 @@ URI: [samtbuskole:Kommune](https://example.no/ontology/skole#Kommune)
 
 
 
+## Examples
+### Example: Kommune-kommune-0301
+
+```yaml
+id: samtbuskole:kommune-0301
+kommunenummer: '0301'
+navn: Oslo kommune
+
+```
+
 
 
 ## LinkML Source
@@ -227,7 +237,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kommune
     domain_of:

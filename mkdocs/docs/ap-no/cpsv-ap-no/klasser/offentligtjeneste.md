@@ -1223,7 +1223,7 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -1233,7 +1233,7 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsv:PublicService |
-| native | https://data.norge.no/linkml/cpsv-ap-no/OffentligTjeneste |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/OffentligTjeneste |
 
 
 
@@ -1250,7 +1250,7 @@ URI: [cpsv:PublicService](http://purl.org/vocab/cpsv#PublicService)
 ```yaml
 name: OffentligTjeneste
 description: Ei konkret offentleg teneste levert av ein offentleg organisasjon.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -1422,7 +1422,7 @@ class_uri: cpsv:PublicService
 ```yaml
 name: OffentligTjeneste
 description: Ei konkret offentleg teneste levert av ein offentleg organisasjon.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -1555,7 +1555,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: OffentligTjeneste
     domain_of:
@@ -1584,7 +1584,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: OffentligTjeneste
     domain_of:
@@ -1606,7 +1606,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: OffentligTjeneste
     domain_of:
@@ -1628,7 +1628,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: OffentligTjeneste
     domain_of:
@@ -1650,7 +1650,7 @@ attributes:
     description: Kontaktpunkt for tenesta eller organisasjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
     owner: OffentligTjeneste
@@ -1667,7 +1667,7 @@ attributes:
     description: Typen resultat tenesta kan produsere.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:hasOutputType
     owner: OffentligTjeneste
@@ -1682,7 +1682,7 @@ attributes:
     description: Offentleg organisasjon ansvarleg for tenesta.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasCompetentAuthority
     owner: OffentligTjeneste
@@ -1696,7 +1696,7 @@ attributes:
     description: Emne/tema tenesta handlar om.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:subject
     owner: OffentligTjeneste
@@ -1711,7 +1711,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:spatial
     owner: OffentligTjeneste
     domain_of:
@@ -1726,7 +1726,7 @@ attributes:
     description: Dokumentasjon som krevst for tenesta.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasInputType
     owner: OffentligTjeneste
@@ -1740,7 +1740,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: foaf:homepage
     owner: OffentligTjeneste
     domain_of:
@@ -1755,7 +1755,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: OffentligTjeneste
     domain_of:
@@ -1773,7 +1773,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: adms:status
     owner: OffentligTjeneste
     domain_of:
@@ -1785,7 +1785,7 @@ attributes:
     description: Tematisk område for tenesta.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:thematicArea
     owner: OffentligTjeneste
@@ -1799,7 +1799,7 @@ attributes:
     description: Forventa behandlingstid for tenesta eller kanalen (ISO 8601).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:processingTime
     owner: OffentligTjeneste
@@ -1813,7 +1813,7 @@ attributes:
     description: Datasett som beskriv ressursen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
     owner: OffentligTjeneste
@@ -1830,7 +1830,7 @@ attributes:
     description: Tenesta er del av ei anna teneste.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:isPartOf
     owner: OffentligTjeneste
@@ -1843,7 +1843,7 @@ attributes:
     description: Deltenester som inngår i denne tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:hasPart
     owner: OffentligTjeneste
@@ -1857,7 +1857,7 @@ attributes:
     description: Kanal for tilgang til tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasChannel
     owner: OffentligTjeneste
@@ -1871,7 +1871,7 @@ attributes:
     description: Deltakarar med spesifikke roller i levering av tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasParticipation
     owner: OffentligTjeneste
@@ -1885,7 +1885,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: OffentligTjeneste
     domain_of:
@@ -1901,7 +1901,7 @@ attributes:
     description: Relatert teneste.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:relatedService
     owner: OffentligTjeneste
@@ -1915,7 +1915,7 @@ attributes:
     description: Hending(ar) som grupperer tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isGroupedBy
     owner: OffentligTjeneste
@@ -1929,7 +1929,7 @@ attributes:
     description: Omgrep tenesta er klassifisert med.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isClassifiedBy
     owner: OffentligTjeneste
@@ -1943,7 +1943,7 @@ attributes:
     description: Regelverk tenesta følgjer.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsv:follows
     owner: OffentligTjeneste
@@ -1957,7 +1957,7 @@ attributes:
     description: Gebyr knytt til tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasCost
     owner: OffentligTjeneste
@@ -1971,7 +1971,7 @@ attributes:
     description: Regulativ ressurs (lov, forskrift) knytt til tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasLegalResource
     owner: OffentligTjeneste
@@ -1985,7 +1985,7 @@ attributes:
     description: Teneste eller ressurs denne tenesta krev.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:requires
     owner: OffentligTjeneste
@@ -1999,7 +1999,7 @@ attributes:
     description: Målgruppe for tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:audience
     owner: OffentligTjeneste
@@ -2013,7 +2013,7 @@ attributes:
     description: Nøkkelord som beskriv ressursen (dcat:keyword).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dcat:keyword
     owner: OffentligTjeneste
     domain_of:
@@ -2026,7 +2026,7 @@ attributes:
     description: Industri/sektor tenesta tilhøyrer.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:sector
     owner: OffentligTjeneste

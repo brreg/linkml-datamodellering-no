@@ -287,7 +287,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -297,7 +297,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:Agent |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Aktor |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Aktor |
 
 
 
@@ -314,7 +314,7 @@ URI: [foaf:Agent](http://xmlns.com/foaf/0.1/Agent)
 ```yaml
 name: Aktor
 description: Ein aktør (person eller organisasjon) relatert til ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -352,7 +352,7 @@ class_uri: foaf:Agent
 ```yaml
 name: Aktor
 description: Ein aktør (person eller organisasjon) relatert til ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -377,7 +377,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Aktor
     domain_of:
@@ -406,7 +406,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Aktor
     domain_of:
@@ -428,7 +428,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Aktor
     domain_of:
@@ -450,7 +450,7 @@ attributes:
     description: Postadresse knytt til aktøren.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: locn:address
     owner: Aktor
@@ -462,7 +462,7 @@ attributes:
     description: Deltakingar aktøren er del av.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:participates
     owner: Aktor

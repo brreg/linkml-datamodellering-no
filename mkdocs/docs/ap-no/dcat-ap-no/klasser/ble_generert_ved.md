@@ -69,7 +69,7 @@ URI: [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -79,7 +79,7 @@ URI: [prov:wasGeneratedBy](http://www.w3.org/ns/prov#wasGeneratedBy)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | prov:wasGeneratedBy |
-| native | https://data.norge.no/linkml/dcat-ap-no/ble_generert_ved |
+| native | https://data.norge.no/ap-no/dcat-ap-no/ble_generert_ved |
 
 
 
@@ -95,7 +95,7 @@ annotations:
     value: URI til prov:Activity
 description: Brukes til å referere til en aktivitet som genererte datasettet, eller
   som gir forretningskontekst for oppretting av det.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 domain: Datasett
 slot_uri: prov:wasGeneratedBy

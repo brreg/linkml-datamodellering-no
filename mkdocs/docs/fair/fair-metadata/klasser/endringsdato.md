@@ -60,7 +60,7 @@ URI: [dct:modified](http://purl.org/dc/terms/modified)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:modified](http://purl.org/dc/terms/modified)
 ```yaml
 name: endringsdato
 description: Sist endra dato (FAIR R1.2).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:modified
 domain_of:

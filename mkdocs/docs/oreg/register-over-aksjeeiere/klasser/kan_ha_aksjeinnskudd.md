@@ -9,7 +9,7 @@ _Aksjeinnskot i selskapshending._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd](https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd](https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskud
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd |
 
 
 

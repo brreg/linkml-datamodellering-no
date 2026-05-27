@@ -64,7 +64,7 @@ URI: [dct:issued](http://purl.org/dc/terms/issued)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ URI: [dct:issued](http://purl.org/dc/terms/issued)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:issued |
-| native | https://data.norge.no/linkml/common-ap-no/utgivelsesdato |
+| native | https://data.norge.no/ap-no/common-ap-no/utgivelsesdato |
 
 
 
@@ -85,7 +85,7 @@ URI: [dct:issued](http://purl.org/dc/terms/issued)
 ```yaml
 name: utgivelsesdato
 description: Dato ressursen vart første gong publisert (dct:issued).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:issued
 domain_of:
 - Distribusjon

@@ -63,7 +63,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -73,7 +73,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:prefLabel |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_anbefalt_term |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_anbefalt_term |
 
 
 
@@ -84,7 +84,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 ```yaml
 name: har_anbefalt_term
 description: Føretrekt term/namn for dimensjonen eller målet.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: skos:prefLabel
 domain_of:
 - Kvalitetsdimensjon

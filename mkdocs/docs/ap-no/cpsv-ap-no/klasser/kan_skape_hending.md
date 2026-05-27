@@ -61,7 +61,7 @@ URI: [xkos:causes](http://rdf-vocabulary.ddialliance.org/xkos#causes)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [xkos:causes](http://rdf-vocabulary.ddialliance.org/xkos#causes)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | xkos:causes |
-| native | https://data.norge.no/linkml/cpsv-ap-no/kan_skape_hending |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/kan_skape_hending |
 
 
 
@@ -82,7 +82,7 @@ URI: [xkos:causes](http://rdf-vocabulary.ddialliance.org/xkos#causes)
 ```yaml
 name: kan_skape_hending
 description: Hending tenesteresultatet kan skape.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: xkos:causes
 domain_of:

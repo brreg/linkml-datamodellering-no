@@ -60,7 +60,7 @@ URI: [cv:hasValue](http://data.europa.eu/m8g/hasValue)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cv:hasValue](http://data.europa.eu/m8g/hasValue)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasValue |
-| native | https://data.norge.no/linkml/dcat-ap-no/belop |
+| native | https://data.norge.no/ap-no/dcat-ap-no/belop |
 
 
 
@@ -81,7 +81,7 @@ URI: [cv:hasValue](http://data.europa.eu/m8g/hasValue)
 ```yaml
 name: belop
 description: Beløp for gebyret.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: cv:hasValue
 domain_of:

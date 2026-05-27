@@ -61,7 +61,7 @@ URI: [dcatno:containsEvent](https://data.norge.no/vocabulary/dcatno#containsEven
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcatno:containsEvent](https://data.norge.no/vocabulary/dcatno#containsEven
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcatno:containsEvent |
-| native | https://data.norge.no/linkml/cpsv-ap-no/inneheld_hending |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/inneheld_hending |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcatno:containsEvent](https://data.norge.no/vocabulary/dcatno#containsEven
 ```yaml
 name: inneheld_hending
 description: Hendingar i katalogen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: dcatno:containsEvent
 domain_of:

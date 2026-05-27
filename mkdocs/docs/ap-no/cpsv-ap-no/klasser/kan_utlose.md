@@ -63,7 +63,7 @@ URI: [cpsvno:mayTrigger](https://data.norge.no/vocabulary/cpsvno#mayTrigger)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -73,7 +73,7 @@ URI: [cpsvno:mayTrigger](https://data.norge.no/vocabulary/cpsvno#mayTrigger)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsvno:mayTrigger |
-| native | https://data.norge.no/linkml/cpsv-ap-no/kan_utlose |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/kan_utlose |
 
 
 
@@ -84,7 +84,7 @@ URI: [cpsvno:mayTrigger](https://data.norge.no/vocabulary/cpsvno#mayTrigger)
 ```yaml
 name: kan_utlose
 description: Offentlege tenester hendinga kan utløyse.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:mayTrigger
 domain_of:

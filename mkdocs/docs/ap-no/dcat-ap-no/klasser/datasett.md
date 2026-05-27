@@ -61,7 +61,7 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:dataset |
-| native | https://data.norge.no/linkml/dcat-ap-no/datasett |
+| native | https://data.norge.no/ap-no/dcat-ap-no/datasett |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:dataset](http://www.w3.org/ns/dcat#dataset)
 ```yaml
 name: datasett
 description: Datasett som er del av katalogen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:dataset
 domain_of:

@@ -60,7 +60,7 @@ URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:hasURL |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_kontaktside |
+| native | https://data.norge.no/ap-no/dcat-ap-no/har_kontaktside |
 
 
 
@@ -81,7 +81,7 @@ URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
 ```yaml
 name: har_kontaktside
 description: Nettside for kontakt.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: vcard:hasURL
 domain_of:

@@ -62,7 +62,7 @@ URI: [cv:hasLegalResource](http://data.europa.eu/m8g/hasLegalResource)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:hasLegalResource](http://data.europa.eu/m8g/hasLegalResource)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasLegalResource |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_regulativ_ressurs |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_regulativ_ressurs |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:hasLegalResource](http://data.europa.eu/m8g/hasLegalResource)
 ```yaml
 name: har_regulativ_ressurs
 description: Regulativ ressurs (lov, forskrift) knytt til tenesta.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasLegalResource
 domain_of:

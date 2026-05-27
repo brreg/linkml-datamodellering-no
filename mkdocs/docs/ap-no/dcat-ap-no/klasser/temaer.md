@@ -61,7 +61,7 @@ URI: [dcat:themeTaxonomy](http://www.w3.org/ns/dcat#themeTaxonomy)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:themeTaxonomy](http://www.w3.org/ns/dcat#themeTaxonomy)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:themeTaxonomy |
-| native | https://data.norge.no/linkml/dcat-ap-no/temaer |
+| native | https://data.norge.no/ap-no/dcat-ap-no/temaer |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:themeTaxonomy](http://www.w3.org/ns/dcat#themeTaxonomy)
 ```yaml
 name: temaer
 description: Temavokabular som vert brukt i katalogen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:themeTaxonomy
 domain_of:

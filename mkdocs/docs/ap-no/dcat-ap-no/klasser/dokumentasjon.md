@@ -64,7 +64,7 @@ URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:page |
-| native | https://data.norge.no/linkml/dcat-ap-no/dokumentasjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/dokumentasjon |
 
 
 
@@ -85,7 +85,7 @@ URI: [foaf:page](http://xmlns.com/foaf/0.1/page)
 ```yaml
 name: dokumentasjon
 description: Lenke til dokumentasjon om ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: foaf:page
 domain_of:

@@ -228,7 +228,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -238,10 +238,32 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:Kind |
-| native | https://data.norge.no/linkml/dcat-ap-no/Kontaktopplysning |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Kontaktopplysning |
 
 
 
+
+## Examples
+### Example: Kontaktopplysning-kontakt-behandlingsansvarlig
+
+```yaml
+id: samtbuskole:kontakt-behandlingsansvarlig
+navn_vcard:
+- Behandlingsansvarligkontakt
+har_epost: mailto:juridisk-kontakt@udir.no
+har_kontaktside: https://www.udir.no/behandlingsansvarligkontakt
+
+```
+### Example: Kontaktopplysning-kontakt-tekniskkontakt
+
+```yaml
+id: samtbuskole:kontakt-tekniskkontakt
+navn_vcard:
+- Tekniskkontakt
+har_epost: mailto:teknisk-kontakt@udir.no
+har_kontaktside: https://www.udir.no/tekniskkontakt
+
+```
 
 
 
@@ -255,7 +277,7 @@ URI: [vcard:Kind](http://www.w3.org/2006/vcard/ns#Kind)
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
 slots:
@@ -280,7 +302,7 @@ class_uri: vcard:Kind
 ```yaml
 name: Kontaktopplysning
 description: Kontaktinformasjon for ein aktør.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
 slot_usage:
@@ -293,7 +315,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kontaktopplysning
     domain_of:
@@ -331,7 +353,7 @@ attributes:
     description: Formatert namn (vCard).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: vcard:fn
     owner: Kontaktopplysning
     domain_of:
@@ -342,7 +364,7 @@ attributes:
   har_epost:
     name: har_epost
     description: E-postadresse til kontaktpunktet.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: vcard:hasEmail
     owner: Kontaktopplysning
     domain_of:
@@ -351,7 +373,7 @@ attributes:
   har_kontaktside:
     name: har_kontaktside
     description: Nettside for kontakt.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: vcard:hasURL
     owner: Kontaktopplysning
     domain_of:

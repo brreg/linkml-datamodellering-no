@@ -67,7 +67,7 @@ URI: [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -77,7 +77,7 @@ URI: [dct:accrualPeriodicity](http://purl.org/dc/terms/accrualPeriodicity)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:accrualPeriodicity |
-| native | https://data.norge.no/linkml/dcat-ap-no/frekvens |
+| native | https://data.norge.no/ap-no/dcat-ap-no/frekvens |
 
 
 
@@ -92,7 +92,7 @@ annotations:
     tag: gyldige_verdier
     value: dct:Frequency
 description: Oppdateringsfrekvens for datasettet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:accrualPeriodicity
 domain_of:

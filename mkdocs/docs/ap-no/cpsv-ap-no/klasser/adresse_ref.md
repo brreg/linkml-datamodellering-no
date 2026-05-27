@@ -61,7 +61,7 @@ URI: [locn:address](http://www.w3.org/ns/locn#address)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [locn:address](http://www.w3.org/ns/locn#address)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | locn:address |
-| native | https://data.norge.no/linkml/cpsv-ap-no/adresse_ref |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/adresse_ref |
 
 
 
@@ -82,7 +82,7 @@ URI: [locn:address](http://www.w3.org/ns/locn#address)
 ```yaml
 name: adresse_ref
 description: Postadresse knytt til aktøren.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: locn:address
 domain_of:

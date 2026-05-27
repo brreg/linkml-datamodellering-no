@@ -273,7 +273,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -283,7 +283,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | locn:Address |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Adresse |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Adresse |
 
 
 
@@ -300,7 +300,7 @@ URI: [locn:Address](http://www.w3.org/ns/locn#Address)
 ```yaml
 name: Adresse
 description: Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -336,7 +336,7 @@ class_uri: locn:Address
 ```yaml
 name: Adresse
 description: Ei postadresse knytt til ein aktør, organisasjon eller kontaktpunkt.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   full_adresse:
@@ -359,7 +359,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Adresse
     domain_of:
@@ -388,7 +388,7 @@ attributes:
     description: Full adresse som fritekst.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: locn:fullAddress
     owner: Adresse
@@ -401,7 +401,7 @@ attributes:
     description: Postnummer.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: locn:postCode
     owner: Adresse
@@ -413,7 +413,7 @@ attributes:
     description: Poststad/by.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: locn:postName
     owner: Adresse
@@ -426,7 +426,7 @@ attributes:
     description: Land (ISO 3166-1 alpha-2 kode).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: locn:adminUnitL1
     owner: Adresse

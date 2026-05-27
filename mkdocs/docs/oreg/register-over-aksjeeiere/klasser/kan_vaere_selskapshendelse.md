@@ -9,7 +9,7 @@ _Selskapshendelse i transaksjonen._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse](https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse](https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapsh
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse |
 
 
 

@@ -9,7 +9,7 @@ _Den registrerte aksjekapitalen i eit aksjeselskap._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital)
 
 
 
@@ -153,8 +153,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital](https
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital |
 
 
 

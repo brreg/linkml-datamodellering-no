@@ -60,7 +60,7 @@ URI: [cv:currency](http://data.europa.eu/m8g/currency)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cv:currency](http://data.europa.eu/m8g/currency)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:currency |
-| native | https://data.norge.no/linkml/common-ap-no/valuta |
+| native | https://data.norge.no/ap-no/common-ap-no/valuta |
 
 
 
@@ -81,7 +81,7 @@ URI: [cv:currency](http://data.europa.eu/m8g/currency)
 ```yaml
 name: valuta
 description: Valuta (cv:currency).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: cv:currency
 domain_of:
 - Gebyr

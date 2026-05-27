@@ -60,7 +60,7 @@ URI: [dcat:temporalResolution](http://www.w3.org/ns/dcat#temporalResolution)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:temporalResolution](http://www.w3.org/ns/dcat#temporalResolution)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:temporalResolution |
-| native | https://data.norge.no/linkml/dcat-ap-no/tidsopplosning |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tidsopplosning |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:temporalResolution](http://www.w3.org/ns/dcat#temporalResolution)
 ```yaml
 name: tidsopplosning
 description: Minste tidsoppløysing i datasettet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:temporalResolution
 domain_of:

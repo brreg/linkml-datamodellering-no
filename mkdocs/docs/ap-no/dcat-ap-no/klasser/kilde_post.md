@@ -60,7 +60,7 @@ URI: [dct:source](http://purl.org/dc/terms/source)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dct:source](http://purl.org/dc/terms/source)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:source |
-| native | https://data.norge.no/linkml/dcat-ap-no/kilde_post |
+| native | https://data.norge.no/ap-no/dcat-ap-no/kilde_post |
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:source](http://purl.org/dc/terms/source)
 ```yaml
 name: kilde_post
 description: Kjelde for katalogposten (ekstern oppføring).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:source
 domain_of:

@@ -60,7 +60,7 @@ URI: [foaf:primaryTopic](http://xmlns.com/foaf/0.1/primaryTopic)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [foaf:primaryTopic](http://xmlns.com/foaf/0.1/primaryTopic)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:primaryTopic |
-| native | https://data.norge.no/linkml/dcat-ap-no/primaertema |
+| native | https://data.norge.no/ap-no/dcat-ap-no/primaertema |
 
 
 
@@ -81,7 +81,7 @@ URI: [foaf:primaryTopic](http://xmlns.com/foaf/0.1/primaryTopic)
 ```yaml
 name: primaertema
 description: Ressursen katalogposten primært beskriv.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: foaf:primaryTopic
 domain_of:

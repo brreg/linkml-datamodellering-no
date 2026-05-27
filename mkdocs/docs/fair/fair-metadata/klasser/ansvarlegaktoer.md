@@ -62,7 +62,7 @@ URI: [prov:wasAttributedTo](http://www.w3.org/ns/prov#wasAttributedTo)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -86,7 +86,7 @@ description: 'Organisasjon eller aktør som er ansvarleg for ressursen, som URI 
   R1.2).
 
   '
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: prov:wasAttributedTo
 domain_of:

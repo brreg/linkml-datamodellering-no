@@ -60,7 +60,7 @@ URI: [cccevno:acceptableValidityDuration](https://data.norge.no/vocabulary/cccev
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cccevno:acceptableValidityDuration](https://data.norge.no/vocabulary/cccev
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cccevno:acceptableValidityDuration |
-| native | https://data.norge.no/linkml/cpsv-ap-no/gyldig_i |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/gyldig_i |
 
 
 
@@ -81,7 +81,7 @@ URI: [cccevno:acceptableValidityDuration](https://data.norge.no/vocabulary/cccev
 ```yaml
 name: gyldig_i
 description: Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:acceptableValidityDuration
 domain_of:

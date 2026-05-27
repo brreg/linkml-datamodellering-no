@@ -1,0 +1,69 @@
+# Subset: Anbefalt 
+
+
+_Anbefalte eigenskapar i ein AP-NO-profil._
+
+
+
+URI: [Anbefalt](anbefalt.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/ap-no/common-ap-no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

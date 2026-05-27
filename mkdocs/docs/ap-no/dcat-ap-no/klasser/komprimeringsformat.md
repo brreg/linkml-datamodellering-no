@@ -60,7 +60,7 @@ URI: [dcat:compressFormat](http://www.w3.org/ns/dcat#compressFormat)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:compressFormat](http://www.w3.org/ns/dcat#compressFormat)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:compressFormat |
-| native | https://data.norge.no/linkml/dcat-ap-no/komprimeringsformat |
+| native | https://data.norge.no/ap-no/dcat-ap-no/komprimeringsformat |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:compressFormat](http://www.w3.org/ns/dcat#compressFormat)
 ```yaml
 name: komprimeringsformat
 description: Komprimeringsformat brukt i distribusjonen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:compressFormat
 domain_of:

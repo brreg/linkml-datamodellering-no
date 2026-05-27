@@ -9,7 +9,7 @@ _Overdraging av aksjar mellom partar._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse)
 
 
 
@@ -154,8 +154,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse](
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse |
 
 
 

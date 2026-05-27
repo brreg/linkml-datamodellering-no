@@ -62,7 +62,7 @@ URI: [oa:hasBody](http://www.w3.org/ns/oa#hasBody)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [oa:hasBody](http://www.w3.org/ns/oa#hasBody)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:hasBody |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_tekstdel |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_tekstdel |
 
 
 
@@ -83,7 +83,7 @@ URI: [oa:hasBody](http://www.w3.org/ns/oa#hasBody)
 ```yaml
 name: har_tekstdel
 description: Tekstleg innhald i merknaden.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: oa:hasBody
 domain_of:
 - Kvalitetsmerknad

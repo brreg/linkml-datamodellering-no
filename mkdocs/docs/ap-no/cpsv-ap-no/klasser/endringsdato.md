@@ -60,7 +60,7 @@ URI: [dct:modified](http://purl.org/dc/terms/modified)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dct:modified](http://purl.org/dc/terms/modified)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:modified |
-| native | https://data.norge.no/linkml/common-ap-no/endringsdato |
+| native | https://data.norge.no/ap-no/common-ap-no/endringsdato |
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:modified](http://purl.org/dc/terms/modified)
 ```yaml
 name: endringsdato
 description: Dato for siste endring av ressursen (dct:modified).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:modified
 domain_of:
 - Katalog

@@ -60,7 +60,7 @@ URI: [dct:publisher](http://purl.org/dc/terms/publisher)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dct:publisher](http://purl.org/dc/terms/publisher)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:publisher |
-| native | https://data.norge.no/linkml/cpsv-ap-no/utgjevar |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/utgjevar |
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:publisher](http://purl.org/dc/terms/publisher)
 ```yaml
 name: utgjevar
 description: Utgjevar av katalogen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: dct:publisher
 domain_of:

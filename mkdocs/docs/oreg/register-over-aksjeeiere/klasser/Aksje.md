@@ -9,7 +9,7 @@ _Ei enkelt aksje utstedt av eit aksjeselskap._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje)
 
 
 
@@ -183,8 +183,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje](https://data
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje |
 
 
 

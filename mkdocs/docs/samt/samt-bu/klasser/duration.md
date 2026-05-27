@@ -32,7 +32,7 @@ URI: [xsd:duration](http://www.w3.org/2001/XMLSchema#duration)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -42,6 +42,6 @@ URI: [xsd:duration](http://www.w3.org/2001/XMLSchema#duration)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | xsd:duration |
-| native | https://data.norge.no/linkml/common-ap-no/Duration |
+| native | https://data.norge.no/ap-no/common-ap-no/Duration |
 
 

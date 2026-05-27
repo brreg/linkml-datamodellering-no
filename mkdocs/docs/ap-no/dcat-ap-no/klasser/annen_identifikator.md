@@ -61,7 +61,7 @@ URI: [adms:identifier](http://www.w3.org/ns/adms#identifier)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [adms:identifier](http://www.w3.org/ns/adms#identifier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:identifier |
-| native | https://data.norge.no/linkml/dcat-ap-no/annen_identifikator |
+| native | https://data.norge.no/ap-no/dcat-ap-no/annen_identifikator |
 
 
 
@@ -82,7 +82,7 @@ URI: [adms:identifier](http://www.w3.org/ns/adms#identifier)
 ```yaml
 name: annen_identifikator
 description: Alternativ identifikator frå eit anna system.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: adms:identifier
 domain_of:

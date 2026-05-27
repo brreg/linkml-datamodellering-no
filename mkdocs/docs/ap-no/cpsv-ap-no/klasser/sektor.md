@@ -62,7 +62,7 @@ URI: [cv:sector](http://data.europa.eu/m8g/sector)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:sector](http://data.europa.eu/m8g/sector)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:sector |
-| native | https://data.norge.no/linkml/cpsv-ap-no/sektor |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/sektor |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:sector](http://data.europa.eu/m8g/sector)
 ```yaml
 name: sektor
 description: Industri/sektor tenesta tilhøyrer.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:sector
 domain_of:

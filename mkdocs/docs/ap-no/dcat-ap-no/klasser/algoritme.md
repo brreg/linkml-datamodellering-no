@@ -60,7 +60,7 @@ URI: [spdx:algorithm](http://spdx.org/rdf/terms#algorithm)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [spdx:algorithm](http://spdx.org/rdf/terms#algorithm)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | spdx:algorithm |
-| native | https://data.norge.no/linkml/dcat-ap-no/algoritme |
+| native | https://data.norge.no/ap-no/dcat-ap-no/algoritme |
 
 
 
@@ -81,7 +81,7 @@ URI: [spdx:algorithm](http://spdx.org/rdf/terms#algorithm)
 ```yaml
 name: algoritme
 description: Hash-algoritme brukt for sjekksummen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: spdx:algorithm
 domain_of:

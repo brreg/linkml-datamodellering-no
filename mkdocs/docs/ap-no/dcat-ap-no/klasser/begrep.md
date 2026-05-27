@@ -61,7 +61,7 @@ URI: [dct:subject](http://purl.org/dc/terms/subject)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dct:subject](http://purl.org/dc/terms/subject)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:subject |
-| native | https://data.norge.no/linkml/dcat-ap-no/begrep |
+| native | https://data.norge.no/ap-no/dcat-ap-no/begrep |
 
 
 
@@ -82,7 +82,7 @@ URI: [dct:subject](http://purl.org/dc/terms/subject)
 ```yaml
 name: begrep
 description: Fagomgrep som datasettet handlar om.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:subject
 domain_of:

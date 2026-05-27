@@ -159,7 +159,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -169,7 +169,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:Concept |
-| native | https://data.norge.no/linkml/common-ap-no/Konsept |
+| native | https://data.norge.no/ap-no/common-ap-no/Konsept |
 
 
 
@@ -186,7 +186,7 @@ URI: [skos:Concept](http://www.w3.org/2004/02/skos/core#Concept)
 ```yaml
 name: Konsept
 description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 see_also:
 - https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be
 slots:
@@ -202,14 +202,14 @@ class_uri: skos:Concept
 ```yaml
 name: Konsept
 description: Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 see_also:
 - https://data.norge.no/concepts/02131737-bb20-3204-93e0-46678b7d57be
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Konsept
     domain_of:

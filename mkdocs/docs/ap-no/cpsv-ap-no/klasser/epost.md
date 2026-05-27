@@ -61,7 +61,7 @@ URI: [cv:email](http://data.europa.eu/m8g/email)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cv:email](http://data.europa.eu/m8g/email)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:email |
-| native | https://data.norge.no/linkml/cpsv-ap-no/epost |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/epost |
 
 
 
@@ -82,7 +82,7 @@ URI: [cv:email](http://data.europa.eu/m8g/email)
 ```yaml
 name: epost
 description: E-postadresse (mailto:-URI).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:email
 domain_of:

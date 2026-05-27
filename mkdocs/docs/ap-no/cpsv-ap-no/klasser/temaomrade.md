@@ -62,7 +62,7 @@ URI: [cv:thematicArea](http://data.europa.eu/m8g/thematicArea)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:thematicArea](http://data.europa.eu/m8g/thematicArea)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:thematicArea |
-| native | https://data.norge.no/linkml/cpsv-ap-no/temaomrade |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/temaomrade |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:thematicArea](http://data.europa.eu/m8g/thematicArea)
 ```yaml
 name: temaomrade
 description: Tematisk område for tenesta.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:thematicArea
 domain_of:

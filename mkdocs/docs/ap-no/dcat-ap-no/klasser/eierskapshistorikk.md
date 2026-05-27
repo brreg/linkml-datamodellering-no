@@ -68,7 +68,7 @@ URI: [dct:provenance](http://purl.org/dc/terms/provenance)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -78,7 +78,7 @@ URI: [dct:provenance](http://purl.org/dc/terms/provenance)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:provenance |
-| native | https://data.norge.no/linkml/dcat-ap-no/eierskapshistorikk |
+| native | https://data.norge.no/ap-no/dcat-ap-no/eierskapshistorikk |
 
 
 
@@ -93,7 +93,7 @@ annotations:
     tag: gyldige_verdier
     value: dct:ProvenanceStatement
 description: Opphav og eigarskapshistorikk for ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:provenance
 domain_of:

@@ -66,7 +66,7 @@ URI: [dqv:inDimension](http://www.w3.org/ns/dqv#inDimension)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -76,7 +76,7 @@ URI: [dqv:inDimension](http://www.w3.org/ns/dqv#inDimension)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:inDimension |
-| native | https://data.norge.no/linkml/dqv-ap-no/er_i_kvalitetsdimensjon |
+| native | https://data.norge.no/ap-no/dqv-ap-no/er_i_kvalitetsdimensjon |
 
 
 
@@ -89,7 +89,7 @@ name: er_i_kvalitetsdimensjon
 description: 'Refererer til kvalitetsdimensjon(ar) som kvalitetsmerknaden gjeld.
 
   '
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: dqv:inDimension
 domain_of:
 - Kvalitetsmerknad

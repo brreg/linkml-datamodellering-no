@@ -61,7 +61,7 @@ URI: [dcat:catalog](http://www.w3.org/ns/dcat#catalog)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:catalog](http://www.w3.org/ns/dcat#catalog)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:catalog |
-| native | https://data.norge.no/linkml/dcat-ap-no/underkatalog |
+| native | https://data.norge.no/ap-no/dcat-ap-no/underkatalog |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:catalog](http://www.w3.org/ns/dcat#catalog)
 ```yaml
 name: underkatalog
 description: Katalog som er ein del av denne katalogen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:catalog
 domain_of:

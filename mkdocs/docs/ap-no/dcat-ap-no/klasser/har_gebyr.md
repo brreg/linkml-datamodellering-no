@@ -61,7 +61,7 @@ URI: [cv:hasCost](http://data.europa.eu/m8g/hasCost)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cv:hasCost](http://data.europa.eu/m8g/hasCost)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasCost |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_gebyr |
+| native | https://data.norge.no/ap-no/dcat-ap-no/har_gebyr |
 
 
 
@@ -82,7 +82,7 @@ URI: [cv:hasCost](http://data.europa.eu/m8g/hasCost)
 ```yaml
 name: har_gebyr
 description: Gebyr knytt til bruk av datatjenesten.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: cv:hasCost
 domain_of:

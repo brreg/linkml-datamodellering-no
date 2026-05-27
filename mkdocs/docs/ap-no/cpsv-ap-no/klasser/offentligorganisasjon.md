@@ -321,7 +321,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -331,7 +331,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:PublicOrganisation |
-| native | https://data.norge.no/linkml/cpsv-ap-no/OffentligOrganisasjon |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/OffentligOrganisasjon |
 
 
 
@@ -348,7 +348,7 @@ URI: [cv:PublicOrganisation](http://data.europa.eu/m8g/PublicOrganisation)
 ```yaml
 name: OffentligOrganisasjon
 description: Ein offentleg organisasjon som er ansvarleg for ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 is_a: Aktor
 slots:
@@ -390,7 +390,7 @@ class_uri: cv:PublicOrganisation
 ```yaml
 name: OffentligOrganisasjon
 description: Ein offentleg organisasjon som er ansvarleg for ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 is_a: Aktor
 slot_usage:
@@ -422,7 +422,7 @@ attributes:
     description: Føretrekt namn/term for organisasjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: skos:prefLabel
     owner: OffentligOrganisasjon
@@ -436,7 +436,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:spatial
     owner: OffentligOrganisasjon
     domain_of:
@@ -452,7 +452,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: foaf:homepage
     owner: OffentligOrganisasjon
     domain_of:
@@ -467,7 +467,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: OffentligOrganisasjon
     domain_of:
@@ -483,7 +483,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: OffentligOrganisasjon
     domain_of:
@@ -512,7 +512,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: OffentligOrganisasjon
     domain_of:
@@ -534,7 +534,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: OffentligOrganisasjon
     domain_of:
@@ -556,7 +556,7 @@ attributes:
     description: Postadresse knytt til aktøren.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: locn:address
     owner: OffentligOrganisasjon
@@ -568,7 +568,7 @@ attributes:
     description: Deltakingar aktøren er del av.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:participates
     owner: OffentligOrganisasjon

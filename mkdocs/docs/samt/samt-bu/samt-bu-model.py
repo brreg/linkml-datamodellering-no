@@ -1,5 +1,5 @@
 # Auto generated from samt-bu-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-24T12:07:37
+# Generation date: 2026-05-27T14:51:39
 # Schema: skole_ontologi
 #
 # id: https://example.no/ontology/samt-bu-skole
@@ -64,7 +64,7 @@ version = None
 
 # Namespaces
 ADMS = CurieNamespace('adms', 'http://www.w3.org/ns/adms#')
-CAPNO = CurieNamespace('capno', 'https://data.norge.no/linkml/common-ap-no/')
+CAPNO = CurieNamespace('capno', 'https://data.norge.no/ap-no/common-ap-no/')
 CV = CurieNamespace('cv', 'http://data.europa.eu/m8g/')
 DCAT = CurieNamespace('dcat', 'http://www.w3.org/ns/dcat#')
 DCATAP = CurieNamespace('dcatap', 'http://data.europa.eu/r5r/')

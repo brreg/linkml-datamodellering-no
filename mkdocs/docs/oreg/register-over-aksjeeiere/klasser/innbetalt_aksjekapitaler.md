@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler](https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_aksjekapitaler](https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_aksjekapitaler)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapi
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_aksjekapitaler |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_aksjekapitaler |
 
 
 

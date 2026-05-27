@@ -9,7 +9,7 @@ _Global identifikator for instansen._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator](https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator](https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator)
 <!-- no inheritance hierarchy -->
 
 
@@ -90,8 +90,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator](http
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator |
 
 
 

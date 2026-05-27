@@ -171,7 +171,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -181,10 +181,22 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:UserQualityFeedback |
-| native | https://data.norge.no/linkml/dqv-ap-no/Brukartilbakemelding |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Brukartilbakemelding |
 
 
 
+
+## Examples
+### Example: Brukartilbakemelding-brukerfeedback-1
+
+```yaml
+id: dqv:brukerfeedback-1
+er_motivert_av: dqv:qualityAssessment
+er_i_kvalitetsdimensjon:
+- dqv:kvalitetsdim-completeness
+har_tekstdel: dqv:tekstdel-1
+
+```
 
 
 
@@ -198,7 +210,7 @@ URI: [dqv:UserQualityFeedback](http://www.w3.org/ns/dqv#UserQualityFeedback)
 ```yaml
 name: Brukartilbakemelding
 description: Tilbakemelding frå ein brukar om kvaliteten til eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 class_uri: dqv:UserQualityFeedback
 
@@ -211,13 +223,13 @@ class_uri: dqv:UserQualityFeedback
 ```yaml
 name: Brukartilbakemelding
 description: Tilbakemelding frå ein brukar om kvaliteten til eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 is_a: Kvalitetsmerknad
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Brukartilbakemelding
     domain_of:
@@ -255,7 +267,7 @@ attributes:
     description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:motivatedBy
     owner: Brukartilbakemelding
     domain_of:
@@ -269,7 +281,7 @@ attributes:
       '
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqv:inDimension
     owner: Brukartilbakemelding
     domain_of:
@@ -283,7 +295,7 @@ attributes:
     description: Tekstleg innhald i merknaden.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:hasBody
     owner: Brukartilbakemelding
     domain_of:
@@ -294,7 +306,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: rdfs:comment
     owner: Brukartilbakemelding
     domain_of:
@@ -312,7 +324,7 @@ attributes:
     description: Ressursen merknaden gjeld.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:hasTarget
     owner: Brukartilbakemelding
     domain_of:

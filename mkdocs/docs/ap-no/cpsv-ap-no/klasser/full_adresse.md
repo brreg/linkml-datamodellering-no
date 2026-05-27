@@ -61,7 +61,7 @@ URI: [locn:fullAddress](http://www.w3.org/ns/locn#fullAddress)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [locn:fullAddress](http://www.w3.org/ns/locn#fullAddress)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | locn:fullAddress |
-| native | https://data.norge.no/linkml/cpsv-ap-no/full_adresse |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/full_adresse |
 
 
 
@@ -82,7 +82,7 @@ URI: [locn:fullAddress](http://www.w3.org/ns/locn#fullAddress)
 ```yaml
 name: full_adresse
 description: Full adresse som fritekst.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: locn:fullAddress
 domain_of:

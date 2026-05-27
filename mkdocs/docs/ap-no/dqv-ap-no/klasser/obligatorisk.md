@@ -1,0 +1,69 @@
+# Subset: Obligatorisk 
+
+
+_Obligatoriske eigenskapar i ein AP-NO-profil._
+
+
+
+URI: [Obligatorisk](obligatorisk.md)
+
+
+
+
+
+
+
+
+## Identifier and Mapping Information
+
+
+
+
+
+### Schema Source
+
+
+* from schema: https://data.norge.no/ap-no/common-ap-no
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

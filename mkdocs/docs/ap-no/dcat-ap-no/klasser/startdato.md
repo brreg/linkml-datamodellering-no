@@ -60,7 +60,7 @@ URI: [dcat:startDate](http://www.w3.org/ns/dcat#startDate)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:startDate](http://www.w3.org/ns/dcat#startDate)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:startDate |
-| native | https://data.norge.no/linkml/dcat-ap-no/startdato |
+| native | https://data.norge.no/ap-no/dcat-ap-no/startdato |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:startDate](http://www.w3.org/ns/dcat#startDate)
 ```yaml
 name: startdato
 description: Startdato for tidsrommet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:startDate
 domain_of:

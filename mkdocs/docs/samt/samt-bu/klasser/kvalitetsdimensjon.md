@@ -212,7 +212,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -222,10 +222,22 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:Dimension |
-| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsdimensjon |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Kvalitetsdimensjon |
 
 
 
+
+## Examples
+### Example: Kvalitetsdimensjon-kvalitetsdim-completeness
+
+```yaml
+id: dqv:kvalitetsdim-completeness
+har_anbefalt_term:
+- completeness
+har_definisjon:
+- https://data.norge.no/vocabulary/quality-dimension#completeness
+
+```
 
 
 
@@ -239,7 +251,7 @@ URI: [dqv:Dimension](http://www.w3.org/ns/dqv#Dimension)
 ```yaml
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
 - har_anbefalt_term
@@ -264,7 +276,7 @@ class_uri: dqv:Dimension
 ```yaml
 name: Kvalitetsdimensjon
 description: Ein kvalitetsdimensjon som grupperer relaterte kvalitetsmål.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   har_anbefalt_term:
     name: har_anbefalt_term
@@ -278,7 +290,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kvalitetsdimensjon
     domain_of:
@@ -316,7 +328,7 @@ attributes:
     description: Føretrekt term/namn for dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: skos:prefLabel
     owner: Kvalitetsdimensjon
     domain_of:
@@ -329,7 +341,7 @@ attributes:
     description: Definisjon av dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: skos:definition
     owner: Kvalitetsdimensjon
     domain_of:

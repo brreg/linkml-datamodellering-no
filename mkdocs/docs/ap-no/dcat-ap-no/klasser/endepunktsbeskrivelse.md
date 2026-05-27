@@ -61,7 +61,7 @@ URI: [dcat:endpointDescription](http://www.w3.org/ns/dcat#endpointDescription)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:endpointDescription](http://www.w3.org/ns/dcat#endpointDescription)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:endpointDescription |
-| native | https://data.norge.no/linkml/dcat-ap-no/endepunktsbeskrivelse |
+| native | https://data.norge.no/ap-no/dcat-ap-no/endepunktsbeskrivelse |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:endpointDescription](http://www.w3.org/ns/dcat#endpointDescription)
 ```yaml
 name: endepunktsbeskrivelse
 description: URL til beskriving av endepunktet (t.d. OpenAPI-dokument).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:endpointDescription
 domain_of:

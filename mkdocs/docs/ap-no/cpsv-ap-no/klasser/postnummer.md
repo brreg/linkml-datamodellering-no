@@ -60,7 +60,7 @@ URI: [locn:postCode](http://www.w3.org/ns/locn#postCode)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [locn:postCode](http://www.w3.org/ns/locn#postCode)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | locn:postCode |
-| native | https://data.norge.no/linkml/cpsv-ap-no/postnummer |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/postnummer |
 
 
 
@@ -81,7 +81,7 @@ URI: [locn:postCode](http://www.w3.org/ns/locn#postCode)
 ```yaml
 name: postnummer
 description: Postnummer.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: locn:postCode
 domain_of:

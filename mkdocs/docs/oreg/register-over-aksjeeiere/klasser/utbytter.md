@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter](https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:utbytter](https://data.norge.no/oreg/register-over-aksjeeiere/:utbytter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter](https://d
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:utbytter |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:utbytter |
 
 
 

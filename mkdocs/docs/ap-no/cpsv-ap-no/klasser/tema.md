@@ -65,7 +65,7 @@ URI: [dct:subject](http://purl.org/dc/terms/subject)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -75,7 +75,7 @@ URI: [dct:subject](http://purl.org/dc/terms/subject)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:subject |
-| native | https://data.norge.no/linkml/cpsv-ap-no/tema |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/tema |
 
 
 
@@ -86,7 +86,7 @@ URI: [dct:subject](http://purl.org/dc/terms/subject)
 ```yaml
 name: tema
 description: Emne/tema tenesta handlar om.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: dct:subject
 domain_of:

@@ -9,7 +9,7 @@ _Tekstleg forklaring av instansen._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse](https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse](https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse)
 <!-- no inheritance hierarchy -->
 
 
@@ -68,8 +68,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse](https:
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse |
 
 
 

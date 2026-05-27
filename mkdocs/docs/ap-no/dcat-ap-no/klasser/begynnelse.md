@@ -60,7 +60,7 @@ URI: [time:hasBeginning](http://www.w3.org/6006/time#hasBeginning)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [time:hasBeginning](http://www.w3.org/6006/time#hasBeginning)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | time:hasBeginning |
-| native | https://data.norge.no/linkml/dcat-ap-no/begynnelse |
+| native | https://data.norge.no/ap-no/dcat-ap-no/begynnelse |
 
 
 
@@ -81,7 +81,7 @@ URI: [time:hasBeginning](http://www.w3.org/6006/time#hasBeginning)
 ```yaml
 name: begynnelse
 description: Starttidspunkt for eit tidsrom.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: time:hasBeginning
 domain_of:

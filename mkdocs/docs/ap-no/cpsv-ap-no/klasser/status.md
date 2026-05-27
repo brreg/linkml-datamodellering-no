@@ -61,7 +61,7 @@ URI: [adms:status](http://www.w3.org/ns/adms#status)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [adms:status](http://www.w3.org/ns/adms#status)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:status |
-| native | https://data.norge.no/linkml/common-ap-no/status |
+| native | https://data.norge.no/ap-no/common-ap-no/status |
 
 
 
@@ -82,7 +82,7 @@ URI: [adms:status](http://www.w3.org/ns/adms#status)
 ```yaml
 name: status
 description: Status for ressursen frå eit kontrollert vokabular (adms:status).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: adms:status
 domain_of:
 - OffentligTjeneste

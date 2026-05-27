@@ -2,7 +2,7 @@
 skinparam nodesep 10
 hide circle
 hide empty members
-class "Informasjonsmodell" [[{Ein informasjonsmodell som er katalogisert i ein modelkatalog (modelldcatno:InformationModel).}]] {
+class "Informasjonsmodell" [[{Ein informasjonsmodell som er katalogisert i ein modellkatalog (modelldcatno:InformationModel).}]] {
     {field} id : uriorcurie  
     {field} tittel : LangString  [1..*]
     {field} beskrivelse : LangString  [0..*]
@@ -33,6 +33,44 @@ class "Standard" [[{Ein standard (dct:Standard).}]] {
 "Informasjonsmodell" --> "0..*" "Standard" : "er_profil_av"
 "Informasjonsmodell" --> "0..*" "Standard" : "er_i_samsvar_med"(i)
 "Informasjonsmodell" --> "0..*" "Standard" : "er_profil_av"(i)
+class "Modellkatalog" [[{Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).}]] {
+    {field} id : uriorcurie  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [1..*]
+    {field} identifikator_literal : string  
+    {field} endringsdato : date  
+    {field} heimeside : uri  [0..*]
+    {field} spraak : Spraak  [0..*]
+    {field} utgivelsesdato : date  
+}
+class "Begrepssamling" [[{Ei SKOS-omgrepssamling (temavokabular).}]] {
+    {field} id : uriorcurie  
+}
+class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.}]] {
+    {field} id : uriorcurie  
+}
+class "Lisensdokument" [[{Eit lisensdokument (dct:LicenseDocument).}]] {
+    {field} id : uriorcurie  
+}
+class "Aktor" [[{Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.}]] {
+    {field} id : uriorcurie  
+    {field} namn_aktor : LangString  [1..*]
+    {field} identifikator_literal : string  
+}
+class "Kontaktopplysning" [[{Kontaktinformasjon (vcard:Organization).}]] {
+    {field} id : uriorcurie  
+}
+class "KatalogisertRessurs" [[{Basisklasse for ressursar som kan katalogiserast (dcat:Resource).}]] {
+    {field} id : uriorcurie  
+}
+"Modellkatalog" --> "0..1" "Modellkatalog" : "er_del_av_katalog"
+"Modellkatalog" --> "0..*" "Begrepssamling" : "temaer"
+"Modellkatalog" --> "0..*" "Konsept" : "tema"
+"Modellkatalog" --> "0..*" "Informasjonsmodell" : "modell"
+"Modellkatalog" --> "0..1" "Lisensdokument" : "lisens"
+"Modellkatalog" --> "1" "Aktor" : "utgiver"
+"Modellkatalog" --> "1..*" "Kontaktopplysning" : "kontaktpunkt"
+"Modellkatalog" --> "1..*" "KatalogisertRessurs" : "har_del"
 abstract "Modellelement" [[{Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.}]] {
     {field} id : uriorcurie  
     {field} tittel : LangString  [1..*]
@@ -55,9 +93,6 @@ abstract "Eigenskap" [[{Abstrakt basisklasse for eigenskapar knytt til eit model
     {field} beskrivelse : LangString  [0..*]
     {field} relasjonsegenskapetikett : LangString  [0..*]
     {field} sekvensnummer : NonNegativeInteger  
-}
-class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.}]] {
-    {field} id : uriorcurie  
 }
 class "Abstraksjon" [[{Ein abstraksjon — ein forenkling som representerer eit modellelement.}]] {
     {field} id(i) : uriorcurie  
@@ -282,41 +317,6 @@ class "Rolle" [[{Ein rolle — ein eigenskap som knyter ein objekttype til ein a
 "Modellelement" --> "0..*" "Modul" : "tilhorer_modul"(i)
 "Eigenskap" --> "0..*" "Modul" : "tilhorer_modul"(i)
 "Merknad" --> "0..*" "Modul" : "tilhorer_modul"(i)
-class "Modelkatalog" [[{Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).}]] {
-    {field} id : uriorcurie  
-    {field} tittel : LangString  [1..*]
-    {field} beskrivelse : LangString  [1..*]
-    {field} identifikator_literal : string  
-    {field} endringsdato : date  
-    {field} heimeside : uri  [0..*]
-    {field} spraak : Spraak  [0..*]
-    {field} utgivelsesdato : date  
-}
-class "Begrepssamling" [[{Ei SKOS-omgrepssamling (temavokabular).}]] {
-    {field} id : uriorcurie  
-}
-class "Lisensdokument" [[{Eit lisensdokument (dct:LicenseDocument).}]] {
-    {field} id : uriorcurie  
-}
-class "Aktor" [[{Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.}]] {
-    {field} id : uriorcurie  
-    {field} namn_aktor : LangString  [1..*]
-    {field} identifikator_literal : string  
-}
-class "Kontaktopplysning" [[{Kontaktinformasjon (vcard:Organization).}]] {
-    {field} id : uriorcurie  
-}
-class "KatalogisertRessurs" [[{Basisklasse for ressursar som kan katalogiserast (dcat:Resource).}]] {
-    {field} id : uriorcurie  
-}
-"Modelkatalog" --> "0..1" "Modelkatalog" : "er_del_av_katalog"
-"Modelkatalog" --> "0..*" "Begrepssamling" : "temaer"
-"Modelkatalog" --> "0..*" "Konsept" : "tema"
-"Modelkatalog" --> "0..*" "Informasjonsmodell" : "modell"
-"Modelkatalog" --> "0..1" "Lisensdokument" : "lisens"
-"Modelkatalog" --> "1" "Aktor" : "utgiver"
-"Modelkatalog" --> "1..*" "Kontaktopplysning" : "kontaktpunkt"
-"Modelkatalog" --> "1..*" "KatalogisertRessurs" : "har_del"
 "Merknad" ^-- "Betingelsesregel"
 class "Mediatype" [[{Ein medietype eller filformat (dct:MediaTypeOrExtent).}]] {
     {field} id : uriorcurie  
@@ -326,10 +326,10 @@ class "Lokasjon" [[{Eit geografisk område (dct:Location).}]] {
 }
 "Lisensdokument" --> "0..1" "Konsept" : "type_concept"
 "Informasjonsmodell" --> "0..1" "Lisensdokument" : "lisens"
-"Modelkatalog" --> "0..1" "Lisensdokument" : "lisens"(i)
+"Modellkatalog" --> "0..1" "Lisensdokument" : "lisens"(i)
 "Informasjonsmodell" --> "0..1" "Lisensdokument" : "lisens"(i)
 "Informasjonsmodell" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"
-"Modelkatalog" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
+"Modellkatalog" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
 "Informasjonsmodell" --> "0..*" "Kontaktopplysning" : "kontaktpunkt"(i)
 class "Kodeelement" [[{Eit element i ei kodeliste (modelldcatno:CodeElement).}]] {
     {field} id : uriorcurie  
@@ -358,7 +358,7 @@ class "Kodeelement" [[{Eit element i ei kodeliste (modelldcatno:CodeElement).}]]
 "Kodeelement" --> "0..*" "Konsept" : "begrep"(i)
 "Informasjonsmodell" --> "0..*" "Konsept" : "dekningsomraade"(i)
 "Informasjonsmodell" --> "0..1" "Konsept" : "status"(i)
-"Modelkatalog" --> "0..*" "Konsept" : "tema"(i)
+"Modellkatalog" --> "0..*" "Konsept" : "tema"(i)
 "Informasjonsmodell" --> "0..*" "Konsept" : "tema"(i)
 "Aktor" --> "0..1" "Konsept" : "type_concept"
 "Informasjonsmodell" --> "0..1" "Konsept" : "type_concept"(i)
@@ -370,7 +370,7 @@ class "Kodeelement" [[{Eit element i ei kodeliste (modelldcatno:CodeElement).}]]
 "Kodeelement" --> "0..*" "Kodeliste" : "topp_begrep_av"(i)
 "Kodeelement" --> "0..1" "Kodeelement" : "neste"
 "Kodeelement" --> "0..1" "Kodeelement" : "forrige"
-"Modelkatalog" --> "0..*" "KatalogisertRessurs" : "har_del"(i)
+"Modellkatalog" --> "0..*" "KatalogisertRessurs" : "har_del"(i)
 class "Dokument" [[{Eit dokument (foaf:Document).}]] {
     {field} id : uriorcurie  
     {field} tittel : LangString  [0..*]
@@ -384,7 +384,7 @@ class "Dokument" [[{Eit dokument (foaf:Document).}]] {
 "Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "er_erstatta_av"
 "Informasjonsmodell" --> "0..*" "Informasjonsmodell" : "er_del_av_modell"
 "Informasjonsmodell" --> "1" "Aktor" : "utgiver"
-"Modelkatalog" --> "0..*" "Informasjonsmodell" : "modell"(i)
+"Modellkatalog" --> "0..*" "Informasjonsmodell" : "modell"(i)
 "Attributt" --> "0..*" "EnkelType" : "har_enkel_type"
 "Attributt" --> "0..*" "EnkelType" : "har_enkel_type"(i)
 class "Samling" [[{Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.}]] {
@@ -440,8 +440,8 @@ class "Eller" [[{Eller — logisk ELLER-betingelse; minst eitt modellelement må
 "Betingelsesregel" ^-- "Og"
 "Betingelsesregel" ^-- "Ikke"
 "Betingelsesregel" ^-- "Eller"
-"Modelkatalog" --> "0..*" "Begrepssamling" : "temaer"(i)
+"Modellkatalog" --> "0..*" "Begrepssamling" : "temaer"(i)
 "Informasjonsmodell" --> "0..1" "Aktor" : "skapar"(i)
-"Modelkatalog" --> "0..1" "Aktor" : "utgiver"(i)
+"Modellkatalog" --> "0..1" "Aktor" : "utgiver"(i)
 "Informasjonsmodell" --> "0..1" "Aktor" : "utgiver"(i)
 @enduml

@@ -60,7 +60,7 @@ URI: [odrs:attributionURL](http://schema.theodi.org/odrs#attributionURL)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [odrs:attributionURL](http://schema.theodi.org/odrs#attributionURL)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:attributionURL |
-| native | https://data.norge.no/linkml/dcat-ap-no/krediteringsurl |
+| native | https://data.norge.no/ap-no/dcat-ap-no/krediteringsurl |
 
 
 
@@ -81,7 +81,7 @@ URI: [odrs:attributionURL](http://schema.theodi.org/odrs#attributionURL)
 ```yaml
 name: krediteringsurl
 description: URL for kreditering av rettshavar.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrs:attributionURL
 domain_of:

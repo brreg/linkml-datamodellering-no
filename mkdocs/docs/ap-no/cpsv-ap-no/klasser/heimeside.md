@@ -64,7 +64,7 @@ URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -74,7 +74,7 @@ URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | foaf:homepage |
-| native | https://data.norge.no/linkml/common-ap-no/heimeside |
+| native | https://data.norge.no/ap-no/common-ap-no/heimeside |
 
 
 
@@ -85,7 +85,7 @@ URI: [foaf:homepage](http://xmlns.com/foaf/0.1/homepage)
 ```yaml
 name: heimeside
 description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: foaf:homepage
 domain_of:
 - OffentligTjeneste

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeinnskudder](https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeinnskudder)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder](ht
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeinnskudder |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeinnskudder |
 
 
 

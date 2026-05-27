@@ -61,7 +61,7 @@ URI: [dcatap:availability](http://data.europa.eu/r5r/availability)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcatap:availability](http://data.europa.eu/r5r/availability)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcatap:availability |
-| native | https://data.norge.no/linkml/dcat-ap-no/tilgjengelighet |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tilgjengelighet |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcatap:availability](http://data.europa.eu/r5r/availability)
 ```yaml
 name: tilgjengelighet
 description: Planlagt tilgjengelegheit for ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcatap:availability
 domain_of:

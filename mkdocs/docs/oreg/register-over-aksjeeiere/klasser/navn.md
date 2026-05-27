@@ -9,7 +9,7 @@ _Namn på instansen._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:navn](https://data.norge.no/linkml/register-over-aksjeeiere/:navn)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:navn](https://data.norge.no/oreg/register-over-aksjeeiere/:navn)
 <!-- no inheritance hierarchy -->
 
 
@@ -70,8 +70,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:navn](https://data.
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:navn |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:navn |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:navn |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:navn |
 
 
 

@@ -242,7 +242,7 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -252,7 +252,7 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:BusinessEvent |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Virksomhetshendelse |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Virksomhetshendelse |
 
 
 
@@ -270,7 +270,7 @@ URI: [cv:BusinessEvent](http://data.europa.eu/m8g/BusinessEvent)
 name: Virksomhetshendelse
 description: Ei verksemdhending som kan utløyse behov for tenester (t.d. oppstart,
   konkurs).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 is_a: Hendelse
 slots:
@@ -292,7 +292,7 @@ class_uri: cv:BusinessEvent
 name: Virksomhetshendelse
 description: Ei verksemdhending som kan utløyse behov for tenester (t.d. oppstart,
   konkurs).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 is_a: Hendelse
 slot_usage:
@@ -306,7 +306,7 @@ attributes:
     description: Tenester det kan oppstå behov for som følgje av hendinga.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:mayTriggerNeedFor
     owner: Virksomhetshendelse
@@ -318,7 +318,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Virksomhetshendelse
     domain_of:
@@ -347,7 +347,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Virksomhetshendelse
     domain_of:
@@ -369,7 +369,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Virksomhetshendelse
     domain_of:
@@ -391,7 +391,7 @@ attributes:
     description: Kontaktpunkt for tenesta eller organisasjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
     owner: Virksomhetshendelse
@@ -408,7 +408,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Virksomhetshendelse
     domain_of:
@@ -429,7 +429,7 @@ attributes:
     description: Offentlege tenester hendinga kan utløyse.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:mayTrigger
     owner: Virksomhetshendelse
@@ -442,7 +442,7 @@ attributes:
     description: Emne/tema tenesta handlar om.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:subject
     owner: Virksomhetshendelse
@@ -457,7 +457,7 @@ attributes:
     description: Datasett som beskriv ressursen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
     owner: Virksomhetshendelse
@@ -474,7 +474,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Virksomhetshendelse
     domain_of:

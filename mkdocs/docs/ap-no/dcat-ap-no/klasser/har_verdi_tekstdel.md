@@ -60,7 +60,7 @@ URI: [rdfs:value](http://www.w3.org/2000/01/rdf-schema#value)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [rdfs:value](http://www.w3.org/2000/01/rdf-schema#value)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | rdfs:value |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_verdi_tekstdel |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_verdi_tekstdel |
 
 
 
@@ -81,7 +81,7 @@ URI: [rdfs:value](http://www.w3.org/2000/01/rdf-schema#value)
 ```yaml
 name: har_verdi_tekstdel
 description: Tekstinnhaldet i tekstdelen.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: rdfs:value
 domain_of:
 - Tekstdel

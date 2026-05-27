@@ -60,7 +60,7 @@ URI: [dct:license](http://purl.org/dc/terms/license)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dct:license](http://purl.org/dc/terms/license)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:license |
-| native | https://data.norge.no/linkml/cpsv-ap-no/lisens |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/lisens |
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:license](http://purl.org/dc/terms/license)
 ```yaml
 name: lisens
 description: Lisens for katalogen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: dct:license
 domain_of:

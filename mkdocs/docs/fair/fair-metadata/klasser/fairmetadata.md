@@ -369,7 +369,7 @@ URI: [fair:FAIRMetadata](https://data.norge.no/fair#FAIRMetadata)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -399,7 +399,7 @@ description: 'Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tr
   med FAIR-prinsippa.
 
   '
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slots:
 - id
@@ -455,7 +455,7 @@ description: 'Maskin-aksjonerbar metadata som beskriver ein digital ressurs i tr
   med FAIR-prinsippa.
 
   '
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_usage:
   ressursIdentifikator:
@@ -492,7 +492,7 @@ attributes:
   id:
     name: id
     description: Persistent URI-identifikator for metadata-posten (FAIR F1).
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: dct:identifier
     identifier: true
@@ -509,7 +509,7 @@ attributes:
       '
     in_subset:
     - Findable
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: dct:identifier
     owner: FAIRMetadata
@@ -525,7 +525,7 @@ attributes:
       '
     in_subset:
     - Findable
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: dct:type
     owner: FAIRMetadata
@@ -538,7 +538,7 @@ attributes:
     description: URI til ressursen som denne metadata-posten beskriver (FAIR F3).
     in_subset:
     - Findable
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: dct:subject
     owner: FAIRMetadata
@@ -550,7 +550,7 @@ attributes:
     description: Metadata for tilgang og tilgjengelegheit (FAIR A1/A2).
     in_subset:
     - Accessible
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: fair:tilgangsmetadata
     owner: FAIRMetadata
@@ -563,7 +563,7 @@ attributes:
     description: Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3).
     in_subset:
     - Reusable
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: fair:gjenbruksmetadata
     owner: FAIRMetadata
@@ -576,7 +576,7 @@ attributes:
     description: Metadata om opphav og endringshistorie (FAIR R1.2).
     in_subset:
     - Reusable
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: fair:proveniensmetadata
     owner: FAIRMetadata
@@ -589,7 +589,7 @@ attributes:
     description: Dokumenterer registrering i søkbar katalog (FAIR F4).
     in_subset:
     - Findable
-    from_schema: https://data.norge.no/linkml/fair-metadata
+    from_schema: https://data.norge.no/fair/fair-metadata
     rank: 1000
     slot_uri: fair:katalogregistrering
     owner: FAIRMetadata

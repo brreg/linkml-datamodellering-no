@@ -61,7 +61,7 @@ URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:hasPart |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_del |
+| native | https://data.norge.no/ap-no/dcat-ap-no/har_del |
 
 
 
@@ -82,7 +82,7 @@ URI: [dct:hasPart](http://purl.org/dc/terms/hasPart)
 ```yaml
 name: har_del
 description: Delkatalog inkludert i denne katalogen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:hasPart
 domain_of:

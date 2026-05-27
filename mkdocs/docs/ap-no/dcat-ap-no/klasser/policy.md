@@ -67,7 +67,7 @@ URI: [odrl:hasPolicy](http://www.w3.org/ns/odrl/2/hasPolicy)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -77,7 +77,7 @@ URI: [odrl:hasPolicy](http://www.w3.org/ns/odrl/2/hasPolicy)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrl:hasPolicy |
-| native | https://data.norge.no/linkml/dcat-ap-no/policy |
+| native | https://data.norge.no/ap-no/dcat-ap-no/policy |
 
 
 
@@ -92,7 +92,7 @@ annotations:
     tag: gyldige_verdier
     value: odrl:Policy
 description: ODRL-policy som regulerer bruk av ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrl:hasPolicy
 domain_of:

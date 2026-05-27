@@ -62,7 +62,7 @@ URI: [dct:requires](http://purl.org/dc/terms/requires)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [dct:requires](http://purl.org/dc/terms/requires)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:requires |
-| native | https://data.norge.no/linkml/cpsv-ap-no/krev |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/krev |
 
 
 
@@ -83,7 +83,7 @@ URI: [dct:requires](http://purl.org/dc/terms/requires)
 ```yaml
 name: krev
 description: Teneste eller ressurs denne tenesta krev.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: dct:requires
 domain_of:

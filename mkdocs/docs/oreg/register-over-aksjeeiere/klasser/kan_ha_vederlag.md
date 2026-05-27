@@ -9,7 +9,7 @@ _Vederlag for aksjeoverdraging._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag](https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag](https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag](ht
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag |
 
 
 

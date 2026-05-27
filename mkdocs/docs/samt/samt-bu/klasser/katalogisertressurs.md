@@ -140,7 +140,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -150,7 +150,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:Resource |
-| native | https://data.norge.no/linkml/dcat-ap-no/KatalogisertRessurs |
+| native | https://data.norge.no/ap-no/dcat-ap-no/KatalogisertRessurs |
 
 
 
@@ -167,7 +167,7 @@ URI: [dcat:Resource](http://www.w3.org/ns/dcat#Resource)
 ```yaml
 name: KatalogisertRessurs
 description: Basisklasse for ressursar som kan katalogiserast.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 abstract: true
 slots:
 - id
@@ -182,13 +182,13 @@ class_uri: dcat:Resource
 ```yaml
 name: KatalogisertRessurs
 description: Basisklasse for ressursar som kan katalogiserast.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 abstract: true
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: KatalogisertRessurs
     domain_of:

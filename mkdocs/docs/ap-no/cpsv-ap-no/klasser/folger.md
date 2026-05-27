@@ -62,7 +62,7 @@ URI: [cpsv:follows](http://purl.org/vocab/cpsv#follows)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cpsv:follows](http://purl.org/vocab/cpsv#follows)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsv:follows |
-| native | https://data.norge.no/linkml/cpsv-ap-no/folger |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/folger |
 
 
 
@@ -83,7 +83,7 @@ URI: [cpsv:follows](http://purl.org/vocab/cpsv#follows)
 ```yaml
 name: folger
 description: Regelverk tenesta følgjer.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cpsv:follows
 domain_of:

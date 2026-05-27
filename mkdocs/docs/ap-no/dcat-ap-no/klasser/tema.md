@@ -63,7 +63,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:theme |
-| native | https://data.norge.no/linkml/dcat-ap-no/tema |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tema |
 
 
 
@@ -84,7 +84,7 @@ URI: [dcat:theme](http://www.w3.org/ns/dcat#theme)
 ```yaml
 name: tema
 description: Tema frå eit kontrollert vokabular.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:theme
 domain_of:

@@ -9,7 +9,7 @@ _Utbytte knytt til ein eigarposisjon._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte](https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte](https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte)
 
 
 
@@ -210,8 +210,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte](https://da
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte |
 
 
 

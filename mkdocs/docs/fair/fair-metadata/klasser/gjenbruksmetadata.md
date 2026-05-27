@@ -60,7 +60,7 @@ URI: [fair:gjenbruksmetadata](https://data.norge.no/fair#gjenbruksmetadata)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:gjenbruksmetadata](https://data.norge.no/fair#gjenbruksmetadata)
 ```yaml
 name: gjenbruksmetadata
 description: Metadata som støttar gjenbruk av ressursen (FAIR R1.1/R1.3).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:gjenbruksmetadata
 domain_of:

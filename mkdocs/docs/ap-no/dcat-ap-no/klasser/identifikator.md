@@ -168,7 +168,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -178,7 +178,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:Identifier |
-| native | https://data.norge.no/linkml/dcat-ap-no/Identifikator |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Identifikator |
 
 
 
@@ -195,7 +195,7 @@ URI: [adms:Identifier](http://www.w3.org/ns/adms#Identifier)
 ```yaml
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
 rank: 1000
@@ -219,7 +219,7 @@ class_uri: adms:Identifier
 ```yaml
 name: Identifikator
 description: Ein alternativ identifikator for ein ressurs.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 see_also:
 - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
 rank: 1000
@@ -233,7 +233,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Identifikator
     domain_of:
@@ -266,7 +266,7 @@ attributes:
     description: Notasjon/kode for identifikatoren.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: skos:notation
     owner: Identifikator

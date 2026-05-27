@@ -92,7 +92,7 @@ Vil du bruke AP-NO-profilene i ditt eige repo utan å jobbe inni dette monorepoe
 Bootstrap-scriptet legg til dei to filene du treng på eitt minutt:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/scripts/bootstrap.sh | bash
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/bootstrap.sh | bash
 ```
 
 Importer deretter AP-NO-profilene direkte i skjemaet ditt via GitHub Raw-URL:
@@ -109,14 +109,14 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
-| modellkatalog | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
 | fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
 | ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
-| begrepskatalog | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Produksjonsdatafiler vert automatisk konverterte til SKOS/RDF og publiserte til Felles Begrepskatalog via GitHub Pages-høstingsendepunkt. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
 | oreg | Offentlege register. |
 | fint | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
 | samt | SAMT — integrasjonsmodellar for kommunesektoren. | [SAMT-prosjektet](https://docs.samt-bu.no/om/)
+| begrepskatalog | Begrepskatalog etter SKOS-AP-NO-Begrep. Instansdatafiler vert automatisk konverterte til SKOS/RDF for publisering til Felles Begrepskatalog. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| modellkatalog | Modellkatalog for informasjonsmodellar etter ModelDCAT-AP-NO for publisering til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
 
 ## Skjema
 
@@ -173,27 +173,28 @@ Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar gener
 ```
 linkml-datamodellering-no/
 ├── src/
-│   ├── assets/                    # Containere, skript og malar
-│   ├── linkml/
+│   ├── assets/                                    # Containere, skript og malar
+│   ├── linkml/                                    # Kilde for LinkML modeller (og begrepsinstanser)
 │   │   └── <domene>/
 │   │       └── <modell>/
-│   │           ├── <modell>-schema.yaml
-│   │           ├── manifest.yaml           # Generator- og publiseringskonfig
-│   │           ├── published-uris.lock     # Berre for publiserte katalogar
-│   │           ├── examples/
-│   │           │   └── <modell>-eksempel.yaml
-│   │           └── data/                   # Berre for publiserte katalogar
+│   │           ├── <modell>-schema.yaml           # Datamodel
+│   │           ├── manifest.yaml                  # Modell-manifest
+│   │           ├── published-uris.lock            # Berre for publiserte katalogar
+│   │           ├── examples/                      
+│   │           │   └── <modell>-eksempel.yaml     # Eksempeldatafil
+│   │           └── data/                          # Kildedata for publiserte katalogar
 │   │               └── <datafil-katalog>/
-│   │                   ├── <datafil-katalog>.yaml
-│   │                   └── manifest.yaml   # Datafil-manifest
-│   ├── mcp-linkml-validator/      # MCP-server: policy-basert validering
-│   ├── mcp-linkml-modell-utkast/  # MCP-server: JSON Schema → LinkML-utkast
-│   ├── mcp-linkml-begrep-utkast/  # MCP-server: generering av begrepsinstansar
-│   └── templates/                 # Jinja2-malar for make gen-docs
+│   │                   ├── <datafil-katalog>.yaml # Datafil for begrepskatalog
+│   │                   └── manifest.yaml          # Datafil-manifest
+│   │
+│   ├── mcp-linkml-validator/                      # MCP-server: policy-basert LinkML validering
+│   ├── mcp-linkml-modell-utkast/                  # MCP-server: generering av LinkML modell-utkast
+│   ├── mcp-linkml-begrep-utkast/                  # MCP-server: generering av LinkML begreps-utkast
+│   └── templates/                                 # Jinja2-malar for make gen-docs
 │
-├── scripts/    # Bootstrap og hjelpeskript for eksterne repo
-├── tests/      # Testar og fixtures
-├── generated/  # Genererte artefakter (ikkje sjekka inn i git)
-├── mkdocs/     # Dokumentasjonsportal (MkDocs Material)
-└── tmp/        # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
+├── bootstrap.sh                                   # Bootstrap-script for eksterne repo
+├── tests/                                         # Testar og fixtures
+├── generated/                                     # Genererte artefakter (ikkje sjekka inn i git)
+├── mkdocs/                                        # Dokumentasjonsportal (MkDocs Material)
+└── tmp/                                           # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 ```

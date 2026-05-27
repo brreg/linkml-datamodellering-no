@@ -62,7 +62,7 @@ URI: [oa:motivatedBy](http://www.w3.org/ns/oa#motivatedBy)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [oa:motivatedBy](http://www.w3.org/ns/oa#motivatedBy)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:motivatedBy |
-| native | https://data.norge.no/linkml/dqv-ap-no/er_motivert_av |
+| native | https://data.norge.no/ap-no/dqv-ap-no/er_motivert_av |
 
 
 
@@ -83,7 +83,7 @@ URI: [oa:motivatedBy](http://www.w3.org/ns/oa#motivatedBy)
 ```yaml
 name: er_motivert_av
 description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: oa:motivatedBy
 domain_of:
 - Kvalitetsmerknad

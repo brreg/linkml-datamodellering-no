@@ -62,7 +62,7 @@ URI: [cv:openingHours](http://data.europa.eu/m8g/openingHours)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:openingHours](http://data.europa.eu/m8g/openingHours)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:openingHours |
-| native | https://data.norge.no/linkml/cpsv-ap-no/opningstider |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/opningstider |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:openingHours](http://data.europa.eu/m8g/openingHours)
 ```yaml
 name: opningstider
 description: Opningstider.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:openingHours
 domain_of:

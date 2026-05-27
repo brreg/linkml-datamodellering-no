@@ -9,7 +9,7 @@ _Konkret utdeling av verdiar til aksjeeigarar._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling](https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling](https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling)
 
 
 
@@ -153,8 +153,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling](https://d
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling |
 
 
 

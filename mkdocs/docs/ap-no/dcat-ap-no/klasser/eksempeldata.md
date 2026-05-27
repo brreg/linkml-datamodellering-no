@@ -61,7 +61,7 @@ URI: [adms:sample](http://www.w3.org/ns/adms#sample)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [adms:sample](http://www.w3.org/ns/adms#sample)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | adms:sample |
-| native | https://data.norge.no/linkml/dcat-ap-no/eksempeldata |
+| native | https://data.norge.no/ap-no/dcat-ap-no/eksempeldata |
 
 
 
@@ -82,7 +82,7 @@ URI: [adms:sample](http://www.w3.org/ns/adms#sample)
 ```yaml
 name: eksempeldata
 description: Eksempeldata som distribusjon.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: adms:sample
 domain_of:

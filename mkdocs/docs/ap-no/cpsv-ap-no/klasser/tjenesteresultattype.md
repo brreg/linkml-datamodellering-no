@@ -429,7 +429,7 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -439,7 +439,7 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsvno:OutputType |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Tjenesteresultattype |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Tjenesteresultattype |
 
 
 
@@ -456,7 +456,7 @@ URI: [cpsvno:OutputType](https://data.norge.no/vocabulary/cpsvno#OutputType)
 ```yaml
 name: Tjenesteresultattype
 description: Typen resultat som ei teneste produserer.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -514,7 +514,7 @@ class_uri: cpsvno:OutputType
 ```yaml
 name: Tjenesteresultattype
 description: Typen resultat som ei teneste produserer.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -555,7 +555,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Tjenesteresultattype
     domain_of:
@@ -584,7 +584,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Tjenesteresultattype
     domain_of:
@@ -606,7 +606,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Tjenesteresultattype
     domain_of:
@@ -628,7 +628,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Tjenesteresultattype
     domain_of:
@@ -649,7 +649,7 @@ attributes:
     description: Mogleg språk for tenesteresultatet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:possibleLanguage
     owner: Tjenesteresultattype
@@ -662,7 +662,7 @@ attributes:
     description: Datasett som beskriv ressursen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
     owner: Tjenesteresultattype
@@ -679,7 +679,7 @@ attributes:
     description: Liste eller spesifikasjon ressursen er del av.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isSpecifiedIn
     owner: Tjenesteresultattype
@@ -692,7 +692,7 @@ attributes:
     description: Hending tenesteresultatet kan skape.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: xkos:causes
     owner: Tjenesteresultattype
@@ -705,7 +705,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Tjenesteresultattype
     domain_of:

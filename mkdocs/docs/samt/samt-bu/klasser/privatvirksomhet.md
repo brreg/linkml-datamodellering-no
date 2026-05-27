@@ -166,6 +166,16 @@ URI: [samtbuskole:PrivatVirksomhet](https://example.no/ontology/skole#PrivatVirk
 
 
 
+## Examples
+### Example: PrivatVirksomhet-privat-1
+
+```yaml
+id: samtbuskole:privat-1
+organisasjonsnummer: '999888777'
+navn: Privat Skole AS
+
+```
+
 
 
 ## LinkML Source
@@ -222,7 +232,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: PrivatVirksomhet
     domain_of:

@@ -60,7 +60,7 @@ URI: [fair:katalogregistrering](https://data.norge.no/fair#katalogregistrering)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:katalogregistrering](https://data.norge.no/fair#katalogregistrering)
 ```yaml
 name: katalogregistrering
 description: Dokumenterer registrering i søkbar katalog (FAIR F4).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:katalogregistrering
 domain_of:

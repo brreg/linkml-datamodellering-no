@@ -32,7 +32,7 @@ URI: [xsd:gYear](http://www.w3.org/2001/XMLSchema#gYear)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -42,6 +42,6 @@ URI: [xsd:gYear](http://www.w3.org/2001/XMLSchema#gYear)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | xsd:gYear |
-| native | https://data.norge.no/linkml/common-ap-no/GYear |
+| native | https://data.norge.no/ap-no/common-ap-no/GYear |
 
 

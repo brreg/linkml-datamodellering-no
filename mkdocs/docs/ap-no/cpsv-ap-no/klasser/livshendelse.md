@@ -242,7 +242,7 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -252,7 +252,7 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:LifeEvent |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Livshendelse |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Livshendelse |
 
 
 
@@ -269,7 +269,7 @@ URI: [cv:LifeEvent](http://data.europa.eu/m8g/LifeEvent)
 ```yaml
 name: Livshendelse
 description: Ei livshending som kan utløyse behov for tenester (t.d. fødsel, ekteskap).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 is_a: Hendelse
 slots:
@@ -290,7 +290,7 @@ class_uri: cv:LifeEvent
 ```yaml
 name: Livshendelse
 description: Ei livshending som kan utløyse behov for tenester (t.d. fødsel, ekteskap).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 is_a: Hendelse
 slot_usage:
@@ -304,7 +304,7 @@ attributes:
     description: Tenester det kan oppstå behov for som følgje av hendinga.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:mayTriggerNeedFor
     owner: Livshendelse
@@ -316,7 +316,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Livshendelse
     domain_of:
@@ -345,7 +345,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Livshendelse
     domain_of:
@@ -367,7 +367,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Livshendelse
     domain_of:
@@ -389,7 +389,7 @@ attributes:
     description: Kontaktpunkt for tenesta eller organisasjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
     owner: Livshendelse
@@ -406,7 +406,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Livshendelse
     domain_of:
@@ -427,7 +427,7 @@ attributes:
     description: Offentlege tenester hendinga kan utløyse.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:mayTrigger
     owner: Livshendelse
@@ -440,7 +440,7 @@ attributes:
     description: Emne/tema tenesta handlar om.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:subject
     owner: Livshendelse
@@ -455,7 +455,7 @@ attributes:
     description: Datasett som beskriv ressursen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
     owner: Livshendelse
@@ -472,7 +472,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Livshendelse
     domain_of:

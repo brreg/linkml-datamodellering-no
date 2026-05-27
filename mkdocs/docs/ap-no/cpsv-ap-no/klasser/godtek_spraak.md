@@ -61,7 +61,7 @@ URI: [cccevno:acceptableLanguage](https://data.norge.no/vocabulary/cccevno#accep
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cccevno:acceptableLanguage](https://data.norge.no/vocabulary/cccevno#accep
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cccevno:acceptableLanguage |
-| native | https://data.norge.no/linkml/cpsv-ap-no/godtek_spraak |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/godtek_spraak |
 
 
 
@@ -82,7 +82,7 @@ URI: [cccevno:acceptableLanguage](https://data.norge.no/vocabulary/cccevno#accep
 ```yaml
 name: godtek_spraak
 description: Språk dokumentasjonstypen er akseptert i.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:acceptableLanguage
 domain_of:

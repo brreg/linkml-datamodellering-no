@@ -60,7 +60,7 @@ URI: [dcat:endDate](http://www.w3.org/ns/dcat#endDate)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:endDate](http://www.w3.org/ns/dcat#endDate)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:endDate |
-| native | https://data.norge.no/linkml/dcat-ap-no/sluttdato |
+| native | https://data.norge.no/ap-no/dcat-ap-no/sluttdato |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:endDate](http://www.w3.org/ns/dcat#endDate)
 ```yaml
 name: sluttdato
 description: Sluttdato for tidsrommet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:endDate
 domain_of:

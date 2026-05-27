@@ -61,7 +61,7 @@ URI: [dct:isPartOf](http://purl.org/dc/terms/isPartOf)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dct:isPartOf](http://purl.org/dc/terms/isPartOf)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:isPartOf |
-| native | https://data.norge.no/linkml/cpsv-ap-no/er_del_av |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/er_del_av |
 
 
 
@@ -82,7 +82,7 @@ URI: [dct:isPartOf](http://purl.org/dc/terms/isPartOf)
 ```yaml
 name: er_del_av
 description: Tenesta er del av ei anna teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: dct:isPartOf
 domain_of:

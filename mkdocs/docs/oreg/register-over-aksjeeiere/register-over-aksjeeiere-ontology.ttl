@@ -5,130 +5,130 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:AksjeeierContainer> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:AksjeeierContainer> a owl:Class ;
     rdfs:label "AksjeeierContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:utdelinger> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:utdelinger> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_aksjekapitaler> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_overkurser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeklasser> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeiere> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeinnskudder> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeklasser> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeselskaper> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjekapitaler> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeierrettigheter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeier> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeiere> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:utdelinger> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:eierskapstransaksjoner> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:utbytter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeoverdragelser> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_overkurser> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeinnskudder> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeselskaper> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:selskapshendelser> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:utbytter> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltAksjekapital> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_aksjekapitaler> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeierrettighet> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeierrettigheter> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjer> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeposter> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:vederlager> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjekapitaler> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_overkurser> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjer> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltOverkurs> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_overkurser> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter> ] ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeklasser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:selskapshendelser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeposter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:vederlager> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeklasser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:eierposisjoner> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:utdelinger> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:eierposisjoner> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:eierskapstransaksjoner> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeoverdragelser> ] ;
     skos:definition """Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
 """ ;
     skos:exactMatch schema1:Thing ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Tidspunkt> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Tidspunkt> a owl:Class ;
     rdfs:label "Tidspunkt" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:dato> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:dato> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:dato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:dato> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:dato> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:dato> ] ;
     skos:definition "Tidspunkt for ei hending." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:antall> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:antall> a owl:DatatypeProperty ;
     rdfs:label "antall" ;
     rdfs:range xsd:integer ;
     skos:definition "Numerisk verdi." ;
@@ -140,703 +140,703 @@
     skos:definition """LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
 """ .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeierrettighet> a owl:Class ;
     rdfs:label "Aksjeeierrettighet" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse> ] ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ] ;
     skos:definition "Rettigheiter knytt til aksjar, til dømes stemmerett." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltAksjekapital> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltAksjekapital> a owl:Class ;
     rdfs:label "InnbetaltAksjekapital" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ] ;
     skos:definition "Innbetalt aksjekapital." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:InnbetaltOverkurs> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:InnbetaltOverkurs> a owl:Class ;
     rdfs:label "InnbetaltOverkurs" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ] ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ] ;
     skos:definition "Innbetalt overkurs utover pålydande." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeier> a owl:Class ;
     rdfs:label "Aksjeeier" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_eierposisjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_eierposisjon> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_eierposisjon> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ] ;
     skos:definition "Person eller organisasjon som eig aksjar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeiere> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeiere> a owl:ObjectProperty ;
     rdfs:label "aksjeeiere" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeierrettigheter> a owl:ObjectProperty ;
     rdfs:label "aksjeeierrettigheter" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeinnskudder> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeinnskudder> a owl:ObjectProperty ;
     rdfs:label "aksjeinnskudder" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjekapitaler> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjekapitaler> a owl:ObjectProperty ;
     rdfs:label "aksjekapitaler" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeklasser> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeklasser> a owl:ObjectProperty ;
     rdfs:label "aksjeklasser" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeoverdragelser> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeoverdragelser> a owl:ObjectProperty ;
     rdfs:label "aksjeoverdragelser" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeposter> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeposter> a owl:ObjectProperty ;
     rdfs:label "aksjeposter" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjer> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjer> a owl:ObjectProperty ;
     rdfs:label "aksjer" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeselskaper> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeselskaper> a owl:ObjectProperty ;
     rdfs:label "aksjeselskaper" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:eierposisjoner> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:eierposisjoner> a owl:ObjectProperty ;
     rdfs:label "eierposisjoner" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:eierskapstransaksjoner> a owl:ObjectProperty ;
     rdfs:label "eierskapstransaksjoner" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_aksjekapitaler> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_aksjekapitaler> a owl:ObjectProperty ;
     rdfs:label "innbetalt_aksjekapitaler" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:innbetalt_overkurser> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:innbetalt_overkurser> a owl:ObjectProperty ;
     rdfs:label "innbetalt_overkurser" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:selskapshendelser> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:selskapshendelser> a owl:ObjectProperty ;
     rdfs:label "selskapshendelser" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:utbytter> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:utbytter> a owl:ObjectProperty ;
     rdfs:label "utbytter" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:utdelinger> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:utdelinger> a owl:ObjectProperty ;
     rdfs:label "utdelinger" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:vederlager> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:vederlager> a owl:ObjectProperty ;
     rdfs:label "vederlager" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital> a owl:Class ;
     rdfs:label "Aksjekapital" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ] ;
     skos:definition "Den registrerte aksjekapitalen i eit aksjeselskap." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost> a owl:Class ;
     rdfs:label "Aksjepost" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer> ] ;
     skos:definition "Samling aksjar eigd av ein aksjeeigar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap> a owl:Class ;
     rdfs:label "Aksjeselskap" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_aksjekapital> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_aksjekapital> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_aksjekapital> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ] ;
     skos:definition "Selskap som utsteder aksjar og har aksjekapital." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte> a owl:Class ;
     rdfs:label "Utbytte" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling> ],
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_utdeling> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tidspunkt> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tidspunkt> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_utdeling> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tidspunkt> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_utdeling> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon> ] ;
     skos:definition "Utbytte knytt til ein eigarposisjon." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling> a owl:Class ;
     rdfs:label "Utdeling" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:decimal ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:decimal ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ] ;
     skos:definition "Konkret utdeling av verdiar til aksjeeigarar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag> a owl:Class ;
     rdfs:label "Vederlag" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:belop> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:belop> ] ;
     skos:definition "Vederlag knytt til ei aksjeoverdraging." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:beskrivelse> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:beskrivelse> a owl:DatatypeProperty ;
     rdfs:label "beskrivelse" ;
     rdfs:range xsd:string ;
     skos:definition "Tekstleg forklaring av instansen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:dato> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:dato> a owl:DatatypeProperty ;
     rdfs:label "dato" ;
     rdfs:range xsd:date ;
     skos:definition "Kalenderdato." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:er_basert_paa_eierposisjon> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:er_basert_paa_eierposisjon> a owl:ObjectProperty ;
     rdfs:label "er_basert_paa_eierposisjon" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
     skos:definition "Utbytte knytt til eigarposisjonen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost> a owl:ObjectProperty ;
     rdfs:label "gjelder_aksjepost" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost> ;
     skos:definition "Aksjepost som inngår i eigarposisjonen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> a owl:DatatypeProperty ;
     rdfs:label "gjelder_innbetalt_aksjekapital" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd> ;
     rdfs:range xsd:decimal ;
     skos:definition "Innbetalt aksjekapital." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> a owl:DatatypeProperty ;
     rdfs:label "gjelder_innbetalt_overkurs" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd> ;
     rdfs:range xsd:decimal ;
     skos:definition "Innbetalt overkurs." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:har_aksjekapital> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:har_aksjekapital> a owl:ObjectProperty ;
     rdfs:label "har_aksjekapital" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjekapital> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjekapital> ;
     skos:definition "Aksjekapital som høyrer til selskapet." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:har_eierposisjon> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:har_eierposisjon> a owl:ObjectProperty ;
     rdfs:label "har_eierposisjon" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeier> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeier> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
     skos:definition "Eierposisjon aksjeeigaren har." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop> a owl:DatatypeProperty ;
     rdfs:label "har_palydende_belop" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje> ;
     rdfs:range xsd:decimal ;
     skos:definition "Pålydande verdi for aksja." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:har_utdeling> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:har_utdeling> a owl:ObjectProperty ;
     rdfs:label "har_utdeling" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Utbytte> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Utdeling> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Utbytte> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Utdeling> ;
     skos:definition "Utdeling knytt til utbyttet." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> a owl:ObjectProperty ;
     rdfs:label "kan_ha_aksjeinnskudd" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd> ;
     skos:definition "Aksjeinnskot i selskapshending." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag> a owl:ObjectProperty ;
     rdfs:label "kan_ha_vederlag" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag> ;
     skos:definition "Vederlag for aksjeoverdraging." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> a owl:ObjectProperty ;
     rdfs:label "kan_vaere_aksjeoverdragelse" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse> ;
     skos:definition "Aksjeoverdraging i transaksjonen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse> a owl:ObjectProperty ;
     rdfs:label "kan_vaere_selskapshendelse" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse> ;
     skos:definition "Selskapshendelse i transaksjonen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:paavirker_eierposisjon> a owl:ObjectProperty ;
     rdfs:label "paavirker_eierposisjon" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
     skos:definition "Eierskapstransaksjon knytt til eigarposisjonen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse> a owl:ObjectProperty ;
     rdfs:label "tilhorer_aksjeklasse" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse> ;
     skos:definition "Klassen aksja høyrer til." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje> a owl:ObjectProperty ;
     rdfs:label "utsteder_aksje" ;
-    rdfs:domain <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeselskap> ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> ;
+    rdfs:domain <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeselskap> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje> ;
     skos:definition "Aksje utstedt av selskapet" ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse> a owl:Class ;
     rdfs:label "Aksjeoverdragelse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Vederlag> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_vederlag> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Vederlag> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_vederlag> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ] ;
     skos:definition "Overdraging av aksjar mellom partar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Eierskapstransaksjon> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Eierskapstransaksjon> a owl:Class ;
     rdfs:label "Eierskapstransaksjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:paavirker_eierposisjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:paavirker_eierposisjon> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tidspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeoverdragelse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tidspunkt> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_selskapshendelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:paavirker_eierposisjon> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeoverdragelse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_vaere_aksjeoverdragelse> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tidspunkt> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:paavirker_eierposisjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_vaere_selskapshendelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ] ;
     skos:definition "Transaksjon som påverkar eigarskap i selskapet." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Selskapshendelse> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Selskapshendelse> a owl:Class ;
     rdfs:label "Selskapshendelse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:kan_ha_aksjeinnskudd> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ] ;
     skos:definition "Hending som påverkar selskapet sitt eigarskap eller kapital." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksje> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksje> a owl:Class ;
     rdfs:label "Aksje" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:tilhorer_aksjeklasse> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:tilhorer_aksjeklasse> ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop> ] ;
     skos:definition "Ei enkelt aksje utstedt av eit aksjeselskap." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd> a owl:Class ;
     rdfs:label "Aksjeinnskudd" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_aksjekapital> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:decimal ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_innbetalt_overkurs> ] ;
     skos:definition "Innskot knytt til aksjar i samband med selskapshending." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse> a owl:Class ;
     rdfs:label "Aksjeklasse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:navn> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:navn> ] ;
     skos:definition "Klasse aksjar høyrer til, med eigne rettigheiter." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> a owl:ObjectProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjer_i_aksjeklasse> a owl:ObjectProperty ;
     rdfs:label "gjelder_aksjer_i_aksjeklasse" ;
-    rdfs:range <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeklasse> ;
+    rdfs:range <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeklasse> ;
     skos:definition "Rettigheiter knytt til aksjeklassen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:har_antall_aksjer> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:har_antall_aksjer> a owl:DatatypeProperty ;
     rdfs:label "har_antall_aksjer" ;
     rdfs:range xsd:integer ;
     skos:definition "Tal aksjar." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:tidspunkt> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:tidspunkt> a owl:DatatypeProperty ;
     rdfs:label "tidspunkt" ;
     rdfs:range xsd:date ;
     skos:definition "Tidspunkt for utbytte/eierskapstransaksjon." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon> a owl:Class ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon> a owl:Class ;
     rdfs:label "Eierposisjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost> ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost> ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> ],
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost> ] ;
+            owl:onProperty <https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost> ] ;
     skos:definition "Eierens samla posisjon i eit selskap." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:navn> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:navn> a owl:DatatypeProperty ;
     rdfs:label "navn" ;
     rdfs:range xsd:string ;
     skos:definition "Namn på instansen." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:belop> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:belop> a owl:DatatypeProperty ;
     rdfs:label "belop" ;
     rdfs:range xsd:decimal ;
     skos:definition "Monetært beløp." ;
     skos:inScheme <https://example.no/ontology/aksje-eierskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/:identifikator> a owl:DatatypeProperty ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/:identifikator> a owl:DatatypeProperty ;
     rdfs:label "identifikator" ;
     rdfs:range xsd:anyURI ;
     skos:definition "Global identifikator for instansen." ;

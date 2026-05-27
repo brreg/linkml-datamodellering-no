@@ -1,8 +1,8 @@
 # Auto generated from fair-metadata-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-26T09:11:30
+# Generation date: 2026-05-27T14:51:27
 # Schema: fair-metadata
 #
-# id: https://data.norge.no/linkml/fair-metadata
+# id: https://data.norge.no/fair/fair-metadata
 # description: FAIR metadata-overbygning som utfyllar norske applikasjonsprofilar for å sikre maskin-aksjonerbar FAIR-konformitet i tråd med FAIR-prinsippa (Findable, Accessible, Interoperable, Reusable).
 #
 # license: https://creativecommons.org/publicdomain/zero/1.0/

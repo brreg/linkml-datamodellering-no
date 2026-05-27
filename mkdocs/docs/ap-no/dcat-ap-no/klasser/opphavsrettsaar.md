@@ -60,7 +60,7 @@ URI: [odrs:copyrightYear](http://schema.theodi.org/odrs#copyrightYear)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [odrs:copyrightYear](http://schema.theodi.org/odrs#copyrightYear)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:copyrightYear |
-| native | https://data.norge.no/linkml/dcat-ap-no/opphavsrettsaar |
+| native | https://data.norge.no/ap-no/dcat-ap-no/opphavsrettsaar |
 
 
 
@@ -81,7 +81,7 @@ URI: [odrs:copyrightYear](http://schema.theodi.org/odrs#copyrightYear)
 ```yaml
 name: opphavsrettsaar
 description: Årstal for opphavsrett.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrs:copyrightYear
 domain_of:

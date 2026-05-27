@@ -9,7 +9,7 @@ _Eierens samla posisjon i eit selskap._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon](https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon](https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon)
 
 
 
@@ -156,8 +156,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon](https
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Eierposisjon |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Eierposisjon |
 
 
 

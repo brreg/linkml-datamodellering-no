@@ -273,7 +273,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -283,7 +283,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:Cost |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Gebyr |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Gebyr |
 
 
 
@@ -300,7 +300,7 @@ URI: [cv:Cost](http://data.europa.eu/m8g/Cost)
 ```yaml
 name: Gebyr
 description: Eit gebyr knytt til ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -336,7 +336,7 @@ class_uri: cv:Cost
 ```yaml
 name: Gebyr
 description: Eit gebyr knytt til ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   beskrivelse:
@@ -359,7 +359,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Gebyr
     domain_of:
@@ -388,7 +388,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Gebyr
     domain_of:
@@ -409,7 +409,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Gebyr
     domain_of:
@@ -430,7 +430,7 @@ attributes:
     description: Verdien av gebyret.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:value
     owner: Gebyr
@@ -442,7 +442,7 @@ attributes:
     description: Valuta (cv:currency).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: cv:currency
     owner: Gebyr
     domain_of:

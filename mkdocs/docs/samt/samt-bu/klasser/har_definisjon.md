@@ -63,7 +63,7 @@ URI: [skos:definition](http://www.w3.org/2004/02/skos/core#definition)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -73,7 +73,7 @@ URI: [skos:definition](http://www.w3.org/2004/02/skos/core#definition)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:definition |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_definisjon |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_definisjon |
 
 
 
@@ -84,7 +84,7 @@ URI: [skos:definition](http://www.w3.org/2004/02/skos/core#definition)
 ```yaml
 name: har_definisjon
 description: Definisjon av dimensjonen eller målet.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: skos:definition
 domain_of:
 - Kvalitetsdimensjon

@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner](https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:eierskapstransaksjoner](https://data.norge.no/oreg/register-over-aksjeeiere/:eierskapstransaksjoner)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjo
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:eierskapstransaksjoner |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:eierskapstransaksjoner |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:eierskapstransaksjoner |
 
 
 

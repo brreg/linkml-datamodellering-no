@@ -9,7 +9,7 @@ _Pålydande verdi for aksja._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop](https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop](https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:har_palydende_belop |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:har_palydende_belop |
 
 
 

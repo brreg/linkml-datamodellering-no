@@ -348,7 +348,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -358,7 +358,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:RightsStatement |
-| native | https://data.norge.no/linkml/dcat-ap-no/Rettighetserklaring |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Rettighetserklaring |
 
 
 
@@ -375,7 +375,7 @@ URI: [dct:RightsStatement](http://purl.org/dc/terms/RightsStatement)
 ```yaml
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slots:
 - id
@@ -398,13 +398,13 @@ class_uri: dct:RightsStatement
 ```yaml
 name: Rettighetserklaring
 description: Ei erklæring om rettar til ein ressurs (ODRS).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Rettighetserklaring
     domain_of:
@@ -435,7 +435,7 @@ attributes:
   anvendelsesretningslinjer:
     name: anvendelsesretningslinjer
     description: Retningslinjer for gjenbruk av data.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:reuserGuidelines
     owner: Rettighetserklaring
@@ -445,7 +445,7 @@ attributes:
   jurisdiksjon:
     name: jurisdiksjon
     description: Jurisdiksjon for rettigheitserklæringa.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:jurisdiction
     owner: Rettighetserklaring
@@ -455,7 +455,7 @@ attributes:
   krediteringstekst:
     name: krediteringstekst
     description: Tekst som skal brukast ved kreditering.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:attributionText
     owner: Rettighetserklaring
@@ -465,7 +465,7 @@ attributes:
   krediteringsurl:
     name: krediteringsurl
     description: URL for kreditering av rettshavar.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:attributionURL
     owner: Rettighetserklaring
@@ -475,7 +475,7 @@ attributes:
   opphavsrettserklaring:
     name: opphavsrettserklaring
     description: Opphavsrettserklæring.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightStatement
     owner: Rettighetserklaring
@@ -485,7 +485,7 @@ attributes:
   opphavsrettsinnehaver:
     name: opphavsrettsinnehaver
     description: Namn på opphavsrettsinnehavar.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightHolder
     owner: Rettighetserklaring
@@ -495,7 +495,7 @@ attributes:
   opphavsrettsnotis:
     name: opphavsrettsnotis
     description: Opphavsrettsnotis.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightNotice
     owner: Rettighetserklaring
@@ -505,7 +505,7 @@ attributes:
   opphavsrettsaar:
     name: opphavsrettsaar
     description: Årstal for opphavsrett.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrs:copyrightYear
     owner: Rettighetserklaring

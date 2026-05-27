@@ -9,7 +9,7 @@ _Samling aksjar eigd av ein aksjeeigar._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost)
 
 
 
@@ -181,8 +181,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost](https://
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjepost |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjepost |
 
 
 

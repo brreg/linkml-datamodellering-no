@@ -278,7 +278,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -288,7 +288,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:Metric |
-| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmaal |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Kvalitetsmaal |
 
 
 
@@ -305,7 +305,7 @@ URI: [dqv:Metric](http://www.w3.org/ns/dqv#Metric)
 ```yaml
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
 - er_i_kvalitetsdeldimensjon
@@ -341,7 +341,7 @@ class_uri: dqv:Metric
 ```yaml
 name: Kvalitetsmaal
 description: Eit kvalitetsmål som operasjonaliserer ein kvalitetsdeldimensjon.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   er_i_kvalitetsdeldimensjon:
     name: er_i_kvalitetsdeldimensjon
@@ -364,7 +364,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kvalitetsmaal
     domain_of:
@@ -397,7 +397,7 @@ attributes:
     description: Kvalitetsdeldimensjonen dette målet operasjonaliserer.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqvno:inSubDimension
     owner: Kvalitetsmaal
     domain_of:
@@ -409,7 +409,7 @@ attributes:
     description: Forventa XSD-datatype for verdien av ei kvalitetsmåling.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqv:expectedDataType
     owner: Kvalitetsmaal
     domain_of:
@@ -420,7 +420,7 @@ attributes:
     description: Føretrekt term/namn for dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: skos:prefLabel
     owner: Kvalitetsmaal
     domain_of:
@@ -433,7 +433,7 @@ attributes:
     description: Definisjon av dimensjonen eller målet.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: skos:definition
     owner: Kvalitetsmaal
     domain_of:

@@ -62,7 +62,7 @@ URI: [cv:hasInputType](http://data.europa.eu/m8g/hasInputType)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:hasInputType](http://data.europa.eu/m8g/hasInputType)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:hasInputType |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_dokumentasjonstype |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_dokumentasjonstype |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:hasInputType](http://data.europa.eu/m8g/hasInputType)
 ```yaml
 name: har_dokumentasjonstype
 description: Dokumentasjon som krevst for tenesta.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:hasInputType
 domain_of:

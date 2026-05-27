@@ -244,7 +244,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -254,7 +254,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | oa:TextualBody |
-| native | https://data.norge.no/linkml/dqv-ap-no/Tekstdel |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Tekstdel |
 
 
 
@@ -271,7 +271,7 @@ URI: [oa:TextualBody](http://www.w3.org/ns/oa#TextualBody)
 ```yaml
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
 - har_verdi_tekstdel
@@ -302,7 +302,7 @@ class_uri: oa:TextualBody
 ```yaml
 name: Tekstdel
 description: Ein tekstleg del av ein kvalitetsmerknad (Web Annotation).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   har_verdi_tekstdel:
     name: har_verdi_tekstdel
@@ -321,7 +321,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Tekstdel
     domain_of:
@@ -354,7 +354,7 @@ attributes:
     description: Tekstinnhaldet i tekstdelen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: rdfs:value
     owner: Tekstdel
     domain_of:
@@ -366,7 +366,7 @@ attributes:
     description: Filformat eller medietype (dct:format).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:format
     owner: Tekstdel
     domain_of:
@@ -379,7 +379,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: Tekstdel
     domain_of:

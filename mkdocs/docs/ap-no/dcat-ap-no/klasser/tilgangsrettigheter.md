@@ -62,7 +62,7 @@ URI: [dct:accessRights](http://purl.org/dc/terms/accessRights)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [dct:accessRights](http://purl.org/dc/terms/accessRights)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:accessRights |
-| native | https://data.norge.no/linkml/dcat-ap-no/tilgangsrettigheter |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tilgangsrettigheter |
 
 
 
@@ -84,7 +84,7 @@ URI: [dct:accessRights](http://purl.org/dc/terms/accessRights)
 name: tilgangsrettigheter
 description: Egenskapen brukes til å angi om det er allmenn tilgang, betinget tilgang
   eller ikke-allmenn tilgang til datasettet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:accessRights
 domain_of:

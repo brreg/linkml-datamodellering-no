@@ -60,7 +60,7 @@ URI: [fair:registreringsdato](https://data.norge.no/fair#registreringsdato)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:registreringsdato](https://data.norge.no/fair#registreringsdato)
 ```yaml
 name: registreringsdato
 description: Dato for katalogregistrering (FAIR F4).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:registreringsdato
 domain_of:

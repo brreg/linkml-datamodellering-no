@@ -61,7 +61,7 @@ URI: [vcard:category](http://www.w3.org/2006/vcard/ns#category)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [vcard:category](http://www.w3.org/2006/vcard/ns#category)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:category |
-| native | https://data.norge.no/linkml/cpsv-ap-no/kategori |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/kategori |
 
 
 
@@ -82,7 +82,7 @@ URI: [vcard:category](http://www.w3.org/2006/vcard/ns#category)
 ```yaml
 name: kategori
 description: Kategori for kontaktpunktet.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: vcard:category
 domain_of:

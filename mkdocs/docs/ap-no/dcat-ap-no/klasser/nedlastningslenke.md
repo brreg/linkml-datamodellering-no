@@ -61,7 +61,7 @@ URI: [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:downloadURL |
-| native | https://data.norge.no/linkml/dcat-ap-no/nedlastningslenke |
+| native | https://data.norge.no/ap-no/dcat-ap-no/nedlastningslenke |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:downloadURL](http://www.w3.org/ns/dcat#downloadURL)
 ```yaml
 name: nedlastningslenke
 description: Direkte nedlastingslenke for distribusjonsfila.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:downloadURL
 domain_of:

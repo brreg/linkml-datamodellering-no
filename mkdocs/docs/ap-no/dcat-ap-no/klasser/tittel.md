@@ -68,7 +68,7 @@ URI: [dct:title](http://purl.org/dc/terms/title)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -78,7 +78,7 @@ URI: [dct:title](http://purl.org/dc/terms/title)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:title |
-| native | https://data.norge.no/linkml/common-ap-no/tittel |
+| native | https://data.norge.no/ap-no/common-ap-no/tittel |
 
 
 
@@ -89,7 +89,7 @@ URI: [dct:title](http://purl.org/dc/terms/title)
 ```yaml
 name: tittel
 description: Namn/tittel på ressursen (dct:title).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:title
 domain_of:
 - Standard

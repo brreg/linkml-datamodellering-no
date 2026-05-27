@@ -4,7 +4,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/register-over-aksjeeiere> a linkml:SchemaDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/register-over-aksjeeiere> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Aksje- og eigarskapsmodell" ;
     sh:declare [ sh:namespace "http://schema.org/"^^xsd:anyURI ;
@@ -13,160 +13,160 @@
             sh:prefix "linkml" ],
         [ sh:namespace "https://example.no/ontology/aksje#"^^xsd:anyURI ;
             sh:prefix "aksje" ] ;
-    linkml:classes <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag> ;
-    linkml:default_prefix "https://data.norge.no/linkml/register-over-aksjeeiere/" ;
-    linkml:default_range <https://data.norge.no/linkml/register-over-aksjeeiere/string> ;
+    linkml:classes <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag> ;
+    linkml:default_prefix "https://data.norge.no/oreg/register-over-aksjeeiere/" ;
+    linkml:default_range <https://data.norge.no/oreg/register-over-aksjeeiere/string> ;
     linkml:description """LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
 """ ;
-    linkml:generation_date "2026-05-24T12:08:03"^^xsd:dateTime ;
+    linkml:generation_date "2026-05-27T14:52:15"^^xsd:dateTime ;
     linkml:id "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeeiere>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeeierrettigheter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeinnskudder>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjekapitaler>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeklasser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeoverdragelser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeposter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeselskaper>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__eierposisjoner>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__eierskapstransaksjoner>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__innbetalt_aksjekapitaler>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__innbetalt_overkurser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__selskapshendelser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__utbytter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__utdelinger>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__vederlager>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/antall>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/belop>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/beskrivelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/dato>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/er_basert_paa_eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjepost>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_overkurs>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/har_aksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/har_antall_aksjer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/har_eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/har_palydende_belop>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/har_utdeling>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_aksjeinnskudd>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_vederlag>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_selskapshendelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/navn>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/paavirker_eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/tidspunkt>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/tilhorer_aksjeklasse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/utsteder_aksje> ;
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeeiere>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeeierrettigheter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeinnskudder>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjekapitaler>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeklasser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeoverdragelser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeposter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeselskaper>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__eierposisjoner>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__eierskapstransaksjoner>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__innbetalt_aksjekapitaler>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__innbetalt_overkurser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__selskapshendelser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__utbytter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__utdelinger>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__vederlager>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/antall>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/belop>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/beskrivelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/dato>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/er_basert_paa_eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjepost>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_overkurs>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/har_aksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/har_antall_aksjer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/har_eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/har_palydende_belop>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/har_utdeling>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_aksjeinnskudd>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_vederlag>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_selskapshendelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/navn>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/paavirker_eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/tidspunkt>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/tilhorer_aksjeklasse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/utsteder_aksje> ;
     linkml:source_file "register-over-aksjeeiere-schema.yaml" ;
-    linkml:source_file_date "2026-05-23T09:22:57"^^xsd:dateTime ;
-    linkml:source_file_size 9099 ;
-    linkml:types <https://data.norge.no/linkml/register-over-aksjeeiere/boolean>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/curie>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/date>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/date_or_datetime>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/datetime>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/decimal>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/double>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/float>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/integer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/jsonpath>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/jsonpointer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/ncname>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/nodeidentifier>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/objectidentifier>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/sparqlpath>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/string>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/time>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/uri>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/uriorcurie> .
+    linkml:source_file_date "2026-05-27T14:09:13"^^xsd:dateTime ;
+    linkml:source_file_size 9097 ;
+    linkml:types <https://data.norge.no/oreg/register-over-aksjeeiere/boolean>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/curie>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/date>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/date_or_datetime>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/datetime>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/decimal>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/double>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/float>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/integer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/jsonpath>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/jsonpointer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/ncname>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/nodeidentifier>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/objectidentifier>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/sparqlpath>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/string>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/time>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/uri>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/uriorcurie> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeiere> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeiere> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierrettigheter> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierrettigheter> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeinnskudder> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeinnskudder> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjekapitaler> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjekapitaler> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeklasser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeklasser> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeoverdragelser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeoverdragelser> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeposter> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeposter> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjer> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjer> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeselskaper> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeselskaper> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/antall> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/antall> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/antall"^^xsd:anyURI ;
     linkml:description "Numerisk verdi." ;
     linkml:inlined true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/integer> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/antall"^^xsd:anyURI .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/integer> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/antall"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/boolean> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/boolean> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"boolean\"." ;
     skos:exactMatch "schema:Boolean"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -177,7 +177,7 @@
     linkml:repr "bool" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#boolean"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/curie> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/curie> a linkml:TypeDefinition ;
     dcterms:conformsTo "https://www.w3.org/TR/curie/" ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"curie\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -190,7 +190,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/date_or_datetime> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/date_or_datetime> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date_or_datetime\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "str" ;
@@ -200,7 +200,7 @@
     linkml:repr "str" ;
     linkml:uri "https://w3id.org/linkml/DateOrDatetime"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/datetime> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/datetime> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"datetime\"." ;
     skos:exactMatch "schema:DateTime"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -211,7 +211,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#dateTime"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/double> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/double> a linkml:TypeDefinition ;
     skos:closeMatch "schema:Float"^^xsd:anyURI ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"double\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -221,19 +221,19 @@
     linkml:imported_from "linkml:types" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#double"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/eierposisjoner> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/eierposisjoner> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/eierskapstransaksjoner> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/eierskapstransaksjoner> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/float> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/float> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"float\"." ;
     skos:exactMatch "schema:Float"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -243,19 +243,19 @@
     linkml:imported_from "linkml:types" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#float"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/innbetalt_aksjekapitaler> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/innbetalt_aksjekapitaler> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/innbetalt_overkurser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/innbetalt_overkurser> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/jsonpath> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/jsonpath> a linkml:TypeDefinition ;
     dcterms:conformsTo "https://www.ietf.org/archive/id/draft-goessner-dispatch-jsonpath-00.html" ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpath\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -266,7 +266,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/jsonpointer> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/jsonpointer> a linkml:TypeDefinition ;
     dcterms:conformsTo "https://datatracker.ietf.org/doc/html/rfc6901" ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"jsonpointer\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -277,7 +277,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/ncname> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/ncname> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"ncname\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "NCName" ;
@@ -287,7 +287,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/nodeidentifier> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/nodeidentifier> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"nodeidentifier\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "NodeIdentifier" ;
@@ -297,7 +297,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/ns/shex#nonLiteral"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/objectidentifier> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/objectidentifier> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"objectidentifier\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     skos:note "Used for inheritance and type checking" ;
@@ -308,13 +308,13 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/ns/shex#iri"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/selskapshendelser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/selskapshendelser> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/sparqlpath> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/sparqlpath> a linkml:TypeDefinition ;
     dcterms:conformsTo "https://www.w3.org/TR/sparql11-query/#propertypaths" ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"sparqlpath\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -325,7 +325,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/time> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/time> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"time\".",
         "URI is dateTime because OWL reasoners do not work with straight date or time" ;
     skos:exactMatch "schema:Time"^^xsd:anyURI ;
@@ -337,7 +337,7 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#time"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/uri> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/uri> a linkml:TypeDefinition ;
     dcterms:conformsTo "https://www.ietf.org/rfc/rfc3987.txt" ;
     skos:closeMatch "schema:URL"^^xsd:anyURI ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uri\"." ;
@@ -350,373 +350,373 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/utbytter> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/utbytter> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/utdelinger> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/utdelinger> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/vederlager> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/vederlager> a linkml:SlotDefinition ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag> .
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeeiere> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeeiere> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjeeiere" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeiere"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeiere"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeeierrettigheter> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeeierrettigheter> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjeeierrettigheter" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierrettigheter"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierrettigheter"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeinnskudder> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeinnskudder> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjeinnskudder" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjeinnskudder"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjeinnskudder"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjekapitaler> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjekapitaler> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjekapitaler" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjekapitaler"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjekapitaler"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeklasser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeklasser> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjeklasser" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjeklasser"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjeklasser"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeoverdragelser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeoverdragelser> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjeoverdragelser" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjeoverdragelser"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjeoverdragelser"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeposter> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeposter> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjeposter" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjeposter"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjeposter"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjer> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjer> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjer" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjer"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjer"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeselskaper> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeselskaper> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "aksjeselskaper" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/aksjeselskaper"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/aksjeselskaper"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__eierposisjoner> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__eierposisjoner> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "eierposisjoner" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/eierposisjoner"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/eierposisjoner"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__eierskapstransaksjoner> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__eierskapstransaksjoner> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "eierskapstransaksjoner" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/eierskapstransaksjoner"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/eierskapstransaksjoner"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__innbetalt_aksjekapitaler> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__innbetalt_aksjekapitaler> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "innbetalt_aksjekapitaler" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/innbetalt_aksjekapitaler"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/innbetalt_aksjekapitaler"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__innbetalt_overkurser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__innbetalt_overkurser> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "innbetalt_overkurser" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/innbetalt_overkurser"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/innbetalt_overkurser"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__selskapshendelser> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__selskapshendelser> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "selskapshendelser" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/selskapshendelser"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/selskapshendelser"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__utbytter> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__utbytter> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "utbytter" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/utbytter"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/utbytter"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__utdelinger> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__utdelinger> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "utdelinger" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/utdelinger"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/utdelinger"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__vederlager> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__vederlager> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:prefLabel "vederlager" ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
     linkml:inlined true ;
     linkml:inlined_as_list true ;
     linkml:multivalued true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/vederlager"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/vederlager"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/beskrivelse> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/beskrivelse> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/beskrivelse"^^xsd:anyURI ;
     linkml:description "Tekstleg forklaring av instansen." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet> ;
     linkml:inlined true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/string> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/beskrivelse"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/string> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/beskrivelse"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/dato> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/dato> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/dato"^^xsd:anyURI ;
     linkml:description "Kalenderdato." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt> ;
     linkml:inlined true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/date> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/dato"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/date> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/dato"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/er_basert_paa_eierposisjon> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/er_basert_paa_eierposisjon> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/er_basert_paa_eierposisjon"^^xsd:anyURI ;
     linkml:description "Utbytte knytt til eigarposisjonen." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/er_basert_paa_eierposisjon"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/er_basert_paa_eierposisjon"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjepost> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjepost> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/gjelder_aksjepost"^^xsd:anyURI ;
     linkml:description "Aksjepost som inngår i eigarposisjonen." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjepost"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjepost"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/gjelder_innbetalt_aksjekapital"^^xsd:anyURI ;
     linkml:description "Innbetalt aksjekapital." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/decimal> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/decimal> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_overkurs> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_overkurs> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/gjelder_innbetalt_overkurs"^^xsd:anyURI ;
     linkml:description "Innbetalt overkurs." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/decimal> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_overkurs"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/decimal> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_overkurs"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/har_aksjekapital> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/har_aksjekapital> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/har_aksjekapital"^^xsd:anyURI ;
     linkml:description "Aksjekapital som høyrer til selskapet." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/har_aksjekapital"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/har_aksjekapital"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/har_eierposisjon> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/har_eierposisjon> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/har_eierposisjon"^^xsd:anyURI ;
     linkml:description "Eierposisjon aksjeeigaren har." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/har_eierposisjon"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/har_eierposisjon"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/har_palydende_belop> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/har_palydende_belop> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/har_palydende_belop"^^xsd:anyURI ;
     linkml:description "Pålydande verdi for aksja." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
     linkml:inlined true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/decimal> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/har_palydende_belop"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/decimal> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/har_palydende_belop"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/har_utdeling> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/har_utdeling> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/har_utdeling"^^xsd:anyURI ;
     linkml:description "Utdeling knytt til utbyttet." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/har_utdeling"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/har_utdeling"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_aksjeinnskudd> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_aksjeinnskudd> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/kan_ha_aksjeinnskudd"^^xsd:anyURI ;
     linkml:description "Aksjeinnskot i selskapshending." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_aksjeinnskudd"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_aksjeinnskudd"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_vederlag> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_vederlag> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/kan_ha_vederlag"^^xsd:anyURI ;
     linkml:description "Vederlag for aksjeoverdraging." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_vederlag"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_vederlag"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/kan_vaere_aksjeoverdragelse"^^xsd:anyURI ;
     linkml:description "Aksjeoverdraging i transaksjonen." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_selskapshendelse> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_selskapshendelse> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/kan_vaere_selskapshendelse"^^xsd:anyURI ;
     linkml:description "Selskapshendelse i transaksjonen." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_selskapshendelse"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_selskapshendelse"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/paavirker_eierposisjon> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/paavirker_eierposisjon> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/paavirker_eierposisjon"^^xsd:anyURI ;
     linkml:description "Eierskapstransaksjon knytt til eigarposisjonen." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/paavirker_eierposisjon"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/paavirker_eierposisjon"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/tilhorer_aksjeklasse> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/tilhorer_aksjeklasse> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/tilhorer_aksjeklasse"^^xsd:anyURI ;
     linkml:description "Klassen aksja høyrer til." ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/tilhorer_aksjeklasse"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/tilhorer_aksjeklasse"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/uriorcurie> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/uriorcurie> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"uriorcurie\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
     linkml:base "URIorCURIE" ;
@@ -726,25 +726,25 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#anyURI"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/utsteder_aksje> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/utsteder_aksje> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/utsteder_aksje"^^xsd:anyURI ;
     linkml:description "Aksje utstedt av selskapet" ;
-    linkml:domain <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/utsteder_aksje"^^xsd:anyURI .
+    linkml:domain <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/utsteder_aksje"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Tidspunkt"^^xsd:anyURI ;
     linkml:description "Tidspunkt for ei hending." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/dato> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/dato> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/date> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/date> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"date\".",
         "URI is dateTime because OWL reasoners don't work with straight date or time" ;
     skos:exactMatch "schema:Date"^^xsd:anyURI ;
@@ -756,28 +756,28 @@
     linkml:repr "str" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#date"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/gjelder_aksjer_i_aksjeklasse"^^xsd:anyURI ;
     linkml:description "Rettigheiter knytt til aksjeklassen." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse"^^xsd:anyURI .
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/har_antall_aksjer> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/har_antall_aksjer> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/har_antall_aksjer"^^xsd:anyURI ;
     linkml:description "Tal aksjar." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> ;
     linkml:inlined true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/integer> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/har_antall_aksjer"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/integer> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/har_antall_aksjer"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/integer> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/integer> a linkml:TypeDefinition ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"integer\"." ;
     skos:exactMatch "schema:Integer"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -787,38 +787,38 @@
     linkml:imported_from "linkml:types" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#integer"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/tidspunkt> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/tidspunkt> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/tidspunkt"^^xsd:anyURI ;
     linkml:description "Tidspunkt for utbytte/eierskapstransaksjon." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> ;
     linkml:inlined true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/date> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/tidspunkt"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/date> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/tidspunkt"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/InnbetaltAksjekapital"^^xsd:anyURI ;
     linkml:description "Innbetalt aksjekapital." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/belop> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/belop> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/navn> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/navn> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/navn"^^xsd:anyURI ;
     linkml:description "Namn på instansen." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> ;
     linkml:inlined true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/string> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/navn"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/string> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/navn"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/string> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/string> a linkml:TypeDefinition ;
     skos:editorialNote "In RDF serializations, a slot with range of string is treated as a literal or type xsd:string. If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"string\"." ;
     skos:exactMatch "schema:Text"^^xsd:anyURI ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -828,28 +828,28 @@
     linkml:imported_from "linkml:types" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#string"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/InnbetaltOverkurs"^^xsd:anyURI ;
     linkml:description "Innbetalt overkurs utover pålydande." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/belop> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/belop> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/belop> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/belop> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/belop"^^xsd:anyURI ;
     linkml:description "Monetært beløp." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag> ;
     linkml:inlined true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/decimal> ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/belop"^^xsd:anyURI .
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/decimal> ;
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/belop"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/decimal> a linkml:TypeDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/decimal> a linkml:TypeDefinition ;
     skos:broadMatch "schema:Number"^^xsd:anyURI ;
     skos:editorialNote "If you are authoring schemas in LinkML YAML, the type is referenced with the lower case \"decimal\"." ;
     skos:inScheme "https://w3id.org/linkml/types"^^xsd:anyURI ;
@@ -859,219 +859,219 @@
     linkml:imported_from "linkml:types" ;
     linkml:uri "http://www.w3.org/2001/XMLSchema#decimal"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjekapital"^^xsd:anyURI ;
     linkml:description "Den registrerte aksjekapitalen i eit aksjeselskap." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/har_antall_aksjer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/har_antall_aksjer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Utdeling"^^xsd:anyURI ;
     linkml:description "Konkret utdeling av verdiar til aksjeeigarar." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/belop>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/belop>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Vederlag"^^xsd:anyURI ;
     linkml:description "Vederlag knytt til ei aksjeoverdraging." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/belop>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/belop>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjeeierrettighet"^^xsd:anyURI ;
     linkml:description "Rettigheiter knytt til aksjar, til dømes stemmerett." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/beskrivelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/beskrivelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjeklasse"^^xsd:anyURI ;
     linkml:description "Klasse aksjar høyrer til, med eigne rettigheiter." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/navn> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/navn> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjeoverdragelse"^^xsd:anyURI ;
     linkml:description "Overdraging av aksjar mellom partar." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_vederlag> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_vederlag> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Selskapshendelse"^^xsd:anyURI ;
     linkml:description "Hending som påverkar selskapet sitt eigarskap eller kapital." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_ha_aksjeinnskudd> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_ha_aksjeinnskudd> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjeeier"^^xsd:anyURI ;
     linkml:description "Person eller organisasjon som eig aksjar." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/har_eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/navn> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/har_eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/navn> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjepost"^^xsd:anyURI ;
     linkml:description "Samling aksjar eigd av ein aksjeeigar." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/har_antall_aksjer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjer_i_aksjeklasse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/har_antall_aksjer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Eierposisjon"^^xsd:anyURI ;
     linkml:description "Eierens samla posisjon i eit selskap." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_aksjepost>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_aksjepost>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksje> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksje> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksje"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksje"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksje"^^xsd:anyURI ;
     linkml:description "Ei enkelt aksje utstedt av eit aksjeselskap." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/har_palydende_belop>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/tilhorer_aksjeklasse> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/har_palydende_belop>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/tilhorer_aksjeklasse> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjeselskap"^^xsd:anyURI ;
     linkml:description "Selskap som utsteder aksjar og har aksjekapital." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/har_aksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/navn>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/utsteder_aksje> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/har_aksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/navn>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/utsteder_aksje> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Utbytte"^^xsd:anyURI ;
     linkml:description "Utbytte knytt til ein eigarposisjon." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/er_basert_paa_eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/har_utdeling>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/tidspunkt> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/er_basert_paa_eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/har_utdeling>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/tidspunkt> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Aksjeinnskudd"^^xsd:anyURI ;
     linkml:description "Innskot knytt til aksjar i samband med selskapshending." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/gjelder_innbetalt_overkurs>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_aksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/gjelder_innbetalt_overkurs>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
-    linkml:class_uri "https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon"^^xsd:anyURI ;
+    linkml:class_uri "https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/Eierskapstransaksjon"^^xsd:anyURI ;
     linkml:description "Transaksjon som påverkar eigarskap i selskapet." ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/identifikator>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/kan_vaere_selskapshendelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/paavirker_eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/tidspunkt> .
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/identifikator>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_aksjeoverdragelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/kan_vaere_selskapshendelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/paavirker_eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/tidspunkt> .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/identifikator> a linkml:SlotDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/identifikator> a linkml:SlotDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/identifikator"^^xsd:anyURI ;
     linkml:description "Global identifikator for instansen." ;
-    linkml:domain_of <https://data.norge.no/linkml/register-over-aksjeeiere/Aksje>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag> ;
+    linkml:domain_of <https://data.norge.no/oreg/register-over-aksjeeiere/Aksje>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag> ;
     linkml:identifier true ;
-    linkml:owner <https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd> ;
-    linkml:range <https://data.norge.no/linkml/register-over-aksjeeiere/uriorcurie> ;
+    linkml:owner <https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd> ;
+    linkml:range <https://data.norge.no/oreg/register-over-aksjeeiere/uriorcurie> ;
     linkml:required true ;
-    linkml:slot_uri "https://data.norge.no/linkml/register-over-aksjeeiere/identifikator"^^xsd:anyURI .
+    linkml:slot_uri "https://data.norge.no/oreg/register-over-aksjeeiere/identifikator"^^xsd:anyURI .
 
-<https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer> a linkml:ClassDefinition ;
+<https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer> a linkml:ClassDefinition ;
     skos:inScheme "https://example.no/ontology/aksje-eierskap"^^xsd:anyURI ;
     skos:mappingRelation "schema:Thing"^^xsd:anyURI ;
-    linkml:attributes <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeiere>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierrettigheter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeinnskudder>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjekapitaler>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeklasser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeoverdragelser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeposter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeselskaper>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/eierposisjoner>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/eierskapstransaksjoner>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/innbetalt_aksjekapitaler>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/innbetalt_overkurser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/selskapshendelser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/utbytter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/utdelinger>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/vederlager> ;
+    linkml:attributes <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeiere>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierrettigheter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeinnskudder>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjekapitaler>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeklasser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeoverdragelser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeposter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeselskaper>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/eierposisjoner>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/eierskapstransaksjoner>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/innbetalt_aksjekapitaler>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/innbetalt_overkurser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/selskapshendelser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/utbytter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/utdelinger>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/vederlager> ;
     linkml:class_uri "http://schema.org/Thing"^^xsd:anyURI ;
     linkml:definition_uri "https://example.no/ontology/aksje-eierskap/AksjeeierContainer"^^xsd:anyURI ;
     linkml:description """Containerklasse for alle forretningsobjekt i modellen. Gjer det mogleg å ha fleire instansar av kvar klasse i ei datafil.
 """ ;
     linkml:slot_usage [ ] ;
-    linkml:slots <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeeiere>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeeierrettigheter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeinnskudder>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjekapitaler>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeklasser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeoverdragelser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeposter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjer>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__aksjeselskaper>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__eierposisjoner>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__eierskapstransaksjoner>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__innbetalt_aksjekapitaler>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__innbetalt_overkurser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__selskapshendelser>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__utbytter>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__utdelinger>,
-        <https://data.norge.no/linkml/register-over-aksjeeiere/aksjeeierContainer__vederlager> ;
+    linkml:slots <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeeiere>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeeierrettigheter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeinnskudder>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjekapitaler>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeklasser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeoverdragelser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeposter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjer>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__aksjeselskaper>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__eierposisjoner>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__eierskapstransaksjoner>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__innbetalt_aksjekapitaler>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__innbetalt_overkurser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__selskapshendelser>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__utbytter>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__utdelinger>,
+        <https://data.norge.no/oreg/register-over-aksjeeiere/aksjeeierContainer__vederlager> ;
     linkml:tree_root true .
 

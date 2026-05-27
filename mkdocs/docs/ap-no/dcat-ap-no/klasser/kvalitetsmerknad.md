@@ -330,7 +330,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -340,7 +340,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:QualityAnnotation |
-| native | https://data.norge.no/linkml/dqv-ap-no/Kvalitetsmerknad |
+| native | https://data.norge.no/ap-no/dqv-ap-no/Kvalitetsmerknad |
 
 
 
@@ -357,7 +357,7 @@ URI: [dqv:QualityAnnotation](http://www.w3.org/ns/dqv#QualityAnnotation)
 ```yaml
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slots:
 - id
 - er_motivert_av
@@ -398,7 +398,7 @@ class_uri: dqv:QualityAnnotation
 ```yaml
 name: Kvalitetsmerknad
 description: Ein merknad om kvaliteten til eit datasett.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_usage:
   er_motivert_av:
     name: er_motivert_av
@@ -425,7 +425,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kvalitetsmerknad
     domain_of:
@@ -458,7 +458,7 @@ attributes:
     description: Motivasjonen bak kvalitetsmerknaden (t.d. oa:assessing).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:motivatedBy
     owner: Kvalitetsmerknad
     domain_of:
@@ -472,7 +472,7 @@ attributes:
       '
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: dqv:inDimension
     owner: Kvalitetsmerknad
     domain_of:
@@ -486,7 +486,7 @@ attributes:
     description: Tekstleg innhald i merknaden.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:hasBody
     owner: Kvalitetsmerknad
     domain_of:
@@ -497,7 +497,7 @@ attributes:
     description: Fritekstmerknad (rdfs:comment).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: rdfs:comment
     owner: Kvalitetsmerknad
     domain_of:
@@ -515,7 +515,7 @@ attributes:
     description: Ressursen merknaden gjeld.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/dqv-ap-no
+    from_schema: https://data.norge.no/ap-no/dqv-ap-no
     slot_uri: oa:hasTarget
     owner: Kvalitetsmerknad
     domain_of:

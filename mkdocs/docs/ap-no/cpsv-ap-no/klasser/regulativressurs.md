@@ -237,7 +237,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -247,7 +247,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | eli:LegalResource |
-| native | https://data.norge.no/linkml/cpsv-ap-no/RegulativRessurs |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/RegulativRessurs |
 
 
 
@@ -264,7 +264,7 @@ URI: [eli:LegalResource](http://data.europa.eu/eli/ontology#LegalResource)
 ```yaml
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -295,7 +295,7 @@ class_uri: eli:LegalResource
 ```yaml
 name: RegulativRessurs
 description: Ein regulativ ressurs (lov, forskrift o.l.) knytt til ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -314,7 +314,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: RegulativRessurs
     domain_of:
@@ -343,7 +343,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: RegulativRessurs
     domain_of:
@@ -364,7 +364,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: RegulativRessurs
     domain_of:
@@ -385,7 +385,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: RegulativRessurs
     domain_of:

@@ -60,7 +60,7 @@ URI: [dqv:value](http://www.w3.org/ns/dqv#value)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dqv:value](http://www.w3.org/ns/dqv#value)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dqv:value |
-| native | https://data.norge.no/linkml/dqv-ap-no/har_verdi |
+| native | https://data.norge.no/ap-no/dqv-ap-no/har_verdi |
 
 
 
@@ -82,7 +82,7 @@ URI: [dqv:value](http://www.w3.org/ns/dqv#value)
 name: har_verdi
 description: Målt verdi (xsd:boolean, xsd:double, xsd:nonNegativeInteger eller rdfs:Literal
   avhengig av kvalitetsmålet).
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: dqv:value
 domain_of:
 - Kvalitetsmaaling

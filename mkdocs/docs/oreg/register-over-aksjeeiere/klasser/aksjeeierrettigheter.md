@@ -4,7 +4,7 @@
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter](https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeierrettigheter](https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeierrettigheter)
 <!-- no inheritance hierarchy -->
 
 
@@ -71,8 +71,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettighete
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:aksjeeierrettigheter |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeierrettigheter |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:aksjeeierrettigheter |
 
 
 

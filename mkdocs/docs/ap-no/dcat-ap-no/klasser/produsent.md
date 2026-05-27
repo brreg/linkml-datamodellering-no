@@ -61,7 +61,7 @@ URI: [dct:creator](http://purl.org/dc/terms/creator)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dct:creator](http://purl.org/dc/terms/creator)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:creator |
-| native | https://data.norge.no/linkml/dcat-ap-no/produsent |
+| native | https://data.norge.no/ap-no/dcat-ap-no/produsent |
 
 
 
@@ -82,7 +82,7 @@ URI: [dct:creator](http://purl.org/dc/terms/creator)
 ```yaml
 name: produsent
 description: Aktøren som primært har skapt ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:creator
 domain_of:

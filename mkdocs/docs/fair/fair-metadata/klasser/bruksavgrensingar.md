@@ -60,7 +60,7 @@ URI: [dct:rights](http://purl.org/dc/terms/rights)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:rights](http://purl.org/dc/terms/rights)
 ```yaml
 name: bruksavgrensingar
 description: Eventuelle juridiske eller praktiske bruksavgrensingar (FAIR R1.1).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:rights
 domain_of:

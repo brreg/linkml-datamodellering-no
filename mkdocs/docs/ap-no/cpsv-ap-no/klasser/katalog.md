@@ -595,7 +595,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -605,7 +605,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:Catalog |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Katalog |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Katalog |
 
 
 
@@ -622,7 +622,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 ```yaml
 name: Katalog
 description: Ein katalog over offentlege tenester og hendingar.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -709,7 +709,7 @@ class_uri: dcat:Catalog
 ```yaml
 name: Katalog
 description: Ein katalog over offentlege tenester og hendingar.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -774,7 +774,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Katalog
     domain_of:
@@ -803,7 +803,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Katalog
     domain_of:
@@ -825,7 +825,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Katalog
     domain_of:
@@ -847,7 +847,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Katalog
     domain_of:
@@ -869,7 +869,7 @@ attributes:
     description: Offentlege tenester i katalogen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dcatno:containsService
     owner: Katalog
@@ -883,7 +883,7 @@ attributes:
     description: Kontaktpunkt for tenesta eller organisasjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
     owner: Katalog
@@ -900,7 +900,7 @@ attributes:
     description: Utgjevar av katalogen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:publisher
     owner: Katalog
@@ -913,7 +913,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:spatial
     owner: Katalog
     domain_of:
@@ -928,7 +928,7 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:modified
     owner: Katalog
     domain_of:
@@ -939,7 +939,7 @@ attributes:
     description: Kor ofte katalogen vert oppdatert.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:accrualPeriodicity
     owner: Katalog
@@ -951,7 +951,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: foaf:homepage
     owner: Katalog
     domain_of:
@@ -966,7 +966,7 @@ attributes:
     description: Hendingar i katalogen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dcatno:containsEvent
     owner: Katalog
@@ -979,7 +979,7 @@ attributes:
     description: Lisens for katalogen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:license
     owner: Katalog
@@ -991,7 +991,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: Katalog
     domain_of:

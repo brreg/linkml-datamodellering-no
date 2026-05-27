@@ -60,7 +60,7 @@ URI: [skos:notation](http://www.w3.org/2004/02/skos/core#notation)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [skos:notation](http://www.w3.org/2004/02/skos/core#notation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:notation |
-| native | https://data.norge.no/linkml/dcat-ap-no/notasjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/notasjon |
 
 
 
@@ -81,7 +81,7 @@ URI: [skos:notation](http://www.w3.org/2004/02/skos/core#notation)
 ```yaml
 name: notasjon
 description: Notasjon/kode for identifikatoren.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: skos:notation
 domain_of:

@@ -61,7 +61,7 @@ URI: [cv:isSpecifiedIn](http://data.europa.eu/m8g/isSpecifiedIn)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cv:isSpecifiedIn](http://data.europa.eu/m8g/isSpecifiedIn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:isSpecifiedIn |
-| native | https://data.norge.no/linkml/cpsv-ap-no/er_spesifisert_i |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/er_spesifisert_i |
 
 
 
@@ -82,7 +82,7 @@ URI: [cv:isSpecifiedIn](http://data.europa.eu/m8g/isSpecifiedIn)
 ```yaml
 name: er_spesifisert_i
 description: Liste eller spesifikasjon ressursen er del av.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:isSpecifiedIn
 domain_of:

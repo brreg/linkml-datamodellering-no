@@ -9,7 +9,7 @@ _URI-identifikator for ressursen._
 
 
 
-URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml/common-ap-no/id)
+URI: [https://data.norge.no/ap-no/common-ap-no/id](https://data.norge.no/ap-no/common-ap-no/id)
 <!-- no inheritance hierarchy -->
 
 
@@ -94,7 +94,7 @@ URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -103,8 +103,8 @@ URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/common-ap-no/id |
-| native | https://data.norge.no/linkml/common-ap-no/id |
+| self | https://data.norge.no/ap-no/common-ap-no/id |
+| native | https://data.norge.no/ap-no/common-ap-no/id |
 
 
 
@@ -115,7 +115,7 @@ URI: [https://data.norge.no/linkml/common-ap-no/id](https://data.norge.no/linkml
 ```yaml
 name: id
 description: URI-identifikator for ressursen.
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 identifier: true
 domain_of:
 - Mediatype

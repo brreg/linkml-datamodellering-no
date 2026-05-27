@@ -61,7 +61,7 @@ URI: [dcat:version](http://www.w3.org/ns/dcat#version)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:version](http://www.w3.org/ns/dcat#version)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:version |
-| native | https://data.norge.no/linkml/dcat-ap-no/versjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/versjon |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:version](http://www.w3.org/ns/dcat#version)
 ```yaml
 name: versjon
 description: Versjonsnummer.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:version
 domain_of:

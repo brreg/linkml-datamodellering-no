@@ -200,7 +200,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -210,7 +210,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:Relationship |
-| native | https://data.norge.no/linkml/dcat-ap-no/Relasjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Relasjon |
 
 
 
@@ -227,7 +227,7 @@ URI: [dcat:Relationship](http://www.w3.org/ns/dcat#Relationship)
 ```yaml
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slots:
 - id
 - har_rolle
@@ -254,7 +254,7 @@ class_uri: dcat:Relationship
 ```yaml
 name: Relasjon
 description: Ein kvalifisert relasjon mellom to ressursar.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 slot_usage:
   har_rolle:
     name: har_rolle
@@ -270,7 +270,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Relasjon
     domain_of:
@@ -308,7 +308,7 @@ attributes:
     description: Rolle ein aktør eller ressurs har i ein relasjon.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dcat:hadRole
     owner: Relasjon
     domain_of:
@@ -320,7 +320,7 @@ attributes:
     description: Den relaterte ressursen i ein kvalifisert relasjon.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     slot_uri: dct:relation
     owner: Relasjon
     domain_of:

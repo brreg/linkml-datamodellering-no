@@ -62,7 +62,7 @@ URI: [dct:format](http://purl.org/dc/terms/format)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [dct:format](http://purl.org/dc/terms/format)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:format |
-| native | https://data.norge.no/linkml/common-ap-no/format |
+| native | https://data.norge.no/ap-no/common-ap-no/format |
 
 
 
@@ -83,7 +83,7 @@ URI: [dct:format](http://purl.org/dc/terms/format)
 ```yaml
 name: format
 description: Filformat eller medietype (dct:format).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:format
 domain_of:
 - Tekstdel

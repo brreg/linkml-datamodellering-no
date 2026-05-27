@@ -61,7 +61,7 @@ URI: [vcard:fn](http://www.w3.org/2006/vcard/ns#fn)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [vcard:fn](http://www.w3.org/2006/vcard/ns#fn)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:fn |
-| native | https://data.norge.no/linkml/dcat-ap-no/navn_vcard |
+| native | https://data.norge.no/ap-no/dcat-ap-no/navn_vcard |
 
 
 
@@ -82,7 +82,7 @@ URI: [vcard:fn](http://www.w3.org/2006/vcard/ns#fn)
 ```yaml
 name: navn_vcard
 description: Formatert namn (vCard).
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: vcard:fn
 domain_of:

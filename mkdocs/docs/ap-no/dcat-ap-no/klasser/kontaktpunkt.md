@@ -64,7 +64,7 @@ URI: [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -74,7 +74,7 @@ URI: [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:contactPoint |
-| native | https://data.norge.no/linkml/dcat-ap-no/kontaktpunkt |
+| native | https://data.norge.no/ap-no/dcat-ap-no/kontaktpunkt |
 
 
 
@@ -85,7 +85,7 @@ URI: [dcat:contactPoint](http://www.w3.org/ns/dcat#contactPoint)
 ```yaml
 name: kontaktpunkt
 description: Kontaktinformasjon for hendvendelsar om ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:contactPoint
 domain_of:

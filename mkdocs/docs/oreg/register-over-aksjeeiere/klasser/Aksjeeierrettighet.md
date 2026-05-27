@@ -9,7 +9,7 @@ _Rettigheiter knytt til aksjar, til dømes stemmerett._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeierrettighet](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeierrettighet)
 
 
 
@@ -180,8 +180,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet]
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeeierrettighet |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeierrettighet |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeeierrettighet |
 
 
 

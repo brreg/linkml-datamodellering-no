@@ -60,7 +60,7 @@ URI: [dcat:mediaType](http://www.w3.org/ns/dcat#mediaType)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:mediaType](http://www.w3.org/ns/dcat#mediaType)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:mediaType |
-| native | https://data.norge.no/linkml/dcat-ap-no/medietype |
+| native | https://data.norge.no/ap-no/dcat-ap-no/medietype |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:mediaType](http://www.w3.org/ns/dcat#mediaType)
 ```yaml
 name: medietype
 description: Medietype i samsvar med IANA-registeret.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:mediaType
 domain_of:

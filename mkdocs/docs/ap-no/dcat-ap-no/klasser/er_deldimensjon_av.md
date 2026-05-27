@@ -60,7 +60,7 @@ URI: [skos:broader](http://www.w3.org/2004/02/skos/core#broader)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dqv-ap-no
+* from schema: https://data.norge.no/ap-no/dqv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [skos:broader](http://www.w3.org/2004/02/skos/core#broader)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:broader |
-| native | https://data.norge.no/linkml/dqv-ap-no/er_deldimensjon_av |
+| native | https://data.norge.no/ap-no/dqv-ap-no/er_deldimensjon_av |
 
 
 
@@ -81,7 +81,7 @@ URI: [skos:broader](http://www.w3.org/2004/02/skos/core#broader)
 ```yaml
 name: er_deldimensjon_av
 description: Overordna kvalitetsdimensjon denne deldimensjonen høyrer til.
-from_schema: https://data.norge.no/linkml/dqv-ap-no
+from_schema: https://data.norge.no/ap-no/dqv-ap-no
 slot_uri: skos:broader
 domain_of:
 - Kvalitetsdeldimensjon

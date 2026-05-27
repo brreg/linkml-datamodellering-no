@@ -62,7 +62,7 @@ URI: [cv:processingTime](http://data.europa.eu/m8g/processingTime)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:processingTime](http://data.europa.eu/m8g/processingTime)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:processingTime |
-| native | https://data.norge.no/linkml/cpsv-ap-no/behandlingstid |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/behandlingstid |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:processingTime](http://data.europa.eu/m8g/processingTime)
 ```yaml
 name: behandlingstid
 description: Forventa behandlingstid for tenesta eller kanalen (ISO 8601).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:processingTime
 domain_of:

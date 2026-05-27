@@ -62,7 +62,7 @@ URI: [cpsvno:hasOutputType](https://data.norge.no/vocabulary/cpsvno#hasOutputTyp
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cpsvno:hasOutputType](https://data.norge.no/vocabulary/cpsvno#hasOutputTyp
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsvno:hasOutputType |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_tenesteresultattype |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_tenesteresultattype |
 
 
 
@@ -83,7 +83,7 @@ URI: [cpsvno:hasOutputType](https://data.norge.no/vocabulary/cpsvno#hasOutputTyp
 ```yaml
 name: har_tenesteresultattype
 description: Typen resultat tenesta kan produsere.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:hasOutputType
 domain_of:

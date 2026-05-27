@@ -60,7 +60,7 @@ URI: [odrs:reuserGuidelines](http://schema.theodi.org/odrs#reuserGuidelines)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [odrs:reuserGuidelines](http://schema.theodi.org/odrs#reuserGuidelines)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:reuserGuidelines |
-| native | https://data.norge.no/linkml/dcat-ap-no/anvendelsesretningslinjer |
+| native | https://data.norge.no/ap-no/dcat-ap-no/anvendelsesretningslinjer |
 
 
 
@@ -81,7 +81,7 @@ URI: [odrs:reuserGuidelines](http://schema.theodi.org/odrs#reuserGuidelines)
 ```yaml
 name: anvendelsesretningslinjer
 description: Retningslinjer for gjenbruk av data.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrs:reuserGuidelines
 domain_of:

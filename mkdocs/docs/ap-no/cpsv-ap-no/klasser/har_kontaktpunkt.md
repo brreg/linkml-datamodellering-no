@@ -66,7 +66,7 @@ URI: [cv:contactPoint](http://data.europa.eu/m8g/contactPoint)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -76,7 +76,7 @@ URI: [cv:contactPoint](http://data.europa.eu/m8g/contactPoint)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:contactPoint |
-| native | https://data.norge.no/linkml/cpsv-ap-no/har_kontaktpunkt |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/har_kontaktpunkt |
 
 
 
@@ -87,7 +87,7 @@ URI: [cv:contactPoint](http://data.europa.eu/m8g/contactPoint)
 ```yaml
 name: har_kontaktpunkt
 description: Kontaktpunkt for tenesta eller organisasjonen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:contactPoint
 domain_of:

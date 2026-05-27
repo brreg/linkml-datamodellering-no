@@ -60,7 +60,7 @@ URI: [odrs:attributionText](http://schema.theodi.org/odrs#attributionText)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [odrs:attributionText](http://schema.theodi.org/odrs#attributionText)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | odrs:attributionText |
-| native | https://data.norge.no/linkml/dcat-ap-no/krediteringstekst |
+| native | https://data.norge.no/ap-no/dcat-ap-no/krediteringstekst |
 
 
 
@@ -81,7 +81,7 @@ URI: [odrs:attributionText](http://schema.theodi.org/odrs#attributionText)
 ```yaml
 name: krediteringstekst
 description: Tekst som skal brukast ved kreditering.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: odrs:attributionText
 domain_of:

@@ -39,7 +39,7 @@ URI: [xsd:nonNegativeInteger](http://www.w3.org/2001/XMLSchema#nonNegativeIntege
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -49,6 +49,6 @@ URI: [xsd:nonNegativeInteger](http://www.w3.org/2001/XMLSchema#nonNegativeIntege
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | xsd:nonNegativeInteger |
-| native | https://data.norge.no/linkml/common-ap-no/NonNegativeInteger |
+| native | https://data.norge.no/ap-no/common-ap-no/NonNegativeInteger |
 
 

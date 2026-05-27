@@ -124,7 +124,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -134,7 +134,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:MediaTypeOrExtent |
-| native | https://data.norge.no/linkml/common-ap-no/Mediatype |
+| native | https://data.norge.no/ap-no/common-ap-no/Mediatype |
 
 
 
@@ -151,7 +151,7 @@ URI: [dct:MediaTypeOrExtent](http://purl.org/dc/terms/MediaTypeOrExtent)
 ```yaml
 name: Mediatype
 description: Ein medietype eller filformat (dct:MediaTypeOrExtent).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slots:
 - id
 class_uri: dct:MediaTypeOrExtent
@@ -165,12 +165,12 @@ class_uri: dct:MediaTypeOrExtent
 ```yaml
 name: Mediatype
 description: Ein medietype eller filformat (dct:MediaTypeOrExtent).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Mediatype
     domain_of:

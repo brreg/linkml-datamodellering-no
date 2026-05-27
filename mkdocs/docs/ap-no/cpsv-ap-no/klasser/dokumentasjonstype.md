@@ -465,7 +465,7 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -475,7 +475,7 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:EvidenceType |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Dokumentasjonstype |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Dokumentasjonstype |
 
 
 
@@ -492,7 +492,7 @@ URI: [cv:EvidenceType](http://data.europa.eu/m8g/EvidenceType)
 ```yaml
 name: Dokumentasjonstype
 description: Ein type dokumentasjon som krevst for å levere ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -556,7 +556,7 @@ class_uri: cv:EvidenceType
 ```yaml
 name: Dokumentasjonstype
 description: Ein type dokumentasjon som krevst for å levere ei teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -602,7 +602,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Dokumentasjonstype
     domain_of:
@@ -631,7 +631,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Dokumentasjonstype
     domain_of:
@@ -653,7 +653,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Dokumentasjonstype
     domain_of:
@@ -675,7 +675,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Dokumentasjonstype
     domain_of:
@@ -697,7 +697,7 @@ attributes:
     description: Kor lenge dokumentasjonen er gyldig (ISO 8601 varigheit).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:acceptableValidityDuration
     owner: Dokumentasjonstype
@@ -709,7 +709,7 @@ attributes:
     description: Språk dokumentasjonstypen er akseptert i.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:acceptableLanguage
     owner: Dokumentasjonstype
@@ -722,7 +722,7 @@ attributes:
     description: Klassifisering av dokumentasjonstypen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:evidenceTypeClassification
     owner: Dokumentasjonstype
@@ -734,7 +734,7 @@ attributes:
     description: Datasett som beskriv ressursen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
     owner: Dokumentasjonstype
@@ -751,7 +751,7 @@ attributes:
     description: Liste eller spesifikasjon ressursen er del av.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isSpecifiedIn
     owner: Dokumentasjonstype
@@ -764,7 +764,7 @@ attributes:
     description: Stad dokumentasjonen er akseptert frå.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:acceptableIssuingPlace
     owner: Dokumentasjonstype

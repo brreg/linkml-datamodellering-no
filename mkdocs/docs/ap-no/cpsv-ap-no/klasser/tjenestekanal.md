@@ -357,7 +357,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -367,7 +367,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:Channel |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Tjenestekanal |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Tjenestekanal |
 
 
 
@@ -384,7 +384,7 @@ URI: [cv:Channel](http://data.europa.eu/m8g/Channel)
 ```yaml
 name: Tjenestekanal
 description: Ein kanal for å få tilgang til ei teneste (t.d. nett, telefon, oppmøte).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -431,7 +431,7 @@ class_uri: cv:Channel
 ```yaml
 name: Tjenestekanal
 description: Ein kanal for å få tilgang til ei teneste (t.d. nett, telefon, oppmøte).
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   identifikator_literal:
@@ -463,7 +463,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Tjenestekanal
     domain_of:
@@ -492,7 +492,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Tjenestekanal
     domain_of:
@@ -514,7 +514,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Tjenestekanal
     domain_of:
@@ -532,7 +532,7 @@ attributes:
     description: Forventa behandlingstid for tenesta eller kanalen (ISO 8601).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:processingTime
     owner: Tjenestekanal
@@ -546,7 +546,7 @@ attributes:
     description: Opningstider.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:openingHours
     owner: Tjenestekanal
@@ -560,7 +560,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Tjenestekanal
     domain_of:
@@ -581,7 +581,7 @@ attributes:
     description: Nettside for tenestekanalane.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: vcard:hasURL
     owner: Tjenestekanal

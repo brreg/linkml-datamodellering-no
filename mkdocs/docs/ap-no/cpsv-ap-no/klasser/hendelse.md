@@ -441,7 +441,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -451,7 +451,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:Event |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Hendelse |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Hendelse |
 
 
 
@@ -468,7 +468,7 @@ URI: [cv:Event](http://data.europa.eu/m8g/Event)
 ```yaml
 name: Hendelse
 description: Ei hending som kan utløyse behov for ei offentleg teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -527,7 +527,7 @@ class_uri: cv:Event
 ```yaml
 name: Hendelse
 description: Ei hending som kan utløyse behov for ei offentleg teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -569,7 +569,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Hendelse
     domain_of:
@@ -598,7 +598,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Hendelse
     domain_of:
@@ -620,7 +620,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Hendelse
     domain_of:
@@ -642,7 +642,7 @@ attributes:
     description: Kontaktpunkt for tenesta eller organisasjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
     owner: Hendelse
@@ -659,7 +659,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Hendelse
     domain_of:
@@ -680,7 +680,7 @@ attributes:
     description: Offentlege tenester hendinga kan utløyse.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:mayTrigger
     owner: Hendelse
@@ -693,7 +693,7 @@ attributes:
     description: Emne/tema tenesta handlar om.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:subject
     owner: Hendelse
@@ -708,7 +708,7 @@ attributes:
     description: Datasett som beskriv ressursen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
     owner: Hendelse
@@ -725,7 +725,7 @@ attributes:
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Hendelse
     domain_of:

@@ -60,7 +60,7 @@ URI: [dct:relation](http://purl.org/dc/terms/relation)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dct:relation](http://purl.org/dc/terms/relation)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:relation |
-| native | https://data.norge.no/linkml/dcat-ap-no/relasjon_til |
+| native | https://data.norge.no/ap-no/dcat-ap-no/relasjon_til |
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:relation](http://purl.org/dc/terms/relation)
 ```yaml
 name: relasjon_til
 description: Den relaterte ressursen i ein kvalifisert relasjon.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:relation
 domain_of:

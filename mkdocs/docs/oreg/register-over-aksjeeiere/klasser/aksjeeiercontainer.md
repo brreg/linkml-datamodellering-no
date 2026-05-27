@@ -576,7 +576,7 @@ URI: [schema:Thing](http://schema.org/Thing)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | schema:Thing |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:AksjeeierContainer |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:AksjeeierContainer |
 
 
 

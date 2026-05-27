@@ -60,7 +60,7 @@ URI: [dcat:byteSize](http://www.w3.org/ns/dcat#byteSize)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [dcat:byteSize](http://www.w3.org/ns/dcat#byteSize)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:byteSize |
-| native | https://data.norge.no/linkml/dcat-ap-no/filstorrelse |
+| native | https://data.norge.no/ap-no/dcat-ap-no/filstorrelse |
 
 
 
@@ -81,7 +81,7 @@ URI: [dcat:byteSize](http://www.w3.org/ns/dcat#byteSize)
 ```yaml
 name: filstorrelse
 description: Filstørrelse i bytes.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:byteSize
 domain_of:

@@ -60,7 +60,7 @@ URI: [dct:license](http://purl.org/dc/terms/license)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [dct:license](http://purl.org/dc/terms/license)
 ```yaml
 name: lisens
 description: Brukslisens for ressursen som URI (FAIR R1.1).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:license
 domain_of:

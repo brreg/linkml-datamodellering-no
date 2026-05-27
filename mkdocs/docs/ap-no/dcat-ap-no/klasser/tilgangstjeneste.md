@@ -61,7 +61,7 @@ URI: [dcat:accessService](http://www.w3.org/ns/dcat#accessService)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:accessService](http://www.w3.org/ns/dcat#accessService)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:accessService |
-| native | https://data.norge.no/linkml/dcat-ap-no/tilgangstjeneste |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tilgangstjeneste |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:accessService](http://www.w3.org/ns/dcat#accessService)
 ```yaml
 name: tilgangstjeneste
 description: Datatjeneste som gjev tilgang til distribusjonen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:accessService
 domain_of:

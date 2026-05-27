@@ -63,7 +63,7 @@ URI: [dct:publisher](http://purl.org/dc/terms/publisher)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -73,7 +73,7 @@ URI: [dct:publisher](http://purl.org/dc/terms/publisher)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:publisher |
-| native | https://data.norge.no/linkml/dcat-ap-no/utgiver |
+| native | https://data.norge.no/ap-no/dcat-ap-no/utgiver |
 
 
 
@@ -84,7 +84,7 @@ URI: [dct:publisher](http://purl.org/dc/terms/publisher)
 ```yaml
 name: utgiver
 description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dct:publisher
 domain_of:

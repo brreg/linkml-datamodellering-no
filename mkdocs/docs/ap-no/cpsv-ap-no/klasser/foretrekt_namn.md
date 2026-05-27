@@ -61,7 +61,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | skos:prefLabel |
-| native | https://data.norge.no/linkml/cpsv-ap-no/foretrekt_namn |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/foretrekt_namn |
 
 
 
@@ -82,7 +82,7 @@ URI: [skos:prefLabel](http://www.w3.org/2004/02/skos/core#prefLabel)
 ```yaml
 name: foretrekt_namn
 description: Føretrekt namn/term for organisasjonen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: skos:prefLabel
 domain_of:

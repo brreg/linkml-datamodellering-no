@@ -822,7 +822,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -832,7 +832,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:Catalog |
-| native | https://data.norge.no/linkml/dcat-ap-no/Katalog |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Katalog |
 
 
 
@@ -850,7 +850,7 @@ URI: [dcat:Catalog](http://www.w3.org/ns/dcat#Catalog)
 name: Katalog
 description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
   katalogar.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 is_a: KatalogisertRessurs
 slots:
@@ -944,7 +944,7 @@ class_uri: dcat:Catalog
 name: Katalog
 description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre
   katalogar.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 is_a: KatalogisertRessurs
 slot_usage:
@@ -1010,7 +1010,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Katalog
     domain_of:
@@ -1030,7 +1030,7 @@ attributes:
     description: Kontaktinformasjon for hendvendelsar om ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:contactPoint
     owner: Katalog
@@ -1047,7 +1047,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Katalog
     domain_of:
@@ -1067,7 +1067,7 @@ attributes:
     description: Aktøren som er ansvarleg for å tilgjengeleggjere ressursen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:publisher
     owner: Katalog
@@ -1083,7 +1083,7 @@ attributes:
     description: Datasett som er del av katalogen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:dataset
     owner: Katalog
@@ -1096,7 +1096,7 @@ attributes:
     description: Datatjeneste som er del av katalogen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:service
     owner: Katalog
@@ -1109,7 +1109,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:spatial
     owner: Katalog
     domain_of:
@@ -1123,7 +1123,7 @@ attributes:
     description: Dato for siste endring av ressursen (dct:modified).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:modified
     owner: Katalog
     domain_of:
@@ -1138,7 +1138,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: foaf:homepage
     owner: Katalog
     domain_of:
@@ -1150,7 +1150,7 @@ attributes:
     description: Lisens for bruk av ressursen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:license
     owner: Katalog
@@ -1164,7 +1164,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: Katalog
     domain_of:
@@ -1181,7 +1181,7 @@ attributes:
     description: Temavokabular som vert brukt i katalogen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:themeTaxonomy
     owner: Katalog
@@ -1194,7 +1194,7 @@ attributes:
     description: Dato ressursen vart første gong publisert (dct:issued).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:issued
     owner: Katalog
     domain_of:
@@ -1207,7 +1207,7 @@ attributes:
   gjeldende_lovgivning:
     name: gjeldende_lovgivning
     description: Lovgjeving som gjeld for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcatap:applicableLegislation
     owner: Katalog
@@ -1222,7 +1222,7 @@ attributes:
   har_del:
     name: har_del
     description: Delkatalog inkludert i denne katalogen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:hasPart
     owner: Katalog
@@ -1233,7 +1233,7 @@ attributes:
   identifikator_literal:
     name: identifikator_literal
     description: Tekstleg identifikator for ressursen (dct:identifier).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Katalog
     domain_of:
@@ -1246,7 +1246,7 @@ attributes:
   underkatalog:
     name: underkatalog
     description: Katalog som er ein del av denne katalogen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:catalog
     owner: Katalog
@@ -1257,7 +1257,7 @@ attributes:
   katalogpost:
     name: katalogpost
     description: Katalogpostar i katalogen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:record
     owner: Katalog
@@ -1268,7 +1268,7 @@ attributes:
   produsent:
     name: produsent
     description: Aktøren som primært har skapt ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:creator
     owner: Katalog
@@ -1279,7 +1279,7 @@ attributes:
   rettigheter:
     name: rettigheter
     description: Rettar knytte til ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:rights
     owner: Katalog
@@ -1291,7 +1291,7 @@ attributes:
   tidsrom:
     name: tidsrom
     description: Tidsperiode ressursen dekkar.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:temporal
     owner: Katalog
@@ -1304,7 +1304,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Katalog
     domain_of:

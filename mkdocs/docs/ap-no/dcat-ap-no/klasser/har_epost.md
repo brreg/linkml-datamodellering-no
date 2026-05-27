@@ -60,7 +60,7 @@ URI: [vcard:hasEmail](http://www.w3.org/2006/vcard/ns#hasEmail)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [vcard:hasEmail](http://www.w3.org/2006/vcard/ns#hasEmail)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:hasEmail |
-| native | https://data.norge.no/linkml/dcat-ap-no/har_epost |
+| native | https://data.norge.no/ap-no/dcat-ap-no/har_epost |
 
 
 
@@ -81,7 +81,7 @@ URI: [vcard:hasEmail](http://www.w3.org/2006/vcard/ns#hasEmail)
 ```yaml
 name: har_epost
 description: E-postadresse til kontaktpunktet.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: vcard:hasEmail
 domain_of:

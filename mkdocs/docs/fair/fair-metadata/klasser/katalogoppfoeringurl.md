@@ -60,7 +60,7 @@ URI: [fair:katalogOppfoeringURL](https://data.norge.no/fair#katalogOppfoeringURL
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -81,7 +81,7 @@ URI: [fair:katalogOppfoeringURL](https://data.norge.no/fair#katalogOppfoeringURL
 ```yaml
 name: katalogOppfoeringURL
 description: Direkte URL til oppføringa i katalogen (FAIR F4).
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: fair:katalogOppfoeringURL
 domain_of:

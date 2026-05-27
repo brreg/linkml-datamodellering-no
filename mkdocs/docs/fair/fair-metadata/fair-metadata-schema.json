@@ -230,7 +230,7 @@
             "type": "object"
         }
     },
-    "$id": "https://data.norge.no/linkml/fair-metadata",
+    "$id": "https://data.norge.no/fair/fair-metadata",
     "$schema": "https://json-schema.org/draft/2019-09/schema",
     "additionalProperties": true,
     "metamodel_version": "1.11.0",

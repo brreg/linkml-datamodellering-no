@@ -229,6 +229,18 @@ URI: [samtbuskole:Kontaktlaerer](https://example.no/ontology/skole#Kontaktlaerer
 
 
 
+## Examples
+### Example: Kontaktlaerer-kontaktlaerer-1
+
+```yaml
+id: samtbuskole:kontaktlaerer-1
+navn: Lærer Lars
+tilknyttet_basisgruppe: samtbuskole:basisgruppe-5A
+har_saerlig_ansvar_for: samtbuskole:elev-1
+jobber_paa_skole: samtbuskole:skole-1
+
+```
+
 
 
 ## LinkML Source
@@ -310,7 +322,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Kontaktlaerer
     domain_of:

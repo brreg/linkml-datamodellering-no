@@ -61,7 +61,7 @@ URI: [dcat:servesDataset](http://www.w3.org/ns/dcat#servesDataset)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [dcat:servesDataset](http://www.w3.org/ns/dcat#servesDataset)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:servesDataset |
-| native | https://data.norge.no/linkml/dcat-ap-no/tilgjengeliggjor_datasett |
+| native | https://data.norge.no/ap-no/dcat-ap-no/tilgjengeliggjor_datasett |
 
 
 
@@ -82,7 +82,7 @@ URI: [dcat:servesDataset](http://www.w3.org/ns/dcat#servesDataset)
 ```yaml
 name: tilgjengeliggjor_datasett
 description: Datasett som datatjenesten tilgjengeleggjer.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_uri: dcat:servesDataset
 domain_of:

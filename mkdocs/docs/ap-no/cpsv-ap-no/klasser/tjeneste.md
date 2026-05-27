@@ -1205,7 +1205,7 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -1215,7 +1215,7 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsvno:Service |
-| native | https://data.norge.no/linkml/cpsv-ap-no/Tjeneste |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/Tjeneste |
 
 
 
@@ -1232,7 +1232,7 @@ URI: [cpsvno:Service](https://data.norge.no/vocabulary/cpsvno#Service)
 ```yaml
 name: Tjeneste
 description: Ei teneste levert av ein ikkje-offentleg aktør.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slots:
 - id
@@ -1400,7 +1400,7 @@ class_uri: cpsvno:Service
 ```yaml
 name: Tjeneste
 description: Ei teneste levert av ein ikkje-offentleg aktør.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_usage:
   tittel:
@@ -1529,7 +1529,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Tjeneste
     domain_of:
@@ -1558,7 +1558,7 @@ attributes:
     description: Namn/tittel på ressursen (dct:title).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Tjeneste
     domain_of:
@@ -1580,7 +1580,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Tjeneste
     domain_of:
@@ -1602,7 +1602,7 @@ attributes:
     description: Tekstleg identifikator for ressursen (dct:identifier).
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:identifier
     owner: Tjeneste
     domain_of:
@@ -1624,7 +1624,7 @@ attributes:
     description: Kontaktpunkt for tenesta eller organisasjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:contactPoint
     owner: Tjeneste
@@ -1641,7 +1641,7 @@ attributes:
     description: Typen resultat tenesta kan produsere.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsvno:hasOutputType
     owner: Tjeneste
@@ -1656,7 +1656,7 @@ attributes:
     description: Aktør som eig eller er ansvarleg for tenesta.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:ownedBy
     owner: Tjeneste
@@ -1670,7 +1670,7 @@ attributes:
     description: Emne/tema tenesta handlar om.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:subject
     owner: Tjeneste
@@ -1685,7 +1685,7 @@ attributes:
     description: Geografisk dekningsområde (dct:spatial).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:spatial
     owner: Tjeneste
     domain_of:
@@ -1700,7 +1700,7 @@ attributes:
     description: Dokumentasjon som krevst for tenesta.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasInputType
     owner: Tjeneste
@@ -1714,7 +1714,7 @@ attributes:
     description: Heimeside for ressursen eller organisasjonen (foaf:homepage).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: foaf:homepage
     owner: Tjeneste
     domain_of:
@@ -1727,7 +1727,7 @@ attributes:
   type_concept:
     name: type_concept
     description: Type ressurs frå eit kontrollert vokabular (dct:type).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:type
     owner: Tjeneste
     domain_of:
@@ -1745,7 +1745,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: adms:status
     owner: Tjeneste
     domain_of:
@@ -1757,7 +1757,7 @@ attributes:
     description: Tematisk område for tenesta.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:thematicArea
     owner: Tjeneste
@@ -1771,7 +1771,7 @@ attributes:
     description: Forventa behandlingstid for tenesta eller kanalen (ISO 8601).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:processingTime
     owner: Tjeneste
@@ -1785,7 +1785,7 @@ attributes:
     description: Datasett som beskriv ressursen.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cccevno:isDescribedBy
     owner: Tjeneste
@@ -1802,7 +1802,7 @@ attributes:
     description: Tenesta er del av ei anna teneste.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:isPartOf
     owner: Tjeneste
@@ -1815,7 +1815,7 @@ attributes:
     description: Deltenester som inngår i denne tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:hasPart
     owner: Tjeneste
@@ -1829,7 +1829,7 @@ attributes:
     description: Kanal for tilgang til tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasChannel
     owner: Tjeneste
@@ -1843,7 +1843,7 @@ attributes:
     description: Deltakarar med spesifikke roller i levering av tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasParticipation
     owner: Tjeneste
@@ -1857,7 +1857,7 @@ attributes:
     description: Språk brukt i ressursen (dct:language).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: Tjeneste
     domain_of:
@@ -1873,7 +1873,7 @@ attributes:
     description: Relatert teneste.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:relatedService
     owner: Tjeneste
@@ -1887,7 +1887,7 @@ attributes:
     description: Hending(ar) som grupperer tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isGroupedBy
     owner: Tjeneste
@@ -1901,7 +1901,7 @@ attributes:
     description: Omgrep tenesta er klassifisert med.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:isClassifiedBy
     owner: Tjeneste
@@ -1915,7 +1915,7 @@ attributes:
     description: Regelverk tenesta følgjer.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cpsv:follows
     owner: Tjeneste
@@ -1929,7 +1929,7 @@ attributes:
     description: Gebyr knytt til tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasCost
     owner: Tjeneste
@@ -1943,7 +1943,7 @@ attributes:
     description: Regulativ ressurs (lov, forskrift) knytt til tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:hasLegalResource
     owner: Tjeneste
@@ -1957,7 +1957,7 @@ attributes:
     description: Teneste eller ressurs denne tenesta krev.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:requires
     owner: Tjeneste
@@ -1971,7 +1971,7 @@ attributes:
     description: Målgruppe for tenesta.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: dct:audience
     owner: Tjeneste
@@ -1985,7 +1985,7 @@ attributes:
     description: Nøkkelord som beskriv ressursen (dcat:keyword).
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dcat:keyword
     owner: Tjeneste
     domain_of:
@@ -1998,7 +1998,7 @@ attributes:
     description: Industri/sektor tenesta tilhøyrer.
     in_subset:
     - Valgfri
-    from_schema: https://data.norge.no/linkml/cpsv-ap-no
+    from_schema: https://data.norge.no/ap-no/cpsv-ap-no
     rank: 1000
     slot_uri: cv:sector
     owner: Tjeneste

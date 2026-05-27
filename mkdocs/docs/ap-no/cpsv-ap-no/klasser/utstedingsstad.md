@@ -60,7 +60,7 @@ URI: [cccevno:acceptableIssuingPlace](https://data.norge.no/vocabulary/cccevno#a
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -70,7 +70,7 @@ URI: [cccevno:acceptableIssuingPlace](https://data.norge.no/vocabulary/cccevno#a
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cccevno:acceptableIssuingPlace |
-| native | https://data.norge.no/linkml/cpsv-ap-no/utstedingsstad |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/utstedingsstad |
 
 
 
@@ -81,7 +81,7 @@ URI: [cccevno:acceptableIssuingPlace](https://data.norge.no/vocabulary/cccevno#a
 ```yaml
 name: utstedingsstad
 description: Stad dokumentasjonen er akseptert frå.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:acceptableIssuingPlace
 domain_of:

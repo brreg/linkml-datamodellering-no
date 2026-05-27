@@ -63,7 +63,7 @@ URI: [dct:conformsTo](http://purl.org/dc/terms/conformsTo)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/fair-metadata
+* from schema: https://data.norge.no/fair/fair-metadata
 
 
 
@@ -87,7 +87,7 @@ description: 'Standardar eller profilar ressursen følgjer, t.d. DCAT-AP-NO elle
   19115 (FAIR R1.3 / I3).
 
   '
-from_schema: https://data.norge.no/linkml/fair-metadata
+from_schema: https://data.norge.no/fair/fair-metadata
 rank: 1000
 slot_uri: dct:conformsTo
 domain_of:

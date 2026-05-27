@@ -9,7 +9,7 @@ _Aksje utstedt av selskapet_
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje](https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje](https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje](htt
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:utsteder_aksje |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:utsteder_aksje |
 
 
 

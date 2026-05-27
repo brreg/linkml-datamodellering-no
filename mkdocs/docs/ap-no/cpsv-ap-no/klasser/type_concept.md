@@ -69,7 +69,7 @@ URI: [dct:type](http://purl.org/dc/terms/type)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/common-ap-no
+* from schema: https://data.norge.no/ap-no/common-ap-no
 
 
 
@@ -79,7 +79,7 @@ URI: [dct:type](http://purl.org/dc/terms/type)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dct:type |
-| native | https://data.norge.no/linkml/common-ap-no/type_concept |
+| native | https://data.norge.no/ap-no/common-ap-no/type_concept |
 
 
 
@@ -90,7 +90,7 @@ URI: [dct:type](http://purl.org/dc/terms/type)
 ```yaml
 name: type_concept
 description: Type ressurs frå eit kontrollert vokabular (dct:type).
-from_schema: https://data.norge.no/linkml/common-ap-no
+from_schema: https://data.norge.no/ap-no/common-ap-no
 slot_uri: dct:type
 domain_of:
 - OffentligTjeneste

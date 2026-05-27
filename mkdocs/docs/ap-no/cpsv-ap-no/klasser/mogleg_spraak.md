@@ -61,7 +61,7 @@ URI: [cpsvno:possibleLanguage](https://data.norge.no/vocabulary/cpsvno#possibleL
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [cpsvno:possibleLanguage](https://data.norge.no/vocabulary/cpsvno#possibleL
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cpsvno:possibleLanguage |
-| native | https://data.norge.no/linkml/cpsv-ap-no/mogleg_spraak |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/mogleg_spraak |
 
 
 
@@ -82,7 +82,7 @@ URI: [cpsvno:possibleLanguage](https://data.norge.no/vocabulary/cpsvno#possibleL
 ```yaml
 name: mogleg_spraak
 description: Mogleg språk for tenesteresultatet.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cpsvno:possibleLanguage
 domain_of:

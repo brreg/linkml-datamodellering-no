@@ -1,5 +1,5 @@
 # Auto generated from register-over-aksjeeiere-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-24T12:07:34
+# Generation date: 2026-05-27T14:51:33
 # Schema: register-over-aksjeeiere
 #
 # id: https://example.no/ontology/aksje-eierskap
@@ -67,7 +67,7 @@ version = None
 AKSJE = CurieNamespace('aksje', 'https://example.no/ontology/aksje#')
 LINKML = CurieNamespace('linkml', 'https://w3id.org/linkml/')
 SCHEMA = CurieNamespace('schema', 'http://schema.org/')
-DEFAULT_ = CurieNamespace('', 'https://data.norge.no/linkml/register-over-aksjeeiere/')
+DEFAULT_ = CurieNamespace('', 'https://data.norge.no/oreg/register-over-aksjeeiere/')
 
 
 # Types
@@ -144,7 +144,7 @@ class AksjeeierContainer(YAMLRoot):
     class_class_uri: ClassVar[URIRef] = SCHEMA["Thing"]
     class_class_curie: ClassVar[str] = "schema:Thing"
     class_name: ClassVar[str] = "AksjeeierContainer"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/AksjeeierContainer")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/AksjeeierContainer")
 
     aksjeselskaper: Optional[Union[dict[Union[str, AksjeselskapIdentifikator], Union[dict, "Aksjeselskap"]], list[Union[dict, "Aksjeselskap"]]]] = empty_dict()
     aksjekapitaler: Optional[Union[dict[Union[str, AksjekapitalIdentifikator], Union[dict, "Aksjekapital"]], list[Union[dict, "Aksjekapital"]]]] = empty_dict()
@@ -213,10 +213,10 @@ class Aksjeselskap(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeselskap"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeselskap")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeselskap")
 
     identifikator: Union[str, AksjeselskapIdentifikator] = None
     navn: Optional[str] = None
@@ -248,10 +248,10 @@ class Aksjekapital(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjekapital"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjekapital")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjekapital")
 
     identifikator: Union[str, AksjekapitalIdentifikator] = None
     har_antall_aksjer: Optional[int] = None
@@ -275,10 +275,10 @@ class Aksje(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksje")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksje")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksje"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksje")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksje")
 
     identifikator: Union[str, AksjeIdentifikator] = None
     har_palydende_belop: Optional[Decimal] = None
@@ -306,10 +306,10 @@ class Aksjeklasse(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeklasse"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeklasse")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeklasse")
 
     identifikator: Union[str, AksjeklasseIdentifikator] = None
     navn: Optional[str] = None
@@ -333,10 +333,10 @@ class Aksjeeierrettighet(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeeierrettighet"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeierrettighet")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeierrettighet")
 
     identifikator: Union[str, AksjeeierrettighetIdentifikator] = None
     beskrivelse: Optional[str] = None
@@ -364,10 +364,10 @@ class Aksjeeier(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeeier"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeeier")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeeier")
 
     identifikator: Union[str, AksjeeierIdentifikator] = None
     navn: Optional[str] = None
@@ -395,10 +395,10 @@ class Eierposisjon(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Eierposisjon"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierposisjon")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Eierposisjon")
 
     identifikator: Union[str, EierposisjonIdentifikator] = None
     gjelder_aksjepost: Optional[Union[str, AksjepostIdentifikator]] = None
@@ -422,10 +422,10 @@ class Aksjepost(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjepost"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjepost")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjepost")
 
     identifikator: Union[str, AksjepostIdentifikator] = None
     har_antall_aksjer: Optional[int] = None
@@ -453,10 +453,10 @@ class Utbytte(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Utbytte"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utbytte")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Utbytte")
 
     identifikator: Union[str, UtbytteIdentifikator] = None
     tidspunkt: Optional[Union[str, XSDDate]] = None
@@ -488,10 +488,10 @@ class Utdeling(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Utdeling"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Utdeling")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Utdeling")
 
     identifikator: Union[str, UtdelingIdentifikator] = None
     belop: Optional[Decimal] = None
@@ -515,10 +515,10 @@ class Tidspunkt(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Tidspunkt"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Tidspunkt")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Tidspunkt")
 
     dato: Optional[Union[str, XSDDate]] = None
 
@@ -536,10 +536,10 @@ class Eierskapstransaksjon(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Eierskapstransaksjon"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Eierskapstransaksjon")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Eierskapstransaksjon")
 
     identifikator: Union[str, EierskapstransaksjonIdentifikator] = None
     tidspunkt: Optional[Union[str, XSDDate]] = None
@@ -575,10 +575,10 @@ class Aksjeoverdragelse(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeoverdragelse"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeoverdragelse")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeoverdragelse")
 
     identifikator: Union[str, AksjeoverdragelseIdentifikator] = None
     kan_ha_vederlag: Optional[Union[str, VederlagIdentifikator]] = None
@@ -602,10 +602,10 @@ class Vederlag(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Vederlag"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Vederlag")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Vederlag")
 
     identifikator: Union[str, VederlagIdentifikator] = None
     belop: Optional[Decimal] = None
@@ -629,10 +629,10 @@ class Selskapshendelse(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Selskapshendelse"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Selskapshendelse")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Selskapshendelse")
 
     identifikator: Union[str, SelskapshendelseIdentifikator] = None
     kan_ha_aksjeinnskudd: Optional[Union[str, AksjeinnskuddIdentifikator]] = None
@@ -656,10 +656,10 @@ class Aksjeinnskudd(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "Aksjeinnskudd"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/Aksjeinnskudd")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/Aksjeinnskudd")
 
     identifikator: Union[str, AksjeinnskuddIdentifikator] = None
     gjelder_innbetalt_aksjekapital: Optional[Decimal] = None
@@ -687,10 +687,10 @@ class InnbetaltAksjekapital(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "InnbetaltAksjekapital"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltAksjekapital")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltAksjekapital")
 
     belop: Optional[Decimal] = None
 
@@ -708,10 +708,10 @@ class InnbetaltOverkurs(YAMLRoot):
     """
     _inherited_slots: ClassVar[list[str]] = []
 
-    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs")
+    class_class_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs")
     class_class_curie: ClassVar[str] = None
     class_name: ClassVar[str] = "InnbetaltOverkurs"
-    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/linkml/register-over-aksjeeiere/InnbetaltOverkurs")
+    class_model_uri: ClassVar[URIRef] = URIRef("https://data.norge.no/oreg/register-over-aksjeeiere/InnbetaltOverkurs")
 
     belop: Optional[Decimal] = None
 

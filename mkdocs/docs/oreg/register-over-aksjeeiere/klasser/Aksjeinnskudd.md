@@ -9,7 +9,7 @@ _Innskot knytt til aksjar i samband med selskapshending._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd](https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd](https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd)
 
 
 
@@ -183,8 +183,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd](http
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:Aksjeinnskudd |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:Aksjeinnskudd |
 
 
 

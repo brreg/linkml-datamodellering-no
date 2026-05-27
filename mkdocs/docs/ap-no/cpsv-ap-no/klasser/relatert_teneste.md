@@ -62,7 +62,7 @@ URI: [cv:relatedService](http://data.europa.eu/m8g/relatedService)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -72,7 +72,7 @@ URI: [cv:relatedService](http://data.europa.eu/m8g/relatedService)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cv:relatedService |
-| native | https://data.norge.no/linkml/cpsv-ap-no/relatert_teneste |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/relatert_teneste |
 
 
 
@@ -83,7 +83,7 @@ URI: [cv:relatedService](http://data.europa.eu/m8g/relatedService)
 ```yaml
 name: relatert_teneste
 description: Relatert teneste.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cv:relatedService
 domain_of:

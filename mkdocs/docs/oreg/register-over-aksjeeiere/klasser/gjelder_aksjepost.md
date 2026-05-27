@@ -9,7 +9,7 @@ _Aksjepost som inngår i eigarposisjonen._
 
 
 
-URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost](https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost)
+URI: [https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost](https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost)
 <!-- no inheritance hierarchy -->
 
 
@@ -69,8 +69,8 @@ URI: [https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost](
 
 | Mapping Type | Mapped Value |
 | ---  | ---  |
-| self | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost |
-| native | https://data.norge.no/linkml/register-over-aksjeeiere/:gjelder_aksjepost |
+| self | https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost |
+| native | https://data.norge.no/oreg/register-over-aksjeeiere/:gjelder_aksjepost |
 
 
 

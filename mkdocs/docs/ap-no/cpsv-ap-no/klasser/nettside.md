@@ -61,7 +61,7 @@ URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -71,7 +71,7 @@ URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | vcard:hasURL |
-| native | https://data.norge.no/linkml/cpsv-ap-no/nettside |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/nettside |
 
 
 
@@ -82,7 +82,7 @@ URI: [vcard:hasURL](http://www.w3.org/2006/vcard/ns#hasURL)
 ```yaml
 name: nettside
 description: Nettside for tenestekanalane.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: vcard:hasURL
 domain_of:

@@ -827,7 +827,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/dcat-ap-no
+* from schema: https://data.norge.no/ap-no/dcat-ap-no
 
 
 
@@ -837,7 +837,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | dcat:Distribution |
-| native | https://data.norge.no/linkml/dcat-ap-no/Distribusjon |
+| native | https://data.norge.no/ap-no/dcat-ap-no/Distribusjon |
 
 
 
@@ -854,7 +854,7 @@ URI: [dcat:Distribution](http://www.w3.org/ns/dcat#Distribution)
 ```yaml
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slots:
 - id
@@ -918,7 +918,7 @@ class_uri: dcat:Distribution
 ```yaml
 name: Distribusjon
 description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
-from_schema: https://data.norge.no/linkml/dcat-ap-no
+from_schema: https://data.norge.no/ap-no/dcat-ap-no
 rank: 1000
 slot_usage:
   tilgangs_url:
@@ -950,7 +950,7 @@ attributes:
   id:
     name: id
     description: URI-identifikator for ressursen.
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     identifier: true
     owner: Distribusjon
     domain_of:
@@ -983,7 +983,7 @@ attributes:
     description: URL for tilgang til distribusjonen.
     in_subset:
     - Obligatorisk
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:accessURL
     owner: Distribusjon
@@ -997,7 +997,7 @@ attributes:
     description: Fritekstbeskrivelse av ressursen (dct:description).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:description
     owner: Distribusjon
     domain_of:
@@ -1016,7 +1016,7 @@ attributes:
     description: Filformat eller medietype (dct:format).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:format
     owner: Distribusjon
     domain_of:
@@ -1029,7 +1029,7 @@ attributes:
     description: Lisens for bruk av ressursen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:license
     owner: Distribusjon
@@ -1043,7 +1043,7 @@ attributes:
     description: Status for ressursen frå eit kontrollert vokabular (adms:status).
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: adms:status
     owner: Distribusjon
     domain_of:
@@ -1056,7 +1056,7 @@ attributes:
     description: Planlagt tilgjengelegheit for ressursen.
     in_subset:
     - Anbefalt
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcatap:availability
     owner: Distribusjon
@@ -1067,7 +1067,7 @@ attributes:
   dokumentasjon:
     name: dokumentasjon
     description: Lenke til dokumentasjon om ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: foaf:page
     owner: Distribusjon
@@ -1081,7 +1081,7 @@ attributes:
   endringsdato:
     name: endringsdato
     description: Dato for siste endring av ressursen (dct:modified).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:modified
     owner: Distribusjon
     domain_of:
@@ -1094,7 +1094,7 @@ attributes:
   filstorrelse:
     name: filstorrelse
     description: Filstørrelse i bytes.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:byteSize
     owner: Distribusjon
@@ -1104,7 +1104,7 @@ attributes:
   gjeldende_lovgivning:
     name: gjeldende_lovgivning
     description: Lovgjeving som gjeld for ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcatap:applicableLegislation
     owner: Distribusjon
@@ -1119,7 +1119,7 @@ attributes:
   i_samsvar_med:
     name: i_samsvar_med
     description: Standard ressursen er i samsvar med.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:conformsTo
     owner: Distribusjon
@@ -1133,7 +1133,7 @@ attributes:
   komprimeringsformat:
     name: komprimeringsformat
     description: Komprimeringsformat brukt i distribusjonen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:compressFormat
     owner: Distribusjon
@@ -1143,7 +1143,7 @@ attributes:
   medietype:
     name: medietype
     description: Medietype i samsvar med IANA-registeret.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:mediaType
     owner: Distribusjon
@@ -1153,7 +1153,7 @@ attributes:
   nedlastningslenke:
     name: nedlastningslenke
     description: Direkte nedlastingslenke for distribusjonsfila.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:downloadURL
     owner: Distribusjon
@@ -1164,7 +1164,7 @@ attributes:
   pakkeformat:
     name: pakkeformat
     description: Pakkeformat brukt i distribusjonen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:packageFormat
     owner: Distribusjon
@@ -1178,7 +1178,7 @@ attributes:
         tag: gyldige_verdier
         value: odrl:Policy
     description: ODRL-policy som regulerer bruk av ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: odrl:hasPolicy
     owner: Distribusjon
@@ -1188,7 +1188,7 @@ attributes:
   rettigheter:
     name: rettigheter
     description: Rettar knytte til ressursen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dct:rights
     owner: Distribusjon
@@ -1200,7 +1200,7 @@ attributes:
   sjekksum:
     name: sjekksum
     description: Sjekksum for distribusjonsfila.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: spdx:checksum
     owner: Distribusjon
@@ -1210,7 +1210,7 @@ attributes:
   spraak:
     name: spraak
     description: Språk brukt i ressursen (dct:language).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:language
     owner: Distribusjon
     domain_of:
@@ -1225,7 +1225,7 @@ attributes:
   tidsopplosning:
     name: tidsopplosning
     description: Minste tidsoppløysing i datasettet.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:temporalResolution
     owner: Distribusjon
@@ -1235,7 +1235,7 @@ attributes:
   tilgangstjeneste:
     name: tilgangstjeneste
     description: Datatjeneste som gjev tilgang til distribusjonen.
-    from_schema: https://data.norge.no/linkml/dcat-ap-no
+    from_schema: https://data.norge.no/ap-no/dcat-ap-no
     rank: 1000
     slot_uri: dcat:accessService
     owner: Distribusjon
@@ -1246,7 +1246,7 @@ attributes:
   tittel:
     name: tittel
     description: Namn/tittel på ressursen (dct:title).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:title
     owner: Distribusjon
     domain_of:
@@ -1263,7 +1263,7 @@ attributes:
   utgivelsesdato:
     name: utgivelsesdato
     description: Dato ressursen vart første gong publisert (dct:issued).
-    from_schema: https://data.norge.no/linkml/common-ap-no
+    from_schema: https://data.norge.no/ap-no/common-ap-no
     slot_uri: dct:issued
     owner: Distribusjon
     domain_of:

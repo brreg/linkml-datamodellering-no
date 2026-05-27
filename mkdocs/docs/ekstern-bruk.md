@@ -12,13 +12,13 @@ Alt du treng er **to filer** og eit enkelt bootstrap-steg.
 I rota av ditt eige repo:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/scripts/bootstrap.sh | bash
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/bootstrap.sh | bash
 ```
 
 For å feste til ein konkret versjon:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v1.0.0/scripts/bootstrap.sh \
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v1.0.0/bootstrap.sh \
   | AP_NO_VERSION=v1.0.0 bash
 ```
 
@@ -137,14 +137,14 @@ container-imagene og AP-NO-skjema. Du treng ikkje sende inn `version`-inputen ek
 ein ny release av `linkml-datamodellering-no`. Kopier malen til rota av ditt repo:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/scripts/renovate.json \
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/renovate.json \
   -o renovate.json
 ```
 
 Eller hent han saman med bootstrap:
 
 ```bash
-curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/scripts/renovate.json \
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/renovate.json \
   -o renovate.json
 # (bootstrap.sh er allereie køyrt)
 ```
@@ -166,7 +166,7 @@ og brukar GitHub Releases som kjelde:
 
 !!! note "Har du allereie renovate.json?"
     Legg berre til `customManagers`- og `packageRules`-blokkane frå
-    [`scripts/renovate.json`](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/scripts/renovate.json)
+    [`renovate.json`](https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/renovate.json)
     i din eksisterande konfig. Ikkje dupliser `extends`.
 
 ---

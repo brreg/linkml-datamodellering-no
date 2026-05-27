@@ -67,7 +67,7 @@ URI: [cccevno:isDescribedBy](https://data.norge.no/vocabulary/cccevno#isDescribe
 ### Schema Source
 
 
-* from schema: https://data.norge.no/linkml/cpsv-ap-no
+* from schema: https://data.norge.no/ap-no/cpsv-ap-no
 
 
 
@@ -77,7 +77,7 @@ URI: [cccevno:isDescribedBy](https://data.norge.no/vocabulary/cccevno#isDescribe
 | Mapping Type | Mapped Value |
 | ---  | ---  |
 | self | cccevno:isDescribedBy |
-| native | https://data.norge.no/linkml/cpsv-ap-no/er_beskrive_av |
+| native | https://data.norge.no/ap-no/cpsv-ap-no/er_beskrive_av |
 
 
 
@@ -88,7 +88,7 @@ URI: [cccevno:isDescribedBy](https://data.norge.no/vocabulary/cccevno#isDescribe
 ```yaml
 name: er_beskrive_av
 description: Datasett som beskriv ressursen.
-from_schema: https://data.norge.no/linkml/cpsv-ap-no
+from_schema: https://data.norge.no/ap-no/cpsv-ap-no
 rank: 1000
 slot_uri: cccevno:isDescribedBy
 domain_of:
