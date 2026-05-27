@@ -36,6 +36,14 @@ jobs:
           format: sarif
           output: trivy-generator.sarif
 
+      - name: Skann mcp-linkml-begrep-utkast/requirements.txt
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: fs
+          scan-ref: src/mcp-linkml-begrep-utkast/requirements.txt
+          format: sarif
+          output: trivy-begrep.sarif
+
       - name: Skann assets/requirements-python-test.txt
         uses: aquasecurity/trivy-action@v0.36.0
         with:
@@ -57,6 +65,13 @@ jobs:
         with:
           sarif_file: trivy-generator.sarif
           category: trivy-generator
+
+      - name: Last opp trivy-begrep.sarif til GitHub Security
+        uses: github/codeql-action/upload-sarif@v4
+        if: always()
+        with:
+          sarif_file: trivy-begrep.sarif
+          category: trivy-begrep
 
       - name: Last opp trivy-assets.sarif til GitHub Security
         uses: github/codeql-action/upload-sarif@v4

@@ -1,9 +1,9 @@
-id: https://data.norge.no/linkml/dcat-ap-no-fixture
+id: https://data.norge.no/ap-no/dcat-ap-no-fixture
 name: dcat-ap-no-fixture
 title: DCAT-AP-NO testfixture
 description: Testfixture som legg til Container/tree_root for validering av eksempeldata.
 
-default_prefix: https://data.norge.no/linkml/dcat-ap-no-fixture/
+default_prefix: https://data.norge.no/ap-no/dcat-ap-no-fixture/
 default_range: string
 
 prefixes:

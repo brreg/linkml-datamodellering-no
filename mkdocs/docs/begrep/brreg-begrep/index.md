@@ -1,16 +1,5 @@
 # brreg-begrep
 
-!!! info "Publisert til Felles Begrepskatalog"
-    Denne katalogen er publisert til [data.norge.no/concepts](https://data.norge.no/concepts)
-    via høstingsendepunkt. Turtle-fila er tilgjengeleg på:
-
-    `https://brreg.github.io/linkml-datamodellering-no/begrep/brreg-begrep/brreg-begrep.ttl`
-
-    Sjå [Publiser til Felles Begrepskatalog](../../publisering-begrep.md) for rettleiing
-    om arbeidsflyt, URI-stabilitet og oppsett for nye katalogar.
-
-
-Denne begrepskatalogen implementerer [SKOS-AP-NO-Begrep](https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/) direkte og definerer ingen eigne klasser. Alle domeneklassar (`Begrep`, `Samling`, `Definisjon` o.fl.) er henta frå skos-ap-no via import — sjå [SKOS-AP-NO-Begrep-dokumentasjonen](https://brreg.github.io/linkml-datamodellering-no/ap-no/skos-ap-no/) for full klassedokumentasjon.
 
 
 Begrepskatalog for Registerenheten i Brønnøysund. Begreper modellert lokalt med midlertidige URI-ar, klare for validering og eksport til Felles Begrepskatalog.

@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/dcat-ap-no
+id: https://data.norge.no/ap-no/dcat-ap-no
 name: dcat-ap-no
 title: DCAT-AP-NO
 description: >-
@@ -27,7 +27,7 @@ prefixes:
   rdfs:    http://www.w3.org/2000/01/rdf-schema#
   rdf:     http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-default_prefix: https://data.norge.no/linkml/dcat-ap-no/
+default_prefix: https://data.norge.no/ap-no/dcat-ap-no/
 default_range: string
 
 imports:

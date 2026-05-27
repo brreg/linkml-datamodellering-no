@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/ngr-adresse
+id: https://data.norge.no/ngr/ngr-adresse
 name: ngr-adresse
 title: Nasjonale grunndata – Adresse
 description: >-
@@ -16,7 +16,7 @@ prefixes:
   xsd:     http://www.w3.org/2001/XMLSchema#
   rdf:     http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-default_prefix: https://data.norge.no/linkml/ngr-adresse/
+default_prefix: https://data.norge.no/ngr/ngr-adresse/
 default_range: string
 
 imports:

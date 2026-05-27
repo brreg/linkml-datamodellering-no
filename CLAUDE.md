@@ -154,7 +154,7 @@ Containerklasse:
 Forsøk alltid å utføre minimale endringer som kun løser den spesifikke oppgava.
 
 ### Ny profil eller domenemodell
-Sjå `specs/ny-domenemodell.md` for steg-for-steg-rettleiing.
+Sjå `mkdocs/docs/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
 ## Namngjeving
 
@@ -228,9 +228,9 @@ src/linkml/<domene>/<modell>/examples/<modell>-eksempel.yaml
 | Felt | Konvensjon | Eksempel |
 |---|---|---|
 | `name` | `kebab-case`, same som filnamnet utan `-schema.yaml` | `ngr-adresse` |
-| `id` | Absolutt HTTPS-URL | `https://data.norge.no/linkml/ngr-adresse` |
+| `id` | Absolutt HTTPS-URL | `https://data.norge.no/ngr/ngr-adresse` |
 | `title` | Norsk bokmål, tittelformat | `Nasjonale grunndata – Adresse` |
-| `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/linkml/ngr-adresse/` |
+| `default_prefix` | Absolutt HTTPS-URL med avsluttande `/` | `https://data.norge.no/ngr/ngr-adresse/` |
 | `version` | Semantisk versjonering i hermeteikn | `"1.0.0"` |
 
 ### Norske bokstavar i identifikatorar

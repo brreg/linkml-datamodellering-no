@@ -363,7 +363,7 @@ nav:
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
-      - Generatorkonfigurasjon: generate-config.md
+      - Generatorkonfigurasjon: manifest-config.md
       - Bruk frå eksternt repo: ekstern-bruk.md
 STATIC
 

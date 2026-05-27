@@ -18,13 +18,14 @@ Berre nødvendig ved første bruk eller etter endringar i Dockerfile.
 | `make docs-build-docker` | `mkdocs-local` | Dokumentasjonsportal |
 | `make python-build-docker` | `python-pytest` | Python-testar |
 | `make mcp-mod-build` | `mcp-linkml-modell-utkast` | Modell-utkast MCP-server |
+| `make mcp-begrep-build` | `mcp-linkml-begrep-utkast` | Begrepsinstans-generator MCP-server |
 | `make mcp-val-build` | `mcp-linkml-validator` | Validator MCP-server |
 
 ## Ny modell
 
 | Kommando | Beskriving | Output |
 |---|---|---|
-| `make new-model NAME=<namn> DOMAIN=<domene>` | Opprett filstruktur og boilerplate for ny modell | `src/linkml/<domene>/<namn>/<namn>-schema.yaml`<br>`examples/<domene>/<namn>-eksempel.yaml` |
+| `make new-model NAME=<namn> DOMAIN=<domene>` | Opprett filstruktur og boilerplate for ny modell | `src/linkml/<domene>/<namn>/<namn>-schema.yaml`<br>`src/linkml/<domene>/<namn>/examples/<namn>-eksempel.yaml` |
 
 Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 
@@ -58,8 +59,10 @@ Skjemaet passerer `POLICY=bronze` utan manuell redigering.
 | Kommando | Beskriving | Output |
 |---|---|---|
 | `make ap-no` | Valider + generer alle artefakter for alle AP-NO-profiler | `generated/ap-no/` |
+| `make begrepskatalog` | Valider + generer alle artefakter for begrepskatalogmodellane | `generated/begrepskatalog/` |
 | `make fair` | Valider + generer alle artefakter for FAIR-metadata | `generated/fair/` |
 | `make fint` | Valider + generer alle artefakter for FINT-modellane | `generated/fint/` |
+| `make modellkatalog` | Valider + generer alle artefakter for modellkatalogmodellane | `generated/modellkatalog/` |
 | `make ngr` | Valider + generer alle artefakter for NGR-modellane | `generated/ngr/` |
 | `make oreg` | Valider + generer alle artefakter for OREG-registera | `generated/oreg/` |
 | `make samt` | Valider + generer alle artefakter for SAMT-modellane | `generated/samt/` |
@@ -102,6 +105,15 @@ Nye skjema under `src/linkml/<domene>/<namn>/` vert oppdaga automatisk — ingen
 | `make mcp-mod-smoke` | Røyktest med eksempel-meldingar | — |
 | `make mcp-mod-test` | Køyr alle unit-testar | — |
 | `make mcp-mod-run` | Start server interaktivt (stdin/stdout) | — |
+
+## mcp-linkml-begrep-utkast
+
+| Kommando | Beskriving |
+|---|---|
+| `make mcp-begrep-build` | Bygg container-image |
+| `make mcp-begrep-run` | Start server interaktivt (stdin/stdout) |
+| `make mcp-begrep-smoke` | Røyktest med eksempel-meldingar |
+| `make mcp-begrep-list-profiles` | List tilgjengelege organisasjonsprofiler |
 
 ## LinkML-validator mcp-server (mcp-linkml-validator)
 

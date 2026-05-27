@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/ngr-virksomhet
+id: https://data.norge.no/ngr/ngr-virksomhet
 name: ngr-virksomhet
 title: Nasjonale grunndata – Virksomhet
 description: >-
@@ -12,7 +12,7 @@ prefixes:
   ngrv:    https://data.norge.no/vocabulary/ngr-virksomhet#
   xsd:     http://www.w3.org/2001/XMLSchema#
 
-default_prefix: https://data.norge.no/linkml/ngr-virksomhet/
+default_prefix: https://data.norge.no/ngr/ngr-virksomhet/
 default_range: string
 
 imports:

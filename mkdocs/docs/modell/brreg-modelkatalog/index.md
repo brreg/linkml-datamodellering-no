@@ -1,14 +1,5 @@
 # brreg-modelkatalog
 
-!!! info "Publisert til Felles Begrepskatalog"
-    Denne katalogen er publisert til [data.norge.no/concepts](https://data.norge.no/concepts)
-    via høstingsendepunkt. Turtle-fila er tilgjengeleg på:
-
-    `https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modelkatalog/brreg-modelkatalog.ttl`
-
-    Sjå [Publiser til Felles Begrepskatalog](../../publisering-begrep.md) for rettleiing
-    om arbeidsflyt, URI-stabilitet og oppsett for nye katalogar.
-
 
 
 Modelkatalog for Brønnøysundregistra sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO direkte via import.

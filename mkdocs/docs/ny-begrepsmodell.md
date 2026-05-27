@@ -30,8 +30,7 @@ make mcp-val-build       # byggjer mcp-linkml-validator (for bronze-validering)
 ## 1 — Opprett filstruktur
 
 ```bash
-mkdir -p src/linkml/begrepskatalog/<katalognavn>
-# examples/begrep/ finst allereie
+mkdir -p src/linkml/begrepskatalog/<katalognavn>/examples
 ```
 
 **Namnemønster:** `<org>-begrep` eller `<fagdomene>-begrep`, t.d. `digdir-begrep`, `ssb-begrep`, `ngr-begrep`.
@@ -45,7 +44,7 @@ Kopier frå `src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog
 `id`, `name`, `title` og `default_prefix`:
 
 ```yaml
-id: https://data.norge.no/linkml/<katalognavn>
+id: https://data.norge.no/begrepskatalog/<katalognavn>
 name: <katalognavn>
 title: <Organisasjon> – Begrepskatalog
 version: "1.0.0"
@@ -53,7 +52,7 @@ version: "1.0.0"
 prefixes:
   linkml: https://w3id.org/linkml/
 
-default_prefix: https://data.norge.no/linkml/<katalognavn>/
+default_prefix: https://data.norge.no/begrepskatalog/<katalognavn>/
 default_range: string
 
 imports:
@@ -108,9 +107,12 @@ classes:
 
 ---
 
-## 3 — Skriv `generate.yaml`
+## 3 — Skriv `manifest.yaml`
 
 ```yaml
+publish_external: false
+data_policy: felles-begrepskatalog
+
 generators:
   jsonld_context: true
   shacl: false
@@ -123,7 +125,6 @@ generators:
   docs: true
   plantuml: false
   example_rdf: true    # konverterer instansfila til RDF/Turtle
-data_policy: felles-begrepskatalog   # berre for katalogar som skal publiserast
 ```
 
 `example_rdf: true` er obligatorisk — det er dette som produserer SKOS/Turtle for eksport.
@@ -168,7 +169,7 @@ Send dette til serveren (t.d. via AI-assistent eller skript):
 ```
 
 Resultatet er ein `BegrepContainer`-blokk som kan limast inn i instansfila
-(`examples/begrep/<katalognavn>-eksempel.yaml`) under dei tilsvarande listene.
+(`src/linkml/begrepskatalog/<katalognavn>/examples/<katalognavn>-eksempel.yaml`) under dei tilsvarande listene.
 
 ### Profil for eigen organisasjon
 

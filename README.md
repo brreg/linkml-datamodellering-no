@@ -152,7 +152,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 ## Genererte artefakter
 
-Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domene>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/generate-config/) for detaljar.
+Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domene>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/manifest-config/) for detaljar.
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
 |---|---|---|---|---|
@@ -179,9 +179,14 @@ linkml-datamodellering-no/
 │   │   └── <domene>/
 │   │       └── <modell>/
 │   │           ├── <modell>-schema.yaml
-│   │           ├── manifest.yaml  # Generator- og publiseringskonfig
-│   │           ├── examples/      # Eksempeldata (for testing og dokumentasjon)
-│   │           └── data/          # Produksjonsdata (berre for publiserte katalogar)
+│   │           ├── manifest.yaml           # Generator- og publiseringskonfig
+│   │           ├── published-uris.lock     # Berre for publiserte katalogar
+│   │           ├── examples/
+│   │           │   └── <modell>-eksempel.yaml
+│   │           └── data/                   # Berre for publiserte katalogar
+│   │               └── <datafil-katalog>/
+│   │                   ├── <datafil-katalog>.yaml
+│   │                   └── manifest.yaml   # Datafil-manifest
 │   ├── mcp-linkml-validator/      # MCP-server: policy-basert validering
 │   ├── mcp-linkml-modell-utkast/  # MCP-server: JSON Schema → LinkML-utkast
 │   ├── mcp-linkml-begrep-utkast/  # MCP-server: generering av begrepsinstansar

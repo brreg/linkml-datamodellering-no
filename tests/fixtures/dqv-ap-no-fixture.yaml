@@ -1,9 +1,9 @@
-id: https://data.norge.no/linkml/dqv-ap-no-fixture
+id: https://data.norge.no/ap-no/dqv-ap-no-fixture
 name: dqv-ap-no-fixture
 title: DQV-AP-NO testfixture
 description: Testfixture som legg til Container/tree_root for validering av eksempeldata.
 
-default_prefix: https://data.norge.no/linkml/dqv-ap-no-fixture/
+default_prefix: https://data.norge.no/ap-no/dqv-ap-no-fixture/
 default_range: string
 
 prefixes:

@@ -107,7 +107,7 @@ jobs:
 
 Workflowen les `manifest.yaml` frå skjemakatalogen og køyrer dei generatorane som er aktiverte
 (`jsonld_context`, `json_schema`, `python`, `shacl`, `owl`, `rdf`, `protobuf`, `example_rdf`).
-Sjå [Generatorkonfigurasjon](generate-config.md) for detaljar.
+Sjå [Generatorkonfigurasjon](manifest-config.md) for detaljar.
 
 ---
 

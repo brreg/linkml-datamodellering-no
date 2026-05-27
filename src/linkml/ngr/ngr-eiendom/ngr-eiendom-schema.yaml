@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/ngr-eiendom
+id: https://data.norge.no/ngr/ngr-eiendom
 name: ngr-eiendom
 title: Nasjonale grunndata – Eiendom
 description: >-
@@ -12,7 +12,7 @@ prefixes:
   ngre:    https://data.norge.no/vocabulary/ngr-eiendom#
   xsd:     http://www.w3.org/2001/XMLSchema#
 
-default_prefix: https://data.norge.no/linkml/ngr-eiendom/
+default_prefix: https://data.norge.no/ngr/ngr-eiendom/
 default_range: string
 
 imports:

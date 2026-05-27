@@ -283,8 +283,8 @@ convert-rdf:
 	done
 
 # Convert data YAML files to RDF/Turtle for all domains.
-# Naming convention: data/<domain>/<name>.yaml → generated/<domain>/<name>/<name>.ttl
-# Schema resolved as: src/linkml/<domain>/<name>/<name>-schema.yaml
+# Naming convention: src/linkml/<domain>/<model>/data/<catalog>/<catalog>.yaml → generated/<domain>/<catalog>/<catalog>.ttl
+# Schema resolved as: src/linkml/<domain>/<model>/<model>-schema.yaml
 convert-data:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make convert-data$(CLR_RST)"

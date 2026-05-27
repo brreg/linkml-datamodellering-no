@@ -1,9 +1,9 @@
-id: https://data.norge.no/linkml/fair-metadata-fixture
+id: https://data.norge.no/fair/fair-metadata-fixture
 name: fair-metadata-fixture
 title: FAIR Metadata testfixture
 description: Testfixture som legg til Container/tree_root for validering av eksempeldata.
 
-default_prefix: https://data.norge.no/linkml/fair-metadata-fixture/
+default_prefix: https://data.norge.no/fair/fair-metadata-fixture/
 default_range: string
 
 prefixes:

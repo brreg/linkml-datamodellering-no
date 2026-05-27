@@ -8,7 +8,7 @@ Reads the tree_root class attributes from schema.yaml to find {attribute_name: C
 mappings, then splits the example file into <ClassName>-<slug>.yaml per instance.
 
 Exits 0 silently if:
-  - docgen_examples: false is set in generate.yaml (sibling of schema.yaml)
+  - docgen_examples: false is set in manifest.yaml (sibling of schema.yaml)
   - example file does not exist
   - schema has no tree_root class with attributes
 """
@@ -71,8 +71,8 @@ def main():
     example_path = Path(sys.argv[2])
     out_dir = Path(sys.argv[3])
 
-    # Check opt-out in generate.yaml (sibling of schema file)
-    generate_yaml = schema_path.parent / "generate.yaml"
+    # Check opt-out in manifest.yaml (sibling of schema file)
+    generate_yaml = schema_path.parent / "manifest.yaml"
     if generate_yaml.exists():
         with open(generate_yaml, encoding="utf-8") as f:
             for line in f:

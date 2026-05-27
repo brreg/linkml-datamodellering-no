@@ -1,9 +1,9 @@
-id: https://data.norge.no/linkml/skos-ap-no-fixture
+id: https://data.norge.no/ap-no/skos-ap-no-fixture
 name: skos-ap-no-fixture
 title: SKOS-AP-NO testfixture
 description: Testfixture som legg til Container/tree_root for validering av eksempeldata.
 
-default_prefix: https://data.norge.no/linkml/skos-ap-no-fixture/
+default_prefix: https://data.norge.no/ap-no/skos-ap-no-fixture/
 default_range: string
 
 prefixes:

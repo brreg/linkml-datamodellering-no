@@ -9,7 +9,7 @@ make new-model NAME=mitt-register DOMAIN=oreg
 Dette oppretter:
 
 - `src/linkml/oreg/mitt-register/mitt-register-schema.yaml` — skjema med stub-klasse og containerklasse
-- `examples/oreg/mitt-register-eksempel.yaml` — eksempelfil med minimal instans
+- `src/linkml/oreg/mitt-register/examples/mitt-register-eksempel.yaml` — eksempelfil med minimal instans
 
 Skjemaet passerer `POLICY=bronze` utan manuell redigering. Nye skjema vert oppdaga automatisk — ingen endringar i Makefile nødvendig.
 
@@ -150,17 +150,17 @@ Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#g
 
 ## Tilpass generatorane
 
-Kvar modell har ei `generate.yaml` ved sida av skjemafila som styrer kva artefaktar
+Kvar modell har ei `manifest.yaml` ved sida av skjemafila som styrer kva artefaktar
 som vert genererte. `make new-model` oppretter standardkonfigen automatisk — alle
 generatorar på, ingen ekstra flagg.
 
-For å slå av ein generator eller leggje til flagg, rediger `generate.yaml` og køyr:
+For å slå av ein generator eller leggje til flagg, rediger `manifest.yaml` og køyr:
 
 ```bash
-make config.mk   # regenerer Makefile-konfig frå alle generate.yaml-filer
+make config.mk   # regenerer Makefile-konfig frå alle manifest.yaml-filer
 ```
 
-Sjå [Generatorkonfigurasjon](generate-config.md) for feltliste og eksempel per
+Sjå [Generatorkonfigurasjon](manifest-config.md) for feltliste og eksempel per
 domenetype (standard, FINT, AP-NO/FAIR).
 
 ---

@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/cpsv-ap-no
+id: https://data.norge.no/ap-no/cpsv-ap-no
 name: cpsv-ap-no
 title: CPSV-AP-NO
 description: >-
@@ -29,7 +29,7 @@ prefixes:
   xsd:      http://www.w3.org/2001/XMLSchema#
   rdf:      http://www.w3.org/1999/02/22-rdf-syntax-ns#
 
-default_prefix: https://data.norge.no/linkml/cpsv-ap-no/
+default_prefix: https://data.norge.no/ap-no/cpsv-ap-no/
 default_range: string
 
 imports:

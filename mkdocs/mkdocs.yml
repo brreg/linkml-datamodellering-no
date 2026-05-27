@@ -56,7 +56,8 @@ nav:
       - Ny begrepskatalog: ny-begrepsmodell.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
-      - Generatorkonfigurasjon: generate-config.md
+      - Generatorkonfigurasjon: manifest-config.md
+      - Bruk frå eksternt repo: ekstern-bruk.md
   - 'AP-NO – Applikasjonsprofiler':
       - ap-no/index.md
       - 'cpsv-ap-no': ap-no/cpsv-ap-no/index.md
@@ -65,7 +66,7 @@ nav:
       - 'modelldcat-ap-no': ap-no/modelldcat-ap-no/index.md
       - 'skos-ap-no': ap-no/skos-ap-no/index.md
       - 'xkos-ap-no': ap-no/xkos-ap-no/index.md
-  - 'Begrep – Begrepskatalogmodellar':
+  - 'BEGREP':
       - begrep/index.md
       - 'brreg-begrep': begrep/brreg-begrep/index.md
   - 'FAIR – Metadataoverbygning':

@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/modelldcat-ap-no
+id: https://data.norge.no/ap-no/modelldcat-ap-no
 name: modelldcat-ap-no
 title: ModelDCAT-AP-NO
 description: >-
@@ -22,7 +22,7 @@ prefixes:
   prof:          http://www.w3.org/ns/dx/prof/
   xkos:          http://rdf-vocabulary.ddialliance.org/xkos#
 
-default_prefix: https://data.norge.no/linkml/modelldcat-ap-no/
+default_prefix: https://data.norge.no/ap-no/modelldcat-ap-no/
 default_range: string
 
 imports:

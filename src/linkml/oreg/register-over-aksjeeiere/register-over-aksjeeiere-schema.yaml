@@ -10,7 +10,7 @@ prefixes:
   aksje: https://example.no/ontology/aksje#
   schema: http://schema.org/
 
-default_prefix: https://data.norge.no/linkml/register-over-aksjeeiere/
+default_prefix: https://data.norge.no/oreg/register-over-aksjeeiere/
 default_range: string
 
 imports:

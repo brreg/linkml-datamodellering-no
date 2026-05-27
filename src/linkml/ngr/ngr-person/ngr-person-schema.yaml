@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/ngr-person
+id: https://data.norge.no/ngr/ngr-person
 name: ngr-person
 title: Nasjonale grunndata – Person
 description: >-
@@ -12,7 +12,7 @@ prefixes:
   ngrp:    https://data.norge.no/vocabulary/ngr-person#
   xsd:     http://www.w3.org/2001/XMLSchema#
 
-default_prefix: https://data.norge.no/linkml/ngr-person/
+default_prefix: https://data.norge.no/ngr/ngr-person/
 default_range: string
 
 imports:

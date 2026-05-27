@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/common-ap-no
+id: https://data.norge.no/ap-no/common-ap-no
 name: common-ap-no
 title: Common AP-NO
 description: >-
@@ -7,7 +7,7 @@ description: >-
 
 prefixes:
   linkml:  https://w3id.org/linkml/
-  capno:   https://data.norge.no/linkml/common-ap-no/
+  capno:   https://data.norge.no/ap-no/common-ap-no/
   adms:    http://www.w3.org/ns/adms#
   cv:      http://data.europa.eu/m8g/
   dcat:    http://www.w3.org/ns/dcat#
@@ -19,7 +19,7 @@ prefixes:
   rdf:     http://www.w3.org/1999/02/22-rdf-syntax-ns#
   owl:     http://www.w3.org/2002/07/owl#
 
-default_prefix: https://data.norge.no/linkml/common-ap-no/
+default_prefix: https://data.norge.no/ap-no/common-ap-no/
 default_range: string
 
 imports:

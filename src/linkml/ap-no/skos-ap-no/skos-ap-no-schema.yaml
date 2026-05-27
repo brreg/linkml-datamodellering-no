@@ -1,4 +1,4 @@
-id: https://data.norge.no/linkml/skos-ap-no
+id: https://data.norge.no/ap-no/skos-ap-no
 name: skos-ap-no
 title: SKOS-AP-NO
 description: >-
@@ -24,7 +24,7 @@ prefixes:
   rdfs:     http://www.w3.org/2000/01/rdf-schema#
   xsd:      http://www.w3.org/2001/XMLSchema#
 
-default_prefix: https://data.norge.no/linkml/skos-ap-no/
+default_prefix: https://data.norge.no/ap-no/skos-ap-no/
 default_range: string
 
 imports:
