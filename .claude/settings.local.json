@@ -49,7 +49,7 @@
       "WebFetch(domain:fellesdatakatalog.digdir.no)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "Bash(make -n mcp-validate SCHEMA=src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml POLICY=bronze)",
+      "Bash(make -n mcp-validate SCHEMA=src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml POLICY=bronze)",
       "Bash(make schema-gen-doc *)",
       "WebSearch",
       "Bash(make mcp-mod-smoke *)"

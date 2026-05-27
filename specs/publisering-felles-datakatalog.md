@@ -5,7 +5,7 @@
 Publisere informasjonsmodellar frå dette repoet til
 [Felles Datakatalog](https://data.norge.no) via høstingsendepunkt,
 i ModelDCAT-AP-NO-format (Turtle). Modellane skal vera søkbare i
-data.norge.no sin modelkatalog og lenke vidare til dokumentasjonsportalen.
+data.norge.no sin modellkatalog og lenke vidare til dokumentasjonsportalen.
 
 ## Bakgrunn
 
@@ -19,40 +19,40 @@ Det finst allereie:
 
 Det som manglar er:
 
-1. Eit **reelt modelkatalog-skjema** med containerklasse og import av modelldcat-ap-no
+1. Eit **reelt modellkatalog-skjema** med containerklasse og import av modelldcat-ap-no
 2. Ein **kataloginstansfil** som skildrar dei faktiske LinkML-modellane i repoet
 3. Ein **`felles-datakatalog`-policy** i `mcp-linkml-validator`
 4. Registrering av GitHub Pages-URL som høstingsendepunkt
 
 ---
 
-## Del 1 — Ny modelkatalog-schema: `brreg-modelkatalog`
+## Del 1 — Ny modellkatalog-schema: `brreg-modellkatalog`
 
 ### Plassering
 
 ```
-src/linkml/modell/brreg-modelkatalog/brreg-modelkatalog-schema.yaml
-examples/modell/brreg-modelkatalog-eksempel.yaml
+src/linkml/modell/brreg-modellkatalog/brreg-modellkatalog-schema.yaml
+examples/modell/brreg-modellkatalog-eksempel.yaml
 ```
 
 ### Føremål
 
 Eit eige schema for katalog over Brønnøysundregistra sine informasjonsmodellar,
 på same mønster som `brreg-begrep` importerer `skos-ap-no-schema`. Containeren
-eksponerer `Modelkatalog`, `Informasjonsmodell` og aktuelle modellelementklassar.
+eksponerer `Modellkatalog`, `Informasjonsmodell` og aktuelle modellelementklassar.
 
-### YAML-struktur (brreg-modelkatalog-schema.yaml)
+### YAML-struktur (brreg-modellkatalog-schema.yaml)
 
 ```yaml
-id: https://data.norge.no/linkml/brreg-modelkatalog
-name: brreg-modelkatalog
-title: Brønnøysundregistra – Modelkatalog
+id: https://data.norge.no/linkml/brreg-modellkatalog
+name: brreg-modellkatalog
+title: Brønnøysundregistra – Modellkatalog
 description: >
-  Modelkatalog for Brønnøysundregistra sine informasjonsmodellar.
+  Modellkatalog for Brønnøysundregistra sine informasjonsmodellar.
   Implementerer ModelDCAT-AP-NO direkte via import.
 version: "1.0.0"
 
-default_prefix: https://data.norge.no/linkml/brreg-modelkatalog/
+default_prefix: https://data.norge.no/linkml/brreg-modellkatalog/
 default_range: string
 
 prefixes:
@@ -63,11 +63,11 @@ imports:
   - ../../ap-no/modelldcat-ap-no/modelldcat-ap-no-schema
 
 classes:
-  ModelkatalogContainer:
+  ModellkatalogContainer:
     tree_root: true
     attributes:
-      modelkatalogar:
-        range: Modelkatalog
+      modellkatalogar:
+        range: Modellkatalog
         multivalued: true
         inlined: true
         inlined_as_list: true
@@ -93,37 +93,37 @@ classes:
         inlined_as_list: true
 ```
 
-### Kataloginstansfil (brreg-modelkatalog-eksempel.yaml)
+### Kataloginstansfil (brreg-modellkatalog-eksempel.yaml)
 
 Fila skildrar Brønnøysundregistra sine reelle informasjonsmodellar.
 Kvar `Informasjonsmodell` peikar til den publiserte LinkML-dokumentasjonen
 på GitHub Pages. Utdrag:
 
 ```yaml
-modelkatalogar:
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog
+modellkatalogar:
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog
     tittel:
-      - "@value": "Brønnøysundregistra – Modelkatalog"
+      - "@value": "Brønnøysundregistra – Modellkatalog"
         "@language": "nb"
     beskrivelse:
       - "@value": "Informasjonsmodellar frå Brønnøysundregistra i LinkML-format."
         "@language": "nb"
-    identifikator_literal: brreg-modelkatalog
+    identifikator_literal: brreg-modellkatalog
     utgiver: https://data.norge.no/organizations/974760673
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
     har_del:
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
     modell:
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
     spraak:
       - http://publications.europa.eu/resource/authority/language/NOB
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
 informasjonsmodellar:
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
     tittel:
       - "@value": "Nasjonale grunndata – Adresse"
         "@language": "nb"
@@ -155,10 +155,10 @@ informasjonsmodellar:
 
 ### URI-stabilitet
 
-`id:`-feltet for `Modelkatalog` og `Informasjonsmodell` er permanent etter første publisering.
-Bruk mønsteret `https://brreg.no/modellkatalogar/brreg-modelkatalog/<schema-name>`.
+`id:`-feltet for `Modellkatalog` og `Informasjonsmodell` er permanent etter første publisering.
+Bruk mønsteret `https://brreg.no/modellkatalogar/brreg-modellkatalog/<schema-name>`.
 
-Opprett `src/linkml/modell/brreg-modelkatalog/published-uris.lock` etter same mønster
+Opprett `src/linkml/modell/brreg-modellkatalog/published-uris.lock` etter same mønster
 som `specs/publisering-felles-begrepskatalog.md § URI-stabilitet`.
 
 ---
@@ -167,27 +167,27 @@ som `specs/publisering-felles-begrepskatalog.md § URI-stabilitet`.
 
 ### Pipeline
 
-`make convert-rdf` oppdagar automatisk `examples/modell/brreg-modelkatalog-eksempel.yaml`
-og konverterer ho til Turtle ved hjelp av `brreg-modelkatalog-schema.yaml`:
+`make convert-rdf` oppdagar automatisk `examples/modell/brreg-modellkatalog-eksempel.yaml`
+og konverterer ho til Turtle ved hjelp av `brreg-modellkatalog-schema.yaml`:
 
 ```
-examples/modell/brreg-modelkatalog-eksempel.yaml
+examples/modell/brreg-modellkatalog-eksempel.yaml
   → make convert-rdf
-  → generated/modell/brreg-modelkatalog/brreg-modelkatalog-eksempel.ttl
+  → generated/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl
   → GitHub Actions (generate.yml) publiserer til GitHub Pages
 ```
 
 ### Publisert URL
 
 ```
-https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modelkatalog/brreg-modelkatalog-eksempel.ttl
+https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl
 ```
 
 ### Validering
 
 ```bash
 make mcp-validate \
-  SCHEMA=src/linkml/modell/brreg-modelkatalog/brreg-modelkatalog-schema.yaml \
+  SCHEMA=src/linkml/modell/brreg-modellkatalog/brreg-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog
 ```
 
@@ -197,12 +197,12 @@ make mcp-validate \
 
 ### Føremål
 
-Validerer at eit modelkatalogskjema (t.d. `brreg-modelkatalog-schema.yaml`) er
+Validerer at eit modellkatalogskjema (t.d. `brreg-modellkatalog-schema.yaml`) er
 strukturelt klart for publisering til Felles Datakatalog:
 
 - Importerer ModelDCAT-AP-NO (direkte eller transitivt)
-- Containerklassen eksponerer `Modelkatalog` og `Informasjonsmodell`
-- `Modelkatalog` har alle obligatoriske ModelDCAT-AP-NO-slots
+- Containerklassen eksponerer `Modellkatalog` og `Informasjonsmodell`
+- `Modellkatalog` har alle obligatoriske ModelDCAT-AP-NO-slots
 - `Informasjonsmodell` har alle obligatoriske og anbefalte slots
 
 Policyen arvar `bronze` (schema `id`/`name`, HTTP-URI-sjekk).
@@ -220,7 +220,7 @@ version: 1
 extends: bronze
 
 description: >
-  Policy for modelkatalogskjema som skal publiserast til Felles Datakatalog.
+  Policy for modellkatalogskjema som skal publiserast til Felles Datakatalog.
   Validerer at skjemaet importerer ModelDCAT-AP-NO og eksponerer dei nødvendige
   klassane og slotsa via containerklassen (tree_root).
   Arvar bronselaget: grunnleggande metadata- og modelleringskrav.
@@ -245,7 +245,7 @@ checks:
       Skjemaet må importere modelldcat-ap-no-schema (direkte eller transitivt).
     check: schema_imports
     must_import: modelldcat-ap-no-schema
-    characteristic_class: Modelkatalog
+    characteristic_class: Modellkatalog
 
   # ── Prefiks-krav ─────────────────────────────────────────────────────────────
 
@@ -265,12 +265,12 @@ checks:
 
   # ── Containerklasse-krav ─────────────────────────────────────────────────────
 
-  container_har_modelkatalog:
+  container_har_modellkatalog:
     severity: error
     description: >
-      Containerklassen (tree_root) må ha eit attributt med range Modelkatalog.
+      Containerklassen (tree_root) må ha eit attributt med range Modellkatalog.
     check: container_has_class
-    class: Modelkatalog
+    class: Modellkatalog
 
   container_har_informasjonsmodell:
     severity: error
@@ -279,66 +279,66 @@ checks:
     check: container_has_class
     class: Informasjonsmodell
 
-  # ── Modelkatalog-krav (dcat:Catalog) — obligatoriske ─────────────────────────
+  # ── Modellkatalog-krav (dcat:Catalog) — obligatoriske ─────────────────────────
 
-  modelkatalog_har_tittel:
+  modellkatalog_har_tittel:
     severity: error
-    description: Modelkatalog må ha dct:title. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:title. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:title
 
-  modelkatalog_har_beskrivelse:
+  modellkatalog_har_beskrivelse:
     severity: error
-    description: Modelkatalog må ha dct:description. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:description. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:description
 
-  modelkatalog_har_identifikator:
+  modellkatalog_har_identifikator:
     severity: error
-    description: Modelkatalog må ha dct:identifier. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:identifier. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:identifier
 
-  modelkatalog_har_utgjevar:
+  modellkatalog_har_utgjevar:
     severity: error
-    description: Modelkatalog må ha dct:publisher. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:publisher. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:publisher
 
-  modelkatalog_har_kontaktpunkt:
+  modellkatalog_har_kontaktpunkt:
     severity: error
-    description: Modelkatalog må ha dcat:contactPoint. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dcat:contactPoint. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dcat:contactPoint
 
-  modelkatalog_har_del:
+  modellkatalog_har_del:
     severity: error
-    description: Modelkatalog må ha dct:hasPart. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:hasPart. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:hasPart
 
-  # ── Modelkatalog-krav — anbefalte ─────────────────────────────────────────────
+  # ── Modellkatalog-krav — anbefalte ─────────────────────────────────────────────
 
-  modelkatalog_har_lisens:
+  modellkatalog_har_lisens:
     severity: warning
-    description: Modelkatalog bør ha dct:license. Anbefalt i ModelDCAT-AP-NO.
+    description: Modellkatalog bør ha dct:license. Anbefalt i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:license
 
-  modelkatalog_har_modell:
+  modellkatalog_har_modell:
     severity: warning
     description: >
-      Modelkatalog bør ha modelldcatno:model (liste over informasjonsmodellar).
+      Modellkatalog bør ha modelldcatno:model (liste over informasjonsmodellar).
       Anbefalt i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: modelldcatno:model
 
   # ── Informasjonsmodell-krav (modelldcatno:InformationModel) — obligatoriske ───
@@ -444,10 +444,10 @@ instance_checks:
 
 | Check | Klasse | Alvor |
 |---|---|---|
-| `container_has_class` | `Modelkatalog` | error |
+| `container_has_class` | `Modellkatalog` | error |
 | `container_has_class` | `Informasjonsmodell` | error |
 
-#### Modelkatalog (dcat:Catalog)
+#### Modellkatalog (dcat:Catalog)
 
 | URI | Krav per ModelDCAT-AP-NO | Alvor |
 |---|---|---|
@@ -489,13 +489,13 @@ Pluss arva frå `bronze`: `schema_id_is_http_uri`, `all_classes_have_class_uri` 
 
 ### Steg 1 — Opprett skjema og instansfil
 
-1. Lag `src/linkml/modell/brreg-modelkatalog/brreg-modelkatalog-schema.yaml` (sjå Del 1)
-2. Lag `examples/modell/brreg-modelkatalog-eksempel.yaml` med reelle katalogoppføringer (sjå Del 1)
+1. Lag `src/linkml/modell/brreg-modellkatalog/brreg-modellkatalog-schema.yaml` (sjå Del 1)
+2. Lag `examples/modell/brreg-modellkatalog-eksempel.yaml` med reelle katalogoppføringer (sjå Del 1)
 3. Valider:
 
 ```bash
 make mcp-validate \
-  SCHEMA=src/linkml/modell/brreg-modelkatalog/brreg-modelkatalog-schema.yaml \
+  SCHEMA=src/linkml/modell/brreg-modellkatalog/brreg-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog
 ```
 
@@ -505,12 +505,12 @@ make mcp-validate \
 make convert-rdf
 ```
 
-Sjekk at `generated/modell/brreg-modelkatalog/brreg-modelkatalog-eksempel.ttl`
+Sjekk at `generated/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl`
 inneheld gyldige `dcat:Catalog`- og `modelldcatno:InformationModel`-triples:
 
 ```bash
 grep -c "dcat:Catalog\|InformationModel" \
-  generated/modell/brreg-modelkatalog/brreg-modelkatalog-eksempel.ttl
+  generated/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl
 ```
 
 ### Steg 3 — Tilgang til administrasjonsgrensesnittet
@@ -533,7 +533,7 @@ Legg til ny datakjelde i [data.norge.no/publishing](https://data.norge.no/publis
 | **Katalogtype** | Informasjonsmodellar |
 | **Datakildentype** | ModelDCAT-AP-NO |
 | **Format** | Turtle |
-| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modelkatalog/brreg-modelkatalog-eksempel.ttl` |
+| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl` |
 | **Autentisering** | (tomt — endepunktet er offentleg) |
 
 ### Steg 5 — Utløys manuell høsting og verifiser
@@ -545,9 +545,9 @@ med riktig utgjevar, tittel og LOS-tema.
 ### Automatisk oppdatering
 
 ```
-rediger examples/modell/brreg-modelkatalog-eksempel.yaml
+rediger examples/modell/brreg-modellkatalog-eksempel.yaml
     → make modell  (eller CI-pipeline ved push til main)
-    → generated/modell/brreg-modelkatalog/brreg-modelkatalog-eksempel.ttl
+    → generated/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl
     → GitHub Pages publiserer ny .ttl
     → Felles Datakatalog høstar automatisk ved neste syklus
 ```
@@ -579,14 +579,14 @@ saman med dei andre publiseringsrettleiingane:
 ### Automatisk portalboks
 
 `mkdocs/publish.sh` viser allereie ein informasjonsboks og «Publisert til»-kolonne
-for skjema som har `published-uris.lock`. Opprett lock-fila for `brreg-modelkatalog`
+for skjema som har `published-uris.lock`. Opprett lock-fila for `brreg-modellkatalog`
 etter publisering:
 
 ```bash
-cat > src/linkml/modell/brreg-modelkatalog/published-uris.lock << 'EOF'
-# Publiserte URI-ar for brreg-modelkatalog — IKKJE endre eller slett eksisterande linjer.
+cat > src/linkml/modell/brreg-modellkatalog/published-uris.lock << 'EOF'
+# Publiserte URI-ar for brreg-modellkatalog — IKKJE endre eller slett eksisterande linjer.
 # Nye URI-ar leggast til nedst etter publisering.
-https://brreg.no/modellkatalogar/brreg-modelkatalog
+https://brreg.no/modellkatalogar/brreg-modellkatalog
 EOF
 ```
 
@@ -598,12 +598,12 @@ Oppdater `README.md` med det nye `modell`-domenet i domene-tabellen:
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
-| modell | Modelkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no) |
+| modell | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no) |
 
 ### generate.yaml
 
 Legg til `data_policy: felles-datakatalog` i
-`src/linkml/modell/brreg-modelkatalog/generate.yaml` slik at CI-pipelinen
+`src/linkml/modell/brreg-modellkatalog/generate.yaml` slik at CI-pipelinen
 køyrer rett valideringspolicy automatisk.
 
 ---

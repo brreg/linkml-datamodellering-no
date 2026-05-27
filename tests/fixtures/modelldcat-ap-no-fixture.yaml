@@ -19,8 +19,8 @@ classes:
     tree_root: true
     description: Testcontainer for ModelDCAT-AP-NO-eksempeldata.
     attributes:
-      modelkatalogar:
-        range: Modelkatalog
+      modellkatalogar:
+        range: Modellkatalog
         multivalued: true
         inlined_as_list: true
       informasjonsmodellar:

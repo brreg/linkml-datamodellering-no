@@ -20,12 +20,12 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLIC
 
 # Publisering — med datafil/instans:
 make mcp-validate \
-  SCHEMA=src/linkml/begrep/<katalog>/<katalog>-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<katalog>/<katalog>-schema.yaml \
   POLICY=felles-begrepskatalog \
   INSTANCE=data/begrep/<katalog>.yaml
 
 make mcp-validate \
-  SCHEMA=src/linkml/modell/<katalog>/<katalog>-schema.yaml \
+  SCHEMA=src/linkml/modellkatalog/<katalog>/<katalog>-schema.yaml \
   POLICY=felles-datakatalog \
   INSTANCE=examples/modell/<katalog>-eksempel.yaml
 ```
@@ -158,7 +158,7 @@ via SKOS-AP-NO-Begrep. Sjå [Publiser til Felles Begrepskatalog](https://brreg.g
 
 ### Felles Datakatalog (`felles-datakatalog`)
 
-For modelkatalogskjema som publiserer til [data.norge.no/models](https://data.norge.no/models)
+For modellkatalogskjema som publiserer til [data.norge.no/models](https://data.norge.no/models)
 via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-modell/) for full rettleiing.
 
 **Import og prefiks:**
@@ -173,21 +173,21 @@ via ModelDCAT-AP-NO. Sjå [Publiser til Felles Datakatalog](https://brreg.github
 
 | Alvor | Krav | Kode |
 |---|---|---|
-| **error** | Container har attributt med range `Modelkatalog` | `container_har_modelkatalog` |
+| **error** | Container har attributt med range `Modellkatalog` | `container_har_modellkatalog` |
 | **error** | Container har attributt med range `Informasjonsmodell` | `container_har_informasjonsmodell` |
 
-**`Modelkatalog`-krav (obligatoriske per ModelDCAT-AP-NO):**
+**`Modellkatalog`-krav (obligatoriske per ModelDCAT-AP-NO):**
 
 | Alvor | Krav | Kode |
 |---|---|---|
-| **error** | `dct:title` | `modelkatalog_har_tittel` |
-| **error** | `dct:description` | `modelkatalog_har_beskrivelse` |
-| **error** | `dct:identifier` | `modelkatalog_har_identifikator` |
-| **error** | `dct:publisher` | `modelkatalog_har_utgjevar` |
-| **error** | `dcat:contactPoint` | `modelkatalog_har_kontaktpunkt` |
-| **error** | `dct:hasPart` | `modelkatalog_har_del` |
-| warning | `dct:license` | `modelkatalog_har_lisens` |
-| warning | `modelldcatno:model` | `modelkatalog_har_modell` |
+| **error** | `dct:title` | `modellkatalog_har_tittel` |
+| **error** | `dct:description` | `modellkatalog_har_beskrivelse` |
+| **error** | `dct:identifier` | `modellkatalog_har_identifikator` |
+| **error** | `dct:publisher` | `modellkatalog_har_utgjevar` |
+| **error** | `dcat:contactPoint` | `modellkatalog_har_kontaktpunkt` |
+| **error** | `dct:hasPart` | `modellkatalog_har_del` |
+| warning | `dct:license` | `modellkatalog_har_lisens` |
+| warning | `modelldcatno:model` | `modellkatalog_har_modell` |
 
 **`Informasjonsmodell`-krav (obligatoriske per ModelDCAT-AP-NO):**
 

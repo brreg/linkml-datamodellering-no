@@ -2,7 +2,7 @@ version: 1
 extends: bronze
 
 description: >
-  Policy for modelkatalogskjema som skal publiserast til Felles Datakatalog.
+  Policy for modellkatalogskjema som skal publiserast til Felles Datakatalog.
   Validerer at skjemaet importerer ModelDCAT-AP-NO og eksponerer dei nødvendige
   klassane og slotsa via containerklassen (tree_root).
   Arvar bronselaget: grunnleggande metadata- og modelleringskrav.
@@ -27,7 +27,7 @@ checks:
       Skjemaet må importere modelldcat-ap-no-schema (direkte eller transitivt).
     check: schema_imports
     must_import: modelldcat-ap-no-schema
-    characteristic_class: Modelkatalog
+    characteristic_class: Modellkatalog
 
   # ── Prefiks-krav ─────────────────────────────────────────────────────────────
 
@@ -47,12 +47,12 @@ checks:
 
   # ── Containerklasse-krav ─────────────────────────────────────────────────────
 
-  container_har_modelkatalog:
+  container_har_modellkatalog:
     severity: error
     description: >
-      Containerklassen (tree_root) må ha eit attributt med range Modelkatalog.
+      Containerklassen (tree_root) må ha eit attributt med range Modellkatalog.
     check: container_has_class
-    class: Modelkatalog
+    class: Modellkatalog
 
   container_har_informasjonsmodell:
     severity: error
@@ -61,66 +61,66 @@ checks:
     check: container_has_class
     class: Informasjonsmodell
 
-  # ── Modelkatalog-krav (dcat:Catalog) — obligatoriske ─────────────────────────
+  # ── Modellkatalog-krav (dcat:Catalog) — obligatoriske ─────────────────────────
 
-  modelkatalog_har_tittel:
+  modellkatalog_har_tittel:
     severity: error
-    description: Modelkatalog må ha dct:title. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:title. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:title
 
-  modelkatalog_har_beskrivelse:
+  modellkatalog_har_beskrivelse:
     severity: error
-    description: Modelkatalog må ha dct:description. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:description. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:description
 
-  modelkatalog_har_identifikator:
+  modellkatalog_har_identifikator:
     severity: error
-    description: Modelkatalog må ha dct:identifier. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:identifier. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:identifier
 
-  modelkatalog_har_utgjevar:
+  modellkatalog_har_utgjevar:
     severity: error
-    description: Modelkatalog må ha dct:publisher. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:publisher. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:publisher
 
-  modelkatalog_har_kontaktpunkt:
+  modellkatalog_har_kontaktpunkt:
     severity: error
-    description: Modelkatalog må ha dcat:contactPoint. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dcat:contactPoint. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dcat:contactPoint
 
-  modelkatalog_har_del:
+  modellkatalog_har_del:
     severity: error
-    description: Modelkatalog må ha dct:hasPart. Obligatorisk i ModelDCAT-AP-NO.
+    description: Modellkatalog må ha dct:hasPart. Obligatorisk i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:hasPart
 
-  # ── Modelkatalog-krav — anbefalte ─────────────────────────────────────────────
+  # ── Modellkatalog-krav — anbefalte ─────────────────────────────────────────────
 
-  modelkatalog_har_lisens:
+  modellkatalog_har_lisens:
     severity: warning
-    description: Modelkatalog bør ha dct:license. Anbefalt i ModelDCAT-AP-NO.
+    description: Modellkatalog bør ha dct:license. Anbefalt i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: dct:license
 
-  modelkatalog_har_modell:
+  modellkatalog_har_modell:
     severity: warning
     description: >
-      Modelkatalog bør ha modelldcatno:model (liste over informasjonsmodellar).
+      Modellkatalog bør ha modelldcatno:model (liste over informasjonsmodellar).
       Anbefalt i ModelDCAT-AP-NO.
     check: merged_class_has_slot_with_uri
-    class: Modelkatalog
+    class: Modellkatalog
     slot_uri: modelldcatno:model
 
   # ── Informasjonsmodell-krav — obligatoriske ───────────────────────────────────

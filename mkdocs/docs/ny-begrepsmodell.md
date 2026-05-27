@@ -30,7 +30,7 @@ make mcp-val-build       # byggjer mcp-linkml-validator (for bronze-validering)
 ## 1 — Opprett filstruktur
 
 ```bash
-mkdir -p src/linkml/begrep/<katalognavn>
+mkdir -p src/linkml/begrepskatalog/<katalognavn>
 # examples/begrep/ finst allereie
 ```
 
@@ -41,7 +41,7 @@ mkdir -p src/linkml/begrep/<katalognavn>
 ## 2 — Skriv `<katalognavn>-schema.yaml`
 
 Skjemaet er minimalt — all semantikk kjem frå den importerte `skos-ap-no`.
-Kopier frå `src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml` og endre
+Kopier frå `src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml` og endre
 `id`, `name`, `title` og `default_prefix`:
 
 ```yaml
@@ -197,7 +197,7 @@ for kvart kall. Sjå `profiles/brreg.yaml` som døme.
 
 # Full policy-validering — tilrådast før kvar commit:
 make mcp-validate \
-  SCHEMA=src/linkml/begrep/<katalognavn>/<katalognavn>-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
   POLICY=bronze
 ```
 
@@ -210,7 +210,7 @@ make mcp-validate \
 ## 6 — Generer RDF/Turtle
 
 ```bash
-make domain-gen-examples DOMAIN=begrep
+make domain-gen-examples DOMAIN=begrepskatalog
 ```
 
 Output: `generated/begrep/<katalognavn>/<katalognavn>-eksempel.ttl`
@@ -223,9 +223,8 @@ Denne Turtle-fila er SKOS-kompatibel og kan importerast til
 ## 7 — CI-pipeline
 
 Ingen endringar i workflowfiler nødvendig. `validate.yml` og `generate.yml` fangar
-automatisk opp nye skjema under `src/linkml/begrep/`. Pipelinen køyrer ved push til
-`main` når filer under `src/linkml/begrep/**`, `examples/begrep/**` eller
-`data/begrep/**` er endra.
+automatisk opp nye skjema under `src/linkml/begrepskatalog/`. Pipelinen køyrer ved push til
+`main` når filer under `src/linkml/begrepskatalog/**` er endra.
 
 ---
 
@@ -233,14 +232,14 @@ automatisk opp nye skjema under `src/linkml/begrep/`. Pipelinen køyrer ved push
 
 Berre nødvendig for katalogar som skal publiserast til Felles Begrepskatalog.
 
-**1.** Lag `data/begrep/<katalognavn>.yaml` med stabile produksjons-URI-ar.
-Bruk `data/begrep/brreg-begrep.yaml` som mal — same struktur som eksempelfila,
+**1.** Lag `src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml` med stabile produksjons-URI-ar.
+Bruk `src/linkml/begrepskatalog/brreg-begrepskatalog/data/brreg-begrepskatalog/brreg-begrepskatalog.yaml` som mal — same struktur som eksempelfila,
 men utan «under utvikling»-merknader og med permanente `id:`-verdiar.
 
 **2.** Lag ei tom URI-lock-fil:
 
 ```bash
-cat > src/linkml/begrep/<katalognavn>/published-uris.lock << 'EOF'
+cat > src/linkml/begrepskatalog/<katalognavn>/published-uris.lock << 'EOF'
 # Publiserte URI-ar for <katalognavn> — IKKJE endre eller slett eksisterande linjer.
 # Nye URI-ar leggast til nedst etter publisering.
 EOF
@@ -250,9 +249,9 @@ EOF
 
 ```bash
 make mcp-validate \
-  SCHEMA=src/linkml/begrep/<katalognavn>/<katalognavn>-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml \
   POLICY=felles-begrepskatalog \
-  INSTANCE=data/begrep/<katalognavn>.yaml
+  INSTANCE=src/linkml/begrepskatalog/<katalognavn>/data/<katalognavn>/<katalognavn>.yaml
 ```
 
 For fullstendig rettleiing om registrering og URI-stabilitet:

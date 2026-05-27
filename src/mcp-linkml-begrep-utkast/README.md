@@ -81,7 +81,7 @@ make mcp-begrep-run
 | Parameter | Type | Skildring |
 |---|---|---|
 | `yaml_innhald` | string | Innhaldet i instansfila som YAML-streng |
-| `skjema_sti` | string | Sti til skjemafil relativt til `/repo`, t.d. `src/linkml/begrep/brreg-begrep/brreg-begrep-schema.yaml` |
+| `skjema_sti` | string | Sti til skjemafil relativt til `/repo`, t.d. `src/linkml/begrepskatalog/brreg-begrepskatalog/brreg-begrepskatalog-schema.yaml` |
 
 Returnerer `{ gyldig, feiltal, åtvaringtal, hendingar }` med same format som
 `mcp-linkml-validator`.
@@ -169,7 +169,7 @@ Det genererte YAML-innhaldet er eit utkast. Sjekk og fyll inn:
 
 - **`valider_begrep`** er eit rask syntakssjekk mot skjemaet. Køyr i tillegg:
   ```bash
-  make mcp-validate SCHEMA=src/linkml/begrep/<katalognavn>/<katalognavn>-schema.yaml POLICY=bronze
+  make mcp-validate SCHEMA=src/linkml/begrepskatalog/<katalognavn>/<katalognavn>-schema.yaml POLICY=bronze
   ```
 - **`list_los_tema`** er ein statisk liste kompilert inn i `los_tema.py`. Ved
   oppdatering av LOS må fila oppdaterast og containeren byggjast på nytt.

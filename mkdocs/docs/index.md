@@ -74,10 +74,10 @@ Sjå [Bruk frå eksternt repo](ekstern-bruk.md) for full rettleiing, skjema-URL-
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
-| modell | Modelkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
+| modellkatalog | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
 | fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
 | ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
-| begrep | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Produksjonsdatafiler i `data/begrep/` vert automatisk konverterte til SKOS/RDF og publiserte til Felles Begrepskatalog via GitHub Pages-høstingsendepunkt. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| begrepskatalog | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Produksjonsdatafiler vert automatisk konverterte til SKOS/RDF og publiserte til Felles Begrepskatalog via GitHub Pages-høstingsendepunkt. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
 | oreg | Offentlege register. |
 | fint | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
@@ -89,7 +89,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| begrep | brreg-begrep | Registerenheten i Brønnøysund – Begrepskatalog | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| begrepskatalog | brreg-begrepskatalog | Registerenheten i Brønnøysund – Begrepskatalog | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | common-ap-no | Felles slot-definisjonar for alle AP-NO-profilar |
 | ap-no | cpsv-ap-no | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | dcat-ap-no | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)

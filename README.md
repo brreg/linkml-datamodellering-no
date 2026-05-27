@@ -65,22 +65,22 @@ For full rettleiing: sjå [Ny domenemodell](https://brreg.github.io/linkml-datam
 
 ```bash
 # 1. Opprett ny begrepskatalog (skjema + filstruktur)
-make new-model NAME=katalognavn DOMAIN=begrep
+make new-model NAME=katalognavn DOMAIN=begrepskatalog
 ```
 ```bash
 # 2. Rediger datafila med reelle begrep
-#    → data/begrep/katalognavn.yaml
+#    → src/linkml/begrepskatalog/katalognavn/data/katalognavn/katalognavn.yaml
 ```
 ```bash
 # 3. Valider skjema og datafil
 make mcp-validate \
-  SCHEMA=src/linkml/begrep/katalognavn/katalognavn-schema.yaml \
+  SCHEMA=src/linkml/begrepskatalog/katalognavn/katalognavn-schema.yaml \
   POLICY=felles-begrepskatalog \
-  INSTANCE=data/begrep/katalognavn.yaml
+  INSTANCE=src/linkml/begrepskatalog/katalognavn/data/katalognavn/katalognavn.yaml
 ```
 ```bash
 # 4. Generer og publiser til dokumentasjonsportal
-make begrep && make publish && make docs-serve   # → http://localhost:8000
+make begrepskatalog && make publish && make docs-serve   # → http://localhost:8000
 ```
 
 For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/ny-begrepsmodell/) og [Publiser til Felles Begrepskatalog](https://brreg.github.io/linkml-datamodellering-no/publisering-begrep/).
@@ -110,10 +110,10 @@ Validering og generering skjer via reusable GitHub Actions-workflows i dette rep
 
 | Domene | Skildring | Dokumentasjon |
 |---|---|---|
-| modell | Modelkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
+| modellkatalog | Modellkatalog for Brønnøysundregistra sine informasjonsmodellar i ModelDCAT-AP-NO-format. Publisert til Felles Datakatalog. | [ModelDCAT-AP-NO](https://data.norge.no/specification/modelldcat-ap-no)
 | fair | FAIR-metadataoverbygning — **F**indable, **A**ccessible, **I**nteroperable, **R**eusable. Kan importerast av alle domenemodeller. | [FAIR principles](https://www.go-fair.org/fair-principles/)
 | ap-no | Norske W3C-applikasjonsprofiler — DCAT, SKOS, CPSV, DQV m.fl. Importerast av domenemodeller. | [RDF-baserte maskinlesbare ressurser](https://data.norge.no/showroom/overview)
-| begrep | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Produksjonsdatafiler i `data/begrep/` vert automatisk konverterte til SKOS/RDF og publiserte til Felles Begrepskatalog via GitHub Pages-høstingsendepunkt. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| begrepskatalog | Begrepskatalogmodellar etter SKOS-AP-NO-Begrep. Produksjonsdatafiler vert automatisk konverterte til SKOS/RDF og publiserte til Felles Begrepskatalog via GitHub Pages-høstingsendepunkt. | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ngr | Nasjonale grunndata — adresse, eigedom, person og verksemd. | [Nasjonale grunndata](https://informasjonsforvaltning.github.io/nasjonale-grunndata/#OmNasjonaleGrunndata)
 | oreg | Offentlege register. |
 | fint | FINT felleskomponent — integrasjonsmodellar for fylkeskommunal sektor. | [FINT informasjonsmodell](https://informasjonsmodell.felleskomponent.no/docs?v=v4.0.20)
@@ -125,7 +125,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| begrep | [brreg-begrep](src/linkml/begrep/brreg-begrep/) | Registerenheten i Brønnøysund – Begrepskatalog | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| begrepskatalog | [brreg-begrepskatalog](src/linkml/begrepskatalog/brreg-begrepskatalog/) | Registerenheten i Brønnøysund – Begrepskatalog | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjonar for alle AP-NO-profilar |
 | ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)

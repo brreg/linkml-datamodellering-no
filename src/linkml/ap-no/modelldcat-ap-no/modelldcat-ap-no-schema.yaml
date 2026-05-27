@@ -107,9 +107,9 @@ classes:
       - spraak
       - format
 
-  # ---- Modelkatalog --------------------------------------------------------
+  # ---- Modellkatalog --------------------------------------------------------
 
-  Modelkatalog:
+  Modellkatalog:
     class_uri: dcat:Catalog
     description: >-
       Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
@@ -188,7 +188,7 @@ classes:
   Informasjonsmodell:
     class_uri: modelldcatno:InformationModel
     description: >-
-      Ein informasjonsmodell som er katalogisert i ein modelkatalog
+      Ein informasjonsmodell som er katalogisert i ein modellkatalog
       (modelldcatno:InformationModel).
     slots:
       - id
@@ -719,7 +719,7 @@ slots:
     range: date
     description: Sluttdato for tidsperioden (dcat:endDate).
 
-  # ---- Modelkatalog og Informasjonsmodell ----------------------------------
+  # ---- Modellkatalog og Informasjonsmodell ----------------------------------
 
   utgiver:
     slot_uri: dct:publisher
@@ -776,12 +776,12 @@ slots:
     slot_uri: modelldcatno:model
     range: Informasjonsmodell
     multivalued: true
-    description: Informasjonsmodellar i modelkatalogen (modelldcatno:model).
+    description: Informasjonsmodellar i modellkatalogen (modelldcatno:model).
 
   er_del_av_katalog:
     slot_uri: dct:isPartOf
-    range: Modelkatalog
-    description: Overordna modelkatalog (dct:isPartOf).
+    range: Modellkatalog
+    description: Overordna modellkatalog (dct:isPartOf).
 
   er_del_av_modell:
     slot_uri: dct:isPartOf

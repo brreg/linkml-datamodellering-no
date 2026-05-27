@@ -200,9 +200,58 @@ eksternt repo (t.d. kommune/mitt-fagsystem)
 |---|---|---|---|
 | 1 | Semantisk versjonering — `v1.0.0`-tag oppretta | ✅ Gjort | — |
 | 2 | `release.yml` re-taggar GHCR-imagene | ✅ Gjort | — |
-| 3 | GHCR-imagene merkast som `public` | ⏳ Krev org-admin | Minimal |
-| 4 | `reusable-validate.yml`, `reusable-generate.yml` og `scripts/bootstrap.sh` | ○ Ikkje starta | Medium |
-| 5 | Dokumenter schema-URL-ar og bootstrap-prosessen i README/docs | ○ Ikkje starta | Låg |
-| 6 | `scripts/renovate.json`-mal | ○ Ikkje starta | Låg |
+| 3 | GHCR-imagene merkast som `public` | ✅ Gjort | — |
+| 4 | `reusable-validate.yml`, `reusable-generate.yml` og `scripts/bootstrap.sh` | ✅ Gjort | — |
+| 5 | Dokumenter schema-URL-ar og bootstrap-prosessen i README/docs | ✅ Gjort | — |
+| 6 | `scripts/renovate.json`-mal | ✅ Gjort | — |
 
-Tiltak 3 og 4 er dei gjenverande kritiske stega.
+**Alternativ B er fullt aktivert.**
+
+---
+
+## Sluttresultat
+
+### Tiltak 4 — reusable workflows og bootstrap
+
+**`.github/workflows/reusable-validate.yml`**
+- Inputs: `schema` (påkravd), `policy` (standard `bronze`), `instance` (valfri), `version` (valfri)
+- Sjekkar ut det kallande repoet og sparse-checkar `src/mcp-linkml-validator/` frå dette repoet
+- Puller `linkml-local` og `mcp-linkml-validator` frå GHCR med rett versjon
+- Køyrer `flatten-and-validate.bash` med `REPO_ROOT`, `VALIDATOR_DIR` og `LINKML_IMAGE` sett
+- Skriv ut GitHub Actions-annotasjonar (`::error` / `::warning`) og avsluttar med kode 1 ved feil
+
+**`.github/workflows/reusable-generate.yml`**
+- Inputs: `schema` (påkravd), `version` (valfri)
+- Output: `artifact-name` (namn på GitHub Actions-artefakten)
+- Les generator-flagg frå `manifest.yaml` i skjemakatalogen (standard: alle på)
+- Køyrer: `gen-jsonld-context`, `gen-json-schema`, `gen-python`, `gen-proto`, `gen-shacl` (med `shacl_flags`), `gen-owl` (med `owl_flags`), `gen-rdf`, `linkml-convert` for eksempel-RDF
+- Lastar opp til `generated/<domene>/<modell>/` som GitHub Actions-artefakt
+
+**`scripts/bootstrap.sh`**
+- Bruk: `bash bootstrap.sh [versjon]` eller `AP_NO_VERSION=v1.0.0 bash bootstrap.sh`
+- Standard: `latest` (workflow-ref: `@main`)
+- Opprettar `linkml-datamodellering.yaml` og `.github/workflows/linkml.yml` (hoppar over om dei finst)
+- Skriv ut neste steg inkludert AP-NO-import-URL og valfri Renovate-oppsett
+
+**`src/mcp-linkml-validator/flatten-and-validate.bash`** (oppdatert)
+- `REPO_ROOT`, `VALIDATOR_DIR`, `LINKML_IMAGE`, `MCP_IMAGE` kan no overstyrasst via miljøvariablar
+- Ny eksempelplassering: `src/linkml/<domene>/<modell>/examples/<modell>-eksempel.yaml` (med fallback til gammal sti)
+
+### Tiltak 5 — dokumentasjon
+
+**`mkdocs/docs/ekstern-bruk.md`** (ny side i dokumentasjonsportalen)
+- Bootstrap one-liner med versjonert og flytande variant
+- Tabell over alle AP-NO-profil-URL-ar (`dcat-ap-no`, `skos-ap-no`, `modelldcat-ap-no`, `dqv-ap-no`, `cpsv-ap-no`, `xkos-ap-no`)
+- Fullstendig workflow-referanse for `reusable-validate.yml` og `reusable-generate.yml`
+- Versjonstabell for `linkml-datamodellering.yaml`
+- Lokal utvikling med `podman pull` frå GHCR
+
+**`README.md`** og **`mkdocs/docs/index.md`** — ny seksjon "Bruk frå eksternt repo" og oppdatert Katalogstruktur
+
+### Tiltak 6 — Renovate-mal
+
+**`scripts/renovate.json`**
+- Custom regex-manager som overvaker `ap-no-version:` i `linkml-datamodellering.yaml`
+- Brukar `github-releases` som kjelde mot `brreg/linkml-datamodellering-no`
+- Package rule med `linkml`/`dependencies`-labels
+- Drop-in for repo utan eksisterande Renovate-konfig; `customManagers` kan òg slåast saman inn i eksisterande konfig

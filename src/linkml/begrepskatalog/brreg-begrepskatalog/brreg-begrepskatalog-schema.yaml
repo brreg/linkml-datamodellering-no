@@ -1,5 +1,5 @@
-id: https://data.norge.no/linkml/brreg-begrep
-name: brreg-begrep
+id: https://data.norge.no/linkml/brreg-begrepskatalog
+name: brreg-begrepskatalog
 title: Registerenheten i Brønnøysund – Begrepskatalog
 description: >-
   Begrepskatalog for Registerenheten i Brønnøysund.
@@ -10,7 +10,7 @@ version: "1.0.0"
 prefixes:
   linkml: https://w3id.org/linkml/
 
-default_prefix: https://data.norge.no/linkml/brreg-begrep/
+default_prefix: https://data.norge.no/linkml/brreg-begrepskatalog/
 default_range: string
 
 imports:

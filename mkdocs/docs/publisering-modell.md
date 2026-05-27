@@ -11,14 +11,14 @@ på GitHub Pages.
 
 ```mermaid
 flowchart LR
-    A["examples/modell/\nbrreg-modelkatalog-eksempel.yaml"] -->|make convert-rdf| B["generated/modell/.../\nbrreg-modelkatalog-eksempel.ttl"]
-    B -->|GitHub Pages| C["brreg.github.io/\n.../brreg-modelkatalog-eksempel.ttl"]
+    A["examples/modell/\nbrreg-modellkatalog-eksempel.yaml"] -->|make convert-rdf| B["generated/modell/.../\nbrreg-modellkatalog-eksempel.ttl"]
+    B -->|GitHub Pages| C["brreg.github.io/\n.../brreg-modellkatalog-eksempel.ttl"]
     C -->|Automatisk høsting| D["data.norge.no/\nmodels"]
 ```
 
-Katalogfila (`examples/modell/brreg-modelkatalog-eksempel.yaml`) er eit register
+Katalogfila (`examples/modell/brreg-modellkatalog-eksempel.yaml`) er eit register
 over dei publiserte informasjonsmodellane og vert konvertert til Turtle ved hjelp av
-`brreg-modelkatalog-schema.yaml` som importerer ModelDCAT-AP-NO.
+`brreg-modellkatalog-schema.yaml` som importerer ModelDCAT-AP-NO.
 
 ---
 
@@ -34,13 +34,13 @@ make mcp-val-build   # byggjer mcp-linkml-validator (trengst for validering)
 ## Dagleg arbeidsflyt — oppdatere katalogen
 
 Når du redigerer eksisterande oppføringer i
-`examples/modell/brreg-modelkatalog-eksempel.yaml`:
+`examples/modell/brreg-modellkatalog-eksempel.yaml`:
 
 **1. Gjer endringa i katalogfila:**
 
 ```yaml
 informasjonsmodellar:
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
     tittel:
       - "@value": "Nasjonale grunndata – Adresse"
         "@language": "nb"
@@ -51,9 +51,9 @@ informasjonsmodellar:
 
 ```bash
 make mcp-validate \
-  SCHEMA=src/linkml/modell/brreg-modelkatalog/brreg-modelkatalog-schema.yaml \
+  SCHEMA=src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog \
-  INSTANCE=examples/modell/brreg-modelkatalog-eksempel.yaml
+  INSTANCE=examples/modell/brreg-modellkatalog-eksempel.yaml
 ```
 
 **3. Push til `main`:**
@@ -65,7 +65,7 @@ til GitHub Pages. Felles Datakatalog høstar oppdateringa ved neste syklus.
     `felles-datakatalog`-policyen validerer at:
 
     - Skjemaet importerer ModelDCAT-AP-NO
-    - `Modelkatalog` har alle obligatoriske felt (`dct:title`, `dct:description`,
+    - `Modellkatalog` har alle obligatoriske felt (`dct:title`, `dct:description`,
       `dct:identifier`, `dct:publisher`, `dcat:contactPoint`, `dct:hasPart`)
     - `Informasjonsmodell` har alle obligatoriske felt
     - `dct:publisher`-verdien er ein gyldig `data.norge.no/organizations/<orgnr>`-URI
@@ -77,11 +77,11 @@ til GitHub Pages. Felles Datakatalog høstar oppdateringa ved neste syklus.
 **1. Vel ein stabil URI-slug** — sluggen vert del av ein permanent URI.
 Val av slug er uforanderleg etter første publisering.
 
-**2. Legg til i `examples/modell/brreg-modelkatalog-eksempel.yaml`:**
+**2. Legg til i `examples/modell/brreg-modellkatalog-eksempel.yaml`:**
 
 ```yaml
 informasjonsmodellar:
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/<slug>
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>
     tittel:
       - "@value": "<norsk tittel>"
         "@language": "nb"
@@ -89,7 +89,7 @@ informasjonsmodellar:
       - "@value": "<beskriving>"
         "@language": "nb"
     utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/<slug>"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/<domene>/<skjema>/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
@@ -98,22 +98,22 @@ informasjonsmodellar:
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 ```
 
-**3.** Legg til URI-en i `har_del:` og `modell:`-lista på `Modelkatalog`-oppføringa.
+**3.** Legg til URI-en i `har_del:` og `modell:`-lista på `Modellkatalog`-oppføringa.
 
 **4. Valider og push til `main`.**
 
 **5. Etter stadfesta publisering** — legg til URI-en i lock-fila:
 
 ```bash
-echo "https://brreg.no/modellkatalogar/brreg-modelkatalog/<slug>" >> \
-  src/linkml/modell/brreg-modelkatalog/published-uris.lock
+echo "https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>" >> \
+  src/linkml/modellkatalog/brreg-modellkatalog/published-uris.lock
 ```
 
 ---
 
 ## URI-stabilitet
 
-Kvar `Informasjonsmodell` og `Modelkatalog` har ein permanent URI (`id:`-feltet).
+Kvar `Informasjonsmodell` og `Modellkatalog` har ein permanent URI (`id:`-feltet).
 
 !!! warning "URI-ar er permanente etter første publisering"
     Viss ein URI vert endra etter publisering, vil Felles Datakatalog opprette ein
@@ -122,7 +122,7 @@ Kvar `Informasjonsmodell` og `Modelkatalog` har ein permanent URI (`id:`-feltet)
 
 ### URI-registeret (`published-uris.lock`)
 
-`src/linkml/modell/brreg-modelkatalog/published-uris.lock` sporar alle publiserte
+`src/linkml/modellkatalog/brreg-modellkatalog/published-uris.lock` sporar alle publiserte
 URI-ar. CI-pipelinen feilar ein PR dersom ei URI i lock-fila manglar frå katalogfila.
 
 ---
@@ -142,7 +142,7 @@ med ID-porten og verifiser at Registerenheten i Brønnøysund er synleg.
 | **Katalogtype** | Informasjonsmodellar |
 | **Datakildentype** | ModelDCAT-AP-NO |
 | **Format** | Turtle |
-| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modelkatalog/brreg-modelkatalog-eksempel.ttl` |
+| **Datakjelde-URL** | `https://brreg.github.io/linkml-datamodellering-no/modell/brreg-modellkatalog/brreg-modellkatalog-eksempel.ttl` |
 | **Autentisering** | (tomt — endepunktet er offentleg) |
 
 **Steg 3** — Klikk **«Høst»** for umiddelbar høsting. Verifiser på
@@ -153,7 +153,7 @@ med riktig utgjevar, tittel og LOS-tema.
 
 ## CI-pipeline
 
-Følgjande køyrer automatisk ved push til `main` når `src/linkml/modell/**`
+Følgjande køyrer automatisk ved push til `main` når `src/linkml/modellkatalog/**`
 eller `examples/modell/**` er endra:
 
 | Jobb | Steg | Resultat ved feil |
@@ -167,7 +167,7 @@ Lokalt:
 
 ```bash
 # Validering:
-make domain-validate-data DOMAIN=modell
+make domain-validate-data DOMAIN=modellkatalog
 make check-published-uris
 
 # Konvertering og forhåndsvis:

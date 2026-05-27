@@ -111,7 +111,7 @@ jobs:
       actions: write
     strategy:
       matrix:
-        domain: [ap-no, begrep, fair, fint, modell, ngr, oreg, samt]
+        domain: [ap-no, begrepskatalog, fair, fint, modellkatalog, ngr, oreg, samt]
       fail-fast: false
     steps:
       - uses: actions/download-artifact@v8

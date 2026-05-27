@@ -1,13 +1,13 @@
-# Eksempel på ein ModelDCAT-AP-NO modelkatalog med informasjonsmodellar og modellelement.
+# Eksempel på ein ModelDCAT-AP-NO modellkatalog med informasjonsmodellar og modellelement.
 # Illustrerer ein informasjonsmodell for ein Adresse-domenemodell.
 
-modelkatalogar:
-  - id: https://example.org/modelkatalogar/adresse
+modellkatalogar:
+  - id: https://example.org/modellkatalogar/adresse
     tittel:
       - "Adressemodellkatalog"
     beskrivelse:
       - "Katalog over informasjonsmodellar for adressedomenet."
-    identifikator_literal: "adresse-modelkatalog-001"
+    identifikator_literal: "adresse-modellkatalog-001"
     utgiver: https://organization-catalog.fellesdatakatalog.digdir.no/organizations/991825827
     kontaktpunkt:
       - https://example.org/kontakt/matrikkeleininga

@@ -29,7 +29,8 @@ log_step() {
 domain_label() {
     case "$1" in
         ap-no)   echo "AP-NO – Applikasjonsprofiler" ;;
-        begrep)  echo "Begrep – Begrepskatalogmodellar" ;;
+        begrepskatalog) echo "Begrepskatalog – Begrepskatalogmodellar" ;;
+        modellkatalog)   echo "Modellkatalog – Informasjonsmodellar" ;;
         ngr)     echo "NGR – Nasjonale Grunndata" ;;
         fint)    echo "FINT – Fylkeskommunale integrasjonar" ;;
         samt)    echo "SAMT – Kommunale integrasjonar" ;;

@@ -91,12 +91,12 @@ Tabellar:
 | **error** | Importerer `modelldcat-ap-no-schema` | `schema_importerer_modelldcat_ap_no` |
 | **error** | Deklarerer `dct:`-prefix | `schema_brukar_dct_prefix` |
 | **error** | Deklarerer `dcat:`-prefix | `schema_brukar_dcat_prefix` |
-| **error** | Container har attributt med range `Modelkatalog` | `container_har_modelkatalog` |
+| **error** | Container har attributt med range `Modellkatalog` | `container_har_modellkatalog` |
 | **error** | Container har attributt med range `Informasjonsmodell` | `container_har_informasjonsmodell` |
-| **error** | `Modelkatalog` har `dct:title`, `dct:description`, `dct:identifier`, `dct:publisher`, `dcat:contactPoint`, `dct:hasPart` | (fleire kodar) |
+| **error** | `Modellkatalog` har `dct:title`, `dct:description`, `dct:identifier`, `dct:publisher`, `dcat:contactPoint`, `dct:hasPart` | (fleire kodar) |
 | **error** | `Informasjonsmodell` har `dct:title`, `dct:publisher` | (fleire kodar) |
 | **error** | `dct:publisher`-instansverdi er gyldig `data.norge.no/organizations/<orgnr>`-URI | `utgjevar_er_kjend_org` |
-| warning | `Modelkatalog` bør ha `dct:license`, `modelldcatno:model` | (fleire kodar) |
+| warning | `Modellkatalog` bør ha `dct:license`, `modelldcatno:model` | (fleire kodar) |
 | warning | `Informasjonsmodell` bør ha `dct:description`, `dct:identifier`, `modelldcatno:informationModelIdentifier`, m.fl. | (fleire kodar) |
 
 Merknad om arvehierarki: arvar `bronze`.

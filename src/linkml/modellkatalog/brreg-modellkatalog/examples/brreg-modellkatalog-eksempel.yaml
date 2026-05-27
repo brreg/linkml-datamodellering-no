@@ -1,39 +1,39 @@
-modelkatalogar:
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog
+modellkatalogar:
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog
     tittel:
-      - "Brønnøysundregistra – Modelkatalog"
+      - "Brønnøysundregistra – Modellkatalog"
     beskrivelse:
       - "Informasjonsmodellar frå Brønnøysundregistra i LinkML-format, tilgjengeleg som SHACL, JSON Schema, OWL og RDF/Turtle."
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog"
     utgiver: https://data.norge.no/organizations/974760673
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
     har_del:
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-eiendom
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-person
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/samt-bu
     modell:
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
-      - https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-eiendom
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-person
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
+      - https://brreg.no/modellkatalogar/brreg-modellkatalog/samt-bu
     spraak:
       - http://publications.europa.eu/resource/authority/language/NOB
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
 informasjonsmodellar:
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse
     tittel:
       - "Nasjonale grunndata – Adresse"
     beskrivelse:
       - "Informasjonsmodell for offisielle adresser frå Matrikkelen."
     utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-adresse"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-adresse"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-adresse/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
@@ -41,13 +41,13 @@ informasjonsmodellar:
       - https://psi.norge.no/los/tema/bolig-og-eiendom
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-eiendom
     tittel:
       - "Nasjonale grunndata – Eiendom"
     beskrivelse:
       - "Informasjonsmodell for fast eigedom, matrikkeleining og bygning."
     utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-eiendom"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-eiendom"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-eiendom/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
@@ -55,13 +55,13 @@ informasjonsmodellar:
       - https://psi.norge.no/los/tema/bolig-og-eiendom
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-person
     tittel:
       - "Nasjonale grunndata – Person"
     beskrivelse:
       - "Informasjonsmodell for person, identifikasjon og familierelasjonar."
     utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-person"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-person"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-person/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
@@ -69,13 +69,13 @@ informasjonsmodellar:
       - https://psi.norge.no/los/tema/familie-og-sivilstand
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet
     tittel:
       - "Nasjonale grunndata – Virksomhet"
     beskrivelse:
       - "Informasjonsmodell for verksemder, roller og organisasjonsstruktur."
     utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/ngr-virksomhet"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/ngr-virksomhet"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/ngr/ngr-virksomhet/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
@@ -83,13 +83,13 @@ informasjonsmodellar:
       - https://psi.norge.no/los/tema/naering-og-sysselsetting
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere
     tittel:
       - "Register over aksjeeigarar"
     beskrivelse:
       - "Informasjonsmodell for aksjeeigarar, aksjekapital og eigarstruktur."
     utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/register-over-aksjeeiere"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/register-over-aksjeeiere"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/oreg/register-over-aksjeeiere/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
@@ -97,13 +97,13 @@ informasjonsmodellar:
       - https://psi.norge.no/los/tema/naering-og-sysselsetting
     lisens: http://publications.europa.eu/resource/authority/licence/CC_BY_4_0
 
-  - id: https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu
+  - id: https://brreg.no/modellkatalogar/brreg-modellkatalog/samt-bu
     tittel:
       - "SAMT – Barnehagar og skular"
     beskrivelse:
       - "Informasjonsmodell for barnehagar og skular i kommunesektoren."
     utgiver: https://data.norge.no/organizations/974760673
-    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modelkatalog/samt-bu"
+    identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/samt-bu"
     informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/samt/samt-bu/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
