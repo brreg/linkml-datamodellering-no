@@ -363,6 +363,7 @@ nav:
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
       - Generatorkonfigurasjon: generate-config.md
+      - Bruk frå eksternt repo: ekstern-bruk.md
 STATIC
 
     for domain in "${ALL_DOMAINS[@]}"; do

@@ -1,0 +1,20 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "customManagers": [
+    {
+      "customType": "regex",
+      "fileMatch": ["^linkml-datamodellering\\.yaml$"],
+      "matchStrings": ["ap-no-version:\\s*(?<currentValue>\\S+)"],
+      "depNameTemplate": "brreg/linkml-datamodellering-no",
+      "datasourceTemplate": "github-releases"
+    }
+  ],
+  "packageRules": [
+    {
+      "matchDepNames": ["brreg/linkml-datamodellering-no"],
+      "labels": ["linkml", "dependencies"],
+      "commitMessageTopic": "AP-NO (linkml-datamodellering-no)"
+    }
+  ]
+}

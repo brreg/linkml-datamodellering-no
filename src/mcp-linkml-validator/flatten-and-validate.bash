@@ -15,15 +15,23 @@ set -euo pipefail
 SCHEMA="${1:?Bruk: $0 <sti-til-skjema> [policy] [instans]}"
 POLICY="${2:-bronze}"
 EXPLICIT_INSTANCE="${3:-}"
-REPO_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+# REPO_ROOT og VALIDATOR_DIR kan setjast utanfrå (t.d. i reusable workflows).
+REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}"
+VALIDATOR_DIR="${VALIDATOR_DIR:-$(dirname "$0")}"
 NAME=$(basename "$(dirname "$SCHEMA")")
 DOMAIN=$(basename "$(dirname "$(dirname "$SCHEMA")")")
-EXAMPLE="${REPO_ROOT}/examples/${DOMAIN}/${NAME}-eksempel.yaml"
+# Ny eksempelplassering: src/linkml/<domene>/<modell>/examples/<modell>-eksempel.yaml
+EXAMPLE="${REPO_ROOT}/src/linkml/${DOMAIN}/${NAME}/examples/${NAME}-eksempel.yaml"
+# Fallback til gammal plassering for bakoverkompatibilitet
+if [ ! -f "$EXAMPLE" ]; then
+    EXAMPLE="${REPO_ROOT}/examples/${DOMAIN}/${NAME}-eksempel.yaml"
+fi
 if [ -n "$EXPLICIT_INSTANCE" ]; then
     EXAMPLE="${REPO_ROOT}/${EXPLICIT_INSTANCE}"
 fi
-LINKML_IMAGE="docker.io/linkml/linkml:latest"
-MCP_IMAGE="mcp-linkml-validator"
+# Desse kan overstyrasst utanfrå (t.d. for å bruke eit spesifikt image)
+LINKML_IMAGE="${LINKML_IMAGE:-ghcr.io/brreg/linkml-local:latest}"
+MCP_IMAGE="${MCP_IMAGE:-mcp-linkml-validator}"
 
 TMPFILE=$(mktemp /tmp/flat-XXXXXX.yaml)
 trap 'rm -f "$TMPFILE"' EXIT
@@ -85,8 +93,8 @@ msgs = [
 ]
 print('\n'.join(json.dumps(m) for m in msgs))
 " "$TMPFILE" "$POLICY" "$EXAMPLE" | podman run -i --rm \
-  -v "$REPO_ROOT/src/mcp-linkml-validator/server.py:/app/server.py:ro" \
-  -v "$REPO_ROOT/src/mcp-linkml-validator/policies:/app/policies:ro" \
+  -v "$VALIDATOR_DIR/server.py:/app/server.py:ro" \
+  -v "$VALIDATOR_DIR/policies:/app/policies:ro" \
   "$MCP_IMAGE" | python3 -c "
 import json, sys
 for line in sys.stdin:

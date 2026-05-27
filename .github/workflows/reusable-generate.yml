@@ -1,0 +1,121 @@
+name: Reusable – LinkML generering
+
+on:
+  workflow_call:
+    inputs:
+      schema:
+        description: 'Sti til skjemafil (relativ til repo-rota, t.d. src/linkml/mitt-domene/min-modell/min-modell-schema.yaml)'
+        type: string
+        required: true
+      version:
+        description: 'Versjon av linkml-datamodellering-no (t.d. v1.0.0). Overstyrer linkml-datamodellering.yaml. Standard: latest.'
+        type: string
+        default: ''
+    outputs:
+      artifact-name:
+        description: 'Namnet på GitHub Actions-artefakten med genererte filer'
+        value: ${{ jobs.generate.outputs.artifact-name }}
+
+jobs:
+  generate:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+    outputs:
+      artifact-name: ${{ steps.upload.outputs.artifact-name }}
+
+    steps:
+      - name: Sjekk ut kallande repo
+        uses: actions/checkout@v6
+
+      - name: Les versjon frå linkml-datamodellering.yaml
+        id: config
+        run: |
+          VERSION="${{ inputs.version }}"
+          if [ -z "$VERSION" ] && [ -f linkml-datamodellering.yaml ]; then
+            VERSION=$(grep '^ap-no-version:' linkml-datamodellering.yaml | awk '{print $2}')
+          fi
+          echo "version=${VERSION:-latest}" >> "$GITHUB_OUTPUT"
+
+      - name: Trekk inn linkml-local image
+        run: |
+          VERSION="${{ steps.config.outputs.version }}"
+          podman pull "ghcr.io/brreg/linkml-local:${VERSION}"
+          podman tag  "ghcr.io/brreg/linkml-local:${VERSION}" linkml-local:latest
+
+      - name: Les manifest.yaml og køyr generatorar
+        env:
+          SCHEMA: ${{ inputs.schema }}
+        run: |
+          SCHEMA_DIR=$(dirname "$SCHEMA")
+          NAME=$(basename "$SCHEMA_DIR")
+          DOMAIN=$(basename "$(dirname "$SCHEMA_DIR")")
+          OUT="generated/${DOMAIN}/${NAME}"
+          mkdir -p "$OUT"
+
+          MANIFEST="${SCHEMA_DIR}/manifest.yaml"
+
+          # Les generator-flagg frå manifest.yaml (standard: true)
+          read_flag() {
+            local key="$1" default="${2:-true}"
+            if [ -f "$MANIFEST" ]; then
+              val=$(grep -E "^  ${key}:" "$MANIFEST" | awk '{print $2}' || true)
+              echo "${val:-$default}"
+            else
+              echo "$default"
+            fi
+          }
+
+          LINKML_RUN="podman run --rm -v \"$PWD:/work\" -w /work -e PYTHONWARNINGS=ignore linkml-local:latest"
+
+          run_gen() {
+            local flag="$1" cmd="$2" suffix="$3"
+            [ "$(read_flag "$flag")" = "false" ] && return
+            echo "→ ${cmd}  ${SCHEMA}"
+            eval "$LINKML_RUN $cmd \"$SCHEMA\"" > "$OUT/${NAME}-${suffix}"
+          }
+
+          run_gen jsonld_context  gen-jsonld-context  context.jsonld
+          run_gen json_schema     gen-json-schema     schema.json
+          run_gen python          gen-python          model.py
+          run_gen protobuf        gen-proto           schema.proto
+
+          # SHACL — les eventuelle flagg
+          if [ "$(read_flag shacl)" != "false" ]; then
+            SHACL_FLAGS=$(grep -E "^  shacl_flags:" "$MANIFEST" 2>/dev/null | sed 's/.*: *"\(.*\)".*/\1/' || true)
+            echo "→ gen-shacl  ${SCHEMA}"
+            eval "$LINKML_RUN gen-shacl $SHACL_FLAGS \"$SCHEMA\"" > "$OUT/${NAME}-shapes.ttl"
+          fi
+
+          # OWL — les eventuelle flagg
+          if [ "$(read_flag owl)" != "false" ]; then
+            OWL_FLAGS=$(grep -E "^  owl_flags:" "$MANIFEST" 2>/dev/null | sed 's/.*: *"\(.*\)".*/\1/' || true)
+            echo "→ gen-owl  ${SCHEMA}"
+            eval "$LINKML_RUN gen-owl $OWL_FLAGS \"$SCHEMA\"" > "$OUT/${NAME}-ontology.ttl"
+          fi
+
+          # RDF-skjema
+          if [ "$(read_flag rdf)" != "false" ]; then
+            echo "→ gen-rdf  ${SCHEMA}"
+            eval "$LINKML_RUN gen-rdf \"$SCHEMA\"" > "$OUT/${NAME}-schema.ttl"
+          fi
+
+          # Eksempel-RDF — konverter eksempelfila til Turtle
+          if [ "$(read_flag example_rdf)" != "false" ]; then
+            EXAMPLE="${SCHEMA_DIR}/examples/${NAME}-eksempel.yaml"
+            if [ -f "$EXAMPLE" ]; then
+              echo "→ linkml-convert  ${EXAMPLE}"
+              eval "$LINKML_RUN linkml-convert --schema \"$SCHEMA\" --output-format ttl --no-validate --output \"$OUT/${NAME}-eksempel.ttl\" \"$EXAMPLE\""
+            fi
+          fi
+
+          echo "Genererte artefaktar:"
+          ls -lh "$OUT/"
+
+      - name: Last opp genererte artefaktar
+        id: upload
+        uses: actions/upload-artifact@v7
+        with:
+          name: linkml-generated-${{ github.run_id }}
+          path: generated/
+          retention-days: 7

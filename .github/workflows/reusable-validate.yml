@@ -1,0 +1,87 @@
+name: Reusable – LinkML validering
+
+on:
+  workflow_call:
+    inputs:
+      schema:
+        description: 'Sti til skjemafil (relativ til repo-rota, t.d. src/linkml/mitt-domene/min-modell/min-modell-schema.yaml)'
+        type: string
+        required: true
+      policy:
+        description: 'Valideringspolicy: bronze / silver / gold / felles-datakatalog / felles-begrepskatalog'
+        type: string
+        default: 'bronze'
+      instance:
+        description: 'Sti til instansfil (valfri). Vert funne automatisk frå examples/ om han ikkje er oppgitt.'
+        type: string
+        default: ''
+      version:
+        description: 'Versjon av linkml-datamodellering-no (t.d. v1.0.0). Overstyrer linkml-datamodellering.yaml. Standard: latest.'
+        type: string
+        default: ''
+
+jobs:
+  validate:
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+
+    steps:
+      - name: Sjekk ut kallande repo
+        uses: actions/checkout@v6
+
+      - name: Les versjon frå linkml-datamodellering.yaml
+        id: config
+        run: |
+          VERSION="${{ inputs.version }}"
+          if [ -z "$VERSION" ] && [ -f linkml-datamodellering.yaml ]; then
+            VERSION=$(grep '^ap-no-version:' linkml-datamodellering.yaml | awk '{print $2}')
+          fi
+          echo "version=${VERSION:-latest}" >> "$GITHUB_OUTPUT"
+
+      - name: Hent validator-komponenter frå brreg/linkml-datamodellering-no
+        uses: actions/checkout@v6
+        with:
+          repository: brreg/linkml-datamodellering-no
+          ref: ${{ steps.config.outputs.version }}
+          sparse-checkout: |
+            src/mcp-linkml-validator/server.py
+            src/mcp-linkml-validator/policies
+            src/mcp-linkml-validator/flatten-and-validate.bash
+          path: _linkml-tools
+
+      - name: Trekk inn container-image
+        run: |
+          VERSION="${{ steps.config.outputs.version }}"
+          podman pull "ghcr.io/brreg/linkml-local:${VERSION}"
+          podman tag  "ghcr.io/brreg/linkml-local:${VERSION}" ghcr.io/brreg/linkml-local:latest
+          podman pull "ghcr.io/brreg/mcp-linkml-validator:${VERSION}"
+          podman tag  "ghcr.io/brreg/mcp-linkml-validator:${VERSION}" mcp-linkml-validator
+
+      - name: Valider skjema
+        env:
+          SCHEMA: ${{ inputs.schema }}
+          POLICY: ${{ inputs.policy }}
+          INSTANCE: ${{ inputs.instance }}
+        run: |
+          result=$(
+            REPO_ROOT="$GITHUB_WORKSPACE" \
+            VALIDATOR_DIR="$GITHUB_WORKSPACE/_linkml-tools/src/mcp-linkml-validator" \
+            LINKML_IMAGE="ghcr.io/brreg/linkml-local:latest" \
+            bash _linkml-tools/src/mcp-linkml-validator/flatten-and-validate.bash \
+              "$SCHEMA" "$POLICY" "$INSTANCE"
+          )
+          echo "$result"
+          python3 - "$SCHEMA" <<'PYEOF'
+import json, sys
+
+schema = sys.argv[1]
+result = json.loads(sys.stdin.read())
+issues = result.get('issues', [])
+for i in issues:
+    sev = 'error' if i.get('severity') == 'error' else 'warning'
+    msg = i.get('message', '').replace('\n', ' ')
+    target = i.get('target', '')
+    print(f'::{sev} file={schema}::{target} – {msg}')
+sys.exit(0 if result.get('valid', True) else 1)
+PYEOF

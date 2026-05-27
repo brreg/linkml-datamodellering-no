@@ -87,6 +87,25 @@ For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-dat
 
 Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.md) for alle tilgjengelege kommandoar.
 
+## Bruk frå eksternt repo
+
+Vil du bruke AP-NO-profilene i ditt eige repo utan å jobbe inni dette monorepoet?
+Bootstrap-scriptet legg til dei to filene du treng på eitt minutt:
+
+```bash
+curl -sSL https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/main/scripts/bootstrap.sh | bash
+```
+
+Importer deretter AP-NO-profilene direkte i skjemaet ditt via GitHub Raw-URL:
+
+```yaml
+imports:
+  - linkml:types
+  - https://raw.githubusercontent.com/brreg/linkml-datamodellering-no/v1.0.0/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema
+```
+
+Validering og generering skjer via reusable GitHub Actions-workflows i dette repoet — ingen lokal installasjon er nødvendig. Sjå [Bruk frå eksternt repo](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) for full rettleiing.
+
 ## Domener
 
 | Domene | Skildring | Dokumentasjon |
@@ -133,9 +152,9 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 ## Genererte artefakter
 
-Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domene>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `generate.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/generate-config/) for detaljar.
+Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar generator produserer éin fil under `generated/<domene>/<skjema>/`. Kvar modell kan slå av einskilde generatorar via `manifest.yaml` — sjå [Generatorkonfigurasjon](https://brreg.github.io/linkml-datamodellering-no/generate-config/) for detaljar.
 
-| Artefakt | Fil | Brukstilfelle | W3C semantisk | generate.yaml flag |
+| Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
 |---|---|---|---|---|
 | JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar | ✓ | `jsonld_context` |
 | SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
@@ -154,18 +173,23 @@ Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar gener
 
 ```
 linkml-datamodellering-no/
-├──src/
-│   ├── assets/                 # Containere, skript og malar
-│   ├── linkml/                 # LinkML-skjema
-│   ├── mcp-linkml-validator/        # MCP-server: policy-basert validering
-│   ├── mcp-linkml-modell-utkast/    # MCP-server: JSON Schema → LinkML-utkast
-│   ├── mcp-linkml-begrep-utkast/   # MCP-server: generering av begrepsinstansar
-│   └── templates/                   # Jinja2-malar for make gen-docs
+├── src/
+│   ├── assets/                    # Containere, skript og malar
+│   ├── linkml/
+│   │   └── <domene>/
+│   │       └── <modell>/
+│   │           ├── <modell>-schema.yaml
+│   │           ├── manifest.yaml  # Generator- og publiseringskonfig
+│   │           ├── examples/      # Eksempeldata (for testing og dokumentasjon)
+│   │           └── data/          # Produksjonsdata (berre for publiserte katalogar)
+│   ├── mcp-linkml-validator/      # MCP-server: policy-basert validering
+│   ├── mcp-linkml-modell-utkast/  # MCP-server: JSON Schema → LinkML-utkast
+│   ├── mcp-linkml-begrep-utkast/  # MCP-server: generering av begrepsinstansar
+│   └── templates/                 # Jinja2-malar for make gen-docs
 │
-├──data/        # Produksjonsdata per domene (begrep → Felles Begrepskatalog)
-├──examples/    # Eksempeldata per domene (aldri publisert — berre for gen-doc og testing)
-├──tests/       # Testar og fixtures
-├──generated/   # Genererte artefakter (ikkje sjekka inn i git)
-├──mkdocs/      # Dokumentasjonsportal (MkDocs Material)
-└──tmp/         # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
+├── scripts/    # Bootstrap og hjelpeskript for eksterne repo
+├── tests/      # Testar og fixtures
+├── generated/  # Genererte artefakter (ikkje sjekka inn i git)
+├── mkdocs/     # Dokumentasjonsportal (MkDocs Material)
+└── tmp/        # Mellombelse filer, t.d. JSON Schema-filer til mcp-linkml-modell-utkast
 ```
