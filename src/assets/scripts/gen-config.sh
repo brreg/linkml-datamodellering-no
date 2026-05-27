@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Genererer config.mk frå alle generate.yaml-filer i src/linkml/.
+# Genererer config.mk frå alle manifest.yaml-filer (skjema-manifest) i src/linkml/.
 set -euo pipefail
 
 echo "# Generert av src/assets/scripts/gen-config.sh — ikkje rediger manuelt"
@@ -14,7 +14,7 @@ get_quoted_field() {
     grep -E "^  ${1}:" "${2}" | sed 's/.*: *"\(.*\)".*/\1/' || true
 }
 
-find src/linkml -mindepth 3 -maxdepth 3 -name 'generate.yaml' \
+find src/linkml -mindepth 3 -maxdepth 3 -name 'manifest.yaml' \
     | grep -v '/common/' \
     | sort \
     | while IFS= read -r yaml; do

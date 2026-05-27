@@ -29,7 +29,6 @@ jobs:
           name: source
           path: |
             src/
-            examples/
             mkdocs/
             .github/
             Makefile

@@ -27,7 +27,7 @@ fair-metadata         ← kan importeres av alle domenemodeller
 
 ```bash
 # Lint og valider eksempel etter kvar endring i eit skjema:
-./tests/validate_schema.bash ./src/linkml/samt/samt-bu/samt-bu-schema.yaml ./examples/samt/samt-bu-eksempel.yaml
+./tests/validate_schema.bash ./src/linkml/samt/samt-bu/samt-bu-schema.yaml ./src/linkml/samt/samt-bu/examples/samt-bu-eksempel.yaml
 
 # MCP-validator dersom dette er angitt av bruker:
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
@@ -158,13 +158,69 @@ Sjå `specs/ny-domenemodell.md` for steg-for-steg-rettleiing.
 
 ## Namngjeving
 
+### Katalogstruktur
+
+```
+src/linkml/
+  <domene>/
+    <modell>/
+      <modell>-schema.yaml
+      manifest.yaml             ← publiserings- og generatorkonfig
+      examples/
+        <modell>-eksempel.yaml
+      data/                     ← berre for skjema med produksjonsdata
+        <katalog>/
+          <katalog>.yaml
+          manifest.yaml         ← datafil-manifest
+
+generated/                      ← byggoutput, ikkje kjeldekode
+tests/
+```
+
+### Manifestformat
+
+`manifest.yaml` per skjema (har `generators:`-seksjon):
+
+```yaml
+publish_external: false   # true for å publisere til ekstern katalog
+data_policy: silver        # bronze / silver / gold / felles-datakatalog / felles-begrepskatalog
+
+generators:
+  jsonld_context: true
+  shacl: true
+  shacl_flags: ""
+  python: true
+  json_schema: true
+  owl: true
+  owl_flags: ""
+  rdf: true
+  protobuf: true
+  erdiagram: true
+  docs: true
+  plantuml: true
+  example_rdf: true
+```
+
+`manifest.yaml` per datafil (manglar `generators:`):
+
+```yaml
+publish_external: true
+data_policy: felles-begrepskatalog
+
+concepts:                   # valfri — utelat for å publisere heile datafila
+  - https://begrep.brreg.no/foretaksnavn
+  - https://begrep.brreg.no/nestleder
+```
+
+CI skil manifesttypen på om `generators:`-seksjonen er til stades. Datafil-underkatalogar utan `manifest.yaml` vert validerte automatisk med `bronze`-policy.
+
 ### Fil- og mappenamn
 
 Alle filer nyttar **`kebab-case`**, alltid norsk eller domene-etablert forkortning:
 
 ```
 src/linkml/<domene>/<modell>/<modell>-schema.yaml
-examples/<domene>/<modell>-eksempel.yaml
+src/linkml/<domene>/<modell>/examples/<modell>-eksempel.yaml
 ```
 
 ### Schema-metadata

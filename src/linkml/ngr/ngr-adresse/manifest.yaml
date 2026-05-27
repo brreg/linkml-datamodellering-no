@@ -1,0 +1,17 @@
+publish_external: true
+data_policy: felles-datakatalog
+
+generators:
+  jsonld_context: true
+  shacl: true
+  shacl_flags: ""
+  python: true
+  json_schema: true
+  owl: true
+  owl_flags: ""
+  rdf: true
+  protobuf: true
+  erdiagram: true
+  docs: true
+  plantuml: true
+  example_rdf: true

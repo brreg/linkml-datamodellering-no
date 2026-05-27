@@ -72,11 +72,8 @@ define run_gen_doc
   mkdir -p $(call schema_outdir,$(s))/docgen-examples && \
   $(PYTHON_RUN) python3 src/assets/scripts/gen-docgen-examples.py \
     $(s) \
-    examples/$(call schema_domain,$(s))/$(call schema_name,$(s))-eksempel.yaml \
+    src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/$(call schema_name,$(s))-eksempel.yaml \
     $(call schema_outdir,$(s))/docgen-examples && \
-  $(if $(wildcard src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/*.yaml), \
-    cp src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/*.yaml \
-       $(call schema_outdir,$(s))/docgen-examples/,) \
   echo "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)" && \
   echo "$(LINKML_RUN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram --example-directory $(call schema_outdir,$(s))/docgen-examples -d $(call schema_outdir,$(s))/docs $(s)" && \
   mkdir -p $(call schema_outdir,$(s))/docs && \
@@ -259,26 +256,30 @@ convert-rdf:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make convert-rdf$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@for domain in $$(ls examples/); do \
-		for example in examples/$$domain/*-eksempel.yaml; do \
-			[ -f "$$example" ] || continue; \
-			name=$$(basename "$$example" .yaml); \
-			profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
-			mkdir -p $(GEN_DIR)/$$domain/$$profil; \
-			if [ -f tests/fixtures/$$profil-fixture.yaml ]; then \
-				schema=tests/fixtures/$$profil-fixture.yaml; \
-			else \
-				schema=$(SCHEMA_DIR)/$$domain/$$profil/$$profil-schema.yaml; \
-			fi; \
-			echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
-			echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$profil/$$name.ttl $$example"; \
-			$(LINKML_RUN) linkml-convert \
-				--schema $$schema \
-				--output-format ttl \
-				--no-validate \
-				--output $(GEN_DIR)/$$domain/$$profil/$$name.ttl \
-				$$example; \
-		done; \
+	@for example in $$(find $(SCHEMA_DIR) -path '*/examples/*-eksempel.yaml' | sort); do \
+		[ -f "$$example" ] || continue; \
+		name=$$(basename "$$example" .yaml); \
+		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
+		domain=$$(echo "$$example" | awk -F/ '{print $$3}'); \
+		manifest=$(SCHEMA_DIR)/$$domain/$$profil/manifest.yaml; \
+		if [ -f "$$manifest" ] && grep -q "^  example_rdf: false" "$$manifest"; then \
+			echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; \
+			continue; \
+		fi; \
+		mkdir -p $(GEN_DIR)/$$domain/$$profil; \
+		if [ -f tests/fixtures/$$profil-fixture.yaml ]; then \
+			schema=tests/fixtures/$$profil-fixture.yaml; \
+		else \
+			schema=$(SCHEMA_DIR)/$$domain/$$profil/$$profil-schema.yaml; \
+		fi; \
+		echo "$(CLR_STEP)→ linkml-convert  $$example$(CLR_RST)"; \
+		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$profil/$$name.ttl $$example"; \
+		$(LINKML_RUN) linkml-convert \
+			--schema $$schema \
+			--output-format ttl \
+			--no-validate \
+			--output $(GEN_DIR)/$$domain/$$profil/$$name.ttl \
+			$$example; \
 	done
 
 # Convert data YAML files to RDF/Turtle for all domains.
@@ -288,21 +289,26 @@ convert-data:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make convert-data$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@for domain in $$(ls data/ 2>/dev/null); do \
-		for datafile in data/$$domain/*.yaml; do \
-			[ -f "$$datafile" ] || continue; \
-			name=$$(basename "$$datafile" .yaml); \
-			mkdir -p $(GEN_DIR)/$$domain/$$name; \
-			schema=$(SCHEMA_DIR)/$$domain/$$name/$$name-schema.yaml; \
-			echo "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
-			echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$name/$$name.ttl $$datafile"; \
-			$(LINKML_RUN) linkml-convert \
-				--schema $$schema \
-				--output-format ttl \
-				--no-validate \
-				--output $(GEN_DIR)/$$domain/$$name/$$name.ttl \
-				$$datafile; \
-		done; \
+	@for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*/*' | sort); do \
+		domain=$$(echo "$$datadir" | awk -F/ '{print $$3}'); \
+		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
+		catalog=$$(basename "$$datadir"); \
+		manifest="$$datadir/manifest.yaml"; \
+		[ -f "$$manifest" ] || continue; \
+		publish_external=$$(grep '^publish_external:' "$$manifest" | awk '{print $$2}'); \
+		[ "$$publish_external" = "true" ] || continue; \
+		datafile="$$datadir/$$catalog.yaml"; \
+		[ -f "$$datafile" ] || continue; \
+		schema=$(SCHEMA_DIR)/$$domain/$$model/$$model-schema.yaml; \
+		mkdir -p $(GEN_DIR)/$$domain/$$catalog; \
+		echo "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
+		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate --output $(GEN_DIR)/$$domain/$$catalog/$$catalog.ttl $$datafile"; \
+		$(LINKML_RUN) linkml-convert \
+			--schema $$schema \
+			--output-format ttl \
+			--no-validate \
+			--output $(GEN_DIR)/$$domain/$$catalog/$$catalog.ttl \
+			$$datafile; \
 	done
 
 clean:
@@ -320,9 +326,9 @@ publish:
 	bash mkdocs/publish.sh
 
 # ---------------------------------------------------------------------------
-# Per-model generator configuration — regenerated when any generate.yaml changes.
+# Per-model generator configuration — regenerated when any manifest.yaml changes.
 # ---------------------------------------------------------------------------
-config.mk: $(shell find src/linkml -name 'generate.yaml')
+config.mk: $(shell find src/linkml -name 'manifest.yaml')
 	bash src/assets/scripts/gen-config.sh > config.mk
 
 gen-config: config.mk
@@ -353,11 +359,11 @@ $(1):
 	$$(call run_gen,$$(_schemas_$(1)),gen-json-schema,schema.json)
 	$$(call run_gen_owl,$$(_schemas_$(1)))
 	$$(call run_gen_rdf,$$(_schemas_$(1)))
-	@for example in examples/$(1)/*-eksempel.yaml; do \
+	@for example in $$(find $(SCHEMA_DIR)/$(1) -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do \
 		[ -f "$$$$example" ] || continue; \
 		name=$$$$(basename "$$$$example" .yaml); \
 		profil=$$$$(echo "$$$$name" | sed 's/-eksempel$$$$//'); \
-		if [ -f $(SCHEMA_DIR)/$(1)/$$$$profil/generate.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(1)/$$$$profil/generate.yaml; then \
+		if [ -f $(SCHEMA_DIR)/$(1)/$$$$profil/manifest.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(1)/$$$$profil/manifest.yaml; then \
 			echo "Hoppar over linkml-convert for $$$$example (example_rdf: false)"; \
 			continue; \
 		fi; \
@@ -410,11 +416,11 @@ domain-gen-rdf:
 	$(call run_gen_rdf,$(_schemas_$(DOMAIN)))
 
 domain-gen-examples:
-	@for example in examples/$(DOMAIN)/*-eksempel.yaml; do \
+	@for example in $$(find $(SCHEMA_DIR)/$(DOMAIN) -path '*/examples/*-eksempel.yaml' 2>/dev/null | sort); do \
 		[ -f "$$example" ] || continue; \
 		name=$$(basename "$$example" .yaml); \
 		profil=$$(echo "$$name" | sed 's/-eksempel$$//'); \
-		if [ -f $(SCHEMA_DIR)/$(DOMAIN)/$$profil/generate.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(DOMAIN)/$$profil/generate.yaml; then \
+		if [ -f $(SCHEMA_DIR)/$(DOMAIN)/$$profil/manifest.yaml ] && grep -q "^  example_rdf: false" $(SCHEMA_DIR)/$(DOMAIN)/$$profil/manifest.yaml; then \
 			echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; \
 			continue; \
 		fi; \
@@ -434,29 +440,40 @@ domain-gen-examples:
 	done
 
 domain-gen-data:
-	@for datafile in data/$(DOMAIN)/*.yaml; do \
+	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*/*' 2>/dev/null | sort); do \
+		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
+		catalog=$$(basename "$$datadir"); \
+		manifest="$$datadir/manifest.yaml"; \
+		[ -f "$$manifest" ] || continue; \
+		publish_external=$$(grep '^publish_external:' "$$manifest" | awk '{print $$2}'); \
+		[ "$$publish_external" = "true" ] || continue; \
+		datafile="$$datadir/$$catalog.yaml"; \
 		[ -f "$$datafile" ] || continue; \
-		name=$$(basename "$$datafile" .yaml); \
-		mkdir -p $(GEN_DIR)/$(DOMAIN)/$$name; \
-		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$name/$$name-schema.yaml; \
+		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$model/$$model-schema.yaml; \
+		mkdir -p $(GEN_DIR)/$(DOMAIN)/$$catalog; \
 		echo "$(CLR_STEP)→ linkml-convert  $$datafile$(CLR_RST)"; \
-		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate $$datafile > $(GEN_DIR)/$(DOMAIN)/$$name/$$name.ttl"; \
+		echo "$(LINKML_RUN) linkml-convert --schema $$schema --output-format ttl --no-validate $$datafile > $(GEN_DIR)/$(DOMAIN)/$$catalog/$$catalog.ttl"; \
 		$(LINKML_RUN) linkml-convert \
 			--schema $$schema \
 			--output-format ttl \
 			--no-validate \
-			$$datafile > $(GEN_DIR)/$(DOMAIN)/$$name/$$name.ttl; \
+			$$datafile > $(GEN_DIR)/$(DOMAIN)/$$catalog/$$catalog.ttl; \
 	done
 
 domain-validate-data:
-	@for datafile in data/$(DOMAIN)/*.yaml; do \
+	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*/*' 2>/dev/null | sort); do \
+		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
+		catalog=$$(basename "$$datadir"); \
+		datafile="$$datadir/$$catalog.yaml"; \
 		[ -f "$$datafile" ] || continue; \
-		name=$$(basename "$$datafile" .yaml); \
-		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$name/$$name-schema.yaml; \
-		gen_yaml=$(SCHEMA_DIR)/$(DOMAIN)/$$name/generate.yaml; \
-		[ -f "$$gen_yaml" ] || continue; \
-		policy=$$(grep '^data_policy:' "$$gen_yaml" | awk '{print $$2}'); \
-		[ -n "$$policy" ] || continue; \
+		schema=$(SCHEMA_DIR)/$(DOMAIN)/$$model/$$model-schema.yaml; \
+		manifest="$$datadir/manifest.yaml"; \
+		if [ -f "$$manifest" ]; then \
+			policy=$$(grep '^data_policy:' "$$manifest" | awk '{print $$2}'); \
+		else \
+			policy=bronze; \
+		fi; \
+		[ -n "$$policy" ] || policy=bronze; \
 		echo "$(CLR_STEP)→ mcp-validate  $$datafile  (policy: $$policy)$(CLR_RST)"; \
 		$(MAKE) --no-print-directory mcp-validate SCHEMA=$$schema POLICY=$$policy INSTANCE=$$datafile; \
 	done
@@ -464,9 +481,11 @@ domain-validate-data:
 check-published-uris:
 	@failed=0; \
 	for lock in $$(find $(SCHEMA_DIR) -name 'published-uris.lock' 2>/dev/null); do \
-		schema_name=$$(basename "$$(dirname "$$lock")"); \
-		schema_domain=$$(basename "$$(dirname "$$(dirname "$$lock")")"); \
-		data=data/$$schema_domain/$$schema_name.yaml; \
+		model_dir=$$(dirname "$$lock"); \
+		model=$$(basename "$$model_dir"); \
+		domain=$$(basename "$$(dirname "$$model_dir")"); \
+		data_dir=$(SCHEMA_DIR)/$$domain/$$model/data/$$model; \
+		data=$$data_dir/$$model.yaml; \
 		[ -f "$$data" ] || { echo "Ingen datafil $$data for $$lock — hoppar over"; continue; }; \
 		while IFS= read -r uri; do \
 			[ -z "$$uri" ] && continue; \
@@ -533,10 +552,10 @@ schema-gen-plantuml:
 schema-gen-examples:
 	@domain=$(call schema_domain,$(SCHEMA)); \
 	name=$(call schema_name,$(SCHEMA)); \
-	example=examples/$$domain/$$name-eksempel.yaml; \
+	example=$(SCHEMA_DIR)/$$domain/$$name/examples/$$name-eksempel.yaml; \
 	[ -f "$$example" ] || { echo "Ingen eksempelfil: $$example (hoppar over)"; exit 0; }; \
-	generate_yaml=$(dir $(SCHEMA))generate.yaml; \
-	if [ -f "$$generate_yaml" ] && grep -q "^  example_rdf: false" "$$generate_yaml"; then \
+	manifest=$(dir $(SCHEMA))manifest.yaml; \
+	if [ -f "$$manifest" ] && grep -q "^  example_rdf: false" "$$manifest"; then \
 		echo "Hoppar over linkml-convert for $$example (example_rdf: false)"; exit 0; \
 	fi; \
 	mkdir -p $(GEN_DIR)/$$domain/$$name; \
@@ -571,7 +590,7 @@ domain-validate-examples:
 	FAILED=0; \
 	while IFS= read -r schema; do \
 		name=$$(basename "$$schema" -schema.yaml); \
-		example="examples/$(DOMAIN)/$$name-eksempel.yaml"; \
+		example="$(SCHEMA_DIR)/$(DOMAIN)/$$name/examples/$$name-eksempel.yaml"; \
 		if [ ! -f "$$example" ]; then \
 			echo "::warning file=$$schema::Ingen eksempelfil funne: $$example"; \
 			continue; \

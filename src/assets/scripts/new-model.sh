@@ -14,7 +14,7 @@ fi
 
 REPO_ROOT="$(cd "$(dirname "$0")/../../.." && pwd)"
 SCHEMA_DIR="$REPO_ROOT/src/linkml/$DOMAIN/$NAME"
-EXAMPLES_DIR="$REPO_ROOT/examples/$DOMAIN"
+EXAMPLES_DIR="$SCHEMA_DIR/examples"
 SCHEMA_FILE="$SCHEMA_DIR/$NAME-schema.yaml"
 EXAMPLE_FILE="$EXAMPLES_DIR/$NAME-eksempel.yaml"
 
@@ -100,8 +100,11 @@ Containerklasse:
     - id: $SCHEMA_ID/eksempel-1
 EOF
 
-GENERATE_FILE="$SCHEMA_DIR/generate.yaml"
-cat > "$GENERATE_FILE" << 'EOF'
+MANIFEST_FILE="$SCHEMA_DIR/manifest.yaml"
+cat > "$MANIFEST_FILE" << 'EOF'
+publish_external: false
+data_policy: silver
+
 generators:
   jsonld_context: true
   shacl: true
@@ -122,7 +125,7 @@ echo ""
 echo "Oppretta:"
 echo "  $SCHEMA_FILE"
 echo "  $EXAMPLE_FILE"
-echo "  $GENERATE_FILE"
+echo "  $MANIFEST_FILE"
 echo ""
 echo "Neste steg:"
 echo "  1. Gi stub-klassen eit norsk namn og legg til eigenskapar"
