@@ -17,7 +17,7 @@ POLICY="${2:-bronze}"
 EXPLICIT_INSTANCE="${3:-}"
 # REPO_ROOT og VALIDATOR_DIR kan setjast utanfrå (t.d. i reusable workflows).
 REPO_ROOT="${REPO_ROOT:-$(cd "$(dirname "$0")/../.." && pwd)}"
-VALIDATOR_DIR="${VALIDATOR_DIR:-$(dirname "$0")}"
+VALIDATOR_DIR="${VALIDATOR_DIR:-$(cd "$(dirname "$0")" && pwd)}"
 NAME=$(basename "$(dirname "$SCHEMA")")
 DOMAIN=$(basename "$(dirname "$(dirname "$SCHEMA")")")
 # Ny eksempelplassering: src/linkml/<domene>/<modell>/examples/<modell>-eksempel.yaml

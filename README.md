@@ -125,7 +125,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| begrepskatalog | [brreg-begrepskatalog](src/linkml/begrepskatalog/brreg-begrepskatalog/) | Registerenheten i Brønnøysund – Begrepskatalog | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | FAIR-metadataoverbygning (F/A/I/R-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
 | ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjonar for alle AP-NO-profilar |
 | ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
@@ -133,7 +133,6 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 | ap-no | [modelldcat-ap-no](src/linkml/ap-no/modelldcat-ap-no/) | Informasjonsmodellar | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
 | ap-no | [skos-ap-no](src/linkml/ap-no/skos-ap-no/) | Omgrepsamlingar | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | [xkos-ap-no](src/linkml/ap-no/xkos-ap-no/) | Utvida klassifikasjon | [data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)
-| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | FAIR-metadataoverbygning (F/A/I/R-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
 | fint | [fint-common](src/linkml/fint/fint-common/) | Felles klassar for FINT |
 | fint | [fint-administrasjon](src/linkml/fint/fint-administrasjon/) | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
 | fint | [fint-arkiv](src/linkml/fint/fint-arkiv/) | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
@@ -180,7 +179,7 @@ linkml-datamodellering-no/
 │   │       └── <modell>/
 │   │           ├── <modell>-schema.yaml           # Datamodel
 │   │           ├── manifest.yaml                  # Modell-manifest
-│   │           ├── published-uris.lock            # Berre for publiserte katalogar
+│   │           ├── published-uris.lock            # Stabile URI-er for publiserte katalogar
 │   │           ├── examples/                      
 │   │           │   └── <modell>-eksempel.yaml     # Eksempeldatafil
 │   │           └── data/                          # Kildedata for publiserte katalogar
