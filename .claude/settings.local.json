@@ -53,7 +53,8 @@
       "Bash(make schema-gen-doc *)",
       "WebSearch",
       "Bash(make mcp-mod-smoke *)",
-      "Bash(make domain-validate-bronze *)"
+      "Bash(make domain-validate-bronze *)",
+      "Bash(make domain-validate-data *)"
     ]
   },
   "enableAllProjectMcpServers": true,

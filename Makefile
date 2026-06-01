@@ -289,7 +289,7 @@ convert-data:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@echo "$(CLR_HDR)*** make convert-data$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
-	@for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*/*' | sort); do \
+	@for datadir in $$(find $(SCHEMA_DIR) -mindepth 4 -maxdepth 4 -type d -path '*/data/*' | sort); do \
 		domain=$$(echo "$$datadir" | awk -F/ '{print $$3}'); \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
 		catalog=$$(basename "$$datadir"); \
@@ -440,7 +440,7 @@ domain-gen-examples:
 	done
 
 domain-gen-data:
-	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*/*' 2>/dev/null | sort); do \
+	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
 		catalog=$$(basename "$$datadir"); \
 		manifest="$$datadir/manifest.yaml"; \
@@ -461,7 +461,7 @@ domain-gen-data:
 	done
 
 domain-validate-data:
-	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*/*' 2>/dev/null | sort); do \
+	@for datadir in $$(find $(SCHEMA_DIR)/$(DOMAIN) -mindepth 3 -maxdepth 3 -type d -path '*/data/*' 2>/dev/null | sort); do \
 		model=$$(echo "$$datadir" | awk -F/ '{print $$4}'); \
 		catalog=$$(basename "$$datadir"); \
 		datafile="$$datadir/$$catalog.yaml"; \

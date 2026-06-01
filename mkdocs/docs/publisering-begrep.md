@@ -70,7 +70,7 @@ CI-pipelinen køyrer same validering automatisk og publiserer ny `.ttl`-fil
 til GitHub Pages. Felles Begrepskatalog høstar oppdateringa ved neste syklus.
 
 !!! note "Kva policyen sjekkar"
-    `felles-begrepskatalog`-policyen validerer at:
+    [felles-begrepskatalog](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#felles-begrepskatalog-felles-begrepskatalog)-policyen validerer at:
 
     - Skjemaet importerer SKOS-AP-NO-Begrep
     - `Begrep`-klassen har alle obligatoriske felt (`skos:prefLabel`, `dct:identifier`,
@@ -155,7 +155,7 @@ https://begrep.brreg.no/nestleder
 CI-pipelinen feilar ein PR dersom ei URI i lock-fila manglar frå datafila —
 dette fangar opp utilsikta sletting av publiserte begrep.
 
-### Deprecere eit begrep
+### Deprekere eit begrep
 
 Dersom eit begrep faktisk må erstattast (feil namn, omdefiniering):
 

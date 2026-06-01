@@ -11,12 +11,12 @@ på GitHub Pages.
 
 ```mermaid
 flowchart LR
-    A["examples/modell/\nbrreg-modellkatalog-eksempel.yaml"] -->|make convert-rdf| B["generated/modell/.../\nbrreg-modellkatalog-eksempel.ttl"]
-    B -->|GitHub Pages| C["brreg.github.io/\n.../brreg-modellkatalog-eksempel.ttl"]
+    A["src/linkml/modellkatalog/brreg-modellkatalog/\ndata/brreg-modellkatalog/\nbrreg-modellkatalog.yaml"] -->|make convert-data| B["generated/modellkatalog/\nbrreg-modellkatalog/\nbrreg-modellkatalog.ttl"]
+    B -->|GitHub Pages| C["brreg.github.io/\n.../brreg-modellkatalog.ttl"]
     C -->|Automatisk høsting| D["data.norge.no/\nmodels"]
 ```
 
-Katalogfila (`examples/modell/brreg-modellkatalog-eksempel.yaml`) er eit register
+Katalogfila (`src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`) er eit register
 over dei publiserte informasjonsmodellane og vert konvertert til Turtle ved hjelp av
 `brreg-modellkatalog-schema.yaml` som importerer ModelDCAT-AP-NO.
 
@@ -34,7 +34,7 @@ make mcp-val-build   # byggjer mcp-linkml-validator (trengst for validering)
 ## Dagleg arbeidsflyt — oppdatere katalogen
 
 Når du redigerer eksisterande oppføringer i
-`examples/modell/brreg-modellkatalog-eksempel.yaml`:
+`src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`:
 
 **1. Gjer endringa i katalogfila:**
 
@@ -53,7 +53,7 @@ informasjonsmodellar:
 make mcp-validate \
   SCHEMA=src/linkml/modellkatalog/brreg-modellkatalog/brreg-modellkatalog-schema.yaml \
   POLICY=felles-datakatalog \
-  INSTANCE=examples/modell/brreg-modellkatalog-eksempel.yaml
+  INSTANCE=src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml
 ```
 
 **3. Push til `main`:**
@@ -77,7 +77,7 @@ til GitHub Pages. Felles Datakatalog høstar oppdateringa ved neste syklus.
 **1. Vel ein stabil URI-slug** — sluggen vert del av ein permanent URI.
 Val av slug er uforanderleg etter første publisering.
 
-**2. Legg til i `examples/modell/brreg-modellkatalog-eksempel.yaml`:**
+**2. Legg til i `src/linkml/modellkatalog/brreg-modellkatalog/data/brreg-modellkatalog/brreg-modellkatalog.yaml`:**
 
 ```yaml
 informasjonsmodellar:
@@ -153,15 +153,14 @@ med riktig utgjevar, tittel og LOS-tema.
 
 ## CI-pipeline
 
-Følgjande køyrer automatisk ved push til `main` når `src/linkml/modellkatalog/**`
-eller `examples/modell/**` er endra:
+Følgjande køyrer automatisk ved push til `main` når `src/linkml/modellkatalog/**` er endra:
 
 | Jobb | Steg | Resultat ved feil |
 |---|---|---|
 | `validate` | `domain-validate-bronze` | Feiler viss skjemaet bryt bronsekrava |
 | `validate` | `domain-validate-data` | Feiler viss katalogfila bryt `felles-datakatalog`-policyen |
 | `validate` | `check-published-uris` | Feiler viss ei URI i lock-fila manglar frå katalogfila |
-| `generate` | `domain-gen-rdf` | Publiserer ny `.ttl` til GitHub Pages |
+| `generate` | `domain-gen-data` | Publiserer ny `.ttl` til GitHub Pages |
 
 Lokalt:
 

@@ -5,21 +5,18 @@ utføre alternativ-b-detaljert tiltak 4-6 etter at admin har fiksa tiltak 3.
 automatisk publisering av modell til felles datakatalog*
 
 (importere begreper fra felles begrepskatalog)
-automatisk publisere begreper til felles begrepskatalog
+automatisk publisere begreper til felles begrepskatalog*
 
 sette eigerksap til domener/modeller i .codeowners
-lage flag for om modell/begrep skal automatisk publiseres til felles datakatalog
 
 modellere generiske kodelister/kodeverk
 
 generate workflow skal ha en matrix job pr domene
 
-
 generer OpenAPI/AsyncAPI spesifikasjon 
 integrere mot custom schemaregistry (apicur.io)
 
 integrere mot custom datakatalog (gcp data catalog)
-
 
 conventional commits for versjonering av modeller
 

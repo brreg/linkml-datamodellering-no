@@ -59,7 +59,7 @@ Grunnleggjande strukturkrav. Eit skjema som passerer bronse er syntaktisk korrek
 
 ### Sølv
 
-Arvar bronse. Legg til krav frå DCAT-AP-NO 2 og DQV-AP-NO for domenemodeller i norsk offentleg sektor.
+Arvar bronse. Legg til krav frå DCAT-AP-NO og DQV-AP-NO for domenemodeller i norsk offentleg sektor.
 
 Alle brot på sølv-krav gir `error`.
 
