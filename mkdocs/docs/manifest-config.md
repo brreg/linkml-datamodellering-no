@@ -1,4 +1,4 @@
-# Manifestkonfigurasjon (manifest.yaml)
+# Modell-manifest konfigurasjon (manifest.yaml)
 
 ## Kva er `manifest.yaml`?
 
@@ -70,11 +70,11 @@ under `data/`. Gyldige verdiar:
 
 | Verdi | Brukstilfelle |
 |---|---|
-| `bronze` | Minimumskrav — strukturelt korrekt LinkML |
-| `silver` | Tilrådde felt er fylt ut |
-| `gold` | Alle felt utfylt, med kvalitetskontrollar |
-| `felles-datakatalog` | ModelDCAT-AP-NO — publisering til Felles Datakatalog |
-| `felles-begrepskatalog` | SKOS-AP-NO-Begrep — publisering til Felles Begrepskatalog |
+| [`bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) | Minimumskrav — strukturelt korrekt LinkML |
+| [`silver`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#s%C3%B8lv) | Tilrådde felt er fylt ut |
+| [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#gull) | Alle felt utfylt, med kvalitetskontrollar |
+| [`felles-datakatalog`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#felles-datakatalog-felles-datakatalog) | ModelDCAT-AP-NO — publisering til Felles Datakatalog |
+| [`felles-begrepskatalog`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#felles-begrepskatalog-felles-begrepskatalog) | SKOS-AP-NO-Begrep — publisering til Felles Begrepskatalog |
 
 ### Generatorflag
 

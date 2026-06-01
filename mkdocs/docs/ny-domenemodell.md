@@ -11,7 +11,7 @@ Dette oppretter:
 - `src/linkml/oreg/mitt-register/mitt-register-schema.yaml` — skjema med stub-klasse og containerklasse
 - `src/linkml/oreg/mitt-register/examples/mitt-register-eksempel.yaml` — eksempelfil med minimal instans
 
-Skjemaet passerer `POLICY=bronze` utan manuell redigering. Nye skjema vert oppdaga automatisk — ingen endringar i Makefile nødvendig.
+Skjemaet passerer [`POLICY=bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) utan manuell redigering. Nye skjema vert oppdaga automatisk — ingen endringar i Makefile nødvendig.
 
 ---
 
@@ -44,9 +44,9 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=go
 
 | Policy | Sjekkar |
 |---|---|
-| `bronze` | `id`, `name`, `description`; alle klasser har identifikator og begrepsreferanse til felles begrepskatalog |
-| `silver` | Bronze + skjemaet importerer DCAT-AP-NO og DQV-AP-NO |
-| `gold` | Silver + FAIR F1–R1.3: `class_uri`, lisens, proveniens m.m. |
+| [`bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) | `id`, `name`, `description`; alle klasser har identifikator og begrepsreferanse til felles begrepskatalog |
+| [`silver`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#s%C3%B8lv) | Bronze + skjemaet importerer DCAT-AP-NO og DQV-AP-NO |
+| [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#gull) | Silver + FAIR F1–R1.3: `class_uri`, lisens, proveniens m.m. |
 
 Validatoren bygger containerimaget automatisk første gong. Endringar i skjemaet tek effekt umiddelbart — ingen rebuild nødvendig.
 
@@ -89,7 +89,7 @@ Domenemodeller importerer **AP-NO-profilane** — ikkje `common-ap-no` direkte. 
 | Ein AP-NO-profil | `linkml:types` + `../common/common-ap-no-schema` |
 | Ein domenemodell (NGR, o.l.) | `linkml:types` + aktuelle AP-NO-profil(ar) |
 | Ein FINT-domenemodell | `linkml:types` + `../fint-common/fint-common-schema` |
-| Modell med FAIR-dokumentasjon | + `../../fair/fair-metadata/fair-metadata-schema` |
+| Modell med FAIR-metadata | `linkml:types` + `../../fair/fair-metadata/fair-metadata-schema` |
 
 ---
 
@@ -134,7 +134,7 @@ imports:
   - ../../fair/fair-metadata/fair-metadata-schema
 ```
 
-Valider mot gold-policy:
+Valider mot gold-policy (gold-policy validerer spesifikt FAIR konformitet):
 
 ```bash
 make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=gold
@@ -148,7 +148,7 @@ Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#g
 
 ---
 
-## Tilpass generatorane
+## Tilpass modell-manifest for generering og publisering
 
 Kvar modell har ei `manifest.yaml` ved sida av skjemafila som styrer kva artefaktar
 som vert genererte. `make new-model` oppretter standardkonfigen automatisk — alle
@@ -160,7 +160,7 @@ For å slå av ein generator eller leggje til flagg, rediger `manifest.yaml` og 
 make config.mk   # regenerer Makefile-konfig frå alle manifest.yaml-filer
 ```
 
-Sjå [Generatorkonfigurasjon](manifest-config.md) for feltliste og eksempel per
+Sjå [Modell-manifest konfigurasjon](manifest-config.md) for feltliste og eksempel per
 domenetype (standard, FINT, AP-NO/FAIR).
 
 ---

@@ -10,7 +10,7 @@ frå filstruktur til RDF-eksport klar for Felles Begrepskatalog.
 
     | | Ny begrepskatalog | Ny domenemodell |
     |---|---|---|
-    | Scaffold | Manuelt (kopier skjema) | `make new-model` |
+    | Scaffold | Manuelt (steg 1 - 3 under) | `make new-model` |
     | Import | `skos-ap-no` | `dcat-ap-no` / `dqv-ap-no` |
     | Generator | `mcp-linkml-begrep-utkast` | `mcp-linkml-modell-utkast` |
     | RDF-eksport | `example_rdf: true` (krav) | Valfritt |
@@ -138,7 +138,7 @@ skal publiserast til Felles Begrepskatalog.
 ## 4 — Generer YAML-instansar
 
 Bruk `opprett_begrep`-verktøyet i `mcp-linkml-begrep-utkast` til å byggje
-YAML-blokkar. Verktøyet kan køyrast av ein AI-assistent med MCP-støtte
+YAML-blokker. Verktøyet kan køyrast av ein AI-assistent med MCP-støtte
 (t.d. Claude Code med MCP-konfigurasjon) eller manuelt via Makefile:
 
 ```bash
@@ -151,7 +151,7 @@ echo '{"jsonrpc":"2.0","id":1,"method":"initialize","params":{"protocolVersion":
   | make mcp-begrep-run
 ```
 
-### Eksempel — generer eitt begrep
+### Eksempel — generer eitt begrep ihht skjema for begrepskatalog
 
 Send dette til serveren (t.d. via AI-assistent eller skript):
 
@@ -214,10 +214,11 @@ make mcp-validate \
 make domain-gen-examples DOMAIN=begrepskatalog
 ```
 
-Output: `generated/begrep/<katalognavn>/<katalognavn>-eksempel.ttl`
+Output: `generated/begrepskatalog/<katalognavn>/<katalognavn>-eksempel.ttl`
 
-Denne Turtle-fila er SKOS-kompatibel og kan importerast til
-[Felles Begrepskatalog](https://data.norge.no/concepts) via Begrepskatalog-API.
+Denne Turtle-fila er berre for lokal kontroll av at YAML-instansen vert korrekt
+serialisert. For publisering til Felles Begrepskatalog — sjå
+[Publiser til Felles Begrepskatalog](publisering-begrep.md).
 
 ---
 

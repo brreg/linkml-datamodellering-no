@@ -1,5 +1,4 @@
 publish_external: true
-data_policy: felles-datakatalog
 
 generators:
   jsonld_context: true
@@ -12,4 +11,4 @@ generators:
   erdiagram: true
   docs: true
   plantuml: false
-  example_rdf: true
+  example_rdf: false
