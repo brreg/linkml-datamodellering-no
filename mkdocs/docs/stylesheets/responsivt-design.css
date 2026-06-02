@@ -1,6 +1,6 @@
 /* Sidebar breidde */
 .md-sidebar--primary {
-  width: 18rem;
+  width: 15rem;
 }
 
 /* Desktop tweaks */
@@ -12,6 +12,13 @@
   .md-grid {
     max-width: 1800px;
   }
+
+  .md-content__inner {
+    margin-top: 2rem;
+  }
+
+  .md-sidebar--primary .md-sidebar__scrollwrap {
+    padding-top: 6rem;
 }
 
 /* Content-breidde (enkelt og kompatibelt) */
@@ -19,7 +26,6 @@
   max-width: 100rem;
   margin: 0 auto;
 }
-
 
 /* Scrolling */
 .md-content {
@@ -31,8 +37,23 @@
   width: 12rem;
 }
 
-@media (min-width: 76.25em) {
-  .md-content__inner {
-    margin-top: 2rem;
-  }
+.md-sidebar--primary .md-nav {
+  max-width: 100%;
+  padding-right: 0;
 }
+
+.md-sidebar--primary .md-nav__list {
+  width: 100%;
+}
+
+.md-sidebar--primary .md-sidebar__inner {
+  width: 100%;
+  max-width: 100%;
+  padding-right: 0;
+}
+
+/* kommenter inn for debugging
+.md-sidebar--primary { outline: 2px solid red; }
+.md-sidebar__scrollwrap { outline: 2px solid blue; }
+.md-nav { outline: 2px solid green; }
+*/
