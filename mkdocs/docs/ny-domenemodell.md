@@ -52,7 +52,7 @@ Validatoren bygger containerimaget automatisk første gong. Endringar i skjemaet
 
 ### 4 — Full testsuite
 
-```bash
+```
 make test SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml
 ```
 
@@ -148,7 +148,7 @@ Sjå [Genererte artefakter](https://github.com/brreg/linkml-datamodellering-no#g
 
 ---
 
-## Tilpass modell-manifest for generering og publisering
+## Tilpass manifest for generering og publisering
 
 Kvar modell har ei `manifest.yaml` ved sida av skjemafila som styrer kva artefaktar
 som vert genererte. `make new-model` oppretter standardkonfigen automatisk — alle
@@ -160,7 +160,7 @@ For å slå av ein generator eller leggje til flagg, rediger `manifest.yaml` og 
 make config.mk   # regenerer Makefile-konfig frå alle manifest.yaml-filer
 ```
 
-Sjå [Modell-manifest konfigurasjon](manifest-config.md) for feltliste og eksempel per
+Sjå [Modellmanifest](manifest-config.md) for feltliste og eksempel per
 domenetype (standard, FINT, AP-NO/FAIR).
 
 ---
