@@ -1,5 +1,5 @@
 # Auto generated from ngr-adresse-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-27T14:51:28
+# Generation date: 2026-06-02T06:41:47
 # Schema: ngr-adresse
 #
 # id: https://data.norge.no/ngr/ngr-adresse

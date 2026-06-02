@@ -1,5 +1,5 @@
 # Auto generated from ngr-eiendom-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-27T14:51:36
+# Generation date: 2026-06-02T06:41:50
 # Schema: ngr-eiendom
 #
 # id: https://data.norge.no/ngr/ngr-eiendom

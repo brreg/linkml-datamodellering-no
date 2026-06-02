@@ -16,196 +16,196 @@
     rdfs:label "PersonContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/verger> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/UtflyttingFraNorge> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utflytting> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/kontaktopplysningar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/reservasjonar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Oppholdsadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholdsadresser> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utflytting> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonBarn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personidentifikasjon> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personidentifikasjonar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personstatus> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ForeldreansvarForelder> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldreansvarForelder> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Foedselsnummer> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonsdokument> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Adressebeskyttelse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Dodsfall> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dodsfall> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholdsadresser> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dodsfall> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/DNummer> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/KontaktinformasjonDoedsbo> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/kontaktinformasjonDoedsbo> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/falskIdentitetar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedslar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Sivilstand> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ForeldreansvarBarn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldreansvarBarn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonBarn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonBarn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonEktefelle> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonEktefelle> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personidentifikasjonar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Bostedsadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/bostedsadresser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/InnflyttingTilNorge> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflytting> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflytting> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FalskIdentitet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/falskIdentitetar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personnavn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personnavn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Postadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/postadresser> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/statsborgerskap> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kjoenn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/postadresser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Verge> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/verger> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldreansvarForelder> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Opphold> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/opphold> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/SpraakForElektroniskKommunikasjon> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/spraak> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonBarn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonBarn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/KontaktinformasjonDoedsbo> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/kontaktinformasjonDoedsbo> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Verge> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/verger> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Sivilstand> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Foedsel> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/foedslar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/opphold> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonEktefelle> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/statsborgerskap> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/RettsligHandleevne> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/rettsligHandleevne> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kontaktopplysninger> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/kontaktopplysningar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonForelder> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonForelder> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identifikasjonsdokument> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonsdokument> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettsligHandleevne> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonForelder> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/kontaktinformasjonDoedsbo> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldreansvarBarn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsnummer> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonForelder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ReservasjonMotKommunikasjonPaaNett> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/reservasjonar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personar> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utflytting> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personidentifikasjon> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personidentifikasjonar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonEktefelle> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonEktefelle> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Adressebeskyttelse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personstatus> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/personnavn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/bostedsadresser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identitetsgrunnlag> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ReservasjonMotKommunikasjonPaaNett> ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Dodsfall> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dodsfall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/opphold> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonsdokument> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/reservasjonar> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Statsborgerskap> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/statsborgerskap> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kjoenn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/falskIdentitetar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/spraak> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonBarn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FalskIdentitet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/falskIdentitetar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ForeldreansvarForelder> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldreansvarForelder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Oppholdsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholdsadresser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholdsadresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/InnflyttingTilNorge> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflytting> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/kontaktinformasjonDoedsbo> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personnavn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/postadresser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personidentifikasjonar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dodsfall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identifikasjonsdokument> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonsdokument> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Foedselsnummer> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Bostedsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/bostedsadresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Statsborgerskap> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/statsborgerskap> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflytting> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonEktefelle> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonForelder> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/familierelasjonForelder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/SpraakForElektroniskKommunikasjon> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/spraak> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettsligHandleevne> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/bostedsadresser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/verger> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Postadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/postadresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/DNummer> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedslar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kontaktopplysninger> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/kontaktopplysningar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldreansvarForelder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/UtflyttingFraNorge> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utflytting> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ForeldreansvarBarn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldreansvarBarn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identitetsgrunnlag> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag> ] ;
     skos:definition "Rotklasse for NGR-person-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking." ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
 
@@ -407,13 +407,13 @@
 <https://data.norge.no/ngr/ngr-person/DNummer> a owl:Class ;
     rdfs:label "DNummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
         <https://data.norge.no/ngr/ngr-person/Folkeregisteridentifikator> ;
     skos:definition "Elleve-sifra D-nummer tildelt utanlandske personar med mellombels opphald i Noreg (t.d. med d-nummer, om dei har midlertidig eller permanent opphald). Brukes om de har midlertidig eller ikkje har permanent opphald." ;
@@ -618,17 +618,17 @@
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse_gradering> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse_gradering> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse_gradering> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:AdressebeskyttelseGradering> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/adressebeskyttelse_gradering> ] ;
@@ -639,8 +639,14 @@
 <https://data.norge.no/ngr/ngr-person/Dodsfall> a owl:Class ;
     rdfs:label "Dodsfall" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedsdato> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedssted> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedssted> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
@@ -648,23 +654,17 @@
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/doedssted> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedssted> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedssted> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedsdato> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedsdato> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/doedsdato> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/doedsdato> ] ;
     skos:definition "Dødsfallsinformasjon om ein person registrert i Folkeregisteret." ;
     skos:exactMatch ngrp:Dodsfall ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -672,41 +672,41 @@
 <https://data.norge.no/ngr/ngr-person/FalskIdentitet> a owl:Class ;
     rdfs:label "FalskIdentitet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_falsk> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_falsk> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet_er_ukjent> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_falsk> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_falsk> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_falsk> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet_er_ukjent> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet_er_ukjent> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_falsk> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/rett_identitet> ] ;
     skos:definition "Registrering av at ein person har opptrådt med falsk identitet. Kan peke på den rette identiteten om denne er kjent." ;
     skos:exactMatch ngrp:FalskIdentitet ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -714,23 +714,23 @@
 <https://data.norge.no/ngr/ngr-person/FamilierelasjonBarn> a owl:Class ;
     rdfs:label "FamilierelasjonBarn" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
     skos:definition "Familierelasjon der den relaterte personen er barn." ;
     skos:exactMatch ngrp:FamilierelasjonBarn ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -741,17 +741,17 @@
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ] ;
@@ -762,32 +762,32 @@
 <https://data.norge.no/ngr/ngr-person/FamilierelasjonForelder> a owl:Class ;
     rdfs:label "FamilierelasjonForelder" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldrerelasjon_type> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldrerelasjon_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldrerelasjon_type> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldrerelasjon_type> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ] ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foreldrerelasjon_type> ] ;
     skos:definition "Familierelasjon der den relaterte personen er forelder." ;
     skos:exactMatch ngrp:FamilierelasjonForelder ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -795,40 +795,40 @@
 <https://data.norge.no/ngr/ngr-person/Foedsel> a owl:Class ;
     rdfs:label "Foedsel" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedested> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsdato> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsaar> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsaar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/foedested> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/foedested> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedested> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsdato> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsdato> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsaar> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/foedselsaar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
     skos:definition "Fødselsinformasjon om ein person registrert i Folkeregisteret." ;
     skos:exactMatch ngrp:Foedsel ;
@@ -838,22 +838,22 @@
     rdfs:label "ForeldreansvarBarn" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ] ;
     skos:definition "Relasjonsklasse som registrerer at eit barn er under foreldreansvaret til ein person." ;
     skos:exactMatch ngrp:ForeldreansvarBarn ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -862,47 +862,47 @@
     rdfs:label "ForeldreansvarForelder" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/ansvarsstatus> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/ansvarsstatus> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/ansvarsstatus> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/ansvarsstatus> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/ansvarsstatus> ] ;
     skos:definition "Relasjonsklasse som registrerer kven som har det juridiske foreldreansvaret for eit barn. Seier kven som er den ansvarlege forelderen." ;
     skos:exactMatch ngrp:ForeldreansvarForelder ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
 
 <https://data.norge.no/ngr/ngr-person/GeografiskAdresse> a owl:Class ;
     rdfs:label "GeografiskAdresse" ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+    rdfs:subClassOf [ owl:unionOf ( <https://data.norge.no/ngr/ngr-person/Bostedsadresse> <https://data.norge.no/ngr/ngr-person/Oppholdsadresse> <https://data.norge.no/ngr/ngr-person/Postadresse> ) ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-person/Bostedsadresse> <https://data.norge.no/ngr/ngr-person/Oppholdsadresse> <https://data.norge.no/ngr/ngr-person/Postadresse> ) ] ;
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
     skos:definition "Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Konkrete typar er Bostedsadresse, Postadresse og Oppholdsadresse." ;
     skos:exactMatch ngrp:GeografiskAdresse ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -910,59 +910,59 @@
 <https://data.norge.no/ngr/ngr-person/Identifikasjonsdokument> a owl:Class ;
     rdfs:label "Identifikasjonsdokument" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utloepsdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utloepsdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstederland> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumenttype> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstedtdato> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumentnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstederland> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumenttype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utloepsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstedtdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstederland> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstederland> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumentnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumentnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/utloepsdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstederland> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/utstedtdato> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/utstedtdato> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumenttype> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumenttype> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utstederland> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumentnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumentnummer> ],
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utloepsdato> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:IdentifikasjonsdokumentType> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumenttype> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumentnummer> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/dokumenttype> ] ;
     skos:definition "Utanlandsk identifikasjonsdokument som pass, førekort eller nasjonalt ID-kort knytt til ein person." ;
     skos:exactMatch ngrp:Identifikasjonsdokument ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -971,31 +971,31 @@
     rdfs:label "Identitetsgrunnlag" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_status> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_status> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_kilde> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_status> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_kilde> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_kilde> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_status> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_status> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identitetsgrunnlag_kilde> ] ;
     skos:definition "Grunnlaget som er brukt for å fastsetje identiteten til ein person ved registrering i Folkeregisteret." ;
     skos:exactMatch ngrp:Identitetsgrunnlag ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1003,41 +1003,41 @@
 <https://data.norge.no/ngr/ngr-person/InnflyttingTilNorge> a owl:Class ;
     rdfs:label "InnflyttingTilNorge" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflyttingsdato> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingssted_i_utlandet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingssted_i_utlandet> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingsland> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflyttingsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingssted_i_utlandet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingsland> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/innflyttingsdato> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingssted_i_utlandet> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingssted_i_utlandet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingsland> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingsland> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflyttingsdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/innflyttingsdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingsland> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingsland> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/fraflyttingssted_i_utlandet> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
     skos:definition "Registrering av innflytting til Noreg i Folkeregisteret." ;
     skos:exactMatch ngrp:InnflyttingTilNorge ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1045,20 +1045,11 @@
 <https://data.norge.no/ngr/ngr-person/Kjoenn> a owl:Class ;
     rdfs:label "Kjoenn" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:KjoennKode> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn_kode> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn_kode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
@@ -1066,10 +1057,19 @@
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn_kode> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:KjoennKode> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn_kode> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/kjoenn_kode> ] ;
     skos:definition "Kjønn registrert på ein person i Folkeregisteret." ;
     skos:exactMatch ngrp:Kjoenn ;
@@ -1081,38 +1081,38 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/navn> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/telefonnummer> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/telefonnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/navn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/telefonnummer> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/telefonnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/telefonnummer> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/navn> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ] ;
     skos:definition "Kontaktinformasjon for eit dødsbu." ;
     skos:exactMatch ngrp:KontaktinformasjonDoedsbo ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1120,40 +1120,40 @@
 <https://data.norge.no/ngr/ngr-person/Kontaktopplysninger> a owl:Class ;
     rdfs:label "Kontaktopplysninger" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/sist_oppdatert> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/sist_oppdatert> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/mobiltelefonnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/sist_oppdatert> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/mobiltelefonnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/mobiltelefonnummer> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/sist_oppdatert> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/sist_oppdatert> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/epostadresse_verdi> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/mobiltelefonnummer> ] ;
     skos:definition "Kontaktopplysningar (e-post og mobilnummer) for digital kommunikasjon med det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR)." ;
     skos:exactMatch ngrp:Kontaktopplysninger ;
@@ -1162,40 +1162,40 @@
 <https://data.norge.no/ngr/ngr-person/Opphold> a owl:Class ;
     rdfs:label "Opphold" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholds_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:OppholdstypeKode> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholds_type> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholds_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholds_type> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ] ;
     skos:definition "Lovleg opphaldsgrunnlag for utanlandske statsborgarar registrert i Folkeregisteret." ;
     skos:exactMatch ngrp:Opphold ;
@@ -1204,32 +1204,32 @@
 <https://data.norge.no/ngr/ngr-person/Personidentifikasjon> a owl:Class ;
     rdfs:label "Personidentifikasjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonstype> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonstype> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonstype> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonstype> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonstype> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikasjonstype> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ] ;
     skos:definition "Utanlandsk eller alternativ identifikasjon av ein person, t.d. UDIs DUF-nummer, utanlandsk skatteidentifikasjon eller social security number." ;
     skos:exactMatch ngrp:Personidentifikasjon ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1237,49 +1237,49 @@
 <https://data.norge.no/ngr/ngr-person/Personnavn> a owl:Class ;
     rdfs:label "Personnavn" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/fornavn> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/etternavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/etternavn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/forkortet_navn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/forkortet_navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/fornavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/etternavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/forkortet_navn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/mellomnavn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/mellomnavn> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/etternavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/etternavn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/etternavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/forkortet_navn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/forkortet_navn> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/mellomnavn> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/mellomnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/fornavn> ] ;
     skos:definition "Offisielt registrert namn på ein person i Folkeregisteret." ;
     skos:exactMatch ngrp:Personnavn ;
@@ -1292,27 +1292,27 @@
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus_type> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:PersonstatusType> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus_type> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus_type> ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/personstatus_type> ] ;
     skos:definition "Status for ein person i Folkeregisteret (t.d. bosatt, utflyttet, død)." ;
     skos:exactMatch ngrp:Personstatus ;
@@ -1321,11 +1321,20 @@
 <https://data.norge.no/ngr/ngr-person/ReservasjonMotKommunikasjonPaaNett> a owl:Class ;
     rdfs:label "ReservasjonMotKommunikasjonPaaNett" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom xsd:boolean ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_reservert> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_reservert> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:boolean ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_reservert> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
@@ -1333,19 +1342,10 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_reservert> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
     skos:definition "Registrering av at ein person har reservert seg mot digital kommunikasjon frå det offentlege. Forvaltast av Kontakt- og reservasjonsregisteret (KRR)." ;
     skos:exactMatch ngrp:ReservasjonMotKommunikasjonPaaNett ;
@@ -1354,32 +1354,32 @@
 <https://data.norge.no/ngr/ngr-person/RettsligHandleevne> a owl:Class ;
     rdfs:label "RettsligHandleevne" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettslig_handleevne_type> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:RettsligHandleevneType> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettslig_handleevne_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/omfang> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettslig_handleevne_type> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/omfang> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettslig_handleevne_type> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/omfang> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettslig_handleevne_type> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/omfang> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/omfang> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:RettsligHandleevneType> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/rettslig_handleevne_type> ] ;
     skos:definition "Registrering av avgrensing i rettsleg handleevne for ein person, t.d. under vergemål eller fråtatt rettsleg handleevne." ;
     skos:exactMatch ngrp:RettsligHandleevne ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1387,41 +1387,41 @@
 <https://data.norge.no/ngr/ngr-person/Sivilstand> a owl:Class ;
     rdfs:label "Sivilstand" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/relatert_ved_sivilstand> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/relatert_ved_sivilstand> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand_type> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:SivilstandType> ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand_type> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/relatert_ved_sivilstand> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:SivilstandType> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand_type> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/relatert_ved_sivilstand> ],
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/relatert_ved_sivilstand> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/sivilstand_type> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/relatert_ved_sivilstand> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
     skos:definition "Sivilstand registrert på ein person i Folkeregisteret." ;
     skos:exactMatch ngrp:Sivilstand ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1429,22 +1429,22 @@
 <https://data.norge.no/ngr/ngr-person/SpraakForElektroniskKommunikasjon> a owl:Class ;
     rdfs:label "SpraakForElektroniskKommunikasjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/spraakkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/spraakkode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/spraakkode> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/spraakkode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/spraakkode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
     skos:definition "Føretrekt språk for elektronisk kommunikasjon med offentlege styresmakter, valt av personen sjølv." ;
     skos:exactMatch ngrp:SpraakForElektroniskKommunikasjon ;
@@ -1453,41 +1453,41 @@
 <https://data.norge.no/ngr/ngr-person/Statsborgerskap> a owl:Class ;
     rdfs:label "Statsborgerskap" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/landkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/landkode> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/landkode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ] ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/landkode> ] ;
     skos:definition "Statsborgerskap registrert på ein person i Folkeregisteret." ;
     skos:exactMatch ngrp:Statsborgerskap ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1495,32 +1495,26 @@
 <https://data.norge.no/ngr/ngr-person/UtflyttingFraNorge> a owl:Class ;
     rdfs:label "UtflyttingFraNorge" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingssted_i_utlandet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/utflyttingsdato> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingsland> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingssted_i_utlandet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingsland> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingsland> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/utflyttingsdato> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingssted_i_utlandet> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/utflyttingsdato> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
@@ -1529,7 +1523,13 @@
             owl:onProperty <https://data.norge.no/ngr/ngr-person/utflyttingsdato> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingsland> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingssted_i_utlandet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingsland> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/tilflyttingssted_i_utlandet> ] ;
     skos:definition "Registrering av utflytting frå Noreg i Folkeregisteret." ;
     skos:exactMatch ngrp:UtflyttingFraNorge ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1537,41 +1537,41 @@
 <https://data.norge.no/ngr/ngr-person/Verge> a owl:Class ;
     rdfs:label "Verge" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/embete> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/vergetype> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/embete> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/embete> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/vergetype> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Person> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/embete> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/embete> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/:VergetypeKode> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/vergetype> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/vergetype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/er_av_type_person> ] ;
     skos:definition "Ein verje (anten person eller institusjon) som er oppnemnd for å ivareta interessene til ein person. Er av type Person." ;
     skos:exactMatch ngrp:Verge ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -1981,22 +1981,22 @@
 <https://data.norge.no/ngr/ngr-person/Bostedsadresse> a owl:Class ;
     rdfs:label "Bostedsadresse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         <https://data.norge.no/ngr/ngr-person/GeografiskAdresse> ;
     skos:definition "Adressa personen er registrert busett på i Folkeregisteret." ;
@@ -2006,24 +2006,24 @@
 <https://data.norge.no/ngr/ngr-person/Folkeregisteridentifikator> a owl:Class ;
     rdfs:label "Folkeregisteridentifikator" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
-        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-person/DNummer> <https://data.norge.no/ngr/ngr-person/Foedselsnummer> ) ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/identifikatornummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ] ;
+        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-person/DNummer> <https://data.norge.no/ngr/ngr-person/Foedselsnummer> ) ] ;
     skos:definition "Abstrakt overklasse for unik identifikator i Folkeregisteret. Konkrete underklassar er Fødselsnummer og D-nummer." ;
     skos:exactMatch ngrp:Folkeregisteridentifikator ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .
@@ -2032,19 +2032,19 @@
     rdfs:label "Oppholdsadresse" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
@@ -2065,13 +2065,13 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_fra_og_med> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/gyldig_til_og_med> ],
         <https://data.norge.no/ngr/ngr-person/GeografiskAdresse> ;
     skos:definition "Adressa der personen mottar post." ;
@@ -2174,260 +2174,260 @@
 <https://data.norge.no/ngr/ngr-person/Person> a owl:Class ;
     rdfs:label "Person" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identifikasjonsdokument> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utenlandsk_identifikasjonsdokument> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Statsborgerskap> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_statsborgerskap> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kontaktopplysninger> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktopplysninger> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/RettsligHandleevne> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_rettslig_handleevne> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_falsk_identitet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foreldreansvar_forelder> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_dodsfall> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Verge> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_verge> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Postadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/mottar_post_paa> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/UtflyttingFraNorge> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utflytting_fra_norge> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktinformasjon_doedsbo> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foedsel> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kjoenn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_identitetsgrunnlag> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Folkeregisteridentifikator> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_folkeregisteridentifikator> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonForelder> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_forelder> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kjoenn> ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FalskIdentitet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_falsk_identitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_barn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personnavn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kjoenn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kjoenn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_ektefelle> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Adressebeskyttelse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_adressebeskyttelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/InnflyttingTilNorge> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_innflytting_til_norge> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personstatus> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personstatus> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonEktefelle> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_ektefelle> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_bosted_paa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_dodsfall> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FalskIdentitet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_falsk_identitet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_ektefelle> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_valgt_spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Opphold> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_lovlig_opphold> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholder_seg_paa> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personnavn> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_statsborgerskap> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/SpraakForElektroniskKommunikasjon> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_valgt_spraak> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_forelder> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utflytting_fra_norge> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personidentifikasjon> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personidentifikasjon> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Sivilstand> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_sivilstand> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Foedsel> ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foedsel> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/RettsligHandleevne> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_rettslig_handleevne> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_falsk_identitet> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utflytting_fra_norge> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_barn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kjoenn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personstatus> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personstatus> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_dodsfall> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_bosted_paa> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_sivilstand> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonBarn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_barn> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personidentifikasjon> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Postadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/mottar_post_paa> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_forelder> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktopplysninger> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/mottar_post_paa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personnavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_reservasjon_mot_kommunikasjon> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_falsk_identitet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personstatus> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_reservasjon_mot_kommunikasjon> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_innflytting_til_norge> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Dodsfall> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_dodsfall> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholder_seg_paa> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Adressebeskyttelse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_adressebeskyttelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utenlandsk_identifikasjonsdokument> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Folkeregisteridentifikator> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_folkeregisteridentifikator> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personidentifikasjon> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personidentifikasjon> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_valgt_spraak> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ForeldreansvarForelder> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foreldreansvar_forelder> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ForeldreansvarBarn> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foreldreansvar_barn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Oppholdsadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholder_seg_paa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_sivilstand> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_adressebeskyttelse> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foreldreansvar_forelder> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_innflytting_til_norge> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Bostedsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_bosted_paa> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_statsborgerskap> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_valgt_spraak> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_lovlig_opphold> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utflytting_fra_norge> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personidentifikasjon> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_rettslig_handleevne> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personnavn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personnavn> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_identitetsgrunnlag> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_sivilstand> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personstatus> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_rettslig_handleevne> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_verge> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_rettslig_handleevne> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_identitetsgrunnlag> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Statsborgerskap> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_statsborgerskap> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholder_seg_paa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foedsel> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foreldreansvar_barn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identitetsgrunnlag> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_identitetsgrunnlag> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_adressebeskyttelse> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/mottar_post_paa> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_lovlig_opphold> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/InnflyttingTilNorge> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_innflytting_til_norge> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_folkeregisteridentifikator> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Bostedsadresse> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_bosted_paa> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ReservasjonMotKommunikasjonPaaNett> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_reservasjon_mot_kommunikasjon> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Personnavn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personnavn> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_adressebeskyttelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_rettslig_handleevne> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/KontaktinformasjonDoedsbo> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktinformasjon_doedsbo> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktopplysninger> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_ektefelle> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_falsk_identitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_identitetsgrunnlag> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personstatus> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktinformasjon_doedsbo> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kjoenn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kjoenn> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_folkeregisteridentifikator> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktopplysninger> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_reservasjon_mot_kommunikasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foedsel> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_innflytting_til_norge> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_valgt_spraak> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_adressebeskyttelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/UtflyttingFraNorge> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utflytting_fra_norge> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/SpraakForElektroniskKommunikasjon> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_valgt_spraak> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ForeldreansvarForelder> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foreldreansvar_forelder> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Foedsel> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foedsel> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_folkeregisteridentifikator> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Kontaktopplysninger> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktopplysninger> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Dodsfall> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_dodsfall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_kontaktinformasjon_doedsbo> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholder_seg_paa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identifikasjonsdokument> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utenlandsk_identifikasjonsdokument> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_dodsfall> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_foreldreansvar_barn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_sivilstand> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Verge> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_verge> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_lovlig_opphold> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/ReservasjonMotKommunikasjonPaaNett> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_reservasjon_mot_kommunikasjon> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_reservasjon_mot_kommunikasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_bosted_paa> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Oppholdsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/oppholder_seg_paa> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_utenlandsk_identifikasjonsdokument> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/FamilierelasjonBarn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_familierelasjon_barn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/mottar_post_paa> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_innflytting_til_norge> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Identitetsgrunnlag> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_identitetsgrunnlag> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_personstatus> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-person/Opphold> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-person/har_lovlig_opphold> ] ;
     skos:definition "Ein fysisk person registrert i Folkeregisteret. Hovudbegrepet i domene person." ;
     skos:exactMatch ngrp:Person ;
     skos:inScheme <https://data.norge.no/ngr/ngr-person> .

@@ -16,125 +16,125 @@
 <https://data.norge.no/ngr/ngr-adresse/AdresseContainer> a owl:Class ;
     rdfs:label "AdresseContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kirkesokn> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Postboks> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Representasjonspunkt> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Tettsted> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/tettstadar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunar> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksadresser> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/tettstadar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bygningar> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Kirkesokn> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kirkesokn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrader> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekoder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/fylke> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adresseomrade> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrader> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/grunnkretsar> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Stemmekrets> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/stemmekretsar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststeder> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksadresser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Poststed> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststeder> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Kommune> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bruksenhetsnummer> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bruksenhet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenheter> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenheter> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Fylke> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/fylke> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Postboksadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksadresser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Husnummer> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressenavn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekoder> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/KommunalKrets> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunaleKretsar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Svalbard> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/svalbardOmrader> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/tettstadar> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Grunnkrets> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/grunnkretsar> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Kirkesokn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kirkesokn> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/OffisiellAdresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/offisielleAdresser> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/svalbardOmrader> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Poststed> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststeder> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bygning> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bygningar> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Stemmekrets> ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Postboksadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksadresser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/grunnkretsar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/stemmekretsar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/KommunalKrets> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunaleKretsar> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressekode> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekoder> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrader> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bygningar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/OffisiellAdresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/offisielleAdresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Kommune> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressenavn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Fylke> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/fylke> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenheter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/svalbardOmrader> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Svalbard> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/svalbardOmrader> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Husnummer> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/offisielleAdresser> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/fylke> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Representasjonspunkt> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bruksenhet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenheter> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunaleKretsar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/stemmekretsar> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststeder> ] ;
     skos:definition "Rotklasse for NGR-adresse-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking." ;
     skos:inScheme <https://data.norge.no/ngr/ngr-adresse> .
 
@@ -169,10 +169,10 @@
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/fylkesnummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/fylkesnummer> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/fylkesnummer> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
     skos:definition "Eit norsk fylke." ;
@@ -181,10 +181,10 @@
 
 <https://data.norge.no/ngr/ngr-adresse/GeografiskAdresse> a owl:Class ;
     rdfs:label "GeografiskAdresse" ;
-    rdfs:subClassOf [ a owl:Restriction ;
+    rdfs:subClassOf [ owl:unionOf ( <https://data.norge.no/ngr/ngr-adresse/OffisiellAdresse> <https://data.norge.no/ngr/ngr-adresse/Postboksadresse> ) ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
-        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-adresse/OffisiellAdresse> <https://data.norge.no/ngr/ngr-adresse/Postboksadresse> ) ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
@@ -214,13 +214,13 @@
 <https://data.norge.no/ngr/ngr-adresse/Kirkesokn> a owl:Class ;
     rdfs:label "Kirkesokn" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kirkesoknnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kirkesoknnummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kirkesoknnummer> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
     skos:definition "Eit kyrkjesokn." ;
@@ -233,10 +233,10 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kretsnummer> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kretsnummer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kretsnummer> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
     skos:definition "Ein kommunal krets (administrativ inndeling definert av kommunen)." ;
@@ -246,95 +246,77 @@
 <https://data.norge.no/ngr/ngr-adresse/OffisiellAdresse> a owl:Class ;
     rdfs:label "OffisiellAdresse" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bruksenhet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bruksenhet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bruksenhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekode_ref> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/matrikkelnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt_ref> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer_ref> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_ref> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressetilleggsnavn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bygning> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/geografisk_omrade> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressetilleggsnavn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekode_ref> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_annet_objekt> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer_ref> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bygning> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_ref> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bruksenhetsnummer> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer_ref> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_annet_objekt> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer_ref> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bruksenhet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bruksenhet> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressekode> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekode_ref> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt_ref> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bygning> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bygning> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer_ref> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/matrikkelnummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_ref> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekode_ref> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer_ref> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressenavn> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_ref> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Husnummer> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer_ref> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Kommune> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_ref> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekode_ref> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_ref> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/matrikkelnummer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Husnummer> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer_ref> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bruksenhet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bruksenhet> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_annet_objekt> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt_ref> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bruksenhet> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_ref> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bygning> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/matrikkelnummer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/geografisk_omrade> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer_ref> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_ref> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/husnummer_ref> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_annet_objekt> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Representasjonspunkt> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt_ref> ],
@@ -342,14 +324,32 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressetilleggsnavn> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressenavn> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_ref> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bygning> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bygning> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_bygning> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_ref> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresserer_annet_objekt> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/geografisk_omrade> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressekode> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressekode_ref> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Bruksenhetsnummer> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bruksenhetsnummer_ref> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/geografisk_omrade> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/representasjonspunkt_ref> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressetilleggsnavn> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskAdresse> ;
     skos:definition "Ei offisiell adresse tildelt av kommunen, beståande av vegadresse (adressenavn + husnummer) eller matrikkelnummer. Forvaltas av Matrikkelen." ;
     skos:exactMatch ngr:OffisiellAdresse ;
@@ -358,25 +358,16 @@
 <https://data.norge.no/ngr/ngr-adresse/Postboksadresse> a owl:Class ;
     rdfs:label "Postboksadresse" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststed_ref> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksanleggsnavn> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Poststed> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststed_ref> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksanleggsnavn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststed_ref> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststed_ref> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksanleggsnavn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboks_ref> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Postboks> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboks_ref> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
@@ -384,6 +375,15 @@
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboks_ref> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Postboks> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboks_ref> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksanleggsnavn> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/poststed_ref> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskAdresse> ;
     skos:definition "Ei postboksadresse registrert i Postboksregisteret (Posten Norge)." ;
     skos:exactMatch ngr:Postboksadresse ;
@@ -392,13 +392,13 @@
 <https://data.norge.no/ngr/ngr-adresse/Stemmekrets> a owl:Class ;
     rdfs:label "Stemmekrets" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/stemmekretsnummer> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/stemmekretsnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/stemmekretsnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/stemmekretsnummer> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
     skos:definition "Ei stemmekrets brukt ved val." ;
@@ -415,13 +415,13 @@
 <https://data.norge.no/ngr/ngr-adresse/Tettsted> a owl:Class ;
     rdfs:label "Tettsted" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/tettstedsnummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/tettstedsnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/tettstedsnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/tettstedsnummer> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
     skos:definition "Eit tettbygd område definert av SSB." ;
@@ -517,40 +517,40 @@
 <https://data.norge.no/ngr/ngr-adresse/Adressenavn> a owl:Class ;
     rdfs:label "Adressenavn" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_tekst> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adresseomrade> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_tekst> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_tekst> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adressekode> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/har_adressekode> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/har_adressekode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_tekst> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/har_adressekode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/har_adressekode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_tekst> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adressenavn_tekst> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/har_adressekode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adresseomrade> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ] ;
     skos:definition "Offisielt namn på ei veglenke eller eit adresseobjekt i ein kommune, tildelt av kommunen og godkjent av Kartverket." ;
     skos:exactMatch ngr:Adressenavn ;
@@ -574,41 +574,41 @@
 <https://data.norge.no/ngr/ngr-adresse/Bruksenhetsnummer> a owl:Class ;
     rdfs:label "Bruksenhetsnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummerering_i_etasjen> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjenummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/:Etasjeplan> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjeplan> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummerering_i_etasjen> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjeplan> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjenummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjenummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjenummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjeplan> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummerering_i_etasjen> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjenummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummerering_i_etasjen> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummerering_i_etasjen> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/etasjeplan> ] ;
     skos:definition "Identifikator for ei brukseining (leilegheit o.l.) innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1." ;
     skos:exactMatch ngr:Bruksenhetsnummer ;
     skos:inScheme <https://data.norge.no/ngr/ngr-adresse> .
@@ -616,13 +616,13 @@
 <https://data.norge.no/ngr/ngr-adresse/Bygning> a owl:Class ;
     rdfs:label "Bygning" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ] ;
     skos:definition "Referanse til ein bygning i Matrikkelen. Offisiell adresse kan adressere ytre inngang(ar) til bygningen." ;
     skos:exactMatch ngr:Bygning ;
@@ -631,32 +631,32 @@
 <https://data.norge.no/ngr/ngr-adresse/Husnummer> a owl:Class ;
     rdfs:label "Husnummer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bokstav> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bokstav> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummer> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummer> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bokstav> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/nummer> ] ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/bokstav> ] ;
     skos:definition "Husnummer beståande av eit obligatorisk nummer og ein valfri bokstav (t.d. 12 eller 12B)." ;
     skos:exactMatch ngr:Husnummer ;
     skos:inScheme <https://data.norge.no/ngr/ngr-adresse> .
@@ -664,23 +664,23 @@
 <https://data.norge.no/ngr/ngr-adresse/Postboks> a owl:Class ;
     rdfs:label "Postboks" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:integer ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksnummer> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksnummer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:integer ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postboksnummer> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ] ;
     skos:definition "Ei postboks registrert i Postboksregisteret." ;
     skos:exactMatch ngr:Postboks ;
     skos:inScheme <https://data.norge.no/ngr/ngr-adresse> .
@@ -688,40 +688,40 @@
 <https://data.norge.no/ngr/ngr-adresse/Representasjonspunkt> a owl:Class ;
     rdfs:label "Representasjonspunkt" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinatsystem> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinatsystem> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinatsystem> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_ost> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_nord> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_nord> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_ost> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinatsystem> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_nord> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_ost> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:float ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_nord> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinatsystem> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:float ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_ost> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:allValuesFrom xsd:float ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/koordinat_nord> ] ;
     skos:definition "Eit geografisk punkt (koordinatpar) som representerer posisjonen til adressa." ;
     skos:exactMatch ngr:Representasjonspunkt ;
@@ -934,22 +934,22 @@
 <https://data.norge.no/ngr/ngr-adresse/Adresseomrade> a owl:Class ;
     rdfs:label "Adresseomrade" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ] ;
     skos:definition "Geografisk område eit adressenavn høyrer til, t.d. ei gate, eit veg eller eit stadnamn." ;
     skos:exactMatch ngr:Adresseomrade ;
@@ -958,13 +958,13 @@
 <https://data.norge.no/ngr/ngr-adresse/Kommune> a owl:Class ;
     rdfs:label "Kommune" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_kode> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_kode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kommunenummer_kode> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
     skos:definition "Ein norsk kommune." ;
@@ -974,13 +974,13 @@
 <https://data.norge.no/ngr/ngr-adresse/Poststed> a owl:Class ;
     rdfs:label "Poststed" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postnummer> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postnummer> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/postnummer> ],
         <https://data.norge.no/ngr/ngr-adresse/GeografiskOmrade> ;
     skos:definition "Eit poststed identifisert med postnummer, forvalta av Postnummerregisteret." ;
@@ -991,16 +991,22 @@
     rdfs:label "Adressekode" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-adresse/Adresseomrade> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/adresseomrade_ref> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kode> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kode> ],
@@ -1008,13 +1014,7 @@
             owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kode> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/kode> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ] ;
     skos:definition "Firesifra kommunal kode som identifiserer eit adressenavn." ;
     skos:exactMatch ngr:Adressekode ;
@@ -1047,23 +1047,23 @@
     rdfs:label "GeografiskOmrade" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-adresse/Fylke> <https://data.norge.no/ngr/ngr-adresse/Grunnkrets> <https://data.norge.no/ngr/ngr-adresse/Kirkesokn> <https://data.norge.no/ngr/ngr-adresse/KommunalKrets> <https://data.norge.no/ngr/ngr-adresse/Kommune> <https://data.norge.no/ngr/ngr-adresse/Poststed> <https://data.norge.no/ngr/ngr-adresse/Stemmekrets> <https://data.norge.no/ngr/ngr-adresse/Svalbard> <https://data.norge.no/ngr/ngr-adresse/Tettsted> ) ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ],
-        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-adresse/Fylke> <https://data.norge.no/ngr/ngr-adresse/Grunnkrets> <https://data.norge.no/ngr/ngr-adresse/Kirkesokn> <https://data.norge.no/ngr/ngr-adresse/KommunalKrets> <https://data.norge.no/ngr/ngr-adresse/Kommune> <https://data.norge.no/ngr/ngr-adresse/Poststed> <https://data.norge.no/ngr/ngr-adresse/Stemmekrets> <https://data.norge.no/ngr/ngr-adresse/Svalbard> <https://data.norge.no/ngr/ngr-adresse/Tettsted> ) ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/namn> ] ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-adresse/id> ] ;
     skos:definition "Abstrakt klasse for geografiske inndelingar som offisielle adressar refererer til." ;
     skos:exactMatch ngr:GeografiskOmrade ;
     skos:inScheme <https://data.norge.no/ngr/ngr-adresse> .
