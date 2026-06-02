@@ -20,3 +20,4 @@ integrere mot custom datakatalog (gcp data catalog)
 
 conventional commits for versjonering av modeller
 
+lage tester som genererer til eit format, for så å generere tilbake til LinkML format og verifisere at resultatet blir det samme
