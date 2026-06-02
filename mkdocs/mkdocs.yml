@@ -54,7 +54,7 @@ nav:
   - Rettleiingar:
       - Ny domenemodell: ny-domenemodell.md
       - Ny begrepskatalog: ny-begrepsmodell.md
-      - Manifestkonfigurasjon: manifest-config.md
+      - Modellmanifest: manifest-config.md
       - Publiser til Felles Begrepskatalog: publisering-begrep.md
       - Publiser til Felles Datakatalog: publisering-modell.md
       - Bruk frå eksternt repo: ekstern-bruk.md

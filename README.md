@@ -6,11 +6,12 @@ Norske W3C-applikasjonsprofiler og offentlege domenemodeller i [LinkML-format](h
 
 Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld:
 
-* LinkML-modellar for norske W3C-applikasjonsprofiler og offentlege domenemodeller for gjenbruk.
+* LinkML-[modellar](https://github.com/brreg/linkml-datamodellering-no/tree/main#skjema) for norske W3C-applikasjonsprofiler og offentlege domenemodeller for gjenbruk.
 * [mcp-linkml-modell-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-modell-utkast/README.md), [mcp-linkml-begrep-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) og [mcp-linkml-validator](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md) ([mcp servere](https://modelcontextprotocol.io/docs/getting-started/intro)) for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
-* LinkML-generatorar for å produsere artefakter i andre format frå LinkML-skjema.
-* Github Actions (pipelines) for å automatisk generere, validere og publisere artefakter frå LinkML-skjema.
+* LinkML-[generatorar](https://github.com/brreg/linkml-datamodellering-no/blob/main/README.md#genererte-artefakter) for å produsere artefakter i andre format frå LinkML-skjema.
+* Github Actions [pipelines](https://github.com/brreg/linkml-datamodellering-no/actions) for å automatisk generere, validere og publisere artefakter frå LinkML-skjema.
 * Github Pages [dokumentasjonsportal](https://brreg.github.io/linkml-datamodellering-no/) med oversikt over alle LinkML-skjema og genererte artefakter.
+* [Script](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) for å bootstrappe eit eksternt repo for lokal LinkML modellering.
 
 
 

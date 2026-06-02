@@ -178,7 +178,7 @@ linkml-datamodellering-no/
 │   │   └── <domene>/
 │   │       └── <modell>/
 │   │           ├── <modell>-schema.yaml           # Datamodel
-│   │           ├── manifest.yaml                  # Modell-manifest
+│   │           ├── manifest.yaml                  # Modellmanifest
 │   │           ├── published-uris.lock            # Berre for publiserte katalogar
 │   │           ├── examples/                      
 │   │           │   └── <modell>-eksempel.yaml     # Eksempeldatafil

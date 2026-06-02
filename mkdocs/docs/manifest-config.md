@@ -1,4 +1,4 @@
-# Modell-manifest konfigurasjon (manifest.yaml)
+# Modellmanifest (manifest.yaml)
 
 ## Kva er `manifest.yaml`?
 
