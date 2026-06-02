@@ -126,7 +126,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | FAIR-metadataoverbygning (F/A/I/R-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
+| fair | [fair-metadata](src/linkml/fair/fair-metadata/) | FAIR-metadataoverbygning (**FAIR**-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
 | ap-no | [common-ap-no](src/linkml/ap-no/common/) | Felles slot-definisjonar for alle AP-NO-profilar |
 | ap-no | [cpsv-ap-no](src/linkml/ap-no/cpsv-ap-no/) | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | [dcat-ap-no](src/linkml/ap-no/dcat-ap-no/) | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
@@ -156,7 +156,7 @@ Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar gener
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
 |---|---|---|---|---|
-| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar | ✓ | `jsonld_context` |
+| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` |
 | SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
 | OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
 | RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
@@ -165,8 +165,8 @@ Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar gener
 | JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar | — | `json_schema` |
 | Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
 | ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
-| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon | — | `docs` |
-| PlantUML-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon | — | `plantuml` |
+| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
+| Klasse-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` |
 
 
 ## Katalogstruktur
@@ -190,8 +190,7 @@ linkml-datamodellering-no/
 │   │
 │   ├── mcp-linkml-validator/                      # MCP-server: policy-basert LinkML validering
 │   ├── mcp-linkml-modell-utkast/                  # MCP-server: generering av LinkML modell-utkast
-│   ├── mcp-linkml-begrep-utkast/                  # MCP-server: generering av LinkML begreps-utkast
-│   └── templates/                                 # Jinja2-malar for make gen-docs
+│   └── mcp-linkml-begrep-utkast/                  # MCP-server: generering av LinkML begreps-utkast
 │
 ├── bootstrap.sh                                   # Bootstrap-script for eksterne repo
 ├── tests/                                         # Testar og fixtures

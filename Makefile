@@ -75,10 +75,10 @@ define run_gen_doc
     src/linkml/$(call schema_domain,$(s))/$(call schema_name,$(s))/examples/$(call schema_name,$(s))-eksempel.yaml \
     $(call schema_outdir,$(s))/docgen-examples && \
   echo "$(CLR_STEP)→ gen-doc  $(s)$(CLR_RST)" && \
-  echo "$(LINKML_RUN) gen-doc --template-directory src/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram --example-directory $(call schema_outdir,$(s))/docgen-examples -d $(call schema_outdir,$(s))/docs $(s)" && \
+  echo "$(LINKML_RUN) gen-doc --template-directory src/assets/templates/docgen --no-mergeimports --no-render-imports --no-hierarchical-class-view --diagram-type mermaid_class_diagram --example-directory $(call schema_outdir,$(s))/docgen-examples -d $(call schema_outdir,$(s))/docs $(s)" && \
   mkdir -p $(call schema_outdir,$(s))/docs && \
   $(LINKML_RUN) gen-doc \
-    --template-directory src/templates/docgen \
+    --template-directory src/assets/templates/docgen \
     --no-mergeimports \
     --no-render-imports \
     --no-hierarchical-class-view \
