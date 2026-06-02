@@ -1,5 +1,5 @@
 # Auto generated from samt-bu-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-27T14:51:39
+# Generation date: 2026-06-02T06:41:54
 # Schema: skole_ontologi
 #
 # id: https://example.no/ontology/samt-bu-skole

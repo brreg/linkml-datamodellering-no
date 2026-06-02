@@ -329,6 +329,7 @@ plugins:
 
 extra_css:
   - stylesheets/aktivt-menypunkt.css
+  - stylesheets/responsivt-design.css
 
 extra_javascript:
   - javascripts/nav-active-fix.js

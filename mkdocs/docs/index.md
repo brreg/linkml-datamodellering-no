@@ -6,11 +6,12 @@ Norske W3C-applikasjonsprofiler og offentlege domenemodeller i [LinkML-format](h
 
 Dette [kodelageret](https://github.com/brreg/linkml-datamodellering-no) inneheld:
 
-* LinkML-modellar for norske W3C-applikasjonsprofiler og offentlege domenemodeller for gjenbruk.
-* mcp-linkml-modell-utkast, mcp-linkml-begrep-utkast og mcp-linkml-validator [mcp servere](https://modelcontextprotocol.io/docs/getting-started/intro) for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
-* LinkML-generatorar for å produsere artefakter i andre format frå LinkML-skjema.
-* Github Actions (pipelines) for å automatisk generere, validere og publisere artefakter frå LinkML-skjema.
-* Github Pages dokumentasjonsportal med oversikt over alle LinkML-skjema og genererte artefakter.
+* LinkML-[modellar](https://github.com/brreg/linkml-datamodellering-no/tree/main#skjema) for norske W3C-applikasjonsprofiler og offentlege domenemodeller for gjenbruk.
+* [mcp-linkml-modell-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-modell-utkast/README.md), [mcp-linkml-begrep-utkast](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-begrep-utkast/README.md) og [mcp-linkml-validator](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md) ([mcp servere](https://modelcontextprotocol.io/docs/getting-started/intro)) for å generere og validere LinkML-skjema (med moglegheit for KI-integrasjon).
+* LinkML-[generatorar](https://github.com/brreg/linkml-datamodellering-no/blob/main/README.md#genererte-artefakter) for å produsere artefakter i andre format frå LinkML-skjema.
+* Github Actions [pipelines](https://github.com/brreg/linkml-datamodellering-no/actions) for å automatisk generere, validere og publisere artefakter frå LinkML-skjema.
+* Github Pages [dokumentasjonsportal](https://brreg.github.io/linkml-datamodellering-no/) med oversikt over alle LinkML-skjema og genererte artefakter.
+* Opplegg for å [bootstrappe](https://brreg.github.io/linkml-datamodellering-no/ekstern-bruk/) eit eksternt repo for lokal LinkML modellering.
 
 
 
@@ -124,7 +125,7 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 
 | Domene | Skjema | Skildring | Dokumentasjon
 |---|---|---|---|
-| begrepskatalog | brreg-begrepskatalog | Registerenheten i Brønnøysund – Begrepskatalog | [SKOS-AP-NO-Begrep](https://data.norge.no/specification/skos-ap-no-begrep)
+| fair | fair-metadata | FAIR-metadataoverbygning (**FAIR**-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
 | ap-no | common-ap-no | Felles slot-definisjonar for alle AP-NO-profilar |
 | ap-no | cpsv-ap-no | Offentlege tenester og hendingar | [data.norge.no/specification/cpsv-ap-no](https://data.norge.no/specification/cpsv-ap-no)
 | ap-no | dcat-ap-no | Datakatalogar og datasett | [data.norge.no/specification/dcat-ap-no](https://data.norge.no/specification/dcat-ap-no)
@@ -132,7 +133,6 @@ Skjema ligg under `src/linkml/<domene>/<skjema>/`
 | ap-no | modelldcat-ap-no | Informasjonsmodellar | [data.norge.no/specification/modelldcat-ap-no](https://data.norge.no/specification/modelldcat-ap-no)
 | ap-no | skos-ap-no | Omgrepsamlingar | [data.norge.no/specification/skos-ap-no-begrep](https://data.norge.no/specification/skos-ap-no-begrep)
 | ap-no | xkos-ap-no | Utvida klassifikasjon | [data.norge.no/specification/xkos-ap-no](https://data.norge.no/specification/xkos-ap-no)
-| fair | fair-metadata | FAIR-metadataoverbygning (F/A/I/R-prinsippa) | [www.go-fair.org/fair-principles/](https://www.go-fair.org/fair-principles/)
 | fint | fint-common | Felles klassar for FINT |
 | fint | fint-administrasjon | Lønn, arbeidsforhold, organisasjon | [informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_administrasjon?v=v4.0.20)
 | fint | fint-arkiv | Sak, journal, dokument | [informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20](https://informasjonsmodell.felleskomponent.no/docs/package_arkiv?v=v4.0.20)
@@ -155,17 +155,17 @@ Køyr `make <domene>` for å generere alle artefakter for eit domene. Kvar gener
 
 | Artefakt | Fil | Brukstilfelle | W3C semantisk | manifest.yaml flag |
 |---|---|---|---|---|
-| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API-ar | ✓ | `jsonld_context` |
+| JSON-LD kontekst | `<skjema>-context.jsonld` | Mapping frå JSON til RDF — brukast saman med API | ✓ | `jsonld_context` |
 | SHACL shapes | `<skjema>-shapes.ttl` | Validering av RDF-data mot skjema i triple stores | ✓ | `shacl` |
 | OWL ontologi | `<skjema>-ontology.ttl` | Maskinlesbar ontologi for semantiske verktøy | ✓ | `owl` |
 | RDF/Turtle skjema | `<skjema>-schema.ttl` | Fullstendig RDF-representasjon av skjemaet | ✓ | `rdf` |
 | Eksempel-RDF | `<skjema>-eksempel.ttl` | Konkret RDF-instans for testing og dokumentasjon | ✓ | `example_rdf` |
 | Python-klassar | `<skjema>-model.py` | Direkte bruk i Python-applikasjonar via LinkML | — | `python` |
-| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar | — | `json_schema` |
+| JSON Schema | `<skjema>-schema.json` | Validering av JSON-data i applikasjonar og RESTful integrasjon | — | `json_schema` |
 | Protobuf-skjema | `<skjema>-schema.proto` | gRPC og Protocol Buffers-integrasjon | — | `protobuf` |
 | ER-diagram | `<skjema>-erdiagram.md` | Visuell oversikt over klasser og relasjonar (Mermaid) | — | `erdiagram` |
-| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon | — | `docs` |
-| PlantUML-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon | — | `plantuml` |
+| HTML-dokumentasjon | `docs/` | Menneskelesleg referansedokumentasjon basert på markdown | — | `docs` |
+| Klasse-diagram | `diagrams/<skjema>.puml` + `.svg` | Klassediagram for presentasjon og dokumentasjon (PlantUML) | — | `plantuml` |
 
 
 ## Katalogstruktur
@@ -178,8 +178,8 @@ linkml-datamodellering-no/
 │   │   └── <domene>/
 │   │       └── <modell>/
 │   │           ├── <modell>-schema.yaml           # Datamodel
-│   │           ├── manifest.yaml                  # Modellmanifest
-│   │           ├── published-uris.lock            # Berre for publiserte katalogar
+│   │           ├── manifest.yaml                  # Modell-manifest
+│   │           ├── published-uris.lock            # Stabile URI-er for publiserte katalogar
 │   │           ├── examples/                      
 │   │           │   └── <modell>-eksempel.yaml     # Eksempeldatafil
 │   │           └── data/                          # Kildedata for publiserte katalogar
@@ -189,8 +189,7 @@ linkml-datamodellering-no/
 │   │
 │   ├── mcp-linkml-validator/                      # MCP-server: policy-basert LinkML validering
 │   ├── mcp-linkml-modell-utkast/                  # MCP-server: generering av LinkML modell-utkast
-│   ├── mcp-linkml-begrep-utkast/                  # MCP-server: generering av LinkML begreps-utkast
-│   └── templates/                                 # Jinja2-malar for make gen-docs
+│   └── mcp-linkml-begrep-utkast/                  # MCP-server: generering av LinkML begreps-utkast
 │
 ├── bootstrap.sh                                   # Bootstrap-script for eksterne repo
 ├── tests/                                         # Testar og fixtures

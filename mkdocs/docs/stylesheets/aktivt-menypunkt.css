@@ -9,22 +9,6 @@
   border-left: 4px solid #1976d2;
 }
 
-/* Hover */
-/* .md-nav__link:hover {
-  background-color: #f1f3f4;
-} */
-
-/* Gjer sidebar breiare */
-.md-sidebar--primary {
-  width: 18rem;
-}
-
-/* ✅ Sørg for at layout tilpassar seg */
-@media (min-width: 76.25em) {
-  .md-grid {
-    max-width: 1800px;
-  }
-}
 
 
 

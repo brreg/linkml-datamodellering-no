@@ -8,78 +8,74 @@
     rdfs:comment "Rotklasse for NGR-eiendom-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Teig ;
+    sh:property [ sh:class ngre:FastEiendom ;
             sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/teiger> ],
-        [ sh:class ngre:Bruksenhet ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/bruksenheter> ],
-        [ sh:class ngre:RettighetForAaBenytteEiendom ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/rettigheter> ],
-        [ sh:class ngre:Festegrunn ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/festegrunn> ],
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/fasteEiendommer> ],
         [ sh:class ngre:HjemmelTilEiendomsrett ;
             sh:nodeKind sh:IRI ;
             sh:order 17 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/hjemmelEiendomsrett> ],
-        [ sh:class ngre:Grunneiendom ;
+        [ sh:class ngre:YtreInngang ;
             sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/grunneiendommer> ],
-        [ sh:class ngre:IkkeTinglystEierforhold ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/ikkeTinglystEierforhold> ],
-        [ sh:class ngre:Bygning ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/bygninger> ],
-        [ sh:class ngre:Etasje ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/etasjer> ],
-        [ sh:class ngre:Borettslagsandel ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/borettslagsandeler> ],
-        [ sh:class ngre:HjemmelTilFramfesterett ;
-            sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/hjemmelFramfesterett> ],
-        [ sh:class ngre:TinglystHeftelse ;
-            sh:nodeKind sh:IRI ;
-            sh:order 22 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/tinglystHeftelser> ],
-        [ sh:class ngre:Rettighetshaver ;
-            sh:nodeKind sh:IRI ;
-            sh:order 21 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/rettighetshavere> ],
-        [ sh:class ngre:Eierseksjon ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/eierseksjoner> ],
-        [ sh:class ngre:HjemmelTilFesterett ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/hjemmelFesterett> ],
+            sh:order 11 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/ytreInnganger> ],
         [ sh:class ngre:AnnenMatrikkelenhet ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/andreMatrikkelenheter> ],
-        [ sh:class ngre:Borettslag ;
+        [ sh:class ngre:HjemmelTilFesterett ;
             sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/borettslag> ],
-        [ sh:class ngre:Jordsameie ;
+            sh:order 18 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/hjemmelFesterett> ],
+        [ sh:class ngre:HjemmelTilFramfesterett ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/jordsameier> ],
+            sh:order 19 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/hjemmelFramfesterett> ],
+        [ sh:class ngre:Grunneiendom ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/grunneiendommer> ],
+        [ sh:class ngre:Anleggseiendom ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/anleggseiendommer> ],
+        [ sh:class ngre:Teig ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/teiger> ],
+        [ sh:class ngre:TinglystEierforhold ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/tinglystEierforhold> ],
+        [ sh:class ngre:RettighetForAaBenytteEiendom ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/rettigheter> ],
+        [ sh:class ngre:Eierseksjon ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/eierseksjoner> ],
+        [ sh:class ngre:TinglystHeftelse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 22 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/tinglystHeftelser> ],
+        [ sh:class ngre:Representasjonspunkt ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/representasjonspunkt> ],
+        [ sh:class ngre:Bygning ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/bygninger> ],
+        [ sh:class ngre:Borettslagsandel ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/borettslagsandeler> ],
+        [ sh:class ngre:Festegrunn ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/festegrunn> ],
         [ sh:class ngre:Andel ;
             sh:nodeKind sh:IRI ;
             sh:order 20 ;
@@ -88,66 +84,58 @@
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/samlinger> ],
-        [ sh:class ngre:Representasjonspunkt ;
+        [ sh:class ngre:Jordsameie ;
             sh:nodeKind sh:IRI ;
-            sh:order 25 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/representasjonspunkt> ],
+            sh:order 5 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/jordsameier> ],
+        [ sh:class ngre:Rettighetshaver ;
+            sh:nodeKind sh:IRI ;
+            sh:order 21 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/rettighetshavere> ],
+        [ sh:class ngre:IkkeTinglystEierforhold ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/ikkeTinglystEierforhold> ],
+        [ sh:class ngre:Bruksenhet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/bruksenheter> ],
         [ sh:class ngre:Matrikkelnummer ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/matrikkelnumre> ],
-        [ sh:class ngre:TinglystEierforhold ;
+        [ sh:class ngre:Etasje ;
             sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/tinglystEierforhold> ],
-        [ sh:class ngre:Anleggseiendom ;
+            sh:order 13 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/etasjer> ],
+        [ sh:class ngre:Borettslag ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/anleggseiendommer> ],
-        [ sh:class ngre:YtreInngang ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/ytreInnganger> ],
-        [ sh:class ngre:FastEiendom ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/fasteEiendommer> ] ;
+            sh:order 24 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/borettslag> ] ;
     sh:targetClass <https://data.norge.no/ngr/ngr-eiendom/EiendomContainer> .
 
 ngre:Hjemmel a sh:NodeShape ;
     rdfs:comment "Abstrakt klasse for heimelsdokument. Eit heimelsdokument fastset kven som har rett til eigedommen og i kva form, og består av ein eller fleire andeler med kvar sin rettigheitshavar." ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Andel ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Andel ;
             sh:description "Andel(ar) i heimelsdokumentet." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngre:harAndel ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
+            sh:path ngre:harAndel ] ;
     sh:targetClass ngre:Hjemmel .
 
 ngre:Anleggseiendom a sh:NodeShape ;
     rdfs:comment "Eit volum – ein bygning eller konstruksjon – oppretta frå ei eller fleire grunneigedommar eller anleggseigedommar. Strekkjer seg over og/eller under andre matrikkeleiningar. Kan også opprettast ved okkupasjon frå eierløs undergrunn eller sjøgrunn." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) matrikkeleininga er del av." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:erDelAvTeig ],
-        [ sh:class ngre:Matrikkelnummer ;
-            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path ngre:identifiseresMed ],
-        [ sh:class ngre:Kommune ;
+    sh:property [ sh:class ngre:Kommune ;
             sh:description "Kommunen matrikkeleininga ligg innanfor." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -159,46 +147,40 @@ ngre:Anleggseiendom a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) matrikkeleininga er del av." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:erDelAvTeig ],
+        [ sh:class ngre:Matrikkelnummer ;
+            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ngre:identifiseresMed ],
+        [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngre:harTeig ],
         [ sh:class ngre:Anleggsprojeksjonsflate ;
             sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
-            sh:path ngre:harAnleggsprojeksjonsflate ],
-        [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:harTeig ] ;
+            sh:path ngre:harAnleggsprojeksjonsflate ] ;
     sh:targetClass ngre:Anleggseiendom .
 
 ngre:AnnenMatrikkelenhet a sh:NodeShape ;
     rdfs:comment "Matrikkelenheit som ikkje fell inn under dei andre underklassane." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Anleggsprojeksjonsflate ;
-            sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
-            sh:maxCount 1 ;
+    sh:property [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path ngre:harAnleggsprojeksjonsflate ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Matrikkelnummer ;
-            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path ngre:identifiseresMed ],
-        [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) matrikkeleininga er del av." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:erDelAvTeig ],
+            sh:order 4 ;
+            sh:path ngre:harTeig ],
         [ sh:class ngre:Kommune ;
             sh:description "Kommunen matrikkeleininga ligg innanfor." ;
             sh:maxCount 1 ;
@@ -206,64 +188,64 @@ ngre:AnnenMatrikkelenhet a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path ngre:liggerInnenforKommune ],
-        [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
+        [ sh:class ngre:Matrikkelnummer ;
+            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:harTeig ] ;
+            sh:order 1 ;
+            sh:path ngre:identifiseresMed ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) matrikkeleininga er del av." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:erDelAvTeig ],
+        [ sh:class ngre:Anleggsprojeksjonsflate ;
+            sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ngre:harAnleggsprojeksjonsflate ] ;
     sh:targetClass ngre:AnnenMatrikkelenhet .
 
 ngre:Bruksenhetsnummer a sh:NodeShape ;
     rdfs:comment "Identifikator for ei brukseining innanfor ein bygning, t.d. H0201 = 2. etasje, eining 1 (etasjeplan + etasjenummer + nummerering)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description "Løpenummer for brukseininga innanfor etasjen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path ngre:nummereringIEtasjen ],
-        [ sh:description "Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M)." ;
-            sh:in ( "H" "U" "K" "L" "M" ) ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:order 1 ;
-            sh:path ngre:etasjeplan ],
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
         [ sh:datatype xsd:integer ;
             sh:description "Etasjenummer (t.d. 2 for 2. etasje)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path ngre:etasjenummer ] ;
+            sh:path ngre:etasjenummer ],
+        [ sh:description "Kode for kva del av bygningen brukseininga ligg i (H/U/K/L/M)." ;
+            sh:in ( "H" "U" "K" "L" "M" ) ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:order 1 ;
+            sh:path ngre:etasjeplan ] ;
     sh:targetClass ngre:Bruksenhetsnummer .
 
 ngre:Bruksnummer a sh:NodeShape ;
     rdfs:comment "Bruksnummer innanfor gardsnamnet." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:description "Bruksnummer innanfor gardsnamnet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ngre:bruksnummer ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
-    sh:targetClass ngre:Bruksnummer .
-
-ngre:Bygningsnummer a sh:NodeShape ;
-    rdfs:comment "Offisiell identifikator for ein bygning i Matrikkelen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:description "URI-identifikator for ressursen." ;
@@ -272,31 +254,37 @@ ngre:Bygningsnummer a sh:NodeShape ;
             sh:order 0 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
         [ sh:datatype xsd:integer ;
+            sh:description "Bruksnummer innanfor gardsnamnet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngre:bruksnummer ] ;
+    sh:targetClass ngre:Bruksnummer .
+
+ngre:Bygningsnummer a sh:NodeShape ;
+    rdfs:comment "Offisiell identifikator for ein bygning i Matrikkelen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description "Unikt bygningsnummer i Matrikkelen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngre:bygningsnummer ] ;
+            sh:path ngre:bygningsnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
     sh:targetClass ngre:Bygningsnummer .
 
 ngre:Eierseksjon a sh:NodeShape ;
     rdfs:comment "Ein eigarseksjon er ein eigarandel i ein seksjonert eigedom. Eigaren har einerett til å bruke ein bestemt del av eigedommen, medan heile eigedommen er i sameige med dei andre seksjonseigarane. Eigedommen som er seksjonert kan vere grunneigendom, festegrunn eller anleggseigendom." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Matrikkelnummer ;
-            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:identifiseresMed ],
-        [ sh:class ngre:Teig ;
+    sh:property [ sh:class ngre:Teig ;
             sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
@@ -306,25 +294,37 @@ ngre:Eierseksjon a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path ngre:erDelAvTeig ],
-        [ sh:class ngre:Anleggsprojeksjonsflate ;
-            sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path ngre:harAnleggsprojeksjonsflate ],
         [ sh:class ngre:Matrikkelenhet ;
             sh:description "Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path ngre:kanVaerePa ],
+        [ sh:class ngre:Anleggsprojeksjonsflate ;
+            sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path ngre:harAnleggsprojeksjonsflate ],
         [ sh:class ngre:Kommune ;
             sh:description "Kommunen matrikkeleininga ligg innanfor." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path ngre:liggerInnenforKommune ] ;
+            sh:path ngre:liggerInnenforKommune ],
+        [ sh:class ngre:Matrikkelnummer ;
+            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngre:identifiseresMed ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
     sh:targetClass ngre:Eierseksjon .
 
 ngre:Festegrunn a sh:NodeShape ;
@@ -332,6 +332,30 @@ ngre:Festegrunn a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) matrikkeleininga er del av." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngre:erDelAvTeig ],
+        [ sh:class ngre:Anleggsprojeksjonsflate ;
+            sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path ngre:harAnleggsprojeksjonsflate ],
+        [ sh:class ngre:Matrikkelenhet ;
+            sh:description "Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path ngre:kanVaerePa ],
+        [ sh:class ngre:Matrikkelnummer ;
+            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngre:identifiseresMed ],
+        [ sh:class ngre:Teig ;
             sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
@@ -343,19 +367,54 @@ ngre:Festegrunn a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path ngre:liggerInnenforKommune ],
-        [ sh:class ngre:Matrikkelnummer ;
-            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:identifiseresMed ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
+    sh:targetClass ngre:Festegrunn .
+
+ngre:Festenummer a sh:NodeShape ;
+    rdfs:comment "Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Matrikkelenhet ;
+        [ sh:datatype xsd:integer ;
+            sh:description "Festenummer (0..1 – berre for festegrunn)." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngre:festenummer ] ;
+    sh:targetClass ngre:Festenummer .
+
+ngre:Gaardsnummer a sh:NodeShape ;
+    rdfs:comment "Gårdsnummer innanfor kommunen." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:integer ;
+            sh:description "Gårdsnummer innanfor kommunen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path ngre:gaardsnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
+    sh:targetClass ngre:Gaardsnummer .
+
+ngre:Grunneiendom a sh:NodeShape ;
+    rdfs:comment "Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class ngre:Matrikkelenhet ;
             sh:description "Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -367,54 +426,12 @@ ngre:Festegrunn a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path ngre:harAnleggsprojeksjonsflate ],
-        [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) matrikkeleininga er del av." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:erDelAvTeig ] ;
-    sh:targetClass ngre:Festegrunn .
-
-ngre:Festenummer a sh:NodeShape ;
-    rdfs:comment "Festenummer, aktuelt berre for festegrunn (0..1 i matrikkelnummeret)." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:integer ;
-            sh:description "Festenummer (0..1 – berre for festegrunn)." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path ngre:festenummer ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
-    sh:targetClass ngre:Festenummer .
-
-ngre:Gaardsnummer a sh:NodeShape ;
-    rdfs:comment "Gårdsnummer innanfor kommunen." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Gårdsnummer innanfor kommunen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngre:gaardsnummer ] ;
-    sh:targetClass ngre:Gaardsnummer .
-
-ngre:Grunneiendom a sh:NodeShape ;
-    rdfs:comment "Den vanlegaste typen matrikkelenheit. Eit avgrensa areal av jord- eller vassoverflate (eventuelt med undergrunn og luftrom) innanfor ein kommune." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Teig ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Teig ;
             sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
@@ -426,64 +443,30 @@ ngre:Grunneiendom a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path ngre:liggerInnenforKommune ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
+        [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) matrikkeleininga er del av." ;
             sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+            sh:order 4 ;
+            sh:path ngre:erDelAvTeig ],
         [ sh:class ngre:Matrikkelnummer ;
             sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path ngre:identifiseresMed ],
-        [ sh:class ngre:Anleggsprojeksjonsflate ;
-            sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path ngre:harAnleggsprojeksjonsflate ],
-        [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) matrikkeleininga er del av." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:erDelAvTeig ],
-        [ sh:class ngre:Matrikkelenhet ;
-            sh:description "Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path ngre:kanVaerePa ] ;
+            sh:path ngre:identifiseresMed ] ;
     sh:targetClass ngre:Grunneiendom .
 
 ngre:IkkeTinglystEierforhold a sh:NodeShape ;
     rdfs:comment "Eigarforhold som ikkje er registrert i Grunnboka. Det kan finnast eigarforhold som ikkje samsvarer med det tinglyste eigarforholdet. Gjeld også bygningar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:HjemmelTilFramfesterett ;
+    sh:property [ sh:class ngre:HjemmelTilFramfesterett ;
             sh:description "Heimelsdokument for framfesterett knytt til dette eigarforholdet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path ngre:gjelderHjemmelFramfesterett ],
-        [ sh:class ngre:HjemmelTilEiendomsrett ;
-            sh:description "Heimelsdokument for eigedomsrett knytt til dette eigarforholdet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:gjelderHjemmelEiendomsrett ],
-        [ sh:class ngre:HjemmelTilFesterett ;
-            sh:description "Heimelsdokument for festerett knytt til dette eigarforholdet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:gjelderHjemmelFesterett ],
         [ sh:class ngre:Matrikkelenhet ;
             sh:description "Matrikkeleininga dette eigarforholdet gjeld." ;
             sh:maxCount 1 ;
@@ -491,12 +474,29 @@ ngre:IkkeTinglystEierforhold a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path ngre:gjelderMatrikkelenhet ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:HjemmelTilEiendomsrett ;
+            sh:description "Heimelsdokument for eigedomsrett knytt til dette eigarforholdet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:gjelderHjemmelEiendomsrett ],
         [ sh:class ngre:Borettslagsandel ;
             sh:description "Burettslagsandelen dette eigarforholdet eventuelt gjeld." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
-            sh:path ngre:kanGjeldeBorettslagsandel ] ;
+            sh:path ngre:kanGjeldeBorettslagsandel ],
+        [ sh:class ngre:HjemmelTilFesterett ;
+            sh:description "Heimelsdokument for festerett knytt til dette eigarforholdet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngre:gjelderHjemmelFesterett ] ;
     sh:targetClass ngre:IkkeTinglystEierforhold .
 
 ngre:Jordsameie a sh:NodeShape ;
@@ -510,11 +510,6 @@ ngre:Jordsameie a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path ngre:liggerInnenforKommune ],
-        [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) matrikkeleininga er del av." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:erDelAvTeig ],
         [ sh:class ngre:Matrikkelnummer ;
             sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
             sh:maxCount 1 ;
@@ -522,28 +517,33 @@ ngre:Jordsameie a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path ngre:identifiseresMed ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Matrikkelenhet ;
-            sh:description "Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path ngre:kanVaerePa ],
         [ sh:class ngre:Anleggsprojeksjonsflate ;
             sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path ngre:harAnleggsprojeksjonsflate ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) matrikkeleininga er del av." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngre:erDelAvTeig ],
         [ sh:class ngre:Teig ;
             sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
-            sh:path ngre:harTeig ] ;
+            sh:path ngre:harTeig ],
+        [ sh:class ngre:Matrikkelenhet ;
+            sh:description "Matrikkeleininga denne eininga ligg på eller er knytt til. Festegrunn kan liggje på grunneigendom eller jordsameige; eigarseksjon kan liggje på grunneigendom, festegrunn eller anleggseigendom." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path ngre:kanVaerePa ] ;
     sh:targetClass ngre:Jordsameie .
 
 ngre:Kommunenummer a sh:NodeShape ;
@@ -579,42 +579,59 @@ ngre:SamletFastEiendom a sh:NodeShape ;
     rdfs:comment "Samling av to eller fleire faste eigedommar som er organiserte saman. Lite brukt i praksis i dag." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:FastEiendom ;
+    sh:property [ sh:class ngre:FastEiendom ;
             sh:description "Faste eigedommar som inngår i samlinga (minimum 2)." ;
             sh:minCount 2 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngre:bestarAvFastEiendom ] ;
+            sh:path ngre:bestarAvFastEiendom ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
     sh:targetClass ngre:SamletFastEiendom .
 
 ngre:Seksjonsnummer a sh:NodeShape ;
     rdfs:comment "Seksjonsnummer, aktuelt berre for eigarseksjonar (0..1 i matrikkelnummeret)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description "Seksjonsnummer (0..1 – berre for eigarseksjonar)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngre:seksjonsnummer ] ;
+            sh:path ngre:seksjonsnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
     sh:targetClass ngre:Seksjonsnummer .
 
 ngre:TinglystEierforhold a sh:NodeShape ;
     rdfs:comment "Eigarforhold registrert (tinglyst) i Grunnboka." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Borettslagsandel ;
+    sh:property [ sh:class ngre:HjemmelTilEiendomsrett ;
+            sh:description "Heimelsdokument for eigedomsrett knytt til dette eigarforholdet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:gjelderHjemmelEiendomsrett ],
+        [ sh:class ngre:HjemmelTilFesterett ;
+            sh:description "Heimelsdokument for festerett knytt til dette eigarforholdet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngre:gjelderHjemmelFesterett ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Borettslagsandel ;
             sh:description "Burettslagsandelen dette eigarforholdet eventuelt gjeld." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -626,69 +643,47 @@ ngre:TinglystEierforhold a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path ngre:gjelderHjemmelFramfesterett ],
-        [ sh:class ngre:HjemmelTilEiendomsrett ;
-            sh:description "Heimelsdokument for eigedomsrett knytt til dette eigarforholdet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:gjelderHjemmelEiendomsrett ],
         [ sh:class ngre:Matrikkelenhet ;
             sh:description "Matrikkeleininga dette eigarforholdet gjeld." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngre:gjelderMatrikkelenhet ],
-        [ sh:class ngre:HjemmelTilFesterett ;
-            sh:description "Heimelsdokument for festerett knytt til dette eigarforholdet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:gjelderHjemmelFesterett ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
+            sh:path ngre:gjelderMatrikkelenhet ] ;
     sh:targetClass ngre:TinglystEierforhold .
 
 ngre:Borettslag a sh:NodeShape ;
     rdfs:comment "Eit burettslag er ein type hovudeining (juridisk person) som eig burettslagsbygningen. Burettslagsandelar tilhøyrer eit burettslag." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Hovedenhet ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Hovedenhet ;
             sh:description "Hovudeininga (juridisk person) som er rettigheitshavar." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngre:erAvTypeHovedenhet ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
+            sh:path ngre:erAvTypeHovedenhet ] ;
     sh:targetClass ngre:Borettslag .
 
 ngre:Bygning a sh:NodeShape ;
     rdfs:comment "Ein bygning registrert i Matrikkelen. Knytt til éi matrikkelenheit og kan ha fleire ytre innganger, brukseiningar og etasjar. Bygningsinformasjon er i dag spreidd i fleire databasar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:YtreInngang ;
-            sh:description "Ytre inngang(ar) til bygningen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:harYtreInngang ],
-        [ sh:class ngre:Etasje ;
-            sh:description "Etasjar i bygningen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path ngre:harEtasje ],
-        [ sh:class ngre:Bruksenhet ;
+    sh:property [ sh:class ngre:Bruksenhet ;
             sh:description "Brukseining(ar) i bygningen." ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path ngre:harBruksenhet ],
+        [ sh:class ngre:YtreInngang ;
+            sh:description "Ytre inngang(ar) til bygningen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngre:harYtreInngang ],
         [ sh:class ngre:Matrikkelenhet ;
             sh:description "Matrikkeleininga bygningen er knytt til." ;
             sh:maxCount 1 ;
@@ -696,6 +691,11 @@ ngre:Bygning a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path ngre:erKnyttetTilMatrikkelenhet ],
+        [ sh:class ngre:Etasje ;
+            sh:description "Etasjar i bygningen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path ngre:harEtasje ],
         [ sh:class ngre:Representasjonspunkt ;
             sh:description "Geografisk representasjonspunkt for bygningen." ;
             sh:maxCount 1 ;
@@ -721,7 +721,32 @@ ngre:Eierforhold a sh:NodeShape ;
     rdfs:comment "Abstrakt klasse for eigarforhold forvalta av Grunnboka. Eit eigarforhold gjeld éi matrikkelenheit og kan eventuelt gjelde ein burettslagsandel. Inneheld heimelsdokument som fastset kven som er eigar og på kva vilkår." ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:HjemmelTilFesterett ;
+    sh:property [ sh:class ngre:HjemmelTilFramfesterett ;
+            sh:description "Heimelsdokument for framfesterett knytt til dette eigarforholdet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path ngre:gjelderHjemmelFramfesterett ],
+        [ sh:class ngre:Borettslagsandel ;
+            sh:description "Burettslagsandelen dette eigarforholdet eventuelt gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngre:kanGjeldeBorettslagsandel ],
+        [ sh:class ngre:Matrikkelenhet ;
+            sh:description "Matrikkeleininga dette eigarforholdet gjeld." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ngre:gjelderMatrikkelenhet ],
+        [ sh:class ngre:HjemmelTilEiendomsrett ;
+            sh:description "Heimelsdokument for eigedomsrett knytt til dette eigarforholdet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:gjelderHjemmelEiendomsrett ],
+        [ sh:class ngre:HjemmelTilFesterett ;
             sh:description "Heimelsdokument for festerett knytt til dette eigarforholdet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -731,43 +756,37 @@ ngre:Eierforhold a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Borettslagsandel ;
-            sh:description "Burettslagsandelen dette eigarforholdet eventuelt gjeld." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:kanGjeldeBorettslagsandel ],
-        [ sh:class ngre:HjemmelTilEiendomsrett ;
-            sh:description "Heimelsdokument for eigedomsrett knytt til dette eigarforholdet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:gjelderHjemmelEiendomsrett ],
-        [ sh:class ngre:Matrikkelenhet ;
-            sh:description "Matrikkeleininga dette eigarforholdet gjeld." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path ngre:gjelderMatrikkelenhet ],
-        [ sh:class ngre:HjemmelTilFramfesterett ;
-            sh:description "Heimelsdokument for framfesterett knytt til dette eigarforholdet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path ngre:gjelderHjemmelFramfesterett ] ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
     sh:targetClass ngre:Eierforhold .
 
 ngre:FastEiendom a sh:NodeShape ;
     rdfs:comment "Fast eiendom er eit grunnomgrep i eigedomsdomenet. Identifiserast av og består av éi matrikkelenheit, og kan innehalde bygningar og rettar som er nødvendige for å benytte eigedommen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:Eierforhold ;
+    sh:property [ sh:class ngre:Matrikkelenhet ;
+            sh:description "Matrikkeleininga som identifiserer denne faste eigedommen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ngre:identifiseresAv ],
+        [ sh:class ngre:Eierforhold ;
             sh:description "Eigarforhold knytt til eigedommen eller burettslagsandelen." ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path ngre:harEierforhold ],
+        [ sh:class ngre:Bygning ;
+            sh:description "Bygning(ar) som inngår i denne faste eigedommen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:bestarAvBygning ],
+        [ sh:class ngre:Matrikkelenhet ;
+            sh:description "Matrikkeleininga denne faste eigedommen fysisk består av." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngre:bestarAvMatrikkelenhet ],
         [ sh:class ngre:RettighetForAaBenytteEiendom ;
             sh:description "Rettar som er nødvendige for å benytte eigedommen." ;
             sh:nodeKind sh:IRI ;
@@ -778,25 +797,6 @@ ngre:FastEiendom a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path ngre:harTinglystHeftelse ],
-        [ sh:class ngre:Bygning ;
-            sh:description "Bygning(ar) som inngår i denne faste eigedommen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:bestarAvBygning ],
-        [ sh:class ngre:Matrikkelenhet ;
-            sh:description "Matrikkeleininga som identifiserer denne faste eigedommen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path ngre:identifiseresAv ],
-        [ sh:class ngre:Matrikkelenhet ;
-            sh:description "Matrikkeleininga denne faste eigedommen fysisk består av." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:bestarAvMatrikkelenhet ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -830,7 +830,18 @@ ngre:Representasjonspunkt a sh:NodeShape ;
     rdfs:comment "Geografisk punkt (koordinatpar) som representerer posisjonen til bygningen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:float ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path ngre:koordinatsystem ],
+        [ sh:datatype xsd:float ;
             sh:description "Nordleg koordinat (Y) i det angitte koordinatsystemet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -843,18 +854,7 @@ ngre:Representasjonspunkt a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path ngre:koordinatOst ],
-        [ sh:datatype xsd:string ;
-            sh:description "Koordinatsystem/projeksjon (t.d. EPSG:25833 for UTM sone 33N)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path ngre:koordinatsystem ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
+            sh:path ngre:koordinatOst ] ;
     sh:targetClass ngre:Representasjonspunkt .
 
 ngre:RettighetForAaBenytteEiendom a sh:NodeShape ;
@@ -895,7 +895,13 @@ ngre:YtreInngang a sh:NodeShape ;
     rdfs:comment "Ytre inngang til ein bygning. Registrerast ikkje som eige objekt i Matrikkelen, men adressepunktet refererer til ytre inngang. Gir tilgang til éi eller fleire brukseiningar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:class ngre:OffisiellAdresse ;
+            sh:description "Offisiell adresse for den ytre inngangen eller brukseininga." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngre:harOffisiellAdresse ],
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
@@ -905,36 +911,25 @@ ngre:YtreInngang a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngre:gjelderBruksenhet ],
-        [ sh:class ngre:OffisiellAdresse ;
-            sh:description "Offisiell adresse for den ytre inngangen eller brukseininga." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:harOffisiellAdresse ] ;
+            sh:path ngre:gjelderBruksenhet ] ;
     sh:targetClass ngre:YtreInngang .
 
 ngre:Bruksenhet a sh:NodeShape ;
     rdfs:comment "Ei brukseining (leilegheit, kontor o.l.) innanfor ein bygning. Har eit bruksenheitsnummer, ligg i minst éi etasje og kan vere knytt til ei matrikkelenheit." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:class ngre:Matrikkelenhet ;
+            sh:description "Matrikkeleininga brukseininga er knytt til." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+            sh:order 2 ;
+            sh:path ngre:erTilknyttetMatrikkelenhet ],
         [ sh:class ngre:Etasje ;
             sh:description "Etasjen(e) brukseininga ligg i." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path ngre:liggerIEtasje ],
-        [ sh:class ngre:Matrikkelenhet ;
-            sh:description "Matrikkeleininga brukseininga er knytt til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:erTilknyttetMatrikkelenhet ],
         [ sh:class ngre:Bruksenhetsnummer ;
             sh:description "Bruksenheitsnummeret for brukseininga." ;
             sh:maxCount 1 ;
@@ -942,6 +937,11 @@ ngre:Bruksenhet a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path ngre:harBruksenhetsnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
         [ sh:class ngre:OffisiellAdresse ;
             sh:description "Offisiell adresse for den ytre inngangen eller brukseininga." ;
             sh:maxCount 1 ;
@@ -983,28 +983,28 @@ ngre:Borettslagsandel a sh:NodeShape ;
     rdfs:comment "Ein andel i eit burettslag som gir eksklusiv bruksrett til ein bestemt bustad i burettslagsbygningen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class ngre:TinglystHeftelse ;
-            sh:description "Tinglyste heftingar knytt til eigedommen eller burettslagsandelen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:harTinglystHeftelse ],
-        [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Eierforhold ;
-            sh:description "Eigarforhold knytt til eigedommen eller burettslagsandelen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:harEierforhold ],
         [ sh:class ngre:Borettslag ;
             sh:description "Burettslagsandelen tilhøyrer dette burettslaget." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngre:tilhoererBorettslag ] ;
+            sh:path ngre:tilhoererBorettslag ],
+        [ sh:class ngre:Eierforhold ;
+            sh:description "Eigarforhold knytt til eigedommen eller burettslagsandelen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path ngre:harEierforhold ],
+        [ sh:class ngre:TinglystHeftelse ;
+            sh:description "Tinglyste heftingar knytt til eigedommen eller burettslagsandelen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:harTinglystHeftelse ] ;
     sh:targetClass ngre:Borettslagsandel .
 
 ngre:HjemmelTilEiendomsrett a sh:NodeShape ;
@@ -1028,17 +1028,17 @@ ngre:HjemmelTilFesterett a sh:NodeShape ;
     rdfs:comment "Heimelsdokument for festerett (langvarig bruksrett til festegrunn)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Andel ;
+    sh:property [ sh:class ngre:Andel ;
             sh:description "Andel(ar) i heimelsdokumentet." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path ngre:harAndel ] ;
+            sh:path ngre:harAndel ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
     sh:targetClass ngre:HjemmelTilFesterett .
 
 ngre:HjemmelTilFramfesterett a sh:NodeShape ;
@@ -1108,18 +1108,25 @@ ngre:Matrikkelnummer a sh:NodeShape ;
     rdfs:comment "Offisiell identifikator for ei matrikkelenheit, beståande av kommunenummer, gards-, bruks- og eventuelt feste- og seksjonsnummer." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:class ngre:Seksjonsnummer ;
+            sh:description "Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
-        [ sh:class ngre:Gaardsnummer ;
-            sh:description "Gårdsnummerdelen av matrikkelnummeret." ;
+            sh:order 5 ;
+            sh:path ngre:bestarAvSeksjonsnummer ],
+        [ sh:class ngre:Festenummer ;
+            sh:description "Festenummerdelen av matrikkelnummeret (berre for festegrunn)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path ngre:bestarAvFestenummer ],
+        [ sh:class ngre:Kommunenummer ;
+            sh:description "Kommunenummerdelen av matrikkelnummeret." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path ngre:bestarAvGaardsnummer ],
+            sh:order 1 ;
+            sh:path ngre:bestarAvKommunenummer ],
         [ sh:class ngre:Bruksnummer ;
             sh:description "Bruksnummerdelen av matrikkelnummeret." ;
             sh:maxCount 1 ;
@@ -1127,54 +1134,40 @@ ngre:Matrikkelnummer a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path ngre:bestarAvBruksnummer ],
-        [ sh:class ngre:Festenummer ;
-            sh:description "Festenummerdelen av matrikkelnummeret (berre for festegrunn)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:bestarAvFestenummer ],
-        [ sh:class ngre:Seksjonsnummer ;
-            sh:description "Seksjonsnummerdelen av matrikkelnummeret (berre for eigarseksjonar)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path ngre:bestarAvSeksjonsnummer ],
-        [ sh:class ngre:Kommunenummer ;
-            sh:description "Kommunenummerdelen av matrikkelnummeret." ;
+        [ sh:class ngre:Gaardsnummer ;
+            sh:description "Gårdsnummerdelen av matrikkelnummeret." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path ngre:bestarAvKommunenummer ] ;
+            sh:order 2 ;
+            sh:path ngre:bestarAvGaardsnummer ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ] ;
     sh:targetClass ngre:Matrikkelnummer .
 
 ngre:Matrikkelenhet a sh:NodeShape ;
     rdfs:comment "Abstrakt overklasse for alle typar matrikkeleiningar registrert i Matrikkelen. Ei matrikkelenheit er den grunnleggjande eininga for registrering av fast eigedom i Noreg." ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type ngre:kanVaerePa ) ;
-    sh:property [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path ngre:harTeig ],
-        [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://data.norge.no/ngr/ngr-eiendom/id> ],
+        [ sh:class ngre:Teig ;
+            sh:description "Teigen(e) matrikkeleininga er del av." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path ngre:erDelAvTeig ],
         [ sh:class ngre:Anleggsprojeksjonsflate ;
             sh:description "Anleggsprojeksjonsflata (fotavtrykket) for anleggseigedommen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path ngre:harAnleggsprojeksjonsflate ],
-        [ sh:class ngre:Matrikkelnummer ;
-            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path ngre:identifiseresMed ],
         [ sh:class ngre:Kommune ;
             sh:description "Kommunen matrikkeleininga ligg innanfor." ;
             sh:maxCount 1 ;
@@ -1183,10 +1176,17 @@ ngre:Matrikkelenhet a sh:NodeShape ;
             sh:order 2 ;
             sh:path ngre:liggerInnenforKommune ],
         [ sh:class ngre:Teig ;
-            sh:description "Teigen(e) matrikkeleininga er del av." ;
+            sh:description "Teigen(e) som tilhøyrer matrikkeleininga." ;
             sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path ngre:erDelAvTeig ] ;
+            sh:order 4 ;
+            sh:path ngre:harTeig ],
+        [ sh:class ngre:Matrikkelnummer ;
+            sh:description "Matrikkelnummeret som identifiserer matrikkeleininga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path ngre:identifiseresMed ] ;
     sh:targetClass ngre:Matrikkelenhet .
 
 ngre:Teig a sh:NodeShape ;

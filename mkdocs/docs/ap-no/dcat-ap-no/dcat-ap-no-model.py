@@ -1,5 +1,5 @@
 # Auto generated from dcat-ap-no-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-05-27T14:51:39
+# Generation date: 2026-06-02T06:41:57
 # Schema: dcat-ap-no
 #
 # id: https://data.norge.no/ap-no/dcat-ap-no

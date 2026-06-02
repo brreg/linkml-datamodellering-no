@@ -11,42 +11,42 @@
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "DCAT-AP-NO" ;
     pav:version "2.0" ;
-    sh:declare [ sh:namespace "http://spdx.org/rdf/terms#"^^xsd:anyURI ;
-            sh:prefix "spdx" ],
-        [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
-            sh:prefix "adms" ],
-        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
-            sh:prefix "rdf" ],
+    sh:declare [ sh:namespace "http://data.europa.eu/eli/ontology#"^^xsd:anyURI ;
+            sh:prefix "eli" ],
+        [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
+            sh:prefix "vcard" ],
+        [ sh:namespace "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ;
+            sh:prefix "odrl" ],
         [ sh:namespace "http://data.europa.eu/r5r/"^^xsd:anyURI ;
             sh:prefix "dcatap" ],
-        [ sh:namespace "http://schema.theodi.org/odrs#"^^xsd:anyURI ;
-            sh:prefix "odrs" ],
+        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
+            sh:prefix "dcat" ],
+        [ sh:namespace "http://www.w3.org/ns/adms#"^^xsd:anyURI ;
+            sh:prefix "adms" ],
         [ sh:namespace "http://data.europa.eu/m8g/"^^xsd:anyURI ;
             sh:prefix "cv" ],
         [ sh:namespace "http://xmlns.com/foaf/0.1/"^^xsd:anyURI ;
             sh:prefix "foaf" ],
-        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
-            sh:prefix "rdfs" ],
         [ sh:namespace "http://www.w3.org/6006/time#"^^xsd:anyURI ;
             sh:prefix "time" ],
-        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
-            sh:prefix "xsd" ],
-        [ sh:namespace "http://www.w3.org/2006/vcard/ns#"^^xsd:anyURI ;
-            sh:prefix "vcard" ],
-        [ sh:namespace "http://data.europa.eu/eli/ontology#"^^xsd:anyURI ;
-            sh:prefix "eli" ],
-        [ sh:namespace "http://www.w3.org/ns/dcat#"^^xsd:anyURI ;
-            sh:prefix "dcat" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ],
+        [ sh:namespace "http://spdx.org/rdf/terms#"^^xsd:anyURI ;
+            sh:prefix "spdx" ],
         [ sh:namespace "http://www.w3.org/2004/02/skos/core#"^^xsd:anyURI ;
             sh:prefix "skos" ],
+        [ sh:namespace "http://www.w3.org/2000/01/rdf-schema#"^^xsd:anyURI ;
+            sh:prefix "rdfs" ],
         [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
             sh:prefix "linkml" ],
+        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+            sh:prefix "xsd" ],
         [ sh:namespace "http://www.w3.org/ns/prov#"^^xsd:anyURI ;
             sh:prefix "prov" ],
-        [ sh:namespace "http://www.w3.org/ns/odrl/2/"^^xsd:anyURI ;
-            sh:prefix "odrl" ] ;
+        [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
+            sh:prefix "rdf" ],
+        [ sh:namespace "http://schema.theodi.org/odrs#"^^xsd:anyURI ;
+            sh:prefix "odrs" ],
+        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ] ;
     linkml:classes <https://data.norge.no/ap-no/dcat-ap-no/Aktor>,
         <https://data.norge.no/ap-no/dcat-ap-no/Begrepssamling>,
         <https://data.norge.no/ap-no/dcat-ap-no/Brukartilbakemelding>,
@@ -78,7 +78,7 @@
     linkml:default_prefix "https://data.norge.no/ap-no/dcat-ap-no/" ;
     linkml:default_range <https://data.norge.no/ap-no/dcat-ap-no/string> ;
     linkml:description "Norsk applikasjonsprofil av DCAT-AP, modellert i LinkML med lenking framfor inlining. Basert på https://informasjonsforvaltning.github.io/dcat-ap-no/" ;
-    linkml:generation_date "2026-05-27T14:52:24"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-02T06:42:32"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/ap-no/dcat-ap-no"^^xsd:anyURI ;
     linkml:imports "../common/common-ap-no-schema"^^xsd:anyURI,
         "../dcat-ap-no/dcat-ap-no-schema"^^xsd:anyURI,

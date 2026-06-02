@@ -8,12 +8,12 @@
 <https://data.norge.no/ngr/ngr-person/ngr-person> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Nasjonale grunndata – Person" ;
-    sh:declare [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "https://data.norge.no/vocabulary/ngr-person#"^^xsd:anyURI ;
+            sh:prefix "ngrp" ],
+        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ],
         [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/ngr-person#"^^xsd:anyURI ;
-            sh:prefix "ngrp" ] ;
+            sh:prefix "linkml" ] ;
     linkml:classes <https://data.norge.no/ngr/ngr-person/Adressebeskyttelse>,
         <https://data.norge.no/ngr/ngr-person/Bostedsadresse>,
         <https://data.norge.no/ngr/ngr-person/DNummer>,
@@ -60,7 +60,7 @@
         <https://data.norge.no/ngr/ngr-person/RettsligHandleevneType>,
         <https://data.norge.no/ngr/ngr-person/SivilstandType>,
         <https://data.norge.no/ngr/ngr-person/VergetypeKode> ;
-    linkml:generation_date "2026-05-27T14:52:19"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-02T06:42:22"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/ngr/ngr-person"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;

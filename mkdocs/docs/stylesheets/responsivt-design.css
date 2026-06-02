@@ -1,0 +1,38 @@
+/* Sidebar breidde */
+.md-sidebar--primary {
+  width: 18rem;
+}
+
+/* Desktop tweaks */
+@media (min-width: 76.25em) {
+  .md-sidebar--primary {
+    left: 0;
+  }
+
+  .md-grid {
+    max-width: 1800px;
+  }
+}
+
+/* Content-breidde (enkelt og kompatibelt) */
+.md-main__inner.md-grid {
+  max-width: 100rem;
+  margin: 0 auto;
+}
+
+
+/* Scrolling */
+.md-content {
+  overflow-x: auto;
+}
+
+/* TOC */
+.md-sidebar--secondary {
+  width: 12rem;
+}
+
+@media (min-width: 76.25em) {
+  .md-content__inner {
+    margin-top: 2rem;
+  }
+}
