@@ -57,7 +57,11 @@
       "Bash(make domain-validate-data *)",
       "Bash(make domain-gen-docs *)",
       "Bash(DOMAINS)",
-      "Bash(grep -n \"^begrepskatalog\\\\|^$\\(DOMAINS\\)\\\\|domain-gen-linkml\\\\|make.*DOMAIN\\\\|DOMAIN.*make\" /mnt/c/dev/github/linkml-datamodellering-no/Makefile)"
+      "Bash(grep -n \"^begrepskatalog\\\\|^$\\(DOMAINS\\)\\\\|domain-gen-linkml\\\\|make.*DOMAIN\\\\|DOMAIN.*make\" /mnt/c/dev/github/linkml-datamodellering-no/Makefile)",
+      "Bash(make mcp-generate *)",
+      "Bash(./tests/validate_schema.bash *)",
+      "Bash(make mcp-mod-build *)",
+      "Bash(make schema-gen-python *)"
     ]
   },
   "enableAllProjectMcpServers": true,

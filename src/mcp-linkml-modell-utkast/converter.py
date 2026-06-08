@@ -48,12 +48,35 @@ def _transliterate(name: str) -> str:
     )
 
 
+def _sanitize_slot_name(name: str) -> str:
+    """Gjer slotnamnet til ein gyldig identifikator: erstatter - med _."""
+    return name.replace("-", "_")
+
+
+def _sanitize_identifier(name: str) -> str:
+    """Gjer eit $defs-nøkkelnamn til ein gyldig LinkML/Python-identifikator.
+
+    Translittererer særnorske bokstavar og erstattar bindestrek med understrek.
+    Døme: 'E-postadresse' → 'E_postadresse'
+    """
+    return _transliterate(name).replace("-", "_")
+
+
+def _to_pascal_case(name: str) -> str:
+    """Konverterer kebab-case/snake_case til PascalCase.
+
+    t.d. 'bvr-innfelles' → 'BvrInnfelles', 'generated' → 'Generated'
+    """
+    parts = name.replace("_", "-").split("-")
+    return "".join(p.capitalize() for p in parts if p)
+
+
 def _resolve_ref(ref: str) -> str:
     """Hentar klassenamnet frå ein lokal JSON Schema $ref.
 
-    '#/$defs/Foo' → 'Foo'
+    '#/$defs/Foo' → 'Foo', '#/$defs/E-postadresse' → 'E_postadresse'
     """
-    return ref.split("/")[-1]
+    return _sanitize_identifier(ref.split("/")[-1])
 
 
 def _resolve_type(prop: dict, profile: dict, warnings: list) -> dict:
@@ -111,6 +134,74 @@ def _resolve_type(prop: dict, profile: dict, warnings: list) -> dict:
     return {"range": type_map.get(json_type, "string")}
 
 
+_FORMAT_TO_XSD: dict[str, tuple[str, str]] = {
+    "date":      ("xsd:date",     "str"),
+    "date-time": ("xsd:dateTime", "str"),
+    "uri":       ("xsd:anyURI",   "str"),
+    "time":      ("xsd:time",     "str"),
+}
+
+_JSON_TYPE_TO_XSD: dict[str, tuple[str, str]] = {
+    "string":  ("xsd:string",  "str"),
+    "integer": ("xsd:integer", "int"),
+    "number":  ("xsd:float",   "float"),
+}
+
+
+def _collect_types(json_schema: dict) -> dict:
+    """Samlar primitive $defs frå JSON Schema som LinkML types:.
+
+    Ein def vert behandla som type viss:
+    - type er 'string', 'integer' eller 'number'
+    - ingen 'properties' (ville gjort han til ein klasse)
+    - ingen 'enum' (vil verte handtert som LinkML enum av Tiltak 2)
+    """
+    types_out: dict = {}
+
+    for defs_key in ("$defs", "definitions"):
+        for name, defn in (json_schema.get(defs_key) or {}).items():
+            json_type = defn.get("type", "")
+            if "properties" in defn or "enum" in defn:
+                continue
+            if json_type not in _JSON_TYPE_TO_XSD:
+                continue
+
+            fmt = defn.get("format")
+            uri, base = _FORMAT_TO_XSD.get(fmt, _JSON_TYPE_TO_XSD[json_type]) if fmt else _JSON_TYPE_TO_XSD[json_type]
+
+            type_entry: dict = {"uri": uri, "base": base}
+            type_entry["description"] = defn.get("description") or "TODO: beskriv typen"
+            if pattern := defn.get("pattern"):
+                type_entry["pattern"] = pattern
+
+            types_out[_sanitize_identifier(name)] = type_entry
+
+    return types_out
+
+
+def _collect_enums(json_schema: dict) -> dict:
+    """Samlar $defs med enum-liste frå JSON Schema som LinkML enums:.
+
+    Ein def vert behandla som enum viss han har ein 'enum'-nøkkel,
+    uavhengig av om 'type' er sett.
+    """
+    enums_out: dict = {}
+
+    for defs_key in ("$defs", "definitions"):
+        for name, defn in (json_schema.get(defs_key) or {}).items():
+            enum_values = defn.get("enum")
+            if not enum_values:
+                continue
+
+            enum_entry: dict = {}
+            enum_entry["description"] = defn.get("description") or "TODO: beskriv enumet"
+            enum_entry["permissible_values"] = {str(v): {} for v in enum_values}
+
+            enums_out[_sanitize_identifier(name)] = enum_entry
+
+    return enums_out
+
+
 def _collect_classes(json_schema: dict, schema_name: str) -> dict:
     """Samlar klassedefinisjonar frå JSON Schema.
 
@@ -126,14 +217,14 @@ def _collect_classes(json_schema: dict, schema_name: str) -> dict:
     for defs_key in ("$defs", "definitions"):
         for name, defn in (json_schema.get(defs_key) or {}).items():
             if defn.get("type") == "object" or "properties" in defn:
-                classes[name] = {
+                classes[_sanitize_identifier(name)] = {
                     "properties": dict(defn.get("properties") or {}),
                     "required":   set(defn.get("required") or []),
                     "description": defn.get("description") or "",
                 }
 
     if not classes and ("properties" in json_schema or json_schema.get("type") == "object"):
-        classes[schema_name] = {
+        classes[_sanitize_identifier(schema_name)] = {
             "properties": dict(json_schema.get("properties") or {}),
             "required":   set(json_schema.get("required") or []),
             "description": json_schema.get("description") or "",
@@ -163,9 +254,10 @@ def convert(
     std_prefixes = profile.get("standard_prefixes") or {}
 
     # ── Prefiks ──────────────────────────────────────────────────────────────
-    ex_uri = schema_id.rstrip("/") + "/"
+    schema_uri  = schema_id.rstrip("/") + "/"
+    prefix_name = schema_id.rstrip("/").split("/")[-1].replace("-", "_")
     prefixes: dict = {"linkml": std_prefixes.get("linkml", "https://w3id.org/linkml/")}
-    prefixes["ex"] = ex_uri
+    prefixes[prefix_name] = schema_uri
     for k, v in std_prefixes.items():
         if k != "linkml":
             prefixes[k] = v
@@ -178,8 +270,8 @@ def convert(
         json_schema.get("description")
         or f"Generert frå JSON Schema '{schema_name}'."
     )
-    schema["prefixes"]      = prefixes
-    schema["default_prefix"] = "ex"
+    schema["prefixes"]       = prefixes
+    schema["default_prefix"] = prefix_name
 
     defaults = profile.get("schema_defaults") or {}
     schema["default_range"] = defaults.get("default_range", "string")
@@ -208,27 +300,26 @@ def convert(
         for prop_name, prop_def in cls_data["properties"].items():
             if prop_name == "id":
                 continue
-            attrs    = _resolve_type(prop_def, profile, warnings)
+            slot_name = _sanitize_slot_name(prop_name)
+            attrs     = _resolve_type(prop_def, profile, warnings)
             new_range = attrs.get("range", "string")
 
-            if prop_name in global_slots:
-                existing_range = global_slots[prop_name].get("range", "string")
+            if slot_name in global_slots:
+                existing_range = global_slots[slot_name].get("range", "string")
                 if existing_range != new_range:
                     warnings.append(
-                        f"Slot '{prop_name}' har ulik type i fleire klasser "
+                        f"Slot '{slot_name}' har ulik type i fleire klasser "
                         f"('{existing_range}' vs '{new_range}') — bruker '{existing_range}'"
                     )
             else:
                 slot_entry: dict = {}
-                desc = prop_def.get("description") or ""
-                if desc:
-                    slot_entry["description"] = desc
-                slot_entry["slot_uri"] = f"ex:{_transliterate(prop_name)}"
+                slot_entry["description"] = prop_def.get("description") or "TODO: beskriv eigenskapen"
+                slot_entry["slot_uri"] = f"{prefix_name}:{_transliterate(slot_name)}"
                 if new_range:
                     slot_entry["range"] = new_range
                 if attrs.get("multivalued"):
                     slot_entry["multivalued"] = True
-                global_slots[prop_name] = slot_entry
+                global_slots[slot_name] = slot_entry
 
     # ── Bygg klasse-oppføringane ──────────────────────────────────────────────
     classes_out: dict = {}
@@ -239,13 +330,12 @@ def convert(
         desc     = cls_data["description"]
 
         entry: dict = {}
-        if desc:
-            entry["description"] = desc
-        entry["class_uri"] = f"ex:{_transliterate(cls_name)}"
+        entry["description"] = desc or "TODO: beskriv klassen"
+        entry["class_uri"] = f"{prefix_name}:{_transliterate(cls_name)}"
         if add_begrep_annotation:
             entry["annotations"] = {"begrepsidentifikator": f"{begrep_base_uri}TODO"}
 
-        slot_names = (["id"] if add_id else []) + [n for n in props if n != "id"]
+        slot_names = (["id"] if add_id else []) + [_sanitize_slot_name(n) for n in props if n != "id"]
         if slot_names:
             entry["slots"] = slot_names
 
@@ -253,13 +343,14 @@ def convert(
         for prop_name in props:
             if prop_name == "id":
                 continue
+            slot_name = _sanitize_slot_name(prop_name)
             su: dict = {}
             if prop_name in required:
                 su["required"]   = True
                 su["in_subset"]  = [req_subset]
             else:
                 su["in_subset"]  = [def_subset]
-            slot_usage[prop_name] = su
+            slot_usage[slot_name] = su
         if slot_usage:
             entry["slot_usage"] = slot_usage
 
@@ -267,7 +358,7 @@ def convert(
 
     # ── Containerklasse ───────────────────────────────────────────────────────
     add_container  = gen.get("add_container_class", True)
-    container_name = gen.get("container_class_name", "Containerklasse")
+    container_name = gen.get("container_class_name") or f"{_to_pascal_case(schema_name)}Container"
     suffix         = gen.get("container_slot_suffix", "er")
 
     if add_container and classes_data:
@@ -275,14 +366,16 @@ def convert(
         for cls_name in classes_data:
             slot_key = _to_plural(cls_name, suffix)
             attrs_dict[slot_key] = {
+                "description":    "TODO: beskriv eigenskapen",
                 "range":          cls_name,
                 "multivalued":    True,
                 "inlined":        True,
                 "inlined_as_list": True,
             }
         classes_out[container_name] = {
-            "tree_root":  True,
-            "attributes": attrs_dict,
+            "description": "TODO: beskriv containerklassen",
+            "tree_root":   True,
+            "attributes":  attrs_dict,
         }
 
     # ── Slots-seksjon ─────────────────────────────────────────────────────────
@@ -295,7 +388,15 @@ def convert(
         }
     slots_out.update(global_slots)
 
+    # ── Typar og enums (primitive $defs) ─────────────────────────────────────
+    types_out = _collect_types(json_schema)
+    enums_out = _collect_enums(json_schema)
+
     # ── Samle alt og serialiser ───────────────────────────────────────────────
+    if types_out:
+        schema["types"] = types_out
+    if enums_out:
+        schema["enums"] = enums_out
     schema["classes"] = classes_out
     schema["slots"]   = slots_out
 
@@ -308,7 +409,7 @@ def convert(
 
     header = (
         "# Generert av mcp-linkml-generator — dette er eit utkast.\n"
-        "# Prefiks 'ex:' er ein placeholder — erstatt med ekte vokabular-URIar.\n"
-        "# 'begrepsidentifikator: TODO' må erstattast med reelle begrepsreferansar.\n\n"
+        f"# Prefiks '{prefix_name}:' er ein placeholder — erstatt med ekte vokabular-URIar.\n"
+        "# 'TODO'-felt må fyllast inn manuelt.\n\n"
     )
     return header + yaml_str, warnings

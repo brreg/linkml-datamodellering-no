@@ -24,3 +24,5 @@ lage tester som genererer til eit format, for så å generere tilbake til LinkML
 
 
 lage subset for metadata
+
+validere br krav til metadata

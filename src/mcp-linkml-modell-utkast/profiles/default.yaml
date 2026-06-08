@@ -28,9 +28,9 @@ generation:
   # Legg til id-slot med identifier: true og range: uriorcurie på alle klasser
   add_id_slot: true
 
-  # Generer Containerklasse med tree_root: true automatisk
+  # Generer containerklasse med tree_root: true automatisk.
+  # container_class_name: ""   # tom = utleid frå schemaName (t.d. 'bvr-innfelles' → 'BvrInnfellesContainer')
   add_container_class: true
-  container_class_name: "Containerklasse"
 
   # Suffiks for fleirtal i container-slots (t.d. "Person" → "Personers")
   # Overstyrer den enkle vokal/konsonant-heuristikken i converter.py

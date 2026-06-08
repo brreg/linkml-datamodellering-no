@@ -2,6 +2,7 @@
 
 ## Førende prinsipper
 - Ingen avhengigheter skal installeres lokalt. Alt skal kjøres som containere med podman i WSL2.
+- Når alle tiltak i ein spesifikasjon under `specs/backlog/` er utførte, skal spesifikasjonsfila flyttast til `specs/done/`.
 
 ## LinkML Importhierarki
 

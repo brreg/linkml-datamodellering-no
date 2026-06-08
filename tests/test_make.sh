@@ -76,12 +76,15 @@ declare -a SCHEMA_LOGS=()
 # Køyr ein enkelt test og skriv parseable RESULT-markørar til stdout
 _run_one() {
     local tname="$1"; shift
+    printf "  %-52s ..." "$tname" >&3
     echo "========================================"
     echo "TEST: $tname  ($(date '+%H:%M:%S'))"
     echo "========================================"
     if "$@" 2>&1; then
+        printf " ${CLR_OK}OK${CLR_RST}\n" >&3
         echo "##RESULT:OK:$tname"
     else
+        printf " ${CLR_ERR}FEIL${CLR_RST}\n" >&3
         echo "##RESULT:FAIL:$tname"
     fi
 }
@@ -95,6 +98,8 @@ run_schema_tests() {
     outdir=$(schema_outdir "$schema")
     local tmplog
     tmplog=$(mktemp /tmp/test_make_schema_XXXXXX.log)
+
+    echo "→ Startar testar for $name ..." >&3
 
     {
         _run_one "validate ($name)"        test_validate       "$schema"
@@ -129,11 +134,9 @@ wait_for_tests() {
         wait "$pid" || true  # always process log, uavhengig av exit-kode
         while IFS= read -r line; do
             if [[ "$line" == "##RESULT:OK:"* ]]; then
-                printf "Test %-50s ... ${CLR_OK}OK${CLR_RST}\n" "${line#"##RESULT:OK:"}"
                 pass=$((pass + 1))
             elif [[ "$line" == "##RESULT:FAIL:"* ]]; then
                 local tname="${line#"##RESULT:FAIL:"}"
-                printf "Test %-50s ... ${CLR_ERR}FEIL${CLR_RST}\n" "$tname"
                 fail=$((fail + 1))
                 echo "--- output frå $tname ---" >&2
                 grep -A 25 "TEST: $tname " "$tmplog" | tail -25 >&2 || true
@@ -421,6 +424,7 @@ PYEOF
 # ---------------------------------------------------------------------------
 # Start ein bakgrunnsprosess per skjema; testar per skjema køyrer sekvensielt
 # ---------------------------------------------------------------------------
+exec 3>&1
 for schema in "${SCHEMAS[@]}"; do
     run_schema_tests "$schema"
 done

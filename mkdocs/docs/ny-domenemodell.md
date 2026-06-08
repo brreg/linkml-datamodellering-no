@@ -1,4 +1,4 @@
-Scaffold# Rettleiing: ny domenemodell
+# Rettleiing: ny domenemodell
 
 ## Arbeidsflyt
 
@@ -9,7 +9,7 @@ make check-prereqs
 make linkml-build-docker && make python-build-docker && make mcp-val-build
 ```
 
-### 1 — Scaffold
+### 1a. — Scaffold
 
 ```bash
 make new-model NAME=<modell> DOMAIN=<domene>
@@ -26,14 +26,27 @@ src/linkml/<domene>/<modell>/
 ```
 Skjemaet passerer [`POLICY=bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) utan manuell redigering. 
 
+### 1b. (om ønskjeleg) Generer frå eksisterande JSON Schema
+Legg JSON Schema-filen i tmp/, t.d. `tmp/modell.json`
+
+`make mcp-generate SCHEMA=tmp/modell.json`
+
+ → genererer tmp/modell-schema.yaml. Kopier til `src/linkml/<domene>/<modell>/<modell>-schema.yaml`
+
 ### 2 — Rediger skjemaet
 
 Sjå [Referanseskjema](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml) for eksempel på gyldig skjema med forklaringer.
 
 Opne `src/linkml/<domene>/<modell>/<modell>-schema.yaml` og legg til klasser, slots og importar. Sjå [Importhierarki](#importhierarki) og [Kva importerer du?](#kva-importerer-du) nedanfor.
 
+
+
 ### 3 — Valider undervegs
 
+For hurtig validering kan du linte skjemaet:
+`./tests/lint_schema.bash src/linkml/<domene>/<modell>/<modell>-schema.yaml`
+
+Lint + validering mot medaljong-profil:
 ```bash
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
 make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
@@ -47,12 +60,12 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLIC
 | [`gold`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#gull) | Silver + FAIR F1–R1.3: `class_uri`, lisens, proveniens m.m. |
 
 ### 4 — Full testsuite
-
+Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
 ```
 make test SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml
 ```
 
-Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
+
 
 ---
 
