@@ -1,0 +1,6 @@
+# Eksempel for bvrinn
+# Tilpass instansane med reelle verdiar etter at skjemaet er ferdigstilt.
+---
+Containerklasse:
+  bvrinner:
+    - id: https://data.norge.no/virksomhet/bvrinn/eksempel-1
