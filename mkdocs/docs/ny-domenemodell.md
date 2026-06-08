@@ -1,4 +1,4 @@
-# Rettleiing: ny domenemodell
+Scaffold# Rettleiing: ny domenemodell
 
 ## Arbeidsflyt
 
@@ -12,16 +12,17 @@ make linkml-build-docker && make python-build-docker && make mcp-val-build
 ### 1 — Scaffold
 
 ```bash
-make new-model NAME=<namn> DOMAIN=<domene>
+make new-model NAME=<modell> DOMAIN=<domene>
 ```
 
 Dette oppretter:
 ```
-src/linkml/<domene>/<namn>/
-├── <namn>-schema.yaml       ← hovudskjema med stub-klasse og containerklasse
-├── manifest.yaml            ← publiserings- og generatorkonfig
+src/linkml/<domene>/<modell>/
+├── <modell>-schema.yaml       ← hovudskjema med stub-klasse og containerklasse
+├── manifest.yaml              ← publiserings- og generatorkonfig
+├── description.md             ← valfri beskrivelse av modellen, injiserast i portal-index etter ER-diagrammet
 └── examples/
-    └── <namn>-eksempel.yaml ← eksempelfil med minimal instans
+    └── <modell>-eksempel.yaml ← eksempelfil med minimal instans
 ```
 Skjemaet passerer [`POLICY=bronze`](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/mcp-linkml-validator/README.md#bronse) utan manuell redigering. 
 
@@ -29,14 +30,14 @@ Skjemaet passerer [`POLICY=bronze`](https://github.com/brreg/linkml-datamodeller
 
 Sjå [Referanseskjema](https://github.com/brreg/linkml-datamodellering-no/blob/main/src/linkml/referanse/referanse-schema.yaml) for eksempel på gyldig skjema med forklaringer.
 
-Opne `src/linkml/<domene>/<namn>/<namn>-schema.yaml` og legg til klasser, slots og importar. Sjå [Importhierarki](#importhierarki) og [Kva importerer du?](#kva-importerer-du) nedanfor.
+Opne `src/linkml/<domene>/<modell>/<modell>-schema.yaml` og legg til klasser, slots og importar. Sjå [Importhierarki](#importhierarki) og [Kva importerer du?](#kva-importerer-du) nedanfor.
 
 ### 3 — Valider undervegs
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=bronze
-make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=silver
-make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=gold
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=bronze
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=silver
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 | Policy | Sjekkar |
@@ -48,7 +49,7 @@ make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=go
 ### 4 — Full testsuite
 
 ```
-make test SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml
+make test SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml
 ```
 
 Lint + validering + alle generatorar for eitt skjema. Utan `SCHEMA=` køyrer testsuiten for alle skjema.
@@ -132,7 +133,7 @@ imports:
 Valider mot gold-policy (gold-policy validerer spesifikt FAIR konformitet):
 
 ```bash
-make mcp-validate SCHEMA=src/linkml/<domene>/<namn>/<namn>-schema.yaml POLICY=gold
+make mcp-validate SCHEMA=src/linkml/<domene>/<modell>/<modell>-schema.yaml POLICY=gold
 ```
 
 ---
@@ -157,25 +158,6 @@ make config.mk   # regenerer Makefile-konfig frå alle manifest.yaml-filer
 
 Sjå [Modellmanifest](manifest-config.md) for feltliste og eksempel per
 domenetype (standard, FINT, AP-NO/FAIR).
-
----
-
-## Skjemaskildring (valfri)
-
-Legg til ei `description.md`-fil ved sida av skjemafila for å vise ein
-innleiingstekst i portalen:
-
-```
-src/linkml/<domene>/<modell>/
-└── description.md    ← valfri, injiserast i portal-index etter ER-diagrammet
-```
-
-Fila er vanleg Markdown og kan innehalde formålstekst, avgrensingar, lenkjer
-til kjelder og annan kontekstuell informasjon. Innhaldet visast mellom
-ER-diagrammet og klasselista på skjemaet si portalside.
-
-`make new-model` oppretter ei stub-fil automatisk. Fyll ho ut eller slett ho
-dersom skildring ikkje er relevant.
 
 ---
 
