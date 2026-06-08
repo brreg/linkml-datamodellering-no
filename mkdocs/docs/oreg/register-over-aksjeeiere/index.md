@@ -85,6 +85,7 @@ Utbytte ||--|o Utdeling : "har_utdeling"
 
 ```
 
+> Dette er en tidlig, foreløpig overordnet forretningsobjektmodell over domenet register over aksjeeiere. Modellen er brukt som eit eksempel på korleis ein kan samarbeide om modellering av offentlige registre på tvers av offentlige virksomheter.
 
 LinkML-modell for aksjeselskap, aksjar, eigarskap og eigarskapshendingar. Modellen er tilpassa RDF-generering, SHACL og Ontodia-visualisering.
 

@@ -1,6 +1,7 @@
 # linkml-datamodellering-no
 
 **NB dette er en Proof of Concept**
+
 Norske W3C-applikasjonsprofiler og offentlege domenemodeller i [LinkML-format](https://linkml.io/).
 
 > LinkML er eit open kjeldekode-modelleringsspråk der du skriv skjema i YAML som skildrar datastrukturen din, og som du kan nytte til å generere skjema, data, diagram og dokumentasjon i andre format ([LinkML generators](https://linkml.io/linkml/generators/index.html)). Generatorane konverterer både til tradisjonelle format (JSON Schema, Python, Protobuf) og W3C-semantiske format (RDF/Turtle, OWL, SHACL, JSON-LD) utan behov for ekstra mapping.
@@ -89,7 +90,7 @@ For full rettleiing: sjå [Ny begrepskatalog](https://brreg.github.io/linkml-dat
 
 Sjå [CLAUDE.md](CLAUDE.md) for modelleringsprinsipp og [COMMANDS.md](COMMANDS.md) for alle tilgjengelege kommandoar.
 
-## Bruk frå eksternt repo
+### Bruk frå eksternt repo
 
 Vil du bruke AP-NO-profilene i ditt eige repo utan å jobbe inni dette monorepoet?
 Bootstrap-scriptet legg til dei to filene du treng på eitt minutt:

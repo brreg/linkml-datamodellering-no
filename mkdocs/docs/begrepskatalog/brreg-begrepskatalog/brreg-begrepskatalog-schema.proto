@@ -1,0 +1,124 @@
+ syntax="proto3";
+ package
+// metamodel_version: 1.11.0
+// version: 1.0.0
+// Ein assosiativ relasjon mellom to omgrep.
+message AssosiativRelasjon
+ {
+  uriorcurie id = 0
+ repeated  begrep tilOmgrep = 0
+  langString relasjontype = 0
+ }
+// Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept).
+message Begrep
+ {
+  uriorcurie id = 0
+ repeated  langString anbefaltTerm = 0
+ repeated  langString definisjon = 0
+ repeated  definisjon harDefinisjon = 0
+  string identifikatorLiteral = 0
+ repeated  vCardKontakt kontaktpunktVcard = 0
+  organisasjon utgjevar = 0
+  organisasjon ansvarlegVerksemd = 0
+  date gyldigFra = 0
+  date gyldigTil = 0
+  date opprettingsdato = 0
+  date endringsdato = 0
+ repeated  begrep fagomrade = 0
+ repeated  langString merknad = 0
+ repeated  langString tillateTerm = 0
+ repeated  string datastrukturTerm = 0
+ repeated  langString eksempel = 0
+ repeated  begrep erDelAvOmgrep = 0
+ repeated  begrep erErstattaAv = 0
+ repeated  assosiativRelasjon erFraOmgrepI = 0
+ repeated  begrep assosiertMed = 0
+ repeated  begrep erstattar = 0
+ repeated  langString forkastaTerm = 0
+ repeated  begrep generaliserer = 0
+ repeated  begrep noyaktigSamsvar = 0
+ repeated  generiskRelasjon harGeneriskRelasjon = 0
+ repeated  begrep naertSamsvar = 0
+ repeated  partitivRelasjon harPartitivRelasjon = 0
+ repeated  begrep harDelOmgrep = 0
+ repeated  samling erMedlemAv = 0
+ repeated  begrep sjaOgsaOmgrep = 0
+ repeated  begrep spesifiserer = 0
+  begrep euvocStatus = 0
+ repeated  langString verdiomrade = 0
+  string harVersjonsnummer = 0
+ repeated  langString versjonsmerknad = 0
+ }
+message BegrepContainer
+ {
+ repeated  begrep begrep = 0
+ repeated  samling samlingar = 0
+ repeated  definisjon definisjoner = 0
+ repeated  generiskRelasjon generiskeRelasjonar = 0
+ repeated  partitivRelasjon partitiveRelasjonar = 0
+ repeated  assosiativRelasjon assosiativeRelasjonar = 0
+ repeated  organisasjon organisasjonar = 0
+ repeated  vCardKontakt kontaktpunkt = 0
+ }
+// Ei SKOS-omgrepssamling (temavokabular).
+message Begrepssamling
+ {
+  uriorcurie id = 0
+ }
+// Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote).
+message Definisjon
+ {
+  uriorcurie id = 0
+  langString tekst = 0
+  begrep kjeldeRelasjon = 0
+ repeated  uri kjelde = 0
+  begrep malgruppeDef = 0
+ }
+// Ein generisk relasjon mellom eit overomgrep og eit underomgrep.
+message GeneriskRelasjon
+ {
+  uriorcurie id = 0
+ repeated  begrep harGeneriskOmgrep = 0
+ repeated  begrep harSpesifiktOmgrep = 0
+ repeated  langString inndelingskriterium = 0
+ }
+// Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.
+message Konsept
+ {
+  uriorcurie id = 0
+ }
+// Ein medietype eller filformat (dct:MediaTypeOrExtent).
+message Mediatype
+ {
+  uriorcurie id = 0
+ }
+// Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep.
+message Organisasjon
+ {
+  uriorcurie id = 0
+ }
+// Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.
+message PartitivRelasjon
+ {
+  uriorcurie id = 0
+ repeated  begrep harPartitivtOmgrep = 0
+ repeated  begrep harHeilskaplegOmgrep = 0
+ repeated  langString inndelingskriterium = 0
+ }
+// Ei namngitt samling av omgrep (skos:Collection).
+message Samling
+ {
+  uriorcurie id = 0
+  string identifikatorLiteral = 0
+ repeated  begrep medlem = 0
+ repeated  vCardKontakt kontaktpunktVcard = 0
+ repeated  langString tittel = 0
+  organisasjon utgjevar = 0
+ repeated  langString beskrivelse = 0
+ }
+// Kontaktinformasjon (vCard) for omgrepseigaren.
+message VCardKontakt
+ {
+  uriorcurie id = 0
+ }
+

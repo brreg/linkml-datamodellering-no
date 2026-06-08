@@ -1,0 +1,120 @@
+@startuml
+skinparam nodesep 10
+hide circle
+hide empty members
+class "Begrep" [[{Eit omgrep med definisjon og tilhøyrande metadata (skos:Concept).}]] {
+    {field} id : uriorcurie  
+    {field} anbefalt_term : LangString  [1..*]
+    {field} definisjon : LangString  [0..*]
+    {field} identifikator_literal : string  
+    {field} gyldig_fra : date  
+    {field} gyldig_til : date  
+    {field} opprettingsdato : date  
+    {field} endringsdato : date  
+    {field} merknad : LangString  [0..*]
+    {field} tillate_term : LangString  [0..*]
+    {field} datastruktur_term : string  [0..*]
+    {field} eksempel : LangString  [0..*]
+    {field} forkasta_term : LangString  [0..*]
+    {field} verdiomrade : LangString  [0..*]
+    {field} har_versjonsnummer : string  
+    {field} versjonsmerknad : LangString  [0..*]
+}
+class "VCardKontakt" [[{Kontaktinformasjon (vCard) for omgrepseigaren.}]] {
+    {field} id : uriorcurie  
+}
+class "Samling" [[{Ei namngitt samling av omgrep (skos:Collection).}]] {
+    {field} id : uriorcurie  
+    {field} identifikator_literal : string  
+    {field} tittel : LangString  [1..*]
+    {field} beskrivelse : LangString  [0..*]
+}
+class "BegrepContainer" [[{None}]] {
+
+}
+"Begrep" --> "1..*" "VCardKontakt" : "kontaktpunkt_vcard"
+"Samling" --> "1..*" "VCardKontakt" : "kontaktpunkt_vcard"
+"BegrepContainer" *--> "0..*" "VCardKontakt" : "kontaktpunkt"
+"Begrep" --> "0..*" "VCardKontakt" : "kontaktpunkt_vcard"(i)
+"Samling" --> "0..*" "VCardKontakt" : "kontaktpunkt_vcard"(i)
+class "Organisasjon" [[{Ein organisasjon som er utgjevar eller ansvarleg for eit omgrep.}]] {
+    {field} id : uriorcurie  
+}
+"Samling" --> "1" "Organisasjon" : "utgjevar"
+"Samling" --> "1..*" "Begrep" : "medlem"
+"Begrep" --> "0..*" "Samling" : "er_medlem_av"
+"BegrepContainer" *--> "0..*" "Samling" : "samlingar"
+"Begrep" --> "0..*" "Samling" : "er_medlem_av"(i)
+class "PartitivRelasjon" [[{Ein partitiv relasjon mellom eit heilskapleg og eit partitivt omgrep.}]] {
+    {field} id : uriorcurie  
+    {field} inndelingskriterium : LangString  [0..*]
+}
+"PartitivRelasjon" --> "0..*" "Begrep" : "har_heilskapleg_omgrep"
+"PartitivRelasjon" --> "0..*" "Begrep" : "har_partitivt_omgrep"
+"Begrep" --> "0..*" "PartitivRelasjon" : "har_partitiv_relasjon"
+"BegrepContainer" *--> "0..*" "PartitivRelasjon" : "partitive_relasjonar"
+"Begrep" --> "0..*" "PartitivRelasjon" : "har_partitiv_relasjon"(i)
+"Begrep" --> "0..1" "Organisasjon" : "ansvarleg_verksemd"
+"Begrep" --> "1" "Organisasjon" : "utgjevar"
+"Begrep" --> "0..1" "Organisasjon" : "ansvarleg_verksemd"(i)
+"BegrepContainer" *--> "0..*" "Organisasjon" : "organisasjonar"
+"Begrep" --> "0..1" "Organisasjon" : "utgjevar"(i)
+"Samling" --> "0..1" "Organisasjon" : "utgjevar"(i)
+class "Mediatype" [[{Ein medietype eller filformat (dct:MediaTypeOrExtent).}]] {
+    {field} id : uriorcurie  
+}
+class "Konsept" [[{Referanse til eit SKOS-omgrep frå eit kontrollert vokabular.}]] {
+    {field} id : uriorcurie  
+}
+class "GeneriskRelasjon" [[{Ein generisk relasjon mellom eit overomgrep og eit underomgrep.}]] {
+    {field} id : uriorcurie  
+    {field} inndelingskriterium : LangString  [0..*]
+}
+"GeneriskRelasjon" --> "0..*" "Begrep" : "har_spesifikt_omgrep"
+"GeneriskRelasjon" --> "0..*" "Begrep" : "har_generisk_omgrep"
+"Begrep" --> "0..*" "GeneriskRelasjon" : "har_generisk_relasjon"
+"BegrepContainer" *--> "0..*" "GeneriskRelasjon" : "generiske_relasjonar"
+"Begrep" --> "0..*" "GeneriskRelasjon" : "har_generisk_relasjon"(i)
+class "Definisjon" [[{Ein definisjon av eit omgrep via eit eige objekt (euvoc:XlNote).}]] {
+    {field} id : uriorcurie  
+    {field} tekst : LangString  
+    {field} kjelde : uri  [0..*]
+}
+"Definisjon" --> "0..1" "Begrep" : "malgruppe_def"
+"Definisjon" --> "0..1" "Begrep" : "kjelde_relasjon"
+"Begrep" --> "0..*" "Definisjon" : "har_definisjon"
+"BegrepContainer" *--> "0..*" "Definisjon" : "definisjoner"
+"Begrep" --> "0..*" "Definisjon" : "har_definisjon"(i)
+class "Begrepssamling" [[{Ei SKOS-omgrepssamling (temavokabular).}]] {
+    {field} id : uriorcurie  
+}
+class "AssosiativRelasjon" [[{Ein assosiativ relasjon mellom to omgrep.}]] {
+    {field} id : uriorcurie  
+    {field} relasjontype : LangString  
+}
+"BegrepContainer" *--> "0..*" "AssosiativRelasjon" : "assosiative_relasjonar"
+"BegrepContainer" *--> "0..*" "Begrep" : "begrep"
+"Begrep" --> "0..1" "Begrep" : "euvoc_status"
+"Begrep" --> "0..*" "Begrep" : "spesifiserer"
+"Begrep" --> "0..*" "Begrep" : "sja_ogsa_omgrep"
+"Begrep" --> "0..*" "Begrep" : "har_del_omgrep"
+"Begrep" --> "0..*" "Begrep" : "naert_samsvar"
+"Begrep" --> "0..*" "Begrep" : "noyaktig_samsvar"
+"Begrep" --> "0..*" "Begrep" : "generaliserer"
+"Begrep" --> "0..*" "Begrep" : "erstattar"
+"Begrep" --> "0..*" "Begrep" : "assosiert_med"
+"Begrep" --> "0..*" "AssosiativRelasjon" : "er_fra_omgrep_i"
+"Begrep" --> "0..*" "Begrep" : "er_erstatta_av"
+"Begrep" --> "0..*" "Begrep" : "er_del_av_omgrep"
+"Begrep" --> "0..*" "Begrep" : "fagomrade"
+"AssosiativRelasjon" --> "1..*" "Begrep" : "til_omgrep"
+"GeneriskRelasjon" --> "0..*" "Begrep" : "har_generisk_omgrep"(i)
+"PartitivRelasjon" --> "0..*" "Begrep" : "har_heilskapleg_omgrep"(i)
+"PartitivRelasjon" --> "0..*" "Begrep" : "har_partitivt_omgrep"(i)
+"GeneriskRelasjon" --> "0..*" "Begrep" : "har_spesifikt_omgrep"(i)
+"Definisjon" --> "0..1" "Begrep" : "kjelde_relasjon"(i)
+"Definisjon" --> "0..1" "Begrep" : "malgruppe_def"(i)
+"Samling" --> "0..*" "Begrep" : "medlem"(i)
+"AssosiativRelasjon" --> "0..*" "Begrep" : "til_omgrep"(i)
+"Begrep" --> "0..*" "AssosiativRelasjon" : "er_fra_omgrep_i"(i)
+@enduml
