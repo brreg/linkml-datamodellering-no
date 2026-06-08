@@ -121,13 +121,21 @@ generators:
   example_rdf: true
 EOF
 
+DESCRIPTION_FILE="$SCHEMA_DIR/description.md"
+cat > "$DESCRIPTION_FILE" << EOF
+<!-- Valfri skildring av $NAME. Vert vist i portalen mellom ER-diagrammet og klasselista. -->
+<!-- Fyll ut eller slett denne fila. -->
+EOF
+
 echo ""
 echo "Oppretta:"
 echo "  $SCHEMA_FILE"
 echo "  $EXAMPLE_FILE"
 echo "  $MANIFEST_FILE"
+echo "  $DESCRIPTION_FILE"
 echo ""
 echo "Neste steg:"
 echo "  1. Gi stub-klassen eit norsk namn og legg til eigenskapar"
 echo "  2. Legg til domene-spesifikke imports (sjå kommentar i skjemafila)"
-echo "  3. Valider: make mcp-validate SCHEMA=$SCHEMA_FILE POLICY=bronze"
+echo "  3. Fyll ut description.md med formål og kontekst (eller slett ho)"
+echo "  4. Valider: make mcp-validate SCHEMA=$SCHEMA_FILE POLICY=bronze"

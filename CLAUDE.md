@@ -166,6 +166,7 @@ src/linkml/
     <modell>/
       <modell>-schema.yaml
       manifest.yaml             ← publiserings- og generatorkonfig
+      description.md            ← valfri portaltekst (Markdown, bokmål)
       examples/
         <modell>-eksempel.yaml
       data/                     ← berre for skjema med produksjonsdata

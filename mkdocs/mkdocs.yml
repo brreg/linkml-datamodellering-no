@@ -67,9 +67,9 @@ nav:
       - 'modelldcat-ap-no': ap-no/modelldcat-ap-no/index.md
       - 'skos-ap-no': ap-no/skos-ap-no/index.md
       - 'xkos-ap-no': ap-no/xkos-ap-no/index.md
-  - 'BEGREP':
-      - begrep/index.md
-      - 'brreg-begrep': begrep/brreg-begrep/index.md
+  - 'Begrepskatalog – Begrepskatalogmodellar':
+      - begrepskatalog/index.md
+      - 'brreg-begrepskatalog': begrepskatalog/brreg-begrepskatalog/index.md
   - 'FAIR – Metadataoverbygning':
       - fair/index.md
       - 'fair-metadata': fair/fair-metadata/index.md
@@ -81,9 +81,9 @@ nav:
       - 'fint-personvern': fint/fint-personvern/index.md
       - 'fint-ressurs': fint/fint-ressurs/index.md
       - 'fint-utdanning': fint/fint-utdanning/index.md
-  - 'MODELL':
-      - modell/index.md
-      - 'brreg-modelkatalog': modell/brreg-modelkatalog/index.md
+  - 'Modellkatalog – Informasjonsmodellar':
+      - modellkatalog/index.md
+      - 'brreg-modellkatalog': modellkatalog/brreg-modellkatalog/index.md
   - 'NGR – Nasjonale Grunndata':
       - ngr/index.md
       - 'ngr-adresse': ngr/ngr-adresse/index.md

@@ -199,7 +199,14 @@ fi
 
 for domain_dir in "$GEN"/*/; do
     [ -d "$domain_dir" ] || continue
+    # Hopp over tomme domene-katalogar (ingen skjema-underkatalogar)
+    schema_count=$(find "$domain_dir" -mindepth 1 -maxdepth 1 -type d | wc -l)
+    [ "$schema_count" -eq 0 ] && continue
     domain=$(basename "$domain_dir")
+    # Åtvar om domenet finst i generated/ men ikkje i src/linkml/ (stale artefakter)
+    if [ ! -d "$REPO_ROOT/src/linkml/$domain" ]; then
+        echo "${CLR_ERR}ÅTVARING: $domain finst i generated/ men ikkje i src/linkml/ — stale artefakter frå omdøypt domene?${CLR_RST}" >&2
+    fi
     find "${DOCS}/${domain}" -mindepth 1 -depth -delete 2>/dev/null || true
     rmdir "${DOCS}/${domain}" 2>/dev/null || true
 done

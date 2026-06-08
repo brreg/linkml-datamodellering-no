@@ -55,7 +55,9 @@
       "Bash(make mcp-mod-smoke *)",
       "Bash(make domain-validate-bronze *)",
       "Bash(make domain-validate-data *)",
-      "Bash(make domain-gen-docs *)"
+      "Bash(make domain-gen-docs *)",
+      "Bash(DOMAINS)",
+      "Bash(grep -n \"^begrepskatalog\\\\|^$\\(DOMAINS\\)\\\\|domain-gen-linkml\\\\|make.*DOMAIN\\\\|DOMAIN.*make\" /mnt/c/dev/github/linkml-datamodellering-no/Makefile)"
     ]
   },
   "enableAllProjectMcpServers": true,

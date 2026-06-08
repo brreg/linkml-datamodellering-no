@@ -625,7 +625,7 @@ docs-serve:
 	@echo "$(CLR_HDR)*** make docs-serve$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@mkdir -p "$(CURDIR)/mkdocs/.cache" "$(CURDIR)/mkdocs/site"
-	$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000 --dirtyreload
+	$(DOCS_RUN) -it -p 8000:8000 $(DOCS_IMAGE) serve --dev-addr=0.0.0.0:8000
 
 docs-build:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
