@@ -61,7 +61,13 @@
       "Bash(make mcp-generate *)",
       "Bash(./tests/validate_schema.bash *)",
       "Bash(make mcp-mod-build *)",
-      "Bash(make schema-gen-python *)"
+      "Bash(make schema-gen-python *)",
+      "Bash(sed -n '25,35p' /mnt/c/dev/github/linkml-datamodellering-no/CONTRIBUTING.md)",
+      "Bash(sed -n '28,35p' /mnt/c/dev/github/linkml-datamodellering-no/CLAUDE.md)",
+      "Bash(sed -n '43,52p' /mnt/c/dev/github/linkml-datamodellering-no/mkdocs/docs/ny-domenemodell.md)",
+      "Bash(sed -n '28,36p' /mnt/c/dev/github/linkml-datamodellering-no/CLAUDE.md)",
+      "Bash(sed -n '24,38p' /mnt/c/dev/github/linkml-datamodellering-no/CONTRIBUTING.md)",
+      "Bash(sed -n '13,55p' /mnt/c/dev/github/linkml-datamodellering-no/mkdocs/docs/ny-domenemodell.md)"
     ]
   },
   "enableAllProjectMcpServers": true,

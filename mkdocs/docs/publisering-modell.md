@@ -90,7 +90,7 @@ informasjonsmodellar:
         "@language": "nb"
     utgiver: https://data.norge.no/organizations/974760673
     identifikator_literal: "https://brreg.no/modellkatalogar/brreg-modellkatalog/<slug>"
-    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/<domene>/<skjema>/"
+    informasjonsmodellidentifikator: "https://brreg.github.io/linkml-datamodellering-no/<domain>/<skjema>/"
     kontaktpunkt:
       - https://brreg.no/kontakt/modellforvaltning
     tema:

@@ -2,7 +2,7 @@
 
 ## Kva er `manifest.yaml`?
 
-Kvar modell under `src/linkml/<domene>/<modell>/` har ei `manifest.yaml` som styrer
+Kvar modell under `src/linkml/<domain>/<modell>/` har ei `manifest.yaml` som styrer
 kva artefaktar som vert genererte, kva flagg som vert brukte, og om modellen skal
 publiserast til ein ekstern katalog. `make new-model` oppretter fila automatisk med
 standardkonfigen.
@@ -14,7 +14,7 @@ standardkonfigen.
 Ligg ved sida av skjemafila:
 
 ```
-src/linkml/<domene>/<modell>/manifest.yaml
+src/linkml/<domain>/<modell>/manifest.yaml
 ```
 
 ```yaml
@@ -42,7 +42,7 @@ generators:
 Ligg inne i `data/<datafil-katalog>/`:
 
 ```
-src/linkml/<domene>/<modell>/data/<datafil-katalog>/manifest.yaml
+src/linkml/<domain>/<modell>/data/<datafil-katalog>/manifest.yaml
 ```
 
 ```yaml
