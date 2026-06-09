@@ -136,7 +136,7 @@ LINKML_BEGREP_RUN   := podman run -i --rm \
   -v "$(CURDIR)/$(LINKML_BEGREP_DIR)/profiles:/app/profiles:ro" \
   -v "$(CURDIR):/repo:ro"
 
-.PHONY: all test validate clean domains gen-config \
+.PHONY: all test validate lint validate-instance clean domains gen-config \
 		gen-jsonld gen-shacl gen-python gen-jsonschema gen-owl gen-rdf gen-erdiagram convert-rdf convert-data gen-docs \
         linkml-build-docker python-build-docker \
         mcp-val-build mcp-val-run mcp-val-smoke mcp-val-test mcp-validate \
@@ -173,6 +173,26 @@ validate:
 	@echo "$(CLR_HDR)*** make validate$(CLR_RST)"
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
 	@$(foreach s,$(SCHEMAS),echo "$(CLR_STEP)→ gen-linkml  $(s)$(CLR_RST)" && echo "$(LINKML_RUN) gen-linkml $(s) > /dev/null" && $(LINKML_RUN) gen-linkml $(s) > /dev/null;)
+
+# Bruk: make lint [SCHEMA=<sti-til-skjema>]
+lint:
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make lint$(if $(SCHEMA),  SCHEMA=$(SCHEMA),  (alle skjema))$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@if [ -n "$(SCHEMA)" ]; then \
+		$(LINKML_RUN) linkml lint --validate "$(SCHEMA)"; \
+	else \
+		$(foreach s,$(SCHEMAS),$(LINKML_RUN) linkml lint --validate "$(s)" &&) true; \
+	fi
+
+# Bruk: make validate-instance SCHEMA=<sti-til-skjema> INSTANCE=<sti-til-datafil>
+validate-instance:
+	@test -n "$(SCHEMA)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
+	@test -n "$(INSTANCE)" || (echo "Bruk: make validate-instance SCHEMA=<sti> INSTANCE=<sti>"; exit 1)
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	@echo "$(CLR_HDR)*** make validate-instance  SCHEMA=$(SCHEMA)  INSTANCE=$(INSTANCE)$(CLR_RST)"
+	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
+	$(LINKML_RUN) linkml validate --schema "$(SCHEMA)" "$(INSTANCE)"
 
 gen-jsonld:
 	@echo "$(CLR_SEP)$(SEP)$(CLR_RST)"
