@@ -6,7 +6,7 @@ description: >
   journalpostar, dokumenthandsaming, tilgangsstyring og spesialiserte saksmappe-typar.
 version: "4.0.20"
 
-default_prefix: https://schema.fintlabs.no/arkiv/
+default_prefix: https://data.norge.no/fint/fint-arkiv/
 default_range: string
 
 imports:

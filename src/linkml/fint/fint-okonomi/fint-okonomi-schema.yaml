@@ -8,7 +8,7 @@ description: >
   okonomi.kodeverk (vare, merverdiavgift, valuta).
 version: "4.0.20"
 
-default_prefix: https://schema.fintlabs.no/okonomi/
+default_prefix: https://data.norge.no/fint/fint-okonomi/
 default_range: string
 
 imports:

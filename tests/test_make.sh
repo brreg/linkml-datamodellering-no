@@ -220,11 +220,6 @@ assert '\$defs' in d or 'properties' in d, '\$defs og properties manglar i $outf
 
 test_gen_rdf() {
     local schema="$1" outfile="$2" domain="$3"
-    # Hoppar over for fint og samt — same som GEN_RDF_SKIP_* i Makefile
-    if [[ "$domain" == "fint" || "$domain" == "samt" ]]; then
-        echo "Hoppar over gen-rdf for $domain (GEN_RDF_SKIP)"
-        return 0
-    fi
     make gen-rdf SCHEMAS="$schema" || return 1
     assert_file_nonempty "$outfile" || return 1
     assert_rdf_valid "$outfile" || return 1

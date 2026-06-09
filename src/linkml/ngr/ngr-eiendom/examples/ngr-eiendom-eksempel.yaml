@@ -56,9 +56,6 @@ etasjer:
   - id: ngre:eksempel/etasje-2
     etasjenummer: 2
 
-teiger:
-  - id: ngre:eksempel/teig-1
-
 tinglystEierforhold:
   - id: ngre:eksempel/eierforhold-1
     gjelder_matrikkelenhet: ngre:eksempel/matrikkelenhet-1

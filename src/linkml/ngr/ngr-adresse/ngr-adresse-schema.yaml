@@ -141,14 +141,6 @@ classes:
         range: Representasjonspunkt
         multivalued: true
         inlined_as_list: true
-      bygningar:
-        range: Bygning
-        multivalued: true
-        inlined_as_list: true
-      bruksenheter:
-        range: Bruksenhet
-        multivalued: true
-        inlined_as_list: true
 
   # ---------------------------------------------------------------------------
   # Abstrakt basisklasse
