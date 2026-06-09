@@ -67,7 +67,12 @@
       "Bash(sed -n '43,52p' /mnt/c/dev/github/linkml-datamodellering-no/mkdocs/docs/ny-domenemodell.md)",
       "Bash(sed -n '28,36p' /mnt/c/dev/github/linkml-datamodellering-no/CLAUDE.md)",
       "Bash(sed -n '24,38p' /mnt/c/dev/github/linkml-datamodellering-no/CONTRIBUTING.md)",
-      "Bash(sed -n '13,55p' /mnt/c/dev/github/linkml-datamodellering-no/mkdocs/docs/ny-domenemodell.md)"
+      "Bash(sed -n '13,55p' /mnt/c/dev/github/linkml-datamodellering-no/mkdocs/docs/ny-domenemodell.md)",
+      "Bash(grep -n \"^  [A-Z][a-zA-Z]*:$\" /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)",
+      "Bash(grep -n \"^  [A-Z][a-zA-Z]*:$\" /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dqv-ap-no/dqv-ap-no-schema.yaml)",
+      "Bash(grep -n \"^  [A-Z][a-zA-Z]*:$\" /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/modelldcat-ap-no/modelldcat-ap-no-schema.yaml)",
+      "Bash(sed -n '49,58p' /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)",
+      "Bash(sed -n '56,72p' /mnt/c/dev/github/linkml-datamodellering-no/src/linkml/ap-no/dcat-ap-no/dcat-ap-no-schema.yaml)"
     ]
   },
   "enableAllProjectMcpServers": true,

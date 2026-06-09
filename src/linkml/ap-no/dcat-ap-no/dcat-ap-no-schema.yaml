@@ -47,6 +47,8 @@ classes:
   # ---- Hovudklassar --------------------------------------------------------
 
   KatalogisertRessurs:
+    in_subset:
+      - Metadata
     abstract: true
     class_uri: dcat:Resource
     description: Basisklasse for ressursar som kan katalogiserast.
@@ -54,6 +56,8 @@ classes:
       - id
 
   Aktor:
+    in_subset:
+      - Metadata
     class_uri: foaf:Agent
     description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
     slots:
@@ -70,6 +74,8 @@ classes:
       - https://data.norge.no/concepts/d85379a6-837b-3102-b202-999a99240d69
 
   Kontaktopplysning:
+    in_subset:
+      - Metadata
     class_uri: vcard:Kind
     description: Kontaktinformasjon for ein aktør.
     slots:
@@ -86,6 +92,8 @@ classes:
       - https://data.norge.no/concepts/9c17b5e3-6763-3650-a741-b879e7bbdecc
 
   Tidsrom:
+    in_subset:
+      - Metadata
     class_uri: dct:PeriodOfTime
     description: Eit tidsintervall med start- og sluttdato.
     slots:
@@ -112,6 +120,8 @@ classes:
   #         - Obligatorisk
 
   RegulativRessurs:
+    in_subset:
+      - Metadata
     class_uri: eli:LegalResource
     description: Ein regulativ ressurs (lov, forskrift o.l.) som gjeld for ein ressurs.
     slots:
@@ -125,6 +135,8 @@ classes:
       - relatert_regulativ_ressurs
 
   Identifikator:
+    in_subset:
+      - Metadata
     class_uri: adms:Identifier
     description: Ein alternativ identifikator for ein ressurs.
     slots:
@@ -139,6 +151,8 @@ classes:
       - https://data.norge.no/concepts/806b0e3a-38ab-3a3a-88d6-ddc7f8669f4a
 
   Rettighetserklaring:
+    in_subset:
+      - Metadata
     class_uri: dct:RightsStatement
     description: Ei erklæring om rettar til ein ressurs (ODRS).
     slots:
@@ -153,6 +167,8 @@ classes:
       - opphavsrettsaar
 
   Sjekksum:
+    in_subset:
+      - Metadata
     class_uri: spdx:Checksum
     description: Ein sjekksum for ein distribusjon.
     slots:
@@ -170,6 +186,8 @@ classes:
           - Obligatorisk
 
   Gebyr:
+    in_subset:
+      - Metadata
     class_uri: cv:Cost
     description: Eit gebyr knytt til bruk av ein datatjeneste.
     slots:
@@ -180,6 +198,8 @@ classes:
       - valuta
 
   Relasjon:
+    in_subset:
+      - Metadata
     class_uri: dcat:Relationship
     description: Ein kvalifisert relasjon mellom to ressursar.
     slots:
@@ -197,6 +217,8 @@ classes:
           - Obligatorisk
 
   Distribusjon:
+    in_subset:
+      - Metadata
     class_uri: dcat:Distribution
     description: Ein spesifikk representasjon/nedlastbar form av eit datasett.
     slots:
@@ -246,6 +268,8 @@ classes:
           - Anbefalt
 
   Datasett:
+    in_subset:
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:Dataset
     description: Ei samling av data utgjeven eller kuratert av éin aktør.
@@ -338,6 +362,8 @@ classes:
           - Anbefalt
 
   Datasettserie:
+    in_subset:
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:DatasetSeries
     description: Ei serie av relaterte datasett publisert separat men med felles metadata.
@@ -390,6 +416,8 @@ classes:
           - Anbefalt
 
   Datatjeneste:
+    in_subset:
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:DataService
     description: Ei samling operasjonar tilgjengeleg via eit API-grensesnitt.
@@ -460,6 +488,8 @@ classes:
           - Anbefalt
 
   Katalogpost:
+    in_subset:
+      - Metadata
     class_uri: dcat:CatalogRecord
     description: Ein katalogpost som beskriv ein ressurs i katalogen.
     slots:
@@ -493,6 +523,8 @@ classes:
           - Anbefalt
 
   Katalog:
+    in_subset:
+      - Metadata
     is_a: KatalogisertRessurs
     class_uri: dcat:Catalog
     description: Ei kuratert samling av metadata om datasett, datatenestar og/eller andre katalogar.

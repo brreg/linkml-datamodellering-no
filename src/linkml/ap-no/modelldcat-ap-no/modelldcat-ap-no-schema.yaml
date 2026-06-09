@@ -38,12 +38,16 @@ classes:
   # ---- Hjelpeklassar for refererte vokabularressursar ----------------------
 
   KatalogisertRessurs:
+    in_subset:
+      - Metadata
     class_uri: dcat:Resource
     description: Basisklasse for ressursar som kan katalogiserast (dcat:Resource).
     slots:
       - id
 
   Aktor:
+    in_subset:
+      - Metadata
     class_uri: foaf:Agent
     description: Ein aktør (person, organisasjon eller system) med ansvar for ein ressurs.
     slots:
@@ -58,12 +62,16 @@ classes:
           - Obligatorisk
 
   Kontaktopplysning:
+    in_subset:
+      - Metadata
     class_uri: vcard:Organization
     description: Kontaktinformasjon (vcard:Organization).
     slots:
       - id
 
   Standard:
+    in_subset:
+      - Metadata
     class_uri: dct:Standard
     description: Ein standard (dct:Standard).
     slots:
@@ -78,6 +86,8 @@ classes:
           - Obligatorisk
 
   Lisensdokument:
+    in_subset:
+      - Metadata
     class_uri: dct:LicenseDocument
     description: Eit lisensdokument (dct:LicenseDocument).
     slots:
@@ -85,12 +95,16 @@ classes:
       - type_concept
 
   Lokasjon:
+    in_subset:
+      - Metadata
     class_uri: dct:Location
     description: Eit geografisk område (dct:Location).
     slots:
       - id
 
   Tidsperiode:
+    in_subset:
+      - Metadata
     class_uri: dct:PeriodOfTime
     description: Eit tidsintervall med start- og sluttdato.
     slots:
@@ -99,6 +113,8 @@ classes:
       - sluttdato
 
   Dokument:
+    in_subset:
+      - Metadata
     class_uri: foaf:Document
     description: Eit dokument (foaf:Document).
     slots:
@@ -110,6 +126,8 @@ classes:
   # ---- Modellkatalog --------------------------------------------------------
 
   Modellkatalog:
+    in_subset:
+      - Metadata
     class_uri: dcat:Catalog
     description: >-
       Ei kuratert samling av metadata om informasjonsmodellar (dcat:Catalog).
@@ -186,6 +204,8 @@ classes:
   # ---- Informasjonsmodell --------------------------------------------------
 
   Informasjonsmodell:
+    in_subset:
+      - Metadata
     class_uri: modelldcatno:InformationModel
     description: >-
       Ein informasjonsmodell som er katalogisert i ein modellkatalog
@@ -315,6 +335,8 @@ classes:
   # ---- Modellelement (abstrakt) --------------------------------------------
 
   Modellelement:
+    in_subset:
+      - Metadata
     abstract: true
     class_uri: modelldcatno:ModelElement
     description: Abstrakt basisklasse for alle modellelement i ein informasjonsmodell.
@@ -350,21 +372,29 @@ classes:
   # ---- Subklassar av Modellelement -----------------------------------------
 
   Objekttype:
+    in_subset:
+      - Metadata
     is_a: Modellelement
     class_uri: modelldcatno:ObjectType
     description: Ein objekttype — ein klasse med eigenskapar i informasjonsmodellen.
 
   RootObjekttype:
+    in_subset:
+      - Metadata
     is_a: Modellelement
     class_uri: modelldcatno:RootObjectType
     description: Ein rotobjekttype — toppnivå-klasse i informasjonsmodellen.
 
   Datatype:
+    in_subset:
+      - Metadata
     is_a: Modellelement
     class_uri: modelldcatno:DataType
     description: Ein datatype — ein strukturert samansett type.
 
   EnkelType:
+    in_subset:
+      - Metadata
     is_a: Modellelement
     class_uri: modelldcatno:SimpleType
     description: Ein enkel type med restriksjonar (xsd-fasettar).
@@ -386,6 +416,8 @@ classes:
           - Anbefalt
 
   Kodeliste:
+    in_subset:
+      - Metadata
     is_a: Modellelement
     class_uri: modelldcatno:CodeList
     description: Ei kodeliste — eit kontrollert vokabular av tillate verdiar.
@@ -393,6 +425,8 @@ classes:
       - har_referanse
 
   Modul:
+    in_subset:
+      - Metadata
     is_a: Modellelement
     class_uri: modelldcatno:Module
     description: Ein modul som grupperer modellelement i informasjonsmodellen.
@@ -400,6 +434,8 @@ classes:
   # ---- Eigenskap (abstrakt) ------------------------------------------------
 
   Eigenskap:
+    in_subset:
+      - Metadata
     abstract: true
     class_uri: modelldcatno:Property
     description: Abstrakt basisklasse for eigenskapar knytt til eit modellelement.
@@ -458,6 +494,8 @@ classes:
   # ---- Subklassar av Eigenskap ---------------------------------------------
 
   Attributt:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Attribute
     description: Ein attributt — ein eigenskap med ein datatype eller enkel type som verdi.
@@ -481,6 +519,8 @@ classes:
           - Anbefalt
 
   Assosiasjon:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Association
     description: Ein assosiasjon — ein eigenskap som refererer til eit anna modellelement.
@@ -492,6 +532,8 @@ classes:
           - Anbefalt
 
   Rolle:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Role
     description: Ein rolle — ein eigenskap som knyter ein objekttype til ein assosiasjon.
@@ -503,6 +545,8 @@ classes:
           - Anbefalt
 
   Spesialisering:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Specialization
     description: Ein spesialisering — eit arveforhold frå eit spesielt til eit generelt modellelement.
@@ -514,6 +558,8 @@ classes:
           - Anbefalt
 
   Sammensetning:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Composition
     description: Ein sammensetning — ein sterk eigarelskapsrelasjon mellom modellelement.
@@ -525,6 +571,8 @@ classes:
           - Anbefalt
 
   Realisering:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Realization
     description: Ein realisering — ein implementasjonsrelasjon mellom modellelement.
@@ -536,6 +584,8 @@ classes:
           - Anbefalt
 
   Abstraksjon:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Abstraction
     description: Ein abstraksjon — ein forenkling som representerer eit modellelement.
@@ -547,6 +597,8 @@ classes:
           - Anbefalt
 
   Avhengighet:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Dependency
     description: Ein avhengighet — ein relasjon der det eine modellelementet avheng av det andre.
@@ -558,11 +610,15 @@ classes:
           - Anbefalt
 
   Samling:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Collection
     description: Ein samling — ein eigenskap som representerer ei uordna mengd av modellelement.
 
   Valg:
+    in_subset:
+      - Metadata
     is_a: Eigenskap
     class_uri: modelldcatno:Choice
     description: Eit val — ein eigenskap som representerer eit val mellom modellelement.
@@ -574,11 +630,15 @@ classes:
           - Anbefalt
 
   AlleAv:
+    in_subset:
+      - Metadata
     is_a: Valg
     class_uri: modelldcatno:AllOf
     description: Alle av — alle modellelementa i lista må gjelde (logisk OG-mengd).
 
   NoenAv:
+    in_subset:
+      - Metadata
     is_a: Valg
     class_uri: modelldcatno:AnyOf
     description: Nokon av — minst eitt modellelement i lista må gjelde (logisk ELLER-mengd).
@@ -586,6 +646,8 @@ classes:
   # ---- Merknad og betingelsesreglar ----------------------------------------
 
   Merknad:
+    in_subset:
+      - Metadata
     class_uri: modelldcatno:Note
     description: Ei merknad knytt til eit modellelement eller eigenskap.
     slots:
@@ -613,6 +675,8 @@ classes:
           - Valgfri
 
   Betingelsesregel:
+    in_subset:
+      - Metadata
     is_a: Merknad
     class_uri: modelldcatno:ConstraintRule
     description: Ein betingelsesregel — ei formell avgrensing på modellelement eller eigenskapar.
@@ -629,21 +693,29 @@ classes:
           - Anbefalt
 
   Og:
+    in_subset:
+      - Metadata
     is_a: Betingelsesregel
     class_uri: modelldcatno:And
     description: Og — logisk OG-betingelse; alle deltakande modellelement må gjelde.
 
   Eller:
+    in_subset:
+      - Metadata
     is_a: Betingelsesregel
     class_uri: modelldcatno:Or
     description: Eller — logisk ELLER-betingelse; minst eitt modellelement må gjelde.
 
   XEllerY:
+    in_subset:
+      - Metadata
     is_a: Betingelsesregel
     class_uri: modelldcatno:Xor
     description: Xor — eksklusiv ELLER-betingelse; nøyaktig eitt modellelement må gjelde.
 
   Ikke:
+    in_subset:
+      - Metadata
     is_a: Betingelsesregel
     class_uri: modelldcatno:Not
     description: Ikkje — negasjon; modellelementet det refererer til må ikkje gjelde.
@@ -651,6 +723,8 @@ classes:
   # ---- Kodeelement ---------------------------------------------------------
 
   Kodeelement:
+    in_subset:
+      - Metadata
     class_uri: modelldcatno:CodeElement
     description: Eit element i ei kodeliste (modelldcatno:CodeElement).
     slots:
