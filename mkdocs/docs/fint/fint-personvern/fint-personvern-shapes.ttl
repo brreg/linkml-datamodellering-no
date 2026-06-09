@@ -9,46 +9,33 @@
     rdfs:comment "Rotcontainer for FINT Personvern-instansar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class pvn:Tjeneste ;
+    sh:property [ sh:class pvn:Behandlingsgrunnlag ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/personvern/:tenester> ],
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/personvern/:behandlingsgrunnlag> ],
         [ sh:class pvn:Personopplysning ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path <https://schema.fintlabs.no/personvern/:personopplysningar> ],
+        [ sh:class pvn:Samtykke ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/personvern/:samtykker> ],
         [ sh:class pvn:Behandling ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/personvern/:behandlingar> ],
-        [ sh:class pvn:Behandlingsgrunnlag ;
+        [ sh:class pvn:Tjeneste ;
             sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/personvern/:behandlingsgrunnlag> ],
-        [ sh:class pvn:Samtykke ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/personvern/:samtykker> ] ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/personvern/:tenester> ] ;
     sh:targetClass <https://schema.fintlabs.no/personvern/:PersonvernContainer> .
 
 pvn:Behandlingsgrunnlag a sh:NodeShape ;
     rdfs:comment "Rettsleg grunnlag for behandling av personopplysningar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -60,35 +47,6 @@ pvn:Behandlingsgrunnlag a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
-    sh:targetClass pvn:Behandlingsgrunnlag .
-
-pvn:Personopplysning a sh:NodeShape ;
-    rdfs:comment "Opplysningar og vurderingar som kan knytast til enkeltpersonar." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -96,45 +54,68 @@ pvn:Personopplysning a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass pvn:Behandlingsgrunnlag .
+
+pvn:Personopplysning a sh:NodeShape ;
+    rdfs:comment "Opplysningar og vurderingar som kan knytast til enkeltpersonar." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path fint:navn ] ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass pvn:Personopplysning .
 
 pvn:Samtykke a sh:NodeShape ;
     rdfs:comment "Tillating til behandling av personopplysning." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:class pvn:Behandling ;
+    sh:property [ sh:class pvn:Behandling ;
             sh:description "Behandlingsaktivitet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path pvn:behandling ],
-        [ sh:class fint:Person ;
-            sh:description "Referanse til Person i Administrasjon-domenet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path fint:person ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:description "Referanse til Organisasjonselement (Administrasjon)." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -146,7 +127,26 @@ pvn:Samtykke a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path pvn:opprettet ] ;
+            sh:path pvn:opprettet ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class fint:Person ;
+            sh:description "Referanse til Person i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path fint:person ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass pvn:Samtykke .
 
 pvn:Tjeneste a sh:NodeShape ;
@@ -160,6 +160,11 @@ pvn:Tjeneste a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class pvn:Behandling ;
             sh:description "Behandlingsaktivitet." ;
             sh:nodeKind sh:IRI ;
@@ -170,30 +175,43 @@ pvn:Tjeneste a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path pvn:slettet ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path pvn:slettet ] ;
     sh:targetClass pvn:Tjeneste .
 
 pvn:Behandling a sh:NodeShape ;
     rdfs:comment "All bruk av personopplysningar (behandlingsaktivitet)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class pvn:Samtykke ;
+            sh:description "Samtykker tilknytt ei behandling." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path pvn:samtykke ],
+        [ sh:class pvn:Behandlingsgrunnlag ;
+            sh:description "Rettsleg grunnlag for behandling av personopplysning." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path pvn:behandlingsgrunnlag ],
+        [ sh:datatype xsd:string ;
             sh:description "Grunngjeving for behandling av personopplysning." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path pvn:formal ],
-        [ sh:class pvn:Samtykke ;
-            sh:description "Samtykker tilknytt ei behandling." ;
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path pvn:samtykke ],
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt ressursen er sletta." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path pvn:slettet ],
         [ sh:datatype xsd:boolean ;
             sh:description "Status på behandling." ;
             sh:maxCount 1 ;
@@ -214,25 +232,7 @@ pvn:Behandling a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
-            sh:path pvn:personopplysning ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt ressursen er sletta." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path pvn:slettet ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class pvn:Behandlingsgrunnlag ;
-            sh:description "Rettsleg grunnlag for behandling av personopplysning." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path pvn:behandlingsgrunnlag ] ;
+            sh:path pvn:personopplysning ] ;
     sh:targetClass pvn:Behandling .
 
 

@@ -15,50 +15,29 @@
 <https://data.norge.no/ngr/ngr-virksomhet/VirksomhetContainer> a owl:Class ;
     rdfs:label "VirksomhetContainer" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Beliggenhetsadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/beliggenhetsadresser> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Rolleinnehaver> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rolleinnehavere> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollerIVirksomhet> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/beliggenhetsadresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Aktivitet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitetar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rolleinnehavere> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitetar> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokuraer> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/hovedenheter> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Hovedenhet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/hovedenheter> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kontaktinformasjon> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Forretningsadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/forretningsadresser> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskoder> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstander> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Aktivitet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitetar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Organisasjonsform> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsformer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsadresser> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/beliggenhetsadresser> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Underenhet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/underenheter> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Sektorkode> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkoder> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Signaturrett> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrettar> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/forretningsadresser> ],
@@ -66,50 +45,71 @@
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Kontaktinformasjon> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kontaktinformasjon> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Signaturrett> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrettar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Rolleinnehaver> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rolleinnehavere> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrettar> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Varslingsadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsadresser> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/postadresser> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsformer> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Prokura> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokuraer> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Sektorkode> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkoder> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskoder> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Tilstand> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstander> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Naeringskode> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskoder> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokuraer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/RolleIVirksomhet> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollerIVirksomhet> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/underenheter> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrettar> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsformer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitetar> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Tilstand> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstander> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Beliggenhetsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/beliggenhetsadresser> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Postadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/postadresser> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/postadresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Prokura> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokuraer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Underenhet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/underenheter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Hovedenhet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/hovedenheter> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Forretningsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/forretningsadresser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/underenheter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollerIVirksomhet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/postadresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Organisasjonsform> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsformer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Naeringskode> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskoder> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsadresser> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Varslingsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsadresser> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/hovedenheter> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkoder> ] ;
     skos:definition "Rotklasse for NGR-virksomhet-datafiler. Held flate lister av alle instansierbare klassar; referansar mellom objekt brukar URI-lenking." ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
 
@@ -216,8 +216,29 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Hovedenhet> a owl:Class ;
     rdfs:label "Hovedenhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_sektorkode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/utoevar_aktivitet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Aktivitet> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/utoevar_aktivitet> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Sektorkode> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_sektorkode> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/utoevar_aktivitet> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_forretningsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/stiftelsesdato> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_rolle_i_virksomhet> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Prokura> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_bestemmelser_om_prokura> ],
@@ -228,50 +249,29 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/stiftelsesdato> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_bestemmelser_om_prokura> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/stiftelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_sektorkode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_forretningsadresse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Aktivitet> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/utoevar_aktivitet> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_rolle_i_virksomhet> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Signaturrett> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_bestemmelser_om_signaturrett> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_bestemmelser_om_signaturrett> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/utoevar_aktivitet> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_bestemmelser_om_prokura> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Forretningsadresse> ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/stiftelsesdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_forretningsadresse> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_forretningsadresse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_sektorkode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Sektorkode> ;
+            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_sektorkode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/RolleIVirksomhet> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_rolle_i_virksomhet> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/stiftelsesdato> ],
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Forretningsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_forretningsadresse> ],
         <https://data.norge.no/ngr/ngr-virksomhet/Virksomhet> ;
     skos:definition "Ei hovudeining er den juridiske eininga registrert i Enhetsregisteret (t.d. AS, ENK, BA). Kan ha undereiningar og rolleinnehavarar." ;
     skos:exactMatch ngrv:Hovedenhet ;
@@ -295,38 +295,38 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Underenhet> a owl:Class ;
     rdfs:label "Underenhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nedleggelsesdato> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/eierskiftedatoer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_beliggenhetsadresse> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nedleggelsesdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/oppstartsdato> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/oppstartsdato> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/oppstartsdato> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nedleggelsesdato> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nedleggelsesdato> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nedleggelsesdato> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_beliggenhetsadresse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/eierskiftedatoer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Beliggenhetsadresse> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_beliggenhetsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/oppstartsdato> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_beliggenhetsadresse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/eierskiftedatoer> ],
         <https://data.norge.no/ngr/ngr-virksomhet/Virksomhet> ;
     skos:definition "Ei underleining er ein geografisk lokasjon der aktiviteten til ei hovudeining vert utøvd. Knyt seg til ei hovudeining via organisasjonsnummeret." ;
     skos:exactMatch ngrv:Underenhet ;
@@ -335,14 +335,45 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Virksomhet> a owl:Class ;
     rdfs:label "Virksomhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_naeringskode> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_varslingsadresse> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsnummer> ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Tilstand> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_tilstand> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_tilstand> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_som_organisasjonsform> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mottar_post_paa> ],
+        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_kontaktinformasjon> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/navn> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Postadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mottar_post_paa> ],
+        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-virksomhet/Hovedenhet> <https://data.norge.no/ngr/ngr-virksomhet/Underenhet> ) ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Varslingsadresse> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_varslingsadresse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Naeringskode> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_naeringskode> ],
@@ -354,71 +385,40 @@
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/navn> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/navn> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_varslingsadresse> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Postadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mottar_post_paa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mottar_post_paa> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/antall_ansatte> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Organisasjonsform> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_som_organisasjonsform> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/antall_ansatte> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_i_naeringskode> ],
+        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_som_organisasjonsform> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/antall_ansatte> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Varslingsadresse> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_varslingsadresse> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_varslingsadresse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mottar_post_paa> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/antall_ansatte> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Kontaktinformasjon> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_kontaktinformasjon> ],
         [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsnummer> ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:integer ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/antall_ansatte> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Tilstand> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_tilstand> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_varslingsadresse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_klassifisert_som_organisasjonsform> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_tilstand> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsnummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-virksomhet/Hovedenhet> <https://data.norge.no/ngr/ngr-virksomhet/Underenhet> ) ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsnummer> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/navn> ] ;
     skos:definition "Abstrakt overklasse for alle einingar registrert i Enhetsregisteret. Ei verksemd er alltid anten ei underleining eller ei hovudeining." ;
     skos:exactMatch ngrv:Virksomhet ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -526,23 +526,23 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Aktivitet> a owl:Class ;
     rdfs:label "Aktivitet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitet_beskrivelse> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitet_beskrivelse> ],
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitet_beskrivelse> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/aktivitet_beskrivelse> ] ;
     skos:definition "Skildring av kva aktivitet ei hovudeining utøver. Svarer til formålsparagrafen eller føremålet til verksemda." ;
     skos:exactMatch ngrv:Aktivitet ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -550,15 +550,15 @@
 <https://data.norge.no/ngr/ngr-virksomhet/GeografiskAdresse> a owl:Class ;
     rdfs:label "GeografiskAdresse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-virksomhet/Beliggenhetsadresse> <https://data.norge.no/ngr/ngr-virksomhet/Forretningsadresse> <https://data.norge.no/ngr/ngr-virksomhet/Postadresse> ) ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ owl:unionOf ( <https://data.norge.no/ngr/ngr-virksomhet/Beliggenhetsadresse> <https://data.norge.no/ngr/ngr-virksomhet/Forretningsadresse> <https://data.norge.no/ngr/ngr-virksomhet/Postadresse> ) ] ;
     skos:definition "Abstrakt klasse for geografiske adresser. Tilhøyrer Domene adresse og forvaltast av Matrikkelen. Enhetsregisteret nyttar Kartverket som kjelde til vegadresse, og gjer jamnleg vask mot Posten sitt adresseregister." ;
     skos:exactMatch ngrv:GeografiskAdresse ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -566,17 +566,38 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Kontaktinformasjon> a owl:Class ;
     rdfs:label "Kontaktinformasjon" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/telefonnummer> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nettside> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mobiltelefonnummer> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/epostadresse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/telefonnummer> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/epostadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nettside> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/epostadresse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mobiltelefonnummer> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mobiltelefonnummer> ],
@@ -584,32 +605,11 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mobiltelefonnummer> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/telefonnummer> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/epostadresse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nettside> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/epostadresse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nettside> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/telefonnummer> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/epostadresse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/mobiltelefonnummer> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/nettside> ] ;
     skos:definition "Kontaktinformasjon for verksemda registrert i Enhetsregisteret." ;
     skos:exactMatch ngrv:Kontaktinformasjon ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -617,41 +617,41 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Naeringskode> a owl:Class ;
     rdfs:label "Naeringskode" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_hovednaeringskode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_hovednaeringskode> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_kode> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_beskrivelse> ],
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_hovednaeringskode> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_hovednaeringskode> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_kode> ] ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/er_hovednaeringskode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_kode> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/naeringskode_beskrivelse> ] ;
     skos:definition "Næringskode basert på SSBs Standard for næringsgruppering (SN2007/NACE). Ei verksemd kan ha 1–3 næringskoder." ;
     skos:exactMatch ngrv:Naeringskode ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -660,31 +660,31 @@
     rdfs:label "Organisasjonsform" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_kode> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_kode> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_beskrivelse> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_kode> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_beskrivelse> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/organisasjonsform_kode> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
     skos:definition "Klassifikasjon av juridisk organisasjonsform (t.d. AS, ENK, BA, NUF). Kodeverk forvalta av Enhetsregisteret." ;
     skos:exactMatch ngrv:Organisasjonsform ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -693,22 +693,22 @@
     rdfs:label "Prokura" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokura_bestemmelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokura_bestemmelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokura_bestemmelse> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokura_bestemmelse> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/prokura_bestemmelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
     skos:definition "Prokura gjev ein person fullmakt til å handle på vegne av verksemda i næringssaker. Verksemda kan ha fleire prokuraistar." ;
     skos:exactMatch ngrv:Prokura ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -716,26 +716,26 @@
 <https://data.norge.no/ngr/ngr-virksomhet/RolleIVirksomhet> a owl:Class ;
     rdfs:label "RolleIVirksomhet" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollebetegnelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/:RolleType> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollebetegnelse> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_rolleinnehaver> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollebetegnelse> ],
-        [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollebetegnelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Rolleinnehaver> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/har_rolleinnehaver> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollebetegnelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/:RolleType> ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rollebetegnelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
@@ -749,29 +749,29 @@
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rolleinnehaver_navn> ],
         [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rolleinnehaver_navn> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kan_vaere_av_type_person> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Person> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kan_vaere_av_type_person> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rolleinnehaver_navn> ],
         [ a owl:Restriction ;
-            owl:minCardinality 0 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/rolleinnehaver_navn> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kan_vaere_av_type_person> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+            owl:minCardinality 0 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kan_vaere_av_type_person> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/Person> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/kan_vaere_av_type_person> ] ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
     skos:definition "Den som innehar ein rolle i ei verksemd. Kan vere ein fysisk person (frå Folkeregisteret) eller ei anna eining." ;
     skos:exactMatch ngrv:Rolleinnehaver ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -779,32 +779,32 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Sektorkode> a owl:Class ;
     rdfs:label "Sektorkode" ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_kode> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_kode> ],
+        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_kode> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_beskrivelse> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_kode> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_kode> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_beskrivelse> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/sektorkode_kode> ] ;
     skos:definition "Institusjonell sektorkode som klassifiserer kva sektor verksemda tilhøyrer (t.d. offentleg, privat)." ;
     skos:exactMatch ngrv:Sektorkode ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -813,22 +813,22 @@
     rdfs:label "Signaturrett" ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrett_bestemmelse> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrett_bestemmelse> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrett_bestemmelse> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/signaturrett_bestemmelse> ] ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
     skos:definition "Bestemmelse om kven som har rett til å signere på vegne av verksemda (t.d. \"Styret i fellesskap\" eller \"Dagleg leiar aleine\")." ;
     skos:exactMatch ngrv:Signaturrett ;
     skos:inScheme <https://data.norge.no/ngr/ngr-virksomhet> .
@@ -836,26 +836,14 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Tilstand> a owl:Class ;
     rdfs:label "Tilstand" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_fra> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstandstype> ],
-        [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstandstype> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
-        [ a owl:Restriction ;
             owl:minCardinality 0 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_til> ],
         [ a owl:Restriction ;
-            owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_til> ],
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstandstype> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_fra> ],
@@ -864,10 +852,22 @@
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstandstype> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_til> ],
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_fra> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_til> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_fra> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/tilstandstype> ],
+        [ a owl:Restriction ;
+            owl:maxCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/gyldig_til> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ] ;
@@ -878,28 +878,28 @@
 <https://data.norge.no/ngr/ngr-virksomhet/Varslingsadresse> a owl:Class ;
     rdfs:label "Varslingsadresse" ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:anyURI ;
+            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
+        [ a owl:Restriction ;
+            owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingstype> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingstype> ],
         [ a owl:Restriction ;
-            owl:minCardinality 1 ;
+            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/:VarslingType> ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingstype> ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsverdi> ],
         [ a owl:Restriction ;
             owl:minCardinality 1 ;
+            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsverdi> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:anyURI ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/id> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsverdi> ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom <https://data.norge.no/ngr/ngr-virksomhet/:VarslingType> ;
-            owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingstype> ],
-        [ a owl:Restriction ;
-            owl:minCardinality 1 ;
             owl:onProperty <https://data.norge.no/ngr/ngr-virksomhet/varslingsverdi> ],
         [ a owl:Restriction ;
             owl:maxCardinality 1 ;

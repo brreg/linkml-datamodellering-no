@@ -8,10 +8,10 @@
 <https://data.norge.no/ngr/ngr-virksomhet/ngr-virksomhet> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Nasjonale grunndata – Virksomhet" ;
-    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/ngr-virksomhet#"^^xsd:anyURI ;
+    sh:declare [ sh:namespace "https://data.norge.no/vocabulary/ngr-virksomhet#"^^xsd:anyURI ;
             sh:prefix "ngrv" ],
+        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ] ;
     linkml:classes <https://data.norge.no/ngr/ngr-virksomhet/Aktivitet>,
@@ -40,7 +40,7 @@
     linkml:enums <https://data.norge.no/ngr/ngr-virksomhet/RolleType>,
         <https://data.norge.no/ngr/ngr-virksomhet/TilstandType>,
         <https://data.norge.no/ngr/ngr-virksomhet/VarslingType> ;
-    linkml:generation_date "2026-06-02T06:42:18"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-08T14:31:45"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/ngr/ngr-virksomhet"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;

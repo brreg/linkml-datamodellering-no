@@ -1,5 +1,5 @@
 # Auto generated from brreg-modellkatalog-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-08T09:39:15
+# Generation date: 2026-06-08T14:31:16
 # Schema: brreg-modellkatalog
 #
 # id: https://data.norge.no/modellkatalog/brreg-modellkatalog

@@ -1,5 +1,5 @@
 # Auto generated from xkos-ap-no-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-02T06:41:48
+# Generation date: 2026-06-08T14:31:13
 # Schema: xkos-ap-no
 #
 # id: https://data.norge.no/ap-no/xkos-ap-no

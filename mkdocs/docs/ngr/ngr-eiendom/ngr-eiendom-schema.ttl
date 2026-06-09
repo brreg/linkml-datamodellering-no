@@ -8,12 +8,12 @@
 <https://data.norge.no/ngr/ngr-eiendom/ngr-eiendom> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Nasjonale grunndata – Eiendom" ;
-    sh:declare [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
-            sh:prefix "xsd" ],
+    sh:declare [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
+            sh:prefix "linkml" ],
         [ sh:namespace "https://data.norge.no/vocabulary/ngr-eiendom#"^^xsd:anyURI ;
             sh:prefix "ngre" ],
-        [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
-            sh:prefix "linkml" ] ;
+        [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
+            sh:prefix "xsd" ] ;
     linkml:classes <https://data.norge.no/ngr/ngr-eiendom/Andel>,
         <https://data.norge.no/ngr/ngr-eiendom/Anleggseiendom>,
         <https://data.norge.no/ngr/ngr-eiendom/Anleggsprojeksjonsflate>,
@@ -60,7 +60,7 @@
     linkml:default_range <https://data.norge.no/ngr/ngr-eiendom/string> ;
     linkml:description "Domenemodell for norske eigedomsdata basert på Nasjonale grunndata (utkast). Modellerer Fast eiendom, Borettslagsandel, Matrikkelenhet, Bygning, Eierforhold og tilknytta klasser. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/" ;
     linkml:enums <https://data.norge.no/ngr/ngr-eiendom/Etasjeplan> ;
-    linkml:generation_date "2026-06-02T06:42:20"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-08T14:31:48"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/ngr/ngr-eiendom"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;

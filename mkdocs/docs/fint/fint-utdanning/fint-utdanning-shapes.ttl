@@ -9,284 +9,277 @@
     rdfs:comment "Rotcontainer for FINT Utdanning-instansar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Fraversregistrering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 32 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:fraversregistrering> ],
-        [ sh:class utd:Elevkategori ;
+    sh:property [ sh:class utd:Elevkategori ;
             sh:nodeKind sh:IRI ;
             sh:order 54 ;
             sh:path <https://schema.fintlabs.no/utdanning/:elevkategoriar> ],
-        [ sh:class utd:OtEnhet ;
+        [ sh:class utd:Fraversregistrering ;
             sh:nodeKind sh:IRI ;
-            sh:order 60 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:otEnheter> ],
-        [ sh:class utd:Fullfortkode ;
-            sh:nodeKind sh:IRI ;
-            sh:order 57 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:fullfortkoder> ],
-        [ sh:class utd:Tilrettelegging ;
-            sh:nodeKind sh:IRI ;
-            sh:order 46 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:tilrettelegging> ],
-        [ sh:class utd:Programomrademedlemskap ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:programomrademedlemskap> ],
-        [ sh:class utd:Halvaarsfagvurdering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 33 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:halvaarsfagvurdering> ],
-        [ sh:class utd:OtUngdom ;
-            sh:nodeKind sh:IRI ;
-            sh:order 49 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:otUngdom> ],
-        [ sh:class utd:AvlagtProve ;
-            sh:nodeKind sh:IRI ;
-            sh:order 47 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:avlagteprover> ],
-        [ sh:class utd:Eksamen ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:eksamen> ],
-        [ sh:class utd:Elevtilrettelegging ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:elevtilrettelegging> ],
-        [ sh:class utd:Betalingsstatus ;
-            sh:nodeKind sh:IRI ;
-            sh:order 42 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:betalingsstatus> ],
-        [ sh:class utd:Klasse ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:klasser> ],
-        [ sh:class utd:Anmerkninger ;
-            sh:nodeKind sh:IRI ;
-            sh:order 25 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:anmerkningar> ],
-        [ sh:class utd:Eksamensvurdering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 28 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:eksamensvurdering> ],
-        [ sh:class utd:Undervisningsgruppe ;
-            sh:nodeKind sh:IRI ;
-            sh:order 23 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:undervisningsgrupper> ],
-        [ sh:class utd:Skoleressurs ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:skoleressursar> ],
-        [ sh:class utd:Eksamensform ;
-            sh:nodeKind sh:IRI ;
-            sh:order 53 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:eksamensformer> ],
-        [ sh:class utd:Karakterhistorie ;
-            sh:nodeKind sh:IRI ;
-            sh:order 35 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:karakterhistorie> ],
-        [ sh:class utd:Programomrade ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:programomrader> ],
-        [ sh:class utd:Eksamensgruppe ;
-            sh:nodeKind sh:IRI ;
-            sh:order 26 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:eksamensgrupper> ],
-        [ sh:class utd:Vitnemalsmerknad ;
-            sh:nodeKind sh:IRI ;
-            sh:order 41 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:vitnemalsmerknad> ],
-        [ sh:class utd:Fagstatus ;
-            sh:nodeKind sh:IRI ;
-            sh:order 43 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:fagstatus> ],
-        [ sh:class utd:Fagmerknad ;
-            sh:nodeKind sh:IRI ;
-            sh:order 55 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:fagmerknader> ],
-        [ sh:class utd:Varsel ;
-            sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:varsel> ],
-        [ sh:class utd:Fravartype ;
-            sh:nodeKind sh:IRI ;
-            sh:order 56 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:fravartypar> ],
-        [ sh:class utd:Karakterskala ;
-            sh:nodeKind sh:IRI ;
-            sh:order 58 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:karakterskalaer> ],
-        [ sh:class utd:Varseltype ;
-            sh:nodeKind sh:IRI ;
-            sh:order 65 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:varseltypar> ],
-        [ sh:class utd:Brevtype ;
-            sh:nodeKind sh:IRI ;
-            sh:order 52 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:brevtypar> ],
-        [ sh:class utd:Termin ;
-            sh:nodeKind sh:IRI ;
-            sh:order 64 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:terminar> ],
-        [ sh:class utd:Laerling ;
-            sh:nodeKind sh:IRI ;
-            sh:order 48 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:laerlingar> ],
-        [ sh:class utd:Fag ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:fag> ],
-        [ sh:class utd:Skoleeiertype ;
-            sh:nodeKind sh:IRI ;
-            sh:order 63 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:skoleeijartypar> ],
-        [ sh:class utd:Underveisordensvurdering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 40 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:underveisordensvurdering> ],
-        [ sh:class utd:Undervisningsgruppemedlemskap ;
-            sh:nodeKind sh:IRI ;
-            sh:order 24 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:undervisningsgruppemedlemskap> ],
-        [ sh:class utd:Klassemedlemskap ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:klassemedlemskap> ],
-        [ sh:class utd:Persongruppemedlemskap ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:persongruppemedlemskap> ],
-        [ sh:class utd:Avbruddsaarsak ;
-            sh:nodeKind sh:IRI ;
-            sh:order 50 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:avbruddsaarsaker> ],
-        [ sh:class utd:Persongruppe ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:persongrupper> ],
-        [ sh:class utd:Provestatus ;
-            sh:nodeKind sh:IRI ;
-            sh:order 62 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:provestatuser> ],
-        [ sh:class utd:Undervisningsforhold ;
-            sh:nodeKind sh:IRI ;
-            sh:order 22 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:undervisningsforhold> ],
-        [ sh:class utd:Elevforhold ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:elevforhold> ],
-        [ sh:class utd:Kontaktlaerergruppe ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:kontaktlaerergrupper> ],
-        [ sh:class utd:Faggruppe ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:faggrupper> ],
-        [ sh:class utd:Fravarsoversikt ;
-            sh:nodeKind sh:IRI ;
-            sh:order 31 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:fravarsoversikt> ],
-        [ sh:class utd:Skole ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:skolar> ],
-        [ sh:class utd:Skoleaar ;
-            sh:nodeKind sh:IRI ;
-            sh:order 45 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:skoleaar> ],
-        [ sh:class utd:Sluttfagvurdering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 37 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:sluttfagvurdering> ],
-        [ sh:class utd:Sluttordensvurdering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 38 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:sluttordensvurdering> ],
-        [ sh:class utd:Elevfravar ;
-            sh:nodeKind sh:IRI ;
-            sh:order 29 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:elevfravar> ],
-        [ sh:class utd:Karakterstatus ;
-            sh:nodeKind sh:IRI ;
-            sh:order 44 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:karakterstatus> ],
-        [ sh:class utd:Karakterverdi ;
-            sh:nodeKind sh:IRI ;
-            sh:order 59 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:karakterverdiar> ],
-        [ sh:class utd:Rom ;
-            sh:nodeKind sh:IRI ;
-            sh:order 20 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:rom> ],
-        [ sh:class utd:Elevvurdering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 30 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:elevvurdering> ],
-        [ sh:class utd:OtStatus ;
-            sh:nodeKind sh:IRI ;
-            sh:order 61 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:otStatus> ],
-        [ sh:class utd:Eksamensgruppemedlemskap ;
-            sh:nodeKind sh:IRI ;
-            sh:order 27 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:eksamensgruppemedlemskap> ],
-        [ sh:class utd:Halvaarsordensvurdering ;
-            sh:nodeKind sh:IRI ;
-            sh:order 34 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:halvaarsordensvurdering> ],
-        [ sh:class fint:Elev ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:elevar> ],
+            sh:order 32 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:fraversregistrering> ],
         [ sh:class utd:Time ;
             sh:nodeKind sh:IRI ;
             sh:order 21 ;
             sh:path <https://schema.fintlabs.no/utdanning/:timar> ],
-        [ sh:class utd:Bevistype ;
+        [ sh:class utd:Betalingsstatus ;
             sh:nodeKind sh:IRI ;
-            sh:order 51 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:bevistypar> ],
-        [ sh:class utd:Utdanningsprogram ;
+            sh:order 42 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:betalingsstatus> ],
+        [ sh:class utd:Fag ;
             sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:utdanningsprogram> ],
-        [ sh:class utd:Arstrinn ;
+            sh:order 17 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:fag> ],
+        [ sh:class utd:Karakterstatus ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:arstrinn> ],
+            sh:order 44 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:karakterstatus> ],
+        [ sh:class utd:Anmerkninger ;
+            sh:nodeKind sh:IRI ;
+            sh:order 25 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:anmerkningar> ],
         [ sh:class utd:Sensor ;
             sh:nodeKind sh:IRI ;
             sh:order 36 ;
             sh:path <https://schema.fintlabs.no/utdanning/:sensor> ],
-        [ sh:class utd:Faggruppemedlemskap ;
+        [ sh:class utd:Persongruppemedlemskap ;
             sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:faggruppemedlemskap> ],
+            sh:order 10 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:persongruppemedlemskap> ],
+        [ sh:class utd:Eksamensvurdering ;
+            sh:nodeKind sh:IRI ;
+            sh:order 28 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:eksamensvurdering> ],
+        [ sh:class utd:Fravartype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 56 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:fravartypar> ],
+        [ sh:class utd:Programomrademedlemskap ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:programomrademedlemskap> ],
+        [ sh:class utd:Vitnemalsmerknad ;
+            sh:nodeKind sh:IRI ;
+            sh:order 41 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:vitnemalsmerknad> ],
+        [ sh:class utd:Fullfortkode ;
+            sh:nodeKind sh:IRI ;
+            sh:order 57 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:fullfortkoder> ],
+        [ sh:class utd:Halvaarsfagvurdering ;
+            sh:nodeKind sh:IRI ;
+            sh:order 33 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:halvaarsfagvurdering> ],
+        [ sh:class utd:Sluttfagvurdering ;
+            sh:nodeKind sh:IRI ;
+            sh:order 37 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:sluttfagvurdering> ],
+        [ sh:class utd:AvlagtProve ;
+            sh:nodeKind sh:IRI ;
+            sh:order 47 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:avlagteprover> ],
         [ sh:class utd:Kontaktlaerergruppemedlemskap ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path <https://schema.fintlabs.no/utdanning/:kontaktlaerergruppemedlemskap> ],
+        [ sh:class utd:Brevtype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 52 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:brevtypar> ],
+        [ sh:class utd:Programomrade ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:programomrader> ],
+        [ sh:class utd:Halvaarsordensvurdering ;
+            sh:nodeKind sh:IRI ;
+            sh:order 34 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:halvaarsordensvurdering> ],
+        [ sh:class utd:Karakterskala ;
+            sh:nodeKind sh:IRI ;
+            sh:order 58 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:karakterskalaer> ],
+        [ sh:class utd:Undervisningsgruppe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 23 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:undervisningsgrupper> ],
+        [ sh:class utd:Eksamensform ;
+            sh:nodeKind sh:IRI ;
+            sh:order 53 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:eksamensformer> ],
+        [ sh:class utd:Elevfravar ;
+            sh:nodeKind sh:IRI ;
+            sh:order 29 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:elevfravar> ],
+        [ sh:class utd:Faggruppemedlemskap ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:faggruppemedlemskap> ],
+        [ sh:class utd:Skole ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:skolar> ],
+        [ sh:class utd:Termin ;
+            sh:nodeKind sh:IRI ;
+            sh:order 64 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:terminar> ],
+        [ sh:class utd:OtStatus ;
+            sh:nodeKind sh:IRI ;
+            sh:order 61 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:otStatus> ],
+        [ sh:class utd:Elevtilrettelegging ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:elevtilrettelegging> ],
+        [ sh:class utd:Provestatus ;
+            sh:nodeKind sh:IRI ;
+            sh:order 62 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:provestatuser> ],
+        [ sh:class utd:Underveisordensvurdering ;
+            sh:nodeKind sh:IRI ;
+            sh:order 40 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:underveisordensvurdering> ],
+        [ sh:class utd:Avbruddsaarsak ;
+            sh:nodeKind sh:IRI ;
+            sh:order 50 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:avbruddsaarsaker> ],
+        [ sh:class utd:Bevistype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 51 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:bevistypar> ],
+        [ sh:class utd:Fagmerknad ;
+            sh:nodeKind sh:IRI ;
+            sh:order 55 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:fagmerknader> ],
+        [ sh:class utd:Utdanningsprogram ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:utdanningsprogram> ],
+        [ sh:class utd:Klassemedlemskap ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:klassemedlemskap> ],
+        [ sh:class utd:Skoleeiertype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 63 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:skoleeijartypar> ],
+        [ sh:class utd:Faggruppe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 18 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:faggrupper> ],
+        [ sh:class utd:Skoleaar ;
+            sh:nodeKind sh:IRI ;
+            sh:order 45 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:skoleaar> ],
+        [ sh:class utd:Undervisningsgruppemedlemskap ;
+            sh:nodeKind sh:IRI ;
+            sh:order 24 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:undervisningsgruppemedlemskap> ],
         [ sh:class utd:Underveisfagvurdering ;
             sh:nodeKind sh:IRI ;
             sh:order 39 ;
-            sh:path <https://schema.fintlabs.no/utdanning/:underveisfagvurdering> ] ;
+            sh:path <https://schema.fintlabs.no/utdanning/:underveisfagvurdering> ],
+        [ sh:class utd:Undervisningsforhold ;
+            sh:nodeKind sh:IRI ;
+            sh:order 22 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:undervisningsforhold> ],
+        [ sh:class utd:Elevvurdering ;
+            sh:nodeKind sh:IRI ;
+            sh:order 30 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:elevvurdering> ],
+        [ sh:class utd:Sluttordensvurdering ;
+            sh:nodeKind sh:IRI ;
+            sh:order 38 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:sluttordensvurdering> ],
+        [ sh:class utd:Karakterverdi ;
+            sh:nodeKind sh:IRI ;
+            sh:order 59 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:karakterverdiar> ],
+        [ sh:class utd:OtUngdom ;
+            sh:nodeKind sh:IRI ;
+            sh:order 49 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:otUngdom> ],
+        [ sh:class utd:Varseltype ;
+            sh:nodeKind sh:IRI ;
+            sh:order 65 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:varseltypar> ],
+        [ sh:class utd:Kontaktlaerergruppe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:kontaktlaerergrupper> ],
+        [ sh:class utd:Elevforhold ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:elevforhold> ],
+        [ sh:class utd:Fravarsoversikt ;
+            sh:nodeKind sh:IRI ;
+            sh:order 31 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:fravarsoversikt> ],
+        [ sh:class fint:Elev ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:elevar> ],
+        [ sh:class utd:Eksamensgruppemedlemskap ;
+            sh:nodeKind sh:IRI ;
+            sh:order 27 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:eksamensgruppemedlemskap> ],
+        [ sh:class utd:Fagstatus ;
+            sh:nodeKind sh:IRI ;
+            sh:order 43 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:fagstatus> ],
+        [ sh:class utd:Tilrettelegging ;
+            sh:nodeKind sh:IRI ;
+            sh:order 46 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:tilrettelegging> ],
+        [ sh:class utd:Eksamensgruppe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 26 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:eksamensgrupper> ],
+        [ sh:class utd:Skoleressurs ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:skoleressursar> ],
+        [ sh:class utd:Persongruppe ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:persongrupper> ],
+        [ sh:class utd:Laerling ;
+            sh:nodeKind sh:IRI ;
+            sh:order 48 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:laerlingar> ],
+        [ sh:class utd:Arstrinn ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:arstrinn> ],
+        [ sh:class utd:Klasse ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:klasser> ],
+        [ sh:class utd:Rom ;
+            sh:nodeKind sh:IRI ;
+            sh:order 20 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:rom> ],
+        [ sh:class utd:Eksamen ;
+            sh:nodeKind sh:IRI ;
+            sh:order 16 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:eksamen> ],
+        [ sh:class utd:Karakterhistorie ;
+            sh:nodeKind sh:IRI ;
+            sh:order 35 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:karakterhistorie> ],
+        [ sh:class utd:OtEnhet ;
+            sh:nodeKind sh:IRI ;
+            sh:order 60 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:otEnheter> ],
+        [ sh:class utd:Varsel ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path <https://schema.fintlabs.no/utdanning/:varsel> ] ;
     sh:targetClass <https://schema.fintlabs.no/utdanning/:UtdanningContainer> .
 
 utd:FagvurderingAbstrakt a sh:NodeShape ;
     rdfs:comment "Abstrakt basisklasse for fagvurderingar." ;
     sh:closed false ;
-    sh:ignoredProperties ( rdf:type utd:eksamensgruppe utd:karakterhistorie utd:elevvurdering ) ;
-    sh:property [ sh:datatype xsd:dateTime ;
-            sh:description "Dato og tidspunkt for vurderinga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path utd:vurderingsdato ],
-        [ sh:class utd:Skoleaar ;
+    sh:ignoredProperties ( utd:karakterhistorie utd:eksamensgruppe rdf:type utd:elevvurdering ) ;
+    sh:property [ sh:class utd:Skoleaar ;
             sh:description "Skoleåret." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -297,6 +290,12 @@ utd:FagvurderingAbstrakt a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Fag ;
+            sh:description "Fag." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path utd:fag ],
         [ sh:datatype xsd:string ;
             sh:description "Kommentar." ;
             sh:maxCount 1 ;
@@ -310,29 +309,30 @@ utd:FagvurderingAbstrakt a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:karakter ],
-        [ sh:class utd:Fag ;
-            sh:description "Fag." ;
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og tidspunkt for vurderinga." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path utd:fag ] ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path utd:vurderingsdato ] ;
     sh:targetClass utd:FagvurderingAbstrakt .
 
 utd:Gruppe a sh:NodeShape ;
     rdfs:comment "Abstrakt basisklasse for alle gruppetypar i utdanning." ;
     sh:closed false ;
-    sh:ignoredProperties ( utd:termin utd:undervisningsforhold utd:skole utd:skuletime utd:grepreferanse utd:persongruppemedlemskap fint:elev utd:fag utd:programomrade utd:trinn utd:sensor utd:eksamen utd:gruppemedlemskap utd:faggruppe utd:vigoreferanse utd:faggruppemedlemskap utd:skoleaar utd:klassemedlemskap utd:skoleressurs utd:tilrettelegging utd:klasse utd:eksamensform utd:eksamensdato utd:undervisningsgruppe utd:kontaktlaerergruppe rdf:type utd:eksamensgruppe ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:ignoredProperties ( utd:skoleressurs utd:gruppemedlemskap utd:eksamensform utd:kontaktlaerergruppe utd:programomrade utd:skole utd:undervisningsgruppe utd:faggruppemedlemskap utd:termin utd:skoleaar utd:vigoreferanse utd:eksamensdato utd:klassemedlemskap utd:sensor utd:undervisningsforhold utd:eksamen fint:elev utd:eksamensgruppe utd:persongruppemedlemskap utd:klasse utd:grepreferanse utd:fag rdf:type utd:trinn utd:faggruppe utd:tilrettelegging utd:skuletime ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:beskrivelse ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -345,29 +345,31 @@ utd:Gruppe a sh:NodeShape ;
 utd:Gruppemedlemskap a sh:NodeShape ;
     rdfs:comment "Abstrakt basisklasse for gruppemedlemskapar i utdanning." ;
     sh:closed false ;
-    sh:ignoredProperties ( utd:fagmerknad utd:nus utd:elevforhold utd:persongruppe utd:programomrade utd:faggruppe utd:betalingsstatus utd:kandidatnummer utd:foretrukketSensor utd:delegertTil utd:undervisningsgruppe rdf:type utd:klasse utd:foretrukketSkole utd:varsel utd:kontaktlaerergruppe utd:fagstatus utd:eksamensgruppe utd:delegert ) ;
-    sh:property [ sh:class fint:Periode ;
+    sh:ignoredProperties ( utd:varsel utd:kontaktlaerergruppe utd:programomrade utd:undervisningsgruppe utd:nus utd:fagstatus utd:fagmerknad utd:foretrukketSkole utd:eksamensgruppe utd:foretrukketSensor utd:klasse utd:persongruppe utd:delegert rdf:type utd:faggruppe utd:delegertTil utd:kandidatnummer utd:betalingsstatus utd:elevforhold ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 1 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass utd:Gruppemedlemskap .
 
 utd:OrdensvurderingAbstrakt a sh:NodeShape ;
     rdfs:comment "Abstrakt basisklasse for ordensvurderingar." ;
     sh:closed false ;
     sh:ignoredProperties ( rdf:type utd:elevvurdering ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og tidspunkt for vurderinga." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path utd:vurderingsdato ],
         [ sh:class utd:Karakterverdi ;
             sh:description "Åtferdskarakter." ;
             sh:maxCount 1 ;
@@ -386,50 +388,42 @@ utd:OrdensvurderingAbstrakt a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path utd:orden ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:string ;
             sh:description "Kommentar." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path utd:kommentar ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Dato og tidspunkt for vurderinga." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path utd:vurderingsdato ] ;
+            sh:path utd:kommentar ] ;
     sh:targetClass utd:OrdensvurderingAbstrakt .
 
 utd:Utdanningsforhold a sh:NodeShape ;
     rdfs:comment "Abstrakt basisklasse for undervisningsforhold i utdanning." ;
     sh:closed false ;
-    sh:ignoredProperties ( utd:arbeidsforhold utd:skuletime utd:skoleressurs utd:klasse utd:kontaktlaerergruppe rdf:type utd:eksamensgruppe ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:ignoredProperties ( utd:skoleressurs utd:eksamensgruppe utd:arbeidsforhold utd:kontaktlaerergruppe utd:klasse rdf:type utd:skuletime ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path fint:beskrivelse ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path fint:beskrivelse ] ;
     sh:targetClass utd:Utdanningsforhold .
 
 utd:Anmerkninger a sh:NodeShape ;
     rdfs:comment "Åtferds- og ordensanmerkningar for ein elev i eit skoleår." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path utd:skoleaar ],
-        [ sh:datatype xsd:integer ;
+    sh:property [ sh:datatype xsd:integer ;
             sh:description "Åtferdskarakter." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -447,53 +441,59 @@ utd:Anmerkninger a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path utd:orden ] ;
+            sh:path utd:orden ],
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path utd:skoleaar ] ;
     sh:targetClass utd:Anmerkninger .
 
 utd:Laerling a sh:NodeShape ;
     rdfs:comment "Ein lærling i yrkesopplæring." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Person ;
+    sh:property [ sh:description "Referanse til bedrifta lærlingen er i." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:bedrift ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Person ;
             sh:description "Referanse til Person i Administrasjon-domenet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path fint:person ],
-        [ sh:datatype xsd:string ;
-            sh:description "Type kontrakt for lærlingen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path utd:kontraktstype ],
-        [ sh:description "Referanse til bedrifta lærlingen er i." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:bedrift ],
         [ sh:class utd:Programomrade ;
             sh:description "Programområde." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path utd:programomrade ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
+        [ sh:class utd:AvlagtProve ;
+            sh:description "Avlagde prøver." ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
+            sh:order 5 ;
+            sh:path utd:avlagtprove ],
+        [ sh:datatype xsd:string ;
+            sh:description "Type kontrakt for lærlingen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path utd:kontraktstype ],
         [ sh:class fint:Periode ;
             sh:description "Læringstidsperiode for lærlingen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 2 ;
-            sh:path utd:laretid ],
-        [ sh:class utd:AvlagtProve ;
-            sh:description "Avlagde prøver." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:avlagtprove ] ;
+            sh:path utd:laretid ] ;
     sh:targetClass utd:Laerling .
 
 utd:OtUngdom a sh:NodeShape ;
@@ -507,18 +507,18 @@ utd:OtUngdom a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path fint:person ],
-        [ sh:class utd:OtStatus ;
-            sh:description "OT-status for ungdommen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:status ],
         [ sh:class utd:OtEnhet ;
             sh:description "OT-eining." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path utd:enhet ],
+        [ sh:class utd:OtStatus ;
+            sh:description "OT-status for ungdommen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:status ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -543,6 +543,18 @@ utd:Avbruddsaarsak a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -550,18 +562,6 @@ utd:Avbruddsaarsak a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -573,7 +573,29 @@ utd:AvlagtProve a sh:NodeShape ;
     rdfs:comment "Ei avlagt prøve for ein lærling." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Bevistype ;
+    sh:property [ sh:datatype xsd:date ;
+            sh:description "Dato prøva vart avlagt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path utd:provedato ],
+        [ sh:description "Referanse til Laerling (Utdanning)." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path fint:laerling ],
+        [ sh:class utd:Provestatus ;
+            sh:description "Status for prøva." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path utd:provestatus ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Bevistype ;
             sh:description "Type kompetansebevis." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -590,36 +612,25 @@ utd:AvlagtProve a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
-            sh:path utd:fullfortkode ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato prøva vart avlagt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path utd:provedato ],
-        [ sh:class utd:Provestatus ;
-            sh:description "Status for prøva." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path utd:provestatus ],
-        [ sh:description "Referanse til Laerling (Utdanning)." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path fint:laerling ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path utd:fullfortkode ] ;
     sh:targetClass utd:AvlagtProve .
 
 utd:Betalingsstatus a sh:NodeShape ;
     rdfs:comment "Betalingsstatus for eksamensavgift." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -638,18 +649,7 @@ utd:Betalingsstatus a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ] ;
+            sh:path fint:navn ] ;
     sh:targetClass utd:Betalingsstatus .
 
 utd:Bevistype a sh:NodeShape ;
@@ -661,50 +661,19 @@ utd:Bevistype a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ] ;
-    sh:targetClass utd:Bevistype .
-
-utd:Brevtype a sh:NodeShape ;
-    rdfs:comment "Type brev knytt til lærlingprøve." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
@@ -717,31 +686,80 @@ utd:Brevtype a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
+            sh:path fint:navn ] ;
+    sh:targetClass utd:Bevistype .
+
+utd:Brevtype a sh:NodeShape ;
+    rdfs:comment "Type brev knytt til lærlingprøve." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
     sh:targetClass utd:Brevtype .
 
 utd:Eksamensvurdering a sh:NodeShape ;
     rdfs:comment "Vurdering gjeven i samband med ein eksamen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path utd:skoleaar ],
-        [ sh:class utd:Fag ;
+    sh:property [ sh:class utd:Fag ;
             sh:description "Fag." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path utd:fag ],
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path utd:skoleaar ],
+        [ sh:class utd:Karakterhistorie ;
+            sh:description "Karakterhistorikk." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:karakterhistorie ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og tidspunkt for vurderinga." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 5 ;
+            sh:path utd:vurderingsdato ],
+        [ sh:class utd:Karakterverdi ;
+            sh:description "Karakterverdi." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path utd:karakter ],
         [ sh:datatype xsd:string ;
             sh:description "Kommentar." ;
             sh:maxCount 1 ;
@@ -749,22 +767,6 @@ utd:Eksamensvurdering a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path utd:kommentar ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Karakterverdi ;
-            sh:description "Karakterverdi." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path utd:karakter ],
-        [ sh:class utd:Karakterhistorie ;
-            sh:description "Karakterhistorikk." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:karakterhistorie ],
         [ sh:class utd:Elevvurdering ;
             sh:description "Elevvurderingsobjekt." ;
             sh:maxCount 1 ;
@@ -779,38 +781,34 @@ utd:Eksamensvurdering a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:eksamensgruppe ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Dato og tidspunkt for vurderinga." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 5 ;
-            sh:path utd:vurderingsdato ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass utd:Eksamensvurdering .
 
 utd:Elevkategori a sh:NodeShape ;
     rdfs:comment "Kategori for eit elevforhold (t.d. Ordinær, Privatist, Voksen)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:class fint:Periode ;
+    sh:property [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -818,11 +816,13 @@ utd:Elevkategori a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
-        [ sh:description "URI-identifikator for ressursen." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
     sh:targetClass utd:Elevkategori .
 
 utd:Elevtilrettelegging a sh:NodeShape ;
@@ -834,18 +834,18 @@ utd:Elevtilrettelegging a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Elevforhold ;
-            sh:description "Referanse til Elev (Utdanning)." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path fint:elev ],
         [ sh:class utd:Tilrettelegging ;
             sh:description "Tilretteleggingstype." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path utd:tilrettelegging ],
+        [ sh:class utd:Elevforhold ;
+            sh:description "Referanse til Elev (Utdanning)." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path fint:elev ],
         [ sh:class utd:Eksamensform ;
             sh:description "Eksamensform." ;
             sh:maxCount 1 ;
@@ -858,6 +858,43 @@ utd:Fagmerknad a sh:NodeShape ;
     rdfs:comment "Merknad knytt til eit fag i ei faggruppe." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ] ;
+    sh:targetClass utd:Fagmerknad .
+
+utd:Fagstatus a sh:NodeShape ;
+    rdfs:comment "Status for eit fag i eit faggruppemedlemskap." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
@@ -871,13 +908,6 @@ utd:Fagmerknad a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
@@ -888,44 +918,14 @@ utd:Fagmerknad a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
-    sh:targetClass utd:Fagmerknad .
-
-utd:Fagstatus a sh:NodeShape ;
-    rdfs:comment "Status for eit fag i eit faggruppemedlemskap." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
+            sh:path fint:kode ] ;
     sh:targetClass utd:Fagstatus .
 
 utd:Fravarsoversikt a sh:NodeShape ;
@@ -946,25 +946,25 @@ utd:Fravarsoversikt a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path utd:elevforhold ],
-        [ sh:class utd:Fravarsprosent ;
-            sh:description "Fråværsprosent for halvåret." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 1 ;
-            sh:path utd:halvaar ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Fag ;
             sh:description "Fag." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
-            sh:path utd:fag ] ;
+            sh:path utd:fag ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Fravarsprosent ;
+            sh:description "Fråværsprosent for halvåret." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 1 ;
+            sh:path utd:halvaar ] ;
     sh:targetClass utd:Fravarsoversikt .
 
 utd:Fravarsprosent a sh:NodeShape ;
@@ -998,19 +998,25 @@ utd:Fravartype a sh:NodeShape ;
     rdfs:comment "Type fråvær (t.d. Udokumentert, Dokumentert)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -1018,12 +1024,6 @@ utd:Fravartype a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1035,25 +1035,43 @@ utd:Fraversregistrering a sh:NodeShape ;
     rdfs:comment "Ei enkelt fråversregistrering for ein elev." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Undervisningsgruppe ;
-            sh:description "Undervisningsgruppe." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:undervisningsgruppe ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
+    sh:property [ sh:class fint:Periode ;
             sh:description "Periode." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path utd:periode ],
+        [ sh:class utd:Undervisningsgruppe ;
+            sh:description "Undervisningsgruppe." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:undervisningsgruppe ],
+        [ sh:class utd:Elevfravar ;
+            sh:description "Fråværsobjekt for elev." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path utd:elevfravar ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommentar." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path utd:kommentar ],
+        [ sh:class utd:Faggruppe ;
+            sh:description "Faggruppe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:faggruppe ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Fravartype ;
             sh:description "Type fråvær." ;
             sh:maxCount 1 ;
@@ -1061,81 +1079,88 @@ utd:Fraversregistrering a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path utd:fravartype ],
-        [ sh:class utd:Faggruppe ;
-            sh:description "Faggruppe." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:faggruppe ],
         [ sh:class utd:Skoleressurs ;
             sh:description "Skoleressurs som registrerte fråværet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path utd:registrertAv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Kommentar." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path utd:kommentar ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir om fråværet vert ført på vitnemålet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path utd:forersPaaVitnemaal ],
-        [ sh:class utd:Elevfravar ;
-            sh:description "Fråværsobjekt for elev." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path utd:elevfravar ] ;
+            sh:path utd:forersPaaVitnemaal ] ;
     sh:targetClass utd:Fraversregistrering .
 
 utd:Fullfortkode a sh:NodeShape ;
     rdfs:comment "Kode for fullførtresultat av lærling." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
+            sh:path fint:navn ] ;
     sh:targetClass utd:Fullfortkode .
 
 utd:Halvaarsfagvurdering a sh:NodeShape ;
     rdfs:comment "Halvårsvurdering i eit fag." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Elevvurdering ;
+    sh:property [ sh:class utd:Fag ;
+            sh:description "Fag." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:fag ],
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:skoleaar ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommentar." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path utd:kommentar ],
+        [ sh:class utd:Karakterverdi ;
+            sh:description "Karakterverdi." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:karakter ],
+        [ sh:class utd:Elevvurdering ;
             sh:description "Elevvurderingsobjekt." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1149,31 +1174,6 @@ utd:Halvaarsfagvurdering a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path utd:vurderingsdato ],
-        [ sh:class utd:Fag ;
-            sh:description "Fag." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:fag ],
-        [ sh:datatype xsd:string ;
-            sh:description "Kommentar." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path utd:kommentar ],
-        [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:skoleaar ],
-        [ sh:class utd:Karakterverdi ;
-            sh:description "Karakterverdi." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:karakter ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1192,25 +1192,6 @@ utd:Halvaarsordensvurdering a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:elevvurdering ],
-        [ sh:class utd:Karakterverdi ;
-            sh:description "Ordenskarakter." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:orden ],
-        [ sh:datatype xsd:string ;
-            sh:description "Kommentar." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path utd:kommentar ],
-        [ sh:class utd:Karakterverdi ;
-            sh:description "Åtferdskarakter." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:atferd ],
         [ sh:class utd:Skoleaar ;
             sh:description "Skoleåret." ;
             sh:maxCount 1 ;
@@ -1228,30 +1209,39 @@ utd:Halvaarsordensvurdering a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Karakterverdi ;
+            sh:description "Ordenskarakter." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:orden ],
+        [ sh:class utd:Karakterverdi ;
+            sh:description "Åtferdskarakter." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:atferd ],
+        [ sh:datatype xsd:string ;
+            sh:description "Kommentar." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path utd:kommentar ] ;
     sh:targetClass utd:Halvaarsordensvurdering .
 
 utd:Karakterskala a sh:NodeShape ;
     rdfs:comment "Skala for karaktersetjing (t.d. 1-6, Bestått/Ikkje bestått)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
-        [ sh:description "Referanse til Vigo-systemet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:vigoreferanse ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -1259,6 +1249,17 @@ utd:Karakterskala a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
@@ -1270,12 +1271,11 @@ utd:Karakterskala a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:verdi ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
+        [ sh:description "Referanse til Vigo-systemet." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:vigoreferanse ] ;
     sh:targetClass utd:Karakterskala .
 
 utd:OtEnhet a sh:NodeShape ;
@@ -1289,6 +1289,19 @@ utd:OtEnhet a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1306,27 +1319,25 @@ utd:OtEnhet a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ] ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass utd:OtEnhet .
 
 utd:OtStatus a sh:NodeShape ;
     rdfs:comment "Status for ein ungdom i oppfølgingstenesta." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path fint:beskrivelse ],
+        [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1339,18 +1350,6 @@ utd:OtStatus a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 5 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriv kva slags type." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:type ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
@@ -1358,79 +1357,80 @@ utd:OtStatus a sh:NodeShape ;
             sh:order 6 ;
             sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
+            sh:description "Beskriv kva slags type." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:type ],
+        [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path fint:beskrivelse ] ;
+            sh:path fint:navn ] ;
     sh:targetClass utd:OtStatus .
 
 utd:Persongruppe a sh:NodeShape ;
     rdfs:comment "Ei gruppe elevar definert for personlege føremål." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Elevforhold ;
-            sh:description "Referanse til Elev (Utdanning)." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path fint:elev ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Undervisningsforhold ;
-            sh:description "Undervisningsforhold." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path utd:undervisningsforhold ],
-        [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:skoleaar ],
-        [ sh:class utd:Termin ;
-            sh:description "Termin." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:termin ],
-        [ sh:class utd:Skole ;
+    sh:property [ sh:class utd:Skole ;
             sh:description "Skulen dette gjeld." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path utd:skole ],
-        [ sh:class utd:Skoleressurs ;
-            sh:description "Skoleressurs." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:skoleressurs ],
         [ sh:class utd:Persongruppemedlemskap ;
             sh:description "Persongruppemedlemskap." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path utd:persongruppemedlemskap ],
+        [ sh:class utd:Elevforhold ;
+            sh:description "Referanse til Elev (Utdanning)." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path fint:elev ],
+        [ sh:class utd:Undervisningsforhold ;
+            sh:description "Undervisningsforhold." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path utd:undervisningsforhold ],
+        [ sh:class utd:Skoleressurs ;
+            sh:description "Skoleressurs." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:skoleressurs ],
         [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path fint:beskrivelse ],
+        [ sh:class utd:Termin ;
+            sh:description "Termin." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:termin ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
-            sh:path fint:navn ] ;
+            sh:path fint:navn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:skoleaar ] ;
     sh:targetClass utd:Persongruppe .
 
 utd:Provestatus a sh:NodeShape ;
@@ -1442,13 +1442,6 @@ utd:Provestatus a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
@@ -1467,14 +1460,34 @@ utd:Provestatus a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ] ;
     sh:targetClass utd:Provestatus .
 
 utd:Skoleeiertype a sh:NodeShape ;
     rdfs:comment "Type skuleeigartilknyting." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
+        [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
@@ -1491,61 +1504,19 @@ utd:Skoleeiertype a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ] ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass utd:Skoleeiertype .
 
 utd:Sluttfagvurdering a sh:NodeShape ;
     rdfs:comment "Sluttkarakter i eit fag." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Fag ;
-            sh:description "Fag." ;
+    sh:property [ sh:class utd:Eksamensgruppe ;
+            sh:description "Eksamensgruppe." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:fag ],
-        [ sh:class utd:Elevvurdering ;
-            sh:description "Elevvurderingsobjekt." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:elevvurdering ],
-        [ sh:class utd:Karakterhistorie ;
-            sh:description "Karakterhistorikk." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:karakterhistorie ],
-        [ sh:class utd:Karakterverdi ;
-            sh:description "Karakterverdi." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path utd:karakter ],
-        [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path utd:skoleaar ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
+            sh:order 0 ;
+            sh:path utd:eksamensgruppe ],
         [ sh:datatype xsd:string ;
             sh:description "Kommentar." ;
             sh:maxCount 1 ;
@@ -1553,36 +1524,65 @@ utd:Sluttfagvurdering a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path utd:kommentar ],
-        [ sh:class utd:Eksamensgruppe ;
-            sh:description "Eksamensgruppe." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:eksamensgruppe ],
         [ sh:datatype xsd:dateTime ;
             sh:description "Dato og tidspunkt for vurderinga." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path utd:vurderingsdato ] ;
+            sh:path utd:vurderingsdato ],
+        [ sh:class utd:Karakterverdi ;
+            sh:description "Karakterverdi." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path utd:karakter ],
+        [ sh:class utd:Karakterhistorie ;
+            sh:description "Karakterhistorikk." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:karakterhistorie ],
+        [ sh:class utd:Fag ;
+            sh:description "Fag." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:fag ],
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path utd:skoleaar ],
+        [ sh:class utd:Elevvurdering ;
+            sh:description "Elevvurderingsobjekt." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:elevvurdering ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass utd:Sluttfagvurdering .
 
 utd:Sluttordensvurdering a sh:NodeShape ;
     rdfs:comment "Sluttordensvurdering for ein elev." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Karakterverdi ;
+    sh:property [ sh:class utd:Karakterverdi ;
             sh:description "Ordenskarakter." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:orden ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:dateTime ;
             sh:description "Dato og tidspunkt for vurderinga." ;
             sh:maxCount 1 ;
@@ -1622,7 +1622,20 @@ utd:Underveisfagvurdering a sh:NodeShape ;
     rdfs:comment "Underveisfagvurdering for ein elev." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
+    sh:property [ sh:class utd:Elevvurdering ;
+            sh:description "Elevvurderingsobjekt." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:elevvurdering ],
+        [ sh:class utd:Fag ;
+            sh:description "Fag." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:fag ],
+        [ sh:datatype xsd:string ;
             sh:description "Kommentar." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -1635,25 +1648,6 @@ utd:Underveisfagvurdering a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:skoleaar ],
-        [ sh:class utd:Fag ;
-            sh:description "Fag." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:fag ],
-        [ sh:class utd:Karakterverdi ;
-            sh:description "Karakterverdi." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:karakter ],
-        [ sh:class utd:Elevvurdering ;
-            sh:description "Elevvurderingsobjekt." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:elevvurdering ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1665,25 +1659,26 @@ utd:Underveisfagvurdering a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path utd:vurderingsdato ] ;
+            sh:path utd:vurderingsdato ],
+        [ sh:class utd:Karakterverdi ;
+            sh:description "Karakterverdi." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:karakter ] ;
     sh:targetClass utd:Underveisfagvurdering .
 
 utd:Underveisordensvurdering a sh:NodeShape ;
     rdfs:comment "Underveisordensvurdering for ein elev." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
+    sh:property [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og tidspunkt for vurderinga." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:skoleaar ],
-        [ sh:class utd:Karakterverdi ;
-            sh:description "Åtferdskarakter." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:atferd ],
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path utd:vurderingsdato ],
         [ sh:class utd:Elevvurdering ;
             sh:description "Elevvurderingsobjekt." ;
             sh:maxCount 1 ;
@@ -1691,17 +1686,18 @@ utd:Underveisordensvurdering a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:elevvurdering ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Karakterverdi ;
             sh:description "Ordenskarakter." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:orden ],
+        [ sh:class utd:Karakterverdi ;
+            sh:description "Åtferdskarakter." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:atferd ],
         [ sh:datatype xsd:string ;
             sh:description "Kommentar." ;
             sh:maxCount 1 ;
@@ -1709,13 +1705,17 @@ utd:Underveisordensvurdering a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path utd:kommentar ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Dato og tidspunkt for vurderinga." ;
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
             sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path utd:vurderingsdato ] ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:skoleaar ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass utd:Underveisordensvurdering .
 
 utd:Utdanningsprogram a sh:NodeShape ;
@@ -1729,6 +1729,27 @@ utd:Utdanningsprogram a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 6 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class utd:Programomrade ;
+            sh:description "Programområde." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:programomrade ],
+        [ sh:description "Referanse til GREP-registeret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:grepreferanse ],
+        [ sh:class utd:Skole ;
+            sh:description "Skulen dette gjeld." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:skole ],
         [ sh:description "Referanse til Vigo-systemet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1738,45 +1759,47 @@ utd:Utdanningsprogram a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 6 ;
-            sh:path fint:beskrivelse ],
-        [ sh:description "Referanse til GREP-registeret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:grepreferanse ],
-        [ sh:class utd:Programomrade ;
-            sh:description "Programområde." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:programomrade ],
-        [ sh:class utd:Skole ;
-            sh:description "Skulen dette gjeld." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:skole ] ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass utd:Utdanningsprogram .
 
 utd:Varsel a sh:NodeShape ;
     rdfs:comment "Eit varsel knytt til ein elev i ei faggruppe." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Varseltype ;
-            sh:description "Beskriv kva slags type." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path fint:type ],
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Faggruppemedlemskap ;
             sh:description "Faggruppemedlemskap." ;
             sh:nodeKind sh:IRI ;
             sh:order 7 ;
             sh:path utd:faggruppemedlemskap ],
+        [ sh:datatype xsd:string ;
+            sh:description "Innhald i varselet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path utd:tekst ],
+        [ sh:class utd:Varseltype ;
+            sh:description "Beskriv kva slags type." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path fint:type ],
+        [ sh:datatype xsd:date ;
+            sh:description "Dato varselet vart sendt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path utd:sendt ],
+        [ sh:datatype xsd:integer ;
+            sh:description "Fråværsprosent." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path utd:fravarsprosent ],
         [ sh:class utd:Skoleressurs ;
             sh:description "Skoleressurs som er ansvarleg for karakteren." ;
             sh:maxCount 1 ;
@@ -1788,30 +1811,7 @@ utd:Varsel a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
-            sh:path utd:utsteder ],
-        [ sh:datatype xsd:integer ;
-            sh:description "Fråværsprosent." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path utd:fravarsprosent ],
-        [ sh:datatype xsd:string ;
-            sh:description "Innhald i varselet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path utd:tekst ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:date ;
-            sh:description "Dato varselet vart sendt." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path utd:sendt ] ;
+            sh:path utd:utsteder ] ;
     sh:targetClass utd:Varsel .
 
 utd:Varseltype a sh:NodeShape ;
@@ -1819,30 +1819,30 @@ utd:Varseltype a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
@@ -1856,31 +1856,31 @@ utd:Vitnemalsmerknad a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1892,7 +1892,12 @@ utd:Arstrinn a sh:NodeShape ;
     rdfs:comment "Eit årstrinn i skulen (t.d. Vg1, Vg2, Vg3)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Referanse til GREP-registeret." ;
+    sh:property [ sh:description "Referanse til Vigo-systemet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:vigoreferanse ],
+        [ sh:description "Referanse til GREP-registeret." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
@@ -1903,16 +1908,16 @@ utd:Arstrinn a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path fint:beskrivelse ],
-        [ sh:description "Referanse til Vigo-systemet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:vigoreferanse ],
         [ sh:class utd:Klasse ;
             sh:description "Klasse." ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:klasse ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Programomrade ;
             sh:description "Programområde." ;
             sh:nodeKind sh:IRI ;
@@ -1924,19 +1929,33 @@ utd:Arstrinn a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
-            sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path fint:navn ] ;
     sh:targetClass utd:Arstrinn .
 
 utd:Eksamen a sh:NodeShape ;
     rdfs:comment "Ein eksamen knytt til ei eksamensgruppe." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Eksamensgruppe ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Tidsrom." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 4 ;
+            sh:path utd:tidsrom ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Tidspunkt for oppmøte." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path utd:oppmoetetidspunkt ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:navn ],
+        [ sh:class utd:Eksamensgruppe ;
             sh:description "Eksamensgruppe." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -1948,59 +1967,29 @@ utd:Eksamen a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:beskrivelse ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Tidspunkt for oppmøte." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path utd:oppmoetetidspunkt ],
-        [ sh:class utd:Rom ;
-            sh:description "Rom." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:rom ],
-        [ sh:class fint:Periode ;
-            sh:description "Tidsrom." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 4 ;
-            sh:path utd:tidsrom ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:navn ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Rom ;
+            sh:description "Rom." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:rom ] ;
     sh:targetClass utd:Eksamen .
 
 utd:Eksamensform a sh:NodeShape ;
     rdfs:comment "Form for gjennomføring av eksamen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:kode ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -2008,12 +1997,23 @@ utd:Eksamensform a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
-            sh:path fint:passiv ] ;
+            sh:path fint:passiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass utd:Eksamensform .
 
 utd:Eksamensgruppemedlemskap a sh:NodeShape ;
@@ -2021,11 +2021,18 @@ utd:Eksamensgruppemedlemskap a sh:NodeShape ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:boolean ;
-            sh:description "Angir om sensor er føretrekt." ;
+            sh:description "Angir om deltakinga er delegert." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path utd:foretrukketSensor ],
+            sh:order 0 ;
+            sh:path utd:delegert ],
+        [ sh:class utd:Elevforhold ;
+            sh:description "Elevforholdet dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:elevforhold ],
         [ sh:datatype xsd:string ;
             sh:description "Kandidatnummer." ;
             sh:maxCount 1 ;
@@ -2038,11 +2045,28 @@ utd:Eksamensgruppemedlemskap a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:betalingsstatus ],
+        [ sh:description "Referanse til den deltakinga er delegert til." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:delegertTil ],
+        [ sh:class utd:Karakterstatus ;
+            sh:description "NUS-kode." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path utd:nus ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 9 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir om sensor er føretrekt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path utd:foretrukketSensor ],
         [ sh:class utd:Eksamensgruppe ;
             sh:description "Eksamensgruppe." ;
             sh:maxCount 1 ;
@@ -2056,36 +2080,12 @@ utd:Eksamensgruppemedlemskap a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 10 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:description "Referanse til den deltakinga er delegert til." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:delegertTil ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir om deltakinga er delegert." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path utd:delegert ],
-        [ sh:class utd:Elevforhold ;
-            sh:description "Elevforholdet dette gjeld." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:elevforhold ],
         [ sh:datatype xsd:boolean ;
             sh:description "Angir om skulen er føretrekt for eksamenen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
-            sh:path utd:foretrukketSkole ],
-        [ sh:class utd:Karakterstatus ;
-            sh:description "NUS-kode." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path utd:nus ] ;
+            sh:path utd:foretrukketSkole ] ;
     sh:targetClass utd:Eksamensgruppemedlemskap .
 
 utd:Elevfravar a sh:NodeShape ;
@@ -2099,64 +2099,64 @@ utd:Elevfravar a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path utd:elevforhold ],
-        [ sh:class utd:Fraversregistrering ;
-            sh:description "Fråversregistreringar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:fraversregistrering ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Fraversregistrering ;
+            sh:description "Fråversregistreringar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:fraversregistrering ] ;
     sh:targetClass utd:Elevfravar .
 
 utd:Karakterhistorie a sh:NodeShape ;
     rdfs:comment "Historikk over endringar i ein karakter." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:class utd:Skoleressurs ;
+            sh:description "Skoleressurs som oppdaterte karakteren." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Dato og tidspunkt for endringa." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path utd:endretDato ],
-        [ sh:class utd:Karakterstatus ;
-            sh:description "Opphavleg karakterstatus." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:opprinneligKarakterstatus ],
+            sh:order 2 ;
+            sh:path utd:oppdatertAv ],
         [ sh:class utd:Karakterstatus ;
             sh:description "Karakterstatus." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path utd:karakterstatus ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Karakterverdi ;
             sh:description "Opphavleg karakterverdi." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path utd:opprinneligKarakterverdi ],
+        [ sh:class utd:Karakterstatus ;
+            sh:description "Opphavleg karakterstatus." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:opprinneligKarakterstatus ],
         [ sh:class utd:Karakterverdi ;
             sh:description "Karakterverdi." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:karakterverdi ],
-        [ sh:class utd:Skoleressurs ;
-            sh:description "Skoleressurs som oppdaterte karakteren." ;
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato og tidspunkt for endringa." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:oppdatertAv ] ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path utd:endretDato ] ;
     sh:targetClass utd:Karakterhistorie .
 
 utd:Klassemedlemskap a sh:NodeShape ;
@@ -2174,30 +2174,59 @@ utd:Klassemedlemskap a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Elevforhold ;
-            sh:description "Elevforholdet dette gjeld." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:elevforhold ],
         [ sh:class fint:Periode ;
             sh:description "Periode ressursen er gyldig for." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class utd:Elevforhold ;
+            sh:description "Elevforholdet dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:elevforhold ] ;
     sh:targetClass utd:Klassemedlemskap .
 
 utd:Kontaktlaerergruppemedlemskap a sh:NodeShape ;
     rdfs:comment "Eit elevs medlemskap i ei kontaktlærargruppe." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Kontaktlaerergruppe ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class utd:Elevforhold ;
+            sh:description "Elevforholdet dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:elevforhold ],
+        [ sh:class utd:Kontaktlaerergruppe ;
             sh:description "Kontaktlærargruppe." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path utd:kontaktlaerergruppe ],
+            sh:path utd:kontaktlaerergruppe ] ;
+    sh:targetClass utd:Kontaktlaerergruppemedlemskap .
+
+utd:Persongruppemedlemskap a sh:NodeShape ;
+    rdfs:comment "Eit elevs medlemskap i ei persongruppe." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class utd:Persongruppe ;
+            sh:description "Persongruppe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:persongruppe ],
         [ sh:class utd:Elevforhold ;
             sh:description "Elevforholdet dette gjeld." ;
             sh:maxCount 1 ;
@@ -2215,42 +2244,24 @@ utd:Kontaktlaerergruppemedlemskap a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path <https://schema.fintlabs.no/:id> ] ;
-    sh:targetClass utd:Kontaktlaerergruppemedlemskap .
-
-utd:Persongruppemedlemskap a sh:NodeShape ;
-    rdfs:comment "Eit elevs medlemskap i ei persongruppe." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:class utd:Persongruppe ;
-            sh:description "Persongruppe." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:persongruppe ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Elevforhold ;
-            sh:description "Elevforholdet dette gjeld." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:elevforhold ] ;
     sh:targetClass utd:Persongruppemedlemskap .
 
 utd:Programomrademedlemskap a sh:NodeShape ;
     rdfs:comment "Eit elevs tilknyting til eit programområde." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Elevforhold ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class utd:Elevforhold ;
             sh:description "Elevforholdet dette gjeld." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -2261,18 +2272,7 @@ utd:Programomrademedlemskap a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
-            sh:path utd:programomrade ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ] ;
+            sh:path utd:programomrade ] ;
     sh:targetClass utd:Programomrademedlemskap .
 
 utd:Rom a sh:NodeShape ;
@@ -2285,16 +2285,16 @@ utd:Rom a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Eksamen ;
             sh:description "Eksamen." ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path utd:eksamen ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Time ;
             sh:description "Ein skuletime i timeplanen." ;
             sh:nodeKind sh:IRI ;
@@ -2306,12 +2306,7 @@ utd:Sensor a sh:NodeShape ;
     rdfs:comment "Ein sensor for ein eksamen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Skoleressurs ;
+    sh:property [ sh:class utd:Skoleressurs ;
             sh:description "Skoleressurs." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
@@ -2332,6 +2327,11 @@ utd:Sensor a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
             sh:path utd:aktiv ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:integer ;
             sh:description "Sensornummer." ;
             sh:maxCount 1 ;
@@ -2342,118 +2342,6 @@ utd:Sensor a sh:NodeShape ;
 
 utd:Tilrettelegging a sh:NodeShape ;
     rdfs:comment "Type tilrettelegging for elevar (t.d. Utvida tid)." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ] ;
-    sh:targetClass utd:Tilrettelegging .
-
-utd:Undervisningsgruppemedlemskap a sh:NodeShape ;
-    rdfs:comment "Eit elevs medlemskap i ei undervisningsgruppe." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:class utd:Undervisningsgruppe ;
-            sh:description "Undervisningsgruppe." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:undervisningsgruppe ],
-        [ sh:class utd:Elevforhold ;
-            sh:description "Elevforholdet dette gjeld." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:elevforhold ] ;
-    sh:targetClass utd:Undervisningsgruppemedlemskap .
-
-utd:Faggruppemedlemskap a sh:NodeShape ;
-    rdfs:comment "Eit elevs medlemskap i ei faggruppe." ;
-    sh:closed true ;
-    sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 6 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:class utd:Varsel ;
-            sh:description "Varsel." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:varsel ],
-        [ sh:class utd:Faggruppe ;
-            sh:description "Faggruppe." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:faggruppe ],
-        [ sh:class utd:Fagmerknad ;
-            sh:description "Merknad til faget." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path utd:fagmerknad ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Elevforhold ;
-            sh:description "Elevforholdet dette gjeld." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:elevforhold ],
-        [ sh:class utd:Fagstatus ;
-            sh:description "Fagstatus." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:fagstatus ] ;
-    sh:targetClass utd:Faggruppemedlemskap .
-
-utd:Karakterstatus a sh:NodeShape ;
-    rdfs:comment "Status for ein karakter (t.d. Fråvær, Friteke)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
     sh:property [ sh:datatype xsd:boolean ;
@@ -2469,6 +2357,111 @@ utd:Karakterstatus a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path fint:navn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ] ;
+    sh:targetClass utd:Tilrettelegging .
+
+utd:Undervisningsgruppemedlemskap a sh:NodeShape ;
+    rdfs:comment "Eit elevs medlemskap i ei undervisningsgruppe." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class utd:Elevforhold ;
+            sh:description "Elevforholdet dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:elevforhold ],
+        [ sh:class utd:Undervisningsgruppe ;
+            sh:description "Undervisningsgruppe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:undervisningsgruppe ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass utd:Undervisningsgruppemedlemskap .
+
+utd:Faggruppemedlemskap a sh:NodeShape ;
+    rdfs:comment "Eit elevs medlemskap i ei faggruppe." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 6 ;
+            sh:path fint:gyldighetsperiode ],
+        [ sh:class utd:Fagmerknad ;
+            sh:description "Merknad til faget." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path utd:fagmerknad ],
+        [ sh:class utd:Faggruppe ;
+            sh:description "Faggruppe." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:faggruppe ],
+        [ sh:class utd:Varsel ;
+            sh:description "Varsel." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:varsel ],
+        [ sh:class utd:Elevforhold ;
+            sh:description "Elevforholdet dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:elevforhold ],
+        [ sh:class utd:Fagstatus ;
+            sh:description "Fagstatus." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:fagstatus ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
+    sh:targetClass utd:Faggruppemedlemskap .
+
+utd:Karakterstatus a sh:NodeShape ;
+    rdfs:comment "Status for ein karakter (t.d. Fråvær, Friteke)." ;
+    sh:closed true ;
+    sh:ignoredProperties ( rdf:type ) ;
+    sh:property [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -2486,69 +2479,72 @@ utd:Karakterstatus a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path fint:kode ] ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ] ;
     sh:targetClass utd:Karakterstatus .
 
 utd:Time a sh:NodeShape ;
     rdfs:comment "Ein time i timeplanen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:navn ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:beskrivelse ],
+    sh:property [ sh:class utd:Rom ;
+            sh:description "Rom." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:rom ],
         [ sh:class fint:Periode ;
             sh:description "Tidsrom." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path utd:tidsrom ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
+        [ sh:class utd:Undervisningsgruppe ;
+            sh:description "Undervisningsgruppe." ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
+            sh:order 6 ;
+            sh:path utd:undervisningsgruppe ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:navn ],
         [ sh:class utd:Undervisningsforhold ;
             sh:description "Undervisningsforhold." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path utd:undervisningsforhold ],
-        [ sh:class utd:Rom ;
-            sh:description "Rom." ;
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:rom ],
-        [ sh:class utd:Undervisningsgruppe ;
-            sh:description "Undervisningsgruppe." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:undervisningsgruppe ] ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:beskrivelse ] ;
     sh:targetClass utd:Time .
 
 utd:Faggruppe a sh:NodeShape ;
     rdfs:comment "Ei gruppe elevar knytt til eit fag på ein skule." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Faggruppemedlemskap ;
-            sh:description "Faggruppemedlemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path utd:faggruppemedlemskap ],
+            sh:order 2 ;
+            sh:path utd:skoleaar ],
         [ sh:class utd:Fag ;
             sh:description "Fag." ;
             sh:maxCount 1 ;
@@ -2556,18 +2552,23 @@ utd:Faggruppe a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:fag ],
+        [ sh:class utd:Skole ;
+            sh:description "Skulen dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:skole ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path fint:beskrivelse ],
-        [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:skoleaar ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -2575,44 +2576,18 @@ utd:Faggruppe a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 5 ;
             sh:path fint:navn ],
-        [ sh:class utd:Skole ;
-            sh:description "Skulen dette gjeld." ;
-            sh:maxCount 1 ;
+        [ sh:class utd:Faggruppemedlemskap ;
+            sh:description "Faggruppemedlemskap." ;
             sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:skole ] ;
+            sh:order 3 ;
+            sh:path utd:faggruppemedlemskap ] ;
     sh:targetClass utd:Faggruppe .
 
 utd:Kontaktlaerergruppe a sh:NodeShape ;
     rdfs:comment "Gruppe av elevar med felles kontaktlærar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path fint:navn ],
-        [ sh:class utd:Skole ;
-            sh:description "Skulen dette gjeld." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:skole ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 8 ;
-            sh:path fint:beskrivelse ],
-        [ sh:class utd:Klasse ;
-            sh:description "Klasse." ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:klasse ],
-        [ sh:class utd:Undervisningsforhold ;
+    sh:property [ sh:class utd:Undervisningsforhold ;
             sh:description "Undervisningsforhold." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
@@ -2627,11 +2602,36 @@ utd:Kontaktlaerergruppe a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path utd:termin ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path fint:navn ],
+        [ sh:class utd:Klasse ;
+            sh:description "Klasse." ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:klasse ],
+        [ sh:class utd:Skole ;
+            sh:description "Skulen dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:skole ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 8 ;
+            sh:path fint:beskrivelse ],
         [ sh:class utd:Skoleaar ;
             sh:description "Skoleåret." ;
             sh:maxCount 1 ;
@@ -2644,23 +2644,45 @@ utd:Undervisningsgruppe a sh:NodeShape ;
     rdfs:comment "Ei gruppe elevar som følgjer same undervisning i eit eller fleire fag." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:skoleaar ],
-        [ sh:class utd:Fag ;
+    sh:property [ sh:class utd:Fag ;
             sh:description "Fag." ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path utd:fag ],
-        [ sh:class utd:Undervisningsgruppemedlemskap ;
-            sh:description "Gruppemedlemskap." ;
+        [ sh:class utd:Undervisningsforhold ;
+            sh:description "Undervisningsforhold." ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:gruppemedlemskap ],
+            sh:order 0 ;
+            sh:path utd:undervisningsforhold ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:skoleaar ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 9 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class utd:Skole ;
+            sh:description "Skulen dette gjeld." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:skole ],
+        [ sh:class utd:Time ;
+            sh:description "Ein skuletime i timeplanen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:skuletime ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -2668,33 +2690,11 @@ utd:Undervisningsgruppe a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path fint:navn ],
-        [ sh:class utd:Skole ;
-            sh:description "Skulen dette gjeld." ;
-            sh:maxCount 1 ;
+        [ sh:class utd:Undervisningsgruppemedlemskap ;
+            sh:description "Gruppemedlemskap." ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:skole ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Time ;
-            sh:description "Ein skuletime i timeplanen." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:skuletime ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 9 ;
-            sh:path fint:beskrivelse ],
-        [ sh:class utd:Undervisningsforhold ;
-            sh:description "Undervisningsforhold." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:undervisningsforhold ],
+            sh:order 6 ;
+            sh:path utd:gruppemedlemskap ],
         [ sh:class utd:Termin ;
             sh:description "Termin." ;
             sh:nodeKind sh:IRI ;
@@ -2706,22 +2706,27 @@ utd:Klasse a sh:NodeShape ;
     rdfs:comment "Ei fast klasse av elevar ved ein skule (tidlegare kalla Basisgruppe)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Skoleaar ;
+    sh:property [ sh:class utd:Kontaktlaerergruppe ;
+            sh:description "Kontaktlærargruppe." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:kontaktlaerergruppe ],
+        [ sh:class utd:Skoleaar ;
             sh:description "Skoleåret." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:skoleaar ],
+        [ sh:class utd:Undervisningsforhold ;
+            sh:description "Undervisningsforhold." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:undervisningsforhold ],
         [ sh:class utd:Termin ;
             sh:description "Termin." ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path utd:termin ],
-        [ sh:class utd:Arstrinn ;
-            sh:description "Årstrinnet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:trinn ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -2729,27 +2734,22 @@ utd:Klasse a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 8 ;
             sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Undervisningsforhold ;
-            sh:description "Undervisningsforhold." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:undervisningsforhold ],
-        [ sh:class utd:Kontaktlaerergruppe ;
-            sh:description "Kontaktlærargruppe." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:kontaktlaerergruppe ],
         [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path fint:beskrivelse ],
+        [ sh:class utd:Arstrinn ;
+            sh:description "Årstrinnet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:trinn ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Klassemedlemskap ;
             sh:description "Klassemedlemskap." ;
             sh:nodeKind sh:IRI ;
@@ -2767,7 +2767,14 @@ utd:Termin a sh:NodeShape ;
     rdfs:comment "Ein skuleterm (t.d. Haust, Vår) — kodeverk." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:boolean ;
+    sh:property [ sh:datatype xsd:string ;
+            sh:description "Verdi som identifiserer omgrepet." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:boolean ;
             sh:description "Angir at koden er passiv og ikkje kan veljast." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
@@ -2786,13 +2793,6 @@ utd:Termin a sh:NodeShape ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
             sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Verdi som identifiserer omgrepet." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:kode ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -2804,27 +2804,17 @@ utd:Programomrade a sh:NodeShape ;
     rdfs:comment "Eit programområde innanfor eit utdanningsprogram (t.d. Vg2 Elektrofaget)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Referanse til Vigo-systemet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:vigoreferanse ],
-        [ sh:description "Referanse til GREP-registeret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:grepreferanse ],
-        [ sh:class utd:Arstrinn ;
-            sh:description "Årstrinnet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path utd:trinn ],
-        [ sh:datatype xsd:string ;
+    sh:property [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 6 ;
             sh:path fint:beskrivelse ],
+        [ sh:description "Referanse til GREP-registeret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:grepreferanse ],
         [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
@@ -2835,6 +2825,16 @@ utd:Programomrade a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path utd:gruppemedlemskap ],
+        [ sh:description "Referanse til Vigo-systemet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:vigoreferanse ],
+        [ sh:class utd:Arstrinn ;
+            sh:description "Årstrinnet." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path utd:trinn ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -2848,61 +2848,78 @@ utd:Undervisningsforhold a sh:NodeShape ;
     rdfs:comment "Eit tilhøve mellom ein skoleressurs og undervisningsaktivitetar." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Time ;
-            sh:description "Ein skuletime i timeplanen." ;
+    sh:property [ sh:class utd:Klasse ;
+            sh:description "Klasse." ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:skuletime ],
-        [ sh:class utd:Kontaktlaerergruppe ;
-            sh:description "Kontaktlærargruppe." ;
+            sh:order 2 ;
+            sh:path utd:klasse ],
+        [ sh:class utd:Eksamensgruppe ;
+            sh:description "Eksamensgruppe." ;
             sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path utd:kontaktlaerergruppe ],
+            sh:order 5 ;
+            sh:path utd:eksamensgruppe ],
         [ sh:class utd:Skoleressurs ;
             sh:description "Skoleressurs." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path utd:skoleressurs ],
-        [ sh:class utd:Eksamensgruppe ;
-            sh:description "Eksamensgruppe." ;
+        [ sh:class utd:Kontaktlaerergruppe ;
+            sh:description "Kontaktlærargruppe." ;
             sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:eksamensgruppe ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 7 ;
-            sh:path fint:beskrivelse ],
+            sh:order 3 ;
+            sh:path utd:kontaktlaerergruppe ],
         [ sh:description "Referanse til Arbeidsforhold i Administrasjon-domenet." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:arbeidsforhold ],
-        [ sh:class utd:Klasse ;
-            sh:description "Klasse." ;
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 7 ;
+            sh:path fint:beskrivelse ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:klasse ] ;
+            sh:order 6 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Time ;
+            sh:description "Ein skuletime i timeplanen." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:skuletime ] ;
     sh:targetClass utd:Undervisningsforhold .
 
 utd:Eksamensgruppe a sh:NodeShape ;
     rdfs:comment "Ei gruppe elevar som avlegg same eksamen." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Eksamensform ;
-            sh:description "Eksamensform." ;
+    sh:property [ sh:class utd:Fag ;
+            sh:description "Fag." ;
             sh:maxCount 1 ;
+            sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:eksamensform ],
+            sh:order 1 ;
+            sh:path utd:fag ],
+        [ sh:class utd:Eksamensgruppemedlemskap ;
+            sh:description "Gruppemedlemskap." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path utd:gruppemedlemskap ],
+        [ sh:class utd:Undervisningsforhold ;
+            sh:description "Undervisningsforhold." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path utd:undervisningsforhold ],
+        [ sh:datatype xsd:dateTime ;
+            sh:description "Dato for eksamenen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 0 ;
+            sh:path utd:eksamensdato ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -2910,11 +2927,11 @@ utd:Eksamensgruppe a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 11 ;
             sh:path fint:navn ],
-        [ sh:class utd:Undervisningsforhold ;
-            sh:description "Undervisningsforhold." ;
+        [ sh:class utd:Sensor ;
+            sh:description "Sensor." ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:undervisningsforhold ],
+            sh:order 9 ;
+            sh:path utd:sensor ],
         [ sh:class utd:Termin ;
             sh:description "Termin." ;
             sh:maxCount 1 ;
@@ -2922,6 +2939,12 @@ utd:Eksamensgruppe a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path utd:termin ],
+        [ sh:class utd:Skoleaar ;
+            sh:description "Skoleåret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path utd:skoleaar ],
         [ sh:class utd:Skole ;
             sh:description "Skulen dette gjeld." ;
             sh:maxCount 1 ;
@@ -2929,73 +2952,55 @@ utd:Eksamensgruppe a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 2 ;
             sh:path utd:skole ],
-        [ sh:class utd:Eksamensgruppemedlemskap ;
-            sh:description "Gruppemedlemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path utd:gruppemedlemskap ],
-        [ sh:datatype xsd:dateTime ;
-            sh:description "Dato for eksamenen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 0 ;
-            sh:path utd:eksamensdato ],
-        [ sh:description "URI-identifikator for ressursen." ;
+        [ sh:class utd:Eksamensform ;
+            sh:description "Eksamensform." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Sensor ;
-            sh:description "Sensor." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path utd:sensor ],
-        [ sh:class utd:Fag ;
-            sh:description "Fag." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:fag ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 12 ;
-            sh:path fint:beskrivelse ],
+            sh:order 6 ;
+            sh:path utd:eksamensform ],
         [ sh:class utd:Eksamen ;
             sh:description "Eksamen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:eksamen ],
-        [ sh:class utd:Skoleaar ;
-            sh:description "Skoleåret." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path utd:skoleaar ] ;
+            sh:order 10 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 12 ;
+            sh:path fint:beskrivelse ] ;
     sh:targetClass utd:Eksamensgruppe .
 
 utd:Elevvurdering a sh:NodeShape ;
     rdfs:comment "Samling av alle vurderingar for ein elev i eit elevforhold." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Underveisordensvurdering ;
-            sh:description "Underveisordensvurderingar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path utd:underveisordensvurdering ],
-        [ sh:class utd:Sluttfagvurdering ;
+    sh:property [ sh:class utd:Sluttfagvurdering ;
             sh:description "Sluttfagvurderingar." ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
             sh:path utd:sluttfagvurdering ],
-        [ sh:class utd:Eksamensvurdering ;
-            sh:description "Eksamensvurderingar." ;
+        [ sh:class utd:Halvaarsfagvurdering ;
+            sh:description "Halvårsfagvurderingar." ;
             sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:eksamensvurdering ],
+            sh:order 4 ;
+            sh:path utd:halvaarsfagvurdering ],
+        [ sh:class utd:Underveisfagvurdering ;
+            sh:description "Underveisfagvurderingar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:underveisfagvurdering ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class utd:Elevforhold ;
             sh:description "Elevforholdet dette gjeld." ;
             sh:maxCount 1 ;
@@ -3003,86 +3008,106 @@ utd:Elevvurdering a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 1 ;
             sh:path utd:elevforhold ],
-        [ sh:class utd:Underveisfagvurdering ;
-            sh:description "Underveisfagvurderingar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:underveisfagvurdering ],
-        [ sh:class utd:Halvaarsfagvurdering ;
-            sh:description "Halvårsfagvurderingar." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path utd:halvaarsfagvurdering ],
-        [ sh:class utd:Vitnemalsmerknad ;
-            sh:description "Vitnemålsmerknad." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path utd:vitnemalsmerknad ],
         [ sh:class utd:Sluttordensvurdering ;
             sh:description "Sluttordensvurderingar." ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path utd:sluttordensvurdering ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
+        [ sh:class utd:Eksamensvurdering ;
+            sh:description "Eksamensvurderingar." ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
+            sh:order 2 ;
+            sh:path utd:eksamensvurdering ],
+        [ sh:class utd:Underveisordensvurdering ;
+            sh:description "Underveisordensvurderingar." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path utd:underveisordensvurdering ],
         [ sh:class utd:Halvaarsordensvurdering ;
             sh:description "Halvårsordensvurderingar." ;
             sh:nodeKind sh:IRI ;
             sh:order 6 ;
-            sh:path utd:halvaarsordensvurdering ] ;
+            sh:path utd:halvaarsordensvurdering ],
+        [ sh:class utd:Vitnemalsmerknad ;
+            sh:description "Vitnemålsmerknad." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path utd:vitnemalsmerknad ] ;
     sh:targetClass utd:Elevvurdering .
 
 utd:Skoleressurs a sh:NodeShape ;
     rdfs:comment "Ein lærar eller anna tilsett ved ein skule." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Sensor ;
-            sh:description "Sensor." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:sensor ],
-        [ sh:description "Referanse til Personalressurs i Administrasjon-domenet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:personalressurs ],
-        [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Sensor ;
+            sh:description "Sensor." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:sensor ],
         [ sh:class utd:Skole ;
             sh:description "Skulen dette gjeld." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path utd:skole ],
-        [ sh:class fint:Person ;
-            sh:description "Referanse til Person i Administrasjon-domenet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 3 ;
-            sh:path fint:person ],
         [ sh:class fint:Identifikator ;
             sh:description "Feide-identifikator." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 1 ;
-            sh:path utd:feidenavn ] ;
+            sh:path utd:feidenavn ],
+        [ sh:description "Referanse til Personalressurs i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:personalressurs ],
+        [ sh:class fint:Person ;
+            sh:description "Referanse til Person i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 3 ;
+            sh:path fint:person ] ;
     sh:targetClass utd:Skoleressurs .
 
 utd:Fag a sh:NodeShape ;
     rdfs:comment "Eit skulefag." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Tilrettelegging ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 8 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:class utd:Skole ;
+            sh:description "Skulen dette gjeld." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 2 ;
+            sh:path utd:skole ],
+        [ sh:class utd:Tilrettelegging ;
             sh:description "Tilretteleggingstype." ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
             sh:path utd:tilrettelegging ],
+        [ sh:description "Referanse til GREP-registeret." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 1 ;
+            sh:path utd:grepreferanse ],
+        [ sh:class utd:Eksamensgruppe ;
+            sh:description "Eksamensgruppe." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path utd:eksamensgruppe ],
+        [ sh:class utd:Faggruppe ;
+            sh:description "Faggruppe." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 5 ;
+            sh:path utd:faggruppe ],
         [ sh:datatype xsd:string ;
             sh:description "Hovudnamn for ressursen." ;
             sh:maxCount 1 ;
@@ -3090,117 +3115,50 @@ utd:Fag a sh:NodeShape ;
             sh:nodeKind sh:Literal ;
             sh:order 9 ;
             sh:path fint:navn ],
-        [ sh:class utd:Skole ;
-            sh:description "Skulen dette gjeld." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 2 ;
-            sh:path utd:skole ],
         [ sh:datatype xsd:string ;
             sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 10 ;
             sh:path fint:beskrivelse ],
+        [ sh:class utd:Undervisningsgruppe ;
+            sh:description "Undervisningsgruppe." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 6 ;
+            sh:path utd:undervisningsgruppe ],
         [ sh:class utd:Programomrade ;
             sh:description "Programområde." ;
             sh:nodeKind sh:IRI ;
             sh:order 4 ;
             sh:path utd:programomrade ],
-        [ sh:class utd:Eksamensgruppe ;
-            sh:description "Eksamensgruppe." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path utd:eksamensgruppe ],
         [ sh:description "Referanse til Vigo-systemet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 3 ;
-            sh:path utd:vigoreferanse ],
-        [ sh:description "Referanse til GREP-registeret." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 1 ;
-            sh:path utd:grepreferanse ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 8 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Faggruppe ;
-            sh:description "Faggruppe." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 5 ;
-            sh:path utd:faggruppe ],
-        [ sh:class utd:Undervisningsgruppe ;
-            sh:description "Undervisningsgruppe." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:undervisningsgruppe ] ;
+            sh:path utd:vigoreferanse ] ;
     sh:targetClass utd:Fag .
 
 utd:Skole a sh:NodeShape ;
     rdfs:comment "Ein skule eller opplæringsinstitusjon." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:description "Referanse til Vigo-systemet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path utd:vigoreferanse ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:description "Referanse til Organisasjonselement i Administrasjon-domenet." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path utd:organisasjon ],
-        [ sh:class utd:Eksamensgruppe ;
-            sh:description "Eksamensgruppe." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path utd:eksamensgruppe ],
-        [ sh:class utd:Faggruppe ;
-            sh:description "Faggruppe." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path utd:faggruppe ],
-        [ sh:class utd:Skoleressurs ;
-            sh:description "Skoleressurs." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path utd:skoleressurs ],
-        [ sh:class fint:Identifikator ;
+    sh:property [ sh:class fint:Identifikator ;
             sh:description "Nasjonal skulenummer-identifikator." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 5 ;
             sh:path utd:skolenummer ],
-        [ sh:datatype xsd:string ;
-            sh:description "Juridisk namn på skulen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 3 ;
-            sh:path utd:juridiskNavn ],
         [ sh:class fint:Identifikator ;
             sh:description "Niisifra nummer som eintydleg identifiserer einingar i Einingsregisteret." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 6 ;
             sh:path fint:organisasjonsnummer ],
-        [ sh:class fint:Adresse ;
-            sh:description "Besøksadresse til ein organisasjonseining." ;
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 7 ;
-            sh:path fint:forretningsadresse ],
-        [ sh:class utd:Kontaktlaerergruppe ;
-            sh:description "Kontaktlærargruppe." ;
             sh:nodeKind sh:IRI ;
-            sh:order 11 ;
-            sh:path utd:kontaktlaerergruppe ],
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
         [ sh:class fint:Adresse ;
             sh:description "Informasjon om postadresse til ein aktør." ;
             sh:maxCount 1 ;
@@ -3219,61 +3177,88 @@ utd:Skole a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 18 ;
             sh:path utd:utdanningsprogram ],
+        [ sh:class utd:Skoleressurs ;
+            sh:description "Skoleressurs." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path utd:skoleressurs ],
+        [ sh:class utd:Faggruppe ;
+            sh:description "Faggruppe." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path utd:faggruppe ],
         [ sh:datatype xsd:string ;
             sh:description "Namn på eining registrert i Einingsregisteret." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 4 ;
             sh:path fint:organisasjonsnavn ],
+        [ sh:class fint:Adresse ;
+            sh:description "Besøksadresse til ein organisasjonseining." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 7 ;
+            sh:path fint:forretningsadresse ],
+        [ sh:class utd:Fag ;
+            sh:description "Fag." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path utd:fag ],
         [ sh:datatype xsd:string ;
             sh:description "Domenenamn for skulen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path utd:domenenavn ],
+        [ sh:class utd:Eksamensgruppe ;
+            sh:description "Eksamensgruppe." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 17 ;
+            sh:path utd:eksamensgruppe ],
         [ sh:class utd:Klasse ;
             sh:description "Klasse." ;
             sh:nodeKind sh:IRI ;
             sh:order 10 ;
             sh:path utd:klasse ],
+        [ sh:datatype xsd:string ;
+            sh:description "Juridisk namn på skulen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 3 ;
+            sh:path utd:juridiskNavn ],
+        [ sh:description "Referanse til Organisasjonselement i Administrasjon-domenet." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 9 ;
+            sh:path utd:organisasjon ],
+        [ sh:class utd:Kontaktlaerergruppe ;
+            sh:description "Kontaktlærargruppe." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 11 ;
+            sh:path utd:kontaktlaerergruppe ],
         [ sh:class utd:Skoleeiertype ;
             sh:description "Kategori for skuleeigartilknyting." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 15 ;
             sh:path utd:skoleeierType ],
-        [ sh:class utd:Fag ;
-            sh:description "Fag." ;
+        [ sh:description "Referanse til Vigo-systemet." ;
+            sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path utd:fag ] ;
+            sh:order 16 ;
+            sh:path utd:vigoreferanse ] ;
     sh:targetClass utd:Skole .
 
 utd:Elevforhold a sh:NodeShape ;
     rdfs:comment "Eit elevs tilknyting til ein skule og eit skoleår." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class utd:Programomrademedlemskap ;
-            sh:description "Programområdemedlemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 9 ;
-            sh:path utd:programomrademedlemskap ],
-        [ sh:datatype xsd:boolean ;
+    sh:property [ sh:datatype xsd:boolean ;
             sh:description "Indikerer om eleven har tospråkleg fagopplæring." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 3 ;
             sh:path utd:tosprakligFagopplaering ],
-        [ sh:class utd:Persongruppemedlemskap ;
-            sh:description "Persongruppemedlemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 14 ;
-            sh:path utd:persongruppemedlemskap ],
-        [ sh:class utd:Eksamensgruppemedlemskap ;
-            sh:description "Eksamensgruppemedlemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 15 ;
-            sh:path utd:eksamensgruppemedlemskap ],
         [ sh:class utd:Skole ;
             sh:description "Skulen dette gjeld." ;
             sh:maxCount 1 ;
@@ -3281,35 +3266,67 @@ utd:Elevforhold a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:skole ],
-        [ sh:description "URI-identifikator for ressursen." ;
+        [ sh:class utd:Elevkategori ;
+            sh:description "Kategori for elevforholdet." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ],
-        [ sh:class utd:Elevfravar ;
-            sh:description "Fråværsregistreringar knytt til elevforholdet." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 16 ;
-            sh:path utd:fraversregistreringer ],
-        [ sh:class utd:Fravarsoversikt ;
-            sh:description "Fråværsobjekt for elev." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 17 ;
-            sh:path utd:elevfravar ],
+            sh:order 6 ;
+            sh:path utd:kategori ],
         [ sh:datatype xsd:date ;
             sh:description "Dato for avbrot frå opplæring." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 2 ;
             sh:path utd:avbruddsdato ],
-        [ sh:class fint:Elev ;
-            sh:description "Referanse til Elev (Utdanning)." ;
+        [ sh:class utd:Elevvurdering ;
+            sh:description "Elevvurderingsobjekt." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 19 ;
+            sh:path utd:elevvurdering ],
+        [ sh:class utd:Kontaktlaerergruppemedlemskap ;
+            sh:description "Kontaktlærergruppemedlemskap." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 13 ;
+            sh:path utd:kontaktlaerergruppemedlemskap ],
+        [ sh:class utd:Avbruddsaarsak ;
+            sh:description "Årsak til avbrot frå opplæring." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 7 ;
+            sh:path utd:avbruddsarsak ],
+        [ sh:datatype xsd:string ;
+            sh:description "Beskriven namn eller omtale." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 1 ;
+            sh:path fint:beskrivelse ],
+        [ sh:class utd:Elevtilrettelegging ;
+            sh:description "Tilretteleggingstype." ;
             sh:nodeKind sh:IRI ;
-            sh:order 4 ;
-            sh:path fint:elev ],
+            sh:order 18 ;
+            sh:path utd:tilrettelegging ],
+        [ sh:class utd:Persongruppemedlemskap ;
+            sh:description "Persongruppemedlemskap." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 14 ;
+            sh:path utd:persongruppemedlemskap ],
+        [ sh:class utd:Undervisningsgruppemedlemskap ;
+            sh:description "Undervisningsgruppemedlemskap." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 12 ;
+            sh:path utd:undervisningsgruppemedlemskap ],
+        [ sh:class utd:Klassemedlemskap ;
+            sh:description "Klassemedlemskap." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 10 ;
+            sh:path utd:klassemedlemskap ],
+        [ sh:class utd:Eksamensgruppemedlemskap ;
+            sh:description "Eksamensgruppemedlemskap." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 15 ;
+            sh:path utd:eksamensgruppemedlemskap ],
         [ sh:class utd:Faggruppemedlemskap ;
             sh:description "Faggruppemedlemskap." ;
             sh:nodeKind sh:IRI ;
@@ -3321,71 +3338,65 @@ utd:Elevforhold a sh:NodeShape ;
             sh:nodeKind sh:IRI ;
             sh:order 8 ;
             sh:path utd:skoleaar ],
-        [ sh:class utd:Undervisningsgruppemedlemskap ;
-            sh:description "Undervisningsgruppemedlemskap." ;
+        [ sh:class utd:Programomrademedlemskap ;
+            sh:description "Programområdemedlemskap." ;
             sh:nodeKind sh:IRI ;
-            sh:order 12 ;
-            sh:path utd:undervisningsgruppemedlemskap ],
-        [ sh:class utd:Elevkategori ;
-            sh:description "Kategori for elevforholdet." ;
-            sh:maxCount 1 ;
+            sh:order 9 ;
+            sh:path utd:programomrademedlemskap ],
+        [ sh:class utd:Elevfravar ;
+            sh:description "Fråværsregistreringar knytt til elevforholdet." ;
             sh:nodeKind sh:IRI ;
-            sh:order 6 ;
-            sh:path utd:kategori ],
-        [ sh:class utd:Kontaktlaerergruppemedlemskap ;
-            sh:description "Kontaktlærergruppemedlemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 13 ;
-            sh:path utd:kontaktlaerergruppemedlemskap ],
-        [ sh:class utd:Klassemedlemskap ;
-            sh:description "Klassemedlemskap." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 10 ;
-            sh:path utd:klassemedlemskap ],
-        [ sh:datatype xsd:string ;
-            sh:description "Beskriven namn eller omtale." ;
+            sh:order 16 ;
+            sh:path utd:fraversregistreringer ],
+        [ sh:class fint:Elev ;
+            sh:description "Referanse til Elev (Utdanning)." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 1 ;
-            sh:path fint:beskrivelse ],
-        [ sh:class utd:Avbruddsaarsak ;
-            sh:description "Årsak til avbrot frå opplæring." ;
+            sh:nodeKind sh:IRI ;
+            sh:order 4 ;
+            sh:path fint:elev ],
+        [ sh:class utd:Fravarsoversikt ;
+            sh:description "Fråværsobjekt for elev." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 7 ;
-            sh:path utd:avbruddsarsak ],
-        [ sh:class utd:Elevvurdering ;
-            sh:description "Elevvurderingsobjekt." ;
+            sh:order 17 ;
+            sh:path utd:elevfravar ],
+        [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
-            sh:order 19 ;
-            sh:path utd:elevvurdering ],
-        [ sh:class utd:Elevtilrettelegging ;
-            sh:description "Tilretteleggingstype." ;
-            sh:nodeKind sh:IRI ;
-            sh:order 18 ;
-            sh:path utd:tilrettelegging ] ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ] ;
     sh:targetClass utd:Elevforhold .
 
 utd:Karakterverdi a sh:NodeShape ;
     rdfs:comment "Ein konkret karakterverdi i ei karakterskala." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:class utd:Karakterskala ;
+    sh:property [ sh:class utd:Karakterskala ;
             sh:description "Karakterskalaen denne verdien tilhøyrer." ;
             sh:maxCount 1 ;
             sh:minCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 5 ;
             sh:path utd:skala ],
+        [ sh:description "URI-identifikator for ressursen." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:IRI ;
+            sh:order 0 ;
+            sh:path <https://schema.fintlabs.no/:id> ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:datatype xsd:boolean ;
+            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 4 ;
+            sh:path fint:passiv ],
         [ sh:datatype xsd:string ;
             sh:description "Verdi som identifiserer omgrepet." ;
             sh:maxCount 1 ;
@@ -3398,38 +3409,14 @@ utd:Karakterverdi a sh:NodeShape ;
             sh:maxCount 1 ;
             sh:nodeKind sh:BlankNodeOrIRI ;
             sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:boolean ;
-            sh:description "Angir at koden er passiv og ikkje kan veljast." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 4 ;
-            sh:path fint:passiv ],
-        [ sh:description "URI-identifikator for ressursen." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:IRI ;
-            sh:order 0 ;
-            sh:path <https://schema.fintlabs.no/:id> ] ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass utd:Karakterverdi .
 
 utd:Skoleaar a sh:NodeShape ;
     rdfs:comment "Eit skoleår (t.d. 2024/2025)." ;
     sh:closed true ;
     sh:ignoredProperties ( rdf:type ) ;
-    sh:property [ sh:class fint:Periode ;
-            sh:description "Periode ressursen er gyldig for." ;
-            sh:maxCount 1 ;
-            sh:nodeKind sh:BlankNodeOrIRI ;
-            sh:order 3 ;
-            sh:path fint:gyldighetsperiode ],
-        [ sh:datatype xsd:string ;
-            sh:description "Hovudnamn for ressursen." ;
-            sh:maxCount 1 ;
-            sh:minCount 1 ;
-            sh:nodeKind sh:Literal ;
-            sh:order 2 ;
-            sh:path fint:navn ],
-        [ sh:description "URI-identifikator for ressursen." ;
+    sh:property [ sh:description "URI-identifikator for ressursen." ;
             sh:maxCount 1 ;
             sh:nodeKind sh:IRI ;
             sh:order 0 ;
@@ -3446,7 +3433,20 @@ utd:Skoleaar a sh:NodeShape ;
             sh:minCount 1 ;
             sh:nodeKind sh:Literal ;
             sh:order 1 ;
-            sh:path fint:kode ] ;
+            sh:path fint:kode ],
+        [ sh:datatype xsd:string ;
+            sh:description "Hovudnamn for ressursen." ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:nodeKind sh:Literal ;
+            sh:order 2 ;
+            sh:path fint:navn ],
+        [ sh:class fint:Periode ;
+            sh:description "Periode ressursen er gyldig for." ;
+            sh:maxCount 1 ;
+            sh:nodeKind sh:BlankNodeOrIRI ;
+            sh:order 3 ;
+            sh:path fint:gyldighetsperiode ] ;
     sh:targetClass utd:Skoleaar .
 
 

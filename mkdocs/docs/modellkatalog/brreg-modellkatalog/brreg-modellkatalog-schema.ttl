@@ -63,7 +63,7 @@
     linkml:default_prefix "https://data.norge.no/modellkatalog/brreg-modellkatalog/" ;
     linkml:default_range <https://data.norge.no/modellkatalog/brreg-modellkatalog/string> ;
     linkml:description "Modellkatalog for Brønnøysundregistra sine informasjonsmodellar. Implementerer ModelDCAT-AP-NO direkte via import." ;
-    linkml:generation_date "2026-06-08T09:39:27"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-08T14:31:52"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/modellkatalog/brreg-modellkatalog"^^xsd:anyURI ;
     linkml:imports "../../ap-no/common/common-ap-no-schema"^^xsd:anyURI,
         "../../ap-no/modelldcat-ap-no/modelldcat-ap-no-schema"^^xsd:anyURI,

@@ -8,18 +8,18 @@
 <https://data.norge.no/ngr/ngr-adresse/ngr-adresse> a linkml:SchemaDefinition ;
     dcterms:license "https://creativecommons.org/publicdomain/zero/1.0/" ;
     dcterms:title "Nasjonale grunndata – Adresse" ;
-    sh:declare [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
-            sh:prefix "geo" ],
+    sh:declare [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
+            sh:prefix "dct" ],
         [ sh:namespace "https://w3id.org/linkml/"^^xsd:anyURI ;
             sh:prefix "linkml" ],
-        [ sh:namespace "https://data.norge.no/vocabulary/ngr-adresse#"^^xsd:anyURI ;
-            sh:prefix "ngr" ],
-        [ sh:namespace "http://purl.org/dc/terms/"^^xsd:anyURI ;
-            sh:prefix "dct" ],
-        [ sh:namespace "http://www.w3.org/ns/locn#"^^xsd:anyURI ;
-            sh:prefix "locn" ],
         [ sh:namespace "http://www.w3.org/2001/XMLSchema#"^^xsd:anyURI ;
             sh:prefix "xsd" ],
+        [ sh:namespace "http://www.opengis.net/ont/geosparql#"^^xsd:anyURI ;
+            sh:prefix "geo" ],
+        [ sh:namespace "https://data.norge.no/vocabulary/ngr-adresse#"^^xsd:anyURI ;
+            sh:prefix "ngr" ],
+        [ sh:namespace "http://www.w3.org/ns/locn#"^^xsd:anyURI ;
+            sh:prefix "locn" ],
         [ sh:namespace "http://www.w3.org/1999/02/22-rdf-syntax-ns#"^^xsd:anyURI ;
             sh:prefix "rdf" ] ;
     linkml:classes <https://data.norge.no/ngr/ngr-adresse/AdresseContainer>,
@@ -49,7 +49,7 @@
     linkml:default_range <https://data.norge.no/ngr/ngr-adresse/string> ;
     linkml:description "Domenemodell for norske adressar basert på Nasjonale grunndata (utkast). Modellerer Offisiell adresse og Postboksadresse med tilhøyrande geografiske inndelingar og adressekomponentar. Basert på https://informasjonsforvaltning.github.io/nasjonale-grunndata/#Adresse" ;
     linkml:enums <https://data.norge.no/ngr/ngr-adresse/Etasjeplan> ;
-    linkml:generation_date "2026-06-02T06:42:19"^^xsd:dateTime ;
+    linkml:generation_date "2026-06-08T14:31:47"^^xsd:dateTime ;
     linkml:id "https://data.norge.no/ngr/ngr-adresse"^^xsd:anyURI ;
     linkml:imports "linkml:types"^^xsd:anyURI ;
     linkml:metamodel_version "1.11.0" ;

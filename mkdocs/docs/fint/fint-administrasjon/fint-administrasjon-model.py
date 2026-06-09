@@ -1,5 +1,5 @@
 # Auto generated from fint-administrasjon-schema.yaml by pythongen.py version: 0.0.1
-# Generation date: 2026-06-02T06:41:57
+# Generation date: 2026-06-08T14:31:21
 # Schema: fint-administrasjon
 #
 # id: https://data.norge.no/fint/fint-administrasjon
